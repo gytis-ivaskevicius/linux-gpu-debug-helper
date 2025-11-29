@@ -873,3 +873,6 @@ That line can also be used to give access to X to a different user than root.
 - [Gentoo:Xorg/Guide#Configuration](Gentoo:Xorg/Guide#Configuration "Gentoo:Xorg/Guide#Configuration"){.wikilink}
 
 [Category:X server](Category:X_server "Category:X server"){.wikilink}
+
+
+
