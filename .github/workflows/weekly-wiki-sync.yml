@@ -44,4 +44,4 @@ jobs:
           git config user.name "GitHub Action"
           git add -A
           git commit -m "Weekly wiki sync - $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push origin HEAD:main
+          git push origin HEAD:master
