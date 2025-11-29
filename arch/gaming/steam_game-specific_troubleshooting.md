@@ -1,33 +1,30 @@
-[ja:Steam/ゲーム別のトラブルシューティング](ja:Steam/ゲーム別のトラブルシューティング "ja:Steam/ゲーム別のトラブルシューティング"){.wikilink}
-[zh-hans:Steam/游戏疑难解答](zh-hans:Steam/游戏疑难解答 "zh-hans:Steam/游戏疑难解答"){.wikilink} See
-[Steam/Troubleshooting](Steam/Troubleshooting "Steam/Troubleshooting"){.wikilink} first.
+[ja:Steam/ゲーム別のトラブルシューティング](ja:Steam/ゲーム別のトラブルシューティング "wikilink")
+[zh-hans:Steam/游戏疑难解答](zh-hans:Steam/游戏疑难解答 "wikilink") See
+[Steam/Troubleshooting](Steam/Troubleshooting "wikilink") first.
 
-This page assumes familiarity with the [Steam#Directory
-structure](Steam#Directory_structure "Steam#Directory structure"){.wikilink}, [Steam#Launch
-options](Steam#Launch_options "Steam#Launch options"){.wikilink}, [environment
-variables](environment_variables "environment variables"){.wikilink}, the [Steam
-runtime](Steam_runtime "Steam runtime"){.wikilink} and [shared
-libraries](Steam/Troubleshooting#Debugging_shared_libraries "shared libraries"){.wikilink}. The
-`{{ic|''GAME''}}`{=mediawiki} pseudo-variable is used to refer to a game\'s directory. When the text reads \"*run the
-game with `{{ic|1=FOO=bar}}`{=mediawiki}*\" it is implied that you either update your launch options or run the game
+This page assumes familiarity with the [Steam#Directory structure](Steam#Directory_structure "wikilink"), [Steam#Launch
+options](Steam#Launch_options "wikilink"), [environment variables](environment_variables "wikilink"), the [Steam
+runtime](Steam_runtime "wikilink") and [shared libraries](Steam/Troubleshooting#Debugging_shared_libraries "wikilink").
+The `{{ic|''GAME''}}`{=mediawiki} pseudo-variable is used to refer to a game\'s directory. When the text reads \"*run
+the game with `{{ic|1=FOO=bar}}`{=mediawiki}*\" it is implied that you either update your launch options or run the game
 from the command-line with the environment variable.
 
 ## Contributing
 
-- Use \"game directory\" or the `{{ic|''GAME''}}`{=mediawiki} pseudo-variable to refer to a game\'s directory.
-- Link bug reports and sources of workarounds.
+-   Use \"game directory\" or the `{{ic|''GAME''}}`{=mediawiki} pseudo-variable to refer to a game\'s directory.
+-   Link bug reports and sources of workarounds.
 
 ## Other sources {#other_sources}
 
 The following links offer even more fixes and tweaks for various games which would otherwise exceed this article\'s
 purpose:
 
-- [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Home)
+-   [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Home)
 
 For games running with Proton, you can check ProtonDB which lists a lot of useful user reports for specific games. You
 can filter searched reports by Linux distribution and by hardware. Users also describe if they had to apply tweaks.
 
-- [ProtonDB](https://www.protondb.com/) crowdsourced Linux compatibility reports.
+-   [ProtonDB](https://www.protondb.com/) crowdsourced Linux compatibility reports.
 
 ## Common steps {#common_steps}
 
@@ -43,7 +40,7 @@ Install `{{AUR|lib32-openssl-1.0}}`{=mediawiki} and run the game with
 
 ### Missing libcurl.so.4 or version CURL_OPENSSL_3 not found {#missing_libcurl.so.4_or_version_curl_openssl_3_not_found}
 
-[Install](Install "Install"){.wikilink} `{{Pkg|lib32-libcurl-compat}}`{=mediawiki} and run the game with
+[Install](Install "wikilink") `{{Pkg|lib32-libcurl-compat}}`{=mediawiki} and run the game with
 `{{ic|1=LD_PRELOAD=libcurl.so.3}}`{=mediawiki}.
 
 ### Steam Link {#steam_link}
@@ -120,9 +117,9 @@ From this [steam community post](https://steamcommunity.com/app/440/discussions/
 
 ### Crash with Unity games {#crash_with_unity_games}
 
-Games using Unity, e.g. Papers Please, Vampire Survivors, expect [PulseAudio](PulseAudio "PulseAudio"){.wikilink} to be
-installed and will quietly crash with SIGSEGV on running if it is not installed. You can also use
-[PipeWire](PipeWire "PipeWire"){.wikilink} with `{{Pkg|pipewire-pulse}}`{=mediawiki}.
+Games using Unity, e.g. Papers Please, Vampire Survivors, expect [PulseAudio](PulseAudio "wikilink") to be installed and
+will quietly crash with SIGSEGV on running if it is not installed. You can also use [PipeWire](PipeWire "wikilink") with
+`{{Pkg|pipewire-pulse}}`{=mediawiki}.
 
 ### Split lock detection / mitigation {#split_lock_detection_mitigation}
 
@@ -135,7 +132,7 @@ Since kernel 6.2, a new sysctl
 tunable[2](https://lore.kernel.org/lkml/20221212191524.553244-1-dave.hansen@linux.intel.com/) of
 `{{ic|1=split_lock_mitigate = 1}}`{=mediawiki} is available (by default) to enable mitigation, instead of the
 older[3](https://www.phoronix.com/news/Linux-5.19-Split-Lock)`{{ic|1=split_lock_detect=on}}`{=mediawiki} [kernel
-parameter](kernel_parameter "kernel parameter"){.wikilink}.
+parameter](kernel_parameter "wikilink").
 
 Upon setting:
 
@@ -146,7 +143,7 @@ The kernel will log Steam / Cef lock splitting, but without the sequential acces
 ```{=mediawiki}
 {{Note|Disabling split lock mitigation may have negative impact on overall system performance. It is therefore suggested to use {{ic|sysctl}} to toggle the flag only when necessary.}}
 ```
-Additionally, [GameMode](GameMode "GameMode"){.wikilink} can be used to toggle this kernel parameter at runtime.
+Additionally, [GameMode](GameMode "wikilink") can be used to toggle this kernel parameter at runtime.
 
 ## Games
 
@@ -211,21 +208,21 @@ Install the package `{{Pkg|libxcrypt-compat}}`{=mediawiki}.
 
 Dependencies: [6](https://steamcommunity.com/app/221410/discussions/0/864957183198111387/)
 
-- ```{=mediawiki}
-  {{AUR|lib32-freealut}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-freealut}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-glu}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-glu}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libxmu}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libxmu}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl_ttf}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl_ttf}}
+    ```
 
 #### Gamepad not working {#gamepad_not_working}
 
@@ -239,29 +236,29 @@ up-to-date version from /usr/lib.
 {{Accuracy|There should be no reason for rebooting, but some services might have to be (re)started.}}
 ```
 If you encounter a popup with `{{ic|Fatal Error: Fmod could not be initialized!!}}`{=mediawiki} on startup which
-immediately closes the game and you are using [PipeWire](PipeWire "PipeWire"){.wikilink},
-[install](install "install"){.wikilink} these packages if they are not already: `{{Pkg|pulseaudio-alsa}}`{=mediawiki},
-`{{Pkg|lib32-libpulse}}`{=mediawiki} and `{{Pkg|lib32-alsa-plugins}}`{=mediawiki}. Reboot and re-open the game.
+immediately closes the game and you are using [PipeWire](PipeWire "wikilink"), [install](install "wikilink") these
+packages if they are not already: `{{Pkg|pulseaudio-alsa}}`{=mediawiki}, `{{Pkg|lib32-libpulse}}`{=mediawiki} and
+`{{Pkg|lib32-alsa-plugins}}`{=mediawiki}. Reboot and re-open the game.
 
 ### And Yet It Moves {#and_yet_it_moves}
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-libjpeg6-turbo}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libjpeg6-turbo}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-libpng12}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libpng12}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libtheora}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libtheora}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-libtiff4}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libtiff4}}
+    ```
 
 #### Game does not start {#game_does_not_start}
 
@@ -363,7 +360,7 @@ If you get this in your log, install `{{Pkg|pulseaudio-alsa}}`{=mediawiki}.
 ### BADLAND: Game of the Year Edition {#badland_game_of_the_year_edition}
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Barony
 
@@ -428,7 +425,7 @@ crackling but allow for higher audio latency.
 ### BLACKHOLE
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Black Mesa {#black_mesa}
 
@@ -451,16 +448,16 @@ When launched the game may only display a white screen with no interface and no 
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-jasper}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-jasper}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-libxaw}}
-  ```
-  ```{=mediawiki}
-  {{Broken package link|package not found}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libxaw}}
+    ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
+    ```
 
 If the game does not start, uncheck: *Properties \> Enable Steam Community In-Game*.
 
@@ -489,7 +486,7 @@ You need to have steam running in the background.
 
 ### The Book of Unwritten Tales: The Critter Chronicles {#the_book_of_unwritten_tales_the_critter_chronicles}
 
-See [#The Book of Unwritten Tales](#The_Book_of_Unwritten_Tales "#The Book of Unwritten Tales"){.wikilink}.
+See [#The Book of Unwritten Tales](#The_Book_of_Unwritten_Tales "wikilink").
 
 To prevent the game from crashing at the end credits, change the size of the credits image as described
 [here](https://steamcommunity.com/app/221830/discussions/0/828925849276110960/#c810921273836530791).
@@ -523,9 +520,8 @@ user can access the files.
 Borderlands 2 does not allow the `{{ic|Ctrl}}`{=mediawiki} key to be used by default. The game seems to be accessing
 keycodes and not keysyms, therefore xmodmap has no affect. A workaround is using *setkeycodes* to map the Ctrl-scancode
 to some other key, as described in [Map scancodes to keycodes#Using
-setkeycodes](Map_scancodes_to_keycodes#Using_setkeycodes "Map scancodes to keycodes#Using setkeycodes"){.wikilink}. I
-use `{{ic|setkeycodes 0x1d 56}}`{=mediawiki} (as root) to map Ctrl to Alt before starting the game and
-`{{ic|setkeycodes 0x1d 29}}`{=mediawiki} to restore the default.
+setkeycodes](Map_scancodes_to_keycodes#Using_setkeycodes "wikilink"). I use `{{ic|setkeycodes 0x1d 56}}`{=mediawiki} (as
+root) to map Ctrl to Alt before starting the game and `{{ic|setkeycodes 0x1d 29}}`{=mediawiki} to restore the default.
 
 ##### Logging into SHiFT {#logging_into_shift}
 
@@ -553,25 +549,23 @@ The following change may help ([source](https://steamcommunity.com/app/49520/dis
 `LD_PRELOAD='./libcxxrt.so:/usr/$LIB/libstdc++.so.6' %command%`
 
 Possible solution 2: Launch steam as `{{ic|steam-native}}`{=mediawiki} as described in [#Steam native
-runtime](Steam/Troubleshooting#Steam_native_runtime "#Steam native runtime"){.wikilink}. If the game still fails to
-launch even after installing the `{{AUR|steam-native-runtime}}`{=mediawiki} meta package, then you might be missing some
-libraries. You can find those missing libraries as described in [#Debugging shared
-libraries](Steam/Troubleshooting#Debugging_shared_libraries "#Debugging shared libraries"){.wikilink}.
+runtime](Steam/Troubleshooting#Steam_native_runtime "wikilink"). If the game still fails to launch even after installing
+the `{{AUR|steam-native-runtime}}`{=mediawiki} meta package, then you might be missing some libraries. You can find
+those missing libraries as described in [#Debugging shared
+libraries](Steam/Troubleshooting#Debugging_shared_libraries "wikilink").
 
 ### Borderlands: The Pre-Sequel {#borderlands_the_pre_sequel}
 
-See [#Borderlands 2](#Borderlands_2 "#Borderlands 2"){.wikilink}.
+See [#Borderlands 2](#Borderlands_2 "wikilink").
 
 #### Keyboard not working {#keyboard_not_working}
 
-This can occur with certain window managers e.g. [dwm](dwm "dwm"){.wikilink}. Try a different [window
-manager](window_manager "window manager"){.wikilink}, or install `{{Pkg|wmname}}`{=mediawiki} and run:
+This can occur with certain window managers e.g. [dwm](dwm "wikilink"). Try a different [window
+manager](window_manager "wikilink"), or install `{{Pkg|wmname}}`{=mediawiki} and run:
 
 `$ wmname LG3D`
 
-see [Java#Impersonate another window
-manager](Java#Impersonate_another_window_manager "Java#Impersonate another window manager"){.wikilink} for more
-information.
+see [Java#Impersonate another window manager](Java#Impersonate_another_window_manager "wikilink") for more information.
 
 #### Not starting via Steam {#not_starting_via_steam}
 
@@ -584,14 +578,14 @@ the issue and let you start the game directly from the game directory. If that d
 
 #### Steam overlay is missing text {#steam_overlay_is_missing_text}
 
-Add the following [launch option](launch_option "launch option"){.wikilink} (as documented [in this
+Add the following [launch option](launch_option "wikilink") (as documented [in this
 issue](https://github.com/ValveSoftware/steam-for-linux/issues/7889#issuecomment-917554177)):
 
 `-gldevice:Vulkan`
 
 ### Chaos Engine {#chaos_engine}
 
-Set your [launch options](launch_option "launch option"){.wikilink} to:
+Set your [launch options](launch_option "wikilink") to:
 
 `LD_PRELOAD="/usr/lib32/libpng16.so.16" %command%`
 
@@ -622,14 +616,12 @@ Workaround for the bug `{{Bug|35039}}`{=mediawiki} is available [here](https://a
 
 #### Game not starting {#game_not_starting}
 
-If you set ELECTRON_OZONE_PLATFORM_HINT=auto [environment
-variables](environment_variables "environment variables"){.wikilink} globaly, because you want to switch all your
-[Electron](Electron "Electron"){.wikilink} apps use [Wayland](Wayland "Wayland"){.wikilink} natively, you should know
-that the game launcher of Cities Skylines currently is [Electron](Electron "Electron"){.wikilink}-based and compiled as
-[x11](x11 "x11"){.wikilink}-only, without [Wayland](Wayland "Wayland"){.wikilink} support. So it will crashed when you
-try to start it. As workaround you should set ELECTRON_OZONE_PLATFORM_HINT=x11 %command% to the
-[Steam](Steam "Steam"){.wikilink}\'s command line for this game. So the game will work using
-[Xwayland](Xwayland "Xwayland"){.wikilink}.
+If you set ELECTRON_OZONE_PLATFORM_HINT=auto [environment variables](environment_variables "wikilink") globaly, because
+you want to switch all your [Electron](Electron "wikilink") apps use [Wayland](Wayland "wikilink") natively, you should
+know that the game launcher of Cities Skylines currently is [Electron](Electron "wikilink")-based and compiled as
+[x11](x11 "wikilink")-only, without [Wayland](Wayland "wikilink") support. So it will crashed when you try to start it.
+As workaround you should set ELECTRON_OZONE_PLATFORM_HINT=x11 %command% to the [Steam](Steam "wikilink")\'s command line
+for this game. So the game will work using [Xwayland](Xwayland "wikilink").
 
 If you set `{{ic|$XDG_DATA_HOME}}`{=mediawiki} to something other than `{{ic|$HOME/.local/share}}`{=mediawiki}, Cities
 Skylines will put some files in `{{ic|$XDG_DATA_HOME/Paradox Interactive}}`{=mediawiki} and some hard-coded in
@@ -649,7 +641,7 @@ with both mods disabled, install `{{Pkg|mono}}`{=mediawiki}.
 Run the game with
 `{{ic|1=LD_PRELOAD=/usr/lib32/libopenal.so.1 %command% }}`{=mediawiki}.[7](https://steamcommunity.com/app/8930/discussions/0/1621726179576099775/)
 If `{{ic|libopenal.so.1}}`{=mediawiki} is not in `{{ic|/usr/lib32}}`{=mediawiki}, you may need to install
-`{{Pkg|lib32-openal}}`{=mediawiki} after making sure [multilib](multilib "multilib"){.wikilink} is enabled.
+`{{Pkg|lib32-openal}}`{=mediawiki} after making sure [multilib](multilib "wikilink") is enabled.
 
 For old versions of PulseAudio (\<12.0), use
 `{{ic|1=LD_PRELOAD='./libcxxrt.so:/usr/$LIB/libstdc++.so.6:/usr/lib32/libopenal.so.1' %command% }}`{=mediawiki}.[8](https://github.com/ValveSoftware/steam-for-linux/issues/4379)
@@ -660,8 +652,7 @@ LD_PRELOAD:
 
 #### Stuttering sound with PulseAudio {#stuttering_sound_with_pulseaudio}
 
-See [PulseAudio/Troubleshooting#Laggy
-sound](PulseAudio/Troubleshooting#Laggy_sound "PulseAudio/Troubleshooting#Laggy sound"){.wikilink}.
+See [PulseAudio/Troubleshooting#Laggy sound](PulseAudio/Troubleshooting#Laggy_sound "wikilink").
 
 #### Segfault with high core count CPU {#segfault_with_high_core_count_cpu}
 
@@ -709,17 +700,17 @@ This appears to be a memory alignment bug that can be corrected by compiling the
 
 If you are getting an instant crash/close upon launch, make sure you have the following packages installed:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libcurl-compat}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libcurl-compat}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libcurl-gnutls}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libcurl-gnutls}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-openal}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-openal}}
+    ```
 
 You also need an older version of lib32-tbb which provides libtbb.so.2. To get this:
 
@@ -751,10 +742,8 @@ To force it to use this version. This version also resolves crashes with the fol
 
 ### Civilization VI {#civilization_vi}
 
-Although there is a native [#Civilization VI Linux
-version](#Civilization_VI_Linux_version "#Civilization VI Linux version"){.wikilink}, many users report better
-performance with the [#Civilization VI Windows
-version](#Civilization_VI_Windows_version "#Civilization VI Windows version"){.wikilink}.
+Although there is a native [#Civilization VI Linux version](#Civilization_VI_Linux_version "wikilink"), many users
+report better performance with the [#Civilization VI Windows version](#Civilization_VI_Windows_version "wikilink").
 
 #### Civilization VI Linux version {#civilization_vi_linux_version}
 
@@ -763,25 +752,24 @@ Either run with steam-native, launch option
 and go to *Properties \> Compatibility*, check \"Force the use of a specific Steam Play compatiblity tool\" and select
 \"Steam Linux runtime\".
 
-If you are using [Wayland](Wayland "Wayland"){.wikilink}, you might need to also set
-`{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki}, as the game\'s launcher uses a version of Qt which only supports Xorg (see
-[Wayland#Qt](Wayland#Qt "Wayland#Qt"){.wikilink}), another way is to replace the bundled Qt with one provided by Arch
-Linux [12](https://www.patreon.com/posts/running-civ6-53028614). Some versions of the game also seem to require adding
+If you are using [Wayland](Wayland "wikilink"), you might need to also set `{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki},
+as the game\'s launcher uses a version of Qt which only supports Xorg (see [Wayland#Qt](Wayland#Qt "wikilink")), another
+way is to replace the bundled Qt with one provided by Arch Linux
+[12](https://www.patreon.com/posts/running-civ6-53028614). Some versions of the game also seem to require adding
 `{{ic|1=SDL_VIDEODRIVER=x11}}`{=mediawiki} and will otherwise refuse to start with an error message that reads \"An
 unrecoverable error has occurred, and Civilization VI cannot continue.\"
 
 ```{=mediawiki}
 {{Out of date|The OpenSSL 1.0 package has been dropped, is this game still affected?}}
 ```
-Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "#OpenSSL 1.0 setup"){.wikilink}.
+Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "wikilink").
 
 Ensure that Steam Workshop mods are disabled as certain ones may cause issues following loading.
 
 ##### Steam Overlay not working {#steam_overlay_not_working_1}
 
 Since the introduction of the new launcher, the steam overlay does not work in this game. To get it working again,
-simlpy skip the launcher as described in [#Launcher unable to load
-page](#Launcher_unable_to_load_page "#Launcher unable to load page"){.wikilink}.
+simlpy skip the launcher as described in [#Launcher unable to load page](#Launcher_unable_to_load_page "wikilink").
 
 ##### If Segfault Immediately on Start {#if_segfault_immediately_on_start}
 
@@ -862,10 +850,9 @@ editing the games startup configuration
 
 #### Civilization VI Windows version {#civilization_vi_windows_version}
 
-To play the Windows version of Civ VI, first you must [force Proton
-usage](Steam#Force_Proton_usage "force Proton usage"){.wikilink}. Then, you need to bypass the launcher which is buggy
-through proton. To skip the launcher, right click on the game, click *Properties*, and set the following *Launch
-options*:
+To play the Windows version of Civ VI, first you must [force Proton usage](Steam#Force_Proton_usage "wikilink"). Then,
+you need to bypass the launcher which is buggy through proton. To skip the launcher, right click on the game, click
+*Properties*, and set the following *Launch options*:
 
 `eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI.exe'/" )`
 
@@ -879,10 +866,9 @@ Make sure you have `{{AUR|lib32-gconf}}`{=mediawiki}`{{Broken package link|packa
 
 #### Missing libpcre.so.3 and libidn.so.11 {#missing_libpcre.so.3_and_libidn.so.11_1}
 
-Like with [#Alien Isolation](#Alien_Isolation "#Alien Isolation"){.wikilink} you need to symlink
-`{{ic|/usr/lib/libpcre.so}}`{=mediawiki} to `{{ic|''GAME''/lib/''arch''/libpcre.so.3}}`{=mediawiki}, as well as
-`{{ic|/usr/lib/libidn.so}}`{=mediawiki} to `{{ic|''GAME''/lib/''arch''/libidn.so.11}}`{=mediawiki}, otherwise the game
-will fail to start.
+Like with [#Alien Isolation](#Alien_Isolation "wikilink") you need to symlink `{{ic|/usr/lib/libpcre.so}}`{=mediawiki}
+to `{{ic|''GAME''/lib/''arch''/libpcre.so.3}}`{=mediawiki}, as well as `{{ic|/usr/lib/libidn.so}}`{=mediawiki} to
+`{{ic|''GAME''/lib/''arch''/libidn.so.11}}`{=mediawiki}, otherwise the game will fail to start.
 
 ### Cossacks 3 {#cossacks_3}
 
@@ -902,7 +888,7 @@ Set `{{ic|1=PRIMUS_SYNC=2}}`{=mediawiki}in the launch options.
 #### Invisible symbols, special characters and cyrillic letters {#invisible_symbols_special_characters_and_cyrillic_letters}
 
 Check [#Squares or invisible symbols, special characters and cyrillic letters in Source-based
-games](#Squares_or_invisible_symbols,_special_characters_and_cyrillic_letters_in_Source-based_games "#Squares or invisible symbols, special characters and cyrillic letters in Source-based games"){.wikilink}
+games](#Squares_or_invisible_symbols,_special_characters_and_cyrillic_letters_in_Source-based_games "wikilink")
 
 ### Counter-Strike: Global Offensive (CS:GO) {#counter_strike_global_offensive_csgo}
 
@@ -931,9 +917,8 @@ into fullscreen, the game should now be on the correct monitor.
 If you have a secondary monitor you might have a part of your lower screen you cannot reach in menus. If on GNOME you
 can try to open the overview (Super key) and drag the game to the other monitor and back.
 
-If you are not on GNOME or dragging the window back and forth did not work you can try to
-[install](install "install"){.wikilink} `{{Pkg|wmctrl}}`{=mediawiki} and run this command, where X and Y is the offset
-of the window and H and W is the size.
+If you are not on GNOME or dragging the window back and forth did not work you can try to [install](install "wikilink")
+`{{Pkg|wmctrl}}`{=mediawiki} and run this command, where X and Y is the offset of the window and H and W is the size.
 
 `$ wmctrl -r "Counter-Strike: Global Offensive - OpenGL" -e 0,`*`X`*`,`*`Y`*`,`*`W`*`,`*`H`*
 
@@ -948,9 +933,7 @@ in-game resolution.
 
 [csgo-osx-linux issue #45](https://github.com/ValveSoftware/csgo-osx-linux/issues/45)
 
-See [PulseAudio/Troubleshooting#Laggy
-sound](PulseAudio/Troubleshooting#Laggy_sound "PulseAudio/Troubleshooting#Laggy sound"){.wikilink} for a possible
-solution.
+See [PulseAudio/Troubleshooting#Laggy sound](PulseAudio/Troubleshooting#Laggy_sound "wikilink") for a possible solution.
 
 #### Mouse not working in-game {#mouse_not_working_in_game}
 
@@ -960,8 +943,8 @@ settings.
 
 #### Brightness slider not working {#brightness_slider_not_working}
 
-[Install](Install "Install"){.wikilink} `{{Pkg|xorg-xrandr}}`{=mediawiki} and run `{{ic|xrandr}}`{=mediawiki} to find
-out the name of your connected display output.
+[Install](Install "wikilink") `{{Pkg|xorg-xrandr}}`{=mediawiki} and run `{{ic|xrandr}}`{=mediawiki} to find out the name
+of your connected display output.
 
 Edit `{{ic|''GAME''/csgo.sh}}`{=mediawiki} and add the following lines (adapt *output_name*):
 
@@ -1004,18 +987,18 @@ Works with almost any other game.
 
 #### Game crashes on startup with game controller plugged in {#game_crashes_on_startup_with_game_controller_plugged_in}
 
-- The solution is to add `{{ic|-nojoy}}`{=mediawiki} to the launch options: [csgo-osx-linux issue
-  #1757](https://github.com/ValveSoftware/csgo-osx-linux/issues/1757)
+-   The solution is to add `{{ic|-nojoy}}`{=mediawiki} to the launch options: [csgo-osx-linux issue
+    #1757](https://github.com/ValveSoftware/csgo-osx-linux/issues/1757)
 
+```{=html}
 <!-- -->
-
-- Another solution: delete startup video: [csgo-osx-linux issue
-  #2659](https://github.com/ValveSoftware/csgo-osx-linux/issues/2659#issuecomment-934357559)
+```
+-   Another solution: delete startup video: [csgo-osx-linux issue
+    #2659](https://github.com/ValveSoftware/csgo-osx-linux/issues/2659#issuecomment-934357559)
 
 #### Some texts are missing or mis-positioned {#some_texts_are_missing_or_mis_positioned}
 
-[Generate](Locale#Generating_locales "Generate"){.wikilink} the `{{ic|en_US.UTF-8}}`{=mediawiki} locale will solve the
-problem.
+[Generate](Locale#Generating_locales "wikilink") the `{{ic|en_US.UTF-8}}`{=mediawiki} locale will solve the problem.
 
 #### Stuck on map loading \"Initializing World\"/\"Loading Resources\" with AMD Radeon RX 6000 series {#stuck_on_map_loading_initializing_worldloading_resources_with_amd_radeon_rx_6000_series}
 
@@ -1105,9 +1088,9 @@ post](https://steamcommunity.com/app/368340/discussions/1/1733213724900972605/?&
 
 #### No audio {#no_audio}
 
-SDL uses [PulseAudio](PulseAudio "PulseAudio"){.wikilink} by default, so to use it with [ALSA](ALSA "ALSA"){.wikilink}
-you need to [set](Environment_variables#Graphical_environment "set"){.wikilink} the
-`{{ic|1=SDL_AUDIODRIVER=alsa}}`{=mediawiki} environment variable.
+SDL uses [PulseAudio](PulseAudio "wikilink") by default, so to use it with [ALSA](ALSA "wikilink") you need to
+[set](Environment_variables#Graphical_environment "wikilink") the `{{ic|1=SDL_AUDIODRIVER=alsa}}`{=mediawiki}
+environment variable.
 
 #### Oddly sized starting window {#oddly_sized_starting_window}
 
@@ -1122,7 +1105,7 @@ If the DLC tab in the launcher is not selectable, rename the `{{ic|DLC}}`{=media
 #### Game takes ages to start {#game_takes_ages_to_start}
 
 If you are using a NVIDIA graphics card, make sure you have enabled the [DRM kernel mode
-setting](NVIDIA#DRM_kernel_mode_setting "DRM kernel mode setting"){.wikilink}.
+setting](NVIDIA#DRM_kernel_mode_setting "wikilink").
 
 #### Game does not start at all {#game_does_not_start_at_all}
 
@@ -1163,36 +1146,36 @@ Prepend `{{ic|/usr/lib}}`{=mediawiki} to `{{ic|LD_LIBRARY_PATH}}`{=mediawiki}.
 ```{=mediawiki}
 {{Out of date|The OpenSSL 1.0 package has been dropped, is this game still affected?}}
 ```
-Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "#OpenSSL 1.0 setup"){.wikilink}.
+Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "wikilink").
 
 Requires `{{AUR|libidn11}}`{=mediawiki} & `{{AUR|librtmp0}}`{=mediawiki}.
 
-Also if you use Bumblebee set your [launch options](launch_option "launch option"){.wikilink} to:
+Also if you use Bumblebee set your [launch options](launch_option "wikilink") to:
 
 `LD_PRELOAD="$LD_PRELOAD:libpthread.so.0:libGL.so.1" __GL_THREADED_OPTIMIZATIONS=1  optirun %command%`
 
-If the game will not activate and you are running [systemd-resolved](systemd-resolved "systemd-resolved"){.wikilink} and
-Proton, follow [Steam/Troubleshooting#Games running with Proton 5.13+ have no Internet
-connectivity](Steam/Troubleshooting#Games_running_with_Proton_5.13+_have_no_Internet_connectivity "Steam/Troubleshooting#Games running with Proton 5.13+ have no Internet connectivity"){.wikilink}.
+If the game will not activate and you are running [systemd-resolved](systemd-resolved "wikilink") and Proton, follow
+[Steam/Troubleshooting#Games running with Proton 5.13+ have no Internet
+connectivity](Steam/Troubleshooting#Games_running_with_Proton_5.13+_have_no_Internet_connectivity "wikilink").
 
 ### Dirt
 
 ```{=mediawiki}
 {{Out of date|The OpenSSL 1.0 package has been dropped, is this game still affected?}}
 ```
-Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "#OpenSSL 1.0 setup"){.wikilink}.
+Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "wikilink").
 
 ### Dirt Rally {#dirt_rally}
 
 Run the beta version: right click on the game, then *Properties... \> Betas*, enter the code: \"feraldirtsupport\" and
 click *Check Code*, finally, choose *feral_support_branch* as the version.
 
-To use the native libraries, [installing](install "install"){.wikilink} `{{AUR|gconf}}`{=mediawiki} and
+To use the native libraries, [installing](install "wikilink") `{{AUR|gconf}}`{=mediawiki} and
 `{{AUR|libldap24}}`{=mediawiki} is required.
 
-If you use [Wayland](Wayland "Wayland"){.wikilink}, start the game with `{{ic|1=SDL_VIDEODRIVER=x11}}`{=mediawiki}.
-Similarly, if you use [PipeWire](PipeWire "PipeWire"){.wikilink}, start the game with
-`{{ic|1=SDL_AUDIODRIVER=pulseaudio}}`{=mediawiki} - other backends might also work, but the default one does not.
+If you use [Wayland](Wayland "wikilink"), start the game with `{{ic|1=SDL_VIDEODRIVER=x11}}`{=mediawiki}. Similarly, if
+you use [PipeWire](PipeWire "wikilink"), start the game with `{{ic|1=SDL_AUDIODRIVER=pulseaudio}}`{=mediawiki} - other
+backends might also work, but the default one does not.
 
 Due to changes in how linking works, the game might not properly load its bundled dependencies. To fix this, you can
 either run the game with `{{ic|1=LD_LIBRARY_PATH="''GAME''/lib/x86_64/"}}`{=mediawiki} or symlink the libraries from
@@ -1280,16 +1263,16 @@ parameter.](https://forums.kleientertainment.com/klei-bug-tracker/dont-starve-to
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|libudev0}}
-  ```
-  ```{=mediawiki}
-  {{Broken package link|package not found}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|libudev0}}
+    ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|libpng12}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|libpng12}}
+    ```
 
 #### In-game font is unreadable {#in_game_font_is_unreadable}
 
@@ -1297,21 +1280,20 @@ Run the game with `{{ic|1=MESA_GL_VERSION_OVERRIDE=2.1}}`{=mediawiki}.
 
 #### Error with libpangoft2 {#error_with_libpangoft2}
 
-1.  [Install](Install "Install"){.wikilink} the `{{Pkg|pango}}`{=mediawiki} package.
+1.  [Install](Install "wikilink") the `{{Pkg|pango}}`{=mediawiki} package.
 2.  Remove `{{ic|libpango-1.0.so}}`{=mediawiki} and `{{ic|libpangoft2-1.0.so}}`{=mediawiki} in
     `{{ic|''GAME''/game/bin/linuxsteamrt64}}`{=mediawiki}.
 3.  If you are using Bumblebee add
     `{{ic|1=LD_PRELOAD="libpthread.so.0 libGL.so.1" __GL_THREADED_OPTIMIZATIONS=1 optiru}}`{=mediawiki} to your [launch
-    options](launch_option "launch option"){.wikilink}.
+    options](launch_option "wikilink").
 
 #### The game does not start {#the_game_does_not_start}
 
 If you run the game from the terminal and, although no error is shown, try disabling: *Steam \> Settings \> In-Game \>
 Enable Steam Community In-Game*.
 
-Apparently the game [#The Book of Unwritten
-Tales](#The_Book_of_Unwritten_Tales "#The Book of Unwritten Tales"){.wikilink} has the same problem. It also describes a
-workaround that is untested in Dota 2.
+Apparently the game [#The Book of Unwritten Tales](#The_Book_of_Unwritten_Tales "wikilink") has the same problem. It
+also describes a workaround that is untested in Dota 2.
 
 #### Game runs on the wrong screen {#game_runs_on_the_wrong_screen}
 
@@ -1355,15 +1337,14 @@ See [GitHub Steam issue #1688](https://github.com/ValveSoftware/Dota-2/issues/16
 
 #### Chinese input method problem {#chinese_input_method_problem}
 
-Dota2 is compatible with [IBus](IBus "IBus"){.wikilink} and [Fcitx](Fcitx "Fcitx"){.wikilink}. XIM support Should be
-enabled.
+Dota2 is compatible with [IBus](IBus "wikilink") and [Fcitx](Fcitx "wikilink"). XIM support Should be enabled.
 
 `XMODIFIERS=@im=fcitx %command%`
 
 ### Devil Daggers {#devil_daggers}
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Drox Operative {#drox_operative}
 
@@ -1403,8 +1384,7 @@ steam error messages for this message:
 
 `/home/`*`username`*`/.steam/root/steamapps/common/Dynamite Jack/bin/main: error while loading shared libraries: libSDL-1.2.so.0: cannot open shared object file: No such file or directory`
 
-Install `{{AUR|lib32-sdl}}`{=mediawiki} from [multilib](multilib "multilib"){.wikilink} and Dynamite Jack should start
-up.
+Install `{{AUR|lib32-sdl}}`{=mediawiki} from [multilib](multilib "wikilink") and Dynamite Jack should start up.
 
 ### Empire Total War {#empire_total_war}
 
@@ -1427,8 +1407,8 @@ If Firewatch starts but does not show anything, try running Steam with
 
 ### Football Manager 2014 {#football_manager_2014}
 
-This game will not run when installed on an [XFS](XFS "XFS"){.wikilink} or reiserfs filesystem. Workaround is to install
-on an ext4 filesystem.
+This game will not run when installed on an [XFS](XFS "wikilink") or reiserfs filesystem. Workaround is to install on an
+ext4 filesystem.
 
 ### FORCED
 
@@ -1539,14 +1519,14 @@ errors while using this branch.
 ```{=mediawiki}
 {{Out of date|The OpenSSL 1.0 package has been dropped, is this game still affected?}}
 ```
-Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "#OpenSSL 1.0 setup"){.wikilink}.
+Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "wikilink").
 
 ### GRID Autosport {#grid_autosport}
 
 ```{=mediawiki}
 {{Out of date|The OpenSSL 1.0 package has been dropped, is this game still affected?}}
 ```
-Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "#OpenSSL 1.0 setup"){.wikilink}.
+Follow [#OpenSSL 1.0 setup](#OpenSSL_1.0_setup "wikilink").
 
 #### Black screen when trying to play {#black_screen_when_trying_to_play}
 
@@ -1579,8 +1559,8 @@ Requires `{{Pkg|lib32-sdl2_mixer}}`{=mediawiki}.
 
 #### Invisible text {#invisible_text}
 
-Half-Life uses microsoft fonts to display text, see [Microsoft fonts](Microsoft_fonts "Microsoft fonts"){.wikilink} for
-ways to install them.
+Half-Life uses microsoft fonts to display text, see [Microsoft fonts](Microsoft_fonts "wikilink") for ways to install
+them.
 
 ### Half-Life 2 and episodes {#half_life_2_and_episodes}
 
@@ -1611,32 +1591,32 @@ This way, Hammerwatch will use ALSA. This solution was found
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-sfml}}
-  ```
-  ```{=mediawiki}
-  {{Broken package link|package not found}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-sfml}}
+    ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-libjpeg6-turbo}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libjpeg6-turbo}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-nvidia-cg-toolkit}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-nvidia-cg-toolkit}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-gtk2}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-gtk2}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libvorbis}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libvorbis}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-openal}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-openal}}
+    ```
 
 #### Compatibility {#compatibility_1}
 
@@ -1653,7 +1633,7 @@ Install `{{Pkg|wqy-microhei}}`{=mediawiki} and `{{Pkg|wqy-microhei-lite}}`{=medi
 
 #### If FontConfig Errors on Start {#if_fontconfig_errors_on_start_1}
 
-Follow the same process described in [#CrossCode](#CrossCode "#CrossCode"){.wikilink}.
+Follow the same process described in [#CrossCode](#CrossCode "wikilink").
 
 ### HuniePop
 
@@ -1665,13 +1645,13 @@ Install `{{Pkg|lsb-release}}`{=mediawiki}.
 
 #### The controller does not work {#the_controller_does_not_work}
 
-[Install](Install "Install"){.wikilink} `{{AUR|lib32-sdl2}}`{=mediawiki} and run the game with
+[Install](Install "wikilink") `{{AUR|lib32-sdl2}}`{=mediawiki} and run the game with
 `{{ic|1=LD_PRELOAD=libSDL2.so}}`{=mediawiki}.
 
 See the following Steam Community discussions:
 
-- [Controller Issues](https://steamcommunity.com/app/257850/discussions/1/365163686036494421)
-- [Common Bugs + Known Issues](https://steamcommunity.com/app/257850/discussions/1/365163686045397160/)
+-   [Controller Issues](https://steamcommunity.com/app/257850/discussions/1/365163686036494421)
+-   [Common Bugs + Known Issues](https://steamcommunity.com/app/257850/discussions/1/365163686045397160/)
 
 It is suggested to run the *next_update* branch to get new fixes, there however currently is a libcurl segfault keeping
 it from starting without special workarounds.
@@ -1679,14 +1659,14 @@ it from starting without special workarounds.
 #### Missing libcurl.so.4 or version CURL_OPENSSL_3 not found {#missing_libcurl.so.4_or_version_curl_openssl_3_not_found_1}
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Rome Total War Remastered {#rome_total_war_remastered}
 
 #### Slowness of loading screen for open-source drivers {#slowness_of_loading_screen_for_open_source_drivers}
 
-[Install](Install "Install"){.wikilink} `{{Pkg|vulkan-swrast}}`{=mediawiki} and then change the renderer option in the
-game launcher to llvmpipe after a system restart.
+[Install](Install "wikilink") `{{Pkg|vulkan-swrast}}`{=mediawiki} and then change the renderer option in the game
+launcher to llvmpipe after a system restart.
 
 Once done the loading screen scene would then be fixed and should load up as normal for open-source drivers.
 
@@ -1708,13 +1688,13 @@ After playing, undo it with:
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-sdl2}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-sdl2}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl2_image}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl2_image}}
+    ```
 
 ### The Inner World {#the_inner_world}
 
@@ -1727,7 +1707,7 @@ Hold the tab key.
 ##### Cutscenes
 
 The game has cutscenes. It starts directly with a cutscene before you start the actual game in the backyard. To see
-these cutscenes you need to use Oracle\'s [Java](Java "Java"){.wikilink} instead of the OpenJDK.
+these cutscenes you need to use Oracle\'s [Java](Java "wikilink") instead of the OpenJDK.
 
 Furthermore you need the package `{{AUR|ffmpeg-compat-55}}`{=mediawiki}.
 
@@ -1775,7 +1755,7 @@ Game only worked after obtaining from the [Humble Bundle](https://www.humblebund
 
 ### Kerbal Space Program {#kerbal_space_program}
 
-See [Kerbal Space Program](Kerbal_Space_Program "Kerbal Space Program"){.wikilink}.
+See [Kerbal Space Program](Kerbal_Space_Program "wikilink").
 
 ### Killing Floor {#killing_floor}
 
@@ -1808,8 +1788,8 @@ Uncheck fullscreen in the options menu, and press `{{ic|Ctrl+g}}`{=mediawiki} to
 
 KillingFloor comes with its own OpenAL library `{{ic|''GAME''/System/openal.so}}`{=mediawiki}.
 
-Back it up, [install](install "install"){.wikilink} `{{Pkg|openal}}`{=mediawiki} or `{{Pkg|lib32-openal}}`{=mediawiki}
-(if using a 64bit system).
+Back it up, [install](install "wikilink") `{{Pkg|openal}}`{=mediawiki} or `{{Pkg|lib32-openal}}`{=mediawiki} (if using a
+64bit system).
 
 Then symlink the installed system library (`{{ic|/usr/lib32/libopenal.so.1}}`{=mediawiki} or
 `{{ic|/usr/lib/libopenal.so.1}}`{=mediawiki}) to `{{ic|openal.so}}`{=mediawiki}.
@@ -1818,10 +1798,9 @@ Then symlink the installed system library (`{{ic|/usr/lib32/libopenal.so.1}}`{=m
 
 #### Missing Chinese font {#missing_chinese_font}
 
-L4D2 looks for the [WenQuanYi](Wikipedia:WenQuanYi "WenQuanYi"){.wikilink} font to render Chinese text with. You can
-either install a package that provides the font, such as `{{Pkg|wqy-zenhei}}`{=mediawiki} or
-`{{AUR|ttf-ms-fonts}}`{=mediawiki}, or configure a [fallback
-font](Font_configuration#Match_tests "fallback font"){.wikilink}:
+L4D2 looks for the [WenQuanYi](Wikipedia:WenQuanYi "wikilink") font to render Chinese text with. You can either install
+a package that provides the font, such as `{{Pkg|wqy-zenhei}}`{=mediawiki} or `{{AUR|ttf-ms-fonts}}`{=mediawiki}, or
+configure a [fallback font](Font_configuration#Match_tests "wikilink"):
 
 ```{=mediawiki}
 {{hc|/etc/fonts/local.conf (or ~/.config/fontconfig/fonts.conf)|2=
@@ -1882,7 +1861,7 @@ directory which contains the binaries), the full command would be:
 
 `$ LD_PRELOAD=~/.steam/root/ubuntu12_32/steam-runtime/amd64/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0 ./tld.x86_64 -screen-fullscreen 0 -screen-width 1280 -screen-height 720`
 
-and from Steam, the complete game [launch options](launch_option "launch option"){.wikilink} would be:
+and from Steam, the complete game [launch options](launch_option "wikilink") would be:
 
 `LD_PRELOAD=~/.steam/root/ubuntu12_32/steam-runtime/amd64/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0 %command% -screen-fullscreen 0 -screen-width 1280 -screen-height 720`
 
@@ -1906,7 +1885,7 @@ to blindly it the setting.
 ```{=mediawiki}
 {{Remove|The solution here probably does not work, as the Windows and Proton versions are distinct and according to user reports. Players may get to Online for a few minutes at maximum, whether or not having the environment variable set, which may confuse users to thinking Online mode works. You may try this workaround at your own discretion, however this section should be removed in case it is established Online does not work. It has been clearly established before GTA V only supports the Windows version of BattlEye. GTA V compatibility with Proton is tracked here: https://github.com/ValveSoftware/Proton/issues/37}}
 ```
-See [#BattlEye](#BattlEye "#BattlEye"){.wikilink}.
+See [#BattlEye](#BattlEye "wikilink").
 
 Modify launch options to include `{{ic|PROTON_BATTLEYE_RUNTIME}}`{=mediawiki}:
 
@@ -1981,7 +1960,7 @@ Run the game with `{{ic|1=__GL_ShaderPortabilityWarnings=0}}`{=mediawiki}.
 
 #### Segmentation fault (core dumped) with Wayland {#segmentation_fault_core_dumped_with_wayland}
 
-Use [Xorg](Xorg "Xorg"){.wikilink} instead, or force the session to use `{{ic|xcb}}`{=mediawiki} as
+Use [Xorg](Xorg "wikilink") instead, or force the session to use `{{ic|xcb}}`{=mediawiki} as
 `{{ic|QT_QPA_PLATFORM}}`{=mediawiki}.
 
 #### DLC chooser {#dlc_chooser}
@@ -2052,7 +2031,7 @@ continue.
 ### Nuclear Throne {#nuclear_throne}
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### OneShot
 
@@ -2083,8 +2062,8 @@ Set launch options in steam to
 
 #### Graphics errors, corruption and lines through tiles {#graphics_errors_corruption_and_lines_through_tiles}
 
-This is a result of using the [Zink](OpenGL#OpenGL_over_Vulkan_(Zink) "Zink"){.wikilink} MESA driver. If you have this
-globally enabled, disable it specifically for this game and launch it normally.
+This is a result of using the [Zink](OpenGL#OpenGL_over_Vulkan_(Zink) "wikilink") MESA driver. If you have this globally
+enabled, disable it specifically for this game and launch it normally.
 
 ### Pandora: First Contact {#pandora_first_contact}
 
@@ -2103,29 +2082,29 @@ Replace the bundled files in the game binaries directory with symlinks to `{{ic|
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-glu}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-glu}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libvorbis}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libvorbis}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libxft}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libxft}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-openal}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-openal}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl_image}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl_image}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl_ttf}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl_ttf}}
+    ```
 
 #### Windowed mode {#windowed_mode_1}
 
@@ -2178,19 +2157,19 @@ The error:
 
 was resolved by installing:
 
-- ```{=mediawiki}
-  {{Pkg|pulseaudio-alsa}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|pulseaudio-alsa}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libpulse}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libpulse}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|pipewire-alsa}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|pipewire-alsa}}
+    ```
 
-per [PulseAudio#ALSA](PulseAudio#ALSA "PulseAudio#ALSA"){.wikilink}.
+per [PulseAudio#ALSA](PulseAudio#ALSA "wikilink").
 
 Alternatively, if running the game through Steam, you can force the game to be ran through proton, and that can resolve
 other audio errors.
@@ -2249,14 +2228,14 @@ If running in X session is not available or is not preferred, another alternativ
 exit 0
 }}
 ```
-and make it [executable](executable "executable"){.wikilink}.
+and make it [executable](executable "wikilink").
 
 After this the game was found to have loaded on Linux according to some game testers.
 
 ### Risk of Rain {#risk_of_rain}
 
 Refer to [#Missing libcurl.so.4 or version CURL_OPENSSL_3 not
-found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "#Missing libcurl.so.4 or version CURL_OPENSSL_3 not found"){.wikilink}.
+found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Rock Boshers DX: Directors Cut {#rock_boshers_dx_directors_cut}
 
@@ -2394,17 +2373,17 @@ mmap = true
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl_mixer}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl_mixer}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl_image}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl_image}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sqlite}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sqlite}}
+    ```
 
 #### Game crash {#game_crash}
 
@@ -2428,17 +2407,17 @@ As discussed in the Steam store page, remove `{{ic|bin/libstdc++.so.6}}`{=mediaw
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-libstdc++5}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libstdc++5}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libxcursor}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libxcursor}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libxrandr}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libxrandr}}
+    ```
 
 ### Stardew Valley {#stardew_valley}
 
@@ -2528,10 +2507,10 @@ close the game and put your empires and savegames back in their directories from
 
 #### No sound {#no_sound_6}
 
-If using [native libraries](Steam/Troubleshooting#Steam_native_runtime "native libraries"){.wikilink} and
-`{{Pkg|libpulse}}`{=mediawiki} is installed, Unity may try to use that library for sound and fail. To test if this is
-the problem, try removing `{{Pkg|libpulse}}`{=mediawiki} or renaming the package files that are named
-`{{ic|libpulse-simple*}}`{=mediawiki}. To see which `{{Pkg|libpulse}}`{=mediawiki} files are relevant, run:
+If using [native libraries](Steam/Troubleshooting#Steam_native_runtime "wikilink") and `{{Pkg|libpulse}}`{=mediawiki} is
+installed, Unity may try to use that library for sound and fail. To test if this is the problem, try removing
+`{{Pkg|libpulse}}`{=mediawiki} or renaming the package files that are named `{{ic|libpulse-simple*}}`{=mediawiki}. To
+see which `{{Pkg|libpulse}}`{=mediawiki} files are relevant, run:
 
 ```{=mediawiki}
 {{hc|$ pacman -Qql libpulse {{!}}
@@ -2571,14 +2550,14 @@ necessary `{{Pkg|libpulse}}`{=mediawiki} files. The game should then fallback to
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-glu}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-glu}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libpulse}}
-  ```
-  if you use PulseAudio
+-   ```{=mediawiki}
+    {{Pkg|lib32-libpulse}}
+    ```
+    if you use PulseAudio
 
 The game bundles an outdated version of libstdc++ which prevents the game from starting.
 [23](https://steamcommunity.com/app/204060/discussions/0/364039785161291413) The following can be observed when you run
@@ -2616,7 +2595,7 @@ If you encounter the game not launching, do the following:
     common directory and transfer it to the `{{ic|SS2}}`{=mediawiki} main game directory, not the
     `{{ic|SS2/Bin}}`{=mediawiki} subdirectory.
 2.  Put `{{ic|1=LD_PRELOAD='/usr/$LIB/libxcb.so.1' %command%}}`{=mediawiki} into the [launch
-    options](launch_option "launch option"){.wikilink}.
+    options](launch_option "wikilink").
 
 Once all of these have been implemented, the game should work.
 
@@ -2639,7 +2618,7 @@ It should then properly not go off-screen and should stay full screen within the
 
 #### No sound in-game (FMOD ex error code 60) {#no_sound_in_game_fmod_ex_error_code_60}
 
-If using [PipeWire](PipeWire "PipeWire"){.wikilink}, make sure you have installed `{{Pkg|lib32-pipewire}}`{=mediawiki}.
+If using [PipeWire](PipeWire "wikilink"), make sure you have installed `{{Pkg|lib32-pipewire}}`{=mediawiki}.
 
 ### Tabletop Simulator {#tabletop_simulator}
 
@@ -2652,8 +2631,7 @@ Install `{{Pkg|wqy-microhei}}`{=mediawiki} and `{{Pkg|wqy-microhei-lite}}`{=medi
 As of an update in September 2023, the game will not have the correct version of `{{ic|tcmalloc}}`{=mediawiki} and will
 silently crash during launch.
 
-Follow the fix outlined in [#tcmalloc.cc error in Source 1
-games](#tcmalloc.cc_error_in_Source_1_games "#tcmalloc.cc error in Source 1 games"){.wikilink}
+Follow the fix outlined in [#tcmalloc.cc error in Source 1 games](#tcmalloc.cc_error_in_Source_1_games "wikilink")
 
 #### HRTF setup {#hrtf_setup}
 
@@ -2675,8 +2653,8 @@ after that.
 
 #### No audio {#no_audio_3}
 
-It happens if there is no PulseAudio in your system. If you want to use [ALSA](ALSA "ALSA"){.wikilink}, you need to
-launch Steam or the game directly with `{{ic|1=SDL_AUDIODRIVER=alsa}}`{=mediawiki} (From
+It happens if there is no PulseAudio in your system. If you want to use [ALSA](ALSA "wikilink"), you need to launch
+Steam or the game directly with `{{ic|1=SDL_AUDIODRIVER=alsa}}`{=mediawiki} (From
 [SteamCommunity](https://steamcommunity.com/app/221410/discussions/0/882966056462819091/#c882966056470753683)).
 
 If it still does not work, you may also need to set the environment variable AUDIODEV. For instance
@@ -2722,7 +2700,7 @@ Forums](https://forums.terraria.org/index.php?threads/keyboard-input-bug-involvi
 #### Game does not start {#game_does_not_start_12}
 
 This happens because of an incompatibility with the newer version of `{{ic|lib32-curl}}`{=mediawiki}. To fix the
-problem, set your [launch options](launch_option "launch option"){.wikilink} to:
+problem, set your [launch options](launch_option "wikilink") to:
 
 `LD_PRELOAD=./libcurl.so.4 %command%`
 
@@ -2738,19 +2716,19 @@ The bundled `{{ic|libOpenAL}}`{=mediawiki} might not work correctly, try symlink
 ```
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-gstreamer0.10-base}}
-  ```
-  ```{=mediawiki}
-  {{Broken package link|package not found}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-gstreamer0.10-base}}
+    ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-pangox-compat}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-pangox-compat}}
+    ```
 
 As lib32-gstreamer0.10-base is quite hard to build you can use
-[multilib-alucryd](Unofficial_user_repositories#alucryd "multilib-alucryd"){.wikilink} repo for this package
+[multilib-alucryd](Unofficial_user_repositories#alucryd "wikilink") repo for this package
 
 ### The Tiny Bang Story {#the_tiny_bang_story}
 
@@ -2785,10 +2763,10 @@ Another alternative to this is to do the following in the Launch options:
 
 If your Steam Controller is correctly recognized and paired but still not working in-game try the following:
 
-- In Steam, non Big Screen, go to *Settings \> Account \> Beta participation \> Change\...* and in the dropdown select
-  box select Steam Beta Update
-- Restart Steam
-- Go to Big Screen and start Tomb Raider
+-   In Steam, non Big Screen, go to *Settings \> Account \> Beta participation \> Change\...* and in the dropdown select
+    box select Steam Beta Update
+-   Restart Steam
+-   Go to Big Screen and start Tomb Raider
 
 Correctly recognized means you can control the desktop mouse and Steam in Big Picture mode and the controller is shown
 in the Big Picture settings.
@@ -2859,8 +2837,7 @@ Alternately, re-naming or deleting these 2 files will force it to use your syste
 
 Some users report that Torchlight 2 does not work if you do not have en_US.UTF8 in your locale.
 
-Double check you have generated the locale needed in [Steam Installation
-Requirements](Steam#Installation "Steam Installation Requirements"){.wikilink}.
+Double check you have generated the locale needed in [Steam Installation Requirements](Steam#Installation "wikilink").
 
 ### Tower Unite {#tower_unite}
 
@@ -2868,12 +2845,11 @@ Requirements](Steam#Installation "Steam Installation Requirements"){.wikilink}.
 
 This is a known issue, and it occurs because the shaders had not been ported to Linux yet by the developers. To minimize
 glitches and make the game playable add `{{ic|-opengl4}}`{=mediawiki} to your [launch
-options](launch_option "launch option"){.wikilink}, set Ocean Quality to \"Potato\" and Effects Quality to \"Low\" in
-the game settings.
+options](launch_option "wikilink"), set Ocean Quality to \"Potato\" and Effects Quality to \"Low\" in the game settings.
 
 ### Towns / Towns Demo {#towns_towns_demo}
 
-Requires [Java](Java "Java"){.wikilink}.
+Requires [Java](Java "wikilink").
 
 ### Transistor
 
@@ -2899,13 +2875,13 @@ launch options in Steam:
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|lib32-libgcrypt15}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libgcrypt15}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-libpng12}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-libpng12}}
+    ```
 
 #### Troubleshooting
 
@@ -2928,13 +2904,13 @@ Rename or delete the following files in game directory
 (`{{ic|~/.steam/steam/steamapps/common/Transport Fever 2}}`{=mediawiki}) as discussed in
 [26](https://steamcommunity.com/app/1066780/discussions/0/1740010344363244243/)
 
-- ```{=mediawiki}
-  {{ic|libstdc++.so.6}}
-  ```
+-   ```{=mediawiki}
+    {{ic|libstdc++.so.6}}
+    ```
 
-- ```{=mediawiki}
-  {{ic|libstdc++.so.6.0.25}}
-  ```
+-   ```{=mediawiki}
+    {{ic|libstdc++.so.6.0.25}}
+    ```
 
 ### Trine 2 {#trine_2}
 
@@ -3008,7 +2984,7 @@ Affected games: *FORCED, Gone Home, Ichi, Nimble Quest, Syder Arcade*.
 #### Unity 5 sound problems {#unity_5_sound_problems}
 
 The sound system in Unity 5 changed and to be able to play games created with it you must most likely install and run
-[PulseAudio](PulseAudio "PulseAudio"){.wikilink}.
+[PulseAudio](PulseAudio "wikilink").
 
 Another solution is to disable the Steam runtime: in the launch options for the game, write this:
 `{{ic|1=LD_LIBRARY_PATH="" %command%}}`{=mediawiki}
@@ -3046,14 +3022,13 @@ Install `{{Pkg|wqy-microhei}}`{=mediawiki} and `{{Pkg|wqy-microhei-lite}}`{=medi
 
 #### Game does not respond {#game_does_not_respond}
 
-Add the following line to your [launch options](launch_option "launch option"){.wikilink} :
+Add the following line to your [launch options](launch_option "wikilink") :
 
 `SDL_DYNAMIC_API=/usr/lib/libSDL2-2.0.so %command%`
 
 #### No window opens on Wayland {#no_window_opens_on_wayland}
 
-See [Unity3D#No window opens: Desktop is 0 x 0 @ 0
-Hz](Unity3D#No_window_opens:_Desktop_is_0_x_0_@_0_Hz "Unity3D#No window opens: Desktop is 0 x 0 @ 0 Hz"){.wikilink}.
+See [Unity3D#No window opens: Desktop is 0 x 0 @ 0 Hz](Unity3D#No_window_opens:_Desktop_is_0_x_0_@_0_Hz "wikilink").
 
 ### Unrest
 
@@ -3092,7 +3067,7 @@ The game might die on launch with the following (or similar) console print:
 `Auto configuration failed`\
 `4034673992:error:25066067:DSO support routines:DLFCN_LOAD:could not load the shared library:dso_dlfcn.c:185:filename(libssl_conf.so): libssl_conf.so: cannot open shared object file: No such file or directory`
 
-Add the following line to your [launch options](launch_option "launch option"){.wikilink}:
+Add the following line to your [launch options](launch_option "wikilink"):
 
 `OPENSSL_CONF=/dev/null %command%`
 
@@ -3100,13 +3075,13 @@ Add the following line to your [launch options](launch_option "launch option"){.
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{Pkg|alsa-lib}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|alsa-lib}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|librtmp0}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|librtmp0}}
+    ```
 
 The start script does not point to the right direction of `{{ic|libasound.so.2}}`{=mediawiki}.
 
@@ -3214,25 +3189,25 @@ terrain unexpectedly. These bugs can make the game unplayable in many situations
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-gnutls}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-gnutls}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libcurl-compat}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libcurl-compat}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-libcurl-gnutls}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-libcurl-gnutls}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|lib32-sdl2_image}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|lib32-sdl2_image}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|lib32-sdl2}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|lib32-sdl2}}
+    ```
 
 #### Game does not start {#game_does_not_start_13}
 
@@ -3247,7 +3222,7 @@ If the game does not run, enable error messages:
 
 ### Wizardry 6: Bane of the Cosmic Forge {#wizardry_6_bane_of_the_cosmic_forge}
 
-Requires [DOSBox](DOSBox "DOSBox"){.wikilink}.
+Requires [DOSBox](DOSBox "wikilink").
 
 To fix the crash at start, open `{{ic|''GAME''/dosbox_linux/launch_wizardry6.sh}}`{=mediawiki} and:
 
@@ -3304,18 +3279,18 @@ After this workaround is implemented the game should load as normal.
 
 Dependencies:
 
-- ```{=mediawiki}
-  {{AUR|librtmp0}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|librtmp0}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|sdl2_image}}
-  ```
-  (required to enable keyboard functionality in-game)
+-   ```{=mediawiki}
+    {{Pkg|sdl2_image}}
+    ```
+    (required to enable keyboard functionality in-game)
 
 #### Hangs on startup {#hangs_on_startup}
 
-If you are running a [hybrid graphics](hybrid_graphics "hybrid graphics"){.wikilink} system, try:
+If you are running a [hybrid graphics](hybrid_graphics "wikilink") system, try:
 
 `__GL_THREADED_OPTIMIZATIONS=0 primusrun %command%`
 
@@ -3363,4 +3338,4 @@ installed directly from the Steam store.
 ```{=mediawiki}
 {{Note|BattlEye will degrade system performance unless [[#Split lock detection / mitigation]] is disabled.}}
 ```
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

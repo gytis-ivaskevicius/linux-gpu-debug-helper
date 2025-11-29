@@ -1,33 +1,32 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[ja:nvidia-xrun](ja:nvidia-xrun "ja:nvidia-xrun"){.wikilink}
-[ru:Nvidia-xrun](ru:Nvidia-xrun "ru:Nvidia-xrun"){.wikilink}
-[zh-hans:Nvidia-xrun](zh-hans:Nvidia-xrun "zh-hans:Nvidia-xrun"){.wikilink}
-[nvidia-xrun](https://github.com/Witko/nvidia-xrun) is a utility that allows NVIDIA Optimus-enabled laptops to run [X
-server](X_server "X server"){.wikilink} with discrete NVIDIA graphics on demand. This solution offers full GPU
-utilization, compatibility and better performance than [Bumblebee](Bumblebee "Bumblebee"){.wikilink}.
+[ja:nvidia-xrun](ja:nvidia-xrun "wikilink") [ru:Nvidia-xrun](ru:Nvidia-xrun "wikilink")
+[zh-hans:Nvidia-xrun](zh-hans:Nvidia-xrun "wikilink") [nvidia-xrun](https://github.com/Witko/nvidia-xrun) is a utility
+that allows NVIDIA Optimus-enabled laptops to run [X server](X_server "wikilink") with discrete NVIDIA graphics on
+demand. This solution offers full GPU utilization, compatibility and better performance than
+[Bumblebee](Bumblebee "wikilink").
 
 X server can only be used with integrated graphics or discrete NVIDIA graphics, but not both, so the user might want to
-switch to a separate [virtual console](Linux_console "virtual console"){.wikilink} and start another X server using
-different graphics from what was used for the first X server.
+switch to a separate [virtual console](Linux_console "wikilink") and start another X server using different graphics
+from what was used for the first X server.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink}:
+[Install](Install "wikilink"):
 
-- ```{=mediawiki}
-  {{Pkg|nvidia}}
-  ```
-  \- if using older drivers you have to edit nvidia-xrun\'s PKGBUILD and remove the NVIDIA depend
+-   ```{=mediawiki}
+    {{Pkg|nvidia}}
+    ```
+    \- if using older drivers you have to edit nvidia-xrun\'s PKGBUILD and remove the NVIDIA depend
 
-- ```{=mediawiki}
-  {{AUR|nvidia-xrun-git}}
-  ```
-  (recommended) or `{{AUR|nvidia-xrun}}`{=mediawiki} (old method, uses bumblebee to switch off the dedicated card)
+-   ```{=mediawiki}
+    {{AUR|nvidia-xrun-git}}
+    ```
+    (recommended) or `{{AUR|nvidia-xrun}}`{=mediawiki} (old method, uses bumblebee to switch off the dedicated card)
 
-- Any [window manager](window_manager "window manager"){.wikilink}, since running application directly like with
-  `{{ic|nvidia-xrun ''application''}}`{=mediawiki} is not recommended.
+-   Any [window manager](window_manager "wikilink"), since running application directly like with
+    `{{ic|nvidia-xrun ''application''}}`{=mediawiki} is not recommended.
 
 ## Configuration
 
@@ -150,14 +149,13 @@ For more about bbswitch see [Bumblebee-Project/bbswitch](https://github.com/Bumb
 
 ### Start at boot {#start_at_boot}
 
-[Enable](Enable "Enable"){.wikilink} `{{ic|nvidia-xrun-pm.service}}`{=mediawiki} - this shuts down the NVIDIA card
-during boot.
+[Enable](Enable "wikilink") `{{ic|nvidia-xrun-pm.service}}`{=mediawiki} - this shuts down the NVIDIA card during boot.
 
 Once the system boots, from the virtual console, login to your user, and run
 `{{ic|nvidia-xrun ''application''}}`{=mediawiki}.
 
-If above does not work, [switch](Keyboard_shortcuts#Xorg_and_Wayland "switch"){.wikilink} to unused virtual console and
-try again.
+If above does not work, [switch](Keyboard_shortcuts#Xorg_and_Wayland "wikilink") to unused virtual console and try
+again.
 
 As mentioned before, running applications directly with `{{ic|nvidia-xrun ''application''}}`{=mediawiki} **does not work
 well**, so it is best to create an `{{ic|nvidia-xinitrc}}`{=mediawiki} file as outlined earlier, and use
@@ -167,12 +165,11 @@ well**, so it is best to create an `{{ic|nvidia-xinitrc}}`{=mediawiki} file as o
 
 ### NVIDIA GPU fails to switch off or is set to be default {#nvidia_gpu_fails_to_switch_off_or_is_set_to_be_default}
 
-See [#Use bbswitch to manage the NVIDIA
-card](#Use_bbswitch_to_manage_the_NVIDIA_card "#Use bbswitch to manage the NVIDIA card"){.wikilink}.
+See [#Use bbswitch to manage the NVIDIA card](#Use_bbswitch_to_manage_the_NVIDIA_card "wikilink").
 
 If NVIDIA GPU still fails to switch off, or is somehow set to be default whenever you use or not
 `{{ic|nvidia-xrun}}`{=mediawiki}, then you might likely need to blacklist specific modules (which were previously
-blacklisted by [Bumblebee](Bumblebee "Bumblebee"){.wikilink}). Create this file and restart your system:
+blacklisted by [Bumblebee](Bumblebee "wikilink")). Create this file and restart your system:
 
 ```{=mediawiki}
 {{hc|/usr/lib/modprobe.d/nvidia-xrun.conf|
@@ -192,7 +189,7 @@ above modules.
 
 DRM kernel mode setting should be enabled for PRIME synchronization to work (for example on muxless devices where only
 the Intel GPU is connected to outputs). However, consider disabling it in case there is an issue. See [NVIDIA#DRM kernel
-mode setting](NVIDIA#DRM_kernel_mode_setting "NVIDIA#DRM kernel mode setting"){.wikilink}
+mode setting](NVIDIA#DRM_kernel_mode_setting "wikilink")
 
 On certain hardware, the NVIDIA GPU exposes two devices on the PCI bus: a 3D controller and an audio device. In this
 case, both devices need to be removed from the bus in order for the GPU to fully power down. This can be done by simply
@@ -200,4 +197,4 @@ adding a line for the audio device bus id in `{{ic|/etc/default/nvidia-xrun}}`{=
 in the function `{{ic|turn_off_gpu}}`{=mediawiki} in `{{ic|/usr/bin/nvidia-xrun}}`{=mediawiki} to remove the second
 device.
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

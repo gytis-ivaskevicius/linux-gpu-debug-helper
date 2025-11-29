@@ -42,5 +42,4 @@ a 64-bit build like `wineWowPackages`.
 
 The `override` method is mentioned in [the manual](https://nixos.org/nixos/manual/index.html#sec-customising-packages).
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

@@ -44,5 +44,4 @@ If you get stuck on the login screen where there are no login buttons, you must 
 `"WINE_SIMULATE_WRITECOPY=1"` env variable. This might be just a temporary glitch. You can also add Battle.net client or
 even the game directly to Steam. Look for installed binaries (.exe) in `"~/.local/share/Steam/steamapps/compatdata/"`.
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

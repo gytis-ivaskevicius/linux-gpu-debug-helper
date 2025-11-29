@@ -142,10 +142,10 @@ pfs version 0000 driver start.
 
 In order to be able to launch unofficial software, you can:
 
-- launch a dvd with [FreeDVDBoot](https://cturt.github.io/freedvdboot.html)
-- have a modchip
-- boot with a FMCB installed memory card
-- boot on HDD with an elf launcher like wLauncher or [SoftDev2](https://github.com/parrado/SoftDev2)
+-   launch a dvd with [FreeDVDBoot](https://cturt.github.io/freedvdboot.html)
+-   have a modchip
+-   boot with a FMCB installed memory card
+-   boot on HDD with an elf launcher like wLauncher or [SoftDev2](https://github.com/parrado/SoftDev2)
 
 Extract [this
 archive](https://web.archive.org/web/20221210004709/https://www.ps2-home.com/forum/download/file.php?id=15758&sid=f956d2accefb993288a6791c7c85a5c0)
@@ -177,14 +177,13 @@ Works fine - example soon.
 
 A very slow solution ( \~ 500KB/s ).
 
-- PC side (client):
+-   PC side (client):
 
 PS2 doesn\'t support TLS, use plain FTP. (tested with filezilla)
 
-- PS2 side (server):
+-   PS2 side (server):
 
 Launch ps2net. You need to activate hdd (exploring it in uLaunchELF for example) before ps2net to share it.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Hardware](Category:Hardware "Category:Hardware"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+[Category:Hardware](Category:Hardware "wikilink")

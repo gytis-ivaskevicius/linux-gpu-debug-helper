@@ -1,7 +1,7 @@
-[ja:Brutal Doom](ja:Brutal_Doom "ja:Brutal Doom"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[ja:Brutal Doom](ja:Brutal_Doom "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|List of games}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki} `{{Related|Doom}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki} [Brutal Doom](https://www.moddb.com/mods/brutal-doom) is a gore-themed gameplay
-mod for [Doom](Doom "Doom"){.wikilink} that was created in 2010 by Marcos Abenante (A.K.A. *Sergeant_Mark_IV*). It is
+mod for [Doom](Doom "wikilink") that was created in 2010 by Marcos Abenante (A.K.A. *Sergeant_Mark_IV*). It is
 compatible with Doom, The Ultimate Doom, Doom II: Hell on Earth, Final Doom, and other custom WADs. Brutal Doom won the
 first ever Cacoward in 2011 for Best Gameplay Mod and a MOTY award for creativity by Mod DB in 2012.
 
@@ -18,7 +18,7 @@ smoother and gives the player new abilities. [\[1\]](https://doom.wikia.com/wiki
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{AUR|brutal-doom}}`{=mediawiki} package, which requires having two
+[Install](Install "wikilink") the `{{AUR|brutal-doom}}`{=mediawiki} package, which requires having two
 `{{ic|gzdoom.ini}}`{=mediawiki} files. Alternatively `{{AUR|gzdoom-git}}`{=mediawiki} can be modified directly as shown
 below. However, if you want to be able to run both *gzdoom* and *brutal-doom* separately in order to play both versions,
 then you would need the *brutal-doom* package.
@@ -78,14 +78,16 @@ To start the program:
 
 ## See Also {#see_also}
 
-- [Brutal Doom on Wikia](https://doom.wikia.com/wiki/Brutal_Doom)
+-   [Brutal Doom on Wikia](https://doom.wikia.com/wiki/Brutal_Doom)
 
+```{=html}
 <!-- -->
+```
+-   [Brutal Doom on Doom Wiki](https://doomwiki.org/wiki/Brutal_Doom)
 
-- [Brutal Doom on Doom Wiki](https://doomwiki.org/wiki/Brutal_Doom)
-
+```{=html}
 <!-- -->
+```
+-   [IWAD files on ZDoom Wiki](https://zdoom.org/wiki/IWAD)
 
-- [IWAD files on ZDoom Wiki](https://zdoom.org/wiki/IWAD)
-
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

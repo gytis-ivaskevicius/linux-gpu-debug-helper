@@ -21,8 +21,7 @@ most users would prefer to use a client for interoperability with their system.
 
 Nixpkgs provides all three of Discord\'s release channels, accessible as `pkgs.discord`, `pkgs.discord-ptb`, and
 `pkgs.discord-canary` respectively. Add any of the previous derivations to your package\'s configuration. For
-[NixOS](NixOS "NixOS"){.wikilink} this will be in `environment.systemPackages` or
-`users.users.``<name>`{=html}`.packages`.
+[NixOS](NixOS "wikilink") this will be in `environment.systemPackages` or `users.users.``<name>`{=html}`.packages`.
 
 ``` nixos
 # configuration.nix
@@ -61,7 +60,7 @@ Lightweight, alternative desktop client with built-in modding extensibility. Nix
 #### BetterDiscord[^2]
 
 Enhances Discord desktop app with new features. Nixpkgs provides the installer via `pkgs.betterdiscordctl`. This can be
-added to your configuration, though users may prefer to instead run it one-off via the [Nix](Nix "Nix"){.wikilink} cli.
+added to your configuration, though users may prefer to instead run it one-off via the [Nix](Nix "wikilink") cli.
 
 ``` bash
 $ nix-shell -p betterdiscordctl --command 'betterdiscordctl install' # nix-legacy
@@ -105,8 +104,8 @@ via `withVencord = true`. `{{File|3={ config, lib, pkgs, ... }: {
 As opposed to just Vencord, the same developers also offer an integrated solution which aims to make the Linux
 experience better.
 
-It can be neatly managed via [Home Manager](Home_Manager "Home Manager"){.wikilink}, or just installed as a regular
-package via `pkgs.vesktop`. `{{File|3={ config, lib, pkgs, ... }: {
+It can be neatly managed via [Home Manager](Home_Manager "wikilink"), or just installed as a regular package via
+`pkgs.vesktop`. `{{File|3={ config, lib, pkgs, ... }: {
   ...
   programs.vesktop = {
     enable = true;
@@ -143,19 +142,18 @@ provides this client via `pkgs.webcord`.
 ### Screen sharing on Wayland {#screen_sharing_on_wayland}
 
 Since December 2024, Discord Canary supports screen sharing on Wayland. Alternatively, you can use the web version on a
-browser that supports screen sharing on Wayland, or an [unofficial
-client](Discord#Unofficial_Clients "unofficial client"){.wikilink} like *Webcord* or *Vesktop*, both of which have fixed
-this issue in their own ways.
+browser that supports screen sharing on Wayland, or an [unofficial client](Discord#Unofficial_Clients "wikilink") like
+*Webcord* or *Vesktop*, both of which have fixed this issue in their own ways.
 `{{Note|Remember to configure an [https://wiki.archlinux.org/title/XDG_Desktop_Portal#List_of_backends_and_interfaces XDG Desktop Portal] with screen cast capabilities!}}`{=mediawiki}
 
 ### Notifications causing crashes {#notifications_causing_crashes}
 
 Discord will crash if there is no compatible notification daemon running. This issue is only prevalent in custom desktop
-environments, such as [Sway](Sway "Sway"){.wikilink} or [Hyprland](Hyprland "Hyprland"){.wikilink}. Comprehensive
-documentation usually exists for most window managers/compositors and can be found on their respective wikis. Nixpkgs
-provides a few standalone notification daemons such as `pkgs.dunst` and `pkgs.mako`. You may optionally use a
-notification daemon from a larger DE, such as `pkgs.lxqt.lxqt-notificationd`, however it is unclear how effective these
-will be outside of their normal environment.
+environments, such as [Sway](Sway "wikilink") or [Hyprland](Hyprland "wikilink"). Comprehensive documentation usually
+exists for most window managers/compositors and can be found on their respective wikis. Nixpkgs provides a few
+standalone notification daemons such as `pkgs.dunst` and `pkgs.mako`. You may optionally use a notification daemon from
+a larger DE, such as `pkgs.lxqt.lxqt-notificationd`, however it is unclear how effective these will be outside of their
+normal environment.
 
 ``` nixos
 { config, lib, pkgs, ... }: {
@@ -243,8 +241,7 @@ TTS is disabled by default; you may enable it via an override:
 (pkgs.discord.override { withTTS = true; })
 ```
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
 
 [^1]: <https://github.com/Legcord/Legcord>
 

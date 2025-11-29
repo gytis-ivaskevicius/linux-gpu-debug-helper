@@ -1,7 +1,6 @@
-[de:Steam](de:Steam "de:Steam"){.wikilink} [fi:Steam](fi:Steam "fi:Steam"){.wikilink}
-[fr:Steam](fr:Steam "fr:Steam"){.wikilink} [ja:Steam](ja:Steam "ja:Steam"){.wikilink}
-[pt:Steam](pt:Steam "pt:Steam"){.wikilink} [ru:Steam](ru:Steam "ru:Steam"){.wikilink}
-[zh-hans:Steam](zh-hans:Steam "zh-hans:Steam"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:Steam](de:Steam "wikilink") [fi:Steam](fi:Steam "wikilink") [fr:Steam](fr:Steam "wikilink")
+[ja:Steam](ja:Steam "wikilink") [pt:Steam](pt:Steam "wikilink") [ru:Steam](ru:Steam "wikilink")
+[zh-hans:Steam](zh-hans:Steam "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Steam/Troubleshooting}}`{=mediawiki} `{{Related|Steam/Game-specific troubleshooting}}`{=mediawiki}
 `{{Related|Gaming}}`{=mediawiki} `{{Related|Gamepad}}`{=mediawiki} `{{Related|List of games}}`{=mediawiki}
 `{{Related|Gamescope}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
@@ -13,42 +12,40 @@
 ```
 ## Installation
 
-Enable the [multilib](multilib "multilib"){.wikilink} repository and [install](install "install"){.wikilink} the
-`{{Pkg|steam}}`{=mediawiki} package (recommended) or alternatively the `{{AUR|steam-native-runtime}}`{=mediawiki}
-package for running Steam with native system libraries. See [/Troubleshooting#Steam
-runtime](/Troubleshooting#Steam_runtime "/Troubleshooting#Steam runtime"){.wikilink}.
+Enable the [multilib](multilib "wikilink") repository and [install](install "wikilink") the `{{Pkg|steam}}`{=mediawiki}
+package (recommended) or alternatively the `{{AUR|steam-native-runtime}}`{=mediawiki} package for running Steam with
+native system libraries. See [/Troubleshooting#Steam runtime](/Troubleshooting#Steam_runtime "wikilink").
 
 ```{=mediawiki}
 {{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues like being unable to use Vulkan at all when you install it by accident for different GPU vendor.}}
 ```
 In order to run Steam on Arch Linux:
 
-- You must install the 32-bit version of the [OpenGL graphics
-  driver](Xorg#Driver_installation "OpenGL graphics driver"){.wikilink} appropriate for your system.
+-   You must install the 32-bit version of the [OpenGL graphics driver](Xorg#Driver_installation "wikilink") appropriate
+    for your system.
 
-- If not already done [during installation](Installation_guide#Localization "during installation"){.wikilink}, you must
-  [generate the en_US.UTF-8 locale](Locale#Generating_locales "generate the en_US.UTF-8 locale"){.wikilink} to prevent
-  invalid pointer errors.
+-   If not already done [during installation](Installation_guide#Localization "wikilink"), you must [generate the
+    en_US.UTF-8 locale](Locale#Generating_locales "wikilink") to prevent invalid pointer errors.
 
-- If you need to add library folders or add non-Steam games to your Steam library, install [XDG Desktop
-  Portal](XDG_Desktop_Portal "XDG Desktop Portal"){.wikilink} with a backend providing a file chooser.
+-   If you need to add library folders or add non-Steam games to your Steam library, install [XDG Desktop
+    Portal](XDG_Desktop_Portal "wikilink") with a backend providing a file chooser.
 
-- If using [systemd-resolved](systemd-resolved "systemd-resolved"){.wikilink} for DNS, follow [the
-  steps](systemd-resolved#DNS "the steps"){.wikilink} to fix `{{ic|/etc/resolv.conf}}`{=mediawiki} in order for Steam to
-  be able to resolve hostnames.
+-   If using [systemd-resolved](systemd-resolved "wikilink") for DNS, follow [the
+    steps](systemd-resolved#DNS "wikilink") to fix `{{ic|/etc/resolv.conf}}`{=mediawiki} in order for Steam to be able
+    to resolve hostnames.
 
-- If using the Big Picture Mode (Steam Deck UI), [NetworkManager](NetworkManager "NetworkManager"){.wikilink} may be
-  required for the network-related panels to work correctly.
+-   If using the Big Picture Mode (Steam Deck UI), [NetworkManager](NetworkManager "wikilink") may be required for the
+    network-related panels to work correctly.
 
-- ```{=mediawiki}
-  {{ic|vm.max_map_count}}
-  ```
-  must be increased in order to run some games without crashing, see [Gaming#Increase
-  vm.max_map_count](Gaming#Increase_vm.max_map_count "Gaming#Increase vm.max_map_count"){.wikilink}.
+-   ```{=mediawiki}
+    {{ic|vm.max_map_count}}
+    ```
+    must be increased in order to run some games without crashing, see [Gaming#Increase
+    vm.max_map_count](Gaming#Increase_vm.max_map_count "wikilink").
 
 ### SteamCMD
 
-[Install](Install "Install"){.wikilink} `{{AUR|steamcmd}}`{=mediawiki} for [the command-line version of
+[Install](Install "wikilink") `{{AUR|steamcmd}}`{=mediawiki} for [the command-line version of
 Steam](https://developer.valvesoftware.com/wiki/SteamCMD).
 
 ## Directory structure {#directory_structure}
@@ -95,9 +92,9 @@ launch command as an argument to another command you can use the `{{ic|%command%
 
 ### Examples
 
-- only arguments: `{{ic|-foo}}`{=mediawiki}
-- environment variables: `{{ic|1=FOO=bar BAZ=bar %command% -baz}}`{=mediawiki}
-- completely different command: `{{ic|othercommand # %command%}}`{=mediawiki}
+-   only arguments: `{{ic|-foo}}`{=mediawiki}
+-   environment variables: `{{ic|1=FOO=bar BAZ=bar %command% -baz}}`{=mediawiki}
+-   completely different command: `{{ic|othercommand # %command%}}`{=mediawiki}
 
 ## Tips and tricks {#tips_and_tricks}
 
@@ -105,8 +102,7 @@ launch command as an argument to another command you can use the `{{ic|%command%
 
 It is possible to have Steam start minimized to the system tray, rather than taking focus. Add
 `{{ic|-silent}}`{=mediawiki} to the list of command line arguments; see [Desktop entries#Modify desktop
-files](Desktop_entries#Modify_desktop_files "Desktop entries#Modify desktop files"){.wikilink} for doing this by
-default.
+files](Desktop_entries#Modify_desktop_files "wikilink") for doing this by default.
 
 ### Small Mode {#small_mode}
 
@@ -118,7 +114,7 @@ You can also launch steam with this argument:`{{ic|+open steam://open/minigamesl
 ### Proton Steam-Play {#proton_steam_play}
 
 Valve developed a compatibility tool for Steam Play based on Wine and additional components named
-[Proton](w:Proton_(software) "Proton"){.wikilink}. It allows you to launch many Windows games (see [compatibility
+[Proton](w:Proton_(software) "wikilink"). It allows you to launch many Windows games (see [compatibility
 list](https://www.protondb.com/)).
 
 It is open-source and available on [GitHub](https://github.com/ValveSoftware/Proton/). Steam will install its own
@@ -130,9 +126,8 @@ Steam Play for games that have and have not been whitelisted by Valve in that di
 Proton supports *Easy AntiCheat* integration if the developer activates it, however EAC may require a particular
 [patched version](https://github.com/ValveSoftware/Proton/issues/5214) of glibc: if a game is been reported to be
 working but is not in your machine, try using Steam Flatpak because it comes with glibc patched. Additionally, [setting
-the procfs mount option `{{ic|1=hidepid}}`{=mediawiki} to a hardened
-value](Security#hidepid "setting the procfs mount option  to a hardened value"){.wikilink} may cause Easy Anti-Cheat to
-fail with the message \"Launch Error: 261\".
+the procfs mount option `{{ic|1=hidepid}}`{=mediawiki} to a hardened value](Security#hidepid "wikilink") may cause Easy
+Anti-Cheat to fail with the message \"Launch Error: 261\".
 
 #### Force Proton usage {#force_proton_usage}
 
@@ -142,9 +137,9 @@ can also be used to force games that have a Linux port to use the Windows versio
 
 #### Use Proton outside of Steam {#use_proton_outside_of_steam}
 
-You can [install](install "install"){.wikilink} `{{AUR|proton-cachyos}}`{=mediawiki}, but extra setup is required to
-work with Steam. See the [Proton GitHub](https://github.com/ValveSoftware/Proton?#install-proton-locally) for details on
-how Steam recognizes Proton installs.
+You can [install](install "wikilink") `{{AUR|proton-cachyos}}`{=mediawiki}, but extra setup is required to work with
+Steam. See the [Proton GitHub](https://github.com/ValveSoftware/Proton?#install-proton-locally) for details on how Steam
+recognizes Proton installs.
 
 ### Steam Input {#steam_input}
 
@@ -164,55 +159,54 @@ that implements this functionality. To enable Steam Input for a controller, go t
 ```{=mediawiki}
 {{Move|Steam Input Configurator|No reason to keep such a large text here when it could be in its own article}}
 ```
-See [Steam Input Configurator](Steam_Input_Configurator "Steam Input Configurator"){.wikilink} for configurator usage
-instructions.
+See [Steam Input Configurator](Steam_Input_Configurator "wikilink") for configurator usage instructions.
 
 When SIC is enabled for a controller, there are a few different controller devices:
 
-- The virtual Steam Controller, used by games that utilize the Steam Input API. All rebindings and Steam-specific
-  features are functional.
-  - This is not to be confused with the [Valve Steam
-    Controller](https://store.steampowered.com/app/353370/Steam_Controller/), the physical controller.
-- An evdev device representing an emulated Xbox 360 controller, used by games that do not support Steam Input. Basic
-  rebindings are in effect.
-  [1](https://partner.steamgames.com/doc/features/steam_controller/steam_input_gamepad_emulation_bestpractices)
-- The original controller evdev device, whose inputs are passed through the SIC. Rebindings are not in effect, but games
-  should be defaulting to the 360 controller instead.
-- The joystick analogues of the above two devices.
+-   The virtual Steam Controller, used by games that utilize the Steam Input API. All rebindings and Steam-specific
+    features are functional.
+    -   This is not to be confused with the [Valve Steam
+        Controller](https://store.steampowered.com/app/353370/Steam_Controller/), the physical controller.
+-   An evdev device representing an emulated Xbox 360 controller, used by games that do not support Steam Input. Basic
+    rebindings are in effect.
+    [1](https://partner.steamgames.com/doc/features/steam_controller/steam_input_gamepad_emulation_bestpractices)
+-   The original controller evdev device, whose inputs are passed through the SIC. Rebindings are not in effect, but
+    games should be defaulting to the 360 controller instead.
+-   The joystick analogues of the above two devices.
 
 The SIC\'s behavior is context dependent:
 
-- When launching a game that supports the Steam Input API, it is using the SIC in native mode. The game receives
-  \"actions\" rather than raw inputs to handle.
-  - This works for games running in Proton that would be using Steam Input on Windows.
-  - Even though it\'s theoretically not needed, the emulated 360 controller is still present.
-  - A game may choose to provide both support for the Steam Input, and traditional input API libraries that defer to
-    evdev and joystick under the hood. When the game is launched with Steam and with SIC enabled for the controller,
-    Steam Input takes higher priority.
-  - A game can also choose to *only* support Steam Input. For example, in Among Us, a gamepad will not work unless you
-    have the SIC running.
-- When launching a game that does not support Steam Input, it is (unknowingly) using the SIC in legacy mode. The game
-  receives its expected low-level raw inputs from what seems to be a 360 controller, but they are actually spoofed by
-  the SIC to emulate the desired behavior of native mode.
-  - This is the case for native games that use evdev or joystick, as well as Windows games running through Proton that
-    use DirectInput or XInput.
-- When launching a game that supports neither Steam Input nor other gamepad APIs, SIC can activate a profile that
-  emulates gamepad support as described below.
-- When Big Picture has focus, the current Big Picture profile is in effect. This is not configurable.
-- When anything else has focus, the current Desktop profile is in effect, configurable via *Steam* \> *Settings* \>
-  *Controller* \> *Desktop Layout*.
-- When anything has focus, additional global bindings can be configured via *Steam* \> *Settings* \> *Controller* \>
-  *Guide Button Chord Layout*. This is not available on a Steam Deck.
+-   When launching a game that supports the Steam Input API, it is using the SIC in native mode. The game receives
+    \"actions\" rather than raw inputs to handle.
+    -   This works for games running in Proton that would be using Steam Input on Windows.
+    -   Even though it\'s theoretically not needed, the emulated 360 controller is still present.
+    -   A game may choose to provide both support for the Steam Input, and traditional input API libraries that defer to
+        evdev and joystick under the hood. When the game is launched with Steam and with SIC enabled for the controller,
+        Steam Input takes higher priority.
+    -   A game can also choose to *only* support Steam Input. For example, in Among Us, a gamepad will not work unless
+        you have the SIC running.
+-   When launching a game that does not support Steam Input, it is (unknowingly) using the SIC in legacy mode. The game
+    receives its expected low-level raw inputs from what seems to be a 360 controller, but they are actually spoofed by
+    the SIC to emulate the desired behavior of native mode.
+    -   This is the case for native games that use evdev or joystick, as well as Windows games running through Proton
+        that use DirectInput or XInput.
+-   When launching a game that supports neither Steam Input nor other gamepad APIs, SIC can activate a profile that
+    emulates gamepad support as described below.
+-   When Big Picture has focus, the current Big Picture profile is in effect. This is not configurable.
+-   When anything else has focus, the current Desktop profile is in effect, configurable via *Steam* \> *Settings* \>
+    *Controller* \> *Desktop Layout*.
+-   When anything has focus, additional global bindings can be configured via *Steam* \> *Settings* \> *Controller* \>
+    *Guide Button Chord Layout*. This is not available on a Steam Deck.
 
 Games are rated on how comprehensive their gamepad support is. This is dependent on the controller model.
 
-- Supports Your Controller, indicating that the game has full controller support. This can be achieved even if the game
-  does not use the Steam Input API; the focus is on accessibility regardless of API.
-- Mostly Playable With Your Controller, indicating that the game has partial gamepad support. Even if the game is using
-  the Steam Input API, there are instances like Team Fortress 2 where certain parts are still inaccessible to warrant
-  this rating.
-- Controllers Not Supported, indicating the game does not have native gamepad support.
-- Unknown Controller Support, indicating that Valve has not yet verified the controller support of a game.
+-   Supports Your Controller, indicating that the game has full controller support. This can be achieved even if the
+    game does not use the Steam Input API; the focus is on accessibility regardless of API.
+-   Mostly Playable With Your Controller, indicating that the game has partial gamepad support. Even if the game is
+    using the Steam Input API, there are instances like Team Fortress 2 where certain parts are still inaccessible to
+    warrant this rating.
+-   Controllers Not Supported, indicating the game does not have native gamepad support.
+-   Unknown Controller Support, indicating that Valve has not yet verified the controller support of a game.
 
 In cases where the game does not have full gamepad support, SIC tries to fill the gaps. For example, in Bloons Tower
 Defense 5, a game that requires you to point and click, Steam will automatically activate the *Keyboard (WASD) and
@@ -222,24 +216,24 @@ Mouse* profile, allowing you to use your gamepad to move and click.
 
 To summarize what this all means for usage:
 
-- Enabling \"Configuration Support\" is *recommended* for enhanced gamepad support such as rebinding to one\'s liking,
-  or automated fixes like Nintendo-style button remapping or keyboard/mouse.
-- For some games, enabling this is outright *required* if they do not support traditional gamepad APIs.
-- By default, if you have enabled this, then the controller will not work with non-Steam games because the 360
-  controller takes precedence over the original controller device, but the default Desktop profile has the buttons
-  disabled. To fix this, you can either:
-  - Have the configuration change action sets. Some official desktop configurations will switch to a gamepad mode when
-    the start button is held. If the configuration for your controller does not have this, you can add it by adding a
-    new action set to the configuration, setting the set to contain gamepad buttons, adding an *Extra Command* to the
-    start button, setting the extra command to *Change Action Set*, and then setting that extra command to activate on
-    long press.
-  - Set your Desktop profile to the template for *Gamepad*. This will pass through the inputs to the 360 controller,
-    making the default device usable for other programs.
-  - Have the other game use the original device if it supports this. Note that the game will not benefit from any Steam
-    Input rebindings.
-  - Disable the whole feature for the controller so Steam does not create the 360 controller at all. Note that Steam
-    games would then not benefit from the enhanced gamepad support.
-  - Close Steam when using the other games.
+-   Enabling \"Configuration Support\" is *recommended* for enhanced gamepad support such as rebinding to one\'s liking,
+    or automated fixes like Nintendo-style button remapping or keyboard/mouse.
+-   For some games, enabling this is outright *required* if they do not support traditional gamepad APIs.
+-   By default, if you have enabled this, then the controller will not work with non-Steam games because the 360
+    controller takes precedence over the original controller device, but the default Desktop profile has the buttons
+    disabled. To fix this, you can either:
+    -   Have the configuration change action sets. Some official desktop configurations will switch to a gamepad mode
+        when the start button is held. If the configuration for your controller does not have this, you can add it by
+        adding a new action set to the configuration, setting the set to contain gamepad buttons, adding an *Extra
+        Command* to the start button, setting the extra command to *Change Action Set*, and then setting that extra
+        command to activate on long press.
+    -   Set your Desktop profile to the template for *Gamepad*. This will pass through the inputs to the 360 controller,
+        making the default device usable for other programs.
+    -   Have the other game use the original device if it supports this. Note that the game will not benefit from any
+        Steam Input rebindings.
+    -   Disable the whole feature for the controller so Steam does not create the 360 controller at all. Note that Steam
+        games would then not benefit from the enhanced gamepad support.
+    -   Close Steam when using the other games.
 
 #### Disabling Steam Input {#disabling_steam_input}
 
@@ -248,15 +242,15 @@ each game individually, as there is no global option for doing so.
 
 ### HiDPI
 
-See [HiDPI#Steam](HiDPI#Steam "HiDPI#Steam"){.wikilink}.
+See [HiDPI#Steam](HiDPI#Steam "wikilink").
 
 ### Big Picture Mode from a display manager {#big_picture_mode_from_a_display_manager}
 
-To start Steam in Big Picture Mode from a [display manager](display_manager "display manager"){.wikilink} with
-[Gamescope](Gamescope "Gamescope"){.wikilink} as its [compositor](Wayland#Compositors "compositor"){.wikilink}:
+To start Steam in Big Picture Mode from a [display manager](display_manager "wikilink") with
+[Gamescope](Gamescope "wikilink") as its [compositor](Wayland#Compositors "wikilink"):
 
-- [Install](Install "Install"){.wikilink} `{{Pkg|gamescope}}`{=mediawiki}
-- Create the following [desktop entry](desktop_entry "desktop entry"){.wikilink} with the following contents:
+-   [Install](Install "wikilink") `{{Pkg|gamescope}}`{=mediawiki}
+-   Create the following [desktop entry](desktop_entry "wikilink") with the following contents:
 
 ```{=mediawiki}
 {{hc|/usr/share/wayland-sessions/steam-big-picture.desktop|2=
@@ -285,10 +279,10 @@ guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3003438937) for mo
 
 Some skins updated for the 2023 UI are:
 
-- [Adwaita for Steam](https://github.com/tkashkin/Adwaita-for-Steam)
-- [Shiina\'s Steam Skins](https://github.com/AikoMidori/SteamSkins)
-- [Zehn](https://github.com/yurisuika/Zehn)
-- More skins are available in the guide linked above.
+-   [Adwaita for Steam](https://github.com/tkashkin/Adwaita-for-Steam)
+-   [Shiina\'s Steam Skins](https://github.com/AikoMidori/SteamSkins)
+-   [Zehn](https://github.com/yurisuika/Zehn)
+-   More skins are available in the guide linked above.
 
 ### Changing the Steam notification position {#changing_the_steam_notification_position}
 
@@ -296,15 +290,15 @@ The default Steam notification position is bottom right.
 
 You can change the Steam notification position by altering `{{ic|Notifications.PanelPosition}}`{=mediawiki} in
 
-- ```{=mediawiki}
-  {{ic|resource/styles/steam.styles}}
-  ```
-  for desktop notifications, and
+-   ```{=mediawiki}
+    {{ic|resource/styles/steam.styles}}
+    ```
+    for desktop notifications, and
 
-- ```{=mediawiki}
-  {{ic|resource/styles/gameoverlay.styles}}
-  ```
-  for in-game notifications
+-   ```{=mediawiki}
+    {{ic|resource/styles/gameoverlay.styles}}
+    ```
+    for in-game notifications
 
 Both files are overwritten by Steam on startup and `{{ic|steam.styles}}`{=mediawiki} is only read on startup.
 
@@ -333,7 +327,7 @@ can be overwritten while Steam is running, allowing you to have game-specific no
 sed -i "/Notifications.PanelPosition/ s/\"[A-Za-z]*\"/\"$1\"/" ~/.steam/root/resource/styles/gameoverlay.styles
 }}
 ```
-And the [#Launch options](#Launch_options "#Launch options"){.wikilink} should be something like:
+And the [#Launch options](#Launch_options "wikilink") should be something like:
 
 `~/.steam/notifpos.sh TopLeft && %command%`
 
@@ -368,8 +362,7 @@ You WILL run into problems where games don't start. You WILL run into problems w
 See [Using a NTFS disk with Linux and
 Windows](https://github.com/ValveSoftware/Proton/wiki/Using-a-NTFS-disk-with-Linux-and-Windows) for more information on
 how to configure that. To launch games from an NTFS drive, follow the steps from [Steam/Troubleshooting#Steam Library in
-NTFS
-partition](Steam/Troubleshooting#Steam_Library_in_NTFS_partition "Steam/Troubleshooting#Steam Library in NTFS partition"){.wikilink}.
+NTFS partition](Steam/Troubleshooting#Steam_Library_in_NTFS_partition "wikilink").
 
 Using ntfs has disadvantages. It happens often that shaders cache folder becomes corrupted. Messages saying
 `{{ic|1=ntfs3: sdb6 ino=1921f, steamapprun_pipeline_cache Looks like your dir is corrupt.}}`{=mediawiki} You cannot fix
@@ -386,10 +379,9 @@ method.
 
 #### Btrfs
 
-[Btrfs](Btrfs "Btrfs"){.wikilink} has a fairly mature Windows [Driver](https://github.com/maharmstone/btrfs).
+[Btrfs](Btrfs "wikilink") has a fairly mature Windows [Driver](https://github.com/maharmstone/btrfs).
 
-NTFS can be also converted into Btrfs, see [Btrfs#NTFS to Btrfs
-conversion](Btrfs#NTFS_to_Btrfs_conversion "Btrfs#NTFS to Btrfs conversion"){.wikilink}.
+NTFS can be also converted into Btrfs, see [Btrfs#NTFS to Btrfs conversion](Btrfs#NTFS_to_Btrfs_conversion "wikilink").
 
 This filesystem eliminates most NTFS/exFAT compatibility issues, but **sharing a Steam library between Windows and Linux
 has limitations**:
@@ -427,20 +419,20 @@ The partition is then formatted to UDF using `{{man|8|mkfs.udf}}`{=mediawiki} pr
 
 Where:
 
-- ```{=mediawiki}
-  {{ic|''the_partition_to_be_formatted''}}
-  ```
-  is the name of the target partition (e.g. `{{ic|sdb4}}`{=mediawiki}, `{{ic|nvme2n5p3}}`{=mediawiki} etc.).
+-   ```{=mediawiki}
+    {{ic|''the_partition_to_be_formatted''}}
+    ```
+    is the name of the target partition (e.g. `{{ic|sdb4}}`{=mediawiki}, `{{ic|nvme2n5p3}}`{=mediawiki} etc.).
 
-- ```{=mediawiki}
-  {{ic|''label''}}
-  ```
-  is the desired volume label.
+-   ```{=mediawiki}
+    {{ic|''label''}}
+    ```
+    is the desired volume label.
 
-- ```{=mediawiki}
-  {{ic|''block-size''}}
-  ```
-  is the output of the `{{ic|blockdev}}`{=mediawiki} command.
+-   ```{=mediawiki}
+    {{ic|''block-size''}}
+    ```
+    is the output of the `{{ic|blockdev}}`{=mediawiki} command.
 
 Alternatively, graphical tools like `{{pkg|gparted}}`{=mediawiki} can be used to handle formatting. They correctly
 manage UDF revision selection to ensure compatibility.
@@ -459,18 +451,18 @@ unShaderBackgroundProcessingThreads 8
 
 There are compatibility tools other than Proton/Wine.
 
-- ```{=mediawiki}
-  {{App|Luxtorpeda|Run games using native Linux engines.|https://luxtorpeda-dev.github.io/|{{AUR|luxtorpeda-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Luxtorpeda|Run games using native Linux engines.|https://luxtorpeda-dev.github.io/|{{AUR|luxtorpeda-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Boxtron|Run DOS games using native Linux DOSBox|https://github.com/dreamer/boxtron|{{AUR|boxtron}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Boxtron|Run DOS games using native Linux DOSBox|https://github.com/dreamer/boxtron|{{AUR|boxtron}}}}
+    ```
 
 You can also use `{{AUR|protonup-qt}}`{=mediawiki} to manage them:
 
 1.  Close Steam
-2.  [Install](Install "Install"){.wikilink} `{{AUR|protonup-qt}}`{=mediawiki}
+2.  [Install](Install "wikilink") `{{AUR|protonup-qt}}`{=mediawiki}
 3.  Open protonup-qt and install desired tools
 4.  Start Steam
 5.  In the *game properties* window, select *Force the use of a specific Steam Play compatibility tool* and select the
@@ -487,18 +479,17 @@ those configurations. You can either use the console command
 
 ### Run games using discrete GPU {#run_games_using_discrete_gpu}
 
-On [hybrid graphics](hybrid_graphics "hybrid graphics"){.wikilink} laptops, Steam runs games using the integrated GPU by
-default. See [PRIME#PRIME GPU offloading](PRIME#PRIME_GPU_offloading "PRIME#PRIME GPU offloading"){.wikilink} to switch
-to the more powerful discrete GPU for specific games.
+On [hybrid graphics](hybrid_graphics "wikilink") laptops, Steam runs games using the integrated GPU by default. See
+[PRIME#PRIME GPU offloading](PRIME#PRIME_GPU_offloading "wikilink") to switch to the more powerful discrete GPU for
+specific games.
 
 ### Flatpak
 
 ```{=mediawiki}
 {{Note|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}
 ```
-Steam can also be installed with [Flatpak](Flatpak "Flatpak"){.wikilink} as `{{ic|com.valvesoftware.Steam}}`{=mediawiki}
-from [Flathub](https://flathub.org/). The easiest way to install it for the current user is by using the Flathub
-repository:
+Steam can also be installed with [Flatpak](Flatpak "wikilink") as `{{ic|com.valvesoftware.Steam}}`{=mediawiki} from
+[Flathub](https://flathub.org/). The easiest way to install it for the current user is by using the Flathub repository:
 
 `$ flatpak --user remote-add --if-not-exists flathub `[`https://dl.flathub.org/repo/flathub.flatpakrepo`](https://dl.flathub.org/repo/flathub.flatpakrepo)\
 `$ flatpak --user install flathub com.valvesoftware.Steam`\
@@ -516,7 +507,7 @@ external library, run the following command to add it:
 
 Launching Steam with Flatpak might warn you about installing the `{{ic|steam-devices}}`{=mediawiki} package. This
 package currently does not exist but `{{aur|game-devices-udev}}`{=mediawiki} can be installed instead, see
-[Gamepad#Device permissions](Gamepad#Device_permissions "Gamepad#Device permissions"){.wikilink}.
+[Gamepad#Device permissions](Gamepad#Device_permissions "wikilink").
 
 #### Asian Font Problems with Flatpak {#asian_font_problems_with_flatpak}
 
@@ -561,18 +552,18 @@ full-fledged client.
 
 ## Troubleshooting
 
-See [Steam/Troubleshooting](Steam/Troubleshooting "Steam/Troubleshooting"){.wikilink}.
+See [Steam/Troubleshooting](Steam/Troubleshooting "wikilink").
 
 ## See also {#see_also}
 
-- [Gentoo:Steam](Gentoo:Steam "Gentoo:Steam"){.wikilink}
-- [The Big List of DRM-Free Games on Steam](https://pcgamingwiki.com/wiki/The_Big_List_of_DRM-Free_Games_on_Steam) at
-  PCGamingWiki
-- [Steam Linux store](https://store.steampowered.com/browse/linux)
-- [Proton](https://github.com/ValveSoftware/Proton/) Compatibility tool for Steam Play based on Wine and additional
-  components.
-- [ProtonDB](https://www.protondb.com/) crowdsourced Linux compatibility reports.
-- [are we anti cheat yet](https://areweanticheatyet.com/) A comprehensive and crowd-sourced list of games using
-  anti-cheats and their compatibility with GNU/Linux or Wine/Proton.
+-   [Gentoo:Steam](Gentoo:Steam "wikilink")
+-   [The Big List of DRM-Free Games on Steam](https://pcgamingwiki.com/wiki/The_Big_List_of_DRM-Free_Games_on_Steam) at
+    PCGamingWiki
+-   [Steam Linux store](https://store.steampowered.com/browse/linux)
+-   [Proton](https://github.com/ValveSoftware/Proton/) Compatibility tool for Steam Play based on Wine and additional
+    components.
+-   [ProtonDB](https://www.protondb.com/) crowdsourced Linux compatibility reports.
+-   [are we anti cheat yet](https://areweanticheatyet.com/) A comprehensive and crowd-sourced list of games using
+    anti-cheats and their compatibility with GNU/Linux or Wine/Proton.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

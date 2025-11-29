@@ -1,15 +1,13 @@
-[es:RetroArch](es:RetroArch "es:RetroArch"){.wikilink} [ja:RetroArch](ja:RetroArch "ja:RetroArch"){.wikilink}
-[ru:RetroArch](ru:RetroArch "ru:RetroArch"){.wikilink}
+[es:RetroArch](es:RetroArch "wikilink") [ja:RetroArch](ja:RetroArch "wikilink") [ru:RetroArch](ru:RetroArch "wikilink")
 
 [RetroArch](https://www.retroarch.com/) is the reference implementation of the libretro API. It is a modular front-end
 for video game system emulators, game engines, video games, media players and other applications that offers several
 uncommon technical features such as multi-pass shader support, real-time rewinding and video recording (using
-[FFmpeg](FFmpeg "FFmpeg"){.wikilink}), it also features a gamepad-driven UI on top of a full-featured command-line
-interface.
+[FFmpeg](FFmpeg "wikilink")), it also features a gamepad-driven UI on top of a full-featured command-line interface.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|retroarch}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|retroarch}}`{=mediawiki} package.
 
 ```{=mediawiki}
 {{Tip|
@@ -22,11 +20,11 @@ interface.
 
 RetroArch relies on separate libraries, called \"cores\", for most of its functionality. These can be downloaded
 per-user within RetroArch itself (via the [libretro Buildbot](https://buildbot.libretro.com/)) or you can
-[install](install "install"){.wikilink} them system-wide with `{{Grp|libretro}}`{=mediawiki} or
+[install](install "wikilink") them system-wide with `{{Grp|libretro}}`{=mediawiki} or
 [AUR](https://aur.archlinux.org/packages/?O=0&K=libretro).
 
 By default RetroArch is configured to load the per-user cores that it downloads. Change your
-[#Configuration](#Configuration "#Configuration"){.wikilink} if you install them elsewhere.
+[#Configuration](#Configuration "wikilink") if you install them elsewhere.
 
 The command to run a particular core is
 
@@ -44,8 +42,8 @@ file for downloading cores. For example,
 {{hc|~/.config/retroarch/retroarch.cfg|2=libretro_directory = "~/.config/retroarch/cores"
 libretro_info_path = "~/.config/retroarch/cores/info"}}
 ```
-If you install any RetroArch components system-wide with [pacman](pacman "pacman"){.wikilink}, you should specify these
-in the global configuration file and include them in your user file. For example,
+If you install any RetroArch components system-wide with [pacman](pacman "wikilink"), you should specify these in the
+global configuration file and include them in your user file. For example,
 
 ```{=mediawiki}
 {{hc|/etc/retroarch.cfg|2=# for retroarch-assets-xmb
@@ -114,10 +112,9 @@ To remove a button from a keybind, highlight the keybind and press `{{ic|Y}}`{=m
 ### No cores found {#no_cores_found}
 
 By default RetroArch searches for cores in `{{ic|~/.config/retroarch/cores}}`{=mediawiki}, which is where the Online
-Updater installs them. Cores installed with [pacman](pacman "pacman"){.wikilink} are placed in
+Updater installs them. Cores installed with [pacman](pacman "wikilink") are placed in
 `{{ic|/usr/lib/libretro}}`{=mediawiki} and thus will not appear in RetroArch\'s GUI. You should choose one method of
-installing cores (pacman or the Online Updater) and change [your
-configuration](#Configuration "your configuration"){.wikilink} to match.
+installing cores (pacman or the Online Updater) and change [your configuration](#Configuration "wikilink") to match.
 
 If you still face a \"No Cores Available\" message, you likely need to install the core info files. To solve this:
 
@@ -135,14 +132,13 @@ Upon restarting RetroArch, you should be able to run ROMs using any of the insta
 ```{=mediawiki}
 {{Accuracy|We might want to update this section to point to [[Udev#Allowing regular users to use devices]]?}}
 ```
-You may encounter problems if running on a CLI or a display server other than [Xorg](Xorg "Xorg"){.wikilink} or if you
-use the [udev](udev "udev"){.wikilink} input driver, because `{{ic|/dev/input}}`{=mediawiki} nodes are limited to
-root-only access. Try adding your user to the `{{ic|input}}`{=mediawiki} [user
-group](user_group "user group"){.wikilink} then logging in again.
+You may encounter problems if running on a CLI or a display server other than [Xorg](Xorg "wikilink") or if you use the
+[udev](udev "wikilink") input driver, because `{{ic|/dev/input}}`{=mediawiki} nodes are limited to root-only access. Try
+adding your user to the `{{ic|input}}`{=mediawiki} [user group](user_group "wikilink") then logging in again.
 
 Alternatively, manually add a rule in `{{ic|/etc/udev/rules.d/99-evdev.rules}}`{=mediawiki}, with
 `{{ic|1=KERNEL=="event*", NAME="input/%k", MODE="666"}}`{=mediawiki} as its contents. Reload [udev
-rules](udev_rules "udev rules"){.wikilink} by running:
+rules](udev_rules "wikilink") by running:
 
 `# udevadm control --reload-rules`
 
@@ -160,13 +156,12 @@ problem, as it makes perfect V-Sync impossible, and slightly increases latency.
 
 ### Audio issues with ALSA {#audio_issues_with_alsa}
 
-When using [ALSA](ALSA "ALSA"){.wikilink} the `{{ic|audio_out_rate}}`{=mediawiki} must match the system\'s default
-output rate, usually `{{ic|48000}}`{=mediawiki}.
+When using [ALSA](ALSA "wikilink") the `{{ic|audio_out_rate}}`{=mediawiki} must match the system\'s default output rate,
+usually `{{ic|48000}}`{=mediawiki}.
 
 ### Save data is lost whenever RetroArch crashes {#save_data_is_lost_whenever_retroarch_crashes}
 
-See [#Enabling \"SaveRAM Autosave
-Interval\"](#Enabling_"SaveRAM_Autosave_Interval" "#Enabling "SaveRAM Autosave Interval""){.wikilink}.
+See [#Enabling \"SaveRAM Autosave Interval\"](#Enabling_"SaveRAM_Autosave_Interval" "wikilink").
 
 ### Start game from playlist but reports \'No Items\' {#start_game_from_playlist_but_reports_no_items}
 
@@ -202,9 +197,8 @@ Further in depth info on BIOS files for many of the supported cores can be found
 
 ## See also {#see_also}
 
-- [Official Website](https://www.retroarch.com/)
-- [RetroArch wiki on GitHub](https://github.com/libretro/RetroArch/wiki)
-- [Documentation for developers](https://github.com/libretro/libretro.github.com/wiki/Documentation-devs)
+-   [Official Website](https://www.retroarch.com/)
+-   [RetroArch wiki on GitHub](https://github.com/libretro/RetroArch/wiki)
+-   [Documentation for developers](https://github.com/libretro/libretro.github.com/wiki/Documentation-devs)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Emulation](Category:Emulation "wikilink")

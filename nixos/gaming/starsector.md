@@ -34,5 +34,4 @@ To change the amount of memory, the starsector game can use, add the following c
 This commands takes the `settings.json` and changes the commandline parameters:`Xms` `Xmx` to take `8192m` or `8GiB` of
 RAM.
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

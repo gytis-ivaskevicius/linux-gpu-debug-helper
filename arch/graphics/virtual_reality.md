@@ -1,16 +1,15 @@
-[ja:バーチャルリアリティ](ja:バーチャルリアリティ "ja:バーチャルリアリティ"){.wikilink} [zh-hans:Virtual
-reality](zh-hans:Virtual_reality "zh-hans:Virtual reality"){.wikilink}
+[ja:バーチャルリアリティ](ja:バーチャルリアリティ "wikilink") [zh-hans:Virtual
+reality](zh-hans:Virtual_reality "wikilink")
 `{{Expansion|Rewrite in progress: many things in this article are outdated}}`{=mediawiki}
 
-[Virtual reality](Wikipedia:Virtual_reality "Virtual reality"){.wikilink} is the process of simulating an environment
-for a user, using a variety of peripherals, head mounted displays or
-[CAVEs](Wikipedia:Cave_automatic_virtual_environment "CAVEs"){.wikilink}, and trackers. Instead of showing you a static
-viewpoint from a screen, it renders your viewpoint relative to where you are standing, on a head-attached or projected
-surface, to give an effect identical to your own eyes.
+[Virtual reality](Wikipedia:Virtual_reality "wikilink") is the process of simulating an environment for a user, using a
+variety of peripherals, head mounted displays or [CAVEs](Wikipedia:Cave_automatic_virtual_environment "wikilink"), and
+trackers. Instead of showing you a static viewpoint from a screen, it renders your viewpoint relative to where you are
+standing, on a head-attached or projected surface, to give an effect identical to your own eyes.
 
 A number of peripherals have been released or are about to be released recently which have brought affordable, extremely
 immersive virtual reality to everyone. Most of these peripherals have full or partial Linux support, and many have
-[AUR](AUR "AUR"){.wikilink} packages.
+[AUR](AUR "wikilink") packages.
 
 ## Hardware compatibility {#hardware_compatibility}
 
@@ -18,59 +17,70 @@ The following is a non-exhaustive list of currently supported VR/XR devices, and
 
 ### PCVR HMDs {#pcvr_hmds}
 
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| Device            | SteamVR                                                                                                                                        | Monado                                                                                                                                          |
-+===================+================================================================================================================================================+=================================================================================================================================================+
-| Valve Index       | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| HTC Vive/Vive Pro | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| HTC Vive Pro Eye  | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (eye tracking WIP)                                                                                                                             | (eye tracking WIP)                                                                                                                              |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| HTC Vive Pro 2    | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | ([custom driver and patches](https://github.com/CertainLach/VivePro2-Linux-Driver) needed)                                                     | (AMD GPUs only, 2 kernel patches required:                                                                                                      |
-|                   |                                                                                                                                                | [1](https://github.com/CertainLach/VivePro2-Linux-Driver/blob/master/kernel-patches/0002-drm-edid-parse-DRM-VESA-dsc-bpp-target.patch)          |
-|                   |                                                                                                                                                | [2](https://github.com/CertainLach/VivePro2-Linux-Driver/blob/master/kernel-patches/0003-drm-amd-use-fixed-dsc-bits-per-pixel-from-edid.patch)) |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| Bigscreen Beyond  | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (AMD GPUs only, [kernel                                                                                                                        | (AMD GPUs only, [kernel                                                                                                                         |
-|                   | patch](https://gist.github.com/galister/08cddf10ac18929647d5fb6308df3e4b/raw/0f6417b6cb069f19d6c28b730499c07de06ec413/combined-bsb-6-10.patch) | patch](https://gist.github.com/galister/08cddf10ac18929647d5fb6308df3e4b/raw/0f6417b6cb069f19d6c28b730499c07de06ec413/combined-bsb-6-10.patch)  |
-|                   | required)                                                                                                                                      | required)                                                                                                                                       |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| Pimax HMDs        | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{No}}                                                                                                                                         | {{Y|WIP}}                                                                                                                                       |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (planned)                                                                                                                                      | (might work with [kernel                                                                                                                        |
-|                   |                                                                                                                                                | patch](https://gist.githubusercontent.com/TayouVR/60e3ee5f95375827a66a8898bea02bec/raw/c85135c8d8821ebb2fa85629d837a41de57e12ef/pimax.patch))   |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| WMR               | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (common HMDs, Monado SteamVR plugin)                                                                                                           | (6DoF controllers experimental)                                                                                                                 |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| Oculus Rift CV1   | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (OpenHMD recommended)                                                                                                                          | (OpenHMD recommended)                                                                                                                           |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| Oculus Rift S     | ```{=mediawiki}                                                                                                                                | ```{=mediawiki}                                                                                                                                 |
-|                   | {{Yes}}                                                                                                                                        | {{Yes}}                                                                                                                                         |
-|                   | ```                                                                                                                                            | ```                                                                                                                                             |
-|                   | (Monado SteamVR plugin)                                                                                                                        | (6DoF controllers experimental)                                                                                                                 |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-|                   |                                                                                                                                                |                                                                                                                                                 |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| Device            | SteamVR                                       | Monado                                        |
++===================+===============================================+===============================================+
+| Valve Index       | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| HTC Vive/Vive Pro | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| HTC Vive Pro Eye  | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | (eye tracking WIP)                            | (eye tracking WIP)                            |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| HTC Vive Pro 2    | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | ([custom driver and                           | (AMD GPUs only, 2 kernel patches required:    |
+|                   | patches](https://                             | [1](https://github.com/CertainLach/VivePro2-  |
+|                   | github.com/CertainLach/VivePro2-Linux-Driver) | Linux-Driver/blob/master/kernel-patches/0002- |
+|                   | needed)                                       | drm-edid-parse-DRM-VESA-dsc-bpp-target.patch) |
+|                   |                                               | [2](http                                      |
+|                   |                                               | s://github.com/CertainLach/VivePro2-Linux-Dri |
+|                   |                                               | ver/blob/master/kernel-patches/0003-drm-amd-u |
+|                   |                                               | se-fixed-dsc-bits-per-pixel-from-edid.patch)) |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| Bigscreen Beyond  | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | (AMD GPUs only, [kernel                       | (AMD GPUs only, [kernel                       |
+|                   | patch](                                       | patch](                                       |
+|                   | https://gist.github.com/galister/08cddf10ac18 | https://gist.github.com/galister/08cddf10ac18 |
+|                   | 929647d5fb6308df3e4b/raw/0f6417b6cb069f19d6c2 | 929647d5fb6308df3e4b/raw/0f6417b6cb069f19d6c2 |
+|                   | 8b730499c07de06ec413/combined-bsb-6-10.patch) | 8b730499c07de06ec413/combined-bsb-6-10.patch) |
+|                   | required)                                     | required)                                     |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| Pimax HMDs        | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{No}}                                        | {{Y|WIP}}                                     |
+|                   | ```                                           | ```                                           |
+|                   | (planned)                                     | (might work with [kernel                      |
+|                   |                                               | patch]                                        |
+|                   |                                               | (https://gist.githubusercontent.com/TayouVR/6 |
+|                   |                                               | 0e3ee5f95375827a66a8898bea02bec/raw/c85135c8d |
+|                   |                                               | 8821ebb2fa85629d837a41de57e12ef/pimax.patch)) |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| WMR               | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | (common HMDs, Monado SteamVR plugin)          | (6DoF controllers experimental)               |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| Oculus Rift CV1   | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | (OpenHMD recommended)                         | (OpenHMD recommended)                         |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+| Oculus Rift S     | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Yes}}                                       | {{Yes}}                                       |
+|                   | ```                                           | ```                                           |
+|                   | (Monado SteamVR plugin)                       | (6DoF controllers experimental)               |
++-------------------+-----------------------------------------------+-----------------------------------------------+
+|                   |                                               |                                               |
++-------------------+-----------------------------------------------+-----------------------------------------------+
 
 In addition, there\'s an experimental PC-PC stream client for WiVRn that might work with the above HMDs that are
 supported by Monado.
@@ -114,49 +124,51 @@ supported by Monado.
 
 ### Tracking devices {#tracking_devices}
 
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Device                | SteamVR              | Monado                                                                        | WiVRn                                                                         |
-+=======================+======================+===============================================================================+===============================================================================+
-| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{Yes}}              | {{Yes}}                                                                       | {{Yes}}                                                                       |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       | (native or spacecal) | (native or motoc)                                                             | (motoc)                                                                       |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{Yes}}              | {{Y|OSC only}}                                                                | {{Y|OSC only}}                                                                |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       |                      | ([merge                                                                       | ([merge                                                                       |
-|                       |                      | request](https://gitlab.freedesktop.org/monado/monado/-/merge_requests/2253)) | request](https://gitlab.freedesktop.org/monado/monado/-/merge_requests/2253)) |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{Yes}}              | {{Yes}}                                                                       | {{Yes}}                                                                       |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       | (oscavmgr)           | (oscavmgr)                                                                    | (oscavmgr)                                                                    |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{Yes}}              | {{Yes}}                                                                       | {{Yes}}                                                                       |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       | (oscavmgr)           | (oscavmgr)                                                                    | (oscavmgr)                                                                    |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{No}}               | {{Yes}}                                                                       | {{No}}                                                                        |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       |                      | (survive driver only)                                                         |                                                                               |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{C|?}}              | {{Yes}}                                                                       | {{No}}                                                                        |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       |                      | (survive driver only)                                                         |                                                                               |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{Yes}}              | {{Yes}}                                                                       | {{Y|WIP}}                                                                     |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-|                       |                      | (experimental)                                                                |                                                                               |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}                                                               | ```{=mediawiki}                                                               |
-|                       | {{No}}               | {{No}}                                                                        | {{No}}                                                                        |
-|                       | ```                  | ```                                                                           | ```                                                                           |
-+-----------------------+----------------------+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Device                | SteamVR              | Monado                          | WiVRn                           |
++=======================+======================+=================================+=================================+
+| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
+|                       | ```                  | ```                             | ```                             |
+|                       | (native or spacecal) | (native or motoc)               | (motoc)                         |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{Yes}}              | {{Y|OSC only}}                  | {{Y|OSC only}}                  |
+|                       | ```                  | ```                             | ```                             |
+|                       |                      | ([merge                         | ([merge                         |
+|                       |                      | request](https:                 | request](https:                 |
+|                       |                      | //gitlab.freedesktop.org/monado | //gitlab.freedesktop.org/monado |
+|                       |                      | /monado/-/merge_requests/2253)) | /monado/-/merge_requests/2253)) |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
+|                       | ```                  | ```                             | ```                             |
+|                       | (oscavmgr)           | (oscavmgr)                      | (oscavmgr)                      |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
+|                       | ```                  | ```                             | ```                             |
+|                       | (oscavmgr)           | (oscavmgr)                      | (oscavmgr)                      |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{No}}               | {{Yes}}                         | {{No}}                          |
+|                       | ```                  | ```                             | ```                             |
+|                       |                      | (survive driver only)           |                                 |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{C|?}}              | {{Yes}}                         | {{No}}                          |
+|                       | ```                  | ```                             | ```                             |
+|                       |                      | (survive driver only)           |                                 |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{Yes}}              | {{Yes}}                         | {{Y|WIP}}                       |
+|                       | ```                  | ```                             | ```                             |
+|                       |                      | (experimental)                  |                                 |
++-----------------------+----------------------+---------------------------------+---------------------------------+
+| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
+|                       | {{No}}               | {{No}}                          | {{No}}                          |
+|                       | ```                  | ```                             | ```                             |
++-----------------------+----------------------+---------------------------------+---------------------------------+
 
 ## Supported runtimes and toolkits {#supported_runtimes_and_toolkits}
 
@@ -205,11 +217,11 @@ an easy start use Envision, its a GUI for Monado
 
 #### Setting up SteamVR {#setting_up_steamvr}
 
-[Install](Install "Install"){.wikilink} [Vulkan](Vulkan "Vulkan"){.wikilink} and [Steam](Steam "Steam"){.wikilink}. If
-using [NVIDIA](NVIDIA "NVIDIA"){.wikilink} drivers, you may need to set the
-[VK_DRIVER_FILES](Vulkan#NVIDIA_-_vulkan_is_not_working_and_can_not_initialize "VK_DRIVER_FILES"){.wikilink} environment
-variable. Required dependencies for 32-bit packages are: `{{AUR|lib32-gtk2}}`{=mediawiki},
-`{{Pkg|lib32-libva}}`{=mediawiki}, `{{Pkg|lib32-libvdpau}}`{=mediawiki}.
+[Install](Install "wikilink") [Vulkan](Vulkan "wikilink") and [Steam](Steam "wikilink"). If using
+[NVIDIA](NVIDIA "wikilink") drivers, you may need to set the
+[VK_DRIVER_FILES](Vulkan#NVIDIA_-_vulkan_is_not_working_and_can_not_initialize "wikilink") environment variable.
+Required dependencies for 32-bit packages are: `{{AUR|lib32-gtk2}}`{=mediawiki}, `{{Pkg|lib32-libva}}`{=mediawiki},
+`{{Pkg|lib32-libvdpau}}`{=mediawiki}.
 
 From Steam, install SteamVR from the tools menu.
 
@@ -241,7 +253,7 @@ and create a symlink that points to the OpenHMD SteamVR driver inside your Steam
 
 ### vr-video-player {#vr_video_player}
 
-A simple tool to view any [X11](X11 "X11"){.wikilink} window inside your VR headset. vr-video-player supports
+A simple tool to view any [X11](X11 "wikilink") window inside your VR headset. vr-video-player supports
 stereoscopic/180°/360° videos/games. vr-video-player also lets you view regular videos/games/windows inside VR as a flat
 screen.
 
@@ -255,8 +267,8 @@ Available as `{{AUR|xr-video-player-git}}`{=mediawiki}.
 
 ### SideQuest
 
-SideQuest can be used to install [APK files](Wikipedia:APK_file "APK file"){.wikilink} to your Oculus Quest. It is
-available as `{{AUR|sidequest-bin}}`{=mediawiki}.
+SideQuest can be used to install [APK files](Wikipedia:APK_file "wikilink") to your Oculus Quest. It is available as
+`{{AUR|sidequest-bin}}`{=mediawiki}.
 
 See <https://sidequestvr.com/setup-howto> for installation steps:
 
@@ -298,8 +310,8 @@ compatibilty chart to see if your headset is compatible.
 
 ### Games/Programs
 
-Most XR applications run without major issues through [Proton](Proton "Proton"){.wikilink}. Proton-GE (can be installed
-with `{{AUR|protonup-qt}}`{=mediawiki} or `{{AUR|protonup-rs}}`{=mediawiki}) or
+Most XR applications run without major issues through [Proton](Proton "wikilink"). Proton-GE (can be installed with
+`{{AUR|protonup-qt}}`{=mediawiki} or `{{AUR|protonup-rs}}`{=mediawiki}) or
 [Proton-GE-RTSP](https://github.com/SpookySkeletons/proton-ge-rtsp) might be required for some games or specific
 functionality. If a game has issues running through Proton, please refer to the game\'s Linux/Wine compatibility
 information, [ProtonDB](https://www.protondb.com/) and documentation for the XR runtimes and compatibility layers in use
@@ -312,4 +324,4 @@ amount of possible issues, it is not possible to write out everything here. Inst
 software\'s respective documentation, the [Linux VR Adventures Wiki](https://lvra.gitlab.io), or the [Linux VR
 Adventures Discord](https://discord.gg/phCEHFyMZP) for help on any possible issue you are facing.
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

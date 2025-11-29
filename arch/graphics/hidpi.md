@@ -1,11 +1,10 @@
-[hu:HiDPI](hu:HiDPI "hu:HiDPI"){.wikilink} [ja:HiDPI](ja:HiDPI "ja:HiDPI"){.wikilink}
-[ru:HiDPI](ru:HiDPI "ru:HiDPI"){.wikilink} [zh-hans:HiDPI](zh-hans:HiDPI "zh-hans:HiDPI"){.wikilink}
-`{{Related articles start}}`{=mediawiki} `{{Related|Font configuration}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[hu:HiDPI](hu:HiDPI "wikilink") [ja:HiDPI](ja:HiDPI "wikilink") [ru:HiDPI](ru:HiDPI "wikilink")
+[zh-hans:HiDPI](zh-hans:HiDPI "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Font configuration}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-HiDPI (High Dots Per Inch) displays, also known by Apple\'s \"[Retina
-display](wikipedia:Retina_display "Retina display"){.wikilink}\" marketing name, are screens with a high resolution in a
-relatively small format. They are mostly found in high-end laptops and monitors.
+HiDPI (High Dots Per Inch) displays, also known by Apple\'s \"[Retina display](wikipedia:Retina_display "wikilink")\"
+marketing name, are screens with a high resolution in a relatively small format. They are mostly found in high-end
+laptops and monitors.
 
 Not all software behaves well in high-resolution mode yet. Here are listed most common tweaks which make work on a HiDPI
 screen more pleasant.
@@ -14,14 +13,12 @@ screen more pleasant.
 
 The terminology in this space can be misleading. Prior to HiDPI, the terms were:
 
-- [Dots per inch](Wikipedia:Dots_per_inch "Dots per inch"){.wikilink} (DPI)---specifies the output density of ink
-  droplets when printing a paper.
-  [1](https://www.adobe.com/uk/creativecloud/photography/discover/dots-per-inch-dpi-resolution.html) Higher
-  dots-per-inch correspond to a more dense output.
-- [Pixel density](Wikipedia:Pixel_density "Pixel density"){.wikilink}, *pixels per inch* (PPI)---specifies the input
-  density of a digital image.
-  [2](https://www.adobe.com/uk/creativecloud/photography/discover/pixels-per-inch-ppi-resolution.html) Computed as
-  `{{ic|(number of pixels in image) / (physical size of the photo)}}`{=mediawiki}.
+-   [Dots per inch](Wikipedia:Dots_per_inch "wikilink") (DPI)---specifies the output density of ink droplets when
+    printing a paper. [1](https://www.adobe.com/uk/creativecloud/photography/discover/dots-per-inch-dpi-resolution.html)
+    Higher dots-per-inch correspond to a more dense output.
+-   [Pixel density](Wikipedia:Pixel_density "wikilink"), *pixels per inch* (PPI)---specifies the input density of a
+    digital image. [2](https://www.adobe.com/uk/creativecloud/photography/discover/pixels-per-inch-ppi-resolution.html)
+    Computed as `{{ic|(number of pixels in image) / (physical size of the photo)}}`{=mediawiki}.
 
 Every display has an intrinsic PPI as the ratio of native screen resolution to physical screen size.
 [3](https://web.archive.org/web/20191117040931/https://blogs.msdn.microsoft.com/fontblog/2005/11/08/where-does-96-dpi-come-from-in-windows/)
@@ -33,18 +30,17 @@ greater, with some screens falling in the middle (\"medium PPI\").
 
 When using a HiDPI screen on a DPI-unaware system which assumes a DPI of \~96, small fonts will be uncomfortable to
 read. Since font rendering is relatively easy to adjust, even \"DPI-unaware\" systems (such as [#Wine
-applications](#Wine_applications "#Wine applications"){.wikilink}) often provide a knob for adjusting the font DPI.
-Whenever a DPI setting is exposed as a number (as opposed to a multiplier or a percentage), it is likely referring to
-the text rendering alone.
+applications](#Wine_applications "wikilink")) often provide a knob for adjusting the font DPI. Whenever a DPI setting is
+exposed as a number (as opposed to a multiplier or a percentage), it is likely referring to the text rendering alone.
 
 Most modern GUI toolkits are capable of \"integer scaling\", rendering the UI at least 2x size. This is achieved by
 applying a different font DPI as well as providing HiDPI versions of assets. Some toolkits also support fractional
-scaling, with GTK [#Fractional scaling](#Fractional_scaling "#Fractional scaling"){.wikilink} using a combination of
-applying arbitrary font DPI and downscaling graphical resources.
+scaling, with GTK [#Fractional scaling](#Fractional_scaling "wikilink") using a combination of applying arbitrary font
+DPI and downscaling graphical resources.
 
 On a desktop which is otherwise using UI scaling, applications that lack [resolution
-independence](Wikipedia:Resolution_independence "resolution independence"){.wikilink} (such as
-[#Xwayland](#Xwayland_2 "#Xwayland"){.wikilink}) may render at 1x scale and then be scaled up by the display server.
+independence](Wikipedia:Resolution_independence "wikilink") (such as [#Xwayland](#Xwayland_2 "wikilink")) may render at
+1x scale and then be scaled up by the display server.
 
 ## Desktop environments {#desktop_environments}
 
@@ -173,8 +169,8 @@ To adjust font, widget, and icon scaling together:
 ```{=mediawiki}
 {{Note|If you are using xorg, and global scaling is set but not applied to Qt applications after reboot, please check if {{ic|xft.dpi}} is set in {{ic|~/.Xresources}} . If so, removing the variable and adjusting global scaling again may take effect.}}
 ```
-However, using [X11](X11 "X11"){.wikilink} session, Plasma ignores the Qt scaling settings by default, which affects
-panels and other desktop elements. To make Plasma respect the Qt settings, [set](Environment_variables "set"){.wikilink}
+However, using [X11](X11 "wikilink") session, Plasma ignores the Qt scaling settings by default, which affects panels
+and other desktop elements. To make Plasma respect the Qt settings, [set](Environment_variables "wikilink")
 `{{ic|1=PLASMA_USE_QT_SCALING=1}}`{=mediawiki}.
 
 #### Cursor size {#cursor_size}
@@ -231,17 +227,17 @@ Alternatively, it is possible to do the same from command line using *xfconf-que
 `$ xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi`
 
 After either of the above changes, fonts in some GTK applications may still not be scaled; you may additionally do the
-following (see [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "#GDK 3 (GTK 3)"){.wikilink}):
+following (see [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "wikilink")):
 
 1.  Go to *Settings Manager \> Appearance \> Fonts \> Custom DPI setting* and change from 96 to 192
-2.  Set the [environment variable](environment_variable "environment variable"){.wikilink}
-    `{{ic|1=GDK_DPI_SCALE=0.5}}`{=mediawiki} to un-scale some fonts that would be scaled twice.
+2.  Set the [environment variable](environment_variable "wikilink") `{{ic|1=GDK_DPI_SCALE=0.5}}`{=mediawiki} to un-scale
+    some fonts that would be scaled twice.
 
 The steps above would set 2x scaled resolution for Xfce and other GTK 3 applications.
 
-Scaling for Qt 5 applications should be set manually, see [#Qt 5](#Qt_5 "#Qt 5"){.wikilink}. Note that if you set a
-Custom DPI for fonts above, you likely need to set `{{ic|1=QT_FONT_DPI=96}}`{=mediawiki} to avoid double-scaling of
-fonts in Qt applications.
+Scaling for Qt 5 applications should be set manually, see [#Qt 5](#Qt_5 "wikilink"). Note that if you set a Custom DPI
+for fonts above, you likely need to set `{{ic|1=QT_FONT_DPI=96}}`{=mediawiki} to avoid double-scaling of fonts in Qt
+applications.
 
 ### Cinnamon
 
@@ -256,12 +252,11 @@ work well for the native resolution of the MacBook Pro 15\" screen.
 
 ### Sway
 
-See [Sway#HiDPI](Sway#HiDPI "Sway#HiDPI"){.wikilink}.
+See [Sway#HiDPI](Sway#HiDPI "wikilink").
 
 ### Hyprland
 
-See [Hyprland#Setting screen
-resolution](Hyprland#Setting_screen_resolution "Hyprland#Setting screen resolution"){.wikilink}.
+See [Hyprland#Setting screen resolution](Hyprland#Setting_screen_resolution "wikilink").
 
 ## X Resources {#x_resources}
 
@@ -270,7 +265,7 @@ resolution](Hyprland#Setting_screen_resolution "Hyprland#Setting screen resoluti
 ```
 If you are not using a desktop environment such as KDE, Xfce, or other that manipulates the X settings for you, you can
 set the desired DPI setting manually via the `{{ic|Xft.dpi}}`{=mediawiki} variable in
-[Xresources](Xresources "Xresources"){.wikilink}:
+[Xresources](Xresources "wikilink"):
 
 ```{=mediawiki}
 {{hc|~/.Xresources|2=
@@ -288,8 +283,7 @@ Xft.rgba: rgb
 For `{{ic|Xft.dpi}}`{=mediawiki}, using integer multiples of 96 usually works best, e.g. 192 for 200% scaling.
 
 Make sure the settings are loaded properly when X starts, for instance in your `{{ic|~/.xinitrc}}`{=mediawiki} with
-`{{ic|xrdb -merge ~/.Xresources}}`{=mediawiki} (see [Xresources](Xresources "Xresources"){.wikilink} for more
-information).
+`{{ic|xrdb -merge ~/.Xresources}}`{=mediawiki} (see [Xresources](Xresources "wikilink") for more information).
 
 This will make the font render properly in most toolkits and applications, it will however not affect things such as
 icon size! Setting `{{ic|Xft.dpi}}`{=mediawiki} at the same time as toolkit scale (e.g. `{{ic|GDK_SCALE}}`{=mediawiki})
@@ -317,20 +311,19 @@ This example uses inaccurate dimensions (423mm x 238mm, even though the Dell XPS
 multiple of 96 dpi, in this case 192 dpi. This tends to work better than using the correct DPI --- Pango renders fonts
 crisper in i3 for example.
 
-If the DPI displayed by xdpyinfo is not correct, see [Xorg#Display size and
-DPI](Xorg#Display_size_and_DPI "Xorg#Display size and DPI"){.wikilink} for how to fix it.
+If the DPI displayed by xdpyinfo is not correct, see [Xorg#Display size and DPI](Xorg#Display_size_and_DPI "wikilink")
+for how to fix it.
 
 ## GUI toolkits {#gui_toolkits}
 
 ### Qt 5 {#qt_5}
 
 Since Qt 5.6, Qt 5 applications can be instructed to honor screen DPI by setting the
-`{{ic|QT_AUTO_SCREEN_SCALE_FACTOR}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink}. Qt 5.14 introduced a new environment variable
-`{{ic|QT_ENABLE_HIGHDPI_SCALING}}`{=mediawiki} which
+`{{ic|QT_AUTO_SCREEN_SCALE_FACTOR}}`{=mediawiki} [environment variable](environment_variable "wikilink"). Qt 5.14
+introduced a new environment variable `{{ic|QT_ENABLE_HIGHDPI_SCALING}}`{=mediawiki} which
 [replaces](https://doc.qt.io/qt-5/highdpi.html#high-dpi-support-in-qt) the
 `{{ic|QT_AUTO_SCREEN_SCALE_FACTOR}}`{=mediawiki} variable. It is recommended to set both [environment
-variables](environment_variable "environment variable"){.wikilink} for maximum compatibility:
+variables](environment_variable "wikilink") for maximum compatibility:
 
 `$ export QT_AUTO_SCREEN_SCALE_FACTOR=1`\
 `$ export QT_ENABLE_HIGHDPI_SCALING=1`
@@ -389,11 +382,11 @@ pre-scaled for HiDPI display using `{{AUR|themix-full-git}}`{=mediawiki}.
 
 ### Electron
 
-[Electron](Electron "Electron"){.wikilink} applications (e.g. `{{AUR|slack-desktop}}`{=mediawiki},
+[Electron](Electron "wikilink") applications (e.g. `{{AUR|slack-desktop}}`{=mediawiki},
 `{{Pkg|signal-desktop}}`{=mediawiki}, etc.) can be configured to always use a custom scaling value by adding a
 `{{ic|1=--force-device-scale-factor}}`{=mediawiki} flag to the *.desktop* file. Electron packages in the official
 repositories and packages that use them, can be configured with a [configuration
-file](Electron#Configuration_files "configuration file"){.wikilink}.
+file](Electron#Configuration_files "wikilink").
 
 Desktop files are normally located at `{{ic|/usr/share/applications/}}`{=mediawiki}, and can normally be overridden on a
 per-user basis by copying it to `{{ic|~/.local/share/applications/}}`{=mediawiki}. The flag should be added to the line
@@ -452,7 +445,7 @@ wiki](https://github.com/AvaloniaUI/Avalonia/wiki/Configuring-X11-per-monitor-DP
 #### Lower the framebuffer resolution {#lower_the_framebuffer_resolution}
 
 Set a lower resolution for the framebuffer as explained in [GRUB/Tips and tricks#Setting the framebuffer
-resolution](GRUB/Tips_and_tricks#Setting_the_framebuffer_resolution "GRUB/Tips and tricks#Setting the framebuffer resolution"){.wikilink}.
+resolution](GRUB/Tips_and_tricks#Setting_the_framebuffer_resolution "wikilink").
 
 #### Change GRUB font size {#change_grub_font_size}
 
@@ -466,16 +459,14 @@ Convert the font to a format that GRUB can utilize:
 {{Note|Change the {{ic|-s 30}} parameter to modify the font size}}
 ```
 Edit `{{ic|/etc/default/grub}}`{=mediawiki} to set the new font as shown in [GRUB/Tips and tricks#Background image and
-bitmap
-fonts](GRUB/Tips_and_tricks#Background_image_and_bitmap_fonts "GRUB/Tips and tricks#Background image and bitmap fonts"){.wikilink}:
+bitmap fonts](GRUB/Tips_and_tricks#Background_image_and_bitmap_fonts "wikilink"):
 
 `GRUB_FONT="/boot/grubfont.pf2"`
 
 ```{=mediawiki}
 {{Note|{{ic|GRUB_THEME}} overrides {{ic|GRUB_FONT}} if it is used.}}
 ```
-Finally [regenerate the main configuration
-file](GRUB#Generate_the_main_configuration_file "regenerate the main configuration file"){.wikilink}.
+Finally [regenerate the main configuration file](GRUB#Generate_the_main_configuration_file "wikilink").
 
 ```{=mediawiki}
 {{Tip|The font size can also be changed with the GUI tool {{AUR|grub-customizer}}.}}
@@ -483,45 +474,42 @@ file](GRUB#Generate_the_main_configuration_file "regenerate the main configurati
 ### systemd-boot {#systemd_boot}
 
 Set a lower resolution for the console through `{{ic|console-mode}}`{=mediawiki} as explained in [systemd-boot#Loader
-configuration](systemd-boot#Loader_configuration "systemd-boot#Loader configuration"){.wikilink} and
-`{{man|5|loader.conf|OPTIONS}}`{=mediawiki}.
+configuration](systemd-boot#Loader_configuration "wikilink") and `{{man|5|loader.conf|OPTIONS}}`{=mediawiki}.
 
 ## Applications
 
 If you are running a Wayland session, but application is running via Xwayland (either because it does not support
 Wayland natively or because it uses X11 by default), you could still get blurry fonts and interface, even if the
 application supports HiDPI. See [this bug report](https://bugs.kde.org/show_bug.cgi?id=389191). See also [Wayland#Detect
-Xwayland applications](Wayland#Detect_Xwayland_applications "Wayland#Detect Xwayland applications"){.wikilink}.
+Xwayland applications](Wayland#Detect_Xwayland_applications "wikilink").
 
 ### Browsers
 
 #### Firefox
 
-Firefox should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "#GDK 3 (GTK 3)"){.wikilink} settings. However, the suggested
+Firefox should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "wikilink") settings. However, the suggested
 `{{ic|GDK_SCALE}}`{=mediawiki} suggestion does not consistently scale the entirety of Firefox, and does not work for
 fractional values (e.g., a factor of 158DPI/96DPI = 1.65 for a 1080p 14\" laptop). You may want to use
 `{{ic|GDK_DPI_SCALE}}`{=mediawiki} instead. Another option, which will avoid Firefox-specific settings in many setups is
-to use the settings in [#X Resources](#X_Resources "#X Resources"){.wikilink} as Firefox should respect the
+to use the settings in [#X Resources](#X_Resources "wikilink") as Firefox should respect the
 `{{ic|Xft.dpi}}`{=mediawiki} value defined there.
 
 To view the internal UI scaling settings of Firefox, open the advanced preferences page
 (`{{ic|about:config}}`{=mediawiki}) and check those parameters:
 
-- ```{=mediawiki}
-  {{ic|widget.wayland.fractional-scale.enabled}}
-  ```
+-   ```{=mediawiki}
+    {{ic|widget.wayland.fractional-scale.enabled}}
+    ```
+    : Set it to true to enable fractional scaling on wayland. Otherwise, on some desktop environments (e.g., KDE on
+    wayland), Firefox may be double scaled. For example, if you set the screen scale to 150% in plasma system settings,
+    Firefox will enlarge to 200% first and then be down-scaled to 150%, so all fonts look blurry.
 
-  :   Set it to true to enable fractional scaling on wayland. Otherwise, on some desktop environments (e.g., KDE on
-      wayland), Firefox may be double scaled. For example, if you set the screen scale to 150% in plasma system
-      settings, Firefox will enlarge to 200% first and then be down-scaled to 150%, so all fonts look blurry.
-
-- ```{=mediawiki}
-  {{ic|layout.css.devPixelsPerPx}}
-  ```
-
-  :   The actual parameter that controls UI scaling. `{{ic|1.25}}`{=mediawiki} for 125% scaling,
-      `{{ic|1.50}}`{=mediawiki} for 150%, and so on. Default is `{{ic|-1.0}}`{=mediawiki} (follow the system\'s HiDPI
-      setting).
+-   ```{=mediawiki}
+    {{ic|layout.css.devPixelsPerPx}}
+    ```
+    : The actual parameter that controls UI scaling. `{{ic|1.25}}`{=mediawiki} for 125% scaling,
+    `{{ic|1.50}}`{=mediawiki} for 150%, and so on. Default is `{{ic|-1.0}}`{=mediawiki} (follow the system\'s HiDPI
+    setting).
 
 If you use a HiDPI monitor such as Retina display together with another monitor, you can use the
 [ffreszoom](https://addons.mozilla.org/firefox/addon/ffreszoom/) add-on, which will adjust the page zoom if it detects
@@ -530,7 +518,7 @@ an extension is currently unsupported [6](https://bugzilla.mozilla.org/show_bug.
 
 #### Chromium / Google Chrome {#chromium_google_chrome}
 
-Chromium should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "#GDK 3 (GTK 3)"){.wikilink} settings.
+Chromium should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "wikilink") settings.
 
 To override those, use the `{{ic|1=--force-device-scale-factor}}`{=mediawiki} flag with a scaling value. This will scale
 all content and ui, including tab and font size. For example
@@ -551,21 +539,20 @@ to explicitly set the following \'experimental\' settings via accessing the url 
 `{{ic|1=chrome://flags/}}`{=mediawiki} ([What are Chrome
 flags?](https://developer.chrome.com/docs/web-platform/chrome-flags)):
 
-- \"Preferred Ozone platform\": \"Wayland\"
-- \"Wayland per-window scaling\": \"Enabled\"
-- \"Wayland UI scaling\": \"Enabled\"
+-   \"Preferred Ozone platform\": \"Wayland\"
+-   \"Wayland per-window scaling\": \"Enabled\"
+-   \"Wayland UI scaling\": \"Enabled\"
 
 If you use a HiDPI monitor such as Retina display together with another monitor, you can use the
 [reszoom](https://chrome.google.com/webstore/detail/resolution-zoom/enjjhajnmggdgofagbokhmifgnaophmh) extension in order
 to automatically adjust the zoom level for the active screen.
 
-If using Wayland session, you should [enable](Chromium#Native_Wayland_support "enable"){.wikilink} native wayland
-support to avoid blurriness. See also [Chromium#Incorrect HiDPI
-rendering](Chromium#Incorrect_HiDPI_rendering "Chromium#Incorrect HiDPI rendering"){.wikilink}.
+If using Wayland session, you should [enable](Chromium#Native_Wayland_support "wikilink") native wayland support to
+avoid blurriness. See also [Chromium#Incorrect HiDPI rendering](Chromium#Incorrect_HiDPI_rendering "wikilink").
 
 #### Opera
 
-Opera should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "#GDK 3 (GTK 3)"){.wikilink} settings.
+Opera should use the [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "wikilink") settings.
 
 To override those, use the `{{ic|1=--alt-high-dpi-setting=''X''}}`{=mediawiki} command line option, where X is the
 desired DPI. For example, with `{{ic|1=--alt-high-dpi-setting=144}}`{=mediawiki} Opera will assume that DPI is 144.
@@ -636,7 +623,7 @@ for determining system scale factor is well documented at
     ```
     and `{{ic|GDK_DPI_SCALE}}`{=mediawiki}
 
-4.  [Xresources](Xresources "Xresources"){.wikilink} -- `{{ic|Xft.dpi}}`{=mediawiki}
+4.  [Xresources](Xresources "wikilink") -- `{{ic|Xft.dpi}}`{=mediawiki}
 
 5.  1.0
 
@@ -649,12 +636,12 @@ resolution. To remediate this problem some people have success by adding the
 (*Help \> Edit custom VM options*).
 
 If this does not work, the experimental GTK option `{{ic|scale-monitor-framebuffer}}`{=mediawiki} might be enabled on
-Wayland ([see above](#Wayland "see above"){.wikilink}) and the Wayland support preview might be disabled ([see
-above](#JetBrains_IDEs "see above"){.wikilink}). Currently JetBrains products run on Xwayland and thus [have no full
-native Wayland support yet](https://youtrack.jetbrains.com/issue/IDEA-228070). This makes the rendering in JetBrains
-products incompatible with the monitor scaling framebuffer. Disabling the framebuffer thus might solve blurry
-font/rendering issues for JB products, but alas results in disabled fractional scaling. Another options is to enable the
-Wayland support preview.
+Wayland ([see above](#Wayland "wikilink")) and the Wayland support preview might be disabled ([see
+above](#JetBrains_IDEs "wikilink")). Currently JetBrains products run on Xwayland and thus [have no full native Wayland
+support yet](https://youtrack.jetbrains.com/issue/IDEA-228070). This makes the rendering in JetBrains products
+incompatible with the monitor scaling framebuffer. Disabling the framebuffer thus might solve blurry font/rendering
+issues for JB products, but alas results in disabled fractional scaling. Another options is to enable the Wayland
+support preview.
 
 #### Maple
 
@@ -674,7 +661,7 @@ Alternatively, the `{{ic|GDK_SCALE}}`{=mediawiki} environment variable can be us
 
 ### MATLAB
 
-Recent versions (since R2017b) of [MATLAB](MATLAB "MATLAB"){.wikilink} allow to set the scale
+Recent versions (since R2017b) of [MATLAB](MATLAB "wikilink") allow to set the scale
 factor[10](https://www.mathworks.com/matlabcentral/answers/406956-does-matlab-support-high-dpi-screens-on-linux):
 
 #### Version R2024b and earlier {#version_r2024b_and_earlier}
@@ -713,9 +700,9 @@ parameter enables varying the scale factor in real-time, with no need for restar
 
 According to
 [11](https://bugzilla.xamarin.com/35/35870/bug.html)`{{Dead link|2023|04|23|status=domain name not resolved}}`{=mediawiki},
-Mono applications should be scalable like [GTK 3](#GDK_3_(GTK_3) "GTK 3"){.wikilink} applications. The precise method
-depends on the GUI library: GtkSharp obviouslys points back to Gtk, while the usual Windows Forms (libgdiplus) simply
-detects Xft settings.
+Mono applications should be scalable like [GTK 3](#GDK_3_(GTK_3) "wikilink") applications. The precise method depends on
+the GUI library: GtkSharp obviouslys points back to Gtk, while the usual Windows Forms (libgdiplus) simply detects Xft
+settings.
 
 ### NetBeans
 
@@ -773,16 +760,16 @@ Also Spotify can be launched with a custom scaling factor which will be multipli
 
 #### Official HiDPI support {#official_hidpi_support}
 
-- Starting on 25 of January 2018 in the beta program there is actual support for HiDPI and it should be automatically
-  detected.
-- *Steam \> Settings \> Interface*, check *Enlarge text and icons based on monitor size* (restart required)
-- If it is not automatically detected, use `{{ic|1=GDK_SCALE=2}}`{=mediawiki} to set the desired scale factor.
-- If the above fails, use `{{ic|1=steam -forcedesktopscaling 2}}`{=mediawiki} or set
-  `{{ic|1=STEAM_FORCE_DESKTOPUI_SCALING=2.0}}`{=mediawiki}.
-  [13](https://github.com/ValveSoftware/steam-for-linux/issues/9209#issuecomment-1594505259) As of the June 2023 UI
-  overhaul, this parameter also supports non-integer scale factors, such as `{{ic|1.25}}`{=mediawiki}.
-- You can also adjust the interface scale in *Steam \> Settings \> Accessibility*, though the slider does not display a
-  number value.
+-   Starting on 25 of January 2018 in the beta program there is actual support for HiDPI and it should be automatically
+    detected.
+-   *Steam \> Settings \> Interface*, check *Enlarge text and icons based on monitor size* (restart required)
+-   If it is not automatically detected, use `{{ic|1=GDK_SCALE=2}}`{=mediawiki} to set the desired scale factor.
+-   If the above fails, use `{{ic|1=steam -forcedesktopscaling 2}}`{=mediawiki} or set
+    `{{ic|1=STEAM_FORCE_DESKTOPUI_SCALING=2.0}}`{=mediawiki}.
+    [13](https://github.com/ValveSoftware/steam-for-linux/issues/9209#issuecomment-1594505259) As of the June 2023 UI
+    overhaul, this parameter also supports non-integer scale factors, such as `{{ic|1.25}}`{=mediawiki}.
+-   You can also adjust the interface scale in *Steam \> Settings \> Accessibility*, though the slider does not display
+    a number value.
 
 #### Unofficial
 
@@ -802,8 +789,8 @@ Sublime Text 3 has full support for display scaling. Go to *Preferences \> Setti
 
 ### Thunderbird
 
-See [#Firefox](#Firefox "#Firefox"){.wikilink}. To access `{{ic|about:config}}`{=mediawiki}, go to *Edit \> Preferences
-\> Advanced \>Config editor*.
+See [#Firefox](#Firefox "wikilink"). To access `{{ic|about:config}}`{=mediawiki}, go to *Edit \> Preferences \> Advanced
+\>Config editor*.
 
 ### VirtualBox
 
@@ -823,9 +810,9 @@ for the VirtualBox execution, e.g.
 Text in the VMware application is rendered at an appropriate size following the system configuration, but icons are
 small and UI elements have little padding between them.
 
-As described in [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "#GDK 3 (GTK 3)"){.wikilink}, you can use `{{ic|GDK_SCALE}}`{=mediawiki}
-to further scale up the entire UI (including icons & padding) and then use `{{ic|GDK_DPI_SCALE}}`{=mediawiki} to scale
-only the text back down to a reasonable size.
+As described in [#GDK 3 (GTK 3)](#GDK_3_(GTK_3) "wikilink"), you can use `{{ic|GDK_SCALE}}`{=mediawiki} to further scale
+up the entire UI (including icons & padding) and then use `{{ic|GDK_DPI_SCALE}}`{=mediawiki} to scale only the text back
+down to a reasonable size.
 
 For example, to get a final 2x scale factor:
 
@@ -890,7 +877,7 @@ can be adjusted with option \--with-scaling:
 
 ### V2RayN, SourceGit and other AvaloniaUi C# / .NET applications {#v2rayn_sourcegit_and_other_avaloniaui_c_.net_applications}
 
-As described in [#AvaloniaUI (C# / .NET)](#AvaloniaUI_(C#_/_.NET) "#AvaloniaUI (C# / .NET)"){.wikilink}, you can use
+As described in [#AvaloniaUI (C# / .NET)](#AvaloniaUI_(C#_/_.NET) "wikilink"), you can use
 `{{ic|AVALONIA_GLOBAL_SCALE_FACTOR}}`{=mediawiki}.
 
 ### Unsupported applications, via a network layer {#unsupported_applications_via_a_network_layer}
@@ -906,8 +893,8 @@ Another approach is to run the application full screen and without decoration in
 viewer. With `{{AUR|vncdesk-git}}`{=mediawiki} you can set up a desktop per application, then start server and client
 with a simple command such as `{{ic|vncdesk 2}}`{=mediawiki}.
 
-[x11vnc](x11vnc "x11vnc"){.wikilink} has an experimental option `{{ic|-appshare}}`{=mediawiki}, which opens one viewer
-per application window. Perhaps something could be hacked up with that.
+[x11vnc](x11vnc "wikilink") has an experimental option `{{ic|-appshare}}`{=mediawiki}, which opens one viewer per
+application window. Perhaps something could be hacked up with that.
 
 ### Unsupported applications, via Weston {#unsupported_applications_via_weston}
 
@@ -941,13 +928,12 @@ usage tests.
 ## Multiple displays {#multiple_displays}
 
 The HiDPI setting applies to the whole desktop, so non-HiDPI external displays show everything too large. However, note
-that setting different scaling factors for different monitors is already supported in
-[Wayland](Wayland "Wayland"){.wikilink}.
+that setting different scaling factors for different monitors is already supported in [Wayland](Wayland "wikilink").
 
 ### Side display {#side_display}
 
-One workaround is to use [xrandr](xrandr "xrandr"){.wikilink}\'s `{{ic|scale}}`{=mediawiki} option. To have a non-HiDPI
-monitor (on DP1) right of an internal HiDPI display (eDP1), one could run:
+One workaround is to use [xrandr](xrandr "wikilink")\'s `{{ic|scale}}`{=mediawiki} option. To have a non-HiDPI monitor
+(on DP1) right of an internal HiDPI display (eDP1), one could run:
 
 `$ xrandr --output eDP-1 --auto --output DP-1 --auto --scale 2x2 --right-of eDP-1`
 
@@ -997,60 +983,58 @@ with scaling.
 
 There are several tools which automate the commands described above.
 
-- [This script](https://gist.github.com/wvengen/178642bbc8236c1bdb67) extend a non-HiDPI external display above a HiDPI
-  internal display.
+-   [This script](https://gist.github.com/wvengen/178642bbc8236c1bdb67) extend a non-HiDPI external display above a
+    HiDPI internal display.
 
-- [xrandr-extend](https://github.com/ashwinvis/xrandr-extend).
+-   [xrandr-extend](https://github.com/ashwinvis/xrandr-extend).
 
-- ```{=mediawiki}
-  {{AUR|xlayoutdisplay}}
-  ```
-  is a CLI front end for xrandr which detects and sets correct DPI:
-  [README](https://github.com/alex-courtis/xlayoutdisplay)
+-   ```{=mediawiki}
+    {{AUR|xlayoutdisplay}}
+    ```
+    is a CLI front end for xrandr which detects and sets correct DPI:
+    [README](https://github.com/alex-courtis/xlayoutdisplay)
 
 ## Linux console (tty) {#linux_console_tty}
 
 ### In-kernel fonts {#in_kernel_fonts}
 
-The [Linux console](Linux_console "Linux console"){.wikilink} changes the font to `{{ic|TER16x32}}`{=mediawiki} (based
-on `{{ic|ter-i32b}}`{=mediawiki} from
+The [Linux console](Linux_console "wikilink") changes the font to `{{ic|TER16x32}}`{=mediawiki} (based on
+`{{ic|ter-i32b}}`{=mediawiki} from
 `{{Pkg|terminus-font}}`{=mediawiki}[16](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac8b6f148fc97e9e10b48bd337ef571b1d1136aa))
 based on the vertical and horizontal pixel count of the
 display[17](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dfd19a5004eff03755967086aa04254c3d91b8ec)
 regardless of its physical size. If your monitor is not recognised as HiDPI, the default font can be changed. In that
-case, specify `{{ic|1=fbcon=font:TER16x32}}`{=mediawiki} in the [kernel command
-line](kernel_command_line "kernel command line"){.wikilink}.
+case, specify `{{ic|1=fbcon=font:TER16x32}}`{=mediawiki} in the [kernel command line](kernel_command_line "wikilink").
 
 ### Fonts outside the kernel (tty) {#fonts_outside_the_kernel_tty}
 
 The largest fonts present in the `{{Pkg|kbd}}`{=mediawiki} package are `{{ic|latarcyrheb-sun32}}`{=mediawiki} and
 `{{ic|solar24x32}}`{=mediawiki}. Other packages like `{{Pkg|terminus-font}}`{=mediawiki} contain further alternatives,
 such as `{{ic|ter-132n}}`{=mediawiki} (normal) and `{{ic|ter-132b}}`{=mediawiki} (bold). See [Linux
-console#Fonts](Linux_console#Fonts "Linux console#Fonts"){.wikilink} for configuration details and [Linux
-console#Persistent
-configuration](Linux_console#Persistent_configuration "Linux console#Persistent configuration"){.wikilink} in particular
-for applying the font setting during the early userspace boot sequence.
+console#Fonts](Linux_console#Fonts "wikilink") for configuration details and [Linux console#Persistent
+configuration](Linux_console#Persistent_configuration "wikilink") in particular for applying the font setting during the
+early userspace boot sequence.
 
 After changing the font, it is often garbled and unreadable when changing to other virtual consoles
 (`{{ic|tty2}}`{=mediawiki}--`{{ic|6}}`{=mediawiki}). To fix this you can [force specific
-mode](Kernel_mode_setting#Forcing_modes_and_EDID "force specific mode"){.wikilink} for KMS, such as
-`{{ic|1=video=2560x1600@60}}`{=mediawiki} (substitute in the native resolution of your HiDPI display), and reboot. Using
-small resolutions will make the text look bigger, but also pixelated.
+mode](Kernel_mode_setting#Forcing_modes_and_EDID "wikilink") for KMS, such as `{{ic|1=video=2560x1600@60}}`{=mediawiki}
+(substitute in the native resolution of your HiDPI display), and reboot. Using small resolutions will make the text look
+bigger, but also pixelated.
 
-Users booting through [UEFI](UEFI "UEFI"){.wikilink} may experience the console and [boot
-loader](boot_loader "boot loader"){.wikilink} being constrained to a low resolution despite correct
-[KMS](KMS "KMS"){.wikilink} settings being set. This can be caused by legacy/BIOS boot being enabled in UEFI settings.
-Disabling legacy boot to bypass the compatibility layer should allow the system to boot at the correct resolution.
+Users booting through [UEFI](UEFI "wikilink") may experience the console and [boot loader](boot_loader "wikilink") being
+constrained to a low resolution despite correct [KMS](KMS "wikilink") settings being set. This can be caused by
+legacy/BIOS boot being enabled in UEFI settings. Disabling legacy boot to bypass the compatibility layer should allow
+the system to boot at the correct resolution.
 
 ### Modern HiDPI support (kmscon) {#modern_hidpi_support_kmscon}
 
-For real HiDPI support, see [KMSCON](KMSCON "KMSCON"){.wikilink} instead of changing the font size in the tty.
+For real HiDPI support, see [KMSCON](KMSCON "wikilink") instead of changing the font size in the tty.
 
 ## See also {#see_also}
 
-- [Ultra HD 4K Linux Graphics Card Testing](https://www.phoronix.com/scan.php?page=article&item=linux_uhd4k_gpus) (Nov
-  2013)
-- [Understanding pixel density](https://www.eizo.com/library/basics/pixel_density_4k/)
-- [Mixed DPI and the X Window System](https://wok.oblomov.eu/tecnologia/mixed-dpi-x11/)
+-   [Ultra HD 4K Linux Graphics Card Testing](https://www.phoronix.com/scan.php?page=article&item=linux_uhd4k_gpus) (Nov
+    2013)
+-   [Understanding pixel density](https://www.eizo.com/library/basics/pixel_density_4k/)
+-   [Mixed DPI and the X Window System](https://wok.oblomov.eu/tecnologia/mixed-dpi-x11/)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

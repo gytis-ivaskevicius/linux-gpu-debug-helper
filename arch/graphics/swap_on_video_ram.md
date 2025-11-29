@@ -1,7 +1,6 @@
-[ja:ビデオメモリにスワップ](ja:ビデオメモリにスワップ "ja:ビデオメモリにスワップ"){.wikilink}
-`{{Related articles start}}`{=mediawiki} `{{Related|Swap}}`{=mediawiki} `{{Related|Improving performance}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki} In the unlikely case that you have very little RAM and a surplus of video RAM,
-you can use the latter as swap.
+[ja:ビデオメモリにスワップ](ja:ビデオメモリにスワップ "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Swap}}`{=mediawiki} `{{Related|Improving performance}}`{=mediawiki} `{{Related articles end}}`{=mediawiki} In
+the unlikely case that you have very little RAM and a surplus of video RAM, you can use the latter as swap.
 
 ## MTD Kernel Subsystem {#mtd_kernel_subsystem}
 
@@ -113,15 +112,15 @@ possibly this example of the swap on video ram
 ```
 ### See also {#see_also}
 
-- [MTD website](http://www.linux-mtd.infradead.org)
+-   [MTD website](http://www.linux-mtd.infradead.org)
 
 ## FUSE filesystem {#fuse_filesystem}
 
 ```{=mediawiki}
 {{Warning|Multiple users have reported this to cause system [https://github.com/Overv/vramfs/issues/3 freezes], even with the fix in [[#Complete system freeze under high memory pressure]]. Other GPU management processes or libraries may be swapped out, leading to nonrecoverable page faults.}}
 ```
-This method works on hardware with OpenCL support using a [FUSE](FUSE "FUSE"){.wikilink} filesystem backing a swapfile.
-See [GPGPU](GPGPU "GPGPU"){.wikilink} for more information.
+This method works on hardware with OpenCL support using a [FUSE](FUSE "wikilink") filesystem backing a swapfile. See
+[GPGPU](GPGPU "wikilink") for more information.
 
 ### Setup {#setup_1}
 
@@ -133,9 +132,9 @@ Now run the following commands to set up the *vramfs* and a swapfile.
 `# vramfs /tmp/vram 256MB -f # Substitute 256M with your target vramfs size`\
 `# mkswap -U clear --size 200M --file /tmp/vram/swapfile # Substitute 200 with your target swapspace size in MiB`
 
-Your [Swap](Swap "Swap"){.wikilink} should now be ready. Run `{{ic|swapon}}`{=mediawiki} to check.
+Your [Swap](Swap "wikilink") should now be ready. Run `{{ic|swapon}}`{=mediawiki} to check.
 
-See [Swap#Swap file](Swap#Swap_file "Swap#Swap file"){.wikilink} for more information.
+See [Swap#Swap file](Swap#Swap_file "wikilink") for more information.
 
 ```{=mediawiki}
 {{Note| This is not persistent and will be gone after a system reboot.}}
@@ -195,6 +194,6 @@ WantedBy=default.target
 ```
 ### See also {#see_also_1}
 
-- [*vramfs* Github Repository](https://github.com/Overv/vramfs)
+-   [*vramfs* Github Repository](https://github.com/Overv/vramfs)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

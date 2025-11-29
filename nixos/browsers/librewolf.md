@@ -13,8 +13,7 @@ environment.systemPackages = [ pkgs.librewolf ];
 ```
 ## Configuration
 
-It is possible to configure certain presets of LibreWolf using the [Home
-Manager](Home_Manager "Home Manager"){.wikilink} module.
+It is possible to configure certain presets of LibreWolf using the [Home Manager](Home_Manager "wikilink") module.
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>
@@ -36,6 +35,5 @@ home-manager.users.myuser = {
 This example configures LibreWolf to enable WebGL, remember cookies and history by disabling privacy and security
 defaults. This compromises the privacy concept of LibreWolf and is therefore not recommended to use.
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Privacy](Category:Privacy "Category:Privacy"){.wikilink} [Category:Web
-Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Privacy](Category:Privacy "wikilink") [Category:Web
+Browser](Category:Web_Browser "wikilink")

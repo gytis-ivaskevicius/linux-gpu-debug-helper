@@ -1,6 +1,6 @@
-[ja:Intel GMA 3600](ja:Intel_GMA_3600 "ja:Intel GMA 3600"){.wikilink} [zh-hans:Intel GMA
-3600](zh-hans:Intel_GMA_3600 "zh-hans:Intel GMA 3600"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Intel graphics}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:Intel GMA 3600](ja:Intel_GMA_3600 "wikilink") [zh-hans:Intel GMA 3600](zh-hans:Intel_GMA_3600 "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Intel graphics}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 The **Intel GMA 3600** series is a family of integrated video adapters based on the PowerVR SGX 545 graphics core. It is
 used in [Intel
@@ -8,8 +8,8 @@ Cedarview](https://ark.intel.com/content/www/us/en/ark/products/codename/37505/p
 (Atom D2500, D2550, D2700, N2600 and N2800).
 
 The Linux kernel has support since version 3.5, but since version 4.15 the relevant kernel driver, uvesafb, has not been
-included in the kernel so using the [DKMS](DKMS "DKMS"){.wikilink} version of the driver is necessary. See
-[uvesafb](uvesafb "uvesafb"){.wikilink} for more information.
+included in the kernel so using the [DKMS](DKMS "wikilink") version of the driver is necessary. See
+[uvesafb](uvesafb "wikilink") for more information.
 
 ## Xorg driver {#xorg_driver}
 
@@ -67,10 +67,9 @@ utilize the maximum power of your Atom CPU to decode video:
 
 ## See also {#see_also}
 
-- <https://www.change.org/en-GB/petitions/intel-listen-to-the-community-and-develop-gma3600-drivers-for-linux>
-- <https://ubuntuforums.org/showthread.php?t=1953734>
-- <https://community.intel.com/t5/Graphics/GMA-3650-aka-PowerVR-sgx545-and-Linux/m-p/247587>
-- <https://bbs.archlinux.org/viewtopic.php?id=144445>
+-   <https://www.change.org/en-GB/petitions/intel-listen-to-the-community-and-develop-gma3600-drivers-for-linux>
+-   <https://ubuntuforums.org/showthread.php?t=1953734>
+-   <https://community.intel.com/t5/Graphics/GMA-3650-aka-PowerVR-sgx545-and-Linux/m-p/247587>
+-   <https://bbs.archlinux.org/viewtopic.php?id=144445>
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

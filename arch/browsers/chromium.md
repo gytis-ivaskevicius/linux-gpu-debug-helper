@@ -1,30 +1,29 @@
-[de:Chromium](de:Chromium "de:Chromium"){.wikilink} [ja:Chromium](ja:Chromium "ja:Chromium"){.wikilink}
-[zh-hans:Chromium](zh-hans:Chromium "zh-hans:Chromium"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:Chromium](de:Chromium "wikilink") [ja:Chromium](ja:Chromium "wikilink")
+[zh-hans:Chromium](zh-hans:Chromium "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Browser extensions}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related|Vivaldi}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-[Chromium](Wikipedia:Chromium_(web_browser) "Chromium"){.wikilink} is an open-source graphical web browser based on the
-[Blink](Wikipedia:Blink_(web_engine) "Blink"){.wikilink} rendering engine. It is the basis for the proprietary Google
-Chrome browser.
+[Chromium](Wikipedia:Chromium_(web_browser) "wikilink") is an open-source graphical web browser based on the
+[Blink](Wikipedia:Blink_(web_engine) "wikilink") rendering engine. It is the basis for the proprietary Google Chrome
+browser.
 
 See [this page](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md) for
 an explanation of the differences between Chromium and Google Chrome. Additionally:
 
-- Sync is unavailable in Chromium 89+ (2021-03-02)
-  [1](https://archlinux.org/news/chromium-losing-sync-support-in-early-march/)
+-   Sync is unavailable in Chromium 89+ (2021-03-02)
+    [1](https://archlinux.org/news/chromium-losing-sync-support-in-early-march/)
 
 ```{=mediawiki}
 {{Note|Sync can be temporarily restored by [https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 using Chrome's OAuth2 credentials] or [https://www.chromium.org/developers/how-tos/api-keys getting your own], but pay attention to the disclaimers and do not consider this to be a long-term solution.
 Consider switching to [https://www.xbrowsersync.org xbrowsersync] for bookmarks syncing as long term solution.
 }}
 ```
-See [List of
-applications/Internet#Blink-based](List_of_applications/Internet#Blink-based "List of applications/Internet#Blink-based"){.wikilink}
-for other browsers based on Chromium.
+See [List of applications/Internet#Blink-based](List_of_applications/Internet#Blink-based "wikilink") for other browsers
+based on Chromium.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|chromium}}`{=mediawiki} package, which tracks the
+[Install](Install "wikilink") the `{{Pkg|chromium}}`{=mediawiki} package, which tracks the
 `{{AUR|google-chrome}}`{=mediawiki} releases.
 
 ```{=mediawiki}
@@ -38,18 +37,18 @@ for other browsers based on Chromium.
 ### Default applications {#default_applications}
 
 To set Chromium as the default browser and to change which applications Chromium launches when opening downloaded files,
-see [default applications](default_applications "default applications"){.wikilink}.
+see [default applications](default_applications "wikilink").
 
 ### Certificates
 
-Chromium uses [Network Security Services](Network_Security_Services "Network Security Services"){.wikilink} for
-certificate management. Certificates can be managed in `{{ic|chrome://certificate-manager}}`{=mediawiki}.
+Chromium uses [Network Security Services](Network_Security_Services "wikilink") for certificate management. Certificates
+can be managed in `{{ic|chrome://certificate-manager}}`{=mediawiki}.
 
 The \"Local certificates\" tab manages server certificates. Certificates added in the \"Custom\" section are
 per-profile, and stored in the `{{ic|ServerCertificate}}`{=mediawiki} SQLite database in the profile directory.
 Certificates in the \"Linux\" section are read from the NSS Shared DB at `{{ic|~/.pki/nssdb}}`{=mediawiki}, and cannot
 be modified in this UI. To add to NSS Shared DB, use another tool such as *certutil*. See [#SSL
-certificates](#SSL_certificates "#SSL certificates"){.wikilink} for usage examples.
+certificates](#SSL_certificates "wikilink") for usage examples.
 
 The \"Your certificates\" tab manages client certificates. Certificates added here are stored in the NSS Shared DB.
 
@@ -64,11 +63,11 @@ under `{{ic|$XDG_CONFIG_HOME}}`{=mediawiki} if you have configured that environm
 
 No special syntax is used; flags are defined as if they were written in a terminal.
 
-- The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
-- In case of improper quoting anywhere in the file, a fatal error is raised.
-- Flags can be placed in separate lines for readability, but this is not required.
-- Lines starting with a hash symbol (#) are skipped. (This is only supported by the Chromium launcher script and will
-  not work when using Google Chrome.)
+-   The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
+-   In case of improper quoting anywhere in the file, a fatal error is raised.
+-   Flags can be placed in separate lines for readability, but this is not required.
+-   Lines starting with a hash symbol (#) are skipped. (This is only supported by the Chromium launcher script and will
+    not work when using Google Chrome.)
 
 Below is an example `{{ic|chromium-flags.conf}}`{=mediawiki} file that defines the flags
 `{{ic|--start-maximized --incognito}}`{=mediawiki}:
@@ -83,10 +82,9 @@ Below is an example `{{ic|chromium-flags.conf}}`{=mediawiki} file that defines t
 ### Force GPU acceleration {#force_gpu_acceleration}
 
 Since at least Chromium 110, GPU acceleration is enabled by default for most systems. You may have to
-[append](append "append"){.wikilink} the following flags to [persistent
-configuration](/Tips_and_tricks#Making_flags_persistent "persistent configuration"){.wikilink} if your system
-configuration is matched by the [block
-list](https://chromium.googlesource.com/chromium/src/gpu/+/master/config/software_rendering_list.json):
+[append](append "wikilink") the following flags to [persistent
+configuration](/Tips_and_tricks#Making_flags_persistent "wikilink") if your system configuration is matched by the
+[block list](https://chromium.googlesource.com/chromium/src/gpu/+/master/config/software_rendering_list.json):
 
 ```{=mediawiki}
 {{Warning|Disabling the rendering blocklist may cause unstable behavior, including crashes of the host. See the bug reports in {{ic|chrome://gpu}} for details.}}
@@ -109,9 +107,8 @@ list](https://chromium.googlesource.com/chromium/src/gpu/+/master/config/softwar
 }}
 ```
 If you have confirmed working VA-API support by checking the output of `{{ic|1=vainfo}}`{=mediawiki} (see [Hardware
-video acceleration#Verifying
-VA-API](Hardware_video_acceleration#Verifying_VA-API "Hardware video acceleration#Verifying VA-API"){.wikilink}), you
-might first try the following flag alone:
+video acceleration#Verifying VA-API](Hardware_video_acceleration#Verifying_VA-API "wikilink")), you might first try the
+following flag alone:
 
 ```{=mediawiki}
 {{hc|~/.config/chromium-flags.conf|
@@ -126,7 +123,8 @@ AcceleratedVideoDecodeLinuxGL }}
 ```
 .
 
-- Chromium versions prior to 131 should use `{{ic|--enable-features{{=}}`{=mediawiki}VaapiVideoDecodeLinuxGL}} instead.
+-   Chromium versions prior to 131 should use `{{ic|--enable-features{{=}}`{=mediawiki}VaapiVideoDecodeLinuxGL}}
+    instead.
 
 }}
 
@@ -134,30 +132,28 @@ Otherwise, continue reading.
 
 To enable accelerated **en**coding in Chromium:
 
-- Append the `{{ic|AcceleratedVideoEncoder}}`{=mediawiki} feature, e.g.
-  `{{ic|1=--enable-features{{=}}`{=mediawiki}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoEncoder}}. See
-  [2](https://github.com/chromium/chromium/blob/main/docs/gpu/vaapi.md#vaapi-on-linux) and
-  [3](https://issues.chromium.org/issues/40225939#comment54) for details.
+-   Append the `{{ic|AcceleratedVideoEncoder}}`{=mediawiki} feature, e.g.
+    `{{ic|1=--enable-features{{=}}`{=mediawiki}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoEncoder}}. See
+    [2](https://github.com/chromium/chromium/blob/main/docs/gpu/vaapi.md#vaapi-on-linux) and
+    [3](https://issues.chromium.org/issues/40225939#comment54) for details.
 
 To enable VA-API support:
 
-- Install the correct VA-API driver for your video card and verify VA-API has been enabled and working correctly, see
-  [Hardware video acceleration](Hardware_video_acceleration "Hardware video acceleration"){.wikilink}. For proprietary
-  NVIDIA support, you must install `{{Pkg|libva-nvidia-driver}}`{=mediawiki} and append the
-  `{{ic|VaapiOnNvidiaGPUs}}`{=mediawiki} feature in addition to the features above.
-- Set the option `{{ic|1=--enable-features=VaapiVideoDecoder}}`{=mediawiki}. This is enough when using ANGLE GL renderer
-  and `{{Pkg|libva-intel-driver}}`{=mediawiki}.
-- When using ANGLE, Chromium forces the older i965 driver and fails when `{{Pkg|intel-media-driver}}`{=mediawiki} is
-  used. As a workaround, [configure VA-API
-  manually](Hardware_video_acceleration#Configuring_VA-API "configure VA-API manually"){.wikilink}. See
-  [4](https://github.com/intel/media-driver/issues/818) for details.
-- To use the system GL renderer on Xorg or Wayland, use `{{ic|1=--use-gl=egl}}`{=mediawiki}. Setting this option might
-  no longer be needed when using Chrome 112 and may break GPU acceleration when using AMD GPUs.
-- If VA-API still does not work, try the `{{ic|1=--enable-features=VaapiIgnoreDriverChecks}}`{=mediawiki}
-  or`{{ic|1=--disable-features=UseChromeOSDirectVideoDecoder}}`{=mediawiki} flag
-- If VA-API still does not work on X11 and old GPUs, set the `{{ic|1=LIBVA_DRI3_DISABLE=1}}`{=mediawiki} [environment
-  variable](environment_variable "environment variable"){.wikilink}
-  [5](https://www.phoronix.com/news/VA-API-libva-2.18).
+-   Install the correct VA-API driver for your video card and verify VA-API has been enabled and working correctly, see
+    [Hardware video acceleration](Hardware_video_acceleration "wikilink"). For proprietary NVIDIA support, you must
+    install `{{Pkg|libva-nvidia-driver}}`{=mediawiki} and append the `{{ic|VaapiOnNvidiaGPUs}}`{=mediawiki} feature in
+    addition to the features above.
+-   Set the option `{{ic|1=--enable-features=VaapiVideoDecoder}}`{=mediawiki}. This is enough when using ANGLE GL
+    renderer and `{{Pkg|libva-intel-driver}}`{=mediawiki}.
+-   When using ANGLE, Chromium forces the older i965 driver and fails when `{{Pkg|intel-media-driver}}`{=mediawiki} is
+    used. As a workaround, [configure VA-API manually](Hardware_video_acceleration#Configuring_VA-API "wikilink"). See
+    [4](https://github.com/intel/media-driver/issues/818) for details.
+-   To use the system GL renderer on Xorg or Wayland, use `{{ic|1=--use-gl=egl}}`{=mediawiki}. Setting this option might
+    no longer be needed when using Chrome 112 and may break GPU acceleration when using AMD GPUs.
+-   If VA-API still does not work, try the `{{ic|1=--enable-features=VaapiIgnoreDriverChecks}}`{=mediawiki}
+    or`{{ic|1=--disable-features=UseChromeOSDirectVideoDecoder}}`{=mediawiki} flag
+-   If VA-API still does not work on X11 and old GPUs, set the `{{ic|1=LIBVA_DRI3_DISABLE=1}}`{=mediawiki} [environment
+    variable](environment_variable "wikilink") [5](https://www.phoronix.com/news/VA-API-libva-2.18).
 
 #### Vulkan
 
@@ -177,10 +173,10 @@ When using Vulkan, the following flags are required and might also be sufficient
 To check if it is working play a video which is using a codec supported by your VA-API driver (*vainfo* tells you which
 codecs are supported, but Chromium will only support VP9 and h264):
 
-- Open the DevTools by pressing `{{ic|Ctrl+Shift+I}}`{=mediawiki} or on the *Inspect* button of the context
-  (right-click) menu
-- Add the Media inspection tab: *Hamburger menu \> More tools \> Media*
-- In the newly opened Media tab, look at the hardware decoder state of the video decoder
+-   Open the DevTools by pressing `{{ic|Ctrl+Shift+I}}`{=mediawiki} or on the *Inspect* button of the context
+    (right-click) menu
+-   Add the Media inspection tab: *Hamburger menu \> More tools \> Media*
+-   In the newly opened Media tab, look at the hardware decoder state of the video decoder
 
 Test on a large enough video. Starting with version 86, Chromium on desktop [will only accelerate videos larger than
 720p](https://bugs.chromium.org/p/chromium/issues/detail?id=684792).
@@ -193,8 +189,8 @@ AV1](https://chrome.google.com/webstore/detail/not-yet-av1/dcmllfkiihingappljlkf
 extension.
 
 On some systems (especially on Xwayland) you might need to [#Force GPU
-acceleration](#Force_GPU_acceleration "#Force GPU acceleration"){.wikilink}. Only
-`{{ic|--ignore-gpu-blocklist}}`{=mediawiki} is enough for our purposes.
+acceleration](#Force_GPU_acceleration "wikilink"). Only `{{ic|--ignore-gpu-blocklist}}`{=mediawiki} is enough for our
+purposes.
 
 ```{=mediawiki}
 {{Expansion|Provide a link to some bug report.}}
@@ -204,8 +200,8 @@ You might need to disable the Skia renderer, as it is currently not compatible w
 
 ### KDE integration {#kde_integration}
 
-For integration into [Plasma](Plasma "Plasma"){.wikilink} install `{{Pkg|plasma-browser-integration}}`{=mediawiki}. See
-[KDE Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more details.
+For integration into [Plasma](Plasma "wikilink") install `{{Pkg|plasma-browser-integration}}`{=mediawiki}. See [KDE
+Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more details.
 
 ### PDF viewer plugin {#pdf_viewer_plugin}
 
@@ -224,7 +220,7 @@ crash. To prevent the GPU process from crashing, add the following flags:
 ```
 ### Native Wayland support {#native_wayland_support}
 
-Chromium 140 supports [Wayland](Wayland "Wayland"){.wikilink} by default. For old versions, you can use
+Chromium 140 supports [Wayland](Wayland "wikilink") by default. For old versions, you can use
 
 `--ozone-platform-hint=auto`
 
@@ -232,8 +228,8 @@ or
 
 `--ozone-platform=wayland`
 
-See [#Making flags persistent](#Making_flags_persistent "#Making flags persistent"){.wikilink} for a permanent
-configuration. The flag is also available via [browser flags menu](#chrome://_URLs "browser flags menu"){.wikilink}.
+See [#Making flags persistent](#Making_flags_persistent "wikilink") for a permanent configuration. The flag is also
+available via [browser flags menu](#chrome://_URLs "wikilink").
 
 This will select wayland Ozone backend when in wayland session, so you can use a single desktop entry if you switch
 between X11 and Wayland often.
@@ -285,12 +281,12 @@ The following tips and tricks should work for both Chromium and Chrome unless ex
 
 A number of tweaks can be accessed via Chrome URLs. See **<chrome://chrome-urls>** for a complete list.
 
-- **<chrome://flags>** - access experimental features such as WebGL and rendering webpages with GPU, etc.
-- **<chrome://extensions>** - view, enable and disable the currently used Chromium extensions.
-- **<chrome://gpu>** - status of different GPU options.
-- **<chrome://sandbox>** - indicate sandbox status.
-- **<chrome://version>** - display version and switches used to invoke the active
-  `{{ic|/usr/bin/chromium}}`{=mediawiki}.
+-   **<chrome://flags>** - access experimental features such as WebGL and rendering webpages with GPU, etc.
+-   **<chrome://extensions>** - view, enable and disable the currently used Chromium extensions.
+-   **<chrome://gpu>** - status of different GPU options.
+-   **<chrome://sandbox>** - indicate sandbox status.
+-   **<chrome://version>** - display version and switches used to invoke the active
+    `{{ic|/usr/bin/chromium}}`{=mediawiki}.
 
 An automatically updated, complete listing of Chromium switches (command line parameters) is available
 [here](https://peter.sh/experiments/chromium-command-line-switches/).
@@ -350,13 +346,12 @@ you run the command:
 
 ##### Profile in tmpfs {#profile_in_tmpfs}
 
-Relocate the browser profile to a [tmpfs](Wikipedia:Tmpfs "tmpfs"){.wikilink} filesystem, including
-`{{ic|/tmp}}`{=mediawiki}, or `{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire
-profile is now stored in RAM.
+Relocate the browser profile to a [tmpfs](Wikipedia:Tmpfs "wikilink") filesystem, including `{{ic|/tmp}}`{=mediawiki},
+or `{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire profile is now stored in RAM.
 
 Use an active profile management tool such as `{{Pkg|profile-sync-daemon}}`{=mediawiki} for maximal reliability and ease
 of use. It symlinks or bind mounts and syncs the browser profile directories to RAM. For more, see
-[Profile-sync-daemon](Profile-sync-daemon "Profile-sync-daemon"){.wikilink}.
+[Profile-sync-daemon](Profile-sync-daemon "wikilink").
 
 #### Launch a new browser instance {#launch_a_new_browser_instance}
 
@@ -375,11 +370,11 @@ By default, Chromium downloads `{{ic|*.torrent}}`{=mediawiki} files directly and
 the bottom-left corner of the screen in order for the file to be opened with your default torrent client. This can be
 avoided with the following method:
 
-- Download a `{{ic|*.torrent}}`{=mediawiki} file.
-- Right-click the notification displayed at the bottom-left corner of the screen.
-- Check the \"*Always Open Files of This Type*\" checkbox.
+-   Download a `{{ic|*.torrent}}`{=mediawiki} file.
+-   Right-click the notification displayed at the bottom-left corner of the screen.
+-   Check the \"*Always Open Files of This Type*\" checkbox.
 
-See [xdg-open](xdg-open "xdg-open"){.wikilink} to change the default assocation.
+See [xdg-open](xdg-open "wikilink") to change the default assocation.
 
 #### Touch Scrolling on touchscreen devices {#touch_scrolling_on_touchscreen_devices}
 
@@ -422,10 +417,9 @@ The User Agent can be arbitrarily modified at the start of Chromium\'s base inst
 Chromium has a similar reader mode to Firefox. In this case it is called DOM Distiller, which is an [open source
 project](https://github.com/chromium/dom-distiller). It is disabled by default, but can be enabled using the
 `{{Ic|chrome://flags/#enable-reader-mode}}`{=mediawiki} flag, which you can also make
-[persistent](#Making_flags_persistent "persistent"){.wikilink}. Not only does DOM Distiller provide a better reading
-experience by distilling the content of the page, it also simplifies pages for print. Even though the latter checkbox
-option has been removed from the print dialog, you can still print the distilled page, which basically has the same
-effect.
+[persistent](#Making_flags_persistent "wikilink"). Not only does DOM Distiller provide a better reading experience by
+distilling the content of the page, it also simplifies pages for print. Even though the latter checkbox option has been
+removed from the print dialog, you can still print the distilled page, which basically has the same effect.
 
 After enabling the flag, you will find a new \"Enter reader mode\" menu item and corresponding icon in the address bar
 when Chromium thinks the website you are visiting could do with some distilling.
@@ -446,7 +440,7 @@ there and configure Chromium to use a specific GPU with flags:
 
 #### Import bookmarks from Firefox {#import_bookmarks_from_firefox}
 
-To ease the transition, you can import bookmarks from [Firefox](Firefox "Firefox"){.wikilink} into Chromium.
+To ease the transition, you can import bookmarks from [Firefox](Firefox "wikilink") into Chromium.
 
 Navigate Chromium to `{{ic|chrome://settings/importData}}`{=mediawiki}
 
@@ -485,7 +479,7 @@ environment. [11](https://issues.chromium.org/issues/40811836)
 
 To enable this feature, launch your browser with the `{{ic|1=--enable-features=MiddleClickAutoscroll}}`{=mediawiki}
 flag. In case you want to make the option persistent, see [#Making flags
-persistent](#Making_flags_persistent "#Making flags persistent"){.wikilink}.
+persistent](#Making_flags_persistent "wikilink").
 
 ```{=mediawiki}
 {{Note|
@@ -499,8 +493,8 @@ persistent](#Making_flags_persistent "#Making flags persistent"){.wikilink}.
 #### U2F authentication {#u2f_authentication}
 
 Install `{{Pkg|libfido2}}`{=mediawiki} library. This provides the udev rules required to enable access to the
-[U2F](U2F "U2F"){.wikilink} key as a user. U2F keys are by default only accessible by root, and without these rules
-Chromium will give an error.
+[U2F](U2F "wikilink") key as a user. U2F keys are by default only accessible by root, and without these rules Chromium
+will give an error.
 
 #### Theming
 
@@ -509,10 +503,10 @@ You can make Chromium use your current GTK theme for browser menus and controls.
 
 #### Dark mode {#dark_mode}
 
-Since Chromium 114, [XDG Desktop Portal](XDG_Desktop_Portal "XDG Desktop Portal"){.wikilink} is used to automatically
-determine the user\'s preferred appearance ([issue](https://bugs.chromium.org/p/chromium/issues/detail?id=998903)),
-thereby dissociating dark mode enablement from the user\'s GTK theme. This preference will be applied to
-*prefers-color-scheme* in CSS, JavaScript, Settings and Dev-Tools.
+Since Chromium 114, [XDG Desktop Portal](XDG_Desktop_Portal "wikilink") is used to automatically determine the user\'s
+preferred appearance ([issue](https://bugs.chromium.org/p/chromium/issues/detail?id=998903)), thereby dissociating dark
+mode enablement from the user\'s GTK theme. This preference will be applied to *prefers-color-scheme* in CSS,
+JavaScript, Settings and Dev-Tools.
 
 The way to change the preferred appearance depends on your XDG Desktop Portal backend. For instance, many desktop
 environments have a switch in their appearance settings. Or when using e.g.
@@ -526,14 +520,14 @@ You can query the current preferred appearance using `{{ic|dbus-send}}`{=mediawi
 
 `$ dbus-send --session --print-reply=literal --dest=org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings.Read string:org.freedesktop.appearance string:color-scheme | tr -s ' ' | cut -d ' ' -f 5`
 
-- **0**: No preference
-- **1**: Prefer dark appearance
-- **2**: Prefer light appearance
+-   **0**: No preference
+-   **1**: Prefer dark appearance
+-   **2**: Prefer light appearance
 
 ##### Pre Chromium 114 {#pre_chromium_114}
 
-To enable dark mode and enable the dark theme (normally used for incognito mode) [append](append "append"){.wikilink}
-the following flag to [persistent configuration](#Making_flags_persistent "persistent configuration"){.wikilink}:
+To enable dark mode and enable the dark theme (normally used for incognito mode) [append](append "wikilink") the
+following flag to [persistent configuration](#Making_flags_persistent "wikilink"):
 
 ```{=mediawiki}
 {{hc|1=~/.config/chromium-flags.conf|2=
@@ -548,10 +542,10 @@ change options such as **Side panel border** and **Side panel drag and drop**.
 
 ### Profile maintenance {#profile_maintenance}
 
-Chromium uses [SQLite](SQLite "SQLite"){.wikilink} databases to manage history and the like. Sqlite databases become
-fragmented over time and empty spaces appear all around. But, since there are no managing processes checking and
-optimizing the database, these factors eventually result in a performance hit. A good way to improve startup and some
-other bookmarks- and history-related tasks is to defragment and trim unused space from these databases.
+Chromium uses [SQLite](SQLite "wikilink") databases to manage history and the like. Sqlite databases become fragmented
+over time and empty spaces appear all around. But, since there are no managing processes checking and optimizing the
+database, these factors eventually result in a performance hit. A good way to improve startup and some other bookmarks-
+and history-related tasks is to defragment and trim unused space from these databases.
 
 ```{=mediawiki}
 {{Pkg|profile-cleaner}}
@@ -582,7 +576,7 @@ One can test WebRTC via <https://browserleaks.com/webrtc>.
 ```
 #### SSL certificates {#ssl_certificates}
 
-See [#Certificates](#Certificates "#Certificates"){.wikilink} for general information.
+See [#Certificates](#Certificates "wikilink") for general information.
 
 ##### Adding CAcert certificates for self-signed certificates {#adding_cacert_certificates_for_self_signed_certificates}
 
@@ -623,8 +617,8 @@ Syntax is advertised in the commented lines.
 
 References:
 
-- <https://web.archive.org/web/20180718193807/https://blog.avirtualhome.com/adding-ssl-certificates-to-google-chrome-linux-ubuntu>
-- <https://chromium.googlesource.com/chromium/src/+/master/docs/linux/cert_management.md>
+-   <https://web.archive.org/web/20180718193807/https://blog.avirtualhome.com/adding-ssl-certificates-to-google-chrome-linux-ubuntu>
+-   <https://chromium.googlesource.com/chromium/src/+/master/docs/linux/cert_management.md>
 
 ##### Example 2: Using Firefox to isolate the certificate from TomatoUSB {#example_2_using_firefox_to_isolate_the_certificate_from_tomatousb}
 
@@ -648,7 +642,7 @@ Now import the certificate for use in Chromium:
 ```
 Reference:
 
-- <https://sahissam.blogspot.com/2012/06/new-ssl-certificates-for-tomatousb-and.html>
+-   <https://sahissam.blogspot.com/2012/06/new-ssl-certificates-for-tomatousb-and.html>
 
 #### Canvas Fingerprinting {#canvas_fingerprinting}
 
@@ -667,16 +661,15 @@ reported as undetermined in the full results.
 ```
 #### Privacy extensions {#privacy_extensions}
 
-See [Browser extensions#Privacy](Browser_extensions#Privacy "Browser extensions#Privacy"){.wikilink}.
+See [Browser extensions#Privacy](Browser_extensions#Privacy "wikilink").
 
 ```{=mediawiki}
 {{Tip|Installing too many extensions might take up much space in the toolbar. Those extensions which you would not interact with anyway can be hidden by right-clicking on the extension and choosing ''Hide in Chromium menu''.}}
 ```
 #### Do Not Track {#do_not_track}
 
-To enable [Do Not Track](wikipedia:Do_Not_Track "Do Not Track"){.wikilink}, visit
-`{{ic|chrome://settings}}`{=mediawiki}, scroll down to *Advanced* and under *Privacy and security*, check *Send a \"Do
-Not Track\" request with your browsing traffic*.
+To enable [Do Not Track](wikipedia:Do_Not_Track "wikilink"), visit `{{ic|chrome://settings}}`{=mediawiki}, scroll down
+to *Advanced* and under *Privacy and security*, check *Send a \"Do Not Track\" request with your browsing traffic*.
 
 #### Force a password store {#force_a_password_store}
 
@@ -690,40 +683,38 @@ You can force Chromium to use a specific password store by launching it with the
 flag with one of following the values
 [13](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/password_storage.md):
 
-- ```{=mediawiki}
-  {{ic|gnome-libsecret}}
-  ```
-  , uses [Gnome Keyring](Gnome_Keyring "Gnome Keyring"){.wikilink} via
-  [libsecret](https://gitlab.gnome.org/GNOME/libsecret).
+-   ```{=mediawiki}
+    {{ic|gnome-libsecret}}
+    ```
+    , uses [Gnome Keyring](Gnome_Keyring "wikilink") via [libsecret](https://gitlab.gnome.org/GNOME/libsecret).
 
-- ```{=mediawiki}
-  {{ic|kwallet5}}
-  ```
-  , uses [KDE Wallet](KDE_Wallet "KDE Wallet"){.wikilink} 5
+-   ```{=mediawiki}
+    {{ic|kwallet5}}
+    ```
+    , uses [KDE Wallet](KDE_Wallet "wikilink") 5
 
-- ```{=mediawiki}
-  {{ic|kwallet6}}
-  ```
-  , uses [KDE Wallet](KDE_Wallet "KDE Wallet"){.wikilink} 6
+-   ```{=mediawiki}
+    {{ic|kwallet6}}
+    ```
+    , uses [KDE Wallet](KDE_Wallet "wikilink") 6
 
-- ```{=mediawiki}
-  {{ic|basic}}
-  ```
-  , saves the passwords and the cookies\' encryption key as plain text in the file `{{ic|Login Data}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|basic}}
+    ```
+    , saves the passwords and the cookies\' encryption key as plain text in the file `{{ic|Login Data}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|detect}}
-  ```
-  , the default auto-detect behavior
+-   ```{=mediawiki}
+    {{ic|detect}}
+    ```
+    , the default auto-detect behavior
 
 For example, to force Chromium to use Gnome Keyring in another desktop or WM use
 `{{ic|1=--password-store=gnome-libsecret}}`{=mediawiki}, see [#Making flags
-persistent](#Making_flags_persistent "#Making flags persistent"){.wikilink} for making it permanent.
+persistent](#Making_flags_persistent "wikilink") for making it permanent.
 
 When using a password store of another desktop environment you probably also want to unlock it automatically. See
-[GNOME/Keyring#Using the keyring](GNOME/Keyring#Using_the_keyring "GNOME/Keyring#Using the keyring"){.wikilink} and [KDE
-Wallet#Unlock KDE Wallet automatically on
-login](KDE_Wallet#Unlock_KDE_Wallet_automatically_on_login "KDE Wallet#Unlock KDE Wallet automatically on login"){.wikilink}.
+[GNOME/Keyring#Using the keyring](GNOME/Keyring#Using_the_keyring "wikilink") and [KDE Wallet#Unlock KDE Wallet
+automatically on login](KDE_Wallet#Unlock_KDE_Wallet_automatically_on_login "wikilink").
 
 #### Enable hybrid post-quantum key exchange {#enable_hybrid_post_quantum_key_exchange}
 
@@ -761,18 +752,15 @@ Chromium has `{{ic|--enable-parallel-downloading}}`{=mediawiki} flag for paralle
 ```
 #### Tab font size is too large {#tab_font_size_is_too_large}
 
-Chromium will use the GTK settings as described in
-[GTK#Configuration](GTK#Configuration "GTK#Configuration"){.wikilink}. When configured, Chromium will use the
-`{{ic|gtk-font-name}}`{=mediawiki} setting for tabs (which may mismatch window font size). To override these settings,
-use `{{ic|1=--force-device-scale-factor=1.0}}`{=mediawiki}.
+Chromium will use the GTK settings as described in [GTK#Configuration](GTK#Configuration "wikilink"). When configured,
+Chromium will use the `{{ic|gtk-font-name}}`{=mediawiki} setting for tabs (which may mismatch window font size). To
+override these settings, use `{{ic|1=--force-device-scale-factor=1.0}}`{=mediawiki}.
 
 Since Chrome Refresh 2023 became default, GNOME users with Cantarell font may notice some characters (like lowercase g)
 cut off in the tab title. See the [issue on chromium.org](https://issues.chromium.org/issues/40934082).
 
 Until the issue resolved, a workaround is to replace Cantarell with another font using a configuration based on [Font
-configuration#Set default or fallback
-fonts](Font_configuration#Set_default_or_fallback_fonts "Font configuration#Set default or fallback fonts"){.wikilink},
-e.g.
+configuration#Set default or fallback fonts](Font_configuration#Set_default_or_fallback_fonts "wikilink"), e.g.
 
 ```{=mediawiki}
 {{hc|~/.config/fontconfig/conf.d/10-chromium-font.conf|<nowiki>
@@ -795,10 +783,10 @@ This configuration will apply only if process name `{{ic|chromium}}`{=mediawiki}
 ### WebGL
 
 There is the possibility that your graphics card has been blacklisted by Chromium. See [#Force GPU
-acceleration](#Force_GPU_acceleration "#Force GPU acceleration"){.wikilink}.
+acceleration](#Force_GPU_acceleration "wikilink").
 
-If you are using Chromium with [Bumblebee](Bumblebee "Bumblebee"){.wikilink}, WebGL might crash due to GPU sandboxing.
-In this case, you can disable GPU sandboxing with `{{ic|optirun chromium --disable-gpu-sandbox}}`{=mediawiki}.
+If you are using Chromium with [Bumblebee](Bumblebee "wikilink"), WebGL might crash due to GPU sandboxing. In this case,
+you can disable GPU sandboxing with `{{ic|optirun chromium --disable-gpu-sandbox}}`{=mediawiki}.
 
 Visit `{{ic|chrome://gpu/}}`{=mediawiki} for debugging information about WebGL support.
 
@@ -810,18 +798,17 @@ reset the GPU information by deleting `{{ic|~/.config/chromium/Local\ State}}`{=
 
 ### Incorrect HiDPI rendering {#incorrect_hidpi_rendering}
 
-Chromium will automatically scale for a [HiDPI](HiDPI "HiDPI"){.wikilink} display, however, this may cause an incorrect
-rendered GUI.
+Chromium will automatically scale for a [HiDPI](HiDPI "wikilink") display, however, this may cause an incorrect rendered
+GUI.
 
 The flag `{{ic|1=--force-device-scale-factor=1}}`{=mediawiki} may be used to overrule the automatic scaling factor.
 
-When [native Wayland support](#Native_Wayland_support "native Wayland support"){.wikilink} is enabled, Chromium will
-automatically scale based on the configured scale of each monitor.
+When [native Wayland support](#Native_Wayland_support "wikilink") is enabled, Chromium will automatically scale based on
+the configured scale of each monitor.
 
 ### Password prompt on every start with GNOME Keyring {#password_prompt_on_every_start_with_gnome_keyring}
 
-See [GNOME/Keyring#Passwords are not
-remembered](GNOME/Keyring#Passwords_are_not_remembered "GNOME/Keyring#Passwords are not remembered"){.wikilink}.
+See [GNOME/Keyring#Passwords are not remembered](GNOME/Keyring#Passwords_are_not_remembered "wikilink").
 
 ### Everything is syncing except for password {#everything_is_syncing_except_for_password}
 
@@ -838,13 +825,13 @@ If you see the message `{{ic|Failed to decrypt token for service AccountId-*}}`{
 start Chromium, it might try to use the wrong password storage backend. This might happen when you switch between
 Desktop Environments.
 
-See [#Force a password store](#Force_a_password_store "#Force a password store"){.wikilink}.
+See [#Force a password store](#Force_a_password_store "wikilink").
 
 ### Hang on startup when Google Sync enabled {#hang_on_startup_when_google_sync_enabled}
 
 Try launching Chrome with `{{ic|1=--password-store=basic}}`{=mediawiki} or another appropriate password store.
 
-See [#Force a password store](#Force_a_password_store "#Force a password store"){.wikilink}.
+See [#Force a password store](#Force_a_password_store "wikilink").
 
 ### Chromium asks to be set as the default browser every time it starts {#chromium_asks_to_be_set_as_the_default_browser_every_time_it_starts}
 
@@ -868,7 +855,7 @@ the MIME association for `{{ic|text/html}}`{=mediawiki}:
 
 `$ xdg-mime default chromium.desktop text/html`
 
-Finally, [update the MIME database](XDG_MIME_Applications#New_MIME_types "update the MIME database"){.wikilink}:
+Finally, [update the MIME database](XDG_MIME_Applications#New_MIME_types "wikilink"):
 
 `$ update-mime-database ~/.local/share/mime`
 
@@ -891,8 +878,8 @@ Upstream bug report about the general issue which may contain some additional wo
 When using displays with mixed refresh rates(for example 60Hz and 144Hz), Chromium might render for the lower Hz
 display.
 
-There is a suitable workaround for this issue, [append](append "append"){.wikilink} the following flags to [persistent
-configuration](#Making_flags_persistent "persistent configuration"){.wikilink}:
+There is a suitable workaround for this issue, [append](append "wikilink") the following flags to [persistent
+configuration](#Making_flags_persistent "wikilink"):
 
 ```{=mediawiki}
 {{hc|1=~/.config/chromium-flags.conf|2=
@@ -918,16 +905,15 @@ A workaround may be to switch to the XWayland backend if all else fails.
 Mouse whell scrolling in chromium and electron based applications may be too slow for daily usage. Here are some
 solutions.
 
-[Libinput#Mouse wheel scrolling speed
-scaling](Libinput#Mouse_wheel_scrolling_speed_scaling "Libinput#Mouse wheel scrolling speed scaling"){.wikilink} injects
+[Libinput#Mouse wheel scrolling speed scaling](Libinput#Mouse_wheel_scrolling_speed_scaling "wikilink") injects
 `{{ic|libinput_event_pointer_get_axis_value}}`{=mediawiki} function in libinput and provides an interface to change
 scale factor. This is not an application level injection, so an addition script for application specific scale factor
 tuning is needed. Note that scroll on chromium\'s small height developer tools may be too fast when scale factor is big
 enough.
 
-[IMWheel](IMWheel "IMWheel"){.wikilink} increases scroll distance by replaying X wheel button event for multiple times.
-However, chromium assumes the real scroll and the replayed ones as two events. There is a small but noticeable delay
-between them, so one mouse wheel scroll leads to twice page jumps. Also, touchpad scroll needs additional care.
+[IMWheel](IMWheel "wikilink") increases scroll distance by replaying X wheel button event for multiple times. However,
+chromium assumes the real scroll and the replayed ones as two events. There is a small but noticeable delay between
+them, so one mouse wheel scroll leads to twice page jumps. Also, touchpad scroll needs additional care.
 
 [Linux Scroll Speed
 Fix](https://chrome.google.com/webstore/detail/linux-scroll-speed-fix/mlboohjioameadaedfjcpemcaangkkbp) and
@@ -943,8 +929,7 @@ scroll out of it, except moving mouse. Also, extension based methods can not be 
 {{Out of date|The linked section states that Chromium is not affected.}}
 ```
 This may be a PulseAudio issue. See the suggested fix in [PulseAudio/Troubleshooting#Browsers (firefox) load videos but
-do no
-play](PulseAudio/Troubleshooting#Browsers_(firefox)_load_videos_but_do_no_play "PulseAudio/Troubleshooting#Browsers (firefox) load videos but do no play"){.wikilink}.
+do no play](PulseAudio/Troubleshooting#Browsers_(firefox)_load_videos_but_do_no_play "wikilink").
 
 ### Passwords are not saved due to a corrupted database {#passwords_are_not_saved_due_to_a_corrupted_database}
 
@@ -961,8 +946,7 @@ Launching chromium again should re-create them.
 
 ### Cursor is not correct on KDE Wayland {#cursor_is_not_correct_on_kde_wayland}
 
-See [KDE#Plasma cursor sometimes shown
-incorrectly](KDE#Plasma_cursor_sometimes_shown_incorrectly "KDE#Plasma cursor sometimes shown incorrectly"){.wikilink}.
+See [KDE#Plasma cursor sometimes shown incorrectly](KDE#Plasma_cursor_sometimes_shown_incorrectly "wikilink").
 
 ### Chromium window is transparent under Wayland {#chromium_window_is_transparent_under_wayland}
 
@@ -988,8 +972,8 @@ Workaround for now is adding this flag: `{{hc|1=~/.config/chromium-flags.conf|2=
 ### No audio available without sound server {#no_audio_available_without_sound_server}
 
 Chromium does not support [Advanced Linux Sound Architecture#Addressing hardware
-directly](Advanced_Linux_Sound_Architecture#Addressing_hardware_directly "Advanced Linux Sound Architecture#Addressing hardware directly"){.wikilink}.
-Set output devices `{{ic|pcm.dmixer}}`{=mediawiki} and `{{ic|pcm.dsnooper}}`{=mediawiki} as seen in the page and use
+directly](Advanced_Linux_Sound_Architecture#Addressing_hardware_directly "wikilink"). Set output devices
+`{{ic|pcm.dmixer}}`{=mediawiki} and `{{ic|pcm.dsnooper}}`{=mediawiki} as seen in the page and use
 `{{ic|1=-alsa-output-device=pcm.dmixer -alsa-input-device=pcm.dsnooper}}`{=mediawiki} flags.
 
 ### Gnome \"Global Shortcuts\" menu appears on startup {#gnome_global_shortcuts_menu_appears_on_startup}
@@ -1022,21 +1006,19 @@ You have to enable *Use system title bar and borders* via the *<chrome://setting
 
 ### Chromium has no sound but sound output device is present {#chromium_has_no_sound_but_sound_output_device_is_present}
 
-For WirePlumber users, [resetting WirePlumber
-state](WirePlumber#Delete_corrupt_settings "resetting WirePlumber state"){.wikilink} may help.
+For WirePlumber users, [resetting WirePlumber state](WirePlumber#Delete_corrupt_settings "wikilink") may help.
 
 ## See also {#see_also}
 
-- [Chromium homepage](https://www.chromium.org/)
-- [Google Chrome release notes](https://chromereleases.googleblog.com/)
-- [Chrome web store](https://chrome.google.com/webstore/)
-- [Differences between Chromium and Google
-  Chrome](Wikipedia:Chromium_(web_browser)#Differences_from_Google_Chrome "Differences between Chromium and Google Chrome"){.wikilink}
-- [List of Chromium command-line switches](https://peter.sh/experiments/chromium-command-line-switches/)
-- [Profile-sync-daemon](Profile-sync-daemon "Profile-sync-daemon"){.wikilink} - Systemd service that saves Chromium
-  profile in tmpfs and syncs to disk
-- [Tmpfs](Tmpfs "Tmpfs"){.wikilink} - Tmpfs Filesystem in `{{ic|/etc/fstab}}`{=mediawiki}
-- [Official tmpfs kernel Documentation](https://docs.kernel.org/filesystems/tmpfs.html)
+-   [Chromium homepage](https://www.chromium.org/)
+-   [Google Chrome release notes](https://chromereleases.googleblog.com/)
+-   [Chrome web store](https://chrome.google.com/webstore/)
+-   [Differences between Chromium and Google
+    Chrome](Wikipedia:Chromium_(web_browser)#Differences_from_Google_Chrome "wikilink")
+-   [List of Chromium command-line switches](https://peter.sh/experiments/chromium-command-line-switches/)
+-   [Profile-sync-daemon](Profile-sync-daemon "wikilink") - Systemd service that saves Chromium profile in tmpfs and
+    syncs to disk
+-   [Tmpfs](Tmpfs "wikilink") - Tmpfs Filesystem in `{{ic|/etc/fstab}}`{=mediawiki}
+-   [Official tmpfs kernel Documentation](https://docs.kernel.org/filesystems/tmpfs.html)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
-[Category:Google](Category:Google "Category:Google"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink") [Category:Google](Category:Google "wikilink")

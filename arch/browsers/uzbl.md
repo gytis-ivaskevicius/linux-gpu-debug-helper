@@ -1,13 +1,13 @@
-[ja:Uzbl](ja:Uzbl "ja:Uzbl"){.wikilink} [Uzbl](http://www.uzbl.org/) is a lightweight browser based on **uzbl-core**.
-**Uzbl** adheres to the UNIX philosophy of \"Write programs that do one thing and do it well\". The uzbl-browser package
-includes uzbl-core, uzbl-browser and uzbl-event-manager. Most users will want to use **uzbl-browser** or **uzbl-tabbed**
-as they provide the fullest set of tools for browsing. Uzbl-browser allows for a single page per window (with as many
-windows as you want), while uzbl-tabbed provides a wrapper for uzbl-browser and implements basic tabs with multiple
-pages per window.
+[ja:Uzbl](ja:Uzbl "wikilink") [Uzbl](http://www.uzbl.org/) is a lightweight browser based on **uzbl-core**. **Uzbl**
+adheres to the UNIX philosophy of \"Write programs that do one thing and do it well\". The uzbl-browser package includes
+uzbl-core, uzbl-browser and uzbl-event-manager. Most users will want to use **uzbl-browser** or **uzbl-tabbed** as they
+provide the fullest set of tools for browsing. Uzbl-browser allows for a single page per window (with as many windows as
+you want), while uzbl-tabbed provides a wrapper for uzbl-browser and implements basic tabs with multiple pages per
+window.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{AUR|uzbl-browser-next-git}}`{=mediawiki} or
+[Install](Install "wikilink") the `{{AUR|uzbl-browser-next-git}}`{=mediawiki} or
 `{{AUR|uzbl-tabbed-next-git}}`{=mediawiki} package.
 
 Thanks to `{{AUR|webkitgtk}}`{=mediawiki}, uzbl can make use of NPAPI plugins: installing
@@ -18,8 +18,8 @@ uzbl-tabbed.
 
 One of the biggest advantages of using Uzbl is that nearly everything can be controlled by the keyboard. This is
 preferable to the traditional mouse/keyboard combo because less moving around of the hands is needed.
-[Vim](Vim "Vim"){.wikilink} users will find Uzbl much easier to pick-up, especially as the default bindings loosely
-resemble Vim keystrokes. For instance, following a link requires the user to type `{{Ic|fl}}`{=mediawiki}, and then the
+[Vim](Vim "wikilink") users will find Uzbl much easier to pick-up, especially as the default bindings loosely resemble
+Vim keystrokes. For instance, following a link requires the user to type `{{Ic|fl}}`{=mediawiki}, and then the
 keystrokes in the box that appears next to each link on the page. Shortening the command to just `{{Ic|f}}`{=mediawiki}
 in the configuration file allows for even faster navigation.
 
@@ -126,8 +126,8 @@ configuration file can be found on [the Uzbl readme](http://www.uzbl.org/readme.
 
 ### Caching
 
-Due to its lightweight nature, uzbl does NOT contain caching functionality. You can install
-[Squid](Squid "Squid"){.wikilink} to speed up page loading.
+Due to its lightweight nature, uzbl does NOT contain caching functionality. You can install [Squid](Squid "wikilink") to
+speed up page loading.
 
 ## Troubleshooting
 
@@ -147,9 +147,9 @@ set ssl_policy fail
 ```
 ## See also {#see_also}
 
-- [Uzbl wiki with user configuration files and
-  scripts](https://web.archive.org/web/20190207125844/https://www.uzbl.org/wiki/doku.php)
-- [Forum thread](https://bbs.archlinux.org/viewtopic.php?id=70700)
-- [Configuration file](https://github.com/Dieterbe/uzbl/raw/master/examples/config/config)
+-   [Uzbl wiki with user configuration files and
+    scripts](https://web.archive.org/web/20190207125844/https://www.uzbl.org/wiki/doku.php)
+-   [Forum thread](https://bbs.archlinux.org/viewtopic.php?id=70700)
+-   [Configuration file](https://github.com/Dieterbe/uzbl/raw/master/examples/config/config)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

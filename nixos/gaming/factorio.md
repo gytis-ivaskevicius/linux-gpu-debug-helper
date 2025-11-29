@@ -8,7 +8,7 @@ is available on Nixpkgs and can be installed on NixOS.
 ## Installation
 
 To install the Factorio server, add the following to your [NixOS
-configuration](Overview_of_the_NixOS_Linux_distribution#Declarative_Configuration "NixOS configuration"){.wikilink}:
+configuration](Overview_of_the_NixOS_Linux_distribution#Declarative_Configuration "wikilink"):
 
 ```{=mediawiki}
 {{file|configuration.nix|nix|
@@ -57,7 +57,7 @@ download mods from the official mod site.
 
 Instead, you can download the mods you need imperatively from <https://mods.factorio.com/>, place them in a folder such
 as `/etc/nixos/factorio-mods`, and put this code in your [NixOS
-configuration](Overview_of_the_NixOS_Linux_distribution#Declarative_Configuration "NixOS configuration"){.wikilink}:
+configuration](Overview_of_the_NixOS_Linux_distribution#Declarative_Configuration "wikilink"):
 
 ```{=mediawiki}
 {{file|configuration.nix|nix|
@@ -96,7 +96,6 @@ This code was developed by
 
 ## See also {#see_also}
 
-- [The Factorio wiki page on Multiplayer](https://wiki.factorio.com/Multiplayer)
+-   [The Factorio wiki page on Multiplayer](https://wiki.factorio.com/Multiplayer)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Server](Category:Server "Category:Server"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Server](Category:Server "wikilink")

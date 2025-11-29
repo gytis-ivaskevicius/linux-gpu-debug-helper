@@ -1,7 +1,7 @@
 `{{Related articles start}}`{=mediawiki} `{{Related|List of games}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki}
 `{{Related|Brutal Doom}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-From [Wikipedia](w:Doom_(1993_video_game) "Wikipedia"){.wikilink}:
+From [Wikipedia](w:Doom_(1993_video_game) "wikilink"):
 
 :   Doom is a first-person shooter game developed and published by id Software. Released on December 10, 1993, for DOS.
 
@@ -13,8 +13,7 @@ you will still need to have a copy of the original game\'s data to play it and D
 
 ### Games/WADs
 
-Also see [List of games#Shooters (FPS, third
-person)](List_of_games#Shooters_(FPS,_third_person) "List of games#Shooters (FPS, third person)"){.wikilink} for more
+Also see [List of games#Shooters (FPS, third person)](List_of_games#Shooters_(FPS,_third_person) "wikilink") for more
 Doom-related packages. You can find WADs created by the community in the [IDGames
 archive](https://www.doomworld.com/idgames/) and other sites.
 
@@ -92,7 +91,7 @@ within, such as textures, sprites, scripts and info lumps. It also comes with a 
 #### Ultimate Doom Builder {#ultimate_doom_builder}
 
 Specifically a map editor, [Ultimate Doom Builder](https://github.com/UltimateDoomBuilder/UltimateDoomBuilder) is
-written in [.NET](.NET ".NET"){.wikilink}, and is the de-facto standard for creating Doom maps. Install
+written in [.NET](.NET "wikilink"), and is the de-facto standard for creating Doom maps. Install
 `{{AUR|ultimate-doom-builder-git}}`{=mediawiki}.
 
 #### DoomTools
@@ -146,4 +145,4 @@ mapping, scripting, and other information when creating for Doom. You can find a
 community [Doom Wiki](https://doomwiki.org/wiki/Entryway). You can also ask questions on the [Doom World
 forums](https://www.doomworld.com).
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

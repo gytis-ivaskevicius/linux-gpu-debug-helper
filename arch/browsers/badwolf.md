@@ -1,15 +1,15 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[ja:Badwolf](ja:Badwolf "ja:Badwolf"){.wikilink} [Badwolf](https://hacktivis.me/projects/badwolf) is a minimal, privacy
-oriented, [WebKitGTK browser](List_of_applications/Internet#WebKitGTK-based "WebKitGTK browser"){.wikilink} for Linux
-and BSD on x86(-64) and arm7&8 running on [X11](X11 "X11"){.wikilink} and [Wayland](Wayland "Wayland"){.wikilink}.
-Badwolf features toggles for JavaScript and image loading, a tabbed browsing experience in a mouse-driven user
-interface. It has a low memory footprint and small binary size.
+[ja:Badwolf](ja:Badwolf "wikilink") [Badwolf](https://hacktivis.me/projects/badwolf) is a minimal, privacy oriented,
+[WebKitGTK browser](List_of_applications/Internet#WebKitGTK-based "wikilink") for Linux and BSD on x86(-64) and arm7&8
+running on [X11](X11 "wikilink") and [Wayland](Wayland "wikilink"). Badwolf features toggles for JavaScript and image
+loading, a tabbed browsing experience in a mouse-driven user interface. It has a low memory footprint and small binary
+size.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} `{{AUR|badwolf}}`{=mediawiki}.
+[Install](Install "wikilink") `{{AUR|badwolf}}`{=mediawiki}.
 
 ### Video streaming {#video_streaming}
 
@@ -50,4 +50,4 @@ The default homepage (for new tabs and fresh browser sessions) can be set in `{{
 ```{=mediawiki}
 {{Note|Remember to include the full URI for your homepage, including its scheme, e.g {{ic|https://}} or {{ic|file://}}.}}
 ```
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

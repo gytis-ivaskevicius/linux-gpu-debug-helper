@@ -1,39 +1,37 @@
-[fr:HDR monitor support](fr:HDR_monitor_support "fr:HDR monitor support"){.wikilink} [ja:HDR
-モニターのサポート](ja:HDR_モニターのサポート "ja:HDR モニターのサポート"){.wikilink} [zh-hans:HDR
-显示器支持](zh-hans:HDR_显示器支持 "zh-hans:HDR 显示器支持"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki} `{{Related|Gamescope}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[fr:HDR monitor support](fr:HDR_monitor_support "wikilink") [ja:HDR
+モニターのサポート](ja:HDR_モニターのサポート "wikilink") [zh-hans:HDR 显示器支持](zh-hans:HDR_显示器支持 "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki}
+`{{Related|Gamescope}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 HDR support has been [merged](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/merge_requests/14) into
-[Wayland](Wayland "Wayland"){.wikilink}, and some compositors have implemented it. [X.org](X.org "X.org"){.wikilink} has
-[no plans](https://gitlab.freedesktop.org/xorg/xserver/-/issues/1037#note_521100) to support HDR.
+[Wayland](Wayland "wikilink"), and some compositors have implemented it. [X.org](X.org "wikilink") has [no
+plans](https://gitlab.freedesktop.org/xorg/xserver/-/issues/1037#note_521100) to support HDR.
 
 ## Requirements
 
-- An HDR capable display. Though many displays now advertise HDR, those that use edge lit local dimming can fail to
-  deliver a satisfactory HDR experience. You can learn more at [RTINGS: Local Dimming on
-  TVs](https://www.rtings.com/tv/tests/picture-quality/local-dimming).
-- HDR capable graphics driver: [AMDGPU](AMDGPU "AMDGPU"){.wikilink} and [NVIDIA](NVIDIA "NVIDIA"){.wikilink}
-  (550.54.14+) are confirmed to work.
-  - A bug in [NVIDIA](NVIDIA "NVIDIA"){.wikilink} before 565.57.01 will cause colors to appear washed out in HDR.
-    [1](https://www.nvidia.com/en-us/drivers/details/233008/)
-  - [Intel graphics](Intel_graphics "Intel graphics"){.wikilink} has experimental HDR support [starting from Gen 9
-    graphics and kernel
-    5.12](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a911350dd6c777b4a08ca60fe6e2249fd3c254a)
-    but the implementation is [reportedly
-    incomplete](https://old.reddit.com/r/linux/comments/1atnp5k/hdr_and_intel/kqzj69z/).
-- A supported compositor, see [#Compositors](#Compositors "#Compositors"){.wikilink}
-- A supported application, see [#Applications](#Applications "#Applications"){.wikilink}
-- A Vulkan WSI with HDR support, see [#Vulkan HDR WSI](#Vulkan_HDR_WSI "#Vulkan HDR WSI"){.wikilink}
+-   An HDR capable display. Though many displays now advertise HDR, those that use edge lit local dimming can fail to
+    deliver a satisfactory HDR experience. You can learn more at [RTINGS: Local Dimming on
+    TVs](https://www.rtings.com/tv/tests/picture-quality/local-dimming).
+-   HDR capable graphics driver: [AMDGPU](AMDGPU "wikilink") and [NVIDIA](NVIDIA "wikilink") (550.54.14+) are confirmed
+    to work.
+    -   A bug in [NVIDIA](NVIDIA "wikilink") before 565.57.01 will cause colors to appear washed out in HDR.
+        [1](https://www.nvidia.com/en-us/drivers/details/233008/)
+    -   [Intel graphics](Intel_graphics "wikilink") has experimental HDR support [starting from Gen 9 graphics and
+        kernel
+        5.12](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a911350dd6c777b4a08ca60fe6e2249fd3c254a)
+        but the implementation is [reportedly
+        incomplete](https://old.reddit.com/r/linux/comments/1atnp5k/hdr_and_intel/kqzj69z/).
+-   A supported compositor, see [#Compositors](#Compositors "wikilink")
+-   A supported application, see [#Applications](#Applications "wikilink")
+-   A Vulkan WSI with HDR support, see [#Vulkan HDR WSI](#Vulkan_HDR_WSI "wikilink")
 
 ## Configuration
 
 ### Vulkan HDR WSI {#vulkan_hdr_wsi}
 
-For [NVIDIA](NVIDIA "NVIDIA"){.wikilink} prior to Vulkan beta version 580.94.11 and `{{pkg|mesa}}`{=mediawiki} prior to
-version 25, `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} is required for the
-`{{ic|VK_EXT_swapchain_colorspace}}`{=mediawiki} and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} vulkan extensions
-[2](https://www.phoronix.com/news/Mesa-Vulkan-WSI-HDR-CM)
+For [NVIDIA](NVIDIA "wikilink") prior to Vulkan beta version 580.94.11 and `{{pkg|mesa}}`{=mediawiki} prior to version
+25, `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} is required for the `{{ic|VK_EXT_swapchain_colorspace}}`{=mediawiki}
+and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} vulkan extensions [2](https://www.phoronix.com/news/Mesa-Vulkan-WSI-HDR-CM)
 [3](https://github.com/Zamundaaa/VK_hdr_layer?tab=readme-ov-file#vulkan-wayland-hdr-wsi-layer). Without them, HDR will
 not work using the Vulkan API.
 
@@ -44,7 +42,7 @@ enable this globally, instead enable it on each game and application you wish to
 
 #### KDE Plasma {#kde_plasma}
 
-See [KDE#HDR](KDE#HDR "KDE#HDR"){.wikilink}.
+See [KDE#HDR](KDE#HDR "wikilink").
 
 #### Hyprland
 
@@ -83,28 +81,28 @@ rate setting.
 ```
 #### Gamescope with Steam session {#gamescope_with_steam_session}
 
-Valve\'s Steam compositor [gamescope](gamescope "gamescope"){.wikilink} offers experimental HDR support. Following these
-steps will allow you to try out Valve\'s Steam client running through the HDR capable gamescope.
+Valve\'s Steam compositor [gamescope](gamescope "wikilink") offers experimental HDR support. Following these steps will
+allow you to try out Valve\'s Steam client running through the HDR capable gamescope.
 
 ```{=mediawiki}
 {{Tip|An [[AMDGPU]] is recommended for use with gamescope - [[NVIDIA]] is known to have critical issues.}}
 ```
-- Install `{{Pkg|gamescope}}`{=mediawiki} and `{{AUR|gamescope-session-steam-git}}`{=mediawiki}
-- You may create the optional config file `{{ic|~/.config/environment.d/gamescope-session.conf}}`{=mediawiki} with the
-  following content: `{{bc|<nowiki>
-  if [ "$XDG_SESSION_DESKTOP" = "gamescope" ] ; then
-      SCREEN_WIDTH=1920
-      SCREEN_HEIGHT=1080
-      CONNECTOR=*,eDP-1
-      CLIENTCMD="steam -gamepadui -pipewire-dmabuf"
-      GAMESCOPECMD="/usr/bin/gamescope --hdr-enabled --hdr-itm-enable \
-      --hide-cursor-delay 3000 --fade-out-duration 200 --xwayland-count 2 \
-      -W $SCREEN_WIDTH -H $SCREEN_HEIGHT -O $CONNECTOR"
-  fi
-  </nowiki>}}`{=mediawiki}
-  - Update the resolution values above to the correct ones. You can list your displays by running
-    `{{ic|xrandr --query}}`{=mediawiki}.
-  - You may need to set the Display `{{ic|CONNECTOR}}`{=mediawiki} if it does not pick the right one by default.
+-   Install `{{Pkg|gamescope}}`{=mediawiki} and `{{AUR|gamescope-session-steam-git}}`{=mediawiki}
+-   You may create the optional config file `{{ic|~/.config/environment.d/gamescope-session.conf}}`{=mediawiki} with the
+    following content: `{{bc|<nowiki>
+    if [ "$XDG_SESSION_DESKTOP" = "gamescope" ] ; then
+        SCREEN_WIDTH=1920
+        SCREEN_HEIGHT=1080
+        CONNECTOR=*,eDP-1
+        CLIENTCMD="steam -gamepadui -pipewire-dmabuf"
+        GAMESCOPECMD="/usr/bin/gamescope --hdr-enabled --hdr-itm-enable \
+        --hide-cursor-delay 3000 --fade-out-duration 200 --xwayland-count 2 \
+        -W $SCREEN_WIDTH -H $SCREEN_HEIGHT -O $CONNECTOR"
+    fi
+    </nowiki>}}`{=mediawiki}
+    -   Update the resolution values above to the correct ones. You can list your displays by running
+        `{{ic|xrandr --query}}`{=mediawiki}.
+    -   You may need to set the Display `{{ic|CONNECTOR}}`{=mediawiki} if it does not pick the right one by default.
 
 You can now start `{{ic|gamescope}}`{=mediawiki} from your login manager or a terminal using one of the following steps:
 
@@ -117,8 +115,8 @@ Log out and select the *Steam Big Picture* in your login manager and log in.
 1.  Go to a new TTY by pressing `{{ic|Ctrl+Alt+F2}}`{=mediawiki}
 2.  Log in and run `{{ic|gamescope-session-plus steam}}`{=mediawiki} to start the [standalone steam
     session](https://github.com/ChimeraOS/gamescope-session) in HDR.
-    - If networking does not work you can fix it by installing and enabling
-      [NetworkManager](NetworkManager "NetworkManager"){.wikilink}.
+    -   If networking does not work you can fix it by installing and enabling
+        [NetworkManager](NetworkManager "wikilink").
 
 ##### Configure Steam {#configure_steam}
 
@@ -131,7 +129,7 @@ Log out and select the *Steam Big Picture* in your login manager and log in.
 
 #### COSMIC
 
-The [COSMIC](COSMIC "COSMIC"){.wikilink} developers have [promised HDR
+The [COSMIC](COSMIC "wikilink") developers have [promised HDR
 support](https://blog.system76.com/post/may-flowers-spring-cosmic-showers) in the initial stable release.
 
 #### sway
@@ -150,9 +148,9 @@ Setup a binding to toggle hdr or toggle manually i.e.: `{{ic|swaymsg output DP-1
 
 ##### Wine/Proton
 
-HDR through [Wine](Wine "Wine"){.wikilink} or [Steam Proton](Steam#Proton_Steam-Play "Steam Proton"){.wikilink} requires
-[DXVK](DXVK "DXVK"){.wikilink} (2.1+) or [VKD3D-Proton](Wine#VKD3D-Proton "VKD3D-Proton"){.wikilink} (2.8+), depending
-on DirectX version used by the game.
+HDR through [Wine](Wine "wikilink") or [Steam Proton](Steam#Proton_Steam-Play "wikilink") requires
+[DXVK](DXVK "wikilink") (2.1+) or [VKD3D-Proton](Wine#VKD3D-Proton "wikilink") (2.8+), depending on DirectX version used
+by the game.
 
 ```{=mediawiki}
 {{Tip|Use either Proton 8.0+ or Proton GE 44+. All come packaged with sufficient DXVK and VKD3D versions.}}
@@ -164,23 +162,23 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
 ```{=mediawiki}
 {{Note|Wines native [[Wayland]] driver is experimental and may perform better or worse than Xwayland depending on the game.}}
 ```
-- [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom): install
-  `{{aur|proton-ge-custom-bin}}`{=mediawiki} and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and
-  `{{ic|PROTON_ENABLE_HDR{{=}}`{=mediawiki}1}}
-  [4](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-1).
+-   [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom): install
+    `{{aur|proton-ge-custom-bin}}`{=mediawiki} and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and
+    `{{ic|PROTON_ENABLE_HDR{{=}}`{=mediawiki}1}}
+    [4](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-1).
 
 ```{=mediawiki}
 {{Note|{{ic|PROTON_ENABLE_HDR}} sets {{ic|DXVK_HDR{{=}}1}}
 ```
 [5](https://github.com/GloriousEggroll/proton-ge-custom/blob/master/proton#L1718).}}
 
-- [wine-tkg](https://github.com/Frogging-Family/wine-tkg-git): install wine-tkg, set
-  `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.
-- [proton-cachyos](https://github.com/cachyos/proton-cachyos) or
-  [wine-cachyos](https://github.com/CachyOS/wine-cachyos): install your choice of `{{aur|proton-cachyos}}`{=mediawiki},
-  `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki} and set
-  `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
-  [6](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
+-   [wine-tkg](https://github.com/Frogging-Family/wine-tkg-git): install wine-tkg, set
+    `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.
+-   [proton-cachyos](https://github.com/cachyos/proton-cachyos) or
+    [wine-cachyos](https://github.com/CachyOS/wine-cachyos): install your choice of
+    `{{aur|proton-cachyos}}`{=mediawiki}, `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki}
+    and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
+    [6](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
 
 ```{=mediawiki}
 {{Tip|You can also easily install the aforementioned wine builds to Lutris, Bottles, or Steam using {{aur|protonup-qt}}.}}
@@ -196,16 +194,16 @@ Because of this gamescope will not work with the `{{AUR|vk-hdr-layer-kwin6-git}}
 
 You have many options for using gamescope depending on your desired configuration:
 
-- Launch Steam with HDR enabled. All games will then have HDR enabled, but Steam and all games will be launched inside a
-  gamescope window.
+-   Launch Steam with HDR enabled. All games will then have HDR enabled, but Steam and all games will be launched inside
+    a gamescope window.
 
 `$ gamescope --hdr-enabled --steam -- env DXVK_HDR=1 steam`
 
-- Enable HDR for a single game in Steam. Set the following *Launch options*:
+-   Enable HDR for a single game in Steam. Set the following *Launch options*:
 
 `DXVK_HDR=1 gamescope -f --hdr-enabled -- %command%`
 
-- To launch a non-Steam game within gamescope:
+-   To launch a non-Steam game within gamescope:
 
 `$ DXVK_HDR=1 gamescope -f --hdr-enabled -- `*`executable`*
 
@@ -244,7 +242,7 @@ support](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-1
 
 `$ mpv --vo=dmabuf-wayland "path/to/video"`
 
-- From the tty terminal, one could do
+-   From the tty terminal, one could do
 
 `$ mpv --vo=drm "path/to/video"`
 
@@ -271,9 +269,9 @@ been merged as of version 141.0.7370.0.
 
 ### HDR video samples {#hdr_video_samples}
 
-[Kodi](Kodi "Kodi"){.wikilink} wiki [maintains the list of fair use HDR video
+[Kodi](Kodi "wikilink") wiki [maintains the list of fair use HDR video
 samples](https://kodi.wiki/view/Samples#4K_(UltraHD)_&_HDR_Formats). These can be used to test the HDR output using
-video players that support HDR such has [#mpv](#mpv "#mpv"){.wikilink}.
+video players that support HDR such has [#mpv](#mpv "wikilink").
 
 ## Troubleshooting
 
@@ -285,13 +283,12 @@ for that application [11](https://github.com/hyprwm/xdg-desktop-portal-hyprland/
 
 ## See also {#see_also}
 
-- [X.Org Developers\' Conference 2022 \| Harry Wentland: \"Is HDR
-  Harder?\"](https://www.youtube.com/watch?t=21171&v=yTO8QRIfOjA)
-- [wlroots/wlroots \| HDR10 support](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3941)
-- [Xaver Hugl\'s blog \| An update on HDR and color management in
-  KWin](https://zamundaaa.github.io/wayland/2023/12/18/update-on-hdr-and-colormanagement-in-plasma.html)
+-   [X.Org Developers\' Conference 2022 \| Harry Wentland: \"Is HDR
+    Harder?\"](https://www.youtube.com/watch?t=21171&v=yTO8QRIfOjA)
+-   [wlroots/wlroots \| HDR10 support](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3941)
+-   [Xaver Hugl\'s blog \| An update on HDR and color management in
+    KWin](https://zamundaaa.github.io/wayland/2023/12/18/update-on-hdr-and-colormanagement-in-plasma.html)
 
-[Category:Display control](Category:Display_control "Category:Display control"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:Graphical user
-interfaces](Category:Graphical_user_interfaces "Category:Graphical user interfaces"){.wikilink}
+[Category:Display control](Category:Display_control "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Graphics](Category:Graphics "wikilink") [Category:Graphical user
+interfaces](Category:Graphical_user_interfaces "wikilink")

@@ -1,27 +1,25 @@
-[ja:NVIDIA/ヒントとテクニック](ja:NVIDIA/ヒントとテクニック "ja:NVIDIA/ヒントとテクニック"){.wikilink} [ru:NVIDIA
-(Русский)/Tips and tricks](ru:NVIDIA_(Русский)/Tips_and_tricks "ru:NVIDIA (Русский)/Tips and tricks"){.wikilink}
-[zh-hans:NVIDIA/提示和技巧](zh-hans:NVIDIA/提示和技巧 "zh-hans:NVIDIA/提示和技巧"){.wikilink}
+[ja:NVIDIA/ヒントとテクニック](ja:NVIDIA/ヒントとテクニック "wikilink") [ru:NVIDIA (Русский)/Tips and
+tricks](ru:NVIDIA_(Русский)/Tips_and_tricks "wikilink")
+[zh-hans:NVIDIA/提示和技巧](zh-hans:NVIDIA/提示和技巧 "wikilink")
 
 ## Fixing terminal resolution {#fixing_terminal_resolution}
 
-Since [NVIDIA#fbdev](NVIDIA#fbdev "NVIDIA#fbdev"){.wikilink} is enabled by default, the [Linux
-console](Linux_console "Linux console"){.wikilink} should use the native monitor resolution without additional
-configuration.
+Since [NVIDIA#fbdev](NVIDIA#fbdev "wikilink") is enabled by default, the [Linux console](Linux_console "wikilink")
+should use the native monitor resolution without additional configuration.
 
 If you have disabled `{{ic|fbdev}}`{=mediawiki} or use an older version of the driver, the resolution may be lower than
-expected. As a workaround, you can set the resolution in your [boot loader](boot_loader "boot loader"){.wikilink}
-configuration.
+expected. As a workaround, you can set the resolution in your [boot loader](boot_loader "wikilink") configuration.
 
 For GRUB, see [GRUB/Tips and tricks#Setting the framebuffer
-resolution](GRUB/Tips_and_tricks#Setting_the_framebuffer_resolution "GRUB/Tips and tricks#Setting the framebuffer resolution"){.wikilink}
-for details. [1](https://forums.fedoraforum.org/showthread.php?t=306271)
+resolution](GRUB/Tips_and_tricks#Setting_the_framebuffer_resolution "wikilink") for details.
+[1](https://forums.fedoraforum.org/showthread.php?t=306271)
 [2](https://web.archive.org/web/20170405115954/https://www.reddit.com/r/archlinux/comments/4gwukx/nvidia_drivers_and_high_resolution_tty_possible/)
 
-For [systemd-boot](systemd-boot "systemd-boot"){.wikilink}, set `{{ic|console-mode}}`{=mediawiki} in
+For [systemd-boot](systemd-boot "wikilink"), set `{{ic|console-mode}}`{=mediawiki} in
 `{{ic|''esp''/loader/loader.conf}}`{=mediawiki}. See [systemd-boot#Loader
-configuration](systemd-boot#Loader_configuration "systemd-boot#Loader configuration"){.wikilink} for details.
+configuration](systemd-boot#Loader_configuration "wikilink") for details.
 
-For [rEFInd](rEFInd "rEFInd"){.wikilink}, set `{{ic|use_graphics_for +,linux}}`{=mediawiki} in
+For [rEFInd](rEFInd "wikilink"), set `{{ic|use_graphics_for +,linux}}`{=mediawiki} in
 `{{ic|''esp''/EFI/refind/refind.conf}}`{=mediawiki}.[3](https://www.reddit.com/r/archlinux/comments/86lqc5/tty_resolution_nvidia_psaish/)
 A small caveat is that this will hide the kernel parameters from being shown during boot.
 
@@ -30,7 +28,7 @@ A small caveat is that this will hide the kernel parameters from being shown dur
 ```
 ## Using TV-out {#using_tv_out}
 
-See [Wikibooks:NVIDIA/TV-OUT](Wikibooks:NVIDIA/TV-OUT "Wikibooks:NVIDIA/TV-OUT"){.wikilink}.
+See [Wikibooks:NVIDIA/TV-OUT](Wikibooks:NVIDIA/TV-OUT "wikilink").
 
 ## X with a TV (DFP) as the only display {#x_with_a_tv_dfp_as_the_only_display}
 
@@ -52,7 +50,7 @@ server with enough verbosity to print out the EDID block:
 `$ startx -- -logverbose 6`
 
 After the X server has finished initializing, close it and extract the EDID block from the [Xorg log
-file](Xorg#General "Xorg log file"){.wikilink} using *nvidia-xconfig*:
+file](Xorg#General "wikilink") using *nvidia-xconfig*:
 
 `$ nvidia-xconfig --extract-edids-from-file ~/.local/share/xorg/Xorg.0.log --extract-edids-output-file ./dfp0.bin`
 
@@ -98,8 +96,8 @@ check the \'GPUPowerSource\' read-only parameter (0 - AC, 1 - battery):
 ```
 ## Listening to ACPI events {#listening_to_acpi_events}
 
-NVIDIA drivers automatically try to connect to the [acpid](acpid "acpid"){.wikilink} daemon and listen to ACPI events
-such as battery power, docking, some hotkeys, etc. If connection fails, X.org will output the following warning:
+NVIDIA drivers automatically try to connect to the [acpid](acpid "wikilink") daemon and listen to ACPI events such as
+battery power, docking, some hotkeys, etc. If connection fails, X.org will output the following warning:
 
 ```{=mediawiki}
 {{hc|~/.local/share/xorg/Xorg.0.log|
@@ -123,8 +121,7 @@ in your `{{ic|/etc/X11/xorg.conf.d/20-nvidia.conf}}`{=mediawiki}:
 `  ...`\
 `EndSection`
 
-If you are on laptop, it might be a good idea to install and enable the [acpid](acpid "acpid"){.wikilink} daemon
-instead.
+If you are on laptop, it might be a good idea to install and enable the [acpid](acpid "wikilink") daemon instead.
 
 ## Displaying GPU temperature in the shell {#displaying_gpu_temperature_in_the_shell}
 
@@ -212,7 +209,7 @@ In order to get just the temperature for use in utilities such as *rrdtool* or *
 ```
 ### nvclock
 
-[Install](Install "Install"){.wikilink} the `{{AUR|nvclock}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{AUR|nvclock}}`{=mediawiki} package.
 
 ```{=mediawiki}
 {{Note|''nvclock'' cannot access thermal sensors on newer NVIDIA cards such as Geforce 200 series cards.}}
@@ -245,37 +242,38 @@ features need to be enabled via the *Coolbits* option in the `{{ic|Device}}`{=me
 ```
 The *Coolbits* value is the sum of its component bits in the binary numeral system. The component bits are:
 
-- ```{=mediawiki}
-  {{ic|8}}
-  ```
-  (bit 3) - Enables additional overclocking settings on the *PowerMizer* page in *nvidia-settings*. Available since
-  version 337.12 for the Fermi architecture and newer. [4](https://www.phoronix.com/scan.php?px=MTY1OTM&page=news_item)
+-   ```{=mediawiki}
+    {{ic|8}}
+    ```
+    (bit 3) - Enables additional overclocking settings on the *PowerMizer* page in *nvidia-settings*. Available since
+    version 337.12 for the Fermi architecture and newer.
+    [4](https://www.phoronix.com/scan.php?px=MTY1OTM&page=news_item)
 
-- ```{=mediawiki}
-  {{ic|16}}
-  ```
-  (bit 4) - Enables overvoltage using *nvidia-settings* CLI options. Available since version 346.16 for the Fermi
-  architecture and newer. [5](https://www.phoronix.com/scan.php?page=news_item&px=MTg0MDI)
+-   ```{=mediawiki}
+    {{ic|16}}
+    ```
+    (bit 4) - Enables overvoltage using *nvidia-settings* CLI options. Available since version 346.16 for the Fermi
+    architecture and newer. [5](https://www.phoronix.com/scan.php?page=news_item&px=MTg0MDI)
 
 If you use an unsupported version of the driver, you may also need to use these bits:
 
-- ```{=mediawiki}
-  {{ic|1}}
-  ```
-  (bit 0) - Enables overclocking of older (pre-Fermi) cores on the *Clock Frequencies* page in *nvidia-settings*.
-  Removed in version 343.13.
+-   ```{=mediawiki}
+    {{ic|1}}
+    ```
+    (bit 0) - Enables overclocking of older (pre-Fermi) cores on the *Clock Frequencies* page in *nvidia-settings*.
+    Removed in version 343.13.
 
-- ```{=mediawiki}
-  {{ic|2}}
-  ```
-  (bit 1) - When this bit is set, the driver will \"attempt to initialize SLI when using GPUs with different amounts of
-  video memory\". Removed in version 470.42.01.
+-   ```{=mediawiki}
+    {{ic|2}}
+    ```
+    (bit 1) - When this bit is set, the driver will \"attempt to initialize SLI when using GPUs with different amounts
+    of video memory\". Removed in version 470.42.01.
 
-- ```{=mediawiki}
-  {{ic|4}}
-  ```
-  (bit 2) - Enables manual configuration of GPU fan speed on the *Thermal Monitor* page in *nvidia-settings*. Removed in
-  version 470.42.01.
+-   ```{=mediawiki}
+    {{ic|4}}
+    ```
+    (bit 2) - Enables manual configuration of GPU fan speed on the *Thermal Monitor* page in *nvidia-settings*. Removed
+    in version 470.42.01.
 
 To enable multiple features, add the *Coolbits* values together. For example, to enable overclocking and overvoltage of
 Fermi cores, set `{{ic|Option "Coolbits" "24"}}`{=mediawiki}.
@@ -288,8 +286,8 @@ The documentation of *Coolbits* can be found in `{{ic|/usr/share/doc/nvidia/html
 ```
 ### Setting static 2D/3D clocks {#setting_static_2d3d_clocks}
 
-Use [kernel module parameters](kernel_module_parameter "kernel module parameter"){.wikilink} to enable PowerMizer at its
-maximum performance level (VSync will not work without this):
+Use [kernel module parameters](kernel_module_parameter "wikilink") to enable PowerMizer at its maximum performance level
+(VSync will not work without this):
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/nvidia.conf|2=
@@ -308,9 +306,9 @@ efficiency.
 
 Boost clock limits can be changed using *nvidia-smi*, running as root:
 
-- List supported clock rates: `{{bc|$ nvidia-smi -q -d SUPPORTED_CLOCKS}}`{=mediawiki}
-- Set GPU boost clock limit to 1695 MHz: `{{bc|# nvidia-smi --lock-gpu-clocks{{=}}`{=mediawiki}0,1695 \--mode{{=}}1}}
-- Set Memory boost clock limit to 5001 MHz: `{{bc|# nvidia-smi --lock-memory-clocks{{=}}`{=mediawiki}0,5001}}
+-   List supported clock rates: `{{bc|$ nvidia-smi -q -d SUPPORTED_CLOCKS}}`{=mediawiki}
+-   Set GPU boost clock limit to 1695 MHz: `{{bc|# nvidia-smi --lock-gpu-clocks{{=}}`{=mediawiki}0,1695 \--mode{{=}}1}}
+-   Set Memory boost clock limit to 5001 MHz: `{{bc|# nvidia-smi --lock-memory-clocks{{=}}`{=mediawiki}0,5001}}
 
 To optimize for efficiency, use *nvidia-smi* to check the GPU utilization while running your favorite game. VSync should
 be on. Lowering the boost clock limit will increase GPU utilization, because a slower GPU will use more time to render
@@ -326,25 +324,24 @@ Typically, clock and voltage offsets inserted in the *nvidia-settings* interface
 reboot. Fortunately, there are tools that offer an interface for overclocking under the proprietary driver, able to save
 the user\'s overclocking preferences and automatically applying them on boot. Some of them are:
 
-- ```{=mediawiki}
-  {{AUR|gwe}}
-  ```
-  \- graphical, applies settings on desktop session start
+-   ```{=mediawiki}
+    {{AUR|gwe}}
+    ```
+    \- graphical, applies settings on desktop session start
 
-- ```{=mediawiki}
-  {{AUR|nvclock}}
-  ```
-  and `{{AUR|systemd-nvclock-unit}}`{=mediawiki} - graphical, applies settings on system boot
+-   ```{=mediawiki}
+    {{AUR|nvclock}}
+    ```
+    and `{{AUR|systemd-nvclock-unit}}`{=mediawiki} - graphical, applies settings on system boot
 
-- ```{=mediawiki}
-  {{AUR|nvoc}}
-  ```
-  \- text based, profiles are configuration files in `{{ic|/etc/nvoc.d/}}`{=mediawiki}, applies settings on desktop
-  session start
+-   ```{=mediawiki}
+    {{AUR|nvoc}}
+    ```
+    \- text based, profiles are configuration files in `{{ic|/etc/nvoc.d/}}`{=mediawiki}, applies settings on desktop
+    session start
 
 Otherwise, `{{ic|GPUGraphicsClockOffset}}`{=mediawiki} and `{{ic|GPUMemoryTransferRateOffset}}`{=mediawiki} attributes
-can be set in the command-line interface of *nvidia-settings* on [startup](Autostarting "startup"){.wikilink}. For
-example:
+can be set in the command-line interface of *nvidia-settings* on [startup](Autostarting "wikilink"). For example:
 
 `$ nvidia-settings -a "GPUGraphicsClockOffset[`*`performance_level`*`]=`*`offset`*`"`\
 `$ nvidia-settings -a "GPUMemoryTransferRateOffset[`*`performance_level`*`]=`*`offset`*`"`
@@ -389,7 +386,7 @@ Type=oneshot
 ExecStart=/usr/bin/nvidia-smi -pl 160.30
 }}
 ```
-Now [enable](enable "enable"){.wikilink} the `{{ic|nvidia-tdp.timer}}`{=mediawiki}.
+Now [enable](enable "wikilink") the `{{ic|nvidia-tdp.timer}}`{=mediawiki}.
 
 ### Set fan speed at login {#set_fan_speed_at_login}
 
@@ -397,14 +394,13 @@ Now [enable](enable "enable"){.wikilink} the `{{ic|nvidia-tdp.timer}}`{=mediawik
 {{Accuracy|This will not work because manual configuration of GPU fan speed requires running ''nvidia-settings'' as root (even if Xorg itself is running as root).}}
 ```
 You can adjust the fan speed on your graphics card with *nvidia-settings* console interface. First ensure that your Xorg
-configuration has enabled the bit 2 in the [Coolbits](#Enabling_overclocking_in_nvidia-settings "Coolbits"){.wikilink}
-option.
+configuration has enabled the bit 2 in the [Coolbits](#Enabling_overclocking_in_nvidia-settings "wikilink") option.
 
 ```{=mediawiki}
 {{Note|GeForce 400/500 series cards cannot currently set fan speeds at login using this method. This method only allows for the setting of fan speeds within the current X session by way of ''nvidia-settings''.}}
 ```
-Place the following line in your [xinitrc](xinitrc "xinitrc"){.wikilink} file to adjust the fan when you launch Xorg.
-Replace `{{ic|''n''}}`{=mediawiki} with the fan speed percentage you want to set.
+Place the following line in your [xinitrc](xinitrc "wikilink") file to adjust the fan when you launch Xorg. Replace
+`{{ic|''n''}}`{=mediawiki} with the fan speed percentage you want to set.
 
 `nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=`*`n`*`"`
 
@@ -413,9 +409,9 @@ You can also configure a second GPU by incrementing the GPU and fan number.
 `nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=`*`n`*`" \`\
 `                -a "[gpu:1]/GPUFanControlState=1" -a  [fan:1]/GPUTargetFanSpeed=`*`n`*`" &`
 
-If you use a login manager such as [GDM](GDM "GDM"){.wikilink} or [SDDM](SDDM "SDDM"){.wikilink}, you can create a
-desktop entry file to process this setting. Create `{{ic|~/.config/autostart/nvidia-fan-speed.desktop}}`{=mediawiki} and
-place this text inside it. Again, change `{{ic|''n''}}`{=mediawiki} to the speed percentage you want.
+If you use a login manager such as [GDM](GDM "wikilink") or [SDDM](SDDM "wikilink"), you can create a desktop entry file
+to process this setting. Create `{{ic|~/.config/autostart/nvidia-fan-speed.desktop}}`{=mediawiki} and place this text
+inside it. Again, change `{{ic|''n''}}`{=mediawiki} to the speed percentage you want.
 
 `[Desktop Entry]`\
 `Type=Application`\
@@ -468,15 +464,13 @@ nvmlDeviceSetPowerManagementLimit(myGPU, 000000)
 Some options can be set as kernel module parameters, a full list can be obtained by running
 `{{ic|modinfo nvidia}}`{=mediawiki} or looking at `{{ic|nv-reg.h}}`{=mediawiki}. See
 [Gentoo:NVidia/nvidia-drivers#Kernel module
-parameters](Gentoo:NVidia/nvidia-drivers#Kernel_module_parameters "Gentoo:NVidia/nvidia-drivers#Kernel module parameters"){.wikilink}
-as well.
+parameters](Gentoo:NVidia/nvidia-drivers#Kernel_module_parameters "wikilink") as well.
 
 For example, enabling the following will enable the PAT feature [6](https://docs.kernel.org/arch/x86/pat.html), which
 affects how memory is allocated. PAT was first introduced in Pentium III
 [7](https://www.kernel.org/doc/ols/2008/ols2008v2-pages-135-144.pdf) and is supported by most newer CPUs (see
-[wikipedia:Page attribute
-table#Processors](wikipedia:Page_attribute_table#Processors "wikipedia:Page attribute table#Processors"){.wikilink}). If
-your system can support this feature, it should improve performance.
+[wikipedia:Page attribute table#Processors](wikipedia:Page_attribute_table#Processors "wikilink")). If your system can
+support this feature, it should improve performance.
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/nvidia.conf|2=
@@ -506,9 +500,9 @@ resume. Quoting NVIDIA:
 The \"still experimental\" interface enables saving all video memory (given enough space on disk or RAM).
 
 To save and restore all video memory contents, `{{ic|1=NVreg_PreserveVideoMemoryAllocations=1}}`{=mediawiki} [kernel
-module parameter](kernel_module_parameter "kernel module parameter"){.wikilink} for the `{{ic|nvidia}}`{=mediawiki}
-kernel module needs to be set. While NVIDIA does not set this by default, Arch Linux does so for the supported drivers,
-making preserve work out of the box.
+module parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia}}`{=mediawiki} kernel module needs to be set.
+While NVIDIA does not set this by default, Arch Linux does so for the supported drivers, making preserve work out of the
+box.
 
 To verify that `{{ic|NVreg_PreserveVideoMemoryAllocations}}`{=mediawiki} is enabled, execute the following:
 
@@ -518,8 +512,8 @@ Which should have a line `{{ic|PreserveVideoMemoryAllocations: 1}}`{=mediawiki},
 `{{ic|TemporaryFilePath: "/var/tmp"}}`{=mediawiki}, which you can read about below.
 
 Necessary services `{{ic|nvidia-suspend.service}}`{=mediawiki}, `{{ic|nvidia-hibernate.service}}`{=mediawiki}, and
-`{{ic|nvidia-resume.service}}`{=mediawiki} are [enabled](enabled "enabled"){.wikilink} by default on supported drivers,
-as per upstream requirements.
+`{{ic|nvidia-resume.service}}`{=mediawiki} are [enabled](enabled "wikilink") by default on supported drivers, as per
+upstream requirements.
 
 See [NVIDIA\'s documentation](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/powermanagement.html) for
 more details.
@@ -541,9 +535,7 @@ improve performance in GPU-bound applications by raising the power limit accordi
 
 The main requirement is laptops with Ampere (or newer) GPUs.
 
-See [CPU frequency
-scaling#nvidia-powerd](CPU_frequency_scaling#nvidia-powerd "CPU frequency scaling#nvidia-powerd"){.wikilink} for
-detailed instructions.
+See [CPU frequency scaling#nvidia-powerd](CPU_frequency_scaling#nvidia-powerd "wikilink") for detailed instructions.
 
 ```{=mediawiki}
 {{Tip|It would especially help those unable to manually set power limit, see [[NVIDIA Optimus#Low power usage (TDP)]].}}
@@ -556,15 +548,15 @@ daemon is not needed and can actually create issues
 [Driver Persistence](https://docs.nvidia.com/deploy/driver-persistence/index.html#persistence-daemon) section of the
 NVIDIA documentation for more details.
 
-To start the persistence daemon at boot, [enable](enable "enable"){.wikilink} the
+To start the persistence daemon at boot, [enable](enable "wikilink") the
 `{{ic|nvidia-persistenced.service}}`{=mediawiki}. For manual usage see the [upstream
 documentation](https://docs.nvidia.com/deploy/driver-persistence/index.html#usage).
 
 ## Forcing YCbCr with 4:2:0 subsampling {#forcing_ycbcr_with_420_subsampling}
 
 If you are facing [limitations of older output
-standards](Wikipedia:HDMI#Refresh_frequency_limits_for_standard_video "limitations of older output standards"){.wikilink}
-that can still be mitigated by using YUV 4:2:0, the NVIDIA driver has an undocumented X11 option to enforce that:
+standards](Wikipedia:HDMI#Refresh_frequency_limits_for_standard_video "wikilink") that can still be mitigated by using
+YUV 4:2:0, the NVIDIA driver has an undocumented X11 option to enforce that:
 
 `Option "ForceYUV420" "True"`
 
@@ -572,8 +564,6 @@ This will allow higher resolutions or refresh rates but have detrimental impact 
 
 ## Configure applications to render using GPU {#configure_applications_to_render_using_gpu}
 
-See [PRIME#Configure applications to render using
-GPU](PRIME#Configure_applications_to_render_using_GPU "PRIME#Configure applications to render using GPU"){.wikilink}.
+See [PRIME#Configure applications to render using GPU](PRIME#Configure_applications_to_render_using_GPU "wikilink").
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

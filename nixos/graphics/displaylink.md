@@ -171,5 +171,4 @@ above applies correctly but you will need to invoke sway with the `--unsupported
 
 [Source](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1823#note_2146862)
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
-[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "wikilink") [Category:Video](Category:Video "wikilink")

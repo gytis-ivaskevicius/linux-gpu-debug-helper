@@ -14,10 +14,10 @@ LLM inference in C/C++
 
 ## Installation
 
-llama.cpp is available in the [AUR](Arch_User_Repository "AUR"){.wikilink}:
+llama.cpp is available in the [AUR](Arch_User_Repository "wikilink"):
 
-- Install `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
-- Install `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
+-   Install `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
+-   Install `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
 
 ```{=mediawiki}
 {{Note|Ensure you have the appropriate [[Vulkan]] driver installed.}}
@@ -93,9 +93,8 @@ This can significantly reduce memory usage.
 
 ## See also {#see_also}
 
-- [Upstream GitHub Repository](https://github.com/ggml-org/llama.cpp)
-- [Upstream Community Discussions](https://github.com/ggml-org/llama.cpp/discussions)
-- [Unsloth Docs](https://docs.unsloth.ai)
+-   [Upstream GitHub Repository](https://github.com/ggml-org/llama.cpp)
+-   [Upstream Community Discussions](https://github.com/ggml-org/llama.cpp/discussions)
+-   [Unsloth Docs](https://docs.unsloth.ai)
 
-[Category:Development](Category:Development "Category:Development"){.wikilink}
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

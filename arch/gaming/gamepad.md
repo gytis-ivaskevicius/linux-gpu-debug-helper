@@ -1,5 +1,5 @@
-[hu:Gamepad](hu:Gamepad "hu:Gamepad"){.wikilink} [ja:ゲームパッド](ja:ゲームパッド "ja:ゲームパッド"){.wikilink}
-[zh-hans:游戏手柄](zh-hans:游戏手柄 "zh-hans:游戏手柄"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[hu:Gamepad](hu:Gamepad "wikilink") [ja:ゲームパッド](ja:ゲームパッド "wikilink")
+[zh-hans:游戏手柄](zh-hans:游戏手柄 "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|List of games}}`{=mediawiki} `{{Related|Video game platform emulators}}`{=mediawiki}
 `{{Related|Gaming}}`{=mediawiki} `{{Related articles end}}`{=mediawiki} Many gamepads are working out-of-the-box
 nowadays, but there are still many potential problems and sources for errors since gamepad support in applications
@@ -25,30 +25,30 @@ available and also adds support for force feedback.
 
 Many applications use SDL to access gamepads.
 
-- SDL1 defaults to the evdev interface, but it can be forced to use Joystick by setting the environment variable
-  `{{ic|1=SDL_JOYSTICK_DEVICE=/dev/input/js0}}`{=mediawiki}.
-- SDL2 and SDL3 default to using hidapi on the most popular controllers in order to get raw access. On other
-  controllers, or if hidapi is disabled, they use evdev instead.
+-   SDL1 defaults to the evdev interface, but it can be forced to use Joystick by setting the environment variable
+    `{{ic|1=SDL_JOYSTICK_DEVICE=/dev/input/js0}}`{=mediawiki}.
+-   SDL2 and SDL3 default to using hidapi on the most popular controllers in order to get raw access. On other
+    controllers, or if hidapi is disabled, they use evdev instead.
 
 SDL itself offers different APIs, the selection of which depends on the application. Their usage is not mutually
 exclusive.
 
-- ```{=mediawiki}
-  {{ic|SDL_Joystick}}
-  ```
-  is supported in all versions and maps the evdev (or Joystick) events 1:1 with SDL\'s own.
+-   ```{=mediawiki}
+    {{ic|SDL_Joystick}}
+    ```
+    is supported in all versions and maps the evdev (or Joystick) events 1:1 with SDL\'s own.
 
-- ```{=mediawiki}
-  {{ic|SDL_GameController}}
-  ```
-  , supported on SDL2, offers standardardized mapping between devices. For a controller to be supported, it needs an
-  evdev:SDL mapping in a database, `{{ic|gamecontrollerdb.txt}}`{=mediawiki}. This API is replaced with
-  `{{ic|SDL_Gamepad}}`{=mediawiki} in SDL3.
+-   ```{=mediawiki}
+    {{ic|SDL_GameController}}
+    ```
+    , supported on SDL2, offers standardardized mapping between devices. For a controller to be supported, it needs an
+    evdev:SDL mapping in a database, `{{ic|gamecontrollerdb.txt}}`{=mediawiki}. This API is replaced with
+    `{{ic|SDL_Gamepad}}`{=mediawiki} in SDL3.
 
 ## Installation
 
-Unless you are using very old joystick that uses [Gameport](Wikipedia:Game_port "Gameport"){.wikilink} or a proprietary
-USB protocol, you will need just the generic USB Human Interface Device (HID) modules.
+Unless you are using very old joystick that uses [Gameport](Wikipedia:Game_port "wikilink") or a proprietary USB
+protocol, you will need just the generic USB Human Interface Device (HID) modules.
 
 For an extensive overview of all joystick related modules in Linux, you will need access to the Linux kernel sources ---
 specifically the Documentation section. Unfortunately, official kernel packages do not include what we need. If you have
@@ -72,10 +72,9 @@ covered here. Please have a look at the documentation mentioned above for detail
 You need to load a module for your gameport (`{{ic|ns558}}`{=mediawiki}, `{{ic|emu10k1-gp}}`{=mediawiki},
 `{{ic|cs461x}}`{=mediawiki}, etc\...), a module for your joystick (`{{ic|analog}}`{=mediawiki},
 `{{ic|sidewinder}}`{=mediawiki}, `{{ic|adi}}`{=mediawiki}, etc\...), and finally the kernel joystick device driver
-(`{{ic|joydev}}`{=mediawiki}). You can [load the module at
-boot](load_the_module_at_boot "load the module at boot"){.wikilink}, or simply
-[modprobe](modprobe "modprobe"){.wikilink} it. The `{{ic|gameport}}`{=mediawiki} module should load automatically, as
-this is a dependency of the other modules.
+(`{{ic|joydev}}`{=mediawiki}). You can [load the module at boot](load_the_module_at_boot "wikilink"), or simply
+[modprobe](modprobe "wikilink") it. The `{{ic|gameport}}`{=mediawiki} module should load automatically, as this is a
+dependency of the other modules.
 
 ### USB gamepads {#usb_gamepads}
 
@@ -95,11 +94,11 @@ ending with `{{ic|-event-joystick}}`{=mediawiki} in `{{ic|/dev/input/by-id}}`{=m
 `{{ic|cat}}`{=mediawiki} those devices to see if the joystick works --- move the stick around, press all the buttons -
 you should see mojibake printed when you move the sticks or press buttons.
 
-If you get a permission error, see [#Device permissions](#Device_permissions "#Device permissions"){.wikilink}.
+If you get a permission error, see [#Device permissions](#Device_permissions "wikilink").
 
-[Wine](Wine "Wine"){.wikilink} uses SDL for both DirectInput and XInput emulation, with evdev as a fallback. You can
-test them with `{{ic|wine control joy.cpl}}`{=mediawiki}. For PlayStation 4 and 5 controllers, see [#Using with
-Wine](#Using_with_Wine "#Using with Wine"){.wikilink}.
+[Wine](Wine "wikilink") uses SDL for both DirectInput and XInput emulation, with evdev as a fallback. You can test them
+with `{{ic|wine control joy.cpl}}`{=mediawiki}. For PlayStation 4 and 5 controllers, see [#Using with
+Wine](#Using_with_Wine "wikilink").
 
 #### Joystick API {#joystick_api}
 
@@ -139,8 +138,8 @@ To test the `{{ic|SDL_GameController}}`{=mediawiki} API instead:
 #### HTML5 Gamepad API {#html5_gamepad_api}
 
 Go to <https://gamepad-tester.com/>. Currently, testing vibration and producing a visual of the gamepad is supported in
-[Chromium](Chromium "Chromium"){.wikilink} but not [Firefox](Firefox "Firefox"){.wikilink}. Additionally, as of version
-107.0.5304.121-1, Chromium can read Joystick devices but not evdev.
+[Chromium](Chromium "wikilink") but not [Firefox](Firefox "wikilink"). Additionally, as of version 107.0.5304.121-1,
+Chromium can read Joystick devices but not evdev.
 
 ### Setting up deadzones and calibration {#setting_up_deadzones_and_calibration}
 
@@ -186,7 +185,7 @@ control the center deadzone, and `{{ic|RangeMin}}`{=mediawiki} and `{{ic|RangeMa
 of throw deadzones. Note that the calibration settings are applied when the application opens the device, so you need to
 restart your game or test application to see updated calibration settings.
 
-After you set the deadzones, you also can create an [udev](udev "udev"){.wikilink} rule to make all changes permanent:
+After you set the deadzones, you also can create an [udev](udev "wikilink") rule to make all changes permanent:
 
 First, grab the vendor id of your joystick (replace `{{ic|''X''}}`{=mediawiki} with your joystick\'s number, it is
 usually `{{ic|0}}`{=mediawiki}):
@@ -227,7 +226,7 @@ joystick with vendor id `{{ic|054c}}`{=mediawiki} and model id `{{ic|09cc}}`{=me
 `{{ic|/dev/input/js%n}}`{=mediawiki} part is required to automatically determine the correct joystick, so **do not**
 remove it.
 
-Finally, [load](Udev#Loading_new_rules "load"){.wikilink} this new *udev* rule.
+Finally, [load](Udev#Loading_new_rules "wikilink") this new *udev* rule.
 
 #### evdev API deadzones and calibration {#evdev_api_deadzones_and_calibration}
 
@@ -285,9 +284,9 @@ See `{{man|1|xboxdrv|AXIS FILTER|url=https://manned.org/man/xboxdrv#head6}}`{=me
 
 If you want to play games with your gamepad, you might want to disable its joystick control over mouse cursor.
 
-The simplest way is to disable the mouse device in the [desktop
-environment](desktop_environment "desktop environment"){.wikilink} settings. Otherwise, edit
-`{{ic|/etc/X11/xorg.conf.d/51-joystick.conf}}`{=mediawiki} (create if it does not exists) so that it looks like this:
+The simplest way is to disable the mouse device in the [desktop environment](desktop_environment "wikilink") settings.
+Otherwise, edit `{{ic|/etc/X11/xorg.conf.d/51-joystick.conf}}`{=mediawiki} (create if it does not exists) so that it
+looks like this:
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/51-joystick.conf |
@@ -302,38 +301,37 @@ EndSection}}
 ```
 ### Using gamepad to send keystrokes {#using_gamepad_to_send_keystrokes}
 
-Some of the generic [input remap utilities](input_remap_utilities "input remap utilities"){.wikilink}, such as Input
-Remapper, work for mapping gamepad buttons to keyboard keys. Gamepad-specific tools for this include:
+Some of the generic [input remap utilities](input_remap_utilities "wikilink"), such as Input Remapper, work for mapping
+gamepad buttons to keyboard keys. Gamepad-specific tools for this include:
 
-- ```{=mediawiki}
-  {{AUR|qjoypad}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|qjoypad}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|antimicrox}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|antimicrox}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|sc-controller}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|sc-controller}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|steam}}
-  ```
-  \- see [Steam#Steam Input](Steam#Steam_Input "Steam#Steam Input"){.wikilink}
+-   ```{=mediawiki}
+    {{Pkg|steam}}
+    ```
+    \- see [Steam#Steam Input](Steam#Steam_Input "wikilink")
 
 All work well without the need for additional X.org configuration.
 
 #### Xorg configuration example {#xorg_configuration_example}
 
 This is a good solution for systems where restarting Xorg is a rare event because it is a static configuration loaded
-only on X startup. The example runs on a [Kodi](Kodi "Kodi"){.wikilink} media PC, controlled with a Logitech Cordless
-RumblePad 2. Due to a problem with the d-pad (a.k.a. \"hat\") being recognized as another axis,
-[Joy2key](Joy2key "Joy2key"){.wikilink} was used as a workaround. Since `{{Pkg|kodi}}`{=mediawiki} version 11.0 and
-`{{AUR|joy2key}}`{=mediawiki} 1.6.3-1, this setup no longer worked and the following was created for letting Xorg handle
-joystick events.
+only on X startup. The example runs on a [Kodi](Kodi "wikilink") media PC, controlled with a Logitech Cordless RumblePad
+2. Due to a problem with the d-pad (a.k.a. \"hat\") being recognized as another axis, [Joy2key](Joy2key "wikilink") was
+used as a workaround. Since `{{Pkg|kodi}}`{=mediawiki} version 11.0 and `{{AUR|joy2key}}`{=mediawiki} 1.6.3-1, this
+setup no longer worked and the following was created for letting Xorg handle joystick events.
 
-First, [install](install "install"){.wikilink} the `{{AUR|xf86-input-joystick}}`{=mediawiki} package. Then, create an X
+First, [install](install "wikilink") the `{{AUR|xf86-input-joystick}}`{=mediawiki} package. Then, create an X
 configuration file:
 
 ```{=mediawiki}
@@ -354,25 +352,25 @@ configuration file:
 
 With some programs you can also configure your gamepad further, including the following potential features:
 
-- Remapping buttons and axes.
-  - Assigning mapping profiles to different games.
-- Emulating a different type of gamepad. Some software can often behave better when given an Xbox 360 Controller, as
-  this is a very common controller that many games have been tested with.
-- Additional functionality such as Macros, On-Screen-Displays etc.
+-   Remapping buttons and axes.
+    -   Assigning mapping profiles to different games.
+-   Emulating a different type of gamepad. Some software can often behave better when given an Xbox 360 Controller, as
+    this is a very common controller that many games have been tested with.
+-   Additional functionality such as Macros, On-Screen-Displays etc.
 
 List of software:
 
-- ```{=mediawiki}
-  {{App|SC Controller|Open-source software supporting button remapping and Xbox 360 Controller emulation.|https://github.com/Ryochan7/sc-controller|{{AUR|sc-controller}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|SC Controller|Open-source software supporting button remapping and Xbox 360 Controller emulation.|https://github.com/Ryochan7/sc-controller|{{AUR|sc-controller}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|[[Steam]]|Proprietary storefront whose client supports rebinding gamepad inputs via [https://partner.steamgames.com/doc/features/steam_controller Steam Input]. When enabled, Steam exposes a Steam Controller to games that opt into the Steam Input API, as well as an emulated Xbox 360 Controller to games using traditional gamepad APIs. See [[Steam#Steam Input]] for further details.|https://store.steampowered.com/about/|{{Pkg|steam}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|[[Steam]]|Proprietary storefront whose client supports rebinding gamepad inputs via [https://partner.steamgames.com/doc/features/steam_controller Steam Input]. When enabled, Steam exposes a Steam Controller to games that opt into the Steam Input API, as well as an emulated Xbox 360 Controller to games using traditional gamepad APIs. See [[Steam#Steam Input]] for further details.|https://store.steampowered.com/about/|{{Pkg|steam}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|xboxdrv|Xbox 360 controller driver which supports emulating the controller from a different input controller. See [[#Mimic Xbox 360 controller]]. It is also a flexible option for remapping and calibration.|https://github.com/xiota/xboxdrv|{{AUR|xboxdrv}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|xboxdrv|Xbox 360 controller driver which supports emulating the controller from a different input controller. See [[#Mimic Xbox 360 controller]]. It is also a flexible option for remapping and calibration.|https://github.com/xiota/xboxdrv|{{AUR|xboxdrv}}}}
+    ```
 
 #### Remapping of gamepad on SDL2 applications {#remapping_of_gamepad_on_sdl2_applications}
 
@@ -395,9 +393,9 @@ graphically with `{{AUR|controllermap}}`{=mediawiki}. An up to date database can
 
 #### Mimic Xbox 360 controller {#mimic_xbox_360_controller}
 
-[#xboxdrv](#xboxdrv "#xboxdrv"){.wikilink} can be used to make any controller register as an Xbox 360 controller with
-the `{{ic|--mimic-xpad}}`{=mediawiki} switch. This may be desirable for games that support Xbox 360 controllers out of
-the box, but have trouble detecting or working with other gamepads.
+[#xboxdrv](#xboxdrv "wikilink") can be used to make any controller register as an Xbox 360 controller with the
+`{{ic|--mimic-xpad}}`{=mediawiki} switch. This may be desirable for games that support Xbox 360 controllers out of the
+box, but have trouble detecting or working with other gamepads.
 
 You can mimic an Xbox 360 controller with the following command:
 
@@ -447,7 +445,7 @@ For other applications, you can use `{{AUR|wii-u-gc-adapter}}`{=mediawiki}.
 These controllers are supported since kernel version 5.16. The Switch Online NES, SNES and N64 controllers are also
 supported since kernel version 6.12.
 
-For earlier kernel versions, it is possible to install the [DKMS](DKMS "DKMS"){.wikilink} module
+For earlier kernel versions, it is possible to install the [DKMS](DKMS "wikilink") module
 `{{AUR|hid-nintendo-nso-dkms}}`{=mediawiki}.
 
 #### Userspace Daemon {#userspace_daemon}
@@ -470,7 +468,7 @@ Then, press one trigger on each Joy-Con at the same time.
 
 By default, SDL2 maps buttons on Nintendo controllers according to the gamepad\'s label instead of the button\'s
 position. This causes the mapping of the buttons A/B and X/Y to be swapped compared to other controllers. If this is
-undesirable, set the [environment variable](environment_variable "environment variable"){.wikilink}
+undesirable, set the [environment variable](environment_variable "wikilink")
 `{{ic|1=SDL_GAMECONTROLLER_USE_BUTTON_LABELS=0}}`{=mediawiki}.
 
 Starting from SDL3, mapping is always positional.[3](https://github.com/slouken/SDL/blob/main/docs/README-migration.md)
@@ -482,17 +480,17 @@ behavior.[4](https://github.com/libsdl-org/sdl2-compat/blob/ed7e8bd5b169f379d7b1
 ```{=mediawiki}
 {{Note|Kernel 4.18 [https://lore.kernel.org/lkml/20180416122703.22306-1-rodrigorivascosta@gmail.com/ provides a kernel driver] for wired/wireless use of the steam controller as a controller input device without [[Steam]].}}
 ```
-The [Steam](Steam "Steam"){.wikilink} client will recognize the controller and provide keyboard/mouse/gamepad emulation
-while Steam is running. The in-game Steam overlay needs to be enabled and working in order for gamepad emulation to
-work. You may need to run `{{ic|udevadm trigger}}`{=mediawiki} with root privileges or plug the dongle out and in again,
-if the controller does not work immediately after installing and running Steam. If all else fails, try restarting the
-computer while the dongle is plugged in.
+The [Steam](Steam "wikilink") client will recognize the controller and provide keyboard/mouse/gamepad emulation while
+Steam is running. The in-game Steam overlay needs to be enabled and working in order for gamepad emulation to work. You
+may need to run `{{ic|udevadm trigger}}`{=mediawiki} with root privileges or plug the dongle out and in again, if the
+controller does not work immediately after installing and running Steam. If all else fails, try restarting the computer
+while the dongle is plugged in.
 
 If you are using the controller connected via Bluetooth LE, make sure the user is part of the `{{ic|input}}`{=mediawiki}
 group.
 
 If you cannot get the Steam Controller to work, see [#Steam Controller not pairing or recognized in games (including
-USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "#Steam Controller not pairing or recognized in games (including USB)"){.wikilink}.
+USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "wikilink").
 
 ```{=mediawiki}
 {{Note|If you do not use the [[Steam runtime]], you might actually need to disable the overlay for the controller to work in certain games (Rocket Wars, Rocket League, Binding of Isaac, etc.). Right click on a game in your library, select "Properties", and uncheck "Enable Steam Overlay".}}
@@ -507,24 +505,24 @@ input data over the wire.
 It has been reported that the default xpad driver has some issues with a few newer wired and wireless controllers, such
 as:
 
-- incorrect button mapping. ([discussion in Steam
-  bugtracker](https://github.com/ValveSoftware/steam-for-linux/issues/95#issuecomment-14009081))
-- not-working sync. ([discussion in Arch Forum](https://bbs.archlinux.org/viewtopic.php?id=156028))
-- all four LEDs keep blinking, but controller works. TLP\'s USB autosuspend is one sure cause of this issue with
-  wireless controllers. See below for fix.
+-   incorrect button mapping. ([discussion in Steam
+    bugtracker](https://github.com/ValveSoftware/steam-for-linux/issues/95#issuecomment-14009081))
+-   not-working sync. ([discussion in Arch Forum](https://bbs.archlinux.org/viewtopic.php?id=156028))
+-   all four LEDs keep blinking, but controller works. TLP\'s USB autosuspend is one sure cause of this issue with
+    wireless controllers. See below for fix.
 
-If you use the [TLP](TLP "TLP"){.wikilink} power management tool, you may experience connection issues with your
-Microsoft wireless adapter (e.g. the indicator LED will go out after the adapter has been connected for a few seconds,
-and controller connection attempts fail, four LEDs keep blinking but controller works). This is due to TLP\'s USB
+If you use the [TLP](TLP "wikilink") power management tool, you may experience connection issues with your Microsoft
+wireless adapter (e.g. the indicator LED will go out after the adapter has been connected for a few seconds, and
+controller connection attempts fail, four LEDs keep blinking but controller works). This is due to TLP\'s USB
 autosuspend functionality, and the solution is to add the Microsoft wireless adapter\'s device ID to TLP blacklist (to
 check device ID to blacklist, run `{{ic|tlp-stat -u}}`{=mediawiki}; for original MS wireless dongle just add
 `{{ic|1=USB_DENYLIST="045e:0719"}}`{=mediawiki} to `{{ic|/etc/tlp.conf}}`{=mediawiki}), check [TLP
 configuration](https://linrunner.de/en/tlp/docs/tlp-configuration.html#usb) for more details.
 
-If you experience such issues, you can use [#xboxdrv](#xboxdrv "#xboxdrv"){.wikilink} as the default
-`{{ic|xpad}}`{=mediawiki} driver instead.
+If you experience such issues, you can use [#xboxdrv](#xboxdrv "wikilink") as the default `{{ic|xpad}}`{=mediawiki}
+driver instead.
 
-In order to connect via Bluetooth, add the following [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}
+In order to connect via Bluetooth, add the following [kernel parameter](kernel_parameter "wikilink")
 `{{ic|1=bluetooth.disable_ertm=1}}`{=mediawiki}.
 
 If you experience problems with the rumble feature not working in games, it may be necessary to set the environment
@@ -539,8 +537,8 @@ variable `{{ic|1=SDL_JOYSTICK_HIDAPI=0}}`{=mediawiki}.
 functionality and might work better with certain controllers. It works in userspace and can be launched as system
 service.
 
-Install it with the `{{AUR|xboxdrv}}`{=mediawiki} package. Then
-[start](start "start"){.wikilink}/[enable](enable "enable"){.wikilink} `{{ic|xboxdrv.service}}`{=mediawiki}.
+Install it with the `{{AUR|xboxdrv}}`{=mediawiki} package. Then [start](start "wikilink")/[enable](enable "wikilink")
+`{{ic|xboxdrv.service}}`{=mediawiki}.
 
 If you have issues with the controller being recognized but not working in steam games or working but with incorrect
 mappings, it may be required to modify you configuration as such: `{{hc
@@ -555,7 +553,7 @@ deadzone = 4000
 dbus = disabled
 }}`{=mediawiki}
 
-Then [restart](restart "restart"){.wikilink} `{{ic|xboxdrv.service}}`{=mediawiki}.
+Then [restart](restart "wikilink") `{{ic|xboxdrv.service}}`{=mediawiki}.
 
 ##### Multiple controllers {#multiple_controllers}
 
@@ -574,7 +572,7 @@ next-controller = true
 dbus = disabled
 }}
 ```
-Then [restart](restart "restart"){.wikilink} `{{ic|xboxdrv.service}}`{=mediawiki}.
+Then [restart](restart "wikilink") `{{ic|xboxdrv.service}}`{=mediawiki}.
 
 #### Using generic/clone controllers {#using_genericclone_controllers}
 
@@ -652,8 +650,7 @@ Accessories application to see the controller and do the firmware update.
 Pairing the controller & adapter in Windows may cause the pairing to be lost in Linux. You will need to re-pair the
 controller & dongle when you reboot into Linux. This also happens in the other direction --- when the controller &
 dongle are paired in Linux, they will need to be re-paired the next time you want to use them in Windows. This can be
-avoided by following the instructions for [dual boot
-pairing](Bluetooth#Dual_boot_pairing "dual boot pairing"){.wikilink}.
+avoided by following the instructions for [dual boot pairing](Bluetooth#Dual_boot_pairing "wikilink").
 
 ##### Failure to connect after Suspend and wake on gamepad use. {#failure_to_connect_after_suspend_and_wake_on_gamepad_use.}
 
@@ -672,9 +669,9 @@ will power up and one of the four LEDs should light up indicating the controller
 #### Pairing via Bluetooth {#pairing_via_bluetooth}
 
 Install `{{Pkg|bluez}}`{=mediawiki} and `{{Pkg|bluez-utils}}`{=mediawiki}. Make sure bluetooth is working by following
-the first five steps of [Bluetooth#Pairing](Bluetooth#Pairing "Bluetooth#Pairing"){.wikilink} and leave the bluetoothctl
-command running, then turn on the controller by pressing the middle \'PS\' button(all 4 leds should be blinking quickly
-\~4 hz) and connect to your computer using usb. Lastly, type yes in the bluetoothctl prompt when asked
+the first five steps of [Bluetooth#Pairing](Bluetooth#Pairing "wikilink") and leave the bluetoothctl command running,
+then turn on the controller by pressing the middle \'PS\' button(all 4 leds should be blinking quickly \~4 hz) and
+connect to your computer using usb. Lastly, type yes in the bluetoothctl prompt when asked
 \'`{{ic|Authorize service 00001124-0000-1000-8000-00805f9b34fb (yes/no)}}`{=mediawiki}\'.
 
 ```{=mediawiki}
@@ -702,17 +699,15 @@ need to be pushed to begin). They can also be used wirelessly via Bluetooth.
 
 Steam properly recognizes it as a PS3 pad and Big Picture can be launched with the PS button. Big Picture and some games
 may act as if it was a 360 controller. Gamepad control over mouse is on by default. You may want to turn it off before
-playing games, see [#Disable joystick from controlling
-mouse](#Disable_joystick_from_controlling_mouse "#Disable joystick from controlling mouse"){.wikilink}.
+playing games, see [#Disable joystick from controlling mouse](#Disable_joystick_from_controlling_mouse "wikilink").
 
 #### Pairing via Bluetooth {#pairing_via_bluetooth_1}
 
 Install the `{{Pkg|bluez}}`{=mediawiki} and `{{Pkg|bluez-utils}}`{=mediawiki} packages, which includes the *sixaxis*
-plugin. Then [start](start "start"){.wikilink} the [bluetooth](bluetooth "bluetooth"){.wikilink} service and ensure
-bluetooth is powered on. If using *bluetoothctl* start it in a terminal and then plug the controller in via USB. You
-should be prompted to trust the controller in bluetoothctl. A graphical bluetooth front-end may program your PC\'s
-bluetooth address into the controller automatically. Hit the PlayStation button and check that the controller works
-while plugged in.
+plugin. Then [start](start "wikilink") the [bluetooth](bluetooth "wikilink") service and ensure bluetooth is powered on.
+If using *bluetoothctl* start it in a terminal and then plug the controller in via USB. You should be prompted to trust
+the controller in bluetoothctl. A graphical bluetooth front-end may program your PC\'s bluetooth address into the
+controller automatically. Hit the PlayStation button and check that the controller works while plugged in.
 
 You can now disconnect your controller. The next time you hit the PlayStation button it will connect without asking
 anything else.
@@ -765,10 +760,9 @@ Since Wine 9.18, this setting can be controlled from `{{ic|wine control joy.cpl}
 
 #### Disable touchpad acting as mouse {#disable_touchpad_acting_as_mouse}
 
-If using [libinput](libinput "libinput"){.wikilink} with [Xorg](Xorg "Xorg"){.wikilink}, or if using
-[Wayland](Wayland "Wayland"){.wikilink}, then you can follow [Libinput#Using environment
-variable](Libinput#Using_environment_variable "Libinput#Using environment variable"){.wikilink} to disable the touchpad
-device.
+If using [libinput](libinput "wikilink") with [Xorg](Xorg "wikilink"), or if using [Wayland](Wayland "wikilink"), then
+you can follow [Libinput#Using environment variable](Libinput#Using_environment_variable "wikilink") to disable the
+touchpad device.
 
 Note that, since the touchpad is just one part of the controller, selecting the input device by vendor and product IDs
 will not suffice. Instead, consider selecting the device by name.
@@ -796,29 +790,28 @@ With DualSense controllers, replace the names with
 `{{ic|Sony Interactive Entertainment DualSense Wireless Controller Touchpad}}`{=mediawiki} and
 `{{ic|DualSense Wireless Controller Touchpad}}`{=mediawiki}.
 
-Then, [reload udev rules](Udev#Loading_new_rules "reload udev rules"){.wikilink}. Reconnect the gamepad to apply
-changes.
+Then, [reload udev rules](Udev#Loading_new_rules "wikilink"). Reconnect the gamepad to apply changes.
 
 #### dualsensectl
 
 [dualsensectl](https://github.com/nowrep/dualsensectl) is a tool that can toggle the lightbar and microphone (and its
-LED), monitor the battery status, and power off the controller. To use it, [install](install "install"){.wikilink}
+LED), monitor the battery status, and power off the controller. To use it, [install](install "wikilink")
 `{{AUR|dualsensectl-git}}`{=mediawiki}.
 
 ## Tips and Tricks {#tips_and_tricks}
 
 ### Gamepad over network {#gamepad_over_network}
 
-If you want to use your gamepad with another computer over a network, you can use [USB/IP](USB/IP "USB/IP"){.wikilink}
-or `{{AUR|netstick-git}}`{=mediawiki} to do this.
+If you want to use your gamepad with another computer over a network, you can use [USB/IP](USB/IP "wikilink") or
+`{{AUR|netstick-git}}`{=mediawiki} to do this.
 
 ## Troubleshooting
 
 ### Device permissions {#device_permissions}
 
-Gamepad devices are affected by [udev rules](Udev#Allowing_regular_users_to_use_devices "udev rules"){.wikilink}: unless
-they grant access to the device, it simply will not be readable by users. This section investigates the possibility of
-you already having a configuration file handling this.
+Gamepad devices are affected by [udev rules](Udev#Allowing_regular_users_to_use_devices "wikilink"): unless they grant
+access to the device, it simply will not be readable by users. This section investigates the possibility of you already
+having a configuration file handling this.
 
 Any gamepad device, regardless of whether it is over USB or Bluetooth, is handled by the [\"input\" subsystem of the
 kernel](https://docs.kernel.org/input/input_uapi.html), corresponding with `{{ic|/dev/input}}`{=mediawiki}. It is also
@@ -829,14 +822,13 @@ these, we can understand udev\'s handling of these devices by inspecting the con
 
 Some examples of applications which ship noteworthy rules:
 
-- [systemd](systemd "systemd"){.wikilink}\'s default rules set the group of all `{{ic|input}}`{=mediawiki} devices to
-  `{{ic|input}}`{=mediawiki}, and the mode of joystick devices to `{{ic|664}}`{=mediawiki}
-  [5](https://github.com/systemd/systemd/blob/edfb4a474e5cbef6578a70aae7f08a0f435c6c6a/rules.d/50-udev-default.rules.in#L33).
-- [Steam](Steam "Steam"){.wikilink} ships udev rules allowing access to a variety of controllers. See [this Steam
-  discussion](https://steamcommunity.com/app/353370/discussions/2/1735465524711324558/) for further info about the
-  contents of the rules.
-- [Dolphin emulator](Dolphin_emulator "Dolphin emulator"){.wikilink} ships udev rules allowing access to controllers it
-  supports.
+-   [systemd](systemd "wikilink")\'s default rules set the group of all `{{ic|input}}`{=mediawiki} devices to
+    `{{ic|input}}`{=mediawiki}, and the mode of joystick devices to `{{ic|664}}`{=mediawiki}
+    [5](https://github.com/systemd/systemd/blob/edfb4a474e5cbef6578a70aae7f08a0f435c6c6a/rules.d/50-udev-default.rules.in#L33).
+-   [Steam](Steam "wikilink") ships udev rules allowing access to a variety of controllers. See [this Steam
+    discussion](https://steamcommunity.com/app/353370/discussions/2/1735465524711324558/) for further info about the
+    contents of the rules.
+-   [Dolphin emulator](Dolphin_emulator "wikilink") ships udev rules allowing access to controllers it supports.
 
 If your system does not already happen to have a udev rule for the device you want to use, you can either write one
 yourself or install the `{{AUR|game-devices-udev}}`{=mediawiki} package and restart your computer.
@@ -873,7 +865,7 @@ still be reserved. But the files are out of the way.
 Some Windows games look for an Xbox 360 controller in particular, missing functionality (like vibration) or not working
 at all otherwise.
 
-For a workaround, see [#Mimic Xbox 360 controller](#Mimic_Xbox_360_controller "#Mimic Xbox 360 controller"){.wikilink}.
+For a workaround, see [#Mimic Xbox 360 controller](#Mimic_Xbox_360_controller "wikilink").
 
 ### Nintendo Switch Pro Controller disconnects when using Bluetooth {#nintendo_switch_pro_controller_disconnects_when_using_bluetooth}
 
@@ -915,18 +907,18 @@ The module name of the driver is `{{ic|hid_steam}}`{=mediawiki}, so to unload it
 
 If this module is not already loaded but the controller is still not recognized by games, refer to the previous
 section\'s udev rule solution in [#Steam Controller not pairing or recognized in games (including
-USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "#Steam Controller not pairing or recognized in games (including USB)"){.wikilink}.
+USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "wikilink").
 
 ### Xbox One Wireless Gamepad detected but no inputs recognized {#xbox_one_wireless_gamepad_detected_but_no_inputs_recognized}
 
 This can occur when using a third party Xbox One controller with the `{{ic|xpad}}`{=mediawiki} or
-[#xboxdrv](#xboxdrv "#xboxdrv"){.wikilink} drivers. Try switching to [#xpadneo](#xpadneo "#xpadneo"){.wikilink}.
+[#xboxdrv](#xboxdrv "wikilink") drivers. Try switching to [#xpadneo](#xpadneo "wikilink").
 
 ### Playstation 4 controllers {#playstation_4_controllers}
 
 #### Controller not recognized when using Bluetooth {#controller_not_recognized_when_using_bluetooth}
 
-[Install](Install "Install"){.wikilink} the `{{AUR|ds4drv}}`{=mediawiki} package and run it with the hidraw
+[Install](Install "wikilink") the `{{AUR|ds4drv}}`{=mediawiki} package and run it with the hidraw
 (`{{ic|ds4drv --hidraw}}`{=mediawiki}) backend parameter.
 
 #### Motion controls taking over joypad controls and/or causing unintended input with joypad controls {#motion_controls_taking_over_joypad_controls_andor_causing_unintended_input_with_joypad_controls}
@@ -946,8 +938,8 @@ SUBSYSTEM=="input", ATTRS{name}=="*Controller Motion Sensors", RUN+="/bin/rm %E{
 SUBSYSTEM=="input", ATTRS{name}=="*Controller Touchpad", RUN+="/bin/rm %E{DEVNAME}", ENV{ID_INPUT_JOYSTICK}=""
 }}
 ```
-Then [reload the rules](udev#Loading_new_rules "reload the rules"){.wikilink} or reboot: these rules should work in both
-USB and Bluetooth mode.
+Then [reload the rules](udev#Loading_new_rules "wikilink") or reboot: these rules should work in both USB and Bluetooth
+mode.
 
 ### Multi-mode wired gamepads {#multi_mode_wired_gamepads}
 
@@ -975,7 +967,7 @@ Add the following udev rule and it will be handled as an Xbox 360 controller usi
 ACTION=="add", ATTRS{idVendor}=="11c0", ATTRS{idProduct}=="5505", RUN+="/sbin/modprobe xpad", RUN+="/bin/sh -c 'echo 11c0 5505 > /sys/bus/usb/drivers/xpad/new_id'"
 }}
 ```
-[Reload your udev rules](udev#Loading_new_rules "Reload your udev rules"){.wikilink}.
+[Reload your udev rules](udev#Loading_new_rules "wikilink").
 
 Then replug your gamepad.
 
@@ -1044,8 +1036,9 @@ Note that once the gamepad downgrades to the fallback mode, it will never change
 `{{ic|echo 0 then 1 > %sysfsGamepadDir%/authorized}}`{=mediawiki} doesn\'t work. And that\'s why passing the gamepad to
 a Windows VM would not help; `{{ic|usbcore}}`{=mediawiki} inits USB devices before passing them to a VM.
 
+```{=html}
 <hr/>
-
+```
 Now reconnect the gamepad, it should be finally listed now as
 `{{ic|ID 057e:2009 Nintendo Co., Ltd Switch Pro Controller}}`{=mediawiki} when you run `{{ic|lsusb}}`{=mediawiki}. If
 that\'s true, then you can make this quirk permanent by add this option to GRUB:
@@ -1421,5 +1414,4 @@ BTN_TL=lb
 `  --mimic-xpad                                     \`\
 `  --silent`
 
-[Category:Input devices](Category:Input_devices "Category:Input devices"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Input devices](Category:Input_devices "wikilink") [Category:Gaming](Category:Gaming "wikilink")

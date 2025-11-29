@@ -1,12 +1,10 @@
-[ja:AMD Radeon Instinct MI25](ja:AMD_Radeon_Instinct_MI25 "ja:AMD Radeon Instinct MI25"){.wikilink}
-`{{Related articles start}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[ja:AMD Radeon Instinct MI25](ja:AMD_Radeon_Instinct_MI25 "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|AMDGPU}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 This page describes the steps necessary to perform [general-purpose computing on graphics processing
-units](Wikipedia:General-purpose_computing_on_graphics_processing_units "general-purpose computing on graphics processing units"){.wikilink}
-(GPGPU) on the [AMD Radeon Instinct MI25](Wikipedia:AMD_Instinct#MI25 "AMD Radeon Instinct MI25"){.wikilink} and other
-gfx900 vega10 GPUs, such as the Radeon Vega Frontier Edition, Radeon RX Vega 56/64, Radeon Pro Vega 48/56/64/64X, Radeon
-Pro WX 8200/9100, and the Radeon Pro V320/V340/SSG.
+units](Wikipedia:General-purpose_computing_on_graphics_processing_units "wikilink") (GPGPU) on the [AMD Radeon Instinct
+MI25](Wikipedia:AMD_Instinct#MI25 "wikilink") and other gfx900 vega10 GPUs, such as the Radeon Vega Frontier Edition,
+Radeon RX Vega 56/64, Radeon Pro Vega 48/56/64/64X, Radeon Pro WX 8200/9100, and the Radeon Pro V320/V340/SSG.
 
 ## BIOS and cooling {#bios_and_cooling}
 
@@ -83,8 +81,8 @@ use, is quite a nice option, although a homemade solution would also suffice.
 ## ROCm
 
 The MI25 and other gfx900 GPUs are deprecated and official support has ended. They were officially supported under ROCm
-4, and unsupported under ROCm 5 and 6. However, the [ROCm 6](GPGPU#ROCm "ROCm 6"){.wikilink} packages in the arch repos
-are compiled with gfx900 support and now works out of the box.
+4, and unsupported under ROCm 5 and 6. However, the [ROCm 6](GPGPU#ROCm "wikilink") packages in the arch repos are
+compiled with gfx900 support and now works out of the box.
 
 ## GPGPU accelerated software {#gpgpu_accelerated_software}
 
@@ -92,9 +90,9 @@ The purpose of this section is to list GPGPU accelerated software and how to run
 
 ### Ollama and Open WebUI {#ollama_and_open_webui}
 
-[Ollama](Ollama "Ollama"){.wikilink} (`{{pkg|ollama-rocm}}`{=mediawiki}) and `{{AUR|open-webui}}`{=mediawiki} are known
-to work with gfx900 with little to no configuration. As of Open WebUI version `{{ic|0.6.15-1}}`{=mediawiki},
-`{{ic|/opt/open-webui/backend/start.sh}}`{=mediawiki} needs to be made [executable](executable "executable"){.wikilink}.
+[Ollama](Ollama "wikilink") (`{{pkg|ollama-rocm}}`{=mediawiki}) and `{{AUR|open-webui}}`{=mediawiki} are known to work
+with gfx900 with little to no configuration. As of Open WebUI version `{{ic|0.6.15-1}}`{=mediawiki},
+`{{ic|/opt/open-webui/backend/start.sh}}`{=mediawiki} needs to be made [executable](executable "wikilink").
 
 ### AUTOMATIC1111s Stable Diffusion web UI {#automatic1111s_stable_diffusion_web_ui}
 
@@ -148,16 +146,16 @@ Python libraries `{{pkg|python-pytorch-rocm}}`{=mediawiki}, `{{AUR|python-torchv
 
 A tool for brute-forcing Bitcoin private keys.
 
-- Clone repository.
+-   Clone repository.
 
 `$ git clone `[`https://github.com/brichard19/BitCrack.git`](https://github.com/brichard19/BitCrack.git)
 
-- Change directory and build for OpenCL.
+-   Change directory and build for OpenCL.
 
 `$ cd BitCrack && make BUILD_OPENCL{{=}}1`
 
-- Run `{{ic|clBitCrack}}`{=mediawiki}.
+-   Run `{{ic|clBitCrack}}`{=mediawiki}.
 
 `$ ./bin/clBitCrack 1FshYsUh3mqgsG29XpZ23eLjWV8Ur3VwH 15JhYXn6Mx3oF4Y7PcTAv2wVVAuCFFQNiP 19EEC52krRUK1RkUAEZmQdjTyHT7Gp1TYT`
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

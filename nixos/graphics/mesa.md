@@ -100,4 +100,4 @@ downside to this approach is that you won\'t see legitimate Mesa warnings or err
 Starting with [Mesa 25.1.0](https://docs.mesa3d.org/relnotes/25.1.0.html), you can suppress the warning with
 `INTEL_XE_IGNORE_EXPERIMENTAL_WARNING=1`.
 
-[Category: Video](Category:_Video "Category: Video"){.wikilink}
+[Category: Video](Category:_Video "wikilink")

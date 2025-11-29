@@ -1,5 +1,5 @@
-[ja:Bumblebee](ja:Bumblebee "ja:Bumblebee"){.wikilink} [ru:Bumblebee](ru:Bumblebee "ru:Bumblebee"){.wikilink}
-[zh-hans:Bumblebee](zh-hans:Bumblebee "zh-hans:Bumblebee"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[ja:Bumblebee](ja:Bumblebee "wikilink") [ru:Bumblebee](ru:Bumblebee "wikilink")
+[zh-hans:Bumblebee](zh-hans:Bumblebee "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|PRIME}}`{=mediawiki} `{{Related|Nvidia-xrun}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki}
 `{{Related|Nouveau}}`{=mediawiki} `{{Related|NVIDIA}}`{=mediawiki} `{{Related|Intel graphics}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
@@ -26,11 +26,11 @@ Intel integrated graphics and an nVidia dedicated graphics card.
 
 Bumblebee is a software implementation comprising two parts:
 
-- Render programs off-screen on the dedicated video card and display it on the screen using the integrated video card.
-  This bridge is provided by VirtualGL or primus (read further) and connects to a X server started for the discrete
-  video card.
-- Disable the dedicated video card when it is not in use (see the [#Power
-  management](#Power_management "#Power management"){.wikilink} section)
+-   Render programs off-screen on the dedicated video card and display it on the screen using the integrated video card.
+    This bridge is provided by VirtualGL or primus (read further) and connects to a X server started for the discrete
+    video card.
+-   Disable the dedicated video card when it is not in use (see the [#Power management](#Power_management "wikilink")
+    section)
 
 It tries to mimic the Optimus technology behavior; using the dedicated GPU for rendering when needed and power it down
 when not in use. The present releases only support rendering on-demand, automatically starting a program with the
@@ -46,41 +46,40 @@ had previously been disabled and discrete graphics drivers installed, be sure to
 `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} or the conf file in `{{ic|/etc/X11/xorg.conf.d}}`{=mediawiki} related to the
 discrete graphics card.
 
-[Install](Install "Install"){.wikilink}:
+[Install](Install "wikilink"):
 
-- ```{=mediawiki}
-  {{Pkg|bumblebee}}
-  ```
-  \- The main package providing the daemon and client programs.
+-   ```{=mediawiki}
+    {{Pkg|bumblebee}}
+    ```
+    \- The main package providing the daemon and client programs.
 
-- ```{=mediawiki}
-  {{Pkg|mesa}}
-  ```
-  \- An open-source implementation of the **OpenGL** specification.
+-   ```{=mediawiki}
+    {{Pkg|mesa}}
+    ```
+    \- An open-source implementation of the **OpenGL** specification.
 
-- An appropriate version of the NVIDIA driver, see
-  [NVIDIA#Installation](NVIDIA#Installation "NVIDIA#Installation"){.wikilink}.
+-   An appropriate version of the NVIDIA driver, see [NVIDIA#Installation](NVIDIA#Installation "wikilink").
 
-- Optionally install `{{Pkg|xf86-video-intel}}`{=mediawiki} - Intel [Xorg](Xorg "Xorg"){.wikilink} driver.
+-   Optionally install `{{Pkg|xf86-video-intel}}`{=mediawiki} - Intel [Xorg](Xorg "wikilink") driver.
 
-For 32-bit application support, enable the [multilib](multilib "multilib"){.wikilink} repository and install:
+For 32-bit application support, enable the [multilib](multilib "wikilink") repository and install:
 
-- ```{=mediawiki}
-  {{Pkg|lib32-virtualgl}}
-  ```
-  \- A render/display bridge for 32 bit applications.
+-   ```{=mediawiki}
+    {{Pkg|lib32-virtualgl}}
+    ```
+    \- A render/display bridge for 32 bit applications.
 
-- ```{=mediawiki}
-  {{Pkg|lib32-nvidia-utils}}
-  ```
-  or `{{AUR|lib32-nvidia-340xx-utils}}`{=mediawiki} (match the version of the regular NVIDIA driver).
+-   ```{=mediawiki}
+    {{Pkg|lib32-nvidia-utils}}
+    ```
+    or `{{AUR|lib32-nvidia-340xx-utils}}`{=mediawiki} (match the version of the regular NVIDIA driver).
 
 In order to use Bumblebee, it is necessary to add your regular *user* to the `{{ic|bumblebee}}`{=mediawiki} group:
 
 `# gpasswd -a `*`user`*` bumblebee`
 
-Also [enable](enable "enable"){.wikilink} `{{ic|bumblebeed.service}}`{=mediawiki}. Reboot your system and follow
-[#Usage](#Usage "#Usage"){.wikilink}.
+Also [enable](enable "wikilink") `{{ic|bumblebeed.service}}`{=mediawiki}. Reboot your system and follow
+[#Usage](#Usage "wikilink").
 
 ```{=mediawiki}
 {{Note|
@@ -131,15 +130,15 @@ and other stuff can be configured in `{{ic|/etc/bumblebee/bumblebee.conf}}`{=med
 ### Optimizing speed {#optimizing_speed}
 
 One disadvantage of the offscreen rendering methods is performance. The following table gives a raw overview of a
-[Lenovo ThinkPad T480](Lenovo_ThinkPad_T480 "Lenovo ThinkPad T480"){.wikilink} in an eGPU setup with NVIDIA GTX 1060 6GB
-and `{{AUR|unigine-heaven}}`{=mediawiki} benchmark (1920x1080, max settings, 8x AA):
+[Lenovo ThinkPad T480](Lenovo_ThinkPad_T480 "wikilink") in an eGPU setup with NVIDIA GTX 1060 6GB and
+`{{AUR|unigine-heaven}}`{=mediawiki} benchmark (1920x1080, max settings, 8x AA):
 
-  Command                    Display                                                           FPS    Score   Min FPS   Max FPS
-  -------------------------- ----------------------------------------------------------------- ------ ------- --------- ---------
-  optirun unigine-heaven     internal                                                          20.7   521     6.9       26.6
-  primusrun unigine-heaven   internal                                                          36.9   930     15.3      44.1
-  unigine-heaven             internal in [Nvidia-xrun](Nvidia-xrun "Nvidia-xrun"){.wikilink}   51.3   1293    8.4       95.6
-  unigine-heaven             external in [Nvidia-xrun](Nvidia-xrun "Nvidia-xrun"){.wikilink}   56.1   1414    8.4       111.9
+  Command                    Display                                             FPS    Score   Min FPS   Max FPS
+  -------------------------- --------------------------------------------------- ------ ------- --------- ---------
+  optirun unigine-heaven     internal                                            20.7   521     6.9       26.6
+  primusrun unigine-heaven   internal                                            36.9   930     15.3      44.1
+  unigine-heaven             internal in [Nvidia-xrun](Nvidia-xrun "wikilink")   51.3   1293    8.4       95.6
+  unigine-heaven             external in [Nvidia-xrun](Nvidia-xrun "wikilink")   56.1   1414    8.4       111.9
 
 #### Using VirtualGL as bridge {#using_virtualgl_as_bridge}
 
@@ -168,7 +167,7 @@ Uncompressed methods:
 
 :\* `{{ic|xv}}`{=mediawiki}
 
-Here is a performance table tested with [ASUS N550JV](ASUS_N550JV "ASUS N550JV"){.wikilink} laptop and benchmark app
+Here is a performance table tested with [ASUS N550JV](ASUS_N550JV "wikilink") laptop and benchmark app
 `{{AUR|unigine-heaven}}`{=mediawiki}:
 
   Command                           FPS    Score   Min FPS   Max FPS
@@ -195,8 +194,8 @@ VGLTransport=proxy
 }}
 ```
 You can also play with the way VirtualGL reads back the pixels from your graphics card. Setting
-`{{ic|VGL_READBACK}}`{=mediawiki} [environment variable](environment_variable "environment variable"){.wikilink} to
-`{{ic|pbo}}`{=mediawiki} should increase the performance. Compare the following:
+`{{ic|VGL_READBACK}}`{=mediawiki} [environment variable](environment_variable "wikilink") to `{{ic|pbo}}`{=mediawiki}
+should increase the performance. Compare the following:
 
 PBO should be faster:
 
@@ -220,7 +219,7 @@ separately, but it does not accept options as `{{ic|optirun}}`{=mediawiki} does.
 the bridge for `{{ic|optirun}}`{=mediawiki} provides more flexibility.
 
 For 32-bit applications support on 64-bit machines, install `{{Pkg|lib32-primus}}`{=mediawiki}
-([multilib](multilib "multilib"){.wikilink} must be enabled).
+([multilib](multilib "wikilink") must be enabled).
 
 You can either run it separately:
 
@@ -243,7 +242,7 @@ will not have to specify it on the command line.
 {{ic|pvkrun}}
 ```
 from the package `{{Pkg|primus_vk}}`{=mediawiki} is a drop-in replacement for `{{ic|primusrun}}`{=mediawiki} that
-enables to run [Vulkan](Vulkan "Vulkan"){.wikilink}-based applications. A quick check can be done with
+enables to run [Vulkan](Vulkan "wikilink")-based applications. A quick check can be done with
 `{{ic|vulkaninfo}}`{=mediawiki} from `{{Pkg|vulkan-tools}}`{=mediawiki}.
 
 `$ pvkrun vulkaninfo`
@@ -274,7 +273,7 @@ The default behavior of bbswitch is to leave the card power state unchanged. `{{
 disable the card when started, so the following is only necessary if you use bbswitch without bumblebeed.
 
 Set `{{ic|load_state}}`{=mediawiki} and `{{ic|unload_state}}`{=mediawiki} [kernel module
-parameters](kernel_module_parameter "kernel module parameter"){.wikilink} according to your needs (see [bbswitch
+parameters](kernel_module_parameter "wikilink") according to your needs (see [bbswitch
 documentation](https://github.com/Bumblebee-Project/bbswitch)).
 
 ```{=mediawiki}
@@ -283,8 +282,7 @@ options bbswitch load_state=0 unload_state=1
 }}
 ```
 To run bbswitch without bumblebeed on system startup, do not forget to add `{{ic|bbswitch}}`{=mediawiki} to
-`{{ic|/etc/modules-load.d}}`{=mediawiki}, as explained in [Kernel
-module#systemd](Kernel_module#systemd "Kernel module#systemd"){.wikilink}.
+`{{ic|/etc/modules-load.d}}`{=mediawiki}, as explained in [Kernel module#systemd](Kernel_module#systemd "wikilink").
 
 #### Enable NVIDIA card during shutdown {#enable_nvidia_card_during_shutdown}
 
@@ -296,7 +294,7 @@ daemon is running, so if all `{{ic|optirun}}`{=mediawiki} or `{{ic|primusrun}}`{
 GPU will still be powered off.
 
 When you stop the daemon manually, you might want to keep the card powered off while still powering it on on shutdown.
-To achieve the latter, add the following [systemd](systemd "systemd"){.wikilink} service (if using
+To achieve the latter, add the following [systemd](systemd "wikilink") service (if using
 `{{pkg|bbswitch}}`{=mediawiki}):
 
 ```{=mediawiki}
@@ -313,7 +311,7 @@ ExecStart=/bin/sh -c 'echo ON > /proc/acpi/bbswitch'
 WantedBy=shutdown.target
 }}
 ```
-Then [enable](enable "enable"){.wikilink} the `{{ic|nvidia-enable.service}}`{=mediawiki} unit.
+Then [enable](enable "wikilink") the `{{ic|nvidia-enable.service}}`{=mediawiki} unit.
 
 #### Enable NVIDIA card after waking from suspend {#enable_nvidia_card_after_waking_from_suspend}
 
@@ -338,15 +336,15 @@ If the above fix fails, try the following command:
 
 To rescan the PCI bus automatically after a suspend, create a script as described in [Power management/Suspend and
 hibernate#Hooks in
-/usr/lib/systemd/system-sleep](Power_management/Suspend_and_hibernate#Hooks_in_/usr/lib/systemd/system-sleep "Power management/Suspend and hibernate#Hooks in /usr/lib/systemd/system-sleep"){.wikilink}.
+/usr/lib/systemd/system-sleep](Power_management/Suspend_and_hibernate#Hooks_in_/usr/lib/systemd/system-sleep "wikilink").
 
 ### Multiple monitors {#multiple_monitors}
 
 #### Outputs wired to the Intel chip {#outputs_wired_to_the_intel_chip}
 
 If the port (DisplayPort/HDMI/VGA) is wired to the Intel chip, you can set up multiple monitors with
-[xorg.conf](xorg.conf "xorg.conf"){.wikilink}. Set them to use the Intel card, but Bumblebee can still use the NVIDIA
-card. One example configuration is below for two identical screens with 1080p resolution and using the HDMI out.
+[xorg.conf](xorg.conf "wikilink"). Set them to use the Intel card, but Bumblebee can still use the NVIDIA card. One
+example configuration is below for two identical screens with 1080p resolution and using the HDMI out.
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf|2=
@@ -451,7 +449,7 @@ then running the game with `{{ic|optirun ''game_bin''}}`{=mediawiki}, however, c
 captured. Use `{{ic|1=export DISPLAY=:0}}`{=mediawiki} to revert back to standard operation.
 
 If *intel-virtual-output* does not detect displays, or if a `{{ic|no VIRTUAL outputs on ":0"}}`{=mediawiki} message is
-obtained, then [create](create "create"){.wikilink}:
+obtained, then [create](create "wikilink"):
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/20-intel.conf|
@@ -504,7 +502,7 @@ integrated-graphics powered one.
 ##### Disabling screen blanking {#disabling_screen_blanking}
 
 You can disable screen blanking when using *intel-virtual-output* with `{{ic|xset}}`{=mediawiki} by setting the
-`{{ic|DISPLAY}}`{=mediawiki} environment variable appropriately (see [DPMS](DPMS "DPMS"){.wikilink} for more info):
+`{{ic|DISPLAY}}`{=mediawiki} environment variable appropriately (see [DPMS](DPMS "wikilink") for more info):
 
 `$ DISPLAY=:8 xset -dpms s off`
 
@@ -570,7 +568,7 @@ If you tried to install the NVIDIA driver from NVIDIA website, this is not going
 
 1.  Uninstall that driver in the similar way: `{{bc|# ./NVIDIA-Linux-*.run --uninstall}}`{=mediawiki}
 2.  Remove the Xorg configuration file generated by NVIDIA: `{{bc|# rm /etc/X11/xorg.conf}}`{=mediawiki}
-3.  (Re)install the correct NVIDIA driver: See [#Installation](#Installation "#Installation"){.wikilink}.
+3.  (Re)install the correct NVIDIA driver: See [#Installation](#Installation "wikilink").
 
 ### \[ERROR\]Cannot access secondary GPU: No devices detected {#errorcannot_access_secondary_gpu_no_devices_detected}
 
@@ -580,8 +578,8 @@ In some instances, running `{{ic|optirun}}`{=mediawiki} will return:
 `[ERROR]Aborting because fallback start is disabled.`
 
 In this case, you will need to move the file `{{ic|/etc/X11/xorg.conf.d/20-intel.conf}}`{=mediawiki} to somewhere else,
-[restart](restart "restart"){.wikilink} the bumblebeed daemon and it should work. If you do need to change some features
-for the Intel module, a workaround is to merge `{{ic|/etc/X11/xorg.conf.d/20-intel.conf}}`{=mediawiki} to
+[restart](restart "wikilink") the bumblebeed daemon and it should work. If you do need to change some features for the
+Intel module, a workaround is to merge `{{ic|/etc/X11/xorg.conf.d/20-intel.conf}}`{=mediawiki} to
 `{{ic|/etc/X11/xorg.conf}}`{=mediawiki}.
 
 It could be also necessary to comment the driver line in `{{ic|/etc/X11/xorg.conf.d/10-monitor.conf}}`{=mediawiki}.
@@ -625,10 +623,9 @@ After that, restart the Bumblebee service to apply these changes.
 
 #### Failed to initialize the NVIDIA GPU at PCI:1:0:0 (GPU fallen off the bus / RmInitAdapter failed!) {#failed_to_initialize_the_nvidia_gpu_at_pci100_gpu_fallen_off_the_bus_rminitadapter_failed}
 
-Add `{{ic|1=rcutree.rcu_idle_gp_delay=1}}`{=mediawiki} to the [kernel
-parameters](kernel_parameters "kernel parameters"){.wikilink} of the [boot loader](boot_loader "boot loader"){.wikilink}
-configuration (see also the original [BBS post](https://bbs.archlinux.org/viewtopic.php?id=169742) for a configuration
-example).
+Add `{{ic|1=rcutree.rcu_idle_gp_delay=1}}`{=mediawiki} to the [kernel parameters](kernel_parameters "wikilink") of the
+[boot loader](boot_loader "wikilink") configuration (see also the original [BBS
+post](https://bbs.archlinux.org/viewtopic.php?id=169742) for a configuration example).
 
 #### Failed to initialize the NVIDIA GPU at PCI:1:0:0 (Bumblebee daemon reported: error: \[XORG\] (EE) NVIDIA(GPU-0)) {#failed_to_initialize_the_nvidia_gpu_at_pci100_bumblebee_daemon_reported_error_xorg_ee_nvidiagpu_0}
 
@@ -671,7 +668,7 @@ This could be because the nvidia driver is out of sync with the Linux kernel, fo
 nvidia driver and have not updated the kernel in a while. A full system update , followed by a reboot into the updated
 kernel, might resolve the issue. If the problem persists you should try manually compiling the nvidia packages against
 your current kernel, for example with `{{Pkg|nvidia-dkms}}`{=mediawiki} or by compiling `{{pkg|nvidia}}`{=mediawiki}
-from the [ABS](ABS "ABS"){.wikilink}.
+from the [ABS](ABS "wikilink").
 
 #### NOUVEAU(0): \[drm\] failed to set drm interface version {#nouveau0_drm_failed_to_set_drm_interface_version}
 
@@ -710,8 +707,8 @@ EndSection
 ### ERROR: ld.so: object \'libdlfaker.so\' from LD_PRELOAD cannot be preloaded: ignored {#error_ld.so_object_libdlfaker.so_from_ld_preload_cannot_be_preloaded_ignored}
 
 You probably want to start a 32-bit application with bumblebee on a 64-bit system. See the \"For 32-bit\...\" section in
-[#Installation](#Installation "#Installation"){.wikilink}. If the problem persists or if it is a 64-bit application, try
-using the [primus bridge](#Primusrun "primus bridge"){.wikilink}.
+[#Installation](#Installation "wikilink"). If the problem persists or if it is a 64-bit application, try using the
+[primus bridge](#Primusrun "wikilink").
 
 ### Fatal IO error 11 (Resource temporarily unavailable) on X server {#fatal_io_error_11_resource_temporarily_unavailable_on_x_server}
 
@@ -734,8 +731,7 @@ and `{{ic|1=OpenGL Settings -> Sync to VBlank}}`{=mediawiki} should both be enab
 tearing, so use it for video playback. Especially use VA-API for video decoding (e.g. `{{ic|mplayer-vaapi}}`{=mediawiki}
 and with `{{ic|-vsync}}`{=mediawiki} parameter).
 
-Refer to [Intel graphics#Tearing](Intel_graphics#Tearing "Intel graphics#Tearing"){.wikilink} on how to fix tearing on
-the Intel card.
+Refer to [Intel graphics#Tearing](Intel_graphics#Tearing "wikilink") on how to fix tearing on the Intel card.
 
 If it is still not fixed, try to disable compositing from your desktop environment. Try also disabling triple buffering.
 
@@ -769,7 +765,7 @@ If Xorg is instructed to use NVIDIA in a configuration file, X will fail.
 
 ### Running X.org from console after login (rootless X.org) {#running_x.org_from_console_after_login_rootless_x.org}
 
-See [Xorg#Rootless Xorg](Xorg#Rootless_Xorg "Xorg#Rootless Xorg"){.wikilink}.
+See [Xorg#Rootless Xorg](Xorg#Rootless_Xorg "wikilink").
 
 ### Using Primus causes a segmentation fault {#using_primus_causes_a_segmentation_fault}
 
@@ -777,8 +773,7 @@ In some instances, using primusrun instead of optirun will result in a segfault.
 auto-detecting faster upload method, see `{{Bug|58933}}`{=mediawiki}.
 
 The workaround is skipping auto-detection by manually setting `{{ic|PRIMUS_UPLOAD}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink} to either 1 or 2, depending on which one is faster on
-your setup.
+variable](environment_variable "wikilink") to either 1 or 2, depending on which one is faster on your setup.
 
 `$ PRIMUS_UPLOAD=1 primusrun ...`
 
@@ -790,7 +785,7 @@ mouse input delay lag or even slightly decrease performance. Test `{{ic|primusru
 
 `$ vblank_mode=0 primusrun glxgears`
 
-If you are satisfied with the above setting, create an [alias](alias "alias"){.wikilink} (e.g.
+If you are satisfied with the above setting, create an [alias](alias "wikilink") (e.g.
 `{{ic|1=alias primusrun="vblank_mode=0 primusrun"}}`{=mediawiki}).
 
 Performance comparison:
@@ -800,8 +795,7 @@ Performance comparison:
   FALSE           31.5   793     22.3      54.8
   TRUE            31.4   792     18.7      54.2
 
-*Tested with [ASUS N550JV](ASUS_N550JV "ASUS N550JV"){.wikilink} notebook and benchmark app
-`{{AUR|unigine-heaven}}`{=mediawiki}.*
+*Tested with [ASUS N550JV](ASUS_N550JV "wikilink") notebook and benchmark app `{{AUR|unigine-heaven}}`{=mediawiki}.*
 
 ```{=mediawiki}
 {{Note|To disable vertical synchronization system-wide, see [[Intel graphics#Disable Vertical Synchronization (VSYNC)]].}}
@@ -834,9 +828,8 @@ gives no output at all, and the glxgears window does not appear. Any programs th
 `$ glxgears`\
 `Segmentation fault (core dumped)`
 
-Apparently it is a bug of some versions of virtualgl. So a workaround is to use
-[#Primusrun](#Primusrun "#Primusrun"){.wikilink} instead. See [this forum
-post](https://bbs.archlinux.org/viewtopic.php?pid=1643609) for more information.
+Apparently it is a bug of some versions of virtualgl. So a workaround is to use [#Primusrun](#Primusrun "wikilink")
+instead. See [this forum post](https://bbs.archlinux.org/viewtopic.php?pid=1643609) for more information.
 
 ### Broken power management with kernel 4.8 {#broken_power_management_with_kernel_4.8}
 
@@ -847,25 +840,23 @@ If you have a newer laptop (BIOS date 2015 or newer), then Linux 4.8 might break
 140](https://github.com/Bumblebee-Project/bbswitch/issues/140)) since bbswitch does not support the newer, recommended
 power management method. As a result, the GPU may fail to power on, fail to power off or worse.
 
-As a workaround, add `{{ic|1=pcie_port_pm=off}}`{=mediawiki} to your [Kernel
-parameters](Kernel_parameters "Kernel parameters"){.wikilink}.
+As a workaround, add `{{ic|1=pcie_port_pm=off}}`{=mediawiki} to your [Kernel parameters](Kernel_parameters "wikilink").
 
 Alternatively, if you are only interested in power saving (and perhaps use of external monitors), remove bbswitch and
-rely on [Nouveau](Nouveau "Nouveau"){.wikilink} runtime power-management (which supports the new method).
+rely on [Nouveau](Nouveau "wikilink") runtime power-management (which supports the new method).
 
 ```{=mediawiki}
 {{Note|Some tools such as {{ic|powertop --auto-tune}} automatically enable power management on PCI devices, which leads to the same problem [https://github.com/Bumblebee-Project/bbswitch/issues/159]. Use the same workaround or do not use the all-in-one power management tools.}}
 ```
 ### Lockup issue (lspci hangs) {#lockup_issue_lspci_hangs}
 
-See [NVIDIA Optimus#Lockup issue (lspci
-hangs)](NVIDIA_Optimus#Lockup_issue_(lspci_hangs) "NVIDIA Optimus#Lockup issue (lspci hangs)"){.wikilink} for an issue
-that affects new laptops with a GTX 965M (or alike).
+See [NVIDIA Optimus#Lockup issue (lspci hangs)](NVIDIA_Optimus#Lockup_issue_(lspci_hangs) "wikilink") for an issue that
+affects new laptops with a GTX 965M (or alike).
 
 ### Discrete card always on and acpi warnings {#discrete_card_always_on_and_acpi_warnings}
 
-Add `{{ic|1=acpi_osi=Linux}}`{=mediawiki} to your [Kernel parameters](Kernel_parameters "Kernel parameters"){.wikilink}.
-See [3](https://github.com/Bumblebee-Project/Bumblebee/issues/592) and
+Add `{{ic|1=acpi_osi=Linux}}`{=mediawiki} to your [Kernel parameters](Kernel_parameters "wikilink"). See
+[3](https://github.com/Bumblebee-Project/Bumblebee/issues/592) and
 [4](https://github.com/Bumblebee-Project/bbswitch/issues/112) for more information.
 
 ### Screen 0 deleted because of no matching config section {#screen_0_deleted_because_of_no_matching_config_section}
@@ -891,8 +882,8 @@ EndSection
 ### Erratic, unpredictable behaviour {#erratic_unpredictable_behaviour}
 
 If Bumblebee starts/works in a random manner, check that you have set your [Network configuration#Local network hostname
-resolution](Network_configuration#Local_network_hostname_resolution "Network configuration#Local network hostname resolution"){.wikilink}
-(details [here](https://github.com/Bumblebee-Project/Bumblebee/pull/939)).
+resolution](Network_configuration#Local_network_hostname_resolution "wikilink") (details
+[here](https://github.com/Bumblebee-Project/Bumblebee/pull/939)).
 
 ### Discrete card always on and nvidia driver cannot be unloaded {#discrete_card_always_on_and_nvidia_driver_cannot_be_unloaded}
 
@@ -920,9 +911,8 @@ configuration file:
 `{{ic|/usr/share/glvnd/egl_vendor.d/10_nvidia.json}}`{=mediawiki} which has priority and causes libglvnd to load the
 `{{Pkg|nvidia}}`{=mediawiki} drivers and enable the card.
 
-The other solution is to [avoid
-installing](Pacman#Skip_files_from_being_installed_to_system "avoid installing"){.wikilink} the configuration file
-provided by `{{Pkg|nvidia-utils}}`{=mediawiki}.
+The other solution is to [avoid installing](Pacman#Skip_files_from_being_installed_to_system "wikilink") the
+configuration file provided by `{{Pkg|nvidia-utils}}`{=mediawiki}.
 
 ### Framerate drops to 1 FPS after a fixed period of time {#framerate_drops_to_1_fps_after_a_fixed_period_of_time}
 
@@ -943,9 +933,8 @@ Using Bumblebee, applications cannot access the screen to identify and record it
 
 ## See also {#see_also}
 
-- [Bumblebee project repository](https://github.com/Bumblebee-Project/Bumblebee)
-- [Bumblebee project wiki](https://github.com/Bumblebee-Project/Bumblebee/wiki)
-- [Bumblebee project bbswitch repository](https://github.com/Bumblebee-Project/bbswitch)
+-   [Bumblebee project repository](https://github.com/Bumblebee-Project/Bumblebee)
+-   [Bumblebee project wiki](https://github.com/Bumblebee-Project/Bumblebee/wiki)
+-   [Bumblebee project bbswitch repository](https://github.com/Bumblebee-Project/bbswitch)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

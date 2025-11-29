@@ -1,16 +1,16 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[fi:Surf](fi:Surf "fi:Surf"){.wikilink} [ja:Surf](ja:Surf "ja:Surf"){.wikilink} [pl:Surf](pl:Surf "pl:Surf"){.wikilink}
-[uk:Surf](uk:Surf "uk:Surf"){.wikilink} [surf](https://surf.suckless.org/) is a simple web browser based on
-[WebKit/GTK](List_of_applications/Internet#WebKitGTK-based "WebKit/GTK"){.wikilink}. It is able to display websites and
-follow links. It supports the XEmbed protocol which makes it possible to embed it in another application. Furthermore,
-one can point surf to another URI by setting its XProperties.
+[fi:Surf](fi:Surf "wikilink") [ja:Surf](ja:Surf "wikilink") [pl:Surf](pl:Surf "wikilink") [uk:Surf](uk:Surf "wikilink")
+[surf](https://surf.suckless.org/) is a simple web browser based on
+[WebKit/GTK](List_of_applications/Internet#WebKitGTK-based "wikilink"). It is able to display websites and follow links.
+It supports the XEmbed protocol which makes it possible to embed it in another application. Furthermore, one can point
+surf to another URI by setting its XProperties.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{AUR|surf}}`{=mediawiki} package. Due to the absence of releases since
-2021, you may want to try the `{{AUR|surf-git}}`{=mediawiki} package for the development version.
+[Install](Install "wikilink") the `{{AUR|surf}}`{=mediawiki} package. Due to the absence of releases since 2021, you may
+want to try the `{{AUR|surf-git}}`{=mediawiki} package for the development version.
 
 Optionally also install the `{{Pkg|dmenu}}`{=mediawiki} package for URL-bar
 
@@ -19,9 +19,9 @@ Optionally also install the `{{Pkg|dmenu}}`{=mediawiki} package for URL-bar
 surf is configured through its `{{ic|config.h}}`{=mediawiki} file. A sample `{{ic|config.def.h}}`{=mediawiki} file is
 included with the source and should be instructive.
 
-As with other packages such as [dwm](dwm "dwm"){.wikilink}, consider using the Arch Build System
-([ABS](ABS "ABS"){.wikilink}) and maintaining your own [PKGBUILD](PKGBUILD "PKGBUILD"){.wikilink} with sources and
-md5sums for your own configuration and source files.
+As with other packages such as [dwm](dwm "wikilink"), consider using the Arch Build System ([ABS](ABS "wikilink")) and
+maintaining your own [PKGBUILD](PKGBUILD "wikilink") with sources and md5sums for your own configuration and source
+files.
 
 ## Extended usage {#extended_usage}
 
@@ -69,9 +69,8 @@ inside the fontconfig-tags:
 
 ## See also {#see_also}
 
-- [surf\'s official website](https://surf.suckless.org/)
-- [dmenu](dmenu "dmenu"){.wikilink} - Simple application launcher from the developers of dwm
-- [Hacking surf thread](https://bbs.archlinux.org/viewtopic.php?id=167804/)
+-   [surf\'s official website](https://surf.suckless.org/)
+-   [dmenu](dmenu "wikilink") - Simple application launcher from the developers of dwm
+-   [Hacking surf thread](https://bbs.archlinux.org/viewtopic.php?id=167804/)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
-[Category:Suckless](Category:Suckless "Category:Suckless"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink") [Category:Suckless](Category:Suckless "wikilink")

@@ -5,7 +5,7 @@
 {{tip/unfree}}
 ```
 [Minecraft Server](https://minecraft.wiki/w/Server) is a server for the blocky sandbox game
-[Minecraft](Minecraft "Minecraft"){.wikilink}. Currently only servers for the [Java
+[Minecraft](Minecraft "wikilink"). Currently only servers for the [Java
 Edition](https://www.minecraft.net/en-us/article/java-or-bedrock-edition) of the game are supported.
 
 ## Setup
@@ -106,12 +106,11 @@ To use IPv4 by default, add `-Djava.net.preferIPv4Stack=true` to `jvmOpts`.
 
 ## See also {#see_also}
 
-- [nix-minecraft](https://github.com/Infinidoge/nix-minecraft), a [flake](flake "flake"){.wikilink} based attempt to
-  better support Minecraft related content for the Nix ecosystem. It can be used for more complex server setups,
-  including mods and plugins.
-- [Aikar\'s flags](https://docs.papermc.io/paper/aikars-flags/) or the [Minecraft performance flags
-  benchmark](https://github.com/Mukul1127/Minecraft-Java-Flags) for setting additional JVM options in the `jvmOpts`
-  option.
+-   [nix-minecraft](https://github.com/Infinidoge/nix-minecraft), a [flake](flake "wikilink") based attempt to better
+    support Minecraft related content for the Nix ecosystem. It can be used for more complex server setups, including
+    mods and plugins.
+-   [Aikar\'s flags](https://docs.papermc.io/paper/aikars-flags/) or the [Minecraft performance flags
+    benchmark](https://github.com/Mukul1127/Minecraft-Java-Flags) for setting additional JVM options in the `jvmOpts`
+    option.
 
-[Category: Applications](Category:_Applications "Category: Applications"){.wikilink} [Category:
-Gaming](Category:_Gaming "Category: Gaming"){.wikilink}
+[Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")

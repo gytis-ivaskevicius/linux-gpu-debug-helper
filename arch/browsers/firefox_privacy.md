@@ -1,8 +1,7 @@
-[ja:Firefox/プライバシー](ja:Firefox/プライバシー "ja:Firefox/プライバシー"){.wikilink}
-[zh-hans:Firefox/隐私](zh-hans:Firefox/隐私 "zh-hans:Firefox/隐私"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Firefox}}`{=mediawiki} `{{Related|Tor}}`{=mediawiki} `{{Related|Browser extensions}}`{=mediawiki}
-`{{Related|Firefox/Tweaks}}`{=mediawiki} `{{Related|Firefox/Profile on RAM}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[ja:Firefox/プライバシー](ja:Firefox/プライバシー "wikilink") [zh-hans:Firefox/隐私](zh-hans:Firefox/隐私 "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related|Tor}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Firefox/Tweaks}}`{=mediawiki}
+`{{Related|Firefox/Profile on RAM}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 This article overviews how to configure Firefox to enhance security and privacy.
 
@@ -17,35 +16,34 @@ Firefox gained an option for [Enhanced Tracking
 Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop). It can be enabled in
 different levels via the GUI *Settings \> Privacy & Security*, or by setting `{{ic|about:config}}`{=mediawiki}:
 
-- ```{=mediawiki}
-  {{ic|privacy.trackingprotection.enabled}}
-  ```
-  `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|privacy.trackingprotection.enabled}}
+    ```
+    `{{ic|true}}`{=mediawiki}
 
 Apart from privacy benefits, enabling [tracking
 protection](https://venturebeat.com/2015/05/24/firefoxs-optional-tracking-protection-reduces-load-time-for-top-news-sites-by-44/)`{{Dead link|2025|11|16|status=404}}`{=mediawiki}
 may also reduce load time by 44%.
 
 Note that this is not a replacement for ad blocking extensions such as [uBlock
-Origin](Browser_extensions#Content_blockers "uBlock Origin"){.wikilink} and it may or may not work with [Firefox
-forks](List_of_applications/Internet#Firefox_spin-offs "Firefox forks"){.wikilink}. If you are already running such an
-ad blocker with the correct lists, tracking protection might be redundant.
+Origin](Browser_extensions#Content_blockers "wikilink") and it may or may not work with [Firefox
+forks](List_of_applications/Internet#Firefox_spin-offs "wikilink"). If you are already running such an ad blocker with
+the correct lists, tracking protection might be redundant.
 
 ### Anti-fingerprinting {#anti_fingerprinting}
 
-The Firefox [tracking protection](#Tracking_protection "tracking protection"){.wikilink} blocks a list of known
-\"fingerprinters\" when your privacy settings are set to *Standard* (the default) or *Strict*. Fingerprinting Protection
-is a different, experimental feature under heavy development in Firefox.
+The Firefox [tracking protection](#Tracking_protection "wikilink") blocks a list of known \"fingerprinters\" when your
+privacy settings are set to *Standard* (the default) or *Strict*. Fingerprinting Protection is a different, experimental
+feature under heavy development in Firefox.
 
-Mozilla has started an [anti-fingerprinting project in
-Firefox](MozillaWiki:Security/Fingerprinting "anti-fingerprinting project in Firefox"){.wikilink}, as part of a project
-to upstream features from [Tor Browser](Tor_Browser "Tor Browser"){.wikilink}. Many of these anti-fingerprinting
-features are enabled by this setting in the `{{ic|about:config}}`{=mediawiki}:
+Mozilla has started an [anti-fingerprinting project in Firefox](MozillaWiki:Security/Fingerprinting "wikilink"), as part
+of a project to upstream features from [Tor Browser](Tor_Browser "wikilink"). Many of these anti-fingerprinting features
+are enabled by this setting in the `{{ic|about:config}}`{=mediawiki}:
 
-- ```{=mediawiki}
-  {{ic|privacy.resistFingerprinting}}
-  ```
-  `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|privacy.resistFingerprinting}}
+    ```
+    `{{ic|true}}`{=mediawiki}
 
 ```{=mediawiki}
 {{Warning|1=<nowiki/>This is an experimental feature and can cause some website breakage, timezone is UTC0, and websites will prefer light theme. Please note that text-to-speech engine will be disabled ([https://bugzilla.mozilla.org/show_bug.cgi?id=1636707 bug #1636707]) and some favicons will be broken ([https://bugzilla.mozilla.org/show_bug.cgi?id=1452391#c5 bug #1452391]).}}
@@ -89,29 +87,29 @@ Select a known common platform that corresponds with your user agent.
 ```
 ### WebRTC exposes LAN IP address {#webrtc_exposes_lan_ip_address}
 
-To prevent websites from getting your local IP address via [WebRTC](wikipedia:WebRTC "WebRTC"){.wikilink}\'s
-peer-to-peer (and JavaScript), open `{{ic|about:config}}`{=mediawiki} and set:
+To prevent websites from getting your local IP address via [WebRTC](wikipedia:WebRTC "wikilink")\'s peer-to-peer (and
+JavaScript), open `{{ic|about:config}}`{=mediawiki} and set:
 
-- ```{=mediawiki}
-  {{ic|media.peerconnection.ice.default_address_only}}
-  ```
-  to `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|media.peerconnection.ice.default_address_only}}
+    ```
+    to `{{ic|true}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|media.peerconnection.enabled}}
-  ```
-  to `{{ic|false}}`{=mediawiki}. (only if you want to completely disable WebRTC)
+-   ```{=mediawiki}
+    {{ic|media.peerconnection.enabled}}
+    ```
+    to `{{ic|false}}`{=mediawiki}. (only if you want to completely disable WebRTC)
 
 You can use this [WebRTC test page](https://net.ipcalf.com/) and [WebRTC IP Leak VPN / Tor IP Test](https://ipleak.net/)
 to confirm that your internal/external IP address is no longer leaked.
 
 ### Disable HTTP referer {#disable_http_referer}
 
-[HTTP referer](Wikipedia:HTTP_referer "HTTP referer"){.wikilink} is an optional HTTP header field that identifies the
-address of the previous webpage from which a link to the currently requested page was followed.
+[HTTP referer](Wikipedia:HTTP_referer "wikilink") is an optional HTTP header field that identifies the address of the
+previous webpage from which a link to the currently requested page was followed.
 
 Set `{{ic|network.http.sendRefererHeader}}`{=mediawiki} to `{{ic|0}}`{=mediawiki} or `{{ic|1}}`{=mediawiki}, depending
-on your [preferences](MozillaWiki:Security/Referrer "preferences"){.wikilink}.
+on your [preferences](MozillaWiki:Security/Referrer "wikilink").
 
 ```{=mediawiki}
 {{Note|Some sites use the referer header to control origin conditions. Disabling this header completely may cause site breaking. In this case adjusting {{ic|network.http.referer.XOriginPolicy}} may provide a better solution.}}
@@ -122,15 +120,15 @@ By default Firefox attempts to connect to Amazon and/or Akamai servers at
 [regular](https://bugzilla.mozilla.org/show_bug.cgi?id=1363651)
 [intervals](https://bugzilla.mozilla.org/show_bug.cgi?id=1359697#c3), to test your connection. For example a hotel,
 restaurant or other business might require you to enter a password to access the internet. If such a [Captive
-portal](wikipedia:Captive_portal "Captive portal"){.wikilink} exists and is blocking traffic this feature blocks all
-other connection attempts. This may leak your usage habits.
+portal](wikipedia:Captive_portal "wikilink") exists and is blocking traffic this feature blocks all other connection
+attempts. This may leak your usage habits.
 
 To disable Captive Portal testing, in `{{ic|about:config}}`{=mediawiki} set:
 
-- ```{=mediawiki}
-  {{ic|network.captive-portal-service.enabled}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|network.captive-portal-service.enabled}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
 ```{=mediawiki}
 {{Note|A [https://www.ghacks.net/2020/02/19/why-is-firefox-establishing-connections-to-detectportal-firefox-com-on-start/ report states that] the [https://vpn.mozilla.org/ Mozilla VPN] is unable to connect when this is disabled.}}
@@ -153,25 +151,25 @@ Privacy & Security \> Tracking Protection*
 ```
 ### Disable/enforce \'Trusted Recursive Resolver\' {#disableenforce_trusted_recursive_resolver}
 
-Firefox 60 introduced a feature called [Trusted Recursive
-Resolver](mozillawiki:Trusted_Recursive_Resolver "Trusted Recursive Resolver"){.wikilink} (TRR). It circumvents DNS
-servers configured in your system, instead sending all DNS requests over HTTPS to Cloudflare servers. While this is
-significantly more secure (as \"classic\" DNS requests are sent in plain text over the network, and everyone along the
-way can snoop on these), this also makes all your DNS requests readable by Cloudflare, providing TRR servers.
+Firefox 60 introduced a feature called [Trusted Recursive Resolver](mozillawiki:Trusted_Recursive_Resolver "wikilink")
+(TRR). It circumvents DNS servers configured in your system, instead sending all DNS requests over HTTPS to Cloudflare
+servers. While this is significantly more secure (as \"classic\" DNS requests are sent in plain text over the network,
+and everyone along the way can snoop on these), this also makes all your DNS requests readable by Cloudflare, providing
+TRR servers.
 
-- If you trust DNS servers you have configured yourself more than Cloudflare\'s, you can disable TRR in
-  `{{ic|about:config}}`{=mediawiki} by setting `{{ic|network.trr.mode}}`{=mediawiki} (integer, create it if it does not
-  exist) to `{{ic|5}}`{=mediawiki}. (A value of 0 means disabled by default, and might be overridden by future updates -
-  a value of 5 is disabled by choice and will not be overridden.)
-- If you trust Cloudflare DNS servers and would prefer extra privacy (thanks to encrypted DNS requests), you can enforce
-  TRR by setting `{{ic|network.trr.mode}}`{=mediawiki} to `{{ic|3}}`{=mediawiki} (which completely disables classic DNS
-  requests) or `{{ic|2}}`{=mediawiki} (uses TRR by default, falls back to classic DNS requests if that fails). Keep in
-  mind that if you are using any intranet websites or trying to access computers in your local networks by their
-  hostnames, enabling TRR may break name resolving in such cases.
-- If you want to encrypt your DNS requests but not use Cloudflare servers, you can point to a new DNS over HTTPS server
-  by setting `{{ic|network.trr.uri}}`{=mediawiki} to your resolver URL. A list of currently available resolvers can be
-  found in the [curl wiki](https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers), along with
-  other configuration options for TRR.
+-   If you trust DNS servers you have configured yourself more than Cloudflare\'s, you can disable TRR in
+    `{{ic|about:config}}`{=mediawiki} by setting `{{ic|network.trr.mode}}`{=mediawiki} (integer, create it if it does
+    not exist) to `{{ic|5}}`{=mediawiki}. (A value of 0 means disabled by default, and might be overridden by future
+    updates - a value of 5 is disabled by choice and will not be overridden.)
+-   If you trust Cloudflare DNS servers and would prefer extra privacy (thanks to encrypted DNS requests), you can
+    enforce TRR by setting `{{ic|network.trr.mode}}`{=mediawiki} to `{{ic|3}}`{=mediawiki} (which completely disables
+    classic DNS requests) or `{{ic|2}}`{=mediawiki} (uses TRR by default, falls back to classic DNS requests if that
+    fails). Keep in mind that if you are using any intranet websites or trying to access computers in your local
+    networks by their hostnames, enabling TRR may break name resolving in such cases.
+-   If you want to encrypt your DNS requests but not use Cloudflare servers, you can point to a new DNS over HTTPS
+    server by setting `{{ic|network.trr.uri}}`{=mediawiki} to your resolver URL. A list of currently available resolvers
+    can be found in the [curl wiki](https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers), along
+    with other configuration options for TRR.
 
 ### Encrypted Client Hello {#encrypted_client_hello}
 
@@ -180,15 +178,15 @@ To enable [Encrypted Client Hello
 encrypted Server Name Indicator (eSNI)), so that nobody listening on the wire can see the server name you made a TLS
 connection to, set:
 
-- ```{=mediawiki}
-  {{ic|network.dns.echconfig.enabled}}
-  ```
-  to `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|network.dns.echconfig.enabled}}
+    ```
+    to `{{ic|true}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|network.dns.http3_echconfig.enabled}}
-  ```
-  to `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|network.dns.http3_echconfig.enabled}}
+    ```
+    to `{{ic|true}}`{=mediawiki}
 
 You may also need to set `{{ic|network.trr.mode}}`{=mediawiki} to `{{ic|2}}`{=mediawiki} or `{{ic|3}}`{=mediawiki}.
 
@@ -206,15 +204,15 @@ hashes, etc.) to third parties like Google.
 
 To disable the Safe Browsing service, in `{{ic|about:config}}`{=mediawiki} set:
 
-- ```{=mediawiki}
-  {{ic|browser.safebrowsing.malware.enabled}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|browser.safebrowsing.malware.enabled}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|browser.safebrowsing.phishing.enabled}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|browser.safebrowsing.phishing.enabled}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
 In addition disable download checking, by setting `{{ic|browser.safebrowsing.downloads.enabled}}`{=mediawiki} to
 `{{ic|false}}`{=mediawiki}.
@@ -227,33 +225,32 @@ disable it.
 
 ## Extensions
 
-See [Browser extensions#Privacy](Browser_extensions#Privacy "Browser extensions#Privacy"){.wikilink}.
+See [Browser extensions#Privacy](Browser_extensions#Privacy "wikilink").
 
 ### Disable WebAssembly (and JavaScript) {#disable_webassembly_and_javascript}
 
-[WebAssembly](wikipedia:Webassembly "WebAssembly"){.wikilink}, also known as Wasm, is a relatively new language. Unlike
-JavaScript, Wasm executes *pre-compiled code* natively in browsers for high-performance simulations and applications. It
-has been criticized for hiding pathways for malware and [as with JavaScript, can be used to track
+[WebAssembly](wikipedia:Webassembly "wikilink"), also known as Wasm, is a relatively new language. Unlike JavaScript,
+Wasm executes *pre-compiled code* natively in browsers for high-performance simulations and applications. It has been
+criticized for hiding pathways for malware and [as with JavaScript, can be used to track
 users](https://trac.torproject.org/projects/tor/ticket/21549). Tor Browser blocks both JavaScript and Wasm.
 
-See *NoScript* in [Browser extensions#Privacy](Browser_extensions#Privacy "Browser extensions#Privacy"){.wikilink} to
-block JavaScript the way Tor Browser does, which enables quick access when needed. To disable Wasm, in
-`{{ic|about:config}}`{=mediawiki} set:
+See *NoScript* in [Browser extensions#Privacy](Browser_extensions#Privacy "wikilink") to block JavaScript the way Tor
+Browser does, which enables quick access when needed. To disable Wasm, in `{{ic|about:config}}`{=mediawiki} set:
 
-- ```{=mediawiki}
-  {{ic|javascript.options.wasm}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|javascript.options.wasm}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|javascript.options.wasm_baselinejit}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|javascript.options.wasm_baselinejit}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|javascript.options.wasm_ionjit}}
-  ```
-  to `{{ic|false}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|javascript.options.wasm_ionjit}}
+    ```
+    to `{{ic|false}}`{=mediawiki}
 
 ### Remove system-wide hidden extensions {#remove_system_wide_hidden_extensions}
 
@@ -261,29 +258,28 @@ Some extensions are hidden and installed by default in `{{ic|/usr/lib/firefox/br
 be safely removed via `{{ic|rm ''extension-name''.xpi}}`{=mediawiki}. They might not be enabled by default and may have
 a menu option for enabling or disabling. Note that any files removed will return upon update of the
 `{{Pkg|firefox}}`{=mediawiki} package. To keep these extensions removed, add the directories to
-[NoExtract](NoExtract "NoExtract"){.wikilink} in `{{ic|/etc/pacman.conf}}`{=mediawiki}. Some extensions include:
+[NoExtract](NoExtract "wikilink") in `{{ic|/etc/pacman.conf}}`{=mediawiki}. Some extensions include:
 
-- ```{=mediawiki}
-  {{ic|doh-rollout@mozilla.org.xpi}}
-  ```
-  \- DoH Roll-Out (do not remove if you chose to use [#Disable/enforce \'Trusted Recursive
-  Resolver\'](#Disable/enforce_'Trusted_Recursive_Resolver' "#Disable/enforce 'Trusted Recursive Resolver'"){.wikilink}
-  above).
+-   ```{=mediawiki}
+    {{ic|doh-rollout@mozilla.org.xpi}}
+    ```
+    \- DoH Roll-Out (do not remove if you chose to use [#Disable/enforce \'Trusted Recursive
+    Resolver\'](#Disable/enforce_'Trusted_Recursive_Resolver' "wikilink") above).
 
-- ```{=mediawiki}
-  {{ic|screenshots@mozilla.org.xpi}}
-  ```
-  \- Firefox Screenshots.
+-   ```{=mediawiki}
+    {{ic|screenshots@mozilla.org.xpi}}
+    ```
+    \- Firefox Screenshots.
 
-- ```{=mediawiki}
-  {{ic|webcompat-reporter@mozilla.org.xpi}}
-  ```
-  \- For reporting sites that are compromised in Firefox, so Mozilla can improve Firefox or patch the site dynamically
-  using the `{{ic|webcompat@mozilla.org.xpi}}`{=mediawiki} extension.
+-   ```{=mediawiki}
+    {{ic|webcompat-reporter@mozilla.org.xpi}}
+    ```
+    \- For reporting sites that are compromised in Firefox, so Mozilla can improve Firefox or patch the site dynamically
+    using the `{{ic|webcompat@mozilla.org.xpi}}`{=mediawiki} extension.
 
-- All combined user and system extensions are listed in `{{ic|about:support}}`{=mediawiki}. See
-  [2](https://dxr.mozilla.org/mozilla-release/source/browser/extensions/) for a full list of system extensions including
-  README files describing their functions.
+-   All combined user and system extensions are listed in `{{ic|about:support}}`{=mediawiki}. See
+    [2](https://dxr.mozilla.org/mozilla-release/source/browser/extensions/) for a full list of system extensions
+    including README files describing their functions.
 
 Firefox installations to paths such as the default release installed to `{{ic|/opt}}`{=mediawiki} have system extensions
 installed at `{{ic|/firefox/firefox/browser/features}}`{=mediawiki}.
@@ -329,15 +325,14 @@ sent to YouTube (Google) in order to access content.
 
 Benefits of using Invidious include:
 
-- Videos are accessible without running scripts. YouTube forces users to run scripts.
-- Videos can be saved for future viewing, or for viewing by others, including when offline. This reduces feedback sent
-  to Google about when content is viewed or re-viewed.
-- An optional audio-only mode that reduces bandwidth usage. When combined with a browser like
-  [Tor](Tor "Tor"){.wikilink}, using fewer data packets on a more lightweight website is likely to improve your
-  anonymity.
-- Invidious is a free and open-source interface that makes setting up an independent, private, video-hosting service
-  easier. As such there are website that exist that are using Invidious to serve their own content or content removed
-  from YouTube. Therefore it may help limit the profile-building capabilities of YouTube into the future (see note).
+-   Videos are accessible without running scripts. YouTube forces users to run scripts.
+-   Videos can be saved for future viewing, or for viewing by others, including when offline. This reduces feedback sent
+    to Google about when content is viewed or re-viewed.
+-   An optional audio-only mode that reduces bandwidth usage. When combined with a browser like [Tor](Tor "wikilink"),
+    using fewer data packets on a more lightweight website is likely to improve your anonymity.
+-   Invidious is a free and open-source interface that makes setting up an independent, private, video-hosting service
+    easier. As such there are website that exist that are using Invidious to serve their own content or content removed
+    from YouTube. Therefore it may help limit the profile-building capabilities of YouTube into the future (see note).
 
 Bookmark as many *functioning* invidious instances from the following lists as possible
 ([here](https://github.com/iv-org/documentation/blob/master/docs/instances.md), [here](https://invidio.us/),
@@ -358,8 +353,8 @@ user configuration preferences. For example, there is no documented user prefere
 for beta channel releases. However, there exists an enterprise policy which can be effectively deployed as a workaround.
 Single and/or multiple policies may be administered through `{{ic|policies.json}}`{=mediawiki} as follows:
 
-- Disable application updates
-- Force-enable hardware acceleration
+-   Disable application updates
+-   Force-enable hardware acceleration
 
 `{`\
 ` "policies": {`\
@@ -408,8 +403,8 @@ their settings. Of note is the location of the user home directory where the `{{
 `{{ic|extensions}}`{=mediawiki} folder exist by default. Unwanted background updates may be disabled by setting
 `{{ic|applyBackgroundUpdates}}`{=mediawiki} to the appropriate `{{ic|0}}`{=mediawiki} value. Of minor note are
 `{{ic|installDate}}`{=mediawiki} and `{{ic|updateDate}}`{=mediawiki}.
-[Bubblewrap](Bubblewrap/Examples#Firefox "Bubblewrap"){.wikilink} can effectively mask the username and location of the
-home directory at which time the `{{ic|extensions.json}}`{=mediawiki} file may be sanitized and modified to point to the
+[Bubblewrap](Bubblewrap/Examples#Firefox "wikilink") can effectively mask the username and location of the home
+directory at which time the `{{ic|extensions.json}}`{=mediawiki} file may be sanitized and modified to point to the
 sandboxed `{{ic|HOME}}`{=mediawiki} location.
 
 `{"schemaVersion":31,"addons":[{"id":"uBlock0@raymondhill.net","syncGUID":"{0}","version":"0","type":"extension","optionsURL":"dashboard.html","optionsType":3,"optionsBrowserStyle":true,"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"embedderDisabled":false,"installDate":0,"updateDate":0,"applyBackgroundUpdates":0,"path":"/home/r/.mozilla/firefox/example.default-release/extensions/uBlock0@raymondhill.net.xpi","skinnable":false,"softDisabled":false,"foreignInstall":true,"strictCompatibility":true}}`
@@ -428,8 +423,8 @@ removing the following:
 `/usr/lib/firefox/minidump-analyzer`\
 `/usr/lib/firefox/pingsender`
 
-Those deleted files will be back after upgrading the package, add them to [NoExtract](NoExtract "NoExtract"){.wikilink}
-for persistence.
+Those deleted files will be back after upgrading the package, add them to [NoExtract](NoExtract "wikilink") for
+persistence.
 
 For those who have opted to install Firefox manually from official Mozilla sources, the updater system may be disabled
 by removing `{{ic|updater}}`{=mediawiki} in the `{{ic|firefox}}`{=mediawiki} directory.
@@ -457,27 +452,27 @@ the root directory of the files from the `{{ic|omni.ja}}`{=mediawiki} file.
 Several active projects maintain comprehensive hardened Firefox configurations in the form of a
 `{{ic|user.js}}`{=mediawiki} config that can be dropped to Firefox profile directory:
 
-- [arkenfox/user.js](https://github.com/arkenfox/user.js) (`{{AUR|arkenfox-user.js}}`{=mediawiki})
-- [pyllyukko/user.js](https://github.com/pyllyukko/user.js)
-- [ffprofile.com](https://ffprofile.com/) ([github](https://github.com/allo-/firefox-profilemaker)) - online user.js
-  generator. You select which features you want to enable and disable and in the end you get a download link for a
-  zip-file with your profile template. You can for example disable some functions, which send data to Mozilla and
-  Google, or disable several annoying Firefox functions like Mozilla Hello or the Pocket integration.
+-   [arkenfox/user.js](https://github.com/arkenfox/user.js) (`{{AUR|arkenfox-user.js}}`{=mediawiki})
+-   [pyllyukko/user.js](https://github.com/pyllyukko/user.js)
+-   [ffprofile.com](https://ffprofile.com/) ([github](https://github.com/allo-/firefox-profilemaker)) - online user.js
+    generator. You select which features you want to enable and disable and in the end you get a download link for a
+    zip-file with your profile template. You can for example disable some functions, which send data to Mozilla and
+    Google, or disable several annoying Firefox functions like Mozilla Hello or the Pocket integration.
 
 ## See also {#see_also}
 
-- [Brainfucksec\'s firefox hardening guide](https://brainfucksec.github.io/firefox-hardening-guide) - A well maintained
-  firefox guide to harden your firefox.
-- [Privacy Guides](https://www.privacyguides.org/) - A community-maintained resource for keeping online privacy.
-- [privacytools.io Firefox Privacy Add-ons](https://www.privacytools.io/#addons)
-- [prism-break.org Web Browser Addons](https://prism-break.org/en/categories/gnu-linux/#web-browser-addons)
-- [MozillaWiki:Privacy/Privacy Task Force/firefox about config privacy
-  tweeks](MozillaWiki:Privacy/Privacy_Task_Force/firefox_about_config_privacy_tweeks "MozillaWiki:Privacy/Privacy Task Force/firefox about config privacy tweeks"){.wikilink} -
-  a wiki page maintained by Mozilla with descriptions of privacy specific settings.
-- [How to stop Firefox from making automatic
-  connections](https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections) - Is an annotated
-  list of corresponding Firefox functionality and settings to disable it case-by-case.
-- [Search Engine Comparison](https://searchengine.party/) - Web page for comparing popular search engines across some
-  privacy-centric data points.
+-   [Brainfucksec\'s firefox hardening guide](https://brainfucksec.github.io/firefox-hardening-guide) - A well
+    maintained firefox guide to harden your firefox.
+-   [Privacy Guides](https://www.privacyguides.org/) - A community-maintained resource for keeping online privacy.
+-   [privacytools.io Firefox Privacy Add-ons](https://www.privacytools.io/#addons)
+-   [prism-break.org Web Browser Addons](https://prism-break.org/en/categories/gnu-linux/#web-browser-addons)
+-   [MozillaWiki:Privacy/Privacy Task Force/firefox about config privacy
+    tweeks](MozillaWiki:Privacy/Privacy_Task_Force/firefox_about_config_privacy_tweeks "wikilink") - a wiki page
+    maintained by Mozilla with descriptions of privacy specific settings.
+-   [How to stop Firefox from making automatic
+    connections](https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections) - Is an annotated
+    list of corresponding Firefox functionality and settings to disable it case-by-case.
+-   [Search Engine Comparison](https://searchengine.party/) - Web page for comparing popular search engines across some
+    privacy-centric data points.
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

@@ -129,4 +129,4 @@ Adding the the user to the gamemode group resolves this error.
 extraGroups = ["gamemode"];
 ```
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -75,4 +75,4 @@ To burn, you then only have to use this command:
 Replace `{{ic|/dev/sr0}}`{=mediawiki} with the path to your dual layer drive. For most systems it will be
 `{{ic|/dev/sr0}}`{=mediawiki}.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -96,9 +96,8 @@ acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration#V
 
 ### Chromium
 
-See
-[Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "Chromium#Accelerated_video_playback"){.wikilink}.
-`</translate>`{=html} `<translate>`{=html}
+See [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink"). `</translate>`{=html}
+`<translate>`{=html}
 
 ### Firefox
 
@@ -119,13 +118,13 @@ hwdec=auto
 
 ## Also see {#also_see}
 
-- [Arch Linux wiki#Hardware video acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration).
-- [Gentoo Wiki#VAAPI.](https://wiki.gentoo.org/wiki/VAAPI)
-- [nixos-hardware](https://github.com/NixOS/nixos-hardware) has example configurations for various types of hardware.
+-   [Arch Linux wiki#Hardware video acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration).
+-   [Gentoo Wiki#VAAPI.](https://wiki.gentoo.org/wiki/VAAPI)
+-   [nixos-hardware](https://github.com/NixOS/nixos-hardware) has example configurations for various types of hardware.
 
 `</translate>`{=html}
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "wikilink")
 
 [^1]: <https://github.com/intel/media-driver/issues/1024>
 

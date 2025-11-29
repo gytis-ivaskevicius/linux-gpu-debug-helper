@@ -1,6 +1,5 @@
-[ja:Logicool レーシングホイール](ja:Logicool_レーシングホイール "ja:Logicool レーシングホイール"){.wikilink} This
-article describes how to set up a Logitech racing wheel, such as a Formula Force GP or a G27/G29 racing wheel, with Arch
-Linux.
+[ja:Logicool レーシングホイール](ja:Logicool_レーシングホイール "wikilink") This article describes how to set up a
+Logitech racing wheel, such as a Formula Force GP or a G27/G29 racing wheel, with Arch Linux.
 
 ## Installing
 
@@ -124,23 +123,23 @@ oscillate:
 
 Logitech wheels can be configured via the `{{ic|oversteer}}`{=mediawiki} tool from the `{{AUR|oversteer}}`{=mediawiki}
 package. For general gamepad or joystick settings that may also apply to Logitech wheels, please refer to the
-[Gamepad](Gamepad "Gamepad"){.wikilink} wiki page.
+[Gamepad](Gamepad "wikilink") wiki page.
 
 As of version 0.6.0, `{{ic|oversteer}}`{=mediawiki} contains compatibility modes for the following wheels:
 
-- Driving Force / Formula EX
-- Driving Force Pro
-- Driving Force GT
-- G25 Racing Wheel
-- G27 Racing Wheel
-- G29 Racing Wheel
+-   Driving Force / Formula EX
+-   Driving Force Pro
+-   Driving Force GT
+-   G25 Racing Wheel
+-   G27 Racing Wheel
+-   G29 Racing Wheel
 
 Besides testing the wheel, `{{ic|oversteer}}`{=mediawiki} allows to configure the following aspects of the wheels:
 
-- Steering hardware lock (in degrees)
-- Combining pedals into one axis
-- Global force feedback strength
-- Manual auto-center force
+-   Steering hardware lock (in degrees)
+-   Combining pedals into one axis
+-   Global force feedback strength
+-   Manual auto-center force
 
 ### new-lg4ff {#new_lg4ff}
 
@@ -158,8 +157,8 @@ driver, and are not compatible with new-lg4ff.
 
 This racing wheel requires signals to be sent to change its usb mode every time it is plugged in. To accomplish this:
 
-- Install `{{Pkg|usb_modeswitch}}`{=mediawiki}
-- When the wheel is plugged in run:
+-   Install `{{Pkg|usb_modeswitch}}`{=mediawiki}
+-   When the wheel is plugged in run:
 
 `# usb_modeswitch -v 046d -p c26d -M 0f00010142 -C 0x03 -m 01 -r 81`
 
@@ -171,31 +170,32 @@ The wheel will then reset itself to the centered position and be available as a 
 
 The Wheel works without any wine configuration in flatout2. Just the following in-game configuration is needed:
 
-- Force Feedback: On
-- Force level: 100%
-- Sensitivity: 100%
-- Deadzone: 0%
-- Controller: Logitech Inc\...
+-   Force Feedback: On
+-   Force level: 100%
+-   Sensitivity: 100%
+-   Deadzone: 0%
+-   Controller: Logitech Inc\...
 
+```{=html}
 <!-- -->
-
-- Throttle: Y-Axis left
-- Brake: Y-Axis right
-- Steer left: X-axis left
-- Steer right: X-axis right
+```
+-   Throttle: Y-Axis left
+-   Brake: Y-Axis right
+-   Steer left: X-axis left
+-   Steer right: X-axis right
 
 ### rFactor 2 {#rfactor_2}
 
 rFactor 2 does not have functional force feedback with the built-in lg4ff driver (for wheels that use the
 hid_logitech_hidpp driver, it works as expected). To make it work, the aforementioned
 `{{AUR|new-lg4ff-dkms-git}}`{=mediawiki} driver must be installed. The driver may not load after rebooting. You can
-check in the [journal](journal "journal"){.wikilink}:
+check in the [journal](journal "wikilink"):
 
 `logitech 0003:046D:C24F.000B: Force feedback support for Logitech Gaming Wheels (`**`0.2b`**`)`
 
 If there is no version number written after `{{ic|Force feedback support for Logitech Gaming Wheels}}`{=mediawiki} and
 the FFB still does not work, the driver likely has not loaded and you will need to [regenerate the
-initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}.
+initramfs](regenerate_the_initramfs "wikilink").
 
 After that, the FFB should work, but it may be inverted. You can fix this by going to
 `{{ic|''path-to-game''/rFactor 2/UserData/player/}}`{=mediawiki} and editing `{{ic|Controller.JSON}}`{=mediawiki}. Find
@@ -207,5 +207,4 @@ line `{{ic|"Steering effects strength"}}`{=mediawiki} and invert its value (typi
 [Sourceforge wiki:
 CheckForceFeedback](https://web.archive.org/web/20140408031129/https://sourceforge.net/apps/mediawiki/libff/index.php?title=CheckForceFeedback)
 
-[Category:Input devices](Category:Input_devices "Category:Input devices"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Input devices](Category:Input_devices "wikilink") [Category:Gaming](Category:Gaming "wikilink")

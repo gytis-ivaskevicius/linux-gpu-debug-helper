@@ -1,7 +1,7 @@
-[ja:Firefox/設定](ja:Firefox/設定 "ja:Firefox/設定"){.wikilink}
-[zh-hans:Firefox/微调](zh-hans:Firefox/微调 "zh-hans:Firefox/微调"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Firefox}}`{=mediawiki} `{{Related|Firefox/Profile on RAM}}`{=mediawiki}
-`{{Related|Firefox/Privacy}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:Firefox/設定](ja:Firefox/設定 "wikilink") [zh-hans:Firefox/微调](zh-hans:Firefox/微调 "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki}
+`{{Related|Firefox/Profile on RAM}}`{=mediawiki} `{{Related|Firefox/Privacy}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 ```{=mediawiki}
 {{Merge|Firefox#Tips and tricks|Also overlaps with [[Firefox#Configuration]]; deciding if some particular topic should be here or on the main page is arbitrary. The "tweaks" are the backbone of the content related to Firefox, so they should be directly on the main page. The troubleshooting section can be split into a subpage if the result is deemed too long.}}
@@ -32,7 +32,7 @@ to `{{ic|1-8}}`{=mediawiki} and `{{ic|browser.preferences.defaultPerformanceSett
 However you may want to manually adjust this setting to increase performance even further or decrease memory usage on
 low-end devices.
 
-In this case the **Content process limit** for the current [user](user "user"){.wikilink} has been increased to *4*:
+In this case the **Content process limit** for the current [user](user "wikilink") has been increased to *4*:
 
 ```{=mediawiki}
 {{hc|$ ps -e {{!}}
@@ -43,9 +43,9 @@ grep \'Web Content\'\| 13991 tty1 00:00:04 Web Content 14027 tty1 00:00:09 Web C
 ### WebRender
 
 WebRender is a high-performance, GPU-accelerated 2D rendering engine written in Rust. It is the compositor that powers
-Firefox and the [Servo](Wikipedia:Servo_(software) "Servo"){.wikilink} browser engine project. As of Firefox 93, it is
-enabled by default for all users and uses hardware rendering by default if the hardware it is running on [supports at
-least OpenGL 3.0 or OpenGL ES 3.0 (as of
+Firefox and the [Servo](Wikipedia:Servo_(software) "wikilink") browser engine project. As of Firefox 93, it is enabled
+by default for all users and uses hardware rendering by default if the hardware it is running on [supports at least
+OpenGL 3.0 or OpenGL ES 3.0 (as of
 2021-04)](https://searchfox.org/mozilla-central/rev/2b3f6e5bf3ed0f13a08d0efbafeca57df6616ffa/gfx/webrender_bindings/WebRenderAPI.cpp#141)
 and [meets minimum driver requirements](https://searchfox.org/mozilla-central/source/widget/gtk/GfxInfo.cpp#680). If
 your system does not meet these requirements it will fallback to software rendering using [Software
@@ -70,24 +70,24 @@ latter results in frequent disk writes: newly loaded objects are written to memo
 
 An alternative approach is to use `{{Ic|about:config}}`{=mediawiki} settings:
 
-- Set `{{Ic|browser.cache.disk.enable}}`{=mediawiki} to `{{ic|false}}`{=mediawiki}
-- Verify that `{{Ic|browser.cache.memory.enable}}`{=mediawiki} is set to `{{ic|true}}`{=mediawiki}, more information
-  about this option can be found in the [browser.cache.memory Mozilla
-  article](https://kb.mozillazine.org/Browser.cache.memory.enable)
-- Add the entry `{{Ic|browser.cache.memory.capacity}}`{=mediawiki} and set it to the amount of KB you want to spare, or
-  to `{{ic|-1}}`{=mediawiki} for [automatic](https://kb.mozillazine.org/Browser.cache.memory.capacity#-1) cache size
-  selection (skipping this step has the same effect as setting the value to `{{ic|-1}}`{=mediawiki})
-  - The \"automatic\" size selection is based on a decade-old table that only contains settings for systems at or below
-    8GB of system memory. The following formula very closely approximates this table, and can be used to set the Firefox
-    cache more dynamically: `{{ic|41297 - (41606 / (1 + ((RAM / 1.16) ^ 0.75)))}}`{=mediawiki}, where
-    `{{ic|RAM}}`{=mediawiki} is in GB and the result is in KB.
+-   Set `{{Ic|browser.cache.disk.enable}}`{=mediawiki} to `{{ic|false}}`{=mediawiki}
+-   Verify that `{{Ic|browser.cache.memory.enable}}`{=mediawiki} is set to `{{ic|true}}`{=mediawiki}, more information
+    about this option can be found in the [browser.cache.memory Mozilla
+    article](https://kb.mozillazine.org/Browser.cache.memory.enable)
+-   Add the entry `{{Ic|browser.cache.memory.capacity}}`{=mediawiki} and set it to the amount of KB you want to spare,
+    or to `{{ic|-1}}`{=mediawiki} for [automatic](https://kb.mozillazine.org/Browser.cache.memory.capacity#-1) cache
+    size selection (skipping this step has the same effect as setting the value to `{{ic|-1}}`{=mediawiki})
+    -   The \"automatic\" size selection is based on a decade-old table that only contains settings for systems at or
+        below 8GB of system memory. The following formula very closely approximates this table, and can be used to set
+        the Firefox cache more dynamically: `{{ic|41297 - (41606 / (1 + ((RAM / 1.16) ^ 0.75)))}}`{=mediawiki}, where
+        `{{ic|RAM}}`{=mediawiki} is in GB and the result is in KB.
 
 This method has some drawbacks:
 
-- The content of currently browsed webpages is lost if the browser crashes or after a reboot, this can be avoided using
-  [anything-sync-daemon](anything-sync-daemon "anything-sync-daemon"){.wikilink} or any similar periodically-syncing
-  script so that cache gets copied over to the drive on a regular basis
-- The settings need to be configured for each user individually
+-   The content of currently browsed webpages is lost if the browser crashes or after a reboot, this can be avoided
+    using [anything-sync-daemon](anything-sync-daemon "wikilink") or any similar periodically-syncing script so that
+    cache gets copied over to the drive on a regular basis
+-   The settings need to be configured for each user individually
 
 ### Move disk cache to RAM {#move_disk_cache_to_ram}
 
@@ -144,8 +144,7 @@ profile corruptions. To access this tool, open the `{{ic|about:support}}`{=media
 ### Cache the entire profile into RAM via tmpfs {#cache_the_entire_profile_into_ram_via_tmpfs}
 
 If the system has memory to spare, `{{ic|tmpfs}}`{=mediawiki} can be used to [cache the entire profile
-directory](Firefox/Profile_on_RAM "cache the entire profile directory"){.wikilink}, which might result in increased
-Firefox responsiveness.
+directory](Firefox/Profile_on_RAM "wikilink"), which might result in increased Firefox responsiveness.
 
 ### Force-enable hardware video decoding {#force_enable_hardware_video_decoding}
 
@@ -157,26 +156,26 @@ hardware video decoding by setting `{{ic|media.hardware-video-decoding.force-ena
 
 To only unload tabs that are at least 1 hour inactive, set the following in `{{ic|about:config}}`{=mediawiki}:
 
-- ```{=mediawiki}
-  {{ic|browser.tabs.unloadOnLowMemory}}
-  ```
-  must be set to `{{ic|true}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|browser.tabs.unloadOnLowMemory}}
+    ```
+    must be set to `{{ic|true}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|browser.low_commit_space_threshold_percent}}
-  ```
-  to `{{ic|100}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|browser.low_commit_space_threshold_percent}}
+    ```
+    to `{{ic|100}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{ic|browser.tabs.min_inactive_duration_before_unload}}
-  ```
-  to `{{ic|3600000}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{ic|browser.tabs.min_inactive_duration_before_unload}}
+    ```
+    to `{{ic|3600000}}`{=mediawiki}
 
 ## Appearance
 
 ### Fonts
 
-See the main article: [Font configuration](Font_configuration "Font configuration"){.wikilink}
+See the main article: [Font configuration](Font_configuration "wikilink")
 
 #### Configure the DPI value {#configure_the_dpi_value}
 
@@ -198,7 +197,7 @@ the `{{ic|about:config}}`{=mediawiki} search bar, select the circle next to \'nu
 setting key, and edit its value to 100 times your `{{ic|layout.css.devPixelsPerPx}}`{=mediawiki} value. For example, if
 that was set to 1.25, `{{ic|ui.textScaleFactor}}`{=mediawiki} should be set to 125.
 
-See also [HiDPI#Firefox](HiDPI#Firefox "HiDPI#Firefox"){.wikilink} for information about HiDPI displays and
+See also [HiDPI#Firefox](HiDPI#Firefox "wikilink") for information about HiDPI displays and
 [2](https://www.sven.de/dpi/) for calculating the DPI.
 
 #### Default font settings from Microsoft Windows {#default_font_settings_from_microsoft_windows}
@@ -282,9 +281,9 @@ toolbarbutton#scrollbutton-up, toolbarbutton#scrollbutton-down {
 
 To place the tab bar in a sidebar/tree, use one of the following addons:
 
-- [Tree Style Tab](https://addons.mozilla.org/firefox/addon/tree-style-tab/)
-- [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
-- [Tabby](https://addons.mozilla.org/firefox/addon/tabby-window-tab-manager/)
+-   [Tree Style Tab](https://addons.mozilla.org/firefox/addon/tree-style-tab/)
+-   [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
+-   [Tabby](https://addons.mozilla.org/firefox/addon/tabby-window-tab-manager/)
 
 Firefox addons cannot hide the native tab bar through its extension APIs - to do so, follow the setup/advanced
 instructions for your addon.
@@ -325,10 +324,10 @@ variable is correctly set and/or the `{{ic|MOZ_GTK_TITLEBAR_DECORATION}}`{=media
 ```
 #### Unreadable input fields with dark GTK themes {#unreadable_input_fields_with_dark_gtk_themes}
 
-When using a dark [GTK](GTK "GTK"){.wikilink} theme, one might encounter Internet pages with unreadable input and text
-fields (e.g. text input field with white text on white background, or black text on dark background). This can happen
-because the site only sets either background or text color, and Firefox takes the other one from the theme. To prevent
-Firefox from using theme\'s colors and dark themes in web pages respectively confirm
+When using a dark [GTK](GTK "wikilink") theme, one might encounter Internet pages with unreadable input and text fields
+(e.g. text input field with white text on white background, or black text on dark background). This can happen because
+the site only sets either background or text color, and Firefox takes the other one from the theme. To prevent Firefox
+from using theme\'s colors and dark themes in web pages respectively confirm
 `{{ic|browser.display.use_system_colors}}`{=mediawiki} and `{{ic|widget.content.allow-gtk-dark-theme}}`{=mediawiki} are
 set to `{{ic|false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
 
@@ -371,7 +370,7 @@ input:not(.urlbar-input):not(.textbox-input):not(.form-control):not([type='check
 ##### Change the GTK theme {#change_the_gtk_theme}
 
 To force Firefox to use a light theme (e.g. Adwaita) for both web content and UI, see
-[GTK#Themes](GTK#Themes "GTK#Themes"){.wikilink}.
+[GTK#Themes](GTK#Themes "wikilink").
 
 ##### Change the GTK theme for content process only {#change_the_gtk_theme_for_content_process_only}
 
@@ -432,34 +431,34 @@ To modify the default values (i.e. speed-up) of the mouse wheel scroll speed, go
 and search for `{{ic|mousewheel.acceleration}}`{=mediawiki}. This will show the available options, modifying the
 following:
 
-- Set `{{ic|mousewheel.acceleration.start}}`{=mediawiki} to `{{ic|1}}`{=mediawiki}.
-- Set `{{ic|mousewheel.acceleration.factor}}`{=mediawiki} to the desired number (`{{ic|10}}`{=mediawiki} to
-  `{{ic|20}}`{=mediawiki} are common values).
+-   Set `{{ic|mousewheel.acceleration.start}}`{=mediawiki} to `{{ic|1}}`{=mediawiki}.
+-   Set `{{ic|mousewheel.acceleration.factor}}`{=mediawiki} to the desired number (`{{ic|10}}`{=mediawiki} to
+    `{{ic|20}}`{=mediawiki} are common values).
 
 Alternatively, to use system values (as how scrolling works in Chromium), set
 `{{ic|mousewheel.system_scroll_override.enabled}}`{=mediawiki} to `{{ic|false}}`{=mediawiki}.
 
 Mozilla\'s recommendation for increasing the mousewheel scroll speed is to:
 
-- Set `{{ic|mousewheel.default.delta_multiplier_y}}`{=mediawiki} between `{{ic|200}}`{=mediawiki} and
-  `{{ic|500}}`{=mediawiki} (default: `{{ic|100}}`{=mediawiki})
+-   Set `{{ic|mousewheel.default.delta_multiplier_y}}`{=mediawiki} between `{{ic|200}}`{=mediawiki} and
+    `{{ic|500}}`{=mediawiki} (default: `{{ic|100}}`{=mediawiki})
 
 ### Pixel-perfect trackpad scrolling {#pixel_perfect_trackpad_scrolling}
 
 To enable one-to-one trackpad scrolling (as can be witnessed with GTK3 applications like Nautilus), set the
-`{{ic|1=MOZ_USE_XINPUT2=1}}`{=mediawiki} [environment variable](environment_variable "environment variable"){.wikilink}
-before starting Firefox.
+`{{ic|1=MOZ_USE_XINPUT2=1}}`{=mediawiki} [environment variable](environment_variable "wikilink") before starting
+Firefox.
 
 If scrolling is undesirably jerky, try enabling Firefox\'s *Use smooth scrolling* option under *Preferences \> General
 \> Browsing*.
 
 ### Enable touchscreen gestures {#enable_touchscreen_gestures}
 
-On [Wayland](Wayland "Wayland"){.wikilink}, touchscreen gestures are enabled by default.
+On [Wayland](Wayland "wikilink"), touchscreen gestures are enabled by default.
 
 On X11, make sure `{{ic|dom.w3c_touch_events.enabled}}`{=mediawiki} is either set to 1 (*enabled*) or 2 (*default,
 auto-detect*), and set the `{{ic|1=MOZ_USE_XINPUT2=1}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink}.
+variable](environment_variable "wikilink").
 
 On some devices, it may be necessary to disable xinput\'s touchscreen gestures by running the following:
 
@@ -531,16 +530,16 @@ Now scrolling should flow smoothly.
 ### Set backspace\'s behavior {#set_backspaces_behavior}
 
 See [Firefox#Backspace does not work as the \'Back\'
-button](Firefox#Backspace_does_not_work_as_the_'Back'_button "Firefox#Backspace does not work as the 'Back' button"){.wikilink}.
+button](Firefox#Backspace_does_not_work_as_the_'Back'_button "wikilink").
 
 ### Disable middle mouse button clipboard paste {#disable_middle_mouse_button_clipboard_paste}
 
-See [Firefox#Middle-click behavior](Firefox#Middle-click_behavior "Firefox#Middle-click behavior"){.wikilink}.
+See [Firefox#Middle-click behavior](Firefox#Middle-click_behavior "wikilink").
 
 ### Emacs key bindings {#emacs_key_bindings}
 
 To have Emacs/Readline-like key bindings active in text fields, see [GTK#Emacs key
-bindings](GTK#Emacs_key_bindings "GTK#Emacs key bindings"){.wikilink}.
+bindings](GTK#Emacs_key_bindings "wikilink").
 
 ## Miscellaneous
 
@@ -553,9 +552,9 @@ Warning about video displayed in full screen mode (*... is now fullscreen*) can 
 
 To change the order search engines are displayed in:
 
-- Open the drop-down list of search engines and click *Manage Search Engines\...* entry.
-- Highlight the engine you want to move and use *Move Up* or *Move Down* to move it. Alternatively, you can use
-  drag-and-drop.
+-   Open the drop-down list of search engines and click *Manage Search Engines\...* entry.
+-   Highlight the engine you want to move and use *Move Up* or *Move Down* to move it. Alternatively, you can use
+    drag-and-drop.
 
 ### \"I\'m Feeling Lucky\" mode {#im_feeling_lucky_mode}
 
@@ -571,12 +570,11 @@ For Google, set it to:
 ```
 ### Secure DNS with DNSSEC validator {#secure_dns_with_dnssec_validator}
 
-You can enable [DNSSEC](DNSSEC "DNSSEC"){.wikilink} support for safer browsing.
+You can enable [DNSSEC](DNSSEC "wikilink") support for safer browsing.
 
 ### Secure DNS with DNS over HTTPS {#secure_dns_with_dns_over_https}
 
-See [Domain name resolution#Application-level
-DNS](Domain_name_resolution#Application-level_DNS "Domain name resolution#Application-level DNS"){.wikilink}.
+See [Domain name resolution#Application-level DNS](Domain_name_resolution#Application-level_DNS "wikilink").
 
 ### Adding magnet protocol association {#adding_magnet_protocol_association}
 
@@ -586,8 +584,8 @@ In `{{ic|about:config}}`{=mediawiki} set `{{ic|network.protocol-handler.expose.m
 `{{ic|false}}`{=mediawiki}.
 
 The next time you open a magnet link, you will be prompted with a *Launch Application* dialogue. From there simply
-select your chosen [BitTorrent client](List_of_applications/Internet#BitTorrent_clients "BitTorrent client"){.wikilink}.
-This technique can also be used with other protocols: `{{ic|network.protocol-handler.expose.<protocol>}}`{=mediawiki}.
+select your chosen [BitTorrent client](List_of_applications/Internet#BitTorrent_clients "wikilink"). This technique can
+also be used with other protocols: `{{ic|network.protocol-handler.expose.<protocol>}}`{=mediawiki}.
 
 ### Prevent accidental closing {#prevent_accidental_closing}
 
@@ -596,8 +594,8 @@ There are different approaches to handle this:
 This behavior can be disabled with `{{ic|browser.quitShortcut.disabled}}`{=mediawiki} property set to
 `{{ic|true}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}
 
-An alternative is to add a rule in your window manager configuration file. For example in
-[Openbox](Openbox "Openbox"){.wikilink} add:
+An alternative is to add a rule in your window manager configuration file. For example in [Openbox](Openbox "wikilink")
+add:
 
 ` ``<keybind key="C-q">`{=html}\
 `   ``<action name="Execute">`{=html}\
@@ -618,40 +616,40 @@ installed to prevent unwanted closing of the browser.
 ```
 ### Run Firefox inside an nspawn container {#run_firefox_inside_an_nspawn_container}
 
-See [systemd-nspawn#Run Firefox](systemd-nspawn#Run_Firefox "systemd-nspawn#Run Firefox"){.wikilink}.
+See [systemd-nspawn#Run Firefox](systemd-nspawn#Run_Firefox "wikilink").
 
 ### Disable WebRTC audio post processing {#disable_webrtc_audio_post_processing}
 
 If you are using the PulseAudio [PulseAudio#Microphone echo/noise
-cancellation](PulseAudio#Microphone_echo/noise_cancellation "PulseAudio#Microphone echo/noise cancellation"){.wikilink},
-you probably do not want Firefox to do additional audio post processing.
+cancellation](PulseAudio#Microphone_echo/noise_cancellation "wikilink"), you probably do not want Firefox to do
+additional audio post processing.
 
 To disable audio post processing, change the value of the following preferences to `{{ic|false}}`{=mediawiki}:
 
-- ```{=mediawiki}
-  {{ic|media.getusermedia.audio.processing.aec.enabled}}
-  ```
-  (Acoustic Echo Cancellation)
+-   ```{=mediawiki}
+    {{ic|media.getusermedia.audio.processing.aec.enabled}}
+    ```
+    (Acoustic Echo Cancellation)
 
-- ```{=mediawiki}
-  {{ic|media.getusermedia.audio.processing.agc.enabled}}
-  ```
-  (Automatic Gain Control)
+-   ```{=mediawiki}
+    {{ic|media.getusermedia.audio.processing.agc.enabled}}
+    ```
+    (Automatic Gain Control)
 
-- ```{=mediawiki}
-  {{ic|media.getusermedia.audio.processing.noise.enabled}}
-  ```
-  (Noise suppression)
+-   ```{=mediawiki}
+    {{ic|media.getusermedia.audio.processing.noise.enabled}}
+    ```
+    (Noise suppression)
 
-- ```{=mediawiki}
-  {{ic|media.getusermedia.audio.processing.hpf.enabled}}
-  ```
-  (High-pass filter)
+-   ```{=mediawiki}
+    {{ic|media.getusermedia.audio.processing.hpf.enabled}}
+    ```
+    (High-pass filter)
 
 ### Fido U2F authentication {#fido_u2f_authentication}
 
-Firefox supports the Fido [U2F](U2F "U2F"){.wikilink} authentication protocol. Install `{{pkg|libfido2}}`{=mediawiki}
-for the required udev rules.
+Firefox supports the Fido [U2F](U2F "wikilink") authentication protocol. Install `{{pkg|libfido2}}`{=mediawiki} for the
+required udev rules.
 
 ### Get ALSA working back {#get_alsa_working_back}
 
@@ -670,10 +668,9 @@ not anymore. For reference, see:
 
 ### Force-enable WebGL {#force_enable_webgl}
 
-On some platforms WebGL may be [disabled](MozillaWiki:Blocklisting/Blocked_Graphics_Drivers "disabled"){.wikilink} even
-when the user desires to use it. To force-enable WebGL set `{{ic|webgl.force-enabled}}`{=mediawiki} to
-`{{ic|true}}`{=mediawiki}, to also force-enable WebGL anti-aliasing, set `{{ic|webgl.msaa-force}}`{=mediawiki} to
-`{{ic|true}}`{=mediawiki}.
+On some platforms WebGL may be [disabled](MozillaWiki:Blocklisting/Blocked_Graphics_Drivers "wikilink") even when the
+user desires to use it. To force-enable WebGL set `{{ic|webgl.force-enabled}}`{=mediawiki} to `{{ic|true}}`{=mediawiki},
+to also force-enable WebGL anti-aliasing, set `{{ic|webgl.msaa-force}}`{=mediawiki} to `{{ic|true}}`{=mediawiki}.
 
 If you get an error similar to this: `{{bc|libGL error: MESA-LOADER: failed to retrieve device information
 libGL error: image driver extension not found
@@ -693,8 +690,8 @@ You can disable this behavior by setting the `{{ic|browser.download.alwaysOpenPa
 
 ## See also {#see_also}
 
-- [MozillaZine Wiki](https://kb.mozillazine.org/Knowledge_Base)
-- [<about:config> entries MozillaZine article](https://kb.mozillazine.org/About:config_entries)
-- [Firefox touch-ups that might be desired](https://linuxtidbits.wordpress.com/2009/08/01/better-fox-cat-and-weasel/)
+-   [MozillaZine Wiki](https://kb.mozillazine.org/Knowledge_Base)
+-   [<about:config> entries MozillaZine article](https://kb.mozillazine.org/About:config_entries)
+-   [Firefox touch-ups that might be desired](https://linuxtidbits.wordpress.com/2009/08/01/better-fox-cat-and-weasel/)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

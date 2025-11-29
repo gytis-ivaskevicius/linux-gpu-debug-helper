@@ -2,9 +2,9 @@ This is intended to be an overview of how setting up graphics on NixOS works.
 
 ## Hardware-Specific Pages {#hardware_specific_pages}
 
-- [Intel Graphics](Intel_Graphics "Intel Graphics"){.wikilink}
-- [AMD GPU](AMD_GPU "AMD GPU"){.wikilink}
-- [Nvidia](Nvidia "Nvidia"){.wikilink}
+-   [Intel Graphics](Intel_Graphics "wikilink")
+-   [AMD GPU](AMD_GPU "wikilink")
+-   [Nvidia](Nvidia "wikilink")
 
 ## Kernel-Level {#kernel_level}
 
@@ -32,9 +32,9 @@ the flicker might heppen during encryption password entry.
 Userspace-level graphics support is provided through OpenGL. The kernel module is used just for interfacing with the
 hardware, the OpenGL driver is what Wayland (or the X server) actually uses for rendering.
 
-The OpenGL implementation used on Linux is the [Mesa graphics library](Mesa "Mesa graphics library"){.wikilink}. Mesa
-contains drivers for various hardware, the exact driver is selected automatically. Note that Mesa also supports software
-rendering if no compatible hardware driver is available, but this is very slow.
+The OpenGL implementation used on Linux is the [Mesa graphics library](Mesa "wikilink"). Mesa contains drivers for
+various hardware, the exact driver is selected automatically. Note that Mesa also supports software rendering if no
+compatible hardware driver is available, but this is very slow.
 
 Mesa can installed using the option `hardware.graphics.enable`, but note that most desktop environment modules set this
 themselves anyway. This option writes the driver files to `/run/opengl-driver`. Additional graphics drivers packages can
@@ -93,10 +93,11 @@ support. The driver will always fall back to `nvidia` if it wasn\'t set using `V
 
 ## See also {#see_also}
 
-- The Arch Wiki has good articles on a lot of these topics, which are linked above.
-- [writeup about setting up graphics](https://git.eisfunke.com/config/nixos/-/blob/main/docs/graphics.md?ref_type=heads)
-  in Eisfunke\'s NixOS config repo (this article was originally based on that)
+-   The Arch Wiki has good articles on a lot of these topics, which are linked above.
+-   [writeup about setting up
+    graphics](https://git.eisfunke.com/config/nixos/-/blob/main/docs/graphics.md?ref_type=heads) in Eisfunke\'s NixOS
+    config repo (this article was originally based on that)
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "wikilink")
 
 [^1]: [1](https://gitlab.freedesktop.org/vdpau/libvdpau/-/blob/2afa3f989af24a922692ac719fae23c321776cdb/src/vdpau_wrapper.c#L129)

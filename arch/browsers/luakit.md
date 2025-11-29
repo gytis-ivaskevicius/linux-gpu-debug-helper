@@ -1,6 +1,6 @@
-[ja:Luakit](ja:Luakit "ja:Luakit"){.wikilink} [Luakit](https://luakit.github.io/) is an extremely fast, lightweight and
-flexible web browser using the webkit engine. It is customizable through lua scripts and fully usable with keyboard
-shortcuts. It uses GTK 3 and [WebKit2GTK](List_of_applications/Internet#WebKitGTK-based "WebKit2GTK"){.wikilink}.
+[ja:Luakit](ja:Luakit "wikilink") [Luakit](https://luakit.github.io/) is an extremely fast, lightweight and flexible web
+browser using the webkit engine. It is customizable through lua scripts and fully usable with keyboard shortcuts. It
+uses GTK 3 and [WebKit2GTK](List_of_applications/Internet#WebKitGTK-based "wikilink").
 
 ## Installation
 
@@ -26,39 +26,39 @@ using the `{{ic|:writequit}}`{=mediawiki} command instead, or pressing `{{ic|Shi
 
 ### Browsing
 
-- Press `{{ic|o}}`{=mediawiki} to open a prompt with the `{{ic|:open}}`{=mediawiki} command and enter the URI you want.
-  Press `{{ic|Shift+o}}`{=mediawiki} to edit the current URI.
-- If it is not a recognized URI, Luakit will use the default search engine. See [#Custom search
-  engines](#Custom_search_engines "#Custom search engines"){.wikilink}.
-- Specify which search engine to use by prefixing the entry with the appropriate keywork (e.g.
-  `{{ic|:open google foobar}}`{=mediawiki} will search *foobar* on Google).
-- Use common shortcuts to navigate. For [emacs](emacs "emacs"){.wikilink} and [vim](vim "vim"){.wikilink} *aficionados*,
-  some of their regular shortcuts are provided. You can use the mouse as well.
-- Use `{{ic|f}}`{=mediawiki} to display the index of all visible links. Enter the appropriate number or a part of the
-  string to open the link.
-- Use `{{ic|Shift+f}}`{=mediawiki} instead to open link in a new tab.
-- Press `{{ic|Ctrl+t}}`{=mediawiki} to open a new tab, `{{ic|Ctrl+w}}`{=mediawiki} to close it. Press
-  `{{ic|t}}`{=mediawiki} to prompt for an URI to be opened in a new tab, and `{{ic|Shift+t}}`{=mediawiki} to edit the
-  current URI in a new tab.
-- Press `{{ic|w}}`{=mediawiki} to prompt for an URI to be opened in a new window, and `{{ic|Shift+w}}`{=mediawiki} to
-  edit the current URI in a new window.
-- Switch from one tab to another by pressing `{{ic|g}}`{=mediawiki} followed by `{{ic|t}}`{=mediawiki} or
-  `{{ic|Shift+t}}`{=mediawiki}, or use `{{ic|Ctrl+PageUp}}`{=mediawiki} and `{{ic|Ctrl+PageDown}}`{=mediawiki}.
-- You can switch to a specific tab with `{{ic|Alt+''number''}}`{=mediawiki}.
-- Use `{{ic|Shift+h}}`{=mediawiki} to go back in the browser history.
-- Use `{{ic|Shift+l}}`{=mediawiki} to go forward in the browser history.
-- Reorder the tabs with `{{ic|<}}`{=mediawiki} and `{{ic|>}}`{=mediawiki}.
-- Reload the page with `{{ic|r}}`{=mediawiki}, stop the loading with `{{ic|Ctrl+c}}`{=mediawiki}.
-- Re-open last closed tab with `{{ic|u}}`{=mediawiki}.
-- Open downloads page by pressing `{{ic|g}}`{=mediawiki} followed by `{{ic|d}}`{=mediawiki} (or
-  `{{ic|Shift+d}}`{=mediawiki} for a new tab).
-- Copy URI to primary selection with `{{ic|y}}`{=mediawiki}.
-- View page source code with `{{ic|:viewsource}}`{=mediawiki}. Return to normal view with
-  `{{ic|:viewsource!}}`{=mediawiki}.
-- View image source by pressing `{{ic|;}}`{=mediawiki} followed by `{{ic|i}}`{=mediawiki} (or
-  `{{ic|Shift+i}}`{=mediawiki} for new tab).
-- Inspect elements with `{{ic|:inspect}}`{=mediawiki}. Repeat to open in a new window. Disable inspector with
-  `{{ic|:inspect!}}`{=mediawiki}.
+-   Press `{{ic|o}}`{=mediawiki} to open a prompt with the `{{ic|:open}}`{=mediawiki} command and enter the URI you
+    want. Press `{{ic|Shift+o}}`{=mediawiki} to edit the current URI.
+-   If it is not a recognized URI, Luakit will use the default search engine. See [#Custom search
+    engines](#Custom_search_engines "wikilink").
+-   Specify which search engine to use by prefixing the entry with the appropriate keywork (e.g.
+    `{{ic|:open google foobar}}`{=mediawiki} will search *foobar* on Google).
+-   Use common shortcuts to navigate. For [emacs](emacs "wikilink") and [vim](vim "wikilink") *aficionados*, some of
+    their regular shortcuts are provided. You can use the mouse as well.
+-   Use `{{ic|f}}`{=mediawiki} to display the index of all visible links. Enter the appropriate number or a part of the
+    string to open the link.
+-   Use `{{ic|Shift+f}}`{=mediawiki} instead to open link in a new tab.
+-   Press `{{ic|Ctrl+t}}`{=mediawiki} to open a new tab, `{{ic|Ctrl+w}}`{=mediawiki} to close it. Press
+    `{{ic|t}}`{=mediawiki} to prompt for an URI to be opened in a new tab, and `{{ic|Shift+t}}`{=mediawiki} to edit the
+    current URI in a new tab.
+-   Press `{{ic|w}}`{=mediawiki} to prompt for an URI to be opened in a new window, and `{{ic|Shift+w}}`{=mediawiki} to
+    edit the current URI in a new window.
+-   Switch from one tab to another by pressing `{{ic|g}}`{=mediawiki} followed by `{{ic|t}}`{=mediawiki} or
+    `{{ic|Shift+t}}`{=mediawiki}, or use `{{ic|Ctrl+PageUp}}`{=mediawiki} and `{{ic|Ctrl+PageDown}}`{=mediawiki}.
+-   You can switch to a specific tab with `{{ic|Alt+''number''}}`{=mediawiki}.
+-   Use `{{ic|Shift+h}}`{=mediawiki} to go back in the browser history.
+-   Use `{{ic|Shift+l}}`{=mediawiki} to go forward in the browser history.
+-   Reorder the tabs with `{{ic|<}}`{=mediawiki} and `{{ic|>}}`{=mediawiki}.
+-   Reload the page with `{{ic|r}}`{=mediawiki}, stop the loading with `{{ic|Ctrl+c}}`{=mediawiki}.
+-   Re-open last closed tab with `{{ic|u}}`{=mediawiki}.
+-   Open downloads page by pressing `{{ic|g}}`{=mediawiki} followed by `{{ic|d}}`{=mediawiki} (or
+    `{{ic|Shift+d}}`{=mediawiki} for a new tab).
+-   Copy URI to primary selection with `{{ic|y}}`{=mediawiki}.
+-   View page source code with `{{ic|:viewsource}}`{=mediawiki}. Return to normal view with
+    `{{ic|:viewsource!}}`{=mediawiki}.
+-   View image source by pressing `{{ic|;}}`{=mediawiki} followed by `{{ic|i}}`{=mediawiki} (or
+    `{{ic|Shift+i}}`{=mediawiki} for new tab).
+-   Inspect elements with `{{ic|:inspect}}`{=mediawiki}. Repeat to open in a new window. Disable inspector with
+    `{{ic|:inspect!}}`{=mediawiki}.
 
 ### Input fields {#input_fields}
 
@@ -70,11 +70,11 @@ help. Alternatively, the `{{ic|g}}`{=mediawiki} `{{ic|i}}`{=mediawiki} shortcut 
 
 If enabled (default configuration), bookmarks can be used from within Luakit.
 
-- The `{{ic|:bookmarks}}`{=mediawiki} command opens the bookmarks page. (Shortcut: `{{ic|g}}`{=mediawiki} followed by
-  `{{ic|b}}`{=mediawiki}, or `{{ic|Shift+b}}`{=mediawiki} for a new tab).
-- The `{{ic|:bookmark [''URI'' [''tags'']]}}`{=mediawiki} command adds the URI specified (or the current tab\'s URI, if
-  omitted) to the bookmarks by specified tags. Starting from version 2012-09-13-r1, bookmarks page will be opened (new
-  tab) in new bookmark editing mode before saving. (Shortcut: `{{ic|Shift+b}}`{=mediawiki}).
+-   The `{{ic|:bookmarks}}`{=mediawiki} command opens the bookmarks page. (Shortcut: `{{ic|g}}`{=mediawiki} followed by
+    `{{ic|b}}`{=mediawiki}, or `{{ic|Shift+b}}`{=mediawiki} for a new tab).
+-   The `{{ic|:bookmark [''URI'' [''tags'']]}}`{=mediawiki} command adds the URI specified (or the current tab\'s URI,
+    if omitted) to the bookmarks by specified tags. Starting from version 2012-09-13-r1, bookmarks page will be opened
+    (new tab) in new bookmark editing mode before saving. (Shortcut: `{{ic|Shift+b}}`{=mediawiki}).
 
 ## Configuration
 
@@ -191,11 +191,11 @@ Default location is `{{ic|$XDG_DOWNLOAD_DIR}}`{=mediawiki} if it exists, `{{ic|$
 
 Adblock is loaded by default, but you need to:
 
-- Fetch an adblock-compatible list, like [Easylist](https://easylist-downloads.adblockplus.org/easylist.txt), and save
-  it to `{{ic|~/.local/share/luakit/adblock}}`{=mediawiki}.
-- Restart Luakit to load the extension.
-- Use `{{ic|:adblock-list-enable ''number''}}`{=mediawiki} command within Luakit to turn Adblock\'s list(s) you
-  downloaded on Adblock itself becomes enabled on startup.
+-   Fetch an adblock-compatible list, like [Easylist](https://easylist-downloads.adblockplus.org/easylist.txt), and save
+    it to `{{ic|~/.local/share/luakit/adblock}}`{=mediawiki}.
+-   Restart Luakit to load the extension.
+-   Use `{{ic|:adblock-list-enable ''number''}}`{=mediawiki} command within Luakit to turn Adblock\'s list(s) you
+    downloaded on Adblock itself becomes enabled on startup.
 
 Full info on enabled lists and AdBlock state can be found using `{{ic|:adblock}}`{=mediawiki} or `{{ic|g}}`{=mediawiki}
 `{{ic|Shift+a}}`{=mediawiki} at `{{ic|luakit://adblock/}}`{=mediawiki} internal page, if the
@@ -378,8 +378,7 @@ Run it with
 `$ awk -f ff2lk.awk bookmarks.html >> bookmarks`
 
 Then convert the generated plain text bookmarks to the SQLite format as described at [#Converting plain text bookmarks
-to SQLite
-format](#Converting_plain_text_bookmarks_to_SQLite_format "#Converting plain text bookmarks to SQLite format"){.wikilink}.
+to SQLite format](#Converting_plain_text_bookmarks_to_SQLite_format "wikilink").
 
 #### Export bookmarks {#export_bookmarks}
 
@@ -460,7 +459,7 @@ As stated at beginning of the script, it must be ran with Luakit:
 
 ### Tor
 
-Once [Tor](Tor "Tor"){.wikilink} has been setup, simply run:
+Once [Tor](Tor "wikilink") has been setup, simply run:
 
 `$ torsocks luakit --nounique`
 
@@ -487,7 +486,7 @@ all pages \_and\_ it applies to the current page, its state will be listed as \"
 
 ## See also {#see_also}
 
-- [Home page](https://luakit.github.io/)
-- [Cheatsheet](http://shariebeth.com/computers/luakitcheatsheet.txt)
+-   [Home page](https://luakit.github.io/)
+-   [Cheatsheet](http://shariebeth.com/computers/luakitcheatsheet.txt)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

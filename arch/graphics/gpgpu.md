@@ -1,17 +1,16 @@
-[ja:GPGPU](ja:GPGPU "ja:GPGPU"){.wikilink} [ru:GPGPU](ru:GPGPU "ru:GPGPU"){.wikilink}
+[ja:GPGPU](ja:GPGPU "wikilink") [ru:GPGPU](ru:GPGPU "wikilink")
 `{{Move|General-purpose computing on graphics processing units|Like with [[ALSA]], follow [[Help:Style#Title]].}}`{=mediawiki}
 `{{Related articles start}}`{=mediawiki} `{{Related|Nvidia}}`{=mediawiki}
 `{{Related|Hardware video acceleration}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-GPGPU stands for [General-purpose computing on graphics processing
-units](Wikipedia:GPGPU "General-purpose computing on graphics processing units"){.wikilink}. Some GPGPU API definitions
-include the vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA. Each API can
-have multiple implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a different
-GPGPU API (shim/transpiler).
+GPGPU stands for [General-purpose computing on graphics processing units](Wikipedia:GPGPU "wikilink"). Some GPGPU API
+definitions include the vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA.
+Each API can have multiple implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a
+different GPGPU API (shim/transpiler).
 
 ## OpenCL
 
-[OpenCL](Wikipedia:OpenCL "OpenCL"){.wikilink} (Open Computing Language) is an open, royalty-free parallel programming
+[OpenCL](Wikipedia:OpenCL "wikilink") (Open Computing Language) is an open, royalty-free parallel programming
 specification developed by the Khronos Group, a non-profit consortium.
 
 The OpenCL specifications describe a C-based programming language, a general environment that is required to be present,
@@ -23,8 +22,8 @@ call into this environment as well as alternative languages for writing the Open
 ```
 An OpenCL environment includes at least one of the following:
 
-- A copy of the *libOpenCL.so*, the ICD loader presenting a full OpenCL API interface.
-- Platform-dependent drivers that are loaded by the ICD loader.
+-   A copy of the *libOpenCL.so*, the ICD loader presenting a full OpenCL API interface.
+-   Platform-dependent drivers that are loaded by the ICD loader.
 
 ### ICD loader (libOpenCL.so) {#icd_loader_libopencl.so}
 
@@ -50,16 +49,15 @@ This is necessary because all the SDKs add their runtime\'s lib directories to t
 
 The available packages containing various OpenCL ICDs are:
 
-- ```{=mediawiki}
-  {{Pkg|ocl-icd}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|ocl-icd}}
+    ```
+    : recommended, most up-to-date
 
-  :   recommended, most up-to-date
-
-- ```{=mediawiki}
-  {{AUR|intel-opencl}}
-  ```
-  by Intel. Provides OpenCL 2.0, deprecated in favour of `{{pkg|intel-compute-runtime}}`{=mediawiki}.
+-   ```{=mediawiki}
+    {{AUR|intel-opencl}}
+    ```
+    by Intel. Provides OpenCL 2.0, deprecated in favour of `{{pkg|intel-compute-runtime}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Note|An ICD Loader's vendor is functionally irrelevant: they should be vendor-agnostic and may be used interchangeably as long as they are implemented correctly. The vendor is only useful for the purpose to identify them from each other.}}
@@ -71,7 +69,7 @@ To see which OpenCL implementations are currently active on your system, use the
 `$ ls /etc/OpenCL/vendors`
 
 To find out all possible (known) properties of the OpenCL platform and devices available on the system,
-[install](install "install"){.wikilink} `{{pkg|clinfo}}`{=mediawiki}.
+[install](install "wikilink") `{{pkg|clinfo}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Accuracy|It's questionable whether the bug of {{ic|OCL_ICD_VENDORS}} still exists. With {{Pkg|ocl-icd}} 2.3.3, setting the {{ic|OCL_ICD_VENDORS}} to a single file seems to work without an issue, and {{ic|clinfo -l}} produces correct result.}}
@@ -94,48 +92,44 @@ To **execute** programs that use OpenCL, a runtime that can be loaded by *libOpe
 
 #### OpenCL on generic GPU {#opencl_on_generic_gpu}
 
-For *any* GPU supported by [Mesa](Mesa "Mesa"){.wikilink}, you can use rusticl by installing
-`{{Pkg|opencl-mesa}}`{=mediawiki}. It can be enabled by using the [environment
-variable](environment_variable "environment variable"){.wikilink} `{{ic|RUSTICL_ENABLE{{=}}`{=mediawiki}*driver*}},
-where `{{ic|''driver''}}`{=mediawiki} is a Gallium driver, such as `{{ic|radeonsi}}`{=mediawiki} or
-`{{ic|iris}}`{=mediawiki}. It works on the broadest set of hardware but does not necessarily provide the best
-performance. If you have trouble setting up other drivers, try using it: it takes a very small amount of configuration
-to enable.
+For *any* GPU supported by [Mesa](Mesa "wikilink"), you can use rusticl by installing `{{Pkg|opencl-mesa}}`{=mediawiki}.
+It can be enabled by using the [environment variable](environment_variable "wikilink")
+`{{ic|RUSTICL_ENABLE{{=}}`{=mediawiki}*driver*}}, where `{{ic|''driver''}}`{=mediawiki} is a Gallium driver, such as
+`{{ic|radeonsi}}`{=mediawiki} or `{{ic|iris}}`{=mediawiki}. It works on the broadest set of hardware but does not
+necessarily provide the best performance. If you have trouble setting up other drivers, try using it: it takes a very
+small amount of configuration to enable.
 
 #### OpenCL on AMD/ATI GPU {#opencl_on_amdati_gpu}
 
-- ```{=mediawiki}
-  {{Pkg|rocm-opencl-runtime}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|rocm-opencl-runtime}}
+    ```
+    : Part of AMD\'s ROCm GPU compute stack, officially supporting [a small range of GPU
+    models](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html) (other
+    cards may work with unofficial or partial support). To support cards older than Vega, you need to set the runtime
+    variable `{{ic|1=ROC_ENABLE_PRE_VEGA=1}}`{=mediawiki}. This is similar, but not quite equivalent to
+    [specifying](https://amdgpu-install.readthedocs.io/en/latest/install-script.html#specifying-an-opencl-implementation)
+    `{{ic|1=opencl=rocr}}`{=mediawiki} in ubuntu\'s amdgpu-install, because this package\'s rocm version differs from
+    ubuntu\'s installer version.
 
-  :   Part of AMD\'s ROCm GPU compute stack, officially supporting [a small range of GPU
-      models](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html) (other
-      cards may work with unofficial or partial support). To support cards older than Vega, you need to set the runtime
-      variable `{{ic|1=ROC_ENABLE_PRE_VEGA=1}}`{=mediawiki}. This is similar, but not quite equivalent to
-      [specifying](https://amdgpu-install.readthedocs.io/en/latest/install-script.html#specifying-an-opencl-implementation)
-      `{{ic|1=opencl=rocr}}`{=mediawiki} in ubuntu\'s amdgpu-install, because this package\'s rocm version differs from
-      ubuntu\'s installer version.
+-   ```{=mediawiki}
+    {{AUR|opencl-legacy-amdgpu-pro}}
+    ```
+    : Legacy Orca OpenCL repackaged from AMD\'s ubuntu releases. Equivalent to
+    [specifying](https://amdgpu-install.readthedocs.io/en/latest/install-script.html#specifying-an-opencl-implementation)
+    `{{ic|1=opencl=legacy}}`{=mediawiki} in ubuntu\'s amdgpu-install.
 
-- ```{=mediawiki}
-  {{AUR|opencl-legacy-amdgpu-pro}}
-  ```
-
-  :   Legacy Orca OpenCL repackaged from AMD\'s ubuntu releases. Equivalent to
-      [specifying](https://amdgpu-install.readthedocs.io/en/latest/install-script.html#specifying-an-opencl-implementation)
-      `{{ic|1=opencl=legacy}}`{=mediawiki} in ubuntu\'s amdgpu-install.
-
-- ```{=mediawiki}
-  {{AUR|opencl-amd}}
-  ```
-  , `{{AUR|opencl-amd-dev}}`{=mediawiki}: ROCm components repackaged from AMD\'s Ubuntu releases. Equivalent to
-  [specifying](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/amdgpu-install.html)
-  `{{ic|1=opencl=rocr,legacy}}`{=mediawiki} in ubuntu\'s amdgpu-install.
+-   ```{=mediawiki}
+    {{AUR|opencl-amd}}
+    ```
+    , `{{AUR|opencl-amd-dev}}`{=mediawiki}: ROCm components repackaged from AMD\'s Ubuntu releases. Equivalent to
+    [specifying](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/amdgpu-install.html)
+    `{{ic|1=opencl=rocr,legacy}}`{=mediawiki} in ubuntu\'s amdgpu-install.
 
 ##### OpenCL image support {#opencl_image_support}
 
 The latest ROCm versions now includes OpenCL Image Support used by GPGPU accelerated software such as Darktable. ROCm
-with the [AMDGPU](AMDGPU "AMDGPU"){.wikilink} open source graphics driver are all that is required. AMDGPU PRO is not
-required.
+with the [AMDGPU](AMDGPU "wikilink") open source graphics driver are all that is required. AMDGPU PRO is not required.
 
 ```{=mediawiki}
 {{hc|head=$ /opt/rocm/bin/clinfo {{!}}
@@ -148,96 +142,82 @@ grep -i \"image support\"\|output=
 
 #### OpenCL on NVIDIA GPU {#opencl_on_nvidia_gpu}
 
-- ```{=mediawiki}
-  {{Pkg|opencl-nvidia}}
-  ```
-
-  :   official [NVIDIA](NVIDIA "NVIDIA"){.wikilink} runtime
+-   ```{=mediawiki}
+    {{Pkg|opencl-nvidia}}
+    ```
+    : official [NVIDIA](NVIDIA "wikilink") runtime
 
 #### OpenCL on Intel GPU {#opencl_on_intel_gpu}
 
-- ```{=mediawiki}
-  {{pkg|intel-compute-runtime}}
-  ```
+-   ```{=mediawiki}
+    {{pkg|intel-compute-runtime}}
+    ```
+    : a.k.a. the Neo OpenCL runtime, the open-source implementation for Intel HD Graphics GPU on Gen12 (Alder Lake) and
+    beyond.
 
-  :   a.k.a. the Neo OpenCL runtime, the open-source implementation for Intel HD Graphics GPU on Gen12 (Alder Lake) and
-      beyond.
+-   ```{=mediawiki}
+    {{AUR|intel-compute-runtime-legacy}}
+    ```
+    : same as above only for Gen11(Rocket Lake) and lower
 
-- ```{=mediawiki}
-  {{AUR|intel-compute-runtime-legacy}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|beignet}}
+    ```
+    : the open-source implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
+    favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge, Haswell).
 
-  :   same as above only for Gen11(Rocket Lake) and lower
-
-- ```{=mediawiki}
-  {{AUR|beignet}}
-  ```
-
-  :   the open-source implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
-      favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge,
-      Haswell).
-
-- ```{=mediawiki}
-  {{AUR|intel-opencl}}
-  ```
-
-  :   the proprietary implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
-      favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge,
-      Haswell).
+-   ```{=mediawiki}
+    {{AUR|intel-opencl}}
+    ```
+    : the proprietary implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
+    favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge, Haswell).
 
 #### OpenCL on CPU {#opencl_on_cpu}
 
 The following allow OpenCL to be run on a CPU:
 
-- ```{=mediawiki}
-  {{AUR|intel-opencl-runtime}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|intel-opencl-runtime}}
+    ```
+    : Intel\'s LLVM and oneAPI-based implementation for x86_64 processors. Officially intended for Intel Core and Xeon
+    processors, it actually works on all x86_64 processors with SSE4.1. Even on AMD Zen processors it outperforms pocl.
 
-  :   Intel\'s LLVM and oneAPI-based implementation for x86_64 processors. Officially intended for Intel Core and Xeon
-      processors, it actually works on all x86_64 processors with SSE4.1. Even on AMD Zen processors it outperforms
-      pocl.
+-   ```{=mediawiki}
+    {{Pkg|pocl}}
+    ```
+    : LLVM-based OpenCL implementation, works for all CPU architectures supported by LLVM and some GPUs (Nvidia through
+    libCUDA, Intel through Level Zero) as well as OpenASIP. Despite this broad coverage, its performance leaves a lot to
+    be desired.
 
-- ```{=mediawiki}
-  {{Pkg|pocl}}
-  ```
-
-  :   LLVM-based OpenCL implementation, works for all CPU architectures supported by LLVM and some GPUs (Nvidia through
-      libCUDA, Intel through Level Zero) as well as OpenASIP. Despite this broad coverage, its performance leaves a lot
-      to be desired.
-
-- ```{=mediawiki}
-  {{AUR|amdapp-sdk}}
-  ```
-
-  :   AMD CPU runtime, abandoned
+-   ```{=mediawiki}
+    {{AUR|amdapp-sdk}}
+    ```
+    : AMD CPU runtime, abandoned
 
 #### OpenCL on Vulkan {#opencl_on_vulkan}
 
 The following allow OpenCL to be run on top of a Vulkan runtime:
 
-- ```{=mediawiki}
-  {{AUR|clspv-git}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|clspv-git}}
+    ```
+    : Clspv is a prototype compiler for a subset of OpenCL C to Vulkan compute shaders.
 
-  :   Clspv is a prototype compiler for a subset of OpenCL C to Vulkan compute shaders.
-
-- ```{=mediawiki}
-  {{AUR|clvk-git}}
-  ```
-
-  :   clvk is a prototype implementation of OpenCL 3.0 on top of Vulkan using clspv as the compiler.
+-   ```{=mediawiki}
+    {{AUR|clvk-git}}
+    ```
+    : clvk is a prototype implementation of OpenCL 3.0 on top of Vulkan using clspv as the compiler.
 
 #### OpenCL on FPGA {#opencl_on_fpga}
 
-- pocl for OpenASIP, see above.
+-   pocl for OpenASIP, see above.
 
-- ```{=mediawiki}
-  {{AUR|xrt-bin}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|xrt-bin}}
+    ```
+    : Xilinx Run Time for FPGA [xrt](https://github.com/Xilinx/XRT)
 
-  :   Xilinx Run Time for FPGA [xrt](https://github.com/Xilinx/XRT)
-
-- [fpga-runtime-for-opencl](https://github.com/intel/fpga-runtime-for-opencl): Intel FPGA Runtime
+-   [fpga-runtime-for-opencl](https://github.com/intel/fpga-runtime-for-opencl): Intel FPGA Runtime
 
 ### 32-bit runtime {#bit_runtime}
 
@@ -249,87 +229,80 @@ for 32-bit you need to compile clinfo for 32-bit or use the 32-bit [https://www.
 ```
 #### OpenCL on generic GPU (32-bit) {#opencl_on_generic_gpu_32_bit}
 
-- ```{=mediawiki}
-  {{Pkg|lib32-opencl-mesa}}
-  ```
-
-  :   OpenCL support for Mesa drivers (32-bit)
+-   ```{=mediawiki}
+    {{Pkg|lib32-opencl-mesa}}
+    ```
+    : OpenCL support for Mesa drivers (32-bit)
 
 #### OpenCL on NVIDIA GPU (32-bit) {#opencl_on_nvidia_gpu_32_bit}
 
-- ```{=mediawiki}
-  {{Pkg|lib32-opencl-nvidia}}
-  ```
-
-  :   OpenCL implemention for NVIDIA (32-bit)
+-   ```{=mediawiki}
+    {{Pkg|lib32-opencl-nvidia}}
+    ```
+    : OpenCL implemention for NVIDIA (32-bit)
 
 ### Development
 
 For OpenCL **development**, the bare minimum additional packages required, are:
 
-- ```{=mediawiki}
-  {{Pkg|ocl-icd}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|ocl-icd}}
+    ```
+    : OpenCL ICD loader implementation, up to date with the latest OpenCL specification.
 
-  :   OpenCL ICD loader implementation, up to date with the latest OpenCL specification.
-
-- ```{=mediawiki}
-  {{Pkg|opencl-headers}}
-  ```
-
-  :   OpenCL C/C++ API headers.
+-   ```{=mediawiki}
+    {{Pkg|opencl-headers}}
+    ```
+    : OpenCL C/C++ API headers.
 
 The vendors\' SDKs provide a multitude of tools and support libraries:
 
-- ```{=mediawiki}
-  {{AUR|intel-opencl-sdk}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|intel-opencl-sdk}}
+    ```
+    : [Intel OpenCL SDK](https://software.intel.com/en-us/articles/opencl-sdk/) (old version, new OpenCL SDKs are
+    included in the INDE and Intel Media Server Studio)
 
-  :   [Intel OpenCL SDK](https://software.intel.com/en-us/articles/opencl-sdk/) (old version, new OpenCL SDKs are
-      included in the INDE and Intel Media Server Studio)
+-   ```{=mediawiki}
+    {{AUR|amdapp-sdk}}
+    ```
+    : This package is installed as `{{ic|/opt/AMDAPP}}`{=mediawiki} and apart from SDK files it also contains a number
+    of code samples (`{{ic|/opt/AMDAPP/SDK/samples/}}`{=mediawiki}). It also provides the `{{ic|clinfo}}`{=mediawiki}
+    utility which lists OpenCL platforms and devices present in the system and displays detailed information about them.
+    As the SDK itself contains a CPU OpenCL driver, no extra driver is needed to execute OpenCL on CPU devices
+    (regardless of its vendor).
 
-- ```{=mediawiki}
-  {{AUR|amdapp-sdk}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|rocm-opencl-sdk}}
+    ```
+    : Develop OpenCL-based applications for AMD platforms.
 
-  :   This package is installed as `{{ic|/opt/AMDAPP}}`{=mediawiki} and apart from SDK files it also contains a number
-      of code samples (`{{ic|/opt/AMDAPP/SDK/samples/}}`{=mediawiki}). It also provides the `{{ic|clinfo}}`{=mediawiki}
-      utility which lists OpenCL platforms and devices present in the system and displays detailed information about
-      them. As the SDK itself contains a CPU OpenCL driver, no extra driver is needed to execute OpenCL on CPU devices
-      (regardless of its vendor).
-
-- ```{=mediawiki}
-  {{Pkg|rocm-opencl-sdk}}
-  ```
-
-  :   Develop OpenCL-based applications for AMD platforms.
-
-- ```{=mediawiki}
-  {{Pkg|cuda}}
-  ```
-
-  :   Nvidia\'s GPU SDK which includes support for OpenCL 3.0.
+-   ```{=mediawiki}
+    {{Pkg|cuda}}
+    ```
+    : Nvidia\'s GPU SDK which includes support for OpenCL 3.0.
 
 ### Language bindings {#language_bindings}
 
 These bindings allow other languages to call into the OpenCL environment. They generally do not alter the requirement to
 write the kernel in OpenCL C.
 
-- **JavaScript/HTML5**: [WebCL](https://www.khronos.org/webcl/)
-- [Python](Python "Python"){.wikilink}: `{{pkg|python-pyopencl}}`{=mediawiki}
-- [D](D "D"){.wikilink}: [cl4d](https://github.com/Trass3r/cl4d) or [DCompute](https://github.com/libmir/dcompute)
-- [Java](Java "Java"){.wikilink}: [Aparapi](https://git.qoto.org/aparapi/aparapi) or
-  [JOCL](https://jogamp.org/jocl/www/) (a part of [JogAmp](https://jogamp.org/))
-- [Mono/.NET](Mono "Mono/.NET"){.wikilink}: [Open Toolkit](https://sourceforge.net/projects/opentk/)
-- [Go](Go "Go"){.wikilink}: [OpenCL bindings for Go](https://github.com/samuel/go-opencl)
-- **Racket**: Racket has a native interface [on
-  PLaneT](http://planet.racket-lang.org/display.ss?owner=jaymccarthy&package=opencl.plt) that can be installed via raco.
-- [Rust](Rust "Rust"){.wikilink}: [ocl](https://github.com/cogciprocate/ocl)
-- [Julia](Julia "Julia"){.wikilink}: [OpenCL.jl](https://github.com/JuliaGPU/OpenCL.jl)
+-   **JavaScript/HTML5**: [WebCL](https://www.khronos.org/webcl/)
+-   [Python](Python "wikilink"): `{{pkg|python-pyopencl}}`{=mediawiki}
+-   [D](D "wikilink"): [cl4d](https://github.com/Trass3r/cl4d) or [DCompute](https://github.com/libmir/dcompute)
+-   [Java](Java "wikilink"): [Aparapi](https://git.qoto.org/aparapi/aparapi) or [JOCL](https://jogamp.org/jocl/www/) (a
+    part of [JogAmp](https://jogamp.org/))
+-   [Mono/.NET](Mono "wikilink"): [Open Toolkit](https://sourceforge.net/projects/opentk/)
+-   [Go](Go "wikilink"): [OpenCL bindings for Go](https://github.com/samuel/go-opencl)
+-   **Racket**: Racket has a native interface [on
+    PLaneT](http://planet.racket-lang.org/display.ss?owner=jaymccarthy&package=opencl.plt) that can be installed via
+    raco.
+-   [Rust](Rust "wikilink"): [ocl](https://github.com/cogciprocate/ocl)
+-   [Julia](Julia "wikilink"): [OpenCL.jl](https://github.com/JuliaGPU/OpenCL.jl)
 
 ## SYCL
 
-According to [Wikipedia:SYCL](Wikipedia:SYCL "Wikipedia:SYCL"){.wikilink}:
+According to [Wikipedia:SYCL](Wikipedia:SYCL "wikilink"):
 
 > SYCL is a higher-level programming model to improve programming productivity on various hardware accelerators. It is a
 > single-source embedded domain-specific language (eDSL) based on pure C++17.
@@ -353,31 +326,28 @@ compilers that target other intermediate representations also exist.
 
 ### Implementations
 
-- ```{=mediawiki}
-  {{AUR|trisycl-git}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|trisycl-git}}
+    ```
+    : Open source implementation mainly driven by Xilinx.
 
-  :   Open source implementation mainly driven by Xilinx.
+-   ```{=mediawiki}
+    {{AUR|adaptivecpp}}
+    ```
+    : Compiler for multiple programming models (SYCL, C++ standard parallelism, HIP/CUDA) for CPUs and GPUs from all
+    vendors.
 
-- ```{=mediawiki}
-  {{AUR|adaptivecpp}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|intel-oneapi-dpcpp-cpp}}
+    ```
+    : Intel\'s Data Parallel C++: the LLVM/oneAPI Implementation of SYCL.
 
-  :   Compiler for multiple programming models (SYCL, C++ standard parallelism, HIP/CUDA) for CPUs and GPUs from all
-      vendors.
-
-- ```{=mediawiki}
-  {{Pkg|intel-oneapi-dpcpp-cpp}}
-  ```
-
-  :   Intel\'s Data Parallel C++: the LLVM/oneAPI Implementation of SYCL.
-
-- ```{=mediawiki}
-  {{AUR|computecpp}}
-  ```
-  Codeplay\'s proprietary implementation of SYCL 1.2.1. Can target SPIR, SPIR-V and experimentally PTX (NVIDIA) as
-  device targets (ends of support on 1st september 2023, will get merged into intel llvm implementation
-  [Source](https://codeplay.com/portal/news/2023/07/07/the-future-of-computecpp)).
+-   ```{=mediawiki}
+    {{AUR|computecpp}}
+    ```
+    Codeplay\'s proprietary implementation of SYCL 1.2.1. Can target SPIR, SPIR-V and experimentally PTX (NVIDIA) as
+    device targets (ends of support on 1st september 2023, will get merged into intel llvm implementation
+    [Source](https://codeplay.com/portal/news/2023/07/07/the-future-of-computecpp)).
 
 #### oneAPI
 
@@ -392,10 +362,10 @@ enables GPU offloading of the Math Kernel Library (MKL) to be supported.
 #### Checking for SPIR support {#checking_for_spir_support}
 
 SYCL was originally intended to be compiled to [SPIR or
-SPIR-V](Wikipedia:Standard_Portable_Intermediate_Representation "SPIR or SPIR-V"){.wikilink}. Both are intermediate
-languages designed by Khronos that can be consumed by an OpenCL driver. SPIR is included as a OpenCL 1.0 or 2.0
-extension while SPIR-V is included in OpenCL core from version 2.1 onwards (`{{ic|clCreateProgramWithIL}}`{=mediawiki}).
-To check whether SPIR or SPIR-V are supported `{{pkg|clinfo}}`{=mediawiki} can be used:
+SPIR-V](Wikipedia:Standard_Portable_Intermediate_Representation "wikilink"). Both are intermediate languages designed by
+Khronos that can be consumed by an OpenCL driver. SPIR is included as a OpenCL 1.0 or 2.0 extension while SPIR-V is
+included in OpenCL core from version 2.1 onwards (`{{ic|clCreateProgramWithIL}}`{=mediawiki}). To check whether SPIR or
+SPIR-V are supported `{{pkg|clinfo}}`{=mediawiki} can be used:
 
 ```{=mediawiki}
 {{hc|head=$ clinfo {{!}}
@@ -450,27 +420,27 @@ SYCL requires a working C++11 environment to be set up.
 There are a few open source libraries available for making use of the parallel capabilities in SYCL from its C++17
 language:
 
-- [ComputeCpp SDK](https://github.com/codeplaysoftware/computecpp-sdk/): Collection of code examples,
-  `{{Pkg|cmake}}`{=mediawiki} integration for ComputeCpp
-- [SYCL-DNN](https://github.com/codeplaysoftware/SYCL-DNN): Neural network performance primitives
-- [SYCL-BLAS](https://github.com/codeplaysoftware/SYCL-BLAS): Linear algebra performance primitives
-- [VisionCpp](https://github.com/codeplaysoftware/visioncpp): Computer Vision library
-- [SYCL Parallel STL](https://github.com/KhronosGroup/SyclParallelSTL): GPU implementation of the C++17 parallel
-  algorithms
+-   [ComputeCpp SDK](https://github.com/codeplaysoftware/computecpp-sdk/): Collection of code examples,
+    `{{Pkg|cmake}}`{=mediawiki} integration for ComputeCpp
+-   [SYCL-DNN](https://github.com/codeplaysoftware/SYCL-DNN): Neural network performance primitives
+-   [SYCL-BLAS](https://github.com/codeplaysoftware/SYCL-BLAS): Linear algebra performance primitives
+-   [VisionCpp](https://github.com/codeplaysoftware/visioncpp): Computer Vision library
+-   [SYCL Parallel STL](https://github.com/KhronosGroup/SyclParallelSTL): GPU implementation of the C++17 parallel
+    algorithms
 
 ## CUDA
 
-[CUDA](Wikipedia:CUDA "CUDA"){.wikilink} (Compute Unified Device Architecture) is
-[NVIDIA](NVIDIA "NVIDIA"){.wikilink}\'s proprietary, closed-source parallel computing architecture and framework. It
-requires an NVIDIA GPU, and consists of several components:
+[CUDA](Wikipedia:CUDA "wikilink") (Compute Unified Device Architecture) is [NVIDIA](NVIDIA "wikilink")\'s proprietary,
+closed-source parallel computing architecture and framework. It requires an NVIDIA GPU, and consists of several
+components:
 
-- Required:
-  - Proprietary NVIDIA kernel module
-  - CUDA \"driver\" and \"runtime\" libraries
-- Optional:
-  - Additional libraries: CUBLAS, CUFFT, CUSPARSE, etc.
-  - CUDA toolkit, including the `{{ic|nvcc}}`{=mediawiki} compiler
-  - CUDA SDK, which contains many code samples and examples of CUDA and OpenCL programs
+-   Required:
+    -   Proprietary NVIDIA kernel module
+    -   CUDA \"driver\" and \"runtime\" libraries
+-   Optional:
+    -   Additional libraries: CUBLAS, CUFFT, CUSPARSE, etc.
+    -   CUDA toolkit, including the `{{ic|nvcc}}`{=mediawiki} compiler
+    -   CUDA SDK, which contains many code samples and examples of CUDA and OpenCL programs
 
 The kernel module and CUDA \"driver\" library are shipped in `{{Pkg|nvidia}}`{=mediawiki} and
 `{{Pkg|opencl-nvidia}}`{=mediawiki}. The \"runtime\" library and the rest of the CUDA toolkit are available in
@@ -489,21 +459,21 @@ samples](https://github.com/nvidia/cuda-samples). One way to check the installat
 
 ### Language bindings {#language_bindings_1}
 
-- **Fortran**: [PGI CUDA Fortran Compiler](https://www.pgroup.com/resources/cudafortran.htm)
-- [Haskell](Haskell "Haskell"){.wikilink}: The [accelerate package](https://hackage.haskell.org/package/accelerate)
-  lists available CUDA backends
-- [Java](Java "Java"){.wikilink}: [JCuda](http://www.jcuda.org/jcuda/JCuda.html)
-- [Mathematica](Mathematica "Mathematica"){.wikilink}:
-  [CUDAlink](https://reference.wolfram.com/mathematica/CUDALink/tutorial/Overview.html)
-- [Mono/.NET](Mono "Mono/.NET"){.wikilink}: [CUDAfy.NET](https://github.com/rapiddev/CUDAfy.NET),
-  [managedCuda](https://github.com/kunzmi/managedCuda)
-- [Perl](Perl "Perl"){.wikilink}: [KappaCUDA](https://metacpan.org/pod/KappaCUDA),
-  [CUDA-Minimal](https://github.com/run4flat/perl-CUDA-Minimal)
-- [Python](Python "Python"){.wikilink}: `{{pkg|python-pycuda}}`{=mediawiki}
-- [Ruby](Ruby "Ruby"){.wikilink}: [rbcuda](https://github.com/SciRuby/rbcuda)
-- [Rust](Rust "Rust"){.wikilink}: [Rust-CUDA](https://github.com/Rust-GPU/Rust-CUDA). Unmaintained:
-  [cuda-sys](https://github.com/rust-cuda/cuda-sys) (bindings), [RustaCUDA](https://github.com/bheisler/rustacuda)
-  (high-level wrapper).
+-   **Fortran**: [PGI CUDA Fortran Compiler](https://www.pgroup.com/resources/cudafortran.htm)
+-   [Haskell](Haskell "wikilink"): The [accelerate package](https://hackage.haskell.org/package/accelerate) lists
+    available CUDA backends
+-   [Java](Java "wikilink"): [JCuda](http://www.jcuda.org/jcuda/JCuda.html)
+-   [Mathematica](Mathematica "wikilink"):
+    [CUDAlink](https://reference.wolfram.com/mathematica/CUDALink/tutorial/Overview.html)
+-   [Mono/.NET](Mono "wikilink"): [CUDAfy.NET](https://github.com/rapiddev/CUDAfy.NET),
+    [managedCuda](https://github.com/kunzmi/managedCuda)
+-   [Perl](Perl "wikilink"): [KappaCUDA](https://metacpan.org/pod/KappaCUDA),
+    [CUDA-Minimal](https://github.com/run4flat/perl-CUDA-Minimal)
+-   [Python](Python "wikilink"): `{{pkg|python-pycuda}}`{=mediawiki}
+-   [Ruby](Ruby "wikilink"): [rbcuda](https://github.com/SciRuby/rbcuda)
+-   [Rust](Rust "wikilink"): [Rust-CUDA](https://github.com/Rust-GPU/Rust-CUDA). Unmaintained:
+    [cuda-sys](https://github.com/rust-cuda/cuda-sys) (bindings), [RustaCUDA](https://github.com/bheisler/rustacuda)
+    (high-level wrapper).
 
 ## ROCm
 
@@ -525,8 +495,8 @@ Other generations may work with unofficial or partial support. To support Polari
 `{{ic|1=ROC_ENABLE_PRE_VEGA=1}}`{=mediawiki}.
 
 It takes some time for newer AMD GPU architectures to be added to ROCm; see [Wikipedia:ROCm#Consumer-grade
-GPUs](Wikipedia:ROCm#Consumer-grade_GPUs "Wikipedia:ROCm#Consumer-grade GPUs"){.wikilink} for an up-to-date support
-matrix. Also see [#OpenCL on AMD/ATI GPU](#OpenCL_on_AMD/ATI_GPU "#OpenCL on AMD/ATI GPU"){.wikilink} from before.
+GPUs](Wikipedia:ROCm#Consumer-grade_GPUs "wikilink") for an up-to-date support matrix. Also see [#OpenCL on AMD/ATI
+GPU](#OpenCL_on_AMD/ATI_GPU "wikilink") from before.
 
 ### HIP
 
@@ -539,24 +509,21 @@ is hardware-agnostic.
 
 HIP runtime library packages:
 
-- ```{=mediawiki}
-  {{Pkg|rocm-hip-runtime}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|rocm-hip-runtime}}
+    ```
+    : The high-level runtime library, analogous to the OpenCL ICD loader.
 
-  :   The high-level runtime library, analogous to the OpenCL ICD loader.
+-   ```{=mediawiki}
+    {{Pkg|hip-runtime-amd}}
+    ```
+    : Implementation of HIP for AMD GPUs.
 
-- ```{=mediawiki}
-  {{Pkg|hip-runtime-amd}}
-  ```
-
-  :   Implementation of HIP for AMD GPUs.
-
-- ```{=mediawiki}
-  {{Pkg|hip-runtime-nvidia}}
-  ```
-
-  :   The Heterogeneous Interface for NVIDIA GPUs in ROCm. This is really just a bunch of header files for the CUDA C++
-      compiler mostly consisting of `{{ic|#define}}`{=mediawiki} renames.
+-   ```{=mediawiki}
+    {{Pkg|hip-runtime-nvidia}}
+    ```
+    : The Heterogeneous Interface for NVIDIA GPUs in ROCm. This is really just a bunch of header files for the CUDA C++
+    compiler mostly consisting of `{{ic|#define}}`{=mediawiki} renames.
 
 The `{{Pkg|rocm-hip-sdk}}`{=mediawiki} package includes the HIP SDK. All components are installed in the directory
 `{{ic|/opt/rocm}}`{=mediawiki}. The script that sets the relevant environment variables is provided in
@@ -582,99 +549,97 @@ OpenMP is better-known for its use in CPU multiprocessing, but it also supports 
 GPGPUs. OpenACC is in a similar position: both are based on inserting pragmas into ordinary C/C++/Fortran code and
 having the compiler split out the marked part for offloading or multiprocessing.
 
-- AMD provides an implementation of OpenMP for ROCm-capable AMD GPUs. The `{{AUR|openmp-extras}}`{=mediawiki} package
-  provides [AOMP](https://github.com/ROCm-Developer-Tools/aomp) - an open source Clang/LLVM based compiler with added
-  support for the OpenMP API on AMD GPUs.
-- Nvidia\'s `{{Pkg|nvhpc}}`{=mediawiki} provides OpenMP implementation with GPU offloading on their GPUs.
-  [1](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html#using-openmp)
-- GCC can generate Nvidia (nvptx) and AMD (gfx9, gfx10, gfx11) code for offloading OpenMP and OpenACC
-  [2](https://gcc.gnu.org/wiki/Offloading).
-- Clang/LLVM can generate Nvidia (nvptx) and AMD (amdgpu) code for offloading OpenMP and OpenACC
-  [3](https://clang.llvm.org/docs/OffloadingDesign.html) [4](https://clang.llvm.org/docs/ClangOffloadBundler.html).
+-   AMD provides an implementation of OpenMP for ROCm-capable AMD GPUs. The `{{AUR|openmp-extras}}`{=mediawiki} package
+    provides [AOMP](https://github.com/ROCm-Developer-Tools/aomp) - an open source Clang/LLVM based compiler with added
+    support for the OpenMP API on AMD GPUs.
+-   Nvidia\'s `{{Pkg|nvhpc}}`{=mediawiki} provides OpenMP implementation with GPU offloading on their GPUs.
+    [1](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html#using-openmp)
+-   GCC can generate Nvidia (nvptx) and AMD (gfx9, gfx10, gfx11) code for offloading OpenMP and OpenACC
+    [2](https://gcc.gnu.org/wiki/Offloading).
+-   Clang/LLVM can generate Nvidia (nvptx) and AMD (amdgpu) code for offloading OpenMP and OpenACC
+    [3](https://clang.llvm.org/docs/OffloadingDesign.html) [4](https://clang.llvm.org/docs/ClangOffloadBundler.html).
 
 ## List of GPGPU accelerated software {#list_of_gpgpu_accelerated_software}
 
 ```{=mediawiki}
 {{Expansion|More application may support GPGPU.}}
 ```
-- [Bitcoin](Bitcoin "Bitcoin"){.wikilink}
+-   [Bitcoin](Bitcoin "wikilink")
 
-- [Blender](Blender "Blender"){.wikilink} -- CUDA support for Nvidia GPUs and HIP support for AMD GPUs. More information
-  in [5](https://docs.blender.org/manual/en/latest/render/cycles/gpu_rendering.html).
+-   [Blender](Blender "wikilink") -- CUDA support for Nvidia GPUs and HIP support for AMD GPUs. More information in
+    [5](https://docs.blender.org/manual/en/latest/render/cycles/gpu_rendering.html).
 
-- [BOINC](BOINC "BOINC"){.wikilink} -- some projects provide OpenCL and/or CUDA programs
+-   [BOINC](BOINC "wikilink") -- some projects provide OpenCL and/or CUDA programs
 
-- ```{=mediawiki}
-  {{AUR|cuda_memtest}}
-  ```
-  -- a GPU memtest. Despite its name, is supports both CUDA and OpenCL.
+-   ```{=mediawiki}
+    {{AUR|cuda_memtest}}
+    ```
+    -- a GPU memtest. Despite its name, is supports both CUDA and OpenCL.
 
-- ```{=mediawiki}
-  {{Pkg|darktable}}
-  ```
-  -- OpenCL feature requires at least 1 GB RAM on GPU and *Image support* (check output of clinfo command).
+-   ```{=mediawiki}
+    {{Pkg|darktable}}
+    ```
+    -- OpenCL feature requires at least 1 GB RAM on GPU and *Image support* (check output of clinfo command).
 
-- [DaVinci Resolve](DaVinci_Resolve "DaVinci Resolve"){.wikilink} - a non-linear video editor. Can use both OpenCL and
-  CUDA.
+-   [DaVinci Resolve](DaVinci_Resolve "wikilink") - a non-linear video editor. Can use both OpenCL and CUDA.
 
-- [FFmpeg](FFmpeg "FFmpeg"){.wikilink} -- more information in [6](https://trac.ffmpeg.org/wiki/HWAccelIntro#OpenCL).
-  - [HandBrake](HandBrake "HandBrake"){.wikilink}
+-   [FFmpeg](FFmpeg "wikilink") -- more information in [6](https://trac.ffmpeg.org/wiki/HWAccelIntro#OpenCL).
+    -   [HandBrake](HandBrake "wikilink")
 
-- [Folding@home](Folding@home "Folding@home"){.wikilink} -- uses OpenCL and CUDA versions of the molecular simulation
-  software GROMACS
+-   [Folding@home](Folding@home "wikilink") -- uses OpenCL and CUDA versions of the molecular simulation software
+    GROMACS
 
-- [GIMP](GIMP "GIMP"){.wikilink} -- experimental -- more information in
-  [7](https://www.h-online.com/open/news/item/GIMP-2-8-RC-1-arrives-with-GPU-acceleration-1518417.html).
+-   [GIMP](GIMP "wikilink") -- experimental -- more information in
+    [7](https://www.h-online.com/open/news/item/GIMP-2-8-RC-1-arrives-with-GPU-acceleration-1518417.html).
 
-- [Hashcat](Hashcat "Hashcat"){.wikilink}
+-   [Hashcat](Hashcat "wikilink")
 
-- ```{=mediawiki}
-  {{Pkg|imagemagick}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|imagemagick}}
+    ```
 
-- [LibreOffice](LibreOffice "LibreOffice"){.wikilink} Calc -- more information in
-  [8](https://help.libreoffice.org/Calc/OpenCL_Options).
+-   [LibreOffice](LibreOffice "wikilink") Calc -- more information in
+    [8](https://help.libreoffice.org/Calc/OpenCL_Options).
 
-- [mpv](mpv "mpv"){.wikilink} - See [mpv#Hardware video
-  acceleration](mpv#Hardware_video_acceleration "mpv#Hardware video acceleration"){.wikilink}.
+-   [mpv](mpv "wikilink") - See [mpv#Hardware video acceleration](mpv#Hardware_video_acceleration "wikilink").
 
-- ```{=mediawiki}
-  {{AUR|lc0}}
-  ```
-  \- Used for searching the neural network (supports tensorflow, OpenCL, CUDA, and openblas)
+-   ```{=mediawiki}
+    {{AUR|lc0}}
+    ```
+    \- Used for searching the neural network (supports tensorflow, OpenCL, CUDA, and openblas)
 
-- [opencl-benchmark](https://github.com/ProjectPhysX/OpenCL-Benchmark) - simple FP64/FP32/FP16/INT64/INT32/INT16/INT8
-  and memory/PCIe bandwidth benchmarking tool for OpenCL
+-   [opencl-benchmark](https://github.com/ProjectPhysX/OpenCL-Benchmark) - simple FP64/FP32/FP16/INT64/INT32/INT16/INT8
+    and memory/PCIe bandwidth benchmarking tool for OpenCL
 
-- ```{=mediawiki}
-  {{Pkg|opencv}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|opencv}}
+    ```
 
-- [ollama](ollama "ollama"){.wikilink} - LLM inference software
+-   [ollama](ollama "wikilink") - LLM inference software
 
-- ```{=mediawiki}
-  {{AUR|llama.cpp-cuda}}
-  ```
-  , `{{AUR|llama.cpp-hip}}`{=mediawiki} - Port of Facebook\'s LLaMA model in C/C++
+-   ```{=mediawiki}
+    {{AUR|llama.cpp-cuda}}
+    ```
+    , `{{AUR|llama.cpp-hip}}`{=mediawiki} - Port of Facebook\'s LLaMA model in C/C++
 
-- ```{=mediawiki}
-  {{AUR|pyrit}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|pyrit}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|python-pytorch-cuda}}
-  ```
-  , `{{Pkg|python-pytorch-rocm}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{Pkg|python-pytorch-cuda}}
+    ```
+    , `{{Pkg|python-pytorch-rocm}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{Pkg|tensorflow-cuda}}
-  ```
-  , `{{AUR|tensorflow-computecpp}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{Pkg|tensorflow-cuda}}
+    ```
+    , `{{AUR|tensorflow-computecpp}}`{=mediawiki}
 
-- ```{=mediawiki}
-  {{Pkg|xmrig}}
-  ```
-  \- High Perf CryptoNote CPU and GPU (OpenCL, CUDA) miner
+-   ```{=mediawiki}
+    {{Pkg|xmrig}}
+    ```
+    \- High Perf CryptoNote CPU and GPU (OpenCL, CUDA) miner
 
 ### PyTorch on ROCm {#pytorch_on_rocm}
 
@@ -690,13 +655,13 @@ multiple versions of same `{{ic|.so}}`{=mediawiki}.
 
 ## See also {#see_also}
 
-- [OpenCL official homepage](https://www.khronos.org/opencl/)
-- [SYCL official homepage](https://www.khronos.org/sycl/)
-- [SPIR official homepage](https://www.khronos.org/spir/)
-- [CUDA Toolkit homepage](https://developer.nvidia.com/cuda-toolkit)
-- [Intel SDK for OpenCL Applications homepage](https://software.intel.com/en-us/intel-opencl)
-- [ComputeCpp official homepage](https://developer.codeplay.com/home/)`{{Dead link|2025|11|17|status=404}}`{=mediawiki}
-- [List of OpenCL frameworks applicable for different GPUs](https://gitlab.com/illwieckz/i-love-compute)
+-   [OpenCL official homepage](https://www.khronos.org/opencl/)
+-   [SYCL official homepage](https://www.khronos.org/sycl/)
+-   [SPIR official homepage](https://www.khronos.org/spir/)
+-   [CUDA Toolkit homepage](https://developer.nvidia.com/cuda-toolkit)
+-   [Intel SDK for OpenCL Applications homepage](https://software.intel.com/en-us/intel-opencl)
+-   [ComputeCpp official
+    homepage](https://developer.codeplay.com/home/)`{{Dead link|2025|11|17|status=404}}`{=mediawiki}
+-   [List of OpenCL frameworks applicable for different GPUs](https://gitlab.com/illwieckz/i-love-compute)
 
-[Category:Development](Category:Development "Category:Development"){.wikilink}
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

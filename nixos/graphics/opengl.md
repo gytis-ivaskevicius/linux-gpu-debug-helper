@@ -62,14 +62,15 @@ If `glxinfo` returns `Error: couldn't find RGB GLX visual or fbconfig`, ensure y
 
 ## Notes
 
+```{=html}
 <references group=note />
-
+```
 ## Related
 
-[Nixpkgs with OpenGL on non-NixOS](Nixpkgs_with_OpenGL_on_non-NixOS "Nixpkgs with OpenGL on non-NixOS"){.wikilink}
+[Nixpkgs with OpenGL on non-NixOS](Nixpkgs_with_OpenGL_on_non-NixOS "wikilink")
 
-[Category: Video](Category:_Video "Category: Video"){.wikilink}
+[Category: Video](Category:_Video "wikilink")
 
-[^1]: Renamed from `hardware.opengl.enable` in [NixOS](NixOS "NixOS"){.wikilink} 24.11
+[^1]: Renamed from `hardware.opengl.enable` in [NixOS](NixOS "wikilink") 24.11
 
-[^2]: Renamed from `hardware.opengl.driSupport32Bit` in [NixOS](NixOS "NixOS"){.wikilink} 24.11
+[^2]: Renamed from `hardware.opengl.driSupport32Bit` in [NixOS](NixOS "wikilink") 24.11

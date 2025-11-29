@@ -1,7 +1,7 @@
-[ja:AMDGPU PRO](ja:AMDGPU_PRO "ja:AMDGPU PRO"){.wikilink} [ru:AMDGPU PRO](ru:AMDGPU_PRO "ru:AMDGPU PRO"){.wikilink}
-[zh-hans:AMDGPU PRO](zh-hans:AMDGPU_PRO "zh-hans:AMDGPU PRO"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|AMDGPU}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki}
-`{{Related|DaVinci Resolve}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:AMDGPU PRO](ja:AMDGPU_PRO "wikilink") [ru:AMDGPU PRO](ru:AMDGPU_PRO "wikilink") [zh-hans:AMDGPU
+PRO](zh-hans:AMDGPU_PRO "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki}
+`{{Related|Vulkan}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki} `{{Related|DaVinci Resolve}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 `{{Archive|AMD has stopped releasing their proprietary components. See [https://www.amd.com/en/resources/support-articles/release-notes/RN-AMDGPU-UNIFIED-LINUX-25-10-1.html announcement]. [https://aur.archlinux.org/pkgbase/amdgpu-pro-installer amdgpu-pro-installer] is going to be deleted from AUR.}}`{=mediawiki}
 
 This page describes close source drivers for AMD GPUs.
@@ -20,12 +20,12 @@ AUR in the [amdgpu-pro-installer](https://aur.archlinux.org/pkgbase/amdgpu-pro-i
 by John Bridgman from AMD explaining why they still package close source drivers:
 
 :   These days our packaged drivers are mostly intended for:
-    - customers using slower moving enterprise/LTS distros which do not automatically pick up the latest graphics
-      drivers - we offer them both open source and proprietary/workstation options
-    - customers using workstation apps who need the extra performance/certification from a workstation-oriented driver
-      (although Marek has done a lot of great work over the last year to improve Mesa performance on workstation apps)
-    - The third target audience is customers looking for ready-to-go OpenCL, either for use with the packaged
-      open/closed drivers or with the upstream-based stack in a recent distro.
+    -   customers using slower moving enterprise/LTS distros which do not automatically pick up the latest graphics
+        drivers - we offer them both open source and proprietary/workstation options
+    -   customers using workstation apps who need the extra performance/certification from a workstation-oriented driver
+        (although Marek has done a lot of great work over the last year to improve Mesa performance on workstation apps)
+    -   The third target audience is customers looking for ready-to-go OpenCL, either for use with the packaged
+        open/closed drivers or with the upstream-based stack in a recent distro.
 
 There are several proprietary components: OpenGL, OpenCL, Vulkan and AMF. Sometimes you may want to use these components
 due to specific features that open source components may lack.
@@ -50,40 +50,35 @@ For proprietary OpenGL implementation, use the
 [amdgpu-pro-installer](https://aur.archlinux.org/pkgbase/amdgpu-pro-installer) package base. It contains all the
 following packages:
 
-- ```{=mediawiki}
-  {{AUR|amdgpu-pro-oglp}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|amdgpu-pro-oglp}}
+    ```
+    : For proprietary OpenGL implementation
 
-  :   For proprietary OpenGL implementation
+-   ```{=mediawiki}
+    {{AUR|lib32-amdgpu-pro-oglp}}
+    ```
+    : For proprietary OpenGL implementation 32 bit applications support
 
-- ```{=mediawiki}
-  {{AUR|lib32-amdgpu-pro-oglp}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|vulkan-amdgpu-pro}}
+    ```
+    : For proprietary Vulkan implementation
 
-  :   For proprietary OpenGL implementation 32 bit applications support
+-   ```{=mediawiki}
+    {{AUR|lib32-vulkan-amdgpu-pro}}
+    ```
+    : For proprietary Vulkan implementation 32 bit applications support
 
-- ```{=mediawiki}
-  {{AUR|vulkan-amdgpu-pro}}
-  ```
-
-  :   For proprietary Vulkan implementation
-
-- ```{=mediawiki}
-  {{AUR|lib32-vulkan-amdgpu-pro}}
-  ```
-
-  :   For proprietary Vulkan implementation 32 bit applications support
-
-- ```{=mediawiki}
-  {{AUR|amf-amdgpu-pro}}
-  ```
-  : For Advanced Media Framework implementation
+-   ```{=mediawiki}
+    {{AUR|amf-amdgpu-pro}}
+    ```
+    : For Advanced Media Framework implementation
 
 ```{=mediawiki}
 {{Note|OGLP is not a performance optimization of OpenGL, it is an all-new GL driver codebase written from scratch, based on the PAL architecture. in version > 22.20.5 it replaces the libgl.}}
 ```
-For available OpenCL implementations see [GPGPU#OpenCL on AMD/ATI
-GPU](GPGPU#OpenCL_on_AMD/ATI_GPU "GPGPU#OpenCL on AMD/ATI GPU"){.wikilink}.
+For available OpenCL implementations see [GPGPU#OpenCL on AMD/ATI GPU](GPGPU#OpenCL_on_AMD/ATI_GPU "wikilink").
 
 ## Usage
 
@@ -103,8 +98,8 @@ If it returns `{{ic|AMD}}`{=mediawiki}, then you are running open source driver.
 `{{ic|Advanced Micro Devices, Inc.}}`{=mediawiki} or `{{ic|ATI Technologies Inc.}}`{=mediawiki}, then you are running
 proprietary driver.
 
-Alternatively, run [glmark2](Benchmarking#glmark2 "glmark2"){.wikilink}. When using open driver, in OpenGL Information
-you will see:
+Alternatively, run [glmark2](Benchmarking#glmark2 "wikilink"). When using open driver, in OpenGL Information you will
+see:
 
 `   GL_VENDOR:     AMD`\
 `   GL_RENDERER:   Radeon RX 580 Series (POLARIS10, DRM 3.40.0, 5.10.7-arch1-1, LLVM 11.0.1)`\
@@ -119,15 +114,15 @@ But when using closed driver, you will see:
 ### Using proprietary Vulkan {#using_proprietary_vulkan}
 
 [AMD Vulkan Prefixes](https://gitlab.com/AndrewShark/amd-vulkan-prefixes) is a script for switching between different
-Vulkan implementations. [Install](Install "Install"){.wikilink} `{{AUR|amd-vulkan-prefixes}}`{=mediawiki} and prepend
-your application with the prefix you want. The executables provided are `{{ic|vk_radv}}`{=mediawiki} and
+Vulkan implementations. [Install](Install "wikilink") `{{AUR|amd-vulkan-prefixes}}`{=mediawiki} and prepend your
+application with the prefix you want. The executables provided are `{{ic|vk_radv}}`{=mediawiki} and
 `{{ic|vk_pro}}`{=mediawiki}. For example, to use the proprietary Vulkan implementation:
 
 `$ vk_pro vkmark`
 
 ### Using Advanced Multimedia Framework {#using_advanced_multimedia_framework}
 
-See [FFmpeg#AMD AMF](FFmpeg#AMD_AMF "FFmpeg#AMD AMF"){.wikilink}.
+See [FFmpeg#AMD AMF](FFmpeg#AMD_AMF "wikilink").
 
 ## Troubleshooting
 
@@ -139,7 +134,7 @@ Driver might not work as expected due to different MESA implementations.
 The symptom is the following: when you boot your machine, you get a black screen, but with your mouse cursor is moving
 normally.
 
-Unfortunately, [Reverse PRIME](PRIME#Reverse_PRIME "Reverse PRIME"){.wikilink} is not a solution. See the [developer
+Unfortunately, [Reverse PRIME](PRIME#Reverse_PRIME "wikilink") is not a solution. See the [developer
 response](https://gitlab.freedesktop.org/drm/amd/-/issues/985#note_359417).
 
 ### Uninstalling packages {#uninstalling_packages}
@@ -147,8 +142,7 @@ response](https://gitlab.freedesktop.org/drm/amd/-/issues/985#note_359417).
 If you are in trouble, for example, you cannot login to your system due to black screen, you can revert all back by
 uninstalling all packages related to AMDGPU PRO.
 
-Switch a [virtual console](virtual_console "virtual console"){.wikilink} (with e.g. `{{ic|Ctrl+Alt+F2}}`{=mediawiki}),
-login and run:
+Switch a [virtual console](virtual_console "wikilink") (with e.g. `{{ic|Ctrl+Alt+F2}}`{=mediawiki}), login and run:
 
 `# pacman -R $(pacman -Qg Radeon_Software_for_Linux | cut -f2 -d" ")`
 
@@ -173,24 +167,22 @@ Check which driver is currently in use:
 }}
 ```
 See [AMDGPU#Enable Southern Islands (SI) and Sea Islands (CIK)
-support](AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "AMDGPU#Enable Southern Islands (SI) and Sea Islands (CIK) support"){.wikilink}
-for more information.
+support](AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "wikilink") for more information.
 
 ### Firmware and AMD drivers {#firmware_and_amd_drivers}
 
 AMD drivers and firmware (especially recent firmware) can get out of sync and create issues or not work at all. You can
-search in the [journal](journal "journal"){.wikilink} for `{{ic|VCN}}`{=mediawiki}:
+search in the [journal](journal "wikilink") for `{{ic|VCN}}`{=mediawiki}:
 
 `system VCN FW Encode interface version=1.9, expected version=1.8`
 
-[Downgrading](Downgrading "Downgrading"){.wikilink} the firmware seems to fix the problem.
+[Downgrading](Downgrading "wikilink") the firmware seems to fix the problem.
 
 ```{=mediawiki}
 {{Tip|As of 2024-01-29 {{AUR|linux-firmware-git}} version 20240126.8fa621d2-1 works with 23.40 (6.0.1) driver.}}
 ```
 ## See also {#see_also}
 
-- [Gentoo:AMDGPU-PRO](Gentoo:AMDGPU-PRO "Gentoo:AMDGPU-PRO"){.wikilink}
+-   [Gentoo:AMDGPU-PRO](Gentoo:AMDGPU-PRO "wikilink")
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

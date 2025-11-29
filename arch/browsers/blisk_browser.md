@@ -5,23 +5,22 @@
 [Blisk](https://blisk.io) is a specialized web browser, made for web designers and web developers, made by Estonian
 company **SyncUI OÜ**. The browser is free to use with limited functionality, but in order to get full access to the
 development features, a paid subscription is required. The Blisk browser is based on Chrome, using
-[Chromium](Chromium "Chromium"){.wikilink} as its base.
+[Chromium](Chromium "wikilink") as its base.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{AUR|blisk-browser-stable}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{AUR|blisk-browser-stable}}`{=mediawiki} package.
 
 ### Add-ons {#add_ons}
 
-Blisk is based on [Chromium](Chromium "Chromium"){.wikilink} and has access to the Chrome Extension Store. However,
-while most extension should work just fine, there are possible issues, especially with more complex extensions, focusing
-on more Chrome specific functions and features. Hence, **not all of these add-ons actually work** with Blisk.
+Blisk is based on [Chromium](Chromium "wikilink") and has access to the Chrome Extension Store. However, while most
+extension should work just fine, there are possible issues, especially with more complex extensions, focusing on more
+Chrome specific functions and features. Hence, **not all of these add-ons actually work** with Blisk.
 
 ## Configuration
 
-Configuration of Blisk is possible through the menu, in the same way as it works with
-[Chromium](Chromium "Chromium"){.wikilink}. However, as with Chrome and other browsers, you can also access are more
-complex set of options and settings by using:
+Configuration of Blisk is possible through the menu, in the same way as it works with [Chromium](Chromium "wikilink").
+However, as with Chrome and other browsers, you can also access are more complex set of options and settings by using:
 
 [`chrome://settings`](chrome://settings)
 
@@ -33,14 +32,13 @@ Unless you know what you are doing, or are specifically told to change them, you
 ```
 ### KDE integration {#kde_integration}
 
-For integration into [Plasma](Plasma "Plasma"){.wikilink} install `{{Pkg|plasma-browser-integration}}`{=mediawiki}. See
-[KDE Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more details.
+For integration into [Plasma](Plasma "wikilink") install `{{Pkg|plasma-browser-integration}}`{=mediawiki}. See [KDE
+Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more details.
 
 ### PDF viewer plugin {#pdf_viewer_plugin}
 
-Blisk, like [Chromium](Chromium "Chromium"){.wikilink} and Google Chrome are bundled with the *Chromium PDF Viewer*
-plugin. If you do not want to use this plugin, check *Download PDFs* in
-`{{ic|chrome://settings/content/pdfDocuments}}`{=mediawiki}.
+Blisk, like [Chromium](Chromium "wikilink") and Google Chrome are bundled with the *Chromium PDF Viewer* plugin. If you
+do not want to use this plugin, check *Download PDFs* in `{{ic|chrome://settings/content/pdfDocuments}}`{=mediawiki}.
 
 ### Running on Xwayland {#running_on_xwayland}
 
@@ -54,15 +52,15 @@ crash. To prevent the GPU process from crashing, add the following flags:
 ```
 ### Native Wayland support {#native_wayland_support}
 
-Blisk supports native [Wayland](Wayland "Wayland"){.wikilink}, the same way Chromium does. This can be enabled with the
-following flags [1](https://chromium.googlesource.com/chromium/src/+/43cfb2f92a5cdc1a787d7326e74676884abf5052):
+Blisk supports native [Wayland](Wayland "wikilink"), the same way Chromium does. This can be enabled with the following
+flags [1](https://chromium.googlesource.com/chromium/src/+/43cfb2f92a5cdc1a787d7326e74676884abf5052):
 
 `--ozone-platform-hint=auto`
 
-The flag is also available via [browser flags menu](#chrome://_URLs "browser flags menu"){.wikilink}.
+The flag is also available via [browser flags menu](#chrome://_URLs "wikilink").
 
 This will select Wayland\'s Ozone backend when in wayland session. So you can use a single [desktop
-entry](desktop_entry "desktop entry"){.wikilink}, if you switch between X11 and Wayland often.
+entry](desktop_entry "wikilink"), if you switch between X11 and Wayland often.
 
 ```{=mediawiki}
 {{Note|When changing the "ozone-platform-hint" in browser flags menu, the browser will provide you a relaunch button. Do not use it, because the browser will still be relaunched in a platform it was before changing the flag. You need to close the browser, then open it.}}
@@ -73,7 +71,7 @@ also want to force newer GTK:
 
 `--gtk-version=4`
 
-If you are using [Fcitx5](Fcitx5 "Fcitx5"){.wikilink} and it does not work properly using the above flags, try using the
+If you are using [Fcitx5](Fcitx5 "wikilink") and it does not work properly using the above flags, try using the
 `{{ic|--enable-wayland-ime}}`{=mediawiki} flag instead of `{{ic|--gtk-version{{=}}`{=mediawiki}4}}.
 [2](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron)
 
@@ -92,14 +90,14 @@ The following tips and tricks should work for both Blisk and Chromium, unless ex
 
 A number of tweaks can be accessed via Chrome URLs. See **<chrome://chrome-urls>** for a complete list.
 
-- **<chrome://flags>** - access experimental features such as WebGL and rendering webpages with GPU, etc.
-- **<chrome://extensions>** - view, enable and disable the currently used Chromium extensions.
-- **<chrome://gpu>** - status of different GPU options.
-- **<chrome://sandbox>** - indicate sandbox status.
-- **<chrome://version>** - display version and switches used to invoke the active
-  `{{ic|/usr/bin/chromium}}`{=mediawiki}.
+-   **<chrome://flags>** - access experimental features such as WebGL and rendering webpages with GPU, etc.
+-   **<chrome://extensions>** - view, enable and disable the currently used Chromium extensions.
+-   **<chrome://gpu>** - status of different GPU options.
+-   **<chrome://sandbox>** - indicate sandbox status.
+-   **<chrome://version>** - display version and switches used to invoke the active
+    `{{ic|/usr/bin/chromium}}`{=mediawiki}.
 
-An automatically updated, complete listing of [Chromium](Chromium "Chromium"){.wikilink} / Blisk [command-line
+An automatically updated, complete listing of [Chromium](Chromium "wikilink") / Blisk [command-line
 parameters](https://peter.sh/experiments/chromium-command-line-switches/) is available.
 
 #### Blisk task manager {#blisk_task_manager}
@@ -148,13 +146,12 @@ you run the command, to avoid any problems:
 
 ##### Profile in tmpfs {#profile_in_tmpfs}
 
-Relocate the browser profile to a [tmpfs](Wikipedia:Tmpfs "tmpfs"){.wikilink} filesystem, including
-`{{ic|/tmp}}`{=mediawiki}, or `{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire
-profile is now stored in RAM.
+Relocate the browser profile to a [tmpfs](Wikipedia:Tmpfs "wikilink") filesystem, including `{{ic|/tmp}}`{=mediawiki},
+or `{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire profile is now stored in RAM.
 
 Use an active profile management tool such as `{{Pkg|profile-sync-daemon}}`{=mediawiki} for maximal reliability and ease
 of use. It symlinks or bind mounts and syncs the browser profile directories to RAM. For more, see
-[Profile-sync-daemon](Profile-sync-daemon "Profile-sync-daemon"){.wikilink}.
+[Profile-sync-daemon](Profile-sync-daemon "wikilink").
 
 #### Launch a new browser instance {#launch_a_new_browser_instance}
 
@@ -173,11 +170,11 @@ By default, Blisk downloads `{{ic|*.torrent}}`{=mediawiki} files directly and yo
 the bottom-left corner of the screen in order for the file to be opened with your default torrent client. This can be
 avoided with the following method:
 
-- Download a `{{ic|*.torrent}}`{=mediawiki} file.
-- Right-click the notification displayed at the bottom-left corner of the screen.
-- Check the \"*Always Open Files of This Type*\" checkbox.
+-   Download a `{{ic|*.torrent}}`{=mediawiki} file.
+-   Right-click the notification displayed at the bottom-left corner of the screen.
+-   Check the \"*Always Open Files of This Type*\" checkbox.
 
-See [xdg-open](xdg-open "xdg-open"){.wikilink} to change the default association.
+See [xdg-open](xdg-open "wikilink") to change the default association.
 
 #### Reduce memory usage {#reduce_memory_usage}
 
@@ -210,7 +207,7 @@ Suspender](https://chrome.google.com/webstore/detail/tab-suspender/fiabciakcmgep
 Chromium has a similar reader mode to Firefox. In Blisk, this is called DOM Distiller, which is an [open source
 project](https://github.com/chromium/dom-distiller). It is disabled by default, but can be enabled using the
 `{{Ic|chrome://flags/#enable-reader-mode}}`{=mediawiki} flag, which you can also make
-[persistent](Chromium#Making_flags_persistent "persistent"){.wikilink}.
+[persistent](Chromium#Making_flags_persistent "wikilink").
 
 Not only does DOM Distiller provide a better reading experience by distilling the content of the page, it also
 simplifies pages for print. Even though the latter checkbox option has been removed from the print dialog, you can still
@@ -235,7 +232,7 @@ there and configure Blisk to use a specific GPU with flags:
 
 #### Import bookmarks from Firefox {#import_bookmarks_from_firefox}
 
-To ease the transition, you can import bookmarks from [Firefox](Firefox "Firefox"){.wikilink} into Blisk.
+To ease the transition, you can import bookmarks from [Firefox](Firefox "wikilink") into Blisk.
 
 Navigate Blisk to `{{ic|chrome://settings/importData}}`{=mediawiki}
 
@@ -271,7 +268,7 @@ environment. [5](https://issues.chromium.org/issues/40811836)
 
 To enable this feature, launch your browser with the `{{ic|1=--enable-features=MiddleClickAutoscroll}}`{=mediawiki}
 flag. In case you want to make the option persistent, see [Chromium#Making flags
-persistent](Chromium#Making_flags_persistent "Chromium#Making flags persistent"){.wikilink}.
+persistent](Chromium#Making_flags_persistent "wikilink").
 
 ```{=mediawiki}
 {{Note|
@@ -282,4 +279,4 @@ persistent](Chromium#Making_flags_persistent "Chromium#Making flags persistent")
 ```{=mediawiki}
 {{Tip|Another option is to [[install]] {{AUR|chromium-extension-autoscroll}}, but this is not recommended since it is an outdated package and not official. Use it with caution.}}
 ```
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

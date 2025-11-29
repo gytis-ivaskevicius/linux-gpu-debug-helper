@@ -1,7 +1,7 @@
-[ja:マルチディスプレイ](ja:マルチディスプレイ "ja:マルチディスプレイ"){.wikilink}
-[zh-hans:Multihead](zh-hans:Multihead "zh-hans:Multihead"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Xorg}}`{=mediawiki} `{{Related|xrandr}}`{=mediawiki} `{{Related|NVIDIA#Multiple monitors}}`{=mediawiki}
-`{{Related|Extreme Multihead}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:マルチディスプレイ](ja:マルチディスプレイ "wikilink") [zh-hans:Multihead](zh-hans:Multihead "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|xrandr}}`{=mediawiki}
+`{{Related|NVIDIA#Multiple monitors}}`{=mediawiki} `{{Related|Extreme Multihead}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 **Multi-head**, **multi-screen**, **multi-display** or **multi-monitor** represent setups with multiple display devices
 attached to a single computer. This article provides a general description for several multi-head setup methods, and
@@ -19,9 +19,8 @@ provides some configuration examples.
 X Window System (X, X11) is the underlying graphical user interface (GUI) for most Unix/Linux computers that provide
 one. It was developed in 1984 at MIT. After about 35 years of development, tweaks, new features and ideas, it is
 generally acknowledged to be a bit of a beast. During the time of early development, the common configuration was a
-single running X that provided individual views to Xterminals on a
-[time-sharing](Wikipedia:_Time-sharing "time-sharing"){.wikilink} system. Today, X typically provides a single screen on
-a desktop or laptop.
+single running X that provided individual views to Xterminals on a [time-sharing](Wikipedia:_Time-sharing "wikilink")
+system. Today, X typically provides a single screen on a desktop or laptop.
 
 ```{=mediawiki}
 {{Note|There is still a rare configuration often called [[Xorg multiseat|Zaphod display]], which allows multiple users of a single computer to each have an independent set of display, mouse, and keyboard, as though they were using separate computers, but at a lower per-seat cost.}}
@@ -32,13 +31,13 @@ of thumb is that less configuration is better - that is, *only configure what th
 
 ## RandR
 
-[RandR](Wikipedia:RandR "RandR"){.wikilink} (**R**otate **and** **R**esize) is an [X Window
-System](Wikipedia:X_Window_System "X Window System"){.wikilink} extension, which allows clients to dynamically change
-(e.g. resize, rotate, reflect) screens. In most cases, it can fully replace the old Xinerama setup. See [an
+[RandR](Wikipedia:RandR "wikilink") (**R**otate **and** **R**esize) is an [X Window
+System](Wikipedia:X_Window_System "wikilink") extension, which allows clients to dynamically change (e.g. resize,
+rotate, reflect) screens. In most cases, it can fully replace the old Xinerama setup. See [an
 explanation](https://i3wm.org/docs/multi-monitor.html#_the_explanation) why RandR is better than Xinerama.
 
-RandR can be configured for the current session via the [xrandr](xrandr "xrandr"){.wikilink} tool, arandr or
-persistently via an [xorg.conf](xorg.conf "xorg.conf"){.wikilink} file.
+RandR can be configured for the current session via the [xrandr](xrandr "wikilink") tool, arandr or persistently via an
+[xorg.conf](xorg.conf "wikilink") file.
 
 ```{=mediawiki}
 {{Note|There are multiple ways to configure the same thing, you might have to experiment a little before you find the best configuration.}}
@@ -80,8 +79,7 @@ places the previous screen (`{{ic|HDMI1}}`{=mediawiki}) to the left of the speci
 
 Since randr version 1.5, it has been possible to combine monitors into one virtual display. This is an updated version
 of what was possible with Xinerama and works with open source drivers and does not require an Xorg restart. Some desktop
-environments do not support this feature yet. [Openbox](Openbox "Openbox"){.wikilink} has been tested and works with
-this feature.
+environments do not support this feature yet. [Openbox](Openbox "wikilink") has been tested and works with this feature.
 
 Get monitor list by doing `{{ic|xrandr --listmonitors}}`{=mediawiki}
 
@@ -122,8 +120,7 @@ EndSection
 The ID for each monitor can be found by running the `{{ic|$ xrandr -q}}`{=mediawiki} command and should be defined as
 `{{ic|Monitor-<ID>}}`{=mediawiki} inside the `{{ic|Device}}`{=mediawiki} section.
 
-See [Xrandr#Adding undetected
-resolutions](Xrandr#Adding_undetected_resolutions "Xrandr#Adding undetected resolutions"){.wikilink}.
+See [Xrandr#Adding undetected resolutions](Xrandr#Adding_undetected_resolutions "wikilink").
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/10-monitor.conf|
@@ -200,17 +197,17 @@ The following options allow you to automatically detect when a new display is co
 on that. This can be useful for laptop users who frequently work in multiple different environments that require
 different setups.
 
-- ```{=mediawiki}
-  {{Pkg|autorandr}}
-  ```
-  allows you to save your current [xrandr](xrandr "xrandr"){.wikilink} configuration as profiles based on what display
-  hardware is connected.
+-   ```{=mediawiki}
+    {{Pkg|autorandr}}
+    ```
+    allows you to save your current [xrandr](xrandr "wikilink") configuration as profiles based on what display hardware
+    is connected.
 
-- ```{=mediawiki}
-  {{AUR|mons}}
-  ```
-  or `{{AUR|mons-git}}`{=mediawiki} is a shell script to quickly manage 2-monitors display using
-  [xrandr](xrandr "xrandr"){.wikilink}.
+-   ```{=mediawiki}
+    {{AUR|mons}}
+    ```
+    or `{{AUR|mons-git}}`{=mediawiki} is a shell script to quickly manage 2-monitors display using
+    [xrandr](xrandr "wikilink").
 
 ## Separate screens {#separate_screens}
 
@@ -240,11 +237,11 @@ away from you if you are working on another screen - each screen is quite indepe
 
 ## TwinView
 
-TwinView is [NVIDIA](NVIDIA "NVIDIA"){.wikilink}\'s extension which makes two monitors attached to a video card appear
-as a single screen. TwinView provides Xinerama extensions so that applications are aware there are two monitors
-connected, and thus it is incompatible with Xinerama. However, if you only have two monitors and they are both connected
-to the same NVIDIA card, there is little difference between TwinView and Xinerama (although in this situation TwinView
-may offer slightly better performance.)
+TwinView is [NVIDIA](NVIDIA "wikilink")\'s extension which makes two monitors attached to a video card appear as a
+single screen. TwinView provides Xinerama extensions so that applications are aware there are two monitors connected,
+and thus it is incompatible with Xinerama. However, if you only have two monitors and they are both connected to the
+same NVIDIA card, there is little difference between TwinView and Xinerama (although in this situation TwinView may
+offer slightly better performance.)
 
 If you wish to attach more than two monitors or monitors attached to other video cards, you will need to use Xinerama
 instead of TwinView. Likewise, as of April 2012, both monitors must be in the same orientation - you cannot have one in
@@ -254,18 +251,18 @@ In the past, TwinView was the only way to get OpenGL acceleration with NVIDIA ca
 between screens. However modern versions of the NVIDIA closed-source driver are able to provide OpenGL acceleration even
 when using Xinerama.
 
-See [NVIDIA#TwinView](NVIDIA#TwinView "NVIDIA#TwinView"){.wikilink} for an example configuration.
+See [NVIDIA#TwinView](NVIDIA#TwinView "wikilink") for an example configuration.
 
 ## Xinerama
 
-[Xinerama](Wikipedia:Xinerama "Xinerama"){.wikilink} is the old way of doing genuine multihead X. Xinerama combines all
-monitors into a single screen (`{{ic|:0}}`{=mediawiki}) making it possible to drag windows between screens.
+[Xinerama](Wikipedia:Xinerama "wikilink") is the old way of doing genuine multihead X. Xinerama combines all monitors
+into a single screen (`{{ic|:0}}`{=mediawiki}) making it possible to drag windows between screens.
 
-Xinerama is configured via custom [X configuration files](Xorg#Configuration "X configuration files"){.wikilink}. There
-is also a GUI tool named [WideGuy](https://openapplibrary.org/project/wideguy) to make toggling Xinerama easier. Note
-that to use WideGuy you still need an Xorg configuration with a ServerLayout section.
+Xinerama is configured via custom [X configuration files](Xorg#Configuration "wikilink"). There is also a GUI tool named
+[WideGuy](https://openapplibrary.org/project/wideguy) to make toggling Xinerama easier. Note that to use WideGuy you
+still need an Xorg configuration with a ServerLayout section.
 
-Here are some [X configuration](Xorg#Configuration "X configuration"){.wikilink} examples:
+Here are some [X configuration](Xorg#Configuration "wikilink") examples:
 
 This is a ServerLayout section which controls where each monitor sits relative to the others.
 
@@ -400,7 +397,7 @@ EndSection
 ```
 ## See also {#see_also}
 
-- [\'How I got Dual Monitors with Nouveau Driver\' forums thread](https://bbs.archlinux.org/viewtopic.php?pid=652861)
-- [Six-headed, Six-user Linux System](https://linuxgazette.net/124/smith.html)
+-   [\'How I got Dual Monitors with Nouveau Driver\' forums thread](https://bbs.archlinux.org/viewtopic.php?pid=652861)
+-   [Six-headed, Six-user Linux System](https://linuxgazette.net/124/smith.html)
 
-[Category:X server](Category:X_server "Category:X server"){.wikilink}
+[Category:X server](Category:X_server "wikilink")

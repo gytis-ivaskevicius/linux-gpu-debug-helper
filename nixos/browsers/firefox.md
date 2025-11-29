@@ -344,9 +344,9 @@ xdg.portal = {
 
 `</translate>`{=html} `<translate>`{=html}
 
-- [Home Manager](Home_Manager "Home Manager"){.wikilink} -- Declarative per-user configuration
-- [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
-- [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
+-   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
+-   [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
+-   [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
 
 `</translate>`{=html} `<translate>`{=html}
 
@@ -354,7 +354,6 @@ xdg.portal = {
 
 `</translate>`{=html}
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
-Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
 
 [^1]: Mozilla Foundation, \"Firefox\", Official Website, Accessed June 2025. <https://www.mozilla.org/firefox>

@@ -31,8 +31,7 @@ Use `gnome-libsecret` for GNOME Keyring and `kwallet6` for KDE Plasma 6
 })
 ```
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
-Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
 
 [^1]: <https://github.com/NixOS/nixpkgs/pull/292148>
 

@@ -1,6 +1,6 @@
-[ja:Urban Terror](ja:Urban_Terror "ja:Urban Terror"){.wikilink} [Urban Terror™](https://www.urbanterror.info/) is a free
-multiplayer first person shooter developed by FrozenSand, that will run on any Quake III Arena compatible engine. It is
-available for Windows, Linux and Macintosh.
+[ja:Urban Terror](ja:Urban_Terror "wikilink") [Urban Terror™](https://www.urbanterror.info/) is a free multiplayer first
+person shooter developed by FrozenSand, that will run on any Quake III Arena compatible engine. It is available for
+Windows, Linux and Macintosh.
 
 Urban Terror can be described as a Hollywood tactical shooter; somewhat realism based, but the motto is \"fun over
 realism\". This results in a very unique, enjoyable and addictive game.
@@ -9,8 +9,8 @@ realism\". This results in a very unique, enjoyable and addictive game.
 
 ### Client
 
-Urban Terror has been dropped to AUR (see `{{Bug|54262#comment158955}}`{=mediawiki}) :
-[install](install "install"){.wikilink} `{{aur|urbanterror}}`{=mediawiki}.
+Urban Terror has been dropped to AUR (see `{{Bug|54262#comment158955}}`{=mediawiki}) : [install](install "wikilink")
+`{{aur|urbanterror}}`{=mediawiki}.
 
 ## Mapping
 
@@ -18,7 +18,7 @@ A quick introduction on how to create your own maps.
 
 ### Install a map editor {#install_a_map_editor}
 
-[Install](Install "Install"){.wikilink} `{{AUR|gtkradiant-git}}`{=mediawiki}.
+[Install](Install "wikilink") `{{AUR|gtkradiant-git}}`{=mediawiki}.
 
 ### Prepare the game files {#prepare_the_game_files}
 
@@ -59,7 +59,7 @@ Copy your compiled .bsp mapfile to `{{ic|~/.urbanterror/q3ut4/maps}}`{=mediawiki
 ### Running Urban Terror without a window manager {#running_urban_terror_without_a_window_manager}
 
 See [xinit#Starting applications without a window
-manager](xinit#Starting_applications_without_a_window_manager "xinit#Starting applications without a window manager"){.wikilink}.
+manager](xinit#Starting_applications_without_a_window_manager "wikilink").
 
 ## Troubleshooting
 
@@ -80,12 +80,12 @@ To remedy this, start UrbanTerror with an additional parameter from a terminal e
 
 ## External links {#external_links}
 
-- [Urban Terror homepage](https://www.urbanterror.info)
-- [UT-Forums: Level Design Linklist](https://www.urbanterror.info/forums/topic/141-level-design-links/)
-- [Debian + GTKRadiant + Urban Terror
-  HOW-TO](https://web.archive.org/web/20130522091327/http://daffy.nerius.com/radiant/)
-- [UT-Forums: Urban Terror GTKRadiant
-  Tutorial](https://www.urbanterror.info/forums/topic/13539-complete-linux-gtkradiant-urt-mapping-how-to/page__hl__urtpack__fromsearch__1__s__0bed93b96b8f19a3707143f46acfb964)
-  *Please note* that the example from this guide has no light and Urban Terror will just display black walls.
+-   [Urban Terror homepage](https://www.urbanterror.info)
+-   [UT-Forums: Level Design Linklist](https://www.urbanterror.info/forums/topic/141-level-design-links/)
+-   [Debian + GTKRadiant + Urban Terror
+    HOW-TO](https://web.archive.org/web/20130522091327/http://daffy.nerius.com/radiant/)
+-   [UT-Forums: Urban Terror GTKRadiant
+    Tutorial](https://www.urbanterror.info/forums/topic/13539-complete-linux-gtkradiant-urt-mapping-how-to/page__hl__urtpack__fromsearch__1__s__0bed93b96b8f19a3707143f46acfb964)
+    *Please note* that the example from this guide has no light and Urban Terror will just display black walls.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

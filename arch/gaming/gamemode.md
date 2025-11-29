@@ -1,5 +1,5 @@
-[ja:Gamemode](ja:Gamemode "ja:Gamemode"){.wikilink} [pl:GameMode](pl:GameMode "pl:GameMode"){.wikilink}
-[zh-hans:GameMode](zh-hans:GameMode "zh-hans:GameMode"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[ja:Gamemode](ja:Gamemode "wikilink") [pl:GameMode](pl:GameMode "wikilink")
+[zh-hans:GameMode](zh-hans:GameMode "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|MangoHud}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [GameMode](https://github.com/FeralInteractive/gamemode) is a daemon and library combo for Linux that allows games to
@@ -7,10 +7,10 @@ request a set of optimisations be temporarily applied to the host OS and/or a ga
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} `{{Pkg|gamemode}}`{=mediawiki} and `{{Pkg|lib32-gamemode}}`{=mediawiki}.
+[Install](Install "wikilink") `{{Pkg|gamemode}}`{=mediawiki} and `{{Pkg|lib32-gamemode}}`{=mediawiki}.
 
-Add yourself to the `{{ic|gamemode}}`{=mediawiki} [user group](user_group "user group"){.wikilink}. Without it, the
-GameMode user daemon will not have rights to change CPU governor or the niceness of processes.
+Add yourself to the `{{ic|gamemode}}`{=mediawiki} [user group](user_group "wikilink"). Without it, the GameMode user
+daemon will not have rights to change CPU governor or the niceness of processes.
 
 ## Configuration
 
@@ -66,15 +66,15 @@ configuration options must be set appropriately.
 ```
 #### AMD
 
-To alter the performance level of AMD GPUs, [overclocking](AMDGPU#Overclocking "overclocking"){.wikilink} must be
-manually enabled, and the `{{ic|amd_performance_level}}`{=mediawiki} configuration option must be set.
+To alter the performance level of AMD GPUs, [overclocking](AMDGPU#Overclocking "wikilink") must be manually enabled, and
+the `{{ic|amd_performance_level}}`{=mediawiki} configuration option must be set.
 
 #### NVIDIA
 
 To alter the performance level of NVIDIA GPUs,
-[overclocking](NVIDIA/Tips_and_tricks#Enabling_overclocking_in_nvidia-settings "overclocking"){.wikilink} must be
-manually enabled, and the `{{ic|nv_powermizer_mode}}`{=mediawiki}, `{{ic|nv_core_clock_mhz_offset}}`{=mediawiki}, and
-the `{{ic|nv_mem_clock_mhz_offset}}`{=mediawiki} configuration options must be set.
+[overclocking](NVIDIA/Tips_and_tricks#Enabling_overclocking_in_nvidia-settings "wikilink") must be manually enabled, and
+the `{{ic|nv_powermizer_mode}}`{=mediawiki}, `{{ic|nv_core_clock_mhz_offset}}`{=mediawiki}, and the
+`{{ic|nv_mem_clock_mhz_offset}}`{=mediawiki} configuration options must be set.
 
 ## Usage
 
@@ -92,7 +92,7 @@ To run a game with GameMode start it like this:
 
 #### Use with MangoHud {#use_with_mangohud}
 
-See [MangoHud#Use with GameMode](MangoHud#Use_with_GameMode "MangoHud#Use with GameMode"){.wikilink}
+See [MangoHud#Use with GameMode](MangoHud#Use_with_GameMode "wikilink")
 
 ### Verify that GameMode is running {#verify_that_gamemode_is_running}
 
@@ -105,15 +105,14 @@ When you have started your game you can verify that GameMode is running with the
 ```
 ### Run a single Steam game {#run_a_single_steam_game}
 
-To make [Steam](Steam "Steam"){.wikilink} start a game with GameMode, set its [launch
-command](Steam#Launch_options "launch command"){.wikilink}:
+To make [Steam](Steam "wikilink") start a game with GameMode, set its [launch command](Steam#Launch_options "wikilink"):
 
 `gamemoderun %command% [additional launch options]`
 
 ### Run Steam with GameMode {#run_steam_with_gamemode}
 
-To avoid having to change launch options for all Steam games, you may launch [Steam](Steam "Steam"){.wikilink} directly
-with GameMode:
+To avoid having to change launch options for all Steam games, you may launch [Steam](Steam "wikilink") directly with
+GameMode:
 
 `$ gamemoderun steam-runtime`
 
@@ -124,9 +123,9 @@ when a game is opened.
 
 ### Renicing fails when set to less than -10 {#renicing_fails_when_set_to_less_than__10}
 
-By default, GameMode provides [PAM](PAM "PAM"){.wikilink} limits that allow changing the scheduling priority up to a
-maximum of -10. If the `{{ic|renice}}`{=mediawiki} setting in the configuration file is set to an unsupported value,
-renicing of the process will fail entirely.
+By default, GameMode provides [PAM](PAM "wikilink") limits that allow changing the scheduling priority up to a maximum
+of -10. If the `{{ic|renice}}`{=mediawiki} setting in the configuration file is set to an unsupported value, renicing of
+the process will fail entirely.
 
 You can adjust the requested value or adjust the maximum scheduling priority GameMode can set by editing
 `{{ic|/etc/security/limits.d/10-gamemode.conf}}`{=mediawiki}. The example below configures -19 as the maximum scheduling
@@ -137,4 +136,4 @@ priority GameMode can set:
 @gamemode - nice -19
 }}
 ```
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

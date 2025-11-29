@@ -1,12 +1,12 @@
-[fr:CrossOver](fr:CrossOver "fr:CrossOver"){.wikilink} [ja:CrossOver](ja:CrossOver "ja:CrossOver"){.wikilink}
-[CrossOver](https://www.codeweavers.com/crossover) is the paid, commercialized version of [Wine](Wine "Wine"){.wikilink}
-which provides more comprehensive end-user support. It includes scripts, patches, a
-[GUI](wikipedia:Graphical_user_interface "GUI"){.wikilink}, and third-party software which may never be accepted in the
-Wine Project. This combination makes running Windows programs considerably easier for those less tech-savvy.
+[fr:CrossOver](fr:CrossOver "wikilink") [ja:CrossOver](ja:CrossOver "wikilink")
+[CrossOver](https://www.codeweavers.com/crossover) is the paid, commercialized version of [Wine](Wine "wikilink") which
+provides more comprehensive end-user support. It includes scripts, patches, a
+[GUI](wikipedia:Graphical_user_interface "wikilink"), and third-party software which may never be accepted in the Wine
+Project. This combination makes running Windows programs considerably easier for those less tech-savvy.
 
 ## Installation
 
-In this article it is suggested that you install the trial version of crossover. [Install](Install "Install"){.wikilink}
+In this article it is suggested that you install the trial version of crossover. [Install](Install "wikilink")
 `{{AUR|crossover}}`{=mediawiki} package.
 
 ## Usage
@@ -17,7 +17,7 @@ Windows applications and configuration files will be placed in `{{ic|~/.cxoffice
 If installed with root privileges in *multi-user shared mode*, Crossover binaries will be located in
 `{{ic|/opt/cxoffice}}`{=mediawiki}. Each user\'s bottles will be placed in `{{ic|~/.cxoffice}}`{=mediawiki}.
 
-Some desktop environments like [KDE](KDE "KDE"){.wikilink} may have automatically placed menu entries as part of the
+Some desktop environments like [KDE](KDE "wikilink") may have automatically placed menu entries as part of the
 installation process.
 
 Installed programs should be located under a new menu entry called *Window Applications*.
@@ -38,5 +38,4 @@ Although the `{{ic|libSM.so}}`{=mediawiki} library was not shown in the cxdiag l
 in the log file. The library belongs to the `{{Pkg|libsm}}`{=mediawiki} package. If you are having problems getting your
 application to run, check its installation status.
 
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Emulation](Category:Emulation "wikilink") [Category:Gaming](Category:Gaming "wikilink")

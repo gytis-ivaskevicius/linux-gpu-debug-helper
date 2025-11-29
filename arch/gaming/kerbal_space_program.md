@@ -1,5 +1,5 @@
-[ja:Kerbal Space Program](ja:Kerbal_Space_Program "ja:Kerbal Space Program"){.wikilink} As described on its website,
-[Kerbal Space Program](https://www.kerbalspaceprogram.com/) is a game where you:
+[ja:Kerbal Space Program](ja:Kerbal_Space_Program "wikilink") As described on its website, [Kerbal Space
+Program](https://www.kerbalspaceprogram.com/) is a game where you:
 
 :   take charge of the space program for the alien race known as the Kerbals. You have access to an array of parts to
     assemble fully-functional spacecraft that fly (or don't) based on realistic aerodynamic and orbital physics. Launch
@@ -11,7 +11,7 @@ so it may not work on Arch Linux out of the box.
 
 ## Installation
 
-Install Kerbal Space Program in the [Steam](Steam "Steam"){.wikilink} client if you bought that version of the game.
+Install Kerbal Space Program in the [Steam](Steam "wikilink") client if you bought that version of the game.
 
 For non Steam users, the Kerbal Space Program website currently offers a pre-built Linux version as a *.zip* file.
 Download and extract that file to your chosen install location, execute the game using:
@@ -43,14 +43,14 @@ This is also relevant if your rocket\'s parts do not connect.
 
 ### Game segfaults before launching, v1.1+ {#game_segfaults_before_launching_v1.1}
 
-The Unity 5 engine expects you to be running [PulseAudio](PulseAudio "PulseAudio"){.wikilink}. You can install
+The Unity 5 engine expects you to be running [PulseAudio](PulseAudio "wikilink"). You can install
 `{{AUR|pulsenomore}}`{=mediawiki} or download it from [the KSP bug
 tracker](https://bugs.kerbalspaceprogram.com/issues/7515#note-28) as a workaround until this is fixed by the Unity
 developers.
 
 ### No text display {#no_text_display}
 
-The game requires Arial and Arial Black fonts [installed](install "install"){.wikilink}, provided in the
+The game requires Arial and Arial Black fonts [installed](install "wikilink"), provided in the
 `{{AUR|ttf-ms-fonts}}`{=mediawiki} package.
 
 Another alternative is to try to use `{{Pkg|gnu-free-fonts}}`{=mediawiki}.
@@ -100,7 +100,7 @@ Alternatively, to launch it from steam, set the following launch option:
 ### No audio on 64-bit systems {#no_audio_on_64_bit_systems}
 
 Run the 64-bit executable: see [#Game has garbled graphics when running on x86_64 with all lib32 drivers
-installed](#Game_has_garbled_graphics_when_running_on_x86_64_with_all_lib32_drivers_installed "#Game has garbled graphics when running on x86_64 with all lib32 drivers installed"){.wikilink}.
+installed](#Game_has_garbled_graphics_when_running_on_x86_64_with_all_lib32_drivers_installed "wikilink").
 
 Alternatively, right click on Kerbal Space Program on your game list, click on Properties, click on SET LAUNCH OPTIONS,
 then add:
@@ -141,7 +141,7 @@ This may work for other Unity3D games as well.
 
 ## See also {#see_also}
 
-- <https://wiki.kerbalspaceprogram.com/wiki/Linux>!
-- <https://forum.kerbalspaceprogram.com/index.php?/topic/22561-the-linux-compatibility-thread/>!
+-   <https://wiki.kerbalspaceprogram.com/wiki/Linux>!
+-   <https://forum.kerbalspaceprogram.com/index.php?/topic/22561-the-linux-compatibility-thread/>!
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

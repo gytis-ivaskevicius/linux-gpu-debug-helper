@@ -2,13 +2,13 @@
 
 [Sober](https://sober.vinegarhq.org/) is a closed-source application that allows running [Roblox](https://roblox.com)
 under Linux. It downloads and manages the Android version of Roblox, featuring feature enhancements such as
-[GameMode](GameMode "GameMode"){.wikilink}.
+[GameMode](GameMode "wikilink").
 
 ## Installation
 
 Install Sober from [Flathub](https://flathub.org/apps/org.vinegarhq.Sober).
 
-Alternatively, install Sober from [Flatpak](Flatpak "Flatpak"){.wikilink} using the following command
+Alternatively, install Sober from [Flatpak](Flatpak "wikilink") using the following command
 
 `$ flatpak install --user flathub org.vinegarhq.Sober `
 
@@ -29,5 +29,4 @@ Having the `{{pkg|bubblewrap-suid}}`{=mediawiki} package installed causes Sober 
 remove the `{{pkg|bubblewrap-suid}}`{=mediawiki} package and replace it with the `{{pkg|bubblewrap}}`{=mediawiki}
 package instead.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Software](Category:Software "Category:Software"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Software](Category:Software "wikilink")

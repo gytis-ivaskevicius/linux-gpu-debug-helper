@@ -9,4 +9,4 @@ games. That is unless you allow the necessary UDP ports:
   networking.firewall.allowedUDPPorts = [ 27960 27961 27962 27963 ];
 ```
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

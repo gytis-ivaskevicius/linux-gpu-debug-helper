@@ -1,19 +1,19 @@
-[ja:Humble Bundle](ja:Humble_Bundle "ja:Humble Bundle"){.wikilink} [Humble Bundle](https://humblebundle.com) is a
-digital distributor of commercial video games, that stocks many titles with Linux support. It gained popularity with the
-sale of the \"Humble Indie Bundle\", raising funds for charities while selling games at a price set by the buyer.
+[ja:Humble Bundle](ja:Humble_Bundle "wikilink") [Humble Bundle](https://humblebundle.com) is a digital distributor of
+commercial video games, that stocks many titles with Linux support. It gained popularity with the sale of the \"Humble
+Indie Bundle\", raising funds for charities while selling games at a price set by the buyer.
 
 ## Purchase
 
 There are two purchasing methods:
 
-- *Humble Indie Bundles* --- time-limited promotions where a collection of games can be bought at a price determined by
-  the purchaser, with a low minimum.
-- *Humble Store* --- traditional (fixed-price, single-game) purchases, usually via a widget on the game developer\'s
-  website.
+-   *Humble Indie Bundles* --- time-limited promotions where a collection of games can be bought at a price determined
+    by the purchaser, with a low minimum.
+-   *Humble Store* --- traditional (fixed-price, single-game) purchases, usually via a widget on the game developer\'s
+    website.
 
 Both give you the exact same versions of the games, and in both cases the game ends up in your personal game library on
 the Humble Bundle website, from where you can download it. Some games have keys that can be used on an other platform,
-e.g. [Steam](Steam "Steam"){.wikilink}.
+e.g. [Steam](Steam "wikilink").
 
 ## Installation
 
@@ -27,7 +27,7 @@ required to make the game run error-free and help tracking the installed files.
 
 ### Using AUR packages {#using_aur_packages}
 
-[AUR](AUR "AUR"){.wikilink} packages for Humble Bundle games take care of all the steps required to make each game run.
+[AUR](AUR "wikilink") packages for Humble Bundle games take care of all the steps required to make each game run.
 
 These AUR package typically include the suffix `{{ic|-hib}}`{=mediawiki} in their name.
 
@@ -39,8 +39,8 @@ achieve this:
 ##### Manually copy/symlink the archive {#manually_copysymlink_the_archive}
 
 Manually download the game archive from your Humble Bundle library. Then copy or symlink the game archive to the
-[PKGBUILD](PKGBUILD "PKGBUILD"){.wikilink} folder. (You can look at the `{{ic|source}}`{=mediawiki} array in the
-PKGBUILD to see which exact archive file it expects.
+[PKGBUILD](PKGBUILD "wikilink") folder. (You can look at the `{{ic|source}}`{=mediawiki} array in the PKGBUILD to see
+which exact archive file it expects.
 
 ##### Register a download agent {#register_a_download_agent}
 
@@ -74,4 +74,4 @@ which case you will have to delete them from that subfolder, so that the game wi
 
 If you are unsure, ask on the [forum](https://bbs.archlinux.org/viewforum.php?id=32) for help.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -1,13 +1,12 @@
-[es:FoundryVTT](es:FoundryVTT "es:FoundryVTT"){.wikilink} [Foundry VTT](https://foundryvtt.com) is a standalone
-application built for experiencing multiplayer tabletop RPGs using a feature-rich and modern self-hosted application
-where your players connect directly through the browser.
+[es:FoundryVTT](es:FoundryVTT "wikilink") [Foundry VTT](https://foundryvtt.com) is a standalone application built for
+experiencing multiplayer tabletop RPGs using a feature-rich and modern self-hosted application where your players
+connect directly through the browser.
 
-**Foundry VTT** is [proprietary software](Wikipedia:Proprietary_software "proprietary software"){.wikilink}. A paid
-license must be acquired before using the software.
+**Foundry VTT** is [proprietary software](Wikipedia:Proprietary_software "wikilink"). A paid license must be acquired
+before using the software.
 
 These instructions show one of the possible ways to install Foundry VTT in an Arch Linux system. At the end of the
-process, the service should be accessible from a browser using [a secure
-connection](SSL "a secure connection"){.wikilink}.
+process, the service should be accessible from a browser using [a secure connection](SSL "wikilink").
 
 ```{=mediawiki}
 {{Note|This guide covers the Node.js version of Foundry VTT, which allows for greater customization. There is also a Linux/Electron version, which is what the {{AUR|foundryvtt}} package utilizes.}}
@@ -16,8 +15,8 @@ connection](SSL "a secure connection"){.wikilink}.
 
 ### Requirements
 
-Before installing Foundry VTT, you should have a working installation of [nginx](nginx "nginx"){.wikilink} and
-[Node.js](Node.js "Node.js"){.wikilink}.
+Before installing Foundry VTT, you should have a working installation of [nginx](nginx "wikilink") and
+[Node.js](Node.js "wikilink").
 
 ### Creating directories {#creating_directories}
 
@@ -29,8 +28,7 @@ First of all, create these directories to install the software and its data. You
 ### Creating a system user {#creating_a_system_user}
 
 Foundry VTT will be run by a system user. First, [create a system
-user](Users_and_groups#Example_adding_a_system_user "create a system user"){.wikilink} with the name **foundry** or any
-other name.
+user](Users_and_groups#Example_adding_a_system_user "wikilink") with the name **foundry** or any other name.
 
 `# useradd -r -s /usr/bin/nologin `*`foundry`*
 
@@ -72,9 +70,8 @@ Now stop the server using `{{ic|Ctrl+c}}`{=mediawiki}.
 
 ### Creating a service {#creating_a_service}
 
-One of the ways to run the software is using [systemd#Writing unit
-files](systemd#Writing_unit_files "systemd#Writing unit files"){.wikilink}. You can create a simple service for Foundry
-VTT:
+One of the ways to run the software is using [systemd#Writing unit files](systemd#Writing_unit_files "wikilink"). You
+can create a simple service for Foundry VTT:
 
 `[Unit]`\
 `Description=Foundry VTT`\
@@ -160,15 +157,15 @@ To configure a nginx proxy server for Foundry VTT you can use this example from 
 `    return 404;`\
 `}`
 
-You can get your certificates using [certbot](certbot "certbot"){.wikilink}.
+You can get your certificates using [certbot](certbot "wikilink").
 
 ### Running the service {#running_the_service}
 
-Now [start/enable](start/enable "start/enable"){.wikilink} both `{{ic|foundryvtt.service}}`{=mediawiki} and
+Now [start/enable](start/enable "wikilink") both `{{ic|foundryvtt.service}}`{=mediawiki} and
 `{{ic|nginx.service}}`{=mediawiki}.
 
-At this point you should be able to access the service from a [browser](browser "browser"){.wikilink} by pointing it at
-the *hostname* set earlier.
+At this point you should be able to access the service from a [browser](browser "wikilink") by pointing it at the
+*hostname* set earlier.
 
 ## Updating
 
@@ -184,8 +181,7 @@ which should be in `{{ic|/home/foundry/foundrydata}}`{=mediawiki} if following t
 
 `# rm -rf /home/foundry/foundryvtt/*`
 
-Download the new Node.js version using the timed URL from your account (see
-[#Downloading](#Downloading "#Downloading"){.wikilink}):
+Download the new Node.js version using the timed URL from your account (see [#Downloading](#Downloading "wikilink")):
 
 `# wget -O foundryvtt.zip "https://your-download-link-from-foundry-vtt.com-here/"`
 
@@ -194,4 +190,4 @@ Extract and set permissions:
 `# unzip foundryvtt.zip -d /home/foundry/foundryvtt`\
 `# chown -R foundry:foundry /home/foundry/foundryvtt`
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

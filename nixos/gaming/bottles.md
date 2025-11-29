@@ -1,5 +1,5 @@
-[Bottles](https://usebottles.com/) is an open source application that lets you manage your
-[Wine](Wine "Wine"){.wikilink} or Proton prefixes, and run Windows software within those prefixes.
+[Bottles](https://usebottles.com/) is an open source application that lets you manage your [Wine](Wine "wikilink") or
+Proton prefixes, and run Windows software within those prefixes.
 
 ## Installation
 
@@ -11,5 +11,4 @@ environment.systemPackages = with pkgs; [
 ];
 ```
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

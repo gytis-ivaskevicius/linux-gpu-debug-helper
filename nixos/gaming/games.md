@@ -25,27 +25,26 @@
 
 ## Other resources {#other_resources}
 
-- [List of existing games in nixpkgs](https://github.com/NixOS/nixpkgs/tree/master/pkgs/games)
-- [Open Source Game Clones](https://osgameclones.com/)
-- [open-source-games list on Github by bobeff](https://github.com/bobeff/open-source-games)
-- [100 highest rated (by stars on Github) playable open source
-  games](https://trilarion.github.io/opensourcegames/games/top.html)
-- [List of open-source video games
-  (en.wikipedia)](wikipedia:List_of_open-source_video_games "List of open-source video games (en.wikipedia)"){.wikilink}
-- [Topic \"open-source-game\" on github](https://github.com/topics/open-source-game)
+-   [List of existing games in nixpkgs](https://github.com/NixOS/nixpkgs/tree/master/pkgs/games)
+-   [Open Source Game Clones](https://osgameclones.com/)
+-   [open-source-games list on Github by bobeff](https://github.com/bobeff/open-source-games)
+-   [100 highest rated (by stars on Github) playable open source
+    games](https://trilarion.github.io/opensourcegames/games/top.html)
+-   [List of open-source video games (en.wikipedia)](wikipedia:List_of_open-source_video_games "wikilink")
+-   [Topic \"open-source-game\" on github](https://github.com/topics/open-source-game)
 
 ## Game starters {#game_starters}
 
 Games can be run by different applications. Some are able to include libraries from different plattforms.
 
-  Application                                           Platform                                                                  Remarks
-  ----------------------------------------------------- ------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------
-  [Steam](Steam "Steam"){.wikilink}                     Steam                                                                     Windows games work fine. Linux games are often incompatible due to how NixOS works.
-  [Lutris](Lutris "Lutris"){.wikilink}                  GOG, Humble Bundle, Epic, EA App, Ubisoft Connect, Steam, Flatpak, Wine   
-  [Heroic](Heroic_Games_Launcher "Heroic"){.wikilink}   Epic, GOG, Prime Gaming, Wine                                             
-  [Wine](Wine "Wine"){.wikilink}                        Windows applications/games                                                often easier to use Lutris install scripts for wine applications/games
-  nixpgs                                                Linux games                                                               There are several games in nixpgs. You can install them directly, e.g. vintagestory, flightgear, lots of racing games.
-  [Dosbox](Dosbox "Dosbox"){.wikilink}                  DOS applications/games                                                    
+  Application                                  Platform                                                                  Remarks
+  -------------------------------------------- ------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------
+  [Steam](Steam "wikilink")                    Steam                                                                     Windows games work fine. Linux games are often incompatible due to how NixOS works.
+  [Lutris](Lutris "wikilink")                  GOG, Humble Bundle, Epic, EA App, Ubisoft Connect, Steam, Flatpak, Wine   
+  [Heroic](Heroic_Games_Launcher "wikilink")   Epic, GOG, Prime Gaming, Wine                                             
+  [Wine](Wine "wikilink")                      Windows applications/games                                                often easier to use Lutris install scripts for wine applications/games
+  nixpgs                                       Linux games                                                               There are several games in nixpgs. You can install them directly, e.g. vintagestory, flightgear, lots of racing games.
+  [Dosbox](Dosbox "wikilink")                  DOS applications/games                                                    
 
 ## List of games {#list_of_games}
 
@@ -78,5 +77,4 @@ this is to add an overlay:
 Adding `libxkbcommon`, `mesa`, and `wayland` is straightforward. The game expects the shared library `sdnio.so.6.1` to
 exist, so we need to create a symbolic link after the installation of `sndio`.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")

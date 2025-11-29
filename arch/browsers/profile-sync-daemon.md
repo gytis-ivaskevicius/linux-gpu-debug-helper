@@ -1,15 +1,13 @@
-[ja:Profile-sync-daemon](ja:Profile-sync-daemon "ja:Profile-sync-daemon"){.wikilink}
-[ru:Profile-sync-daemon](ru:Profile-sync-daemon "ru:Profile-sync-daemon"){.wikilink}
-[zh-hans:Profile-sync-daemon](zh-hans:Profile-sync-daemon "zh-hans:Profile-sync-daemon"){.wikilink}
-`{{Related articles start}}`{=mediawiki} `{{Related|Anything-sync-daemon}}`{=mediawiki}
-`{{Related|Firefox}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related|Pdnsd}}`{=mediawiki}
-`{{Related|SSD}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:Profile-sync-daemon](ja:Profile-sync-daemon "wikilink") [ru:Profile-sync-daemon](ru:Profile-sync-daemon "wikilink")
+[zh-hans:Profile-sync-daemon](zh-hans:Profile-sync-daemon "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Anything-sync-daemon}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki}
+`{{Related|Pdnsd}}`{=mediawiki} `{{Related|SSD}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 ```{=mediawiki}
 {{pkg|profile-sync-daemon}}
 ```
 (psd) is a tiny pseudo-daemon designed to manage browser profile(s) in tmpfs and to periodically sync back to the
-physical disc (HDD/SSD). This is accomplished by an innovative use of [rsync](rsync "rsync"){.wikilink} to maintain
+physical disc (HDD/SSD). This is accomplished by an innovative use of [rsync](rsync "wikilink") to maintain
 synchronization between a tmpfs copy and media-bound backup of the browser profile(s). Additionally, psd provides
 several crash recovery features.
 
@@ -19,9 +17,9 @@ The design goals and benefits of psd are:
 2.  Reduced wear to physical drives
 3.  Speed
 
-Since the profile(s), browser cache, etc. are relocated into [tmpfs](tmpfs "tmpfs"){.wikilink} (RAM disk), the
-corresponding I/O associated with using the browser is also redirected from the physical drive to RAM, thus reducing
-wear to the physical drive and also greatly improving browser speed and responsiveness.
+Since the profile(s), browser cache, etc. are relocated into [tmpfs](tmpfs "wikilink") (RAM disk), the corresponding I/O
+associated with using the browser is also redirected from the physical drive to RAM, thus reducing wear to the physical
+drive and also greatly improving browser speed and responsiveness.
 
 ```{=mediawiki}
 {{Note|
@@ -31,7 +29,7 @@ wear to the physical drive and also greatly improving browser speed and responsi
 ```
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{pkg|profile-sync-daemon}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{pkg|profile-sync-daemon}}`{=mediawiki} package.
 
 ## Configuration
 
@@ -42,93 +40,92 @@ before using `{{ic|psd.service}}`{=mediawiki} to create this file without starti
 ```{=mediawiki}
 {{Note|Any edits made to this file while psd is active will be applied only after {{ic|psd.service}} has been [[restart]]ed.}}
 ```
-- Optionally enable the use of overlayfs to improve sync speed and to use a smaller memory footprint. Do this in the
-  `{{ic|USE_OVERLAYFS}}`{=mediawiki} variable. The user will require sudo rights to
-  `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} to use this option and the kernel must support overlayfs version 22
-  or higher. See [#Overlayfs mode](#Overlayfs_mode "#Overlayfs mode"){.wikilink} for additional details.
-- Optionally define which browsers are to be managed in the `{{ic|BROWSERS}}`{=mediawiki} array. If none are defined,
-  the default is all detected browsers.
-- Optionally disable the use of crash-recovery snapshots (not recommended). Do this in the
-  `{{ic|USE_BACKUPS}}`{=mediawiki} variable.
-- Optionally define the number of crash-recovery snapshots to keep. Do this in the `{{ic|BACKUP_LIMIT}}`{=mediawiki}
-  variable.
+-   Optionally enable the use of overlayfs to improve sync speed and to use a smaller memory footprint. Do this in the
+    `{{ic|USE_OVERLAYFS}}`{=mediawiki} variable. The user will require sudo rights to
+    `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} to use this option and the kernel must support overlayfs version 22
+    or higher. See [#Overlayfs mode](#Overlayfs_mode "wikilink") for additional details.
+-   Optionally define which browsers are to be managed in the `{{ic|BROWSERS}}`{=mediawiki} array. If none are defined,
+    the default is all detected browsers.
+-   Optionally disable the use of crash-recovery snapshots (not recommended). Do this in the
+    `{{ic|USE_BACKUPS}}`{=mediawiki} variable.
+-   Optionally define the number of crash-recovery snapshots to keep. Do this in the `{{ic|BACKUP_LIMIT}}`{=mediawiki}
+    variable.
 
 Example: Let us say that Chromium, Opera and Firefox are installed but only Chromium and Opera are to be sync\'ed to
 tmpfs since the user keeps Firefox as a backup browser and it is seldom used:
 
 `BROWSERS=(chromium opera)`
 
-Beginning with version 5.54 of psd, native support for [overlayfs](#Overlayfs_mode "overlayfs"){.wikilink} is included.
-This feature requires at least a Linux kernel version of 3.18.0 or greater.
+Beginning with version 5.54 of psd, native support for [overlayfs](#Overlayfs_mode "wikilink") is included. This feature
+requires at least a Linux kernel version of 3.18.0 or greater.
 
 ### Supported browsers {#supported_browsers}
 
 Currently, the following browsers are auto-detected and managed:
 
-- [Chromium](Chromium "Chromium"){.wikilink}
+-   [Chromium](Chromium "wikilink")
 
-- ```{=mediawiki}
-  {{AUR|conkeror-git}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|conkeror-git}}
+    ```
 
-- [Epiphany](Epiphany "Epiphany"){.wikilink}
+-   [Epiphany](Epiphany "wikilink")
 
-- ```{=mediawiki}
-  {{Pkg|falkon}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|falkon}}
+    ```
 
-- [Firefox](Firefox "Firefox"){.wikilink} (all flavors including stable, beta, and nightly)
+-   [Firefox](Firefox "wikilink") (all flavors including stable, beta, and nightly)
 
-- ```{=mediawiki}
-  {{AUR|google-chrome}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|google-chrome}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|google-chrome-beta}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|google-chrome-beta}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|google-chrome-dev}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|google-chrome-dev}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|icecat}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|icecat}}
+    ```
 
-- [Luakit](Luakit "Luakit"){.wikilink}
+-   [Luakit](Luakit "wikilink")
 
-- [Opera](Opera "Opera"){.wikilink}
+-   [Opera](Opera "wikilink")
 
-- [Otter Browser](Otter_Browser "Otter Browser"){.wikilink}
+-   [Otter Browser](Otter_Browser "wikilink")
 
-- ```{=mediawiki}
-  {{AUR|palemoon}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|palemoon}}
+    ```
 
-- [Qutebrowser](Qutebrowser "Qutebrowser"){.wikilink}
+-   [Qutebrowser](Qutebrowser "wikilink")
 
-- ```{=mediawiki}
-  {{AUR|seamonkey}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|seamonkey}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|surf}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|surf}}
+    ```
 
-- ```{=mediawiki}
-  {{Pkg|vivaldi}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|vivaldi}}
+    ```
 
-- ```{=mediawiki}
-  {{AUR|zen-browser}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|zen-browser}}
+    ```
 
 ## Usage
 
-[Start/enable](Start/enable "Start/enable"){.wikilink} the `{{ic|psd.service}}`{=mediawiki} [user
-unit](user_unit "user unit"){.wikilink}. Additionally, a provided resync-timer will run an hourly resync from tmpfs back
-to the disk. The resync-timer is started automatically with `{{ic|psd.service}}`{=mediawiki} so there is no need to
-manually start the timer.
+[Start/enable](Start/enable "wikilink") the `{{ic|psd.service}}`{=mediawiki} [user unit](user_unit "wikilink").
+Additionally, a provided resync-timer will run an hourly resync from tmpfs back to the disk. The resync-timer is started
+automatically with `{{ic|psd.service}}`{=mediawiki} so there is no need to manually start the timer.
 
 ### Preview (parse) mode {#preview_parse_mode}
 
@@ -141,9 +138,9 @@ and if any recovery snapshots have been created.
 ### Sync at more frequent intervals {#sync_at_more_frequent_intervals}
 
 The package provided re-sync timer triggers once per hour. Users may optionally redefine this behavior simply by
-[extending the systemd unit](Systemd#Editing_provided_units "extending the systemd unit"){.wikilink}. The example below
-changes the timer to sync once every ten minutes (note that `{{ic|OnUnitActiveSec}}`{=mediawiki} needs to be cleared
-before being re-assigned [1](https://bugzilla.redhat.com/show_bug.cgi?id=756787#c9)):
+[extending the systemd unit](Systemd#Editing_provided_units "wikilink"). The example below changes the timer to sync
+once every ten minutes (note that `{{ic|OnUnitActiveSec}}`{=mediawiki} needs to be cleared before being re-assigned
+[1](https://bugzilla.redhat.com/show_bug.cgi?id=756787#c9)):
 
 ```{=mediawiki}
 {{hc|~/.config/systemd/user/psd-resync.timer.d/frequency.conf|2=
@@ -167,12 +164,12 @@ overlayfs can be used to reduce the memory footprint of psd\'s tmpfs space and t
 The magic is in how the overlay mount only writes out data that has changed rather than the entire profile. The same
 recovery features psd uses in its default mode are also active when running in overlayfs mode. Overlayfs mode is enabled
 by uncommenting the `{{ic|1=USE_OVERLAYFS="yes"}}`{=mediawiki} line in
-`{{ic|$XDG_CONFIG_HOME/psd/psd.conf}}`{=mediawiki} followed by a [restart](restart "restart"){.wikilink} of the daemon.
+`{{ic|$XDG_CONFIG_HOME/psd/psd.conf}}`{=mediawiki} followed by a [restart](restart "wikilink") of the daemon.
 
-Since version 6.05 of psd, users wanting to take advantage of this mode MUST have [sudo](sudo "sudo"){.wikilink} rights
+Since version 6.05 of psd, users wanting to take advantage of this mode MUST have [sudo](sudo "wikilink") rights
 (without password prompt) to `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} or global sudo rights. The following line
-in `{{ic|/etc/sudoers}}`{=mediawiki} will supply a [user](user "user"){.wikilink} with these rights. Add it using
-[visudo](visudo "visudo"){.wikilink}:
+in `{{ic|/etc/sudoers}}`{=mediawiki} will supply a [user](user "wikilink") with these rights. Add it using
+[visudo](visudo "wikilink"):
 
 *`username`*` ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper`
 
@@ -212,11 +209,11 @@ different for you.
 
 To restore your snapshots:
 
-- [Stop](Stop "Stop"){.wikilink} the `{{ic|psd.service}}`{=mediawiki} [user unit](user_unit "user unit"){.wikilink}.
-- Confirm that there is no symlink to the tmpfs browser profile directory. If there is, psd did not stop correctly for
-  other reasons.
-- Move the \"bad\" copy of the profile to a backup (do not blindly delete anything).
-- Copy the snapshot directory to the name that browser expects.
+-   [Stop](Stop "wikilink") the `{{ic|psd.service}}`{=mediawiki} [user unit](user_unit "wikilink").
+-   Confirm that there is no symlink to the tmpfs browser profile directory. If there is, psd did not stop correctly for
+    other reasons.
+-   Move the \"bad\" copy of the profile to a backup (do not blindly delete anything).
+-   Copy the snapshot directory to the name that browser expects.
 
 Example using Chromium:
 
@@ -238,9 +235,9 @@ Post in the [discussion thread](https://bbs.archlinux.org/viewtopic.php?pid=1026
 
 ## See also {#see_also}
 
-- [Web Upd8 - Keep Your Browser Profiles In tmpfs (RAM) For Reduced Disk Writes And Increased Performance With Profile
-  Sync Daemon](http://www.webupd8.org/2013/02/keep-your-browser-profiles-in-tmpfs-ram.html)
-- [Nicolas Bernaerts - Tweaks for SSD
-  drive](https://web.archive.org/web/20220516124034/http://www.bernaerts-nicolas.fr/linux/74-ubuntu/250-ubuntu-tweaks-ssd)
+-   [Web Upd8 - Keep Your Browser Profiles In tmpfs (RAM) For Reduced Disk Writes And Increased Performance With Profile
+    Sync Daemon](http://www.webupd8.org/2013/02/keep-your-browser-profiles-in-tmpfs-ram.html)
+-   [Nicolas Bernaerts - Tweaks for SSD
+    drive](https://web.archive.org/web/20220516124034/http://www.bernaerts-nicolas.fr/linux/74-ubuntu/250-ubuntu-tweaks-ssd)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

@@ -1,12 +1,11 @@
-[de:Elinks](de:Elinks "de:Elinks"){.wikilink} [es:ELinks](es:ELinks "es:ELinks"){.wikilink}
-[fr:ELinks](fr:ELinks "fr:ELinks"){.wikilink} [ja:ELinks](ja:ELinks "ja:ELinks"){.wikilink}
-[pt:Elinks](pt:Elinks "pt:Elinks"){.wikilink} [ELinks](http://elinks.or.cz/) is an advanced and well-established
-feature-rich text mode web (HTTP/FTP/\...) browser. ELinks can render both frames and tables, is highly customizable and
-can be extended via Lua or Guile scripts. It features tabs and some support for CSS.
+[de:Elinks](de:Elinks "wikilink") [es:ELinks](es:ELinks "wikilink") [fr:ELinks](fr:ELinks "wikilink")
+[ja:ELinks](ja:ELinks "wikilink") [pt:Elinks](pt:Elinks "wikilink") [ELinks](http://elinks.or.cz/) is an advanced and
+well-established feature-rich text mode web (HTTP/FTP/\...) browser. ELinks can render both frames and tables, is highly
+customizable and can be extended via Lua or Guile scripts. It features tabs and some support for CSS.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|elinks}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|elinks}}`{=mediawiki} package.
 
 ## Usage
 
@@ -44,8 +43,7 @@ which is a form of JavaScript. Currently, the repo package does not build with t
 PKGBUILD can provide it.
 
 1.  Add `{{pkg|js128}}`{=mediawiki} and something that provides
-    [xxd](List_of_applications/Utilities#Hex_dumpers "xxd"){.wikilink} such as `{{pkg|vim}}`{=mediawiki} to the depends
-    array.
+    [xxd](List_of_applications/Utilities#Hex_dumpers "wikilink") such as `{{pkg|vim}}`{=mediawiki} to the depends array.
 2.  Add the following to the arch-meson bit in the package function: `<nowiki>`{=html}-D spidermonkey=true \\
 3.  `</nowiki>`{=html}
 
@@ -91,15 +89,14 @@ set mime.type.image.bmp = "image_viewer"}}
 ```
 ### Tor usage {#tor_usage}
 
-ELinks does not support [using a SOCKS proxy](using_a_SOCKS_proxy "using a SOCKS proxy"){.wikilink} directly.
-Alternatives are to either invoke ELinks through `{{ic|[[tor#Torsocks|torsocks]] elinks}}`{=mediawiki}, or
-[install](install "install"){.wikilink} the [privoxy](privoxy "privoxy"){.wikilink} package for forwarding to
-[Tor](Tor "Tor"){.wikilink}\'s SOCKS proxy, first by adding the following line to your
-`{{ic|/etc/privoxy/config}}`{=mediawiki}:
+ELinks does not support [using a SOCKS proxy](using_a_SOCKS_proxy "wikilink") directly. Alternatives are to either
+invoke ELinks through `{{ic|[[tor#Torsocks|torsocks]] elinks}}`{=mediawiki}, or [install](install "wikilink") the
+[privoxy](privoxy "wikilink") package for forwarding to [Tor](Tor "wikilink")\'s SOCKS proxy, first by adding the
+following line to your `{{ic|/etc/privoxy/config}}`{=mediawiki}:
 
 `forward-socks5 / localhost:9050 .`
 
-[Restart](Restart "Restart"){.wikilink} `{{ic|privoxy.service}}`{=mediawiki}, then enter the following lines to your
+[Restart](Restart "wikilink") `{{ic|privoxy.service}}`{=mediawiki}, then enter the following lines to your
 `{{ic|~/.elinks/elinks.conf}}`{=mediawiki}:
 
 `set protocol.http.proxy.host = "127.0.0.1:8118"`\
@@ -154,7 +151,7 @@ If this happens a lot, you might consider making this your default startup by ma
 
 ## See also {#see_also}
 
-- [Official web site](http://elinks.or.cz/)
-- [Howto: Use elinks like a pro](https://kmandla.wordpress.com/2007/05/06/howto-use-elinks-like-a-pro/)
+-   [Official web site](http://elinks.or.cz/)
+-   [Howto: Use elinks like a pro](https://kmandla.wordpress.com/2007/05/06/howto-use-elinks-like-a-pro/)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

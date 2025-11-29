@@ -38,8 +38,7 @@ the NixOS manual.
 ## Video acceleration {#video_acceleration}
 
 To enable hardware (GPU) accelerated video decoding and encoding you need to add additional entries in
-`hardware.graphics.extraPackages` (see [accelerated video
-playback](Accelerated_Video_Playback "accelerated video playback"){.wikilink}).
+`hardware.graphics.extraPackages` (see [accelerated video playback](Accelerated_Video_Playback "wikilink")).
 
 ## Quick Sync Video {#quick_sync_video}
 
@@ -82,4 +81,4 @@ In this example, \"46a8\" is the device ID. You can then add this to your config
 
     boot.kernelParams = [ "i915.force_probe=<device ID>" ];
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "wikilink")

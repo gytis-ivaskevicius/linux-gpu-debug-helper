@@ -1,19 +1,16 @@
-[de:Epiphany](de:Epiphany "de:Epiphany"){.wikilink} [es:GNOME
-(Español)/Web](es:GNOME_(Español)/Web "es:GNOME (Español)/Web"){.wikilink}
-[ja:GNOME/Web](ja:GNOME/Web "ja:GNOME/Web"){.wikilink} [ru:GNOME
-(Русский)/Web](ru:GNOME_(Русский)/Web "ru:GNOME (Русский)/Web"){.wikilink}
-[zh-hans:GNOME/Web](zh-hans:GNOME/Web "zh-hans:GNOME/Web"){.wikilink} Web is the default web browser for
-[GNOME](GNOME "GNOME"){.wikilink}. Web provides a simple and minimalist interface for accessing the internet. Whilst it
-is developed primarily for GNOME, Web works acceptably in other [desktop
-environments](desktop_environments "desktop environments"){.wikilink} as well.
+[de:Epiphany](de:Epiphany "wikilink") [es:GNOME (Español)/Web](es:GNOME_(Español)/Web "wikilink")
+[ja:GNOME/Web](ja:GNOME/Web "wikilink") [ru:GNOME (Русский)/Web](ru:GNOME_(Русский)/Web "wikilink")
+[zh-hans:GNOME/Web](zh-hans:GNOME/Web "wikilink") Web is the default web browser for [GNOME](GNOME "wikilink"). Web
+provides a simple and minimalist interface for accessing the internet. Whilst it is developed primarily for GNOME, Web
+works acceptably in other [desktop environments](desktop_environments "wikilink") as well.
 
 ```{=mediawiki}
 {{Note|Web was known as [https://apps.gnome.org/Epiphany Epiphany] prior to version 3.4.  The application was given new descriptive names, one for each supported language. The name ''Epiphany'' is still used in numerous places such as the executable name, some package names, some desktop entries, and some GSettings schemas.}}
 ```
 ## Installation
 
-Web can be [installed](install "install"){.wikilink} with the `{{Pkg|epiphany}}`{=mediawiki} package. If you want to
-save login passwords, install `{{Pkg|gnome-keyring}}`{=mediawiki}.
+Web can be [installed](install "wikilink") with the `{{Pkg|epiphany}}`{=mediawiki} package. If you want to save login
+passwords, install `{{Pkg|gnome-keyring}}`{=mediawiki}.
 
 ## Configuration
 
@@ -70,16 +67,15 @@ Use example below to set new tab page layout and colors according to Adwaita dar
 ```
 ### Fonts
 
-Web does not check GNOME font settings, but checks [Font
-configuration](Font_configuration "Font configuration"){.wikilink}.
+Web does not check GNOME font settings, but checks [Font configuration](Font_configuration "wikilink").
 
 ### Video
 
-See [GStreamer](GStreamer "GStreamer"){.wikilink} for required plugin installation.
+See [GStreamer](GStreamer "wikilink") for required plugin installation.
 
 To enable hardware accelerated video decoding, see [GStreamer#Hardware video
-acceleration](GStreamer#Hardware_video_acceleration "GStreamer#Hardware video acceleration"){.wikilink} and [#Hardware
-accelerated compositing](#Hardware_accelerated_compositing "#Hardware accelerated compositing"){.wikilink}.
+acceleration](GStreamer#Hardware_video_acceleration "wikilink") and [#Hardware accelerated
+compositing](#Hardware_accelerated_compositing "wikilink").
 
 ### Hardware accelerated compositing {#hardware_accelerated_compositing}
 
@@ -95,20 +91,18 @@ Web doesn\'t respect socks_proxy, instead, you can set http_proxy to a `{{ic|soc
 
 `export http_proxy=socks://127.0.0.1:1080`
 
-More information: [Proxy server#Environment
-variables](Proxy_server#Environment_variables "Proxy server#Environment variables"){.wikilink}
+More information: [Proxy server#Environment variables](Proxy_server#Environment_variables "wikilink")
 
 ### Spell checking {#spell_checking}
 
 By default, Web should work with your system language if the Spell Checking option is enabled in Preferences and
 relevant dictionaries are installed on your system. Additional languages have to be added to the Languages list in
 Web\'s preferences from a list of available ones. That list only shows languages for which the
-[Locale](Locale "Locale"){.wikilink} has been enabled on your system. The selection of languages in Preferences controls
-both spell checking and also the Accept-Language header.
+[Locale](Locale "wikilink") has been enabled on your system. The selection of languages in Preferences controls both
+spell checking and also the Accept-Language header.
 
 ## See also {#see_also}
 
-- [Web - Apps for GNOME](https://apps.gnome.org/Epiphany)
+-   [Web - Apps for GNOME](https://apps.gnome.org/Epiphany)
 
-[Category:GNOME](Category:GNOME "Category:GNOME"){.wikilink} [Category:Web
-browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:GNOME](Category:GNOME "wikilink") [Category:Web browser](Category:Web_browser "wikilink")

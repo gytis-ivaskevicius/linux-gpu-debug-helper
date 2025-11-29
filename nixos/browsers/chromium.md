@@ -12,12 +12,12 @@ Add `{{nixos:package|chromium}}`{=mediawiki} to
 In Chromium the policy settings, which can be accessed by using `{{Ic|chrome://policy}}`{=mediawiki}, allow the user to
 change a lot of settings that dont exist anywhere else such as
 
-- Creating webapps when the browser is installed
-- Finding and downloading browser extensions automatically
-- Enabling or disabling the dinosaur game when the device is offline
-- Disable screenshots to be taken with browser extensions
-- Block all downloads from the browser (if you want to do that for some reason)
-- and hundreds more settings
+-   Creating webapps when the browser is installed
+-   Finding and downloading browser extensions automatically
+-   Enabling or disabling the dinosaur game when the device is offline
+-   Disable screenshots to be taken with browser extensions
+-   Block all downloads from the browser (if you want to do that for some reason)
+-   and hundreds more settings
 
 ### Natively Supported Policies {#natively_supported_policies}
 
@@ -49,31 +49,32 @@ these are implemented
 
 `<translate>`{=html}
 
-- ```{=mediawiki}
-  {{Ic|homepageLocation}}
-  ```
-  option allows you to set the site that the homepage will open on
+-   ```{=mediawiki}
+    {{Ic|homepageLocation}}
+    ```
+    option allows you to set the site that the homepage will open on
 
-- ```{=mediawiki}
-  {{Ic|extensions}}
-  ```
-  allows for the download of extensions directly in the browser through a simple list of the extension ID\'s that can be
-  obtained from the [Chrome Web Store](https://chromewebstore.google.com/) by opening an extension page and copying the
-  last part of the URL
+-   ```{=mediawiki}
+    {{Ic|extensions}}
+    ```
+    allows for the download of extensions directly in the browser through a simple list of the extension ID\'s that can
+    be obtained from the [Chrome Web Store](https://chromewebstore.google.com/) by opening an extension page and copying
+    the last part of the URL
 
-  - In the example however there is another component, the download source from which the extensions will be downloaded
-  - The URL provided in the list is the link that is used by google for managing, checking and updating extensions
-  - So the method of just placing the extension ID can work like this:
-    `{{Ic|"fnpbehpgglbfnpimkachnpnecjncndgm"}}`{=mediawiki}
-  - But just in case that method does not automatically function the second method is shown above, where you place
-    `{{Ic|;}}`{=mediawiki} and then the URL `{{Ic|https //clients2.google.com/service/update2/crx}}`{=mediawiki} to
-    explicitly tell NixOS where to install the extension from
+    -   In the example however there is another component, the download source from which the extensions will be
+        downloaded
+    -   The URL provided in the list is the link that is used by google for managing, checking and updating extensions
+    -   So the method of just placing the extension ID can work like this:
+        `{{Ic|"fnpbehpgglbfnpimkachnpnecjncndgm"}}`{=mediawiki}
+    -   But just in case that method does not automatically function the second method is shown above, where you place
+        `{{Ic|;}}`{=mediawiki} and then the URL `{{Ic|https //clients2.google.com/service/update2/crx}}`{=mediawiki} to
+        explicitly tell NixOS where to install the extension from
 
-- There are many more options that are natively supported and you can learn about them through
-  `{{Ic|man configuration.nix}}`{=mediawiki}
+-   There are many more options that are natively supported and you can learn about them through
+    `{{Ic|man configuration.nix}}`{=mediawiki}
 
-- But as shown above there is also an `{{Ic|extraOpts}}`{=mediawiki} option and that is used for policies that are not
-  supported for direct setup, such as the policy to install web-apps
+-   But as shown above there is also an `{{Ic|extraOpts}}`{=mediawiki} option and that is used for policies that are not
+    supported for direct setup, such as the policy to install web-apps
 
 ### Non-natively Supported Policies {#non_natively_supported_policies}
 
@@ -82,22 +83,21 @@ supported directly and so the `{{Ic|extraOpts}}`{=mediawiki} option allows for t
 
 There is no one place to find all the policies and some places you can find a \"list\" are given below:
 
-- A good number of commonly used policies are present and explained within `{{Ic|man configuration.nix}}`{=mediawiki}
-  under `{{Ic|programs.chromium}}`{=mediawiki}
-- If you require a more comprehensive list then you can go to `{{Ic|chrome://policy}}`{=mediawiki} and click on the
-  checkbox at the top of the page that says \"Show policies with no value set\", from there you can click on any of the
-  policies to go to the documentation page for that policy to get details on how to use it
-- If you just want to see the list of all policies supported by chromium then you cant really do that, unfortunately
-  google does not provide documentation on every single policy in the chromium browser base and if you wish to see the
-  list of every single policy then you can do so by going directly to the source code and figuring out how a policy
-  works
-- To see the most up-to-date file on all policies you can go
-  [here](https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h)
+-   A good number of commonly used policies are present and explained within `{{Ic|man configuration.nix}}`{=mediawiki}
+    under `{{Ic|programs.chromium}}`{=mediawiki}
+-   If you require a more comprehensive list then you can go to `{{Ic|chrome://policy}}`{=mediawiki} and click on the
+    checkbox at the top of the page that says \"Show policies with no value set\", from there you can click on any of
+    the policies to go to the documentation page for that policy to get details on how to use it
+-   If you just want to see the list of all policies supported by chromium then you cant really do that, unfortunately
+    google does not provide documentation on every single policy in the chromium browser base and if you wish to see the
+    list of every single policy then you can do so by going directly to the source code and figuring out how a policy
+    works
+-   To see the most up-to-date file on all policies you can go
+    [here](https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h)
 
 ## Accelerated video playback {#accelerated_video_playback}
 
-Make sure [Accelerated Video
-Playback](Special:MyLanguage/Accelerated_Video_Playback "Accelerated Video Playback"){.wikilink} is setup on the system
+Make sure [Accelerated Video Playback](Special:MyLanguage/Accelerated_Video_Playback "wikilink") is setup on the system
 properly. Check `{{ic|chrome://gpu}}`{=mediawiki} to see if Chromium has enabled hardware acceleration.
 
 If accelerated video playback is not working, check relevant flags at `{{ic|chrome://flags}}`{=mediawiki}, or enable
@@ -214,7 +214,7 @@ programs.firejail = {
 };
 ```
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
-Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "Category:Web Browser{{#translation:}}"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Web
+Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "wikilink")
 
 [^1]: <https://chromeenterprise.google/policies/#ExtensionManifestV2Availability>

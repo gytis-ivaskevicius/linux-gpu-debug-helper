@@ -1,21 +1,17 @@
-[de:Wine](de:Wine "de:Wine"){.wikilink} [fr:Wine](fr:Wine "fr:Wine"){.wikilink} [hu:Wine](hu:Wine "hu:Wine"){.wikilink}
-[ja:Wine](ja:Wine "ja:Wine"){.wikilink} [ru:Wine](ru:Wine "ru:Wine"){.wikilink}
-[zh-hans:Wine](zh-hans:Wine "zh-hans:Wine"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:Wine](de:Wine "wikilink") [fr:Wine](fr:Wine "wikilink") [hu:Wine](hu:Wine "wikilink") [ja:Wine](ja:Wine "wikilink")
+[ru:Wine](ru:Wine "wikilink") [zh-hans:Wine](zh-hans:Wine "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|CrossOver}}`{=mediawiki} `{{Related|Wine package guidelines}}`{=mediawiki} `{{Related|Bottles}}`{=mediawiki}
 `{{Related|Proton}}`{=mediawiki} `{{Related|DOSBox}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Wine](Wikipedia:Wine_(software) "Wine"){.wikilink} is a [compatibility
-layer](Wikipedia:Compatibility_layer "compatibility layer"){.wikilink} capable of running [Microsoft
-Windows](Wikipedia:Microsoft_Windows "Microsoft Windows"){.wikilink} applications on
-[Unix-like](Wikipedia:Unix-like "Unix-like"){.wikilink} [operating
-systems](Wikipedia:Operating_system "operating systems"){.wikilink}.
+[Wine](Wikipedia:Wine_(software) "wikilink") is a [compatibility layer](Wikipedia:Compatibility_layer "wikilink")
+capable of running [Microsoft Windows](Wikipedia:Microsoft_Windows "wikilink") applications on
+[Unix-like](Wikipedia:Unix-like "wikilink") [operating systems](Wikipedia:Operating_system "wikilink").
 
-Wine does not use [emulation](Wikipedia:Emulator "emulation"){.wikilink}, [binary
-translation](Wikipedia:Binary_translation "binary translation"){.wikilink}, or
-[virtualization](Wikipedia:Virtualization "virtualization"){.wikilink} to operate. Instead, Wine provides an
-implementation of the [Win32 API](Wikipedia:Windows_API "Win32 API"){.wikilink} to applications that require it. As
-Wine\'s implementation of the Win32 API will naturally differ from what is provided by Microsoft Windows, applications
-may suffer behavioral, compatibility, or performance penalties when using Wine.
+Wine does not use [emulation](Wikipedia:Emulator "wikilink"), [binary
+translation](Wikipedia:Binary_translation "wikilink"), or [virtualization](Wikipedia:Virtualization "wikilink") to
+operate. Instead, Wine provides an implementation of the [Win32 API](Wikipedia:Windows_API "wikilink") to applications
+that require it. As Wine\'s implementation of the Win32 API will naturally differ from what is provided by Microsoft
+Windows, applications may suffer behavioral, compatibility, or performance penalties when using Wine.
 
 ```{=mediawiki}
 {{Warning|
@@ -33,14 +29,13 @@ stable or development branch yet.
 ```{=mediawiki}
 {{Tip|Consider installing {{pkg|wine-gecko}} and {{pkg|wine-mono}} for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed. However, you should [[System maintenance#Use the package manager to install software|manage them with pacman]].}}
 ```
-If using `{{AUR|wine-stable}}`{=mediawiki}, see [#Using 32-bit Wine
-builds](#Using_32-bit_Wine_builds "#Using 32-bit Wine builds"){.wikilink} for additional requirements.
+If using `{{AUR|wine-stable}}`{=mediawiki}, see [#Using 32-bit Wine builds](#Using_32-bit_Wine_builds "wikilink") for
+additional requirements.
 
 ### Optional dependencies {#optional_dependencies}
 
-Wine has numerous [optional dependencies](Optional_dependency "optional dependencies"){.wikilink}, which may not be
-required for basic applications, but should be installed to provide functionality such as sounds, 3D graphics, video
-playback, etc.
+Wine has numerous [optional dependencies](Optional_dependency "wikilink"), which may not be required for basic
+applications, but should be installed to provide functionality such as sounds, 3D graphics, video playback, etc.
 
 #### Sound
 
@@ -48,10 +43,10 @@ By default sound issues may arise when running Wine applications. Ensure only on
 
 ##### MIDI support {#midi_support}
 
-[MIDI](MIDI "MIDI"){.wikilink} was a quite popular system for video games music in the 90s. If you are trying out old
-games, it is not uncommon that the music will not play out of the box. Wine has excellent MIDI support. However you
-first need to make it work on your host system, as explained in [MIDI](MIDI "MIDI"){.wikilink}. Last but not least you
-need to make sure Wine will use the correct MIDI output, though by default, no extra configuration may be required.
+[MIDI](MIDI "wikilink") was a quite popular system for video games music in the 90s. If you are trying out old games, it
+is not uncommon that the music will not play out of the box. Wine has excellent MIDI support. However you first need to
+make it work on your host system, as explained in [MIDI](MIDI "wikilink"). Last but not least you need to make sure Wine
+will use the correct MIDI output, though by default, no extra configuration may be required.
 
 For MIDI tracks to play in-game, install Microsoft\'s General MIDI DLS Collection, DirectSound and DirectMusic using
 `{{ic|winetricks gmdls dsound directmusic}}`{=mediawiki} or by searching for them on the dependency manager if using
@@ -62,11 +57,11 @@ Bottles.
 Some applications may require additional packages
 [1](https://gitlab.winehq.org/wine/wine/-/wikis/Building-Wine#satisfying-build-dependencies).
 
-- For encryption support install `{{Pkg|gnutls}}`{=mediawiki}
-- For joystick and gamepad support install `{{Pkg|sdl2-compat}}`{=mediawiki}
-- For media playback programs install `{{Pkg|gst-plugins-base}}`{=mediawiki}, `{{Pkg|gst-plugins-good}}`{=mediawiki},
-  `{{Pkg|gst-plugins-bad}}`{=mediawiki}, `{{Pkg|gst-plugins-ugly}}`{=mediawiki} and `{{Pkg|ffmpeg}}`{=mediawiki}
-- For [NTLM](Wikipedia:NTLM "NTLM"){.wikilink} authentication install `{{Pkg|samba}}`{=mediawiki}
+-   For encryption support install `{{Pkg|gnutls}}`{=mediawiki}
+-   For joystick and gamepad support install `{{Pkg|sdl2-compat}}`{=mediawiki}
+-   For media playback programs install `{{Pkg|gst-plugins-base}}`{=mediawiki}, `{{Pkg|gst-plugins-good}}`{=mediawiki},
+    `{{Pkg|gst-plugins-bad}}`{=mediawiki}, `{{Pkg|gst-plugins-ugly}}`{=mediawiki} and `{{Pkg|ffmpeg}}`{=mediawiki}
+-   For [NTLM](Wikipedia:NTLM "wikilink") authentication install `{{Pkg|samba}}`{=mediawiki}
 
 ### In-prefix dependencies {#in_prefix_dependencies}
 
@@ -76,32 +71,31 @@ satisfy these dependencies you can use [Winetricks](https://github.com/Winetrick
 manager\" where each *verb* either installs something or applies a configuration tweak. There are two ways to use
 Winetricks:
 
-- Through the CLI: Run `{{ic|winetricks ''verb_name''}}`{=mediawiki}.
-- Through the GUI: Install `{{Pkg|zenity}}`{=mediawiki} or `{{Pkg|kdialog}}`{=mediawiki} then run
-  `{{ic|winetricks}}`{=mediawiki}.
+-   Through the CLI: Run `{{ic|winetricks ''verb_name''}}`{=mediawiki}.
+-   Through the GUI: Install `{{Pkg|zenity}}`{=mediawiki} or `{{Pkg|kdialog}}`{=mediawiki} then run
+    `{{ic|winetricks}}`{=mediawiki}.
 
 Due to conflicts between dependencies, you may not be able to create the \"perfect\" Windows installation that can run
 everything [3](https://github.com/Winetricks/winetricks/issues/1580#issuecomment-666604256)
 [4](https://github.com/Winetricks/winetricks/issues/469). Rather, you should treat prefixes as disposable (unless they
 contain important configurations or data) and use separate prefixes for programs with different dependencies. You can
-use the [#WINEPREFIX](#WINEPREFIX "#WINEPREFIX"){.wikilink} environment variable to control which prefix the verbs act
-on.
+use the [#WINEPREFIX](#WINEPREFIX "wikilink") environment variable to control which prefix the verbs act on.
 
 Determining the verbs required by a program needs can require much trial and error. See the [Bottles dependency
 page](https://usebottles.com/database/dependencies/) for some of the more common dependencies, as well as the following
 program-specific resources:
 
-- [Wine Application Database](https://appdb.winehq.org/). Official resource, but old and may be less maintained than
-  others.
-- [Lutris website](https://lutris.net/). If you are trying to run a game which happens to be featured on this site, you
-  can click the drop-down menu and then *View install script* to see what Winetricks verbs are used by Lutris.
-- [Bottles program repository](https://github.com/bottlesdevs/programs). Smaller, but not just games.
-- [ProtonDB](https://www.protondb.com/). Although Proton has different compatibility than Wine (and you should probably
-  just use Proton if you are on this site), the verbs commented by users may be of use.
-  - You can also consult the source for the fast-moving
-    [protonfixes](https://github.com/Open-Wine-Components/ULWGL-protonfixes/) tool that ships with
-    [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom), but beware that it assumes the presence of
-    additional Proton and GE patches that fix games.
+-   [Wine Application Database](https://appdb.winehq.org/). Official resource, but old and may be less maintained than
+    others.
+-   [Lutris website](https://lutris.net/). If you are trying to run a game which happens to be featured on this site,
+    you can click the drop-down menu and then *View install script* to see what Winetricks verbs are used by Lutris.
+-   [Bottles program repository](https://github.com/bottlesdevs/programs). Smaller, but not just games.
+-   [ProtonDB](https://www.protondb.com/). Although Proton has different compatibility than Wine (and you should
+    probably just use Proton if you are on this site), the verbs commented by users may be of use.
+    -   You can also consult the source for the fast-moving
+        [protonfixes](https://github.com/Open-Wine-Components/ULWGL-protonfixes/) tool that ships with
+        [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom), but beware that it assumes the presence
+        of additional Proton and GE patches that fix games.
 
 If you find yourself spending a lot of time managing prefixes for games, it may be easier to use a third-party
 application that handles it for you.
@@ -111,48 +105,48 @@ application that handles it for you.
 These have their own communities and websites, and are **not supported** by the main Wine community. See [Wine
 Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Third-Party-Applications) for more details.
 
-- ```{=mediawiki}
-  {{App|[[Bottles]]|Graphical prefix and runners manager for Wine based on GTK.|https://usebottles.com/|{{AUR|bottles}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|[[Bottles]]|Graphical prefix and runners manager for Wine based on GTK.|https://usebottles.com/|{{AUR|bottles}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|[[CrossOver]]|Official paid version of Wine which provides a graphical interface and more comprehensive end-user support.|https://www.codeweavers.com/crossover|{{AUR|crossover}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|[[CrossOver]]|Official paid version of Wine which provides a graphical interface and more comprehensive end-user support.|https://www.codeweavers.com/crossover|{{AUR|crossover}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|[[Wikipedia:Lutris|Lutris]]|Gaming launcher for all types of games, including Wine games (with prefix management), native Linux games and emulators.|https://lutris.net|{{Pkg|lutris}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:Lutris|Lutris]]|Gaming launcher for all types of games, including Wine games (with prefix management), native Linux games and emulators.|https://lutris.net|{{Pkg|lutris}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|[[Wikipedia:PlayOnLinux|PlayOnLinux]]|Graphical prefix manager for Wine. Contains scripts to assist with program installation and configuration.|https://www.playonlinux.com|{{AUR|playonlinux}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:PlayOnLinux|PlayOnLinux]]|Graphical prefix manager for Wine. Contains scripts to assist with program installation and configuration.|https://www.playonlinux.com|{{AUR|playonlinux}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|PyWinery|Simple graphical prefix manager for Wine.|https://github.com/ergoithz/pywinery|{{AUR|pywinery}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|PyWinery|Simple graphical prefix manager for Wine.|https://github.com/ergoithz/pywinery|{{AUR|pywinery}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Q4Wine|Graphical prefix manager for Wine. Can export [[Qt]] themes into the Wine configuration for better integration.|https://sourceforge.net/projects/q4wine/|{{AUR|q4wine-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Q4Wine|Graphical prefix manager for Wine. Can export [[Qt]] themes into the Wine configuration for better integration.|https://sourceforge.net/projects/q4wine/|{{AUR|q4wine-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|WINEgui|A user-friendly WINE graphical interface.|https://gitlab.melroy.org/melroy/winegui|{{AUR|winegui}},{{AUR|winegui-bin}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|WINEgui|A user-friendly WINE graphical interface.|https://gitlab.melroy.org/melroy/winegui|{{AUR|winegui}},{{AUR|winegui-bin}}}}
+    ```
 
 ## Configuration
 
 Configuring Wine is typically accomplished using:
 
-- [control](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/control) --- Wine\'s implementation of the [Windows
-  Control Panel](Wikipedia:Control_Panel_(Windows) "Windows Control Panel"){.wikilink}, which can be started by running
-  `{{ic|wine control}}`{=mediawiki},
-- [regedit](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/regedit) --- Wine\'s
-  [registry](Wikipedia:Windows_Registry "registry"){.wikilink} editing tool, which can be started by running
-  `{{ic|regedit}}`{=mediawiki}---see also [Useful Registry
-  Keys](https://gitlab.winehq.org/wine/wine/-/wikis/Useful-Registry-Keys),
-- [winecfg](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/winecfg) --- a
-  [GUI](Wikipedia:Graphical_user_interface "GUI"){.wikilink} configuration tool for Wine, which can be started by
-  running `{{ic|winecfg}}`{=mediawiki}.
+-   [control](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/control) --- Wine\'s implementation of the [Windows
+    Control Panel](Wikipedia:Control_Panel_(Windows) "wikilink"), which can be started by running
+    `{{ic|wine control}}`{=mediawiki},
+-   [regedit](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/regedit) --- Wine\'s
+    [registry](Wikipedia:Windows_Registry "wikilink") editing tool, which can be started by running
+    `{{ic|regedit}}`{=mediawiki}---see also [Useful Registry
+    Keys](https://gitlab.winehq.org/wine/wine/-/wikis/Useful-Registry-Keys),
+-   [winecfg](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/winecfg) --- a
+    [GUI](Wikipedia:Graphical_user_interface "wikilink") configuration tool for Wine, which can be started by running
+    `{{ic|winecfg}}`{=mediawiki}.
 
 See [Programs](https://gitlab.winehq.org/wine/wine/-/wikis/Commands#programs) for the full list.
 
@@ -167,9 +161,9 @@ your Windows programs will see as `{{ic|C:}}`{=mediawiki} (the C-drive).
 {{Note|Wine prefixes are not forward compatible. New versions of Wine will automatically upgrade old prefixes if necessary, at which point they may become broken for old Wine versions. [https://github.com/GloriousEggroll/wine-ge-custom/releases/tag/7.0-GE-8-LoL]}}
 ```
 You can override the location Wine uses for a prefix with the `{{ic|WINEPREFIX}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink}. This is useful if you want to use separate
-configurations for different Windows programs. The first time a program is run with a new Wine prefix, Wine will
-automatically create a directory with a bare C-drive and registry.
+variable](environment_variable "wikilink"). This is useful if you want to use separate configurations for different
+Windows programs. The first time a program is run with a new Wine prefix, Wine will automatically create a directory
+with a bare C-drive and registry.
 
 For example, if you run one program with `{{ic|1=env WINEPREFIX=~/.win-a wine program-a.exe}}`{=mediawiki}, and another
 with `{{ic|1=env WINEPREFIX=~/.win-b wine program-b.exe}}`{=mediawiki}, the two programs will each have a separate
@@ -190,14 +184,13 @@ system fonts so they are accessible from wine:
 `$ cd ${WINEPREFIX:-~/.wine}/drive_c/windows/Fonts && for i in /usr/share/fonts/**/*.{ttf,otf}; do ln -s "$i"; done`
 
 Wine uses FreeType to render fonts, and FreeType\'s defaults changed a few releases ago. Try using the following
-[environment variable](environment_variable "environment variable"){.wikilink} when running programs in Wine:
+[environment variable](environment_variable "wikilink") when running programs in Wine:
 
 `FREETYPE_PROPERTIES="truetype:interpreter-version=35"`
 
-Another possibility is to [install Microsoft\'s TrueType
-fonts](Microsoft_fonts#Installation "install Microsoft's TrueType fonts"){.wikilink} into your wine prefix. If this does
-not help, try running `{{ic|winetricks corefonts}}`{=mediawiki} first, then `{{ic|winetricks allfonts}}`{=mediawiki} as
-a last resort.
+Another possibility is to [install Microsoft\'s TrueType fonts](Microsoft_fonts#Installation "wikilink") into your wine
+prefix. If this does not help, try running `{{ic|winetricks corefonts}}`{=mediawiki} first, then
+`{{ic|winetricks allfonts}}`{=mediawiki} as a last resort.
 
 After running such programs, kill all Wine servers and run `{{ic|winecfg}}`{=mediawiki}. Fonts should be legible now.
 
@@ -208,7 +201,7 @@ If the fonts look somehow smeared, run the following command to change a setting
 For high resolution displays, you can adjust dpi values in winecfg.
 
 See also [Font configuration#Applications without Fontconfig
-support](Font_configuration#Applications_without_Fontconfig_support "Font configuration#Applications without Fontconfig support"){.wikilink}.
+support](Font_configuration#Applications_without_Fontconfig_support "wikilink").
 
 #### Enable font smoothing {#enable_font_smoothing}
 
@@ -241,11 +234,11 @@ For more information, check [the original answer](https://askubuntu.com/a/219795
 
 ### Desktop launcher menus {#desktop_launcher_menus}
 
-When a Windows application installer creates a shortcut Wine creates a [.desktop](.desktop ".desktop"){.wikilink} file
-instead. The default locations for those files in Arch Linux are:
+When a Windows application installer creates a shortcut Wine creates a [.desktop](.desktop "wikilink") file instead. The
+default locations for those files in Arch Linux are:
 
-- Desktop shortcuts are put in `{{ic|~/Desktop}}`{=mediawiki}
-- Start menu shortcuts are put in `{{ic|~/.local/share/applications/wine/Programs/}}`{=mediawiki}
+-   Desktop shortcuts are put in `{{ic|~/Desktop}}`{=mediawiki}
+-   Start menu shortcuts are put in `{{ic|~/.local/share/applications/wine/Programs/}}`{=mediawiki}
 
 ```{=mediawiki}
 {{Note|1=Wine does not support installing Windows applications for all users, so it will not put ''.desktop'' files in {{ic|/usr/share/applications}}. See WineHQ bug [https://bugs.winehq.org/show_bug.cgi?id=11112 11112]}}
@@ -358,8 +351,8 @@ In order to use your installed printers (both local and network) with wine appli
 
 ### Networking
 
-After installation, the `{{pkg|gnutls}}`{=mediawiki} package may need to be [installed](install "install"){.wikilink}
-for applications making TLS or HTTPS connections to work.
+After installation, the `{{pkg|gnutls}}`{=mediawiki} package may need to be [installed](install "wikilink") for
+applications making TLS or HTTPS connections to work.
 
 For ICMP (ping), Wine may need the network access as described in the [WineHQ
 FAQ](https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#failed-to-use-icmp-network-ping-this-requires-special-permissions):
@@ -386,17 +379,16 @@ applications in Wine.
 ```{=mediawiki}
 {{Warning|The native [[Wayland]] driver is still experimental.}}
 ```
-By default, Wine runs on Wayland through [Xwayland](Xwayland "Xwayland"){.wikilink}, providing a satisfactory experience
-for most users. As of version 9.0rc1, Wine has made substantial progress on merging native Wayland support, now making
-it suitable for some use cases.
+By default, Wine runs on Wayland through [Xwayland](Xwayland "wikilink"), providing a satisfactory experience for most
+users. As of version 9.0rc1, Wine has made substantial progress on merging native Wayland support, now making it
+suitable for some use cases.
 
 To experiment with the native Wayland driver added in recent Wine versions, you can follow these steps:
 
-- For Wine versions older than 9.22, run the following command to change a setting in the Wine registry:
-  `{{bc|$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\Drivers' /v Graphics /t REG_SZ /d 'x11,wayland'}}`{=mediawiki}
-- Bypass the use of Xwayland and force the native Wayland driver by unsetting the `{{Ic|DISPLAY}}`{=mediawiki}
-  [environment variable](environment_variable "environment variable"){.wikilink}:
-  `{{bc|1=$ env -u DISPLAY wine example.exe}}`{=mediawiki}
+-   For Wine versions older than 9.22, run the following command to change a setting in the Wine registry:
+    `{{bc|$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\Drivers' /v Graphics /t REG_SZ /d 'x11,wayland'}}`{=mediawiki}
+-   Bypass the use of Xwayland and force the native Wayland driver by unsetting the `{{Ic|DISPLAY}}`{=mediawiki}
+    [environment variable](environment_variable "wikilink"): `{{bc|1=$ env -u DISPLAY wine example.exe}}`{=mediawiki}
 
 If the second step makes Wine stop working, check to see if your Wine version is built with support for the new Wayland
 driver.
@@ -443,17 +435,16 @@ An equivalent command to gracefully finish both executables in the above example
 
 Upstream Wine supports three ways of running 32-bit Windows applications on a 64-bit system:
 
-- ```{=mediawiki}
-  {{ic|WINEARCH{{=}}
-  ```
-  win32}} which runs Wine as a 32-bit Linux application in a 32-bit prefix.
+-   ```{=mediawiki}
+    {{ic|WINEARCH{{=}}
+    ```
+    win32}} which runs Wine as a 32-bit Linux application in a 32-bit prefix.
 
-- \"Old WoW64\", which runs Wine as a 32-bit Linux application in a 64-bit prefix. This allows 32-bit and 64-bit
-  applications to coexist in the same prefix.
+-   \"Old WoW64\", which runs Wine as a 32-bit Linux application in a 64-bit prefix. This allows 32-bit and 64-bit
+    applications to coexist in the same prefix.
 
-- \"New WoW64\". which runs Wine as a 64-bit Linux application in a 64-bit prefix. 32-bit Windows applications are
-  supported via thunking to 64-bit Wine code. This is most similar to [WoW64](Wikipedia:WoW64 "WoW64"){.wikilink} on
-  Windows.
+-   \"New WoW64\". which runs Wine as a 64-bit Linux application in a 64-bit prefix. 32-bit Windows applications are
+    supported via thunking to 64-bit Wine code. This is most similar to [WoW64](Wikipedia:WoW64 "wikilink") on Windows.
 
 Since Wine [10.8-2](https://archlinux.org/news/transition-to-the-new-wow64-wine-and-wine-staging/), Arch Linux enables
 the new WoW64 mode. Most 32-bit Windows applications will install and run without any additional steps needed.
@@ -462,24 +453,23 @@ the new WoW64 mode. Most 32-bit Windows applications will install and run withou
 
 While the new WoW64 mode will work for most applications, it has a few limitations:
 
-- Any existing 32-bit `{{ic|WINEPREFIX}}`{=mediawiki} will no longer work, and should be recreated as 64-bit. Then
-  32-bit applications can be installed into it.
-- A known limitation of the new WoW64 mode is reduced performance for 32-bit applications that use OpenGL directly.
-  ([Bug report](https://bugs.winehq.org/show_bug.cgi?id=55981)).
-- A few 32-bit Windows applications do not work correctly in WoW64 mode (under either wine or Windows).
+-   Any existing 32-bit `{{ic|WINEPREFIX}}`{=mediawiki} will no longer work, and should be recreated as 64-bit. Then
+    32-bit applications can be installed into it.
+-   A known limitation of the new WoW64 mode is reduced performance for 32-bit applications that use OpenGL directly.
+    ([Bug report](https://bugs.winehq.org/show_bug.cgi?id=55981)).
+-   A few 32-bit Windows applications do not work correctly in WoW64 mode (under either wine or Windows).
 
 As a workaround, `{{AUR|wine32}}`{=mediawiki} is an alternate wine package that provides 32-bit builds of wine. The
 `{{AUR|wine-stable}}`{=mediawiki} package also currently provides a 32-bit build. These packages require the host system
 to have 32-bit versions of libraries installed for Wine to be able to run 32-bit applications. Some common 32-bit
 libraries are listed below. When installing other libraries listed on this page (e.g. those listed in [#Other
-dependencies](#Other_dependencies "#Other dependencies"){.wikilink}), you should also install the corresponding
-`{{ic|lib32-}}`{=mediawiki} package if you are running a 32-bit application.
+dependencies](#Other_dependencies "wikilink")), you should also install the corresponding `{{ic|lib32-}}`{=mediawiki}
+package if you are running a 32-bit application.
 
 ##### Graphics drivers {#graphics_drivers}
 
 You need to install the 32-bit version of your graphics driver. Please install the package that is listed in the *OpenGL
-(multilib)* column in the table in [Xorg#Driver
-installation](Xorg#Driver_installation "Xorg#Driver installation"){.wikilink}.
+(multilib)* column in the table in [Xorg#Driver installation](Xorg#Driver_installation "wikilink").
 
 A good sign that your drivers are inadequate or not properly configured is when Wine reports the following in your
 terminal window:
@@ -493,27 +483,27 @@ terminal window:
 
 Install the correct packages for the audio driver you want to use:
 
-- For [ALSA](ALSA "ALSA"){.wikilink} install `{{Pkg|lib32-alsa-lib}}`{=mediawiki} and
-  `{{Pkg|lib32-alsa-plugins}}`{=mediawiki}
-- For [PulseAudio](PulseAudio "PulseAudio"){.wikilink} install `{{Pkg|lib32-libpulse}}`{=mediawiki}
-- For [PipeWire](PipeWire "PipeWire"){.wikilink} install `{{Pkg|lib32-pipewire}}`{=mediawiki} and either:
-  - ```{=mediawiki}
-    {{Pkg|pipewire-pulse}}
-    ```
-    and `{{Pkg|lib32-libpulse}}`{=mediawiki} to use PulseAudio as a frontend.
+-   For [ALSA](ALSA "wikilink") install `{{Pkg|lib32-alsa-lib}}`{=mediawiki} and
+    `{{Pkg|lib32-alsa-plugins}}`{=mediawiki}
+-   For [PulseAudio](PulseAudio "wikilink") install `{{Pkg|lib32-libpulse}}`{=mediawiki}
+-   For [PipeWire](PipeWire "wikilink") install `{{Pkg|lib32-pipewire}}`{=mediawiki} and either:
+    -   ```{=mediawiki}
+        {{Pkg|pipewire-pulse}}
+        ```
+        and `{{Pkg|lib32-libpulse}}`{=mediawiki} to use PulseAudio as a frontend.
 
-  - ```{=mediawiki}
-    {{Pkg|pipewire-alsa}}
-    ```
-    , `{{Pkg|lib32-alsa-lib}}`{=mediawiki}, and `{{Pkg|lib32-alsa-plugins}}`{=mediawiki} to use ALSA as a frontend.
-- For [OSS](OSS "OSS"){.wikilink} install `{{Pkg|lib32-alsa-oss}}`{=mediawiki}
+    -   ```{=mediawiki}
+        {{Pkg|pipewire-alsa}}
+        ```
+        , `{{Pkg|lib32-alsa-lib}}`{=mediawiki}, and `{{Pkg|lib32-alsa-plugins}}`{=mediawiki} to use ALSA as a frontend.
+-   For [OSS](OSS "wikilink") install `{{Pkg|lib32-alsa-oss}}`{=mediawiki}
 
 If *winecfg* **still** fails to detect the audio driver (Selected driver: (none)), [configure it via the
 registry](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#using-regedit). For example, in a case where the
 microphone was not working in a 32-bit Windows application on a 64-bit stock install of wine-1.9.7, this provided full
 access to the sound hardware (sound playback and mic): open *regedit*, look for the key *HKEY_CURRENT_USER \> Software
 \> Wine \> Drivers*, and add a string called *Audio* and give it the value `{{ic|alsa}}`{=mediawiki}. Also, it may help
-to [recreate the prefix](#WINEPREFIX "recreate the prefix"){.wikilink}.
+to [recreate the prefix](#WINEPREFIX "wikilink").
 
 ##### WINEARCH
 
@@ -555,12 +545,12 @@ Then navigate to the directory and run the *.exe* file from there.
 requirements needed to run Windows programs. Installable components include DirectX 9.x, MSXML (required by Microsoft
 Office 2007 and Internet Explorer), Visual Runtime libraries and many more.
 
-[Install](Install "Install"){.wikilink} the `{{pkg|winetricks}}`{=mediawiki} package (or alternatively
+[Install](Install "wikilink") the `{{pkg|winetricks}}`{=mediawiki} package (or alternatively
 `{{AUR|winetricks-git}}`{=mediawiki}). Then run it with:
 
 `$ winetricks`
 
-For using GUI you can [install](install "install"){.wikilink} either `{{pkg|zenity}}`{=mediawiki}(GTK) or
+For using GUI you can [install](install "wikilink") either `{{pkg|zenity}}`{=mediawiki}(GTK) or
 `{{pkg|kdialog}}`{=mediawiki}(Qt).
 
 ### Performance
@@ -594,10 +584,10 @@ application specific information.
 
 [DXVK](https://github.com/doitsujin/dxvk) is an implementation of DirectX 8, 9, 10, and 11 over Vulkan. It beats the
 WineD3D driver in performance and compatibility for most games. It does not support DirectX 12, see
-[#VKD3D-Proton](#VKD3D-Proton "#VKD3D-Proton"){.wikilink} instead. DXVK and VKD3D-Proton can and should be installed
-alongside each other to be able to support all DirectX versions.
+[#VKD3D-Proton](#VKD3D-Proton "wikilink") instead. DXVK and VKD3D-Proton can and should be installed alongside each
+other to be able to support all DirectX versions.
 
-To install the latest version, use [#Winetricks](#Winetricks "#Winetricks"){.wikilink}:
+To install the latest version, use [#Winetricks](#Winetricks "wikilink"):
 
 `$ WINEPREFIX=`*`your-prefix`*` winetricks dxvk`
 
@@ -626,7 +616,7 @@ compatibility for DirectX 12 games.
 ```{=mediawiki}
 {{Tip|Despite having Proton in its name, the DLLs work perfectly with the normal version of Wine and function alongside [[#DXVK]].}}
 ```
-To install the latest version, use [#Winetricks](#Winetricks "#Winetricks"){.wikilink}:
+To install the latest version, use [#Winetricks](#Winetricks "wikilink"):
 
 `$ WINEPREFIX=`*`your-prefix`*` winetricks vkd3d`
 
@@ -646,31 +636,32 @@ CPU bound scenarios.
 
 Currently there are 3 options available to improve the performance, and you should use only one at same time:
 
-- ESync - User-space eventfd-based synchronization.
-  - Not included in `{{Pkg|wine}}`{=mediawiki}. Included in `{{Pkg|wine-staging}}`{=mediawiki} up to version
-    10.15[6](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
-    enabled by default.
-  - Enabled by default in [Proton](Proton "Proton"){.wikilink} unless FSync is available.
-- FSync - In-kernel Futex2-based implementation of synchronization, should have better performance than ESync.
-  - Available if you use a kernel version [starting from
-    5.16](https://kernelnewbies.org/Linux_5.16#New_futex_waitv.28.29_system_call_for_faster_game_performance).
-  - Not included in `{{Pkg|wine}}`{=mediawiki}: you will need a patched version.
-  - Enabled by default in [Proton](Proton "Proton"){.wikilink}.
-- [NTSync](https://www.youtube.com/watch?v=NjU4nyWyhU8) - In-kernel implementation of synchronization. Compared to ESync
-  and FSync, NTSync closely emulates the behavior of MS Windows NT kernel implementation, with performance on par with
-  FSync or smoother.
-  - Available if you use a kernel version [starting from
-    6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games).
-  - NTSync [was implemented in Wine 10.16](https://gitlab.winehq.org/wine/wine/-/merge_requests/9091), but not included
-    in [Proton](Proton "Proton"){.wikilink}, because Proton\'s latest version is based on Wine 10.0 stable, which did
-    not yet include NTSync.
-  - [Proton-TKG](https://github.com/Frogging-Family/wine-tkg-git) can be used if you want a Proton version with NTSync.
+-   ESync - User-space eventfd-based synchronization.
+    -   Not included in `{{Pkg|wine}}`{=mediawiki}. Included in `{{Pkg|wine-staging}}`{=mediawiki} up to version
+        10.15[6](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
+        enabled by default.
+    -   Enabled by default in [Proton](Proton "wikilink") unless FSync is available.
+-   FSync - In-kernel Futex2-based implementation of synchronization, should have better performance than ESync.
+    -   Available if you use a kernel version [starting from
+        5.16](https://kernelnewbies.org/Linux_5.16#New_futex_waitv.28.29_system_call_for_faster_game_performance).
+    -   Not included in `{{Pkg|wine}}`{=mediawiki}: you will need a patched version.
+    -   Enabled by default in [Proton](Proton "wikilink").
+-   [NTSync](https://www.youtube.com/watch?v=NjU4nyWyhU8) - In-kernel implementation of synchronization. Compared to
+    ESync and FSync, NTSync closely emulates the behavior of MS Windows NT kernel implementation, with performance on
+    par with FSync or smoother.
+    -   Available if you use a kernel version [starting from
+        6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games).
+    -   NTSync [was implemented in Wine 10.16](https://gitlab.winehq.org/wine/wine/-/merge_requests/9091), but not
+        included in [Proton](Proton "wikilink"), because Proton\'s latest version is based on Wine 10.0 stable, which
+        did not yet include NTSync.
+    -   [Proton-TKG](https://github.com/Frogging-Family/wine-tkg-git) can be used if you want a Proton version with
+        NTSync.
 
 ```{=mediawiki}
 {{Note|The Wine developers have no plans to add ESync or FSync because since Wine 10.16, the full version of NTSync has been added and enabled by default. NTSync being more accurate than Esync or FSync without performance penalty, there is no reason to use ESync or FSync if you are using the latest Wine and Linux kernel releases.}}
 ```
-To enable ESync, [export](export "export"){.wikilink} the following [environment
-variable](environment_variable "environment variable"){.wikilink} before running Wine:
+To enable ESync, [export](export "wikilink") the following [environment variable](environment_variable "wikilink")
+before running Wine:
 
 `WINEESYNC=1`
 
@@ -680,8 +671,7 @@ Or for FSync with patched Wine:
 
 NTSync does not require setting an environment variable, instead it will automatically be used if the
 `{{ic|ntsync}}`{=mediawiki} kernel module is loaded. `{{Pkg|wine}}`{=mediawiki} and `{{Pkg|wine-staging}}`{=mediawiki}
-ship with a file to [load the module at boot](load_the_module_at_boot "load the module at boot"){.wikilink}, otherwise
-you can manually create:
+ship with a file to [load the module at boot](load_the_module_at_boot "wikilink"), otherwise you can manually create:
 
 ```{=mediawiki}
 {{hc|/etc/modules-load.d/ntsync.conf|
@@ -692,8 +682,8 @@ ntsync
 {{Note|Now in Arch Linux packages {{Pkg|wine}} and {{Pkg|wine-staging}} since [https://gitlab.archlinux.org/archlinux/packaging/packages/wine/-/commit/3fb78d47987fbe35cea74ddcfc3921850da4fa34 version 10.16] automatically create the /usr/lib/modules-load.d/10-ntsync.conf configuration file by default during installation to enable autoloading of the ntsync kernel module on every system reboot. Therefore, you don't need to manually create this file yourself. You should only restart your system after installing these packages, or instead manually run the ntsync kernel module once.
 However, you may still need to do so only if you're using a custom, unofficial version of Proton or Wine from the AUR.}}
 ```
-[MangoHud](MangoHud "MangoHud"){.wikilink} can shows the absence or presence of ESync, FSync or NTSync in games if you
-have enabled an indication of *winesync* in its config file.
+[MangoHud](MangoHud "wikilink") can shows the absence or presence of ESync, FSync or NTSync in games if you have enabled
+an indication of *winesync* in its config file.
 
 ### Unregister existing Wine file associations {#unregister_existing_wine_file_associations}
 
@@ -766,15 +756,14 @@ When = PostTransaction
 <nowiki>Exec = /bin/sh -c '/usr/bin/grep -q "HKCU,\"Software\\\Wine\\\FileOpenAssociations\",\"Enable\",2,\"N\"" /usr/share/wine/wine.inf || /usr/bin/sed -i "s/\[Services\]/\[Services\]\nHKCU,\"Software\\\Wine\\\FileOpenAssociations\",\"Enable\",2,\"N\"/g" /usr/share/wine/wine.inf'</nowiki>
 }}
 ```
-See [Pacman#Hooks](Pacman#Hooks "Pacman#Hooks"){.wikilink} for more information.
+See [Pacman#Hooks](Pacman#Hooks "wikilink") for more information.
 
 ### Execute Windows binaries with Wine implicitly {#execute_windows_binaries_with_wine_implicitly}
 
 The `{{pkg|wine}}`{=mediawiki} package installs a *binfmt* file which will allows you to run Windows programs directly,
 e.g. `{{ic|''./myprogram.exe''}}`{=mediawiki} will launch as if you had typed
 `{{ic|wine ''./myprogram.exe''}}`{=mediawiki}. Service starts by default on boot, if you have not rebooted after
-installing Wine you can [start](start "start"){.wikilink} `{{ic|systemd-binfmt.service}}`{=mediawiki} to use it right
-away.
+installing Wine you can [start](start "wikilink") `{{ic|systemd-binfmt.service}}`{=mediawiki} to use it right away.
 
 ```{=mediawiki}
 {{Note|Make sure the Windows binary is [[executable]], otherwise the binary will not run.}}
@@ -787,8 +776,7 @@ dragging mouse cursor state stucked after leaving application area).
 
 ### Burning optical media {#burning_optical_media}
 
-To burn CDs or DVDs, you will need to load the `{{ic|sg}}`{=mediawiki} [kernel
-module](kernel_module "kernel module"){.wikilink}.
+To burn CDs or DVDs, you will need to load the `{{ic|sg}}`{=mediawiki} [kernel module](kernel_module "wikilink").
 
 ### Proper mounting of optical media images {#proper_mounting_of_optical_media_images}
 
@@ -797,7 +785,7 @@ to configure the corresponding path as being a CD-ROM drive in *winecfg*. Howeve
 name and/or a serial number, in which case the image has to be mounted with these special properties.
 
 Some virtual drive tools do not handle these metadata, like fuse-based virtual drives (Acetoneiso for instance).
-[CDemu](CDemu "CDemu"){.wikilink} will handle it correctly.
+[CDemu](CDemu "wikilink") will handle it correctly.
 
 ### Show FPS overlay in games {#show_fps_overlay_in_games}
 
@@ -814,7 +802,7 @@ the window thanks to *osd_cat* from the `{{pkg|xosd}}`{=mediawiki} package. See
 It may be desirable to run Wine under a specifically created user account in order to reduce concerns about Windows
 applications having access to your home directory.
 
-First, create a [user account](user_account "user account"){.wikilink} for Wine:
+First, create a [user account](user_account "wikilink") for Wine:
 
 `# useradd -m -s /bin/bash wineuser`
 
@@ -849,17 +837,16 @@ Wine applications can then be launched via:
 
 In order to not be asked for a password each time Wine is run as another user the following entry can be added to the
 sudoers file: `{{ic|1=''mainuser'' ALL=(wineuser) NOPASSWD: ALL}}`{=mediawiki}. See
-[Sudo#Configuration](Sudo#Configuration "Sudo#Configuration"){.wikilink} for more information.
+[Sudo#Configuration](Sudo#Configuration "wikilink") for more information.
 
 It is recommended to run `{{ic|winecfg}}`{=mediawiki} as the Wine user and remove all bindings for directories outside
 the home directory of the Wine user in the \"Desktop Integration\" section of the configuration window so no program run
 with Wine has read access to any file outside the special user\'s home directory.
 
 Keep in mind that audio will probably be non-functional in Wine programs which are run this way if
-[PulseAudio](PulseAudio "PulseAudio"){.wikilink} is used. See [PulseAudio/Examples#Allowing multiple users to share a
-PulseAudio
-daemon](PulseAudio/Examples#Allowing_multiple_users_to_share_a_PulseAudio_daemon "PulseAudio/Examples#Allowing multiple users to share a PulseAudio daemon"){.wikilink}
-for information about allowing the Wine user to access the PulseAudio daemon of the principal user.
+[PulseAudio](PulseAudio "wikilink") is used. See [PulseAudio/Examples#Allowing multiple users to share a PulseAudio
+daemon](PulseAudio/Examples#Allowing_multiple_users_to_share_a_PulseAudio_daemon "wikilink") for information about
+allowing the Wine user to access the PulseAudio daemon of the principal user.
 
 ### Temp directory on tmpfs {#temp_directory_on_tmpfs}
 
@@ -874,14 +861,14 @@ To prevent Wine from writing its temporary files to a physical disk, one can def
 
 If Gecko and/or Mono are not present on the system nor in the Wine prefix, Wine will prompt to download them from the
 internet. If you do not need Gecko and/or Mono, you might want to disable this dialog, by setting the
-`{{ic|WINEDLLOVERRIDES}}`{=mediawiki} [environment variable](environment_variable "environment variable"){.wikilink} to
+`{{ic|WINEDLLOVERRIDES}}`{=mediawiki} [environment variable](environment_variable "wikilink") to
 `{{ic|1=mscoree=d;mshtml=d}}`{=mediawiki}.
 
 ### Remove Wine file bindings {#remove_wine_file_bindings}
 
 For security reasons it may be useful to remove the preinstalled Wine bindings so Windows applications cannot be
 launched directly from a file manager or from the browser (Firefox offers to open EXE files directly with Wine!). If you
-want to do this, you may add the following [NoExtract](NoExtract "NoExtract"){.wikilink} lines in
+want to do this, you may add the following [NoExtract](NoExtract "wikilink") lines in
 `{{ic|/etc/pacman.conf}}`{=mediawiki}:
 
 `NoExtract = usr/lib/binfmt.d/wine.conf`\
@@ -892,18 +879,16 @@ want to do this, you may add the following [NoExtract](NoExtract "NoExtract"){.w
 Every time Wine creates (or updates) a prefix it will set its own bundled apps like Notepad and Winebrowser as the
 default text editor and web browser accordingly.
 
-A way to work around this undesirable behavior is by using this [environment
-variable](environment_variable "environment variable"){.wikilink}:
+A way to work around this undesirable behavior is by using this [environment variable](environment_variable "wikilink"):
 
 `$ WINEDLLOVERRIDES=winemenubuilder.exe=d ...`
 
 ### WineASIO
 
 If you need professional audio support under wine you can use `{{Aur|wineasio}}`{=mediawiki} which provides an ASIO
-interface for wine that you can then use with [JACK](JACK "JACK"){.wikilink}.
+interface for wine that you can then use with [JACK](JACK "wikilink").
 
-In order to use wineasio you must add yourself to the `{{ic|realtime}}`{=mediawiki} [user
-group](user_group "user group"){.wikilink}.
+In order to use wineasio you must add yourself to the `{{ic|realtime}}`{=mediawiki} [user group](user_group "wikilink").
 
 Next you need to register wineasio in your desired wine prefix. Register the 32-bit and/or 64-bit version as needed:
 
@@ -944,10 +929,10 @@ Also refer to the [Wine AppDB](https://appdb.winehq.org/) for an advice on speci
 
 ### General installation issues {#general_installation_issues}
 
-Each [Wine prefix](#WINEPREFIX "Wine prefix"){.wikilink} has a lot of persistent state, between the installed programs
-and the registry. The first step to troubleshooting issues with program installation should be to either create an
-isolated prefix, or clear the default prefix via `{{ic|rm -rf ~/.wine}}`{=mediawiki}. The latter will delete any of the
-programs and settings you have added to the default prefix.
+Each [Wine prefix](#WINEPREFIX "wikilink") has a lot of persistent state, between the installed programs and the
+registry. The first step to troubleshooting issues with program installation should be to either create an isolated
+prefix, or clear the default prefix via `{{ic|rm -rf ~/.wine}}`{=mediawiki}. The latter will delete any of the programs
+and settings you have added to the default prefix.
 
 ### Error loading libc.so.6 {#error_loading_libc.so.6}
 
@@ -964,20 +949,20 @@ This is caused by the syscall to `{{ic|mmap2}}`{=mediawiki} failing:
 
 This is a known [bug in the kernel](https://bugzilla.kernel.org/show_bug.cgi?id=198355).
 
-Changing the `{{ic|vm.mmap_min_addr}}`{=mediawiki} [sysctl](sysctl "sysctl"){.wikilink} value from the default of
+Changing the `{{ic|vm.mmap_min_addr}}`{=mediawiki} [sysctl](sysctl "wikilink") value from the default of
 `{{ic|65536}}`{=mediawiki} seems to fix the problem:
 
 `# sysctl -w vm.mmap_min_addr=32768`
 
 ### Xwayland problems {#xwayland_problems}
 
-If you use Wine under [Xwayland](Xwayland "Xwayland"){.wikilink}, you can activate the option for \"Emulating a virtual
-desktop\" in the Graphics Tab in winecfg, to avoid problems with:
+If you use Wine under [Xwayland](Xwayland "wikilink"), you can activate the option for \"Emulating a virtual desktop\"
+in the Graphics Tab in winecfg, to avoid problems with:
 
-- flickering;
-- wrong window location;
-- wrong mouse cursor location and clicks;
-- keyboard detection.
+-   flickering;
+-   wrong window location;
+-   wrong mouse cursor location and clicks;
+-   keyboard detection.
 
 If disabling the Virtual Desktop left you unable to interact with the winecfg window with mouse & keyboard anymore, you
 can explicitly start winecfg on a Virtual Desktop anyway and reenable it with:
@@ -1004,30 +989,30 @@ You may try setting the `{{ic|DISPLAY}}`{=mediawiki} variable to `{{ic|:1}}`{=me
 This could be caused by the window manager not switching focus. In the *Graphics* tab of *winecfg*, disable the \'Allow
 the window manager\...\' options, or set windowed mode with \'Emulate a virtual desktop\'.
 
-- Some suggest to toggle all the *Window settings*, click *Apply*, then change them back. If that does not work, try the
-  above.
+-   Some suggest to toggle all the *Window settings*, click *Apply*, then change them back. If that does not work, try
+    the above.
 
 If the keyboard does not work after unfocusing the application, try editing the registry:
 
-- Under `{{ic|HKEY_CURRENT_USER\Software\Wine\X11 Driver}}`{=mediawiki}, add a string value
-  `{{ic|UseTakeFocus}}`{=mediawiki} and set it to `{{ic|N}}`{=mediawiki}.
-- Alternatively, you can use winetricks to set the value: `{{bc|1=$ winetricks usetakefocus=n}}`{=mediawiki} or use wine
-  reg
-  `{{bc|1=$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\X11 Driver' /t REG_SZ /v UseTakeFocus /d N /f}}`{=mediawiki}
+-   Under `{{ic|HKEY_CURRENT_USER\Software\Wine\X11 Driver}}`{=mediawiki}, add a string value
+    `{{ic|UseTakeFocus}}`{=mediawiki} and set it to `{{ic|N}}`{=mediawiki}.
+-   Alternatively, you can use winetricks to set the value: `{{bc|1=$ winetricks usetakefocus=n}}`{=mediawiki} or use
+    wine reg
+    `{{bc|1=$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\X11 Driver' /t REG_SZ /v UseTakeFocus /d N /f}}`{=mediawiki}
 
 ### Application fails to start {#application_fails_to_start}
 
-Some older games and applications assume that the current [working
-directory](Wikipedia:Working_directory "working directory"){.wikilink} is the same as that which the executable is in.
-Launching these executables from other locations will prevent them from starting correctly. Use
-`{{ic|cd ''path_containing_exe''}}`{=mediawiki} before invoking Wine to rule this possibility out.
+Some older games and applications assume that the current [working directory](Wikipedia:Working_directory "wikilink") is
+the same as that which the executable is in. Launching these executables from other locations will prevent them from
+starting correctly. Use `{{ic|cd ''path_containing_exe''}}`{=mediawiki} before invoking Wine to rule this possibility
+out.
 
 ### EA App fails to launch games {#ea_app_fails_to_launch_games}
 
-If the total size of the [environment variable](environment_variable "environment variable"){.wikilink} block exceeds
-\~32768 characters, when attempting to launch any game from the EA App, an error popup will appear instead (the message
-has changed through the versions: usually it\'s a generic \"Failed to launch game\", but other times it\'s been \"The
-game hasn\'t released yet\").
+If the total size of the [environment variable](environment_variable "wikilink") block exceeds \~32768 characters, when
+attempting to launch any game from the EA App, an error popup will appear instead (the message has changed through the
+versions: usually it\'s a generic \"Failed to launch game\", but other times it\'s been \"The game hasn\'t released
+yet\").
 
 This is an issue with the application itself, not Wine. The only way to work around this issue is to unset the large
 environment variables in your system so that the total size doesn\'t exceed the threshold. Note that Wine intentionally
@@ -1039,15 +1024,14 @@ with the same key prefixed with
 
 ## See also {#see_also}
 
-- [Wine Homepage](https://www.winehq.org/)
-- [Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/home)
-- [Wine Application Database (AppDB)](https://appdb.winehq.org/) - Information about running specific Windows
-  applications (Known issues, ratings, guides, etc tailored to specific applications)
-- [Wine Forums](https://forum.winehq.org/) - A great place to ask questions *after* you have looked through the FAQ and
-  AppDB
-- [Gentoo:Wine](Gentoo:Wine "Gentoo:Wine"){.wikilink}
-- [Darling](https://www.darlinghq.org/) - a similar project for MacOS software
-- [WineASIO](https://github.com/wineasio/wineasio) - GitHub page of the WineASIO project with further information
+-   [Wine Homepage](https://www.winehq.org/)
+-   [Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/home)
+-   [Wine Application Database (AppDB)](https://appdb.winehq.org/) - Information about running specific Windows
+    applications (Known issues, ratings, guides, etc tailored to specific applications)
+-   [Wine Forums](https://forum.winehq.org/) - A great place to ask questions *after* you have looked through the FAQ
+    and AppDB
+-   [Gentoo:Wine](Gentoo:Wine "wikilink")
+-   [Darling](https://www.darlinghq.org/) - a similar project for MacOS software
+-   [WineASIO](https://github.com/wineasio/wineasio) - GitHub page of the WineASIO project with further information
 
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Emulation](Category:Emulation "wikilink") [Category:Gaming](Category:Gaming "wikilink")

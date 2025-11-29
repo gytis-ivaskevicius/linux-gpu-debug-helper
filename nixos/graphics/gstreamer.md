@@ -103,42 +103,43 @@ export GST_PLUGIN_SYSTEM_PATH_1_0="${gst_all_1.gstreamer.out}/lib/gstreamer-1.0:
 
 Note: \"gstreamer.out\" is the derivative that contains \"/lib\" directory for that package.
 
+```{=html}
 <references />
-
+```
 #### nautilus: \"Your GStreamer installation is missing a plug-in.\" {#nautilus_your_gstreamer_installation_is_missing_a_plug_in.}
 
 ![nautilus: \"Your GStreamer installation is missing a
 plug-in.\"](Screenshot_From_2025-03-28_09-58-50.png "nautilus: "Your GStreamer installation is missing a plug-in."") To
 fix the issue I found the following solutions:
 
-- Using `nix-shell`:
+-   Using `nix-shell`:
 
 nix-shell -p gst_all_1.gstreamer gst_all_1.gst-plugins-base gst_all_1.gst-plugins-good gst_all_1.gst-plugins-bad
 gst_all_1.gst-plugins-ugly gst_all_1.gst-libav gst_all_1.gst-vaapi \--run \"nautilus\"
 
+```{=html}
 </syntaxhighlight>
+```
+-   Using the environment variable \"`GST_PLUGIN_PATH`\":![\"Audio and Video Properties\" of \"Properties\" window of
+    nautilus after
+    fix](Screenshot_From_2025-03-28_12-51-31.png ""Audio and Video Properties" of "Properties" window of nautilus after fix")`{{File|3={ config, pkgs, ... }:
 
-- Using the environment variable \"`GST_PLUGIN_PATH`\":![\"Audio and Video Properties\" of \"Properties\" window of
-  nautilus after
-  fix](Screenshot_From_2025-03-28_12-51-31.png ""Audio and Video Properties" of "Properties" window of nautilus after fix")`{{File|3={ config, pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        gst_all_1.gstreamer
+        gst_all_1.gst-plugins-base
+        gst_all_1.gst-plugins-good
+        gst_all_1.gst-plugins-bad
+        gst_all_1.gst-plugins-ugly
+        gst_all_1.gst-libav
+        gst_all_1.gst-vaapi
+      ];
 
-  {
-    environment.systemPackages = with pkgs; [
-      gst_all_1.gstreamer
-      gst_all_1.gst-plugins-base
-      gst_all_1.gst-plugins-good
-      gst_all_1.gst-plugins-bad
-      gst_all_1.gst-plugins-ugly
-      gst_all_1.gst-libav
-      gst_all_1.gst-vaapi
-    ];
+      environment.variables = {
+        GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
+      };
+    }|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} `{{Evaluate|boot}}`{=mediawiki}
 
-    environment.variables = {
-      GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
-    };
-  }|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} `{{Evaluate|boot}}`{=mediawiki}
-
-[Category:Video](Category:Video "Category:Video"){.wikilink}
-[Category:Audio](Category:Audio "Category:Audio"){.wikilink}
+[Category:Video](Category:Video "wikilink") [Category:Audio](Category:Audio "wikilink")
 
 [^1]: <https://discourse.nixos.org/t/how-to-use-gst-plugins/6345>

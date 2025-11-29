@@ -1,7 +1,7 @@
 `{{Related articles start}}`{=mediawiki} `{{Related|Steam}}`{=mediawiki} `{{Related|Gamepad}}`{=mediawiki}
 `{{Related|Gaming}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-Steam Input Configurator is a powerful gamepad rebinding tool that is bundled with [Steam](Steam "Steam"){.wikilink}.
+Steam Input Configurator is a powerful gamepad rebinding tool that is bundled with [Steam](Steam "wikilink").
 [1](https://partner.steamgames.com/doc/features/steam_controller/concepts)
 
 The configuration files are stored in `{{ic|~/.steam/steam/userdata/<USER_ID>/241100/remote/}}`{=mediawiki}
@@ -32,12 +32,12 @@ right below it.
 In the main view of the configurator, selecting the top button with the layout name allows you to browse available
 layouts.
 
-- *Recommended* contains layouts set by the developer or Valve
-- *Your Layouts* contains layouts that the user has saved. One of these is an auto-save that updates every time a change
-  is made to the currently active layout, although it is not self-evident which one it is
-- *Templates* contains layouts that are available for any game. Valve provides some of these, but the user can create
-  their own templates by exporting the currently active layout.
-- *Community Layouts* contains layouts that other users have shared for a given game.
+-   *Recommended* contains layouts set by the developer or Valve
+-   *Your Layouts* contains layouts that the user has saved. One of these is an auto-save that updates every time a
+    change is made to the currently active layout, although it is not self-evident which one it is
+-   *Templates* contains layouts that are available for any game. Valve provides some of these, but the user can create
+    their own templates by exporting the currently active layout.
+-   *Community Layouts* contains layouts that other users have shared for a given game.
 
 Community layouts for non-steam games are defined by the game name. It is possible to browse layouts by changing the
 name to match what you want to find. To browse steam game layouts, match the game name with a game store page ID.
@@ -82,4 +82,4 @@ select the action you want. Adjust the activator if you want the action to trigg
 
 Button Chord, Mode Shift and Action Layers essentially do the same thing but in different scopes.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

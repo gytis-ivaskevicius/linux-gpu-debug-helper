@@ -1,6 +1,5 @@
-[fr:Fan speed control](fr:Fan_speed_control "fr:Fan speed control"){.wikilink}
-[ja:ファンスピード制御](ja:ファンスピード制御 "ja:ファンスピード制御"){.wikilink} [zh-hans:Fan speed
-control](zh-hans:Fan_speed_control "zh-hans:Fan speed control"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[fr:Fan speed control](fr:Fan_speed_control "wikilink") [ja:ファンスピード制御](ja:ファンスピード制御 "wikilink")
+[zh-hans:Fan speed control](zh-hans:Fan_speed_control "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|lm_sensors}}`{=mediawiki} `{{Related|Undervolting CPU}}`{=mediawiki}
 `{{Related|CPU frequency scaling}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
@@ -78,9 +77,8 @@ privileges, usually to fix something. For manually tweaking the `{{ic|/etc/fanco
 see `{{man|8|fancontrol}}`{=mediawiki} for the variable definitions.
 
 Users will probably encounter the *hwmon* path issues as noted above in [#Fancontrol
-(lm-sensors)](#Fancontrol_(lm-sensors) "#Fancontrol (lm-sensors)"){.wikilink}. See [#Device paths have changed in
-/etc/fancontrol](#Device_paths_have_changed_in_/etc/fancontrol "#Device paths have changed in /etc/fancontrol"){.wikilink}
-for more information.
+(lm-sensors)](#Fancontrol_(lm-sensors) "wikilink"). See [#Device paths have changed in
+/etc/fancontrol](#Device_paths_have_changed_in_/etc/fancontrol "wikilink") for more information.
 
 ```{=mediawiki}
 {{Tip|Use {{ic|MAXPWM}} and {{ic|MINPWM}} options that limit fan speed range. See {{man|8|fancontrol}} for details.}}
@@ -96,16 +94,16 @@ Try to run *fancontrol*:
 
 A properly configured setup will not output errors and will take control of the system fans. Users should hear system
 fans starting shortly after executing this command. *fancontrol* can also be run by
-[starting/enabling](starting/enabling "starting/enabling"){.wikilink} `{{ic|fancontrol.service}}`{=mediawiki}.
+[starting/enabling](starting/enabling "wikilink") `{{ic|fancontrol.service}}`{=mediawiki}.
 
-For an unofficial GUI, [install](install "install"){.wikilink} `{{AUR|fancontrol-gui}}`{=mediawiki}.
+For an unofficial GUI, [install](install "wikilink") `{{AUR|fancontrol-gui}}`{=mediawiki}.
 
 ### Fancontrol stops working after suspend--wake cycles {#fancontrol_stops_working_after_suspendwake_cycles}
 
 Unfortunately, *fancontrol* does not work after suspending. As per the [filed
 bug](https://github.com/lm-sensors/lm-sensors/issues/172), you will have to restart *fancontrol* after suspending. This
 can be achieved automatically by a [systemd
-hook](Power_management/Suspend_and_hibernate#Hooks_in_/usr/lib/systemd/system-sleep "systemd hook"){.wikilink}.
+hook](Power_management/Suspend_and_hibernate#Hooks_in_/usr/lib/systemd/system-sleep "wikilink").
 
 ## NBFC
 
@@ -113,7 +111,7 @@ hook](Power_management/Suspend_and_hibernate#Hooks_in_/usr/lib/systemd/system-sl
 {{Note|NBFC has been unmaintained since Mar 29, 2020. New user configs can still be created manually, however predefined configurations have not been added since that time. There are forks that exist to add new configs, such as [https://github.com/UraniumDonut/nbfc-revive nbfc-revive].}}
 ```
 NBFC (NoteBook Fan Control) is a cross-platform fan control solution for notebooks, written in C# and works under
-[Mono](Mono "Mono"){.wikilink} runtime. It comes with a powerful configuration system, which allows to adjust it to many
+[Mono](Mono "wikilink") runtime. It comes with a powerful configuration system, which allows to adjust it to many
 different notebook models, including some of the latest ones.
 
 There is another lightweight implementation of NBFC, written in C, named
@@ -122,7 +120,7 @@ There is another lightweight implementation of NBFC, written in C, named
 
 ### Installation
 
-NBFC can be installed as `{{AUR|nbfc}}`{=mediawiki}. Also [start/enable](start/enable "start/enable"){.wikilink}
+NBFC can be installed as `{{AUR|nbfc}}`{=mediawiki}. Also [start/enable](start/enable "wikilink")
 `{{ic|nbfc.service}}`{=mediawiki}.
 
 ### Configuration {#configuration_1}
@@ -160,7 +158,7 @@ It uses the `{{ic|/proc/i8k}}`{=mediawiki} interface provided by the `{{ic|i8k}}
 `{{ic|dell_smm_hwmon}}`{=mediawiki}). Results will vary depending on the exact model of laptop.
 
 If fancontrol will not work on your system, use the `{{ic|1=ignore_dmi=1}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "kernel module parameter"){.wikilink} to load `{{ic|dell_smm_hwmon}}`{=mediawiki}.
+parameter](kernel_module_parameter "wikilink") to load `{{ic|dell_smm_hwmon}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Warning|1=''i8kutils'' BIOS system calls stop the kernel for a moment on some systems (confirmed on Dell 9560), this can lead to side effects like audio dropouts, see https://bugzilla.kernel.org/show_bug.cgi?id=201097}}
@@ -172,26 +170,26 @@ parameter](kernel_module_parameter "kernel module parameter"){.wikilink} to load
 ```
 is the main package to control fan speed. Additionally, you might want to install these:
 
-- ```{=mediawiki}
-  {{Pkg|acpi}}
-  ```
-  --- must be installed to use *i8kmon*.
+-   ```{=mediawiki}
+    {{Pkg|acpi}}
+    ```
+    --- must be installed to use *i8kmon*.
 
-- ```{=mediawiki}
-  {{Pkg|tcl}}
-  ```
-  --- must be installed in order to run *i8kmon* as a background service (using the `{{ic|--daemon}}`{=mediawiki}
-  option).
+-   ```{=mediawiki}
+    {{Pkg|tcl}}
+    ```
+    --- must be installed in order to run *i8kmon* as a background service (using the `{{ic|--daemon}}`{=mediawiki}
+    option).
 
-- ```{=mediawiki}
-  {{Pkg|tk}}
-  ```
-  --- must be installed together with `{{Pkg|tcl}}`{=mediawiki} to run as X11 desktop applet.
+-   ```{=mediawiki}
+    {{Pkg|tk}}
+    ```
+    --- must be installed together with `{{Pkg|tcl}}`{=mediawiki} to run as X11 desktop applet.
 
-- ```{=mediawiki}
-  {{AUR|dell-bios-fan-control-git}}
-  ```
-  --- recommended if your BIOS overrides fan control.
+-   ```{=mediawiki}
+    {{AUR|dell-bios-fan-control-git}}
+    ```
+    --- recommended if your BIOS overrides fan control.
 
 ### Configuration {#configuration_2}
 
@@ -211,7 +209,7 @@ fan will switch back to low speed once the temperature drops to 65 °C, and turn
 ```
 ### Installation as a service {#installation_as_a_service}
 
-*i8kmon* can be started automatically by [starting/enabling](starting/enabling "starting/enabling"){.wikilink}
+*i8kmon* can be started automatically by [starting/enabling](starting/enabling "wikilink")
 `{{ic|i8kmon.service}}`{=mediawiki}.
 
 ### BIOS overriding fan control {#bios_overriding_fan_control}
@@ -233,7 +231,7 @@ To disable BIOS fan control:
 
 `# dell-bios-fan-control 0`
 
-BIOS fan control can be automatically disabled by [starting/enabling](starting/enabling "starting/enabling"){.wikilink}
+BIOS fan control can be automatically disabled by [starting/enabling](starting/enabling "wikilink")
 `{{ic|dell-bios-fan-control.service}}`{=mediawiki}.
 
 ## ThinkPad laptops {#thinkpad_laptops}
@@ -248,7 +246,7 @@ needed, a GUI is available with `{{AUR|thinkfan-ui}}`{=mediawiki}. Then have a l
 `# pacman -Ql thinkfan`
 
 Note that the *thinkfan* package installs `{{ic|/usr/lib/modprobe.d/thinkpad_acpi.conf}}`{=mediawiki}, which contains
-the following [kernel module parameter](kernel_module_parameter "kernel module parameter"){.wikilink}:
+the following [kernel module parameter](kernel_module_parameter "wikilink"):
 
 `options thinkpad_acpi fan_control=1`
 
@@ -256,7 +254,7 @@ the following [kernel module parameter](kernel_module_parameter "kernel module p
 {{Note|New Thinkpad models may require an additional {{ic|1=experimental=1}} kernel module parameter. So, it is important to check fan functionality.}}
 ```
 So fan control is enabled by default, but you may need you to manually [regenerate the
-initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}.
+initramfs](regenerate_the_initramfs "wikilink").
 
 Now, reload the module with fan control enabled:
 
@@ -286,7 +284,7 @@ The *thinkfan* daemon will do this automatically.
 disengaged is the maximum unregulated speed. See
 [ThinkWiki](https://www.thinkwiki.org/wiki/How_to_control_fan_speed#Disengaged_.28full-speed.29_mode) for more details.
 
-Finally, [enable](enable "enable"){.wikilink} the `{{ic|thinkfan.service}}`{=mediawiki}.
+Finally, [enable](enable "wikilink") the `{{ic|thinkfan.service}}`{=mediawiki}.
 
 To configure the temperature thresholds, you will need to copy the example configuration file
 (`{{ic|/usr/share/doc/thinkfan/examples/thinkfan.yaml}}`{=mediawiki}) to `{{ic|/etc/thinkfan.conf}}`{=mediawiki}, and
@@ -299,7 +297,7 @@ will need to specify something like:
 to use generic *hwmon* sensors instead of thinkpad-specific ones.
 
 A configuration example can be found in [Gentoo:Fan speed
-control/thinkfan#Configuration](Gentoo:Fan_speed_control/thinkfan#Configuration "Gentoo:Fan speed control/thinkfan#Configuration"){.wikilink}.
+control/thinkfan#Configuration](Gentoo:Fan_speed_control/thinkfan#Configuration "wikilink").
 
 ### Running
 
@@ -309,8 +307,7 @@ You can test your configuration first by running thinkfan manually (as root):
 
 and see how it reacts to the load level of whatever other programs you have running.
 
-When you have it configured correctly, [start/enable](start/enable "start/enable"){.wikilink}
-`{{ic|thinkfan.service}}`{=mediawiki}.
+When you have it configured correctly, [start/enable](start/enable "wikilink") `{{ic|thinkfan.service}}`{=mediawiki}.
 
 ## Lenovo Legions laptops {#lenovo_legions_laptops}
 
@@ -323,17 +320,16 @@ Then the fan curve can be set via the hwmon interface. This can be done with the
 ## ASUS laptops {#asus_laptops}
 
 This topic will cover drivers configuration on ASUS laptops for [Fancontrol
-(lm-sensors)](#Fancontrol_(lm-sensors) "Fancontrol (lm-sensors)"){.wikilink}.
+(lm-sensors)](#Fancontrol_(lm-sensors) "wikilink").
 
 ### Kernel modules {#kernel_modules}
 
 In configuration files, we are going to use full paths to *sysfs* files (e.g.
 `{{ic|/sys/devices/platform/asus-nb-wmi/hwmon/hwmon<nowiki>[[:print:]]*</nowiki>/pwm1}}`{=mediawiki}). This is because
 `{{ic|hwmon'''1'''}}`{=mediawiki} might change to any other number after reboot. [Fancontrol
-(lm-sensors)](#Fancontrol_(lm-sensors) "Fancontrol (lm-sensors)"){.wikilink} is written in
-[Bash](Bash "Bash"){.wikilink}, so using these paths in configuration file is completely acceptable. You can find
-complete `{{ic|/etc/fancontrol}}`{=mediawiki} configuration file examples at [ASUS N550JV#Fan
-control](ASUS_N550JV#Fan_control "ASUS N550JV#Fan control"){.wikilink}.
+(lm-sensors)](#Fancontrol_(lm-sensors) "wikilink") is written in [Bash](Bash "wikilink"), so using these paths in
+configuration file is completely acceptable. You can find complete `{{ic|/etc/fancontrol}}`{=mediawiki} configuration
+file examples at [ASUS N550JV#Fan control](ASUS_N550JV#Fan_control "wikilink").
 
 #### asus-nb-wmi {#asus_nb_wmi}
 
@@ -353,7 +349,7 @@ Below are the commands to control it. Check if you have any controls over your f
 `# echo 0 > /sys/devices/platform/asus-nb-wmi/hwmon/hwmon[[:print:]]*/pwm1_enable      # Change fan mode to full speed`
 
 If you were able to modify fan speed with above commands, then continue with [#Generate configuration file with
-pwmconfig](#Generate_configuration_file_with_pwmconfig "#Generate configuration file with pwmconfig"){.wikilink}.
+pwmconfig](#Generate_configuration_file_with_pwmconfig "wikilink").
 
 #### asus_fan
 
@@ -363,8 +359,8 @@ pwmconfig](#Generate_configuration_file_with_pwmconfig "#Generate configuration 
 is a kernel module, which allows to control both fans on some older ASUS laptops. It does not work with the most recent
 models.
 
-Install the [DKMS](DKMS "DKMS"){.wikilink} `{{AUR|asus-fan-dkms-git}}`{=mediawiki} [kernel
-module](kernel_module "kernel module"){.wikilink}, providing `{{ic|asus_fan}}`{=mediawiki}:
+Install the [DKMS](DKMS "wikilink") `{{AUR|asus-fan-dkms-git}}`{=mediawiki} [kernel module](kernel_module "wikilink"),
+providing `{{ic|asus_fan}}`{=mediawiki}:
 
 `# modprobe asus_fan`
 
@@ -380,8 +376,7 @@ Check if you have any control over both fans:
 `# echo 1 > /sys/devices/platform/asus_fan/hwmon/hwmon[[:print:]]*/pwm2_enable     # Change GFX fan mode to manual`\
 `# cat /sys/devices/platform/asus_fan/hwmon/hwmon[[:print:]]*/temp1_input          # Display GFX temperature (will always be 0 when GFX is disabled/unused)`
 
-If everything works, you can [load the module at boot](load_the_module_at_boot "load the module at boot"){.wikilink} to
-automate this step.
+If everything works, you can [load the module at boot](load_the_module_at_boot "wikilink") to automate this step.
 
 ### Generate configuration file with pwmconfig {#generate_configuration_file_with_pwmconfig}
 
@@ -399,9 +394,9 @@ And finally, in the third console:
 `# pwmconfig`
 
 Once you are done and the configuration file is generated, you should stop the first and second consoles. Continue with
-[#Fancontrol (lm-sensors)](#Fancontrol_(lm-sensors) "#Fancontrol (lm-sensors)"){.wikilink}. After the configuration file
-is generated, you might need to manually replace PWM values with full *sysfs* paths as they are used in these steps,
-because *hwmon* number values might change after reboot.
+[#Fancontrol (lm-sensors)](#Fancontrol_(lm-sensors) "wikilink"). After the configuration file is generated, you might
+need to manually replace PWM values with full *sysfs* paths as they are used in these steps, because *hwmon* number
+values might change after reboot.
 
 ### Alternative method using EC registers {#alternative_method_using_ec_registers}
 
@@ -452,7 +447,7 @@ changed.
 
 ## AMDGPU sysfs fan control {#amdgpu_sysfs_fan_control}
 
-[AMDGPU](AMDGPU "AMDGPU"){.wikilink} kernel driver offers fan control for graphics cards via *hwmon* in *sysfs*.
+[AMDGPU](AMDGPU "wikilink") kernel driver offers fan control for graphics cards via *hwmon* in *sysfs*.
 
 ### Manual fan control {#manual_fan_control}
 
@@ -493,18 +488,17 @@ speed_matrix:  # -[temp(*C), speed(0-100%)]
 - [80, 100]
 }}
 ```
-Launch the fan control service by [starting/enabling](starting/enabling "starting/enabling"){.wikilink}
+Launch the fan control service by [starting/enabling](starting/enabling "wikilink")
 `{{ic|amdgpu-fan.service}}`{=mediawiki}.
 
 ### amdfand-bin {#amdfand_bin}
 
 Then `{{AUR|amdfand-bin}}`{=mediawiki} package is a native alternative to `{{AUR|amdgpu-fan}}`{=mediawiki}. Launch the
-fan control service by [starting/enabling](starting/enabling "starting/enabling"){.wikilink}
-`{{ic|amdfand.service}}`{=mediawiki}.
+fan control service by [starting/enabling](starting/enabling "wikilink") `{{ic|amdfand.service}}`{=mediawiki}.
 
 For this tool there are also GUI clients available: `{{AUR|amdguid-glow-bin}}`{=mediawiki} (Xorg) and
 `{{AUR|amdguid-wayland-bin}}`{=mediawiki} (Wayland). Before starting the client you need to
-[enable/start](enable/start "enable/start"){.wikilink} `{{ic|amdgui-helper.service}}`{=mediawiki}.
+[enable/start](enable/start "wikilink") `{{ic|amdgui-helper.service}}`{=mediawiki}.
 
 ### fancurve script {#fancurve_script}
 
@@ -528,13 +522,13 @@ which can be worked around at cost of security by setting `{{ic|set_fanmode 1}}`
 
 #### Setting up fancurve script {#setting_up_fancurve_script}
 
-To start the script, it is recommend to do so via [systemd](systemd "systemd"){.wikilink} init system. This way the
-script\'s verbose output can be read via [journalctl](journalctl "journalctl"){.wikilink}/systemctl status. For this
-purpose, a *.service* unit file is already included in the GitHub repository.
+To start the script, it is recommend to do so via [systemd](systemd "wikilink") init system. This way the script\'s
+verbose output can be read via [journalctl](journalctl "wikilink")/systemctl status. For this purpose, a *.service* unit
+file is already included in the GitHub repository.
 
 It may also be required to restart the script via a
-[root-resume.service](Power_management/Suspend_and_hibernate#Sleep_hooks "root-resume.service"){.wikilink} after
-hibernation in order to make it automatically function properly again:
+[root-resume.service](Power_management/Suspend_and_hibernate#Sleep_hooks "wikilink") after hibernation in order to make
+it automatically function properly again:
 
 ```{=mediawiki}
 {{hc|/etc/systemd/system/root-resume.service|2=
@@ -552,31 +546,31 @@ WantedBy=suspend.target
 ```
 ## Others
 
-- ```{=mediawiki}
-  {{AUR|fan2go-git}}
-  ```
-  --- An alternative to Fancontrol independent of device-paths.
+-   ```{=mediawiki}
+    {{AUR|fan2go-git}}
+    ```
+    --- An alternative to Fancontrol independent of device-paths.
 
-- ```{=mediawiki}
-  {{AUR|mcontrolcenter-bin}}
-  ```
-  --- Fan control application for MSI laptops.
+-   ```{=mediawiki}
+    {{AUR|mcontrolcenter-bin}}
+    ```
+    --- Fan control application for MSI laptops.
 
-- ```{=mediawiki}
-  {{AUR|fw-ectool-git}}
-  ```
-  --- Fan configuration for [Framework Laptops](Framework_Laptop "Framework Laptop"){.wikilink}.
+-   ```{=mediawiki}
+    {{AUR|fw-ectool-git}}
+    ```
+    --- Fan configuration for [Framework Laptops](Framework_Laptop "wikilink").
 
-- ```{=mediawiki}
-  {{AUR|CoolerControl}}
-  ```
-  --- A fan control daemon with GUI for *sysfs* and `{{Pkg|liquidctl}}`{=mediawiki} devices.
+-   ```{=mediawiki}
+    {{AUR|CoolerControl}}
+    ```
+    --- A fan control daemon with GUI for *sysfs* and `{{Pkg|liquidctl}}`{=mediawiki} devices.
 
-- ```{=mediawiki}
-  {{AUR|controlfans-git}}
-  ```
-  --- Simple GUI written in Qt to configure FAN PWM via HWMON interface. You could use it to setup the kernel auto point
-  for every FAN who support it.
+-   ```{=mediawiki}
+    {{AUR|controlfans-git}}
+    ```
+    --- Simple GUI written in Qt to configure FAN PWM via HWMON interface. You could use it to setup the kernel auto
+    point for every FAN who support it.
 
 ## Troubleshooting
 
@@ -685,5 +679,4 @@ with the absolute file path. For example:
 
 After replacing all of paths, *fancontrol* should work fine.
 
-[Category:CPU](Category:CPU "Category:CPU"){.wikilink}
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:CPU](Category:CPU "wikilink") [Category:Graphics](Category:Graphics "wikilink")

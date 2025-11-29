@@ -1,12 +1,12 @@
-[zh-hans:Dolphin 模拟器](zh-hans:Dolphin_模拟器 "zh-hans:Dolphin 模拟器"){.wikilink} [ja:Dolphin
-エミュレータ](ja:Dolphin_エミュレータ "ja:Dolphin エミュレータ"){.wikilink} [Dolphin](https://dolphin-emu.org/) is a
-Nintendo GameCube and Wii emulator, currently supporting the x86_64 and AArch64 architectures. Dolphin is available for
-Linux, macOS, Windows, and Android. It is a free and open source, community-developed project. Dolphin was the first
-GameCube and Wii emulator, and currently the only one capable of playing commercial games.
+[zh-hans:Dolphin 模拟器](zh-hans:Dolphin_模拟器 "wikilink") [ja:Dolphin
+エミュレータ](ja:Dolphin_エミュレータ "wikilink") [Dolphin](https://dolphin-emu.org/) is a Nintendo GameCube and Wii
+emulator, currently supporting the x86_64 and AArch64 architectures. Dolphin is available for Linux, macOS, Windows, and
+Android. It is a free and open source, community-developed project. Dolphin was the first GameCube and Wii emulator, and
+currently the only one capable of playing commercial games.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|dolphin-emu}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|dolphin-emu}}`{=mediawiki} package.
 
 ## Playing
 
@@ -41,7 +41,7 @@ The easiest way to set this up is to choose the SDL controller instead of the ev
 configuration. Motion Inputs should already be set up by the *Default* mapping.
 
 If moving the gamepad doesn\'t produce a reaction, SDL might not have permission to read the motion sensors: see
-[Gamepad#Device permissions](Gamepad#Device_permissions "Gamepad#Device permissions"){.wikilink}.
+[Gamepad#Device permissions](Gamepad#Device_permissions "wikilink").
 
 If you cannot use SDL for some reason and need motion controls with evdev, see [this
 guide](https://wiki.dolphin-emu.org/index.php?title=Motion%20evdev).
@@ -61,11 +61,10 @@ Enable *Render to Main Window* under Graphics Settings, or enable *Background In
 
 ## See also {#see_also}
 
-- [Wikipedia:Dolphin (emulator)](Wikipedia:Dolphin_(emulator) "Wikipedia:Dolphin (emulator)"){.wikilink}
-- [Dolphin\'s performance guide.](https://dolphin-emu.org/docs/guides/performance-guide/)
-- [Dolphin\'s FAQ](https://dolphin-emu.org/docs/faq/)
-- [Dolphin\'s wiki entry for legally obtaining game
-  dumps.](https://wiki.dolphin-emu.org/index.php?title=Ripping_Game_Discs)
+-   [Wikipedia:Dolphin (emulator)](Wikipedia:Dolphin_(emulator) "wikilink")
+-   [Dolphin\'s performance guide.](https://dolphin-emu.org/docs/guides/performance-guide/)
+-   [Dolphin\'s FAQ](https://dolphin-emu.org/docs/faq/)
+-   [Dolphin\'s wiki entry for legally obtaining game
+    dumps.](https://wiki.dolphin-emu.org/index.php?title=Ripping_Game_Discs)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Emulation](Category:Emulation "wikilink")

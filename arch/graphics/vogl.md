@@ -1,4 +1,4 @@
-[ja:VOGL](ja:VOGL "ja:VOGL"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[ja:VOGL](ja:VOGL "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Step-by-step debugging guide}}`{=mediawiki} `{{Related|Debugging/Getting traces}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
@@ -56,5 +56,4 @@ Launch the vogleditor binary and open the `{{ic|tracefile.bin}}`{=mediawiki} wit
 
 See <https://richg42.blogspot.it/2014/03/current-vogl-limitations.html>.
 
-[Category:Development](Category:Development "Category:Development"){.wikilink}
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

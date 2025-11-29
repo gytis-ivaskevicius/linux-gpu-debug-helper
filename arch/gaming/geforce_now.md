@@ -1,18 +1,17 @@
-`{{Related articles start}}`{=mediawiki} [ja:GeForce Now](ja:GeForce_Now "ja:GeForce Now"){.wikilink}
+`{{Related articles start}}`{=mediawiki} [ja:GeForce Now](ja:GeForce_Now "wikilink")
 `{{Related|Gaming#Remote gaming}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-[GeForce Now](Wikipedia:GeForce_Now "GeForce Now"){.wikilink} is a [cloud
-gaming](Gaming#Remote_gaming "cloud gaming"){.wikilink} services that lets users play video games in the browser
-(including on Arch Linux) and on dedicated apps available on other platforms.
+[GeForce Now](Wikipedia:GeForce_Now "wikilink") is a [cloud gaming](Gaming#Remote_gaming "wikilink") services that lets
+users play video games in the browser (including on Arch Linux) and on dedicated apps available on other platforms.
 
 Unlike other cloud gaming platforms, GeForce Now connects to video game digital distribution services such as
-[Steam](Steam "Steam"){.wikilink} and the Epic game store, where games have to be bought separately from the GeForce Now
+[Steam](Steam "wikilink") and the Epic game store, where games have to be bought separately from the GeForce Now
 subscription. Given the nature of Cloud Gaming, you will not need to install the client from these services on your
 computer.
 
 ## Usage
 
 GeForce Now [supports](https://www.nvidia.com/en-us/geforce-now/system-reqs/) Chromium-based browsers out of the box, it
-should work for most people on [Chromium](Chromium "Chromium"){.wikilink}.
+should work for most people on [Chromium](Chromium "wikilink").
 
 ```{=mediawiki}
 {{Note|While it is possible to change the User-Agent string to have your favorite [[browser]] appear as Chromium, it may not work correctly (some user have reported that the mouse cursor would not appear in games when running Firefox).}}
@@ -80,5 +79,4 @@ Windows\" one will work. If you are using another extension, a User-Agent string
 With these steps applied, the keyboard layout settings will be available in the main settings panel, below the Network
 settings.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink} [Category:Web
-applications](Category:Web_applications "Category:Web applications"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Web applications](Category:Web_applications "wikilink")

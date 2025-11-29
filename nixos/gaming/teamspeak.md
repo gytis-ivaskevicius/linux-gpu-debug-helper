@@ -36,6 +36,5 @@ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 Teamspeak has several additional options for configuration. To get elevated rights on the server, it is needed to use
 the ServerAdmin privilege key from the first log in `/var/log/teamspeak3-server`.
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Server](Category:Server "Category:Server"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Server](Category:Server "wikilink")

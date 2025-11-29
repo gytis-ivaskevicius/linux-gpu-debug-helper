@@ -1,10 +1,9 @@
-[es:Vulkan](es:Vulkan "es:Vulkan"){.wikilink} [hu:Vulkan](hu:Vulkan "hu:Vulkan"){.wikilink}
-[ja:Vulkan](ja:Vulkan "ja:Vulkan"){.wikilink} [pt:Vulkan](pt:Vulkan "pt:Vulkan"){.wikilink}
-[ru:Vulkan](ru:Vulkan "ru:Vulkan"){.wikilink} [zh-hans:Vulkan](zh-hans:Vulkan "zh-hans:Vulkan"){.wikilink} From
-[Wikipedia](Wikipedia:Vulkan_(API) "Wikipedia"){.wikilink}:
+[es:Vulkan](es:Vulkan "wikilink") [hu:Vulkan](hu:Vulkan "wikilink") [ja:Vulkan](ja:Vulkan "wikilink")
+[pt:Vulkan](pt:Vulkan "wikilink") [ru:Vulkan](ru:Vulkan "wikilink") [zh-hans:Vulkan](zh-hans:Vulkan "wikilink") From
+[Wikipedia](Wikipedia:Vulkan_(API) "wikilink"):
 
 :   Vulkan is a low-overhead, cross-platform 3D graphics and compute API. First released in 2016, it is a successor to
-    [OpenGL](OpenGL "OpenGL"){.wikilink}.
+    [OpenGL](OpenGL "wikilink").
 
 Learn more on [Vulkan\'s website](https://www.vulkan.org/learn).
 
@@ -18,33 +17,32 @@ On hybrid graphics ([[NVIDIA Optimus]]/AMD Dynamic Switchable Graphics):
 * The Radeon Vulkan driver now supports [[PRIME]] [https://www.phoronix.com/scan.php?page=news_item&px=RADV-PRIME-Lands].
 }}
 ```
-To run a Vulkan application, you will need to [install](install "install"){.wikilink} the
-`{{Pkg|vulkan-icd-loader}}`{=mediawiki} package (and `{{Pkg|lib32-vulkan-icd-loader}}`{=mediawiki} from the
-[multilib](multilib "multilib"){.wikilink} repository if you also want to run 32-bit applications), as well as Vulkan
-drivers for your graphics card(s). There are several packages [providing](PKGBUILD#provides "providing"){.wikilink} a
-*vulkan-driver* and *lib32-vulkan-driver*:
+To run a Vulkan application, you will need to [install](install "wikilink") the `{{Pkg|vulkan-icd-loader}}`{=mediawiki}
+package (and `{{Pkg|lib32-vulkan-icd-loader}}`{=mediawiki} from the [multilib](multilib "wikilink") repository if you
+also want to run 32-bit applications), as well as Vulkan drivers for your graphics card(s). There are several packages
+[providing](PKGBUILD#provides "wikilink") a *vulkan-driver* and *lib32-vulkan-driver*:
 
-- [AMD](AMD "AMD"){.wikilink}: `{{Pkg|vulkan-radeon}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-radeon}}`{=mediawiki})
-- [Intel](Intel "Intel"){.wikilink}: `{{Pkg|vulkan-intel}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-intel}}`{=mediawiki})
-- [NVIDIA](NVIDIA "NVIDIA"){.wikilink}: there are two implementations:
-  - ```{=mediawiki}
-    {{Pkg|nvidia-utils}}
-    ```
-    (or `{{Pkg|lib32-nvidia-utils}}`{=mediawiki}) - NVIDIA proprietary
+-   [AMD](AMD "wikilink"): `{{Pkg|vulkan-radeon}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-radeon}}`{=mediawiki})
+-   [Intel](Intel "wikilink"): `{{Pkg|vulkan-intel}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-intel}}`{=mediawiki})
+-   [NVIDIA](NVIDIA "wikilink"): there are two implementations:
+    -   ```{=mediawiki}
+        {{Pkg|nvidia-utils}}
+        ```
+        (or `{{Pkg|lib32-nvidia-utils}}`{=mediawiki}) - NVIDIA proprietary
 
-  - ```{=mediawiki}
-    {{Pkg|vulkan-nouveau}}
-    ```
-    (or `{{Pkg|lib32-vulkan-nouveau}}`{=mediawiki}) - NVK (part of Mesa project)
-    `{{Note|Enabling NVK also requires additional system configuration, see [[Nouveau#Using the Mesa NVK Vulkan Driver]] for details.}}`{=mediawiki}
+    -   ```{=mediawiki}
+        {{Pkg|vulkan-nouveau}}
+        ```
+        (or `{{Pkg|lib32-vulkan-nouveau}}`{=mediawiki}) - NVK (part of Mesa project)
+        `{{Note|Enabling NVK also requires additional system configuration, see [[Nouveau#Using the Mesa NVK Vulkan Driver]] for details.}}`{=mediawiki}
 
 The following are software rasterizers, so that you can use it on devices that do not provide Vulkan support.
 
-- **Lavapipe**: `{{Pkg|vulkan-swrast}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-swrast}}`{=mediawiki})
-- **SwiftShader**: `{{AUR|swiftshader-git}}`{=mediawiki}
+-   **Lavapipe**: `{{Pkg|vulkan-swrast}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-swrast}}`{=mediawiki})
+-   **SwiftShader**: `{{AUR|swiftshader-git}}`{=mediawiki}
 
-For Vulkan application development, [install](install "install"){.wikilink} `{{Pkg|vulkan-headers}}`{=mediawiki}, and
-optionally `{{Pkg|vulkan-validation-layers}}`{=mediawiki}, `{{AUR|vulkan-man-pages}}`{=mediawiki} and
+For Vulkan application development, [install](install "wikilink") `{{Pkg|vulkan-headers}}`{=mediawiki}, and optionally
+`{{Pkg|vulkan-validation-layers}}`{=mediawiki}, `{{AUR|vulkan-man-pages}}`{=mediawiki} and
 `{{Pkg|vulkan-tools}}`{=mediawiki} (you can find the vulkaninfo, and vkcube tools in there).
 
 ## Verification
@@ -53,9 +51,9 @@ To see which Vulkan implementations are currently installed on your system, use 
 
 `$ ls /usr/share/vulkan/icd.d/`
 
-To ensure that Vulkan is working with your hardware, [install](install "install"){.wikilink}
-`{{Pkg|vulkan-tools}}`{=mediawiki} and use the `{{ic|vulkaninfo}}`{=mediawiki} command to pull up relevant information
-about your system. If you get info about your graphics card, you will know that Vulkan is working.
+To ensure that Vulkan is working with your hardware, [install](install "wikilink") `{{Pkg|vulkan-tools}}`{=mediawiki}
+and use the `{{ic|vulkaninfo}}`{=mediawiki} command to pull up relevant information about your system. If you get info
+about your graphics card, you will know that Vulkan is working.
 
 `$ vulkaninfo`
 
@@ -83,9 +81,8 @@ You can install the software Vulkan rasterizer known as lavapipe, for example to
 `{{Pkg|vulkan-swrast}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-swrast}}`{=mediawiki} for the 32-bit version).
 
 The following example shows running *vulkaninfo* with the required environment variables to force a full software
-rendering for Vulkan and [OpenGL](OpenGL#Mesa "OpenGL"){.wikilink} (with
-`{{ic|1=__GLX_VENDOR_LIBRARY_NAME=mesa}}`{=mediawiki} ensuring the command also works for
-[PRIME](PRIME "PRIME"){.wikilink} users):
+rendering for Vulkan and [OpenGL](OpenGL#Mesa "wikilink") (with `{{ic|1=__GLX_VENDOR_LIBRARY_NAME=mesa}}`{=mediawiki}
+ensuring the command also works for [PRIME](PRIME "wikilink") users):
 
 `$ LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_DRIVER_FILES=/usr/share/vulkan/icd.d/lvp_icd.i686.json:/usr/share/vulkan/icd.d/lvp_icd.x86_64.json vulkaninfo`
 
@@ -101,16 +98,16 @@ own information is possible by using `{{AUR|vulkan-caps-viewer-wayland}}`{=media
 
 #### Environment variables {#environment_variables}
 
-Invalid or contradictory [environment variable](environment_variable "environment variable"){.wikilink} values might
-cause Vulkan to fail, and inappropriate values can result in the use of a different GPU than intended on machines with
-multiple GPUs. Properly setting the variables can also help [keep a secondary GPU powered down when it is not
+Invalid or contradictory [environment variable](environment_variable "wikilink") values might cause Vulkan to fail, and
+inappropriate values can result in the use of a different GPU than intended on machines with multiple GPUs. Properly
+setting the variables can also help [keep a secondary GPU powered down when it is not
 needed](https://bbs.archlinux.org/viewtopic.php?pid=2152232#p2152232).
 
 #### GPU switching {#gpu_switching}
 
 If your machine has multiple GPUs and Vulkan cannot see or use one of them, make sure it is not currently disabled by
-the BIOS/UEFI or in the kernel. See [NVIDIA Optimus](NVIDIA_Optimus "NVIDIA Optimus"){.wikilink} for an overview of the
-different methods of switching between GPUs.
+the BIOS/UEFI or in the kernel. See [NVIDIA Optimus](NVIDIA_Optimus "wikilink") for an overview of the different methods
+of switching between GPUs.
 
 ```{=mediawiki}
 {{Expansion|Is there a simpler way to check this information without installing an AUR package?}}
@@ -129,8 +126,7 @@ Temporary config path: no
 ```
 #### GSP firmware {#gsp_firmware}
 
-See [NVIDIA/Troubleshooting#GSP
-firmware](NVIDIA/Troubleshooting#GSP_firmware "NVIDIA/Troubleshooting#GSP firmware"){.wikilink}.
+See [NVIDIA/Troubleshooting#GSP firmware](NVIDIA/Troubleshooting#GSP_firmware "wikilink").
 
 ### No device for the display GPU found. Are the intel-mesa drivers installed? {#no_device_for_the_display_gpu_found._are_the_intel_mesa_drivers_installed}
 
@@ -146,8 +142,7 @@ If after running `{{ic|vulkaninfo}}`{=mediawiki} on AMD card from GCN1 or GCN2 f
 {{bc|ERROR at /build/vulkan-tools/src/Vulkan-Tools-1.2.135/vulkaninfo/vulkaninfo.h:240:vkEnumerateInstanceExtensionProperties failed with ERROR_INITIALIZATION_FAILED}}
 ```
 Then check if you have correctly enable support for this models of graphics cards ([AMDGPU#Enable Southern Islands (SI)
-and Sea Islands (CIK)
-support](AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "AMDGPU#Enable Southern Islands (SI) and Sea Islands (CIK) support"){.wikilink}).
+and Sea Islands (CIK) support](AMDGPU#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "wikilink")).
 
 One of possibility to check if gpu drivers are correctly loaded is `{{ic|lspci -k}}`{=mediawiki}, after running this
 command check kernel driver of your gpu. It should be `{{ic|amdgpu}}`{=mediawiki}.
@@ -169,9 +164,8 @@ Some forum threads about this problem: [1](https://bbs.archlinux.org/viewtopic.p
 
 If you install `{{Pkg|cuda}}`{=mediawiki}, you might find Vulkan applications, for example, Chromium, launch slowly.
 It\'s because `{{Pkg|nvidia-utils}}`{=mediawiki} provides an Vulkan driver and Vulkan would try nvidia drivers before
-radeon drivers. To solve it, set the [environment variable](environment_variable "environment variable"){.wikilink}
+radeon drivers. To solve it, set the [environment variable](environment_variable "wikilink")
 `{{ic|VK_DRIVER_FILES}}`{=mediawiki} to
 `{{ic|/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json}}`{=mediawiki}.
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
-[Category:Development](Category:Development "Category:Development"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:Development](Category:Development "wikilink")

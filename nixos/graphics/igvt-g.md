@@ -92,8 +92,9 @@ Rebuild & voilá - your virtualized GPU is ready; now you just have to attach it
 
 If using virt-manager, create new or open existing VM. Change existing `<graphics>`{=html} and `<code>`{=html}
 
+```{=html}
 <video>
-
+```
 `</code>`{=html} sections.
 
 sudo -E virsh edit win10
@@ -133,53 +134,62 @@ sudo -E virsh edit win10
 
 ## FAQ
 
-- No video output
+-   No video output
 
+```{=html}
 <!-- -->
+```
+-   -   use BIOS (SeaBIOS) machine, EFI (OVMF) is not supported. You may use the following workarounds
+        <https://wiki.archlinux.org/index.php/Intel_GVT-g#Using_DMA-BUF_with_UEFI/OVMF>
 
-- - use BIOS (SeaBIOS) machine, EFI (OVMF) is not supported. You may use the following workarounds
-    <https://wiki.archlinux.org/index.php/Intel_GVT-g#Using_DMA-BUF_with_UEFI/OVMF>
-
+```{=html}
 <!-- -->
+```
+-   -   ensure that the recent Intel graphics driver is installed in the guest
 
-- - ensure that the recent Intel graphics driver is installed in the guest
-
+```{=html}
 <!-- -->
+```
+-   (libvirtd) \"Element domain has extra content: qemu:commandline\" error after editing via virsh
 
-- (libvirtd) \"Element domain has extra content: qemu:commandline\" error after editing via virsh
-
+```{=html}
 <!-- -->
+```
+-   -   you forgot to add xmlns:qemu=\'http://libvirt.org/schemas/domain/qemu/1.0\'
 
-- - you forgot to add xmlns:qemu=\'http://libvirt.org/schemas/domain/qemu/1.0\'
-
+```{=html}
 <!-- -->
+```
+-   (libvirtd) \"no drm render node available\" error in virt-manager
 
-- (libvirtd) \"no drm render node available\" error in virt-manager
-
+```{=html}
 <!-- -->
+```
+-   -   in virt-manager change SPICE display render node from auto to available one
 
-- - in virt-manager change SPICE display render node from auto to available one
-
+```{=html}
 <!-- -->
+```
+-   \"write_loop: No space left on device\" error when creating mdev device
 
-- \"write_loop: No space left on device\" error when creating mdev device
-
+```{=html}
 <!-- -->
-
-- - check whether available instances are left
+```
+-   -   check whether available instances are left
 
 ` $ cat /sys/bus/pci/devices/0000\:00\:02.0/mdev_supported_types/i915-GVTg_V5_4/available_instances `\
 ` 1`
 
 also check dmesg output for gvt related error, most likely there is not enough VRAM
 
-- (libvirtd) VM stops immediately with no error other than \"internal error: process exited while connecting to
-  monitor\"
+-   (libvirtd) VM stops immediately with no error other than \"internal error: process exited while connecting to
+    monitor\"
 
+```{=html}
 <!-- -->
-
-- - qemu might be exiting due to SIGSYS, which may be related to this bug:
-    <https://github.com/intel/gvt-linux/issues/47>
+```
+-   -   qemu might be exiting due to SIGSYS, which may be related to this bug:
+        <https://github.com/intel/gvt-linux/issues/47>
 
 Try disabling seccomp sandboxing in qemu like so:
 
@@ -193,10 +203,9 @@ Try disabling seccomp sandboxing in qemu like so:
 
 ## Useful sources {#useful_sources}
 
-- <https://www.kraxel.org/blog/2019/02/ramfb-display-in-qemu/> - Info about ramfb parameter
-- <https://lists.01.org/hyperkitty/list/igvt-g@lists.01.org/thread/LAB74CANVVRKGPBJMHULMMUFX43LRH55/> - Info about
-  x-igd-opregion parameter
-- <https://www.kraxel.org/blog/2019/03/edid-support-for-qemu/> - Info about xres and yres parameters
+-   <https://www.kraxel.org/blog/2019/02/ramfb-display-in-qemu/> - Info about ramfb parameter
+-   <https://lists.01.org/hyperkitty/list/igvt-g@lists.01.org/thread/LAB74CANVVRKGPBJMHULMMUFX43LRH55/> - Info about
+    x-igd-opregion parameter
+-   <https://www.kraxel.org/blog/2019/03/edid-support-for-qemu/> - Info about xres and yres parameters
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
-[Category:Virtualization](Category:Virtualization "Category:Virtualization"){.wikilink}
+[Category:Video](Category:Video "wikilink") [Category:Virtualization](Category:Virtualization "wikilink")

@@ -1,12 +1,12 @@
-[ja:Nyxt](ja:Nyxt "ja:Nyxt"){.wikilink} [pt:Nyxt](pt:Nyxt "pt:Nyxt"){.wikilink} [Nyxt](https://nyxt.atlas.engineer)
-\[nýkst\] is a keyboard-driven web browser designed for hackers. Inspired by [Emacs](Emacs "Emacs"){.wikilink} and
-[Vim](Vim "Vim"){.wikilink}, it has familiar keybindings ([Emacs](Emacs "Emacs"){.wikilink}, [vi](vi "vi"){.wikilink},
-[CUA](Wikipedia:IBM_Common_User_Access "CUA"){.wikilink}), and is infinitely extensible in [Common
-Lisp](Common_Lisp "Common Lisp"){.wikilink}.
+[ja:Nyxt](ja:Nyxt "wikilink") [pt:Nyxt](pt:Nyxt "wikilink") [Nyxt](https://nyxt.atlas.engineer) \[nýkst\] is a
+keyboard-driven web browser designed for hackers. Inspired by [Emacs](Emacs "wikilink") and [Vim](Vim "wikilink"), it
+has familiar keybindings ([Emacs](Emacs "wikilink"), [vi](vi "wikilink"),
+[CUA](Wikipedia:IBM_Common_User_Access "wikilink")), and is infinitely extensible in [Common
+Lisp](Common_Lisp "wikilink").
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|nyxt}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|nyxt}}`{=mediawiki} package.
 
 ## Usage
 
@@ -51,7 +51,7 @@ Nyxt comes with a builtin adblocker, to enable it put the following in `{{ic|~/.
 
 #### Using tor {#using_tor}
 
-To proxy requests over [Tor](Tor "Tor"){.wikilink}, including downloads:
+To proxy requests over [Tor](Tor "wikilink"), including downloads:
 
 `(define-configuration nyxt/mode/proxy:proxy-mode`\
 `  ((nyxt/mode/proxy:proxy (make-instance 'proxy`\
@@ -91,7 +91,7 @@ If you experience blank websites, you may try to disable compositing by adding t
 ```
 ## See also {#see_also}
 
-- [Homepage](https://nyxt.atlas.engineer)
-- [GitHub repository](https://github.com/atlas-engineer/nyxt)
+-   [Homepage](https://nyxt.atlas.engineer)
+-   [GitHub repository](https://github.com/atlas-engineer/nyxt)
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

@@ -1,11 +1,8 @@
-[es:NVIDIA Optimus](es:NVIDIA_Optimus "es:NVIDIA Optimus"){.wikilink} [fr:NVIDIA
-Optimus](fr:NVIDIA_Optimus "fr:NVIDIA Optimus"){.wikilink} [ja:NVIDIA
-Optimus](ja:NVIDIA_Optimus "ja:NVIDIA Optimus"){.wikilink} [ru:NVIDIA
-Optimus](ru:NVIDIA_Optimus "ru:NVIDIA Optimus"){.wikilink} [zh-hans:NVIDIA
-Optimus](zh-hans:NVIDIA_Optimus "zh-hans:NVIDIA Optimus"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|PRIME}}`{=mediawiki} `{{Related|Bumblebee}}`{=mediawiki} `{{Related|Nouveau}}`{=mediawiki}
-`{{Related|NVIDIA}}`{=mediawiki} `{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[es:NVIDIA Optimus](es:NVIDIA_Optimus "wikilink") [fr:NVIDIA Optimus](fr:NVIDIA_Optimus "wikilink") [ja:NVIDIA
+Optimus](ja:NVIDIA_Optimus "wikilink") [ru:NVIDIA Optimus](ru:NVIDIA_Optimus "wikilink") [zh-hans:NVIDIA
+Optimus](zh-hans:NVIDIA_Optimus "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
+`{{Related|Bumblebee}}`{=mediawiki} `{{Related|Nouveau}}`{=mediawiki} `{{Related|NVIDIA}}`{=mediawiki}
+`{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 ```{=mediawiki}
 {{Expansion|
@@ -13,48 +10,47 @@ Optimus](zh-hans:NVIDIA_Optimus "zh-hans:NVIDIA Optimus"){.wikilink} `{{Related 
 * Remove the leftover mentions of "Intel" instead of "integrated": Optimus also works with AMD iGPUs.
 }}
 ```
-[NVIDIA Optimus](Wikipedia:NVIDIA_Optimus "NVIDIA Optimus"){.wikilink} is a technology that allows an integrated GPU and
-discrete NVIDIA GPU to be built into and accessed by a laptop. As a prerequisite, install the relevant [GPU
-driver](Xorg#Driver_installation "GPU driver"){.wikilink} for both cards.
+[NVIDIA Optimus](Wikipedia:NVIDIA_Optimus "wikilink") is a technology that allows an integrated GPU and discrete NVIDIA
+GPU to be built into and accessed by a laptop. As a prerequisite, install the relevant [GPU
+driver](Xorg#Driver_installation "wikilink") for both cards.
 
 ## Available methods {#available_methods}
 
 There are several methods available:
 
-- [#Use integrated graphics only](#Use_integrated_graphics_only "#Use integrated graphics only"){.wikilink} - saves
-  power, because NVIDIA GPU will be completely powered off.
-- [#Use NVIDIA graphics only](#Use_NVIDIA_graphics_only "#Use NVIDIA graphics only"){.wikilink} - gives more performance
-  than integrated graphics, but drains more battery (which is not welcome for mobile devices). This utilizes the same
-  underlying process as the [optimus-manager](#Using_optimus-manager "optimus-manager"){.wikilink} and
-  [nvidia-xrun](#Using_nvidia-xrun "nvidia-xrun"){.wikilink} options, it should be utilized for troubleshooting and
-  verifying general functionality, before opting for one of the more automated approaches.
-- Using both (use NVIDIA GPU when needed and keep it powered off to save power):
-  - [#Using PRIME render offload](#Using_PRIME_render_offload "#Using PRIME render offload"){.wikilink} - official
-    method supported by NVIDIA.
-  - [#Using optimus-manager](#Using_optimus-manager "#Using optimus-manager"){.wikilink} - switches graphics with a
-    single command (logout and login required to take effect). Also supports hybrid mode with PRIME render offload. It
-    achieves maximum performance out of NVIDIA GPU and switches it off if not in use. Since the 1.4 release AMD+NVIDIA
-    combination is also supported.
-  - [#Using nvidia-xrun](#Using_nvidia-xrun "#Using nvidia-xrun"){.wikilink} - run separate X session on different TTY
-    with NVIDIA graphics. It achieves maximum performance out of NVIDIA GPU and switches it off if not in use.
-  - [#Using Bumblebee](#Using_Bumblebee "#Using Bumblebee"){.wikilink} - provides Windows-like functionality by allowing
-    to run selected applications with NVIDIA graphics while using Intel graphics for everything else. Has significant
-    performance issues.
-  - [#Using switcheroo-control](#Using_switcheroo-control "#Using switcheroo-control"){.wikilink} - Similar to
-    Bumblebee, but specifically for [GNOME](GNOME "GNOME"){.wikilink} users. Allows applications to specify if they
-    prefer the dedicated GPU in their [desktop entry](desktop_entry "desktop entry"){.wikilink} file, and lets you
-    manually run any application on the NVIDIA GPU from the right-click menu.
-  - [#Using nouveau](#Using_nouveau "#Using nouveau"){.wikilink} - offers poorer performance (compared to the
-    proprietary NVIDIA driver) and may cause issues with sleep and hibernate. Does not work with latest NVIDIA GPUs.
-  - [#Using EnvyControl](#Using_EnvyControl "#Using EnvyControl"){.wikilink} - Similar to optimus-manager but does not
-    require extensive configuration or having a daemon running in the background as well as having to install a patched
-    version of GDM if you are a GNOME user.
-  - [#Using NVidia-eXec](#Using_NVidia-eXec "#Using NVidia-eXec"){.wikilink} - Similar to Bumblebee, but without the
-    performance impact. It works on both Xorg and Wayland. This package is experimental, and is currently being tested
-    only under GNOME/GDM.
-  - [#Using nvidia-switch](#Using_nvidia-switch "#Using nvidia-switch"){.wikilink} - Similar to nvidia-xrun, but not
-    needing to change TTY, the switches will be done by login and logouts in your display manager. This package is being
-    tested on Debian based system, but, like nvidia-xrun, it must work in all Linux systems.
+-   [#Use integrated graphics only](#Use_integrated_graphics_only "wikilink") - saves power, because NVIDIA GPU will be
+    completely powered off.
+-   [#Use NVIDIA graphics only](#Use_NVIDIA_graphics_only "wikilink") - gives more performance than integrated graphics,
+    but drains more battery (which is not welcome for mobile devices). This utilizes the same underlying process as the
+    [optimus-manager](#Using_optimus-manager "wikilink") and [nvidia-xrun](#Using_nvidia-xrun "wikilink") options, it
+    should be utilized for troubleshooting and verifying general functionality, before opting for one of the more
+    automated approaches.
+-   Using both (use NVIDIA GPU when needed and keep it powered off to save power):
+    -   [#Using PRIME render offload](#Using_PRIME_render_offload "wikilink") - official method supported by NVIDIA.
+    -   [#Using optimus-manager](#Using_optimus-manager "wikilink") - switches graphics with a single command (logout
+        and login required to take effect). Also supports hybrid mode with PRIME render offload. It achieves maximum
+        performance out of NVIDIA GPU and switches it off if not in use. Since the 1.4 release AMD+NVIDIA combination is
+        also supported.
+    -   [#Using nvidia-xrun](#Using_nvidia-xrun "wikilink") - run separate X session on different TTY with NVIDIA
+        graphics. It achieves maximum performance out of NVIDIA GPU and switches it off if not in use.
+    -   [#Using Bumblebee](#Using_Bumblebee "wikilink") - provides Windows-like functionality by allowing to run
+        selected applications with NVIDIA graphics while using Intel graphics for everything else. Has significant
+        performance issues.
+    -   [#Using switcheroo-control](#Using_switcheroo-control "wikilink") - Similar to Bumblebee, but specifically for
+        [GNOME](GNOME "wikilink") users. Allows applications to specify if they prefer the dedicated GPU in their
+        [desktop entry](desktop_entry "wikilink") file, and lets you manually run any application on the NVIDIA GPU from
+        the right-click menu.
+    -   [#Using nouveau](#Using_nouveau "wikilink") - offers poorer performance (compared to the proprietary NVIDIA
+        driver) and may cause issues with sleep and hibernate. Does not work with latest NVIDIA GPUs.
+    -   [#Using EnvyControl](#Using_EnvyControl "wikilink") - Similar to optimus-manager but does not require extensive
+        configuration or having a daemon running in the background as well as having to install a patched version of GDM
+        if you are a GNOME user.
+    -   [#Using NVidia-eXec](#Using_NVidia-eXec "wikilink") - Similar to Bumblebee, but without the performance impact.
+        It works on both Xorg and Wayland. This package is experimental, and is currently being tested only under
+        GNOME/GDM.
+    -   [#Using nvidia-switch](#Using_nvidia-switch "wikilink") - Similar to nvidia-xrun, but not needing to change TTY,
+        the switches will be done by login and logouts in your display manager. This package is being tested on Debian
+        based system, but, like nvidia-xrun, it must work in all Linux systems.
 
 ```{=mediawiki}
 {{Note|All of these options are mutually exclusive, if you test one approach and decide for another, you must ensure to revert any configuration changes done by following one approach before attempting another method, otherwise file conflicts and undefined behaviours may arise.}}
@@ -66,15 +62,13 @@ option to disable one of the cards. Some laptops only allow disabling of the dis
 worth checking if you only plan to use just one of the cards.
 
 If your BIOS does not allow to disable Nvidia graphics, you can disable it from the Linux kernel itself. See [Hybrid
-graphics#Fully power down discrete
-GPU](Hybrid_graphics#Fully_power_down_discrete_GPU "Hybrid graphics#Fully power down discrete GPU"){.wikilink}.
+graphics#Fully power down discrete GPU](Hybrid_graphics#Fully_power_down_discrete_GPU "wikilink").
 
 ### Use CUDA without switching the rendering provider {#use_cuda_without_switching_the_rendering_provider}
 
 You can use CUDA without switching rendering to the Nvidia graphics. All you need to do is ensure that the Nvidia card
 is powered on before starting a CUDA application, see [Hybrid graphics#Fully power down discrete
-GPU](Hybrid_graphics#Fully_power_down_discrete_GPU "Hybrid graphics#Fully power down discrete GPU"){.wikilink} for
-details.
+GPU](Hybrid_graphics#Fully_power_down_discrete_GPU "wikilink") for details.
 
 Now when you start a CUDA application, it will automatically load all necessary kernel modules. Before turning off the
 Nvidia card after using CUDA, the `{{ic|nvidia}}`{=mediawiki} kernel modules have to be unloaded first:
@@ -86,17 +80,16 @@ Nvidia card after using CUDA, the `{{ic|nvidia}}`{=mediawiki} kernel modules hav
 
 The proprietary NVIDIA driver can be configured to be the primary rendering provider. It also has notable screen-tearing
 issues unless you enable prime sync by enabling [NVIDIA#DRM kernel mode
-setting](NVIDIA#DRM_kernel_mode_setting "NVIDIA#DRM kernel mode setting"){.wikilink}, see
+setting](NVIDIA#DRM_kernel_mode_setting "wikilink"), see
 [1](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) for further information. It
 does allow use of the discrete GPU and has (as of [January
 2017](https://www.phoronix.com/scan.php?page=article&item=nouveau-410-blob&num=1)) a marked edge in performance over the
 nouveau driver.
 
-First, [install](install "install"){.wikilink} the [NVIDIA](NVIDIA "NVIDIA"){.wikilink} driver and
-`{{Pkg|xorg-xrandr}}`{=mediawiki}. Then, configure
-`{{ic|/etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} the options of which will be combined with the
-package provided `{{ic|/usr/share/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} to provide compatibility
-with this setup.
+First, [install](install "wikilink") the [NVIDIA](NVIDIA "wikilink") driver and `{{Pkg|xorg-xrandr}}`{=mediawiki}. Then,
+configure `{{ic|/etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} the options of which will be combined
+with the package provided `{{ic|/usr/share/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} to provide
+compatibility with this setup.
 
 ```{=mediawiki}
 {{Note|On some setups this setup breaks automatic detection of the values of the display by the nvidia driver through the EDID file. As a work-around see [[#Resolution, screen scan wrong. EDID errors in Xorg.log]]. }}
@@ -140,12 +133,12 @@ window manager can run before the `{{ic|xrandr}}`{=mediawiki} commands finish ex
 
 ### Display managers {#display_managers}
 
-If you are using a [display manager](display_manager "display manager"){.wikilink} then you will need to create or edit
-a display setup script for your display manager instead of using `{{ic|~/.xinitrc}}`{=mediawiki}.
+If you are using a [display manager](display_manager "wikilink") then you will need to create or edit a display setup
+script for your display manager instead of using `{{ic|~/.xinitrc}}`{=mediawiki}.
 
 #### LightDM
 
-For the [LightDM](LightDM "LightDM"){.wikilink} display manager:
+For the [LightDM](LightDM "wikilink") display manager:
 
 ```{=mediawiki}
 {{hc|/etc/lightdm/display_setup.sh|
@@ -154,7 +147,7 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 }}
 ```
-Make the script [executable](executable "executable"){.wikilink}.
+Make the script [executable](executable "wikilink").
 
 Now configure lightdm to run the script by editing the `{{ic|[Seat:*]}}`{=mediawiki} section in
 `{{ic|/etc/lightdm/lightdm.conf}}`{=mediawiki}:
@@ -169,7 +162,7 @@ Now reboot and your display manager should start.
 
 #### SDDM
 
-For the [SDDM](SDDM "SDDM"){.wikilink} display manager (SDDM is the default DM for [KDE](KDE "KDE"){.wikilink}):
+For the [SDDM](SDDM "wikilink") display manager (SDDM is the default DM for [KDE](KDE "wikilink")):
 
 ```{=mediawiki}
 {{hc|/usr/share/sddm/scripts/Xsetup|
@@ -179,7 +172,7 @@ xrandr --auto
 ```
 #### GDM
 
-For the [GDM](GDM "GDM"){.wikilink} display manager create two new .desktop files:
+For the [GDM](GDM "wikilink") display manager create two new .desktop files:
 
 ```{=mediawiki}
 {{hc|/usr/share/gdm/greeter/autostart/optimus.desktop
@@ -192,7 +185,7 @@ NoDisplay=true
 X-GNOME-Autostart-Phase=DisplayServer</nowiki>
 }}
 ```
-Make sure that GDM use [X as default backend](GDM#Use_Xorg_backend "X as default backend"){.wikilink}.
+Make sure that GDM use [X as default backend](GDM#Use_Xorg_backend "wikilink").
 
 ### Checking 3D {#checking_3d}
 
@@ -211,24 +204,23 @@ For more information, look at NVIDIA\'s official page on the topic
 
 This is the official NVIDIA method to support switchable graphics.
 
-See [PRIME#PRIME render offload](PRIME#PRIME_render_offload "PRIME#PRIME render offload"){.wikilink} for details.
+See [PRIME#PRIME render offload](PRIME#PRIME_render_offload "wikilink") for details.
 
 ### Using nouveau {#using_nouveau}
 
-See [PRIME](PRIME "PRIME"){.wikilink} for graphics switching and [nouveau](nouveau "nouveau"){.wikilink} for open-source
-NVIDIA driver.
+See [PRIME](PRIME "wikilink") for graphics switching and [nouveau](nouveau "wikilink") for open-source NVIDIA driver.
 
 ### Using Bumblebee {#using_bumblebee}
 
-See [Bumblebee](Bumblebee "Bumblebee"){.wikilink}.
+See [Bumblebee](Bumblebee "wikilink").
 
 ### Using switcheroo-control {#using_switcheroo_control}
 
-See [PRIME#GNOME integration](PRIME#GNOME_integration "PRIME#GNOME integration"){.wikilink}.
+See [PRIME#GNOME integration](PRIME#GNOME_integration "wikilink").
 
 ### Using nvidia-xrun {#using_nvidia_xrun}
 
-See [nvidia-xrun](nvidia-xrun "nvidia-xrun"){.wikilink}.
+See [nvidia-xrun](nvidia-xrun "wikilink").
 
 ### Using optimus-manager {#using_optimus_manager}
 
@@ -257,8 +249,8 @@ and usage instructions.
 ```
 ### Tearing/Broken VSync {#tearingbroken_vsync}
 
-Enable [DRM kernel mode setting](NVIDIA#DRM_kernel_mode_setting "DRM kernel mode setting"){.wikilink}, which will in
-turn enable the PRIME synchronization and fix the tearing.
+Enable [DRM kernel mode setting](NVIDIA#DRM_kernel_mode_setting "wikilink"), which will in turn enable the PRIME
+synchronization and fix the tearing.
 
 You can read the official [forum
 thread](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) for details.
@@ -318,8 +310,7 @@ To disable runtime power-management, add `{{ic|1=nouveau.runpm=0}}`{=mediawiki} 
 For known model-specific workarounds, see [this
 issue](https://github.com/Bumblebee-Project/Bumblebee/issues/764#issuecomment-234494238). In other cases you can try to
 boot with `{{ic|1=acpi_osi="!Windows 2015"}}`{=mediawiki} or `{{ic|1=acpi_osi=! acpi_osi="Windows 2009"}}`{=mediawiki}
-added to your [Kernel parameters](Kernel_parameters "Kernel parameters"){.wikilink}. (Consider reporting your laptop to
-that issue.)
+added to your [Kernel parameters](Kernel_parameters "wikilink"). (Consider reporting your laptop to that issue.)
 
 ### No screens found on a laptop/NVIDIA Optimus {#no_screens_found_on_a_laptopnvidia_optimus}
 
@@ -335,8 +326,8 @@ Check if the output is something similar to:
 NVIDIA drivers now offer Optimus support since 319.12 Beta
 [5](https://www.nvidia.com/object/linux-display-amd64-319.12-driver.html) with kernels above and including 3.9.
 
-Another solution is to install the [Intel](Intel "Intel"){.wikilink} driver to handle the screens, then if you want 3D
-software you should run them through [Bumblebee](Bumblebee "Bumblebee"){.wikilink} to tell them to use the NVIDIA card.
+Another solution is to install the [Intel](Intel "wikilink") driver to handle the screens, then if you want 3D software
+you should run them through [Bumblebee](Bumblebee "wikilink") to tell them to use the NVIDIA card.
 
 ### Random freezes \"(EE) NVIDIA(GPU-0): WAIT\" {#random_freezes_ee_nvidiagpu_0_wait}
 
@@ -349,8 +340,8 @@ one in use, users report freezes for up to 10 seconds, with the following errors
 While this is not root-caused yet, it seems linked to a conflict in how the integrated and dedicated cards interact with
 Xorg.
 
-The workaround is to use switchable graphics, see [PRIME#PRIME render
-offload](PRIME#PRIME_render_offload "PRIME#PRIME render offload"){.wikilink} for details.
+The workaround is to use switchable graphics, see [PRIME#PRIME render offload](PRIME#PRIME_render_offload "wikilink")
+for details.
 
 ### \"No Devices detected\" with optimus-manager {#no_devices_detected_with_optimus_manager}
 
@@ -378,7 +369,7 @@ manually set the power limit using `{{ic|nvidia-smi}}`{=mediawiki} command, so m
 usage and bad performance.
 
 To workaround this problem (for the Ampere generation or newer), see [NVIDIA/Tips and tricks#Dynamic
-Boost](NVIDIA/Tips_and_tricks#Dynamic_Boost "NVIDIA/Tips and tricks#Dynamic Boost"){.wikilink}.
+Boost](NVIDIA/Tips_and_tricks#Dynamic_Boost "wikilink").
 
 ### NVIDIA GPU will not turn off or stay deactivated {#nvidia_gpu_will_not_turn_off_or_stay_deactivated}
 
@@ -395,9 +386,9 @@ If you use a thermal monitor that is probing your GPU temperature, it typically 
 get this temperature, which will wake up your GPU and keep it in an active state.
 
 You can use `{{Pkg|nvtop}}`{=mediawiki} to check if a process (such as Xorg) is using the NVIDIA GPU, but this method
-does not work in all cases. For example, if you have a [Ollama](Ollama "Ollama"){.wikilink} server running, it will
-always keep your GPU on but will not show in `{{ic|nvtop}}`{=mediawiki} or invoke `{{ic|nvidia-smi}}`{=mediawiki}.
+does not work in all cases. For example, if you have a [Ollama](Ollama "wikilink") server running, it will always keep
+your GPU on but will not show in `{{ic|nvtop}}`{=mediawiki} or invoke `{{ic|nvidia-smi}}`{=mediawiki}.
 
 Remember to check the articles related to your specific chosen method for troubleshooting as well.
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink")

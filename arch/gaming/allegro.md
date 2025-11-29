@@ -1,5 +1,5 @@
-[ja:Allegro](ja:Allegro "ja:Allegro"){.wikilink} [ru:Allegro](ru:Allegro "ru:Allegro"){.wikilink}
-[Allegro](https://liballeg.org/) is, as their website states,
+[ja:Allegro](ja:Allegro "wikilink") [ru:Allegro](ru:Allegro "wikilink") [Allegro](https://liballeg.org/) is, as their
+website states,
 
 :   a cross-platform library mainly aimed at video game and multimedia programming. It handles common, low-level tasks
     such as creating windows, accepting user input, loading data, drawing images, playing sounds, etc. and generally
@@ -8,7 +8,7 @@
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|allegro}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|allegro}}`{=mediawiki} package.
 
 There is also a package for the legacy version of Allegro, `{{Pkg|allegro4}}`{=mediawiki}, which you can use for source
 which requires it.
@@ -28,20 +28,20 @@ If your main function is inside a C++ file, then it must have this signature:
 
 ## Troubleshooting
 
-- A common first mistake is to forget to link against the Allegro libraries. For an overview, use
-  `{{ic|pkg-config --list-all | grep allegro}}`{=mediawiki}.
+-   A common first mistake is to forget to link against the Allegro libraries. For an overview, use
+    `{{ic|pkg-config --list-all | grep allegro}}`{=mediawiki}.
 
+```{=html}
 <!-- -->
-
-- Another trap for young players is to forget to include and initialise the necessary modules. Each module is a header,
-  which needs to be included in the source file. Make sure you initialised it with the correct command and linked
-  against the module, see above. For the exact details, refer to the manual.
+```
+-   Another trap for young players is to forget to include and initialise the necessary modules. Each module is a
+    header, which needs to be included in the source file. Make sure you initialised it with the correct command and
+    linked against the module, see above. For the exact details, refer to the manual.
 
 ## See also {#see_also}
 
-- [Allegro documentation](https://liballeg.org/api.html) files and reference manual
-- [Allegro Wiki](https://github.com/liballeg/allegro_wiki/wiki)
-- [Allegro community network](https://www.allegro.cc/about)
+-   [Allegro documentation](https://liballeg.org/api.html) files and reference manual
+-   [Allegro Wiki](https://github.com/liballeg/allegro_wiki/wiki)
+-   [Allegro community network](https://www.allegro.cc/about)
 
-[Category:Development](Category:Development "Category:Development"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Development](Category:Development "wikilink") [Category:Gaming](Category:Gaming "wikilink")

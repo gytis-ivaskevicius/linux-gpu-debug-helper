@@ -1,4 +1,4 @@
-[ja:VirtualGL](ja:VirtualGL "ja:VirtualGL"){.wikilink}
+[ja:VirtualGL](ja:VirtualGL "wikilink")
 `{{Style|Page is very difficult to read, and that is before going into the edit tab and trying to make sense of the raw text.}}`{=mediawiki}
 
 VirtualGL redirects an application\'s *OpenGL/GLX commands* to a separate X server (that has access to a 3D graphics
@@ -13,11 +13,10 @@ server that handles the application is either on the other side of the network *
 ```{=mediawiki}
 {{Expansion|section=Move to Main namespace and expand}}
 ```
-[Install](Install "Install"){.wikilink} the `{{Pkg|virtualgl}}`{=mediawiki} package, then follow [Configuring a Linux or
-Unix Machine as a VirtualGL Server](https://rawcdn.githack.com/VirtualGL/virtualgl/3.0/doc/index.html#hd006) to
-configure it. On arch, `{{ic|/opt/VirtualGL/bin/vglserver_config}}`{=mediawiki} is just
-`{{ic|vglserver_config}}`{=mediawiki} and `{{ic|/opt/VirtualGL/bin/glxinfo}}`{=mediawiki} is
-`{{ic|vglxinfo}}`{=mediawiki}.
+[Install](Install "wikilink") the `{{Pkg|virtualgl}}`{=mediawiki} package, then follow [Configuring a Linux or Unix
+Machine as a VirtualGL Server](https://rawcdn.githack.com/VirtualGL/virtualgl/3.0/doc/index.html#hd006) to configure it.
+On arch, `{{ic|/opt/VirtualGL/bin/vglserver_config}}`{=mediawiki} is just `{{ic|vglserver_config}}`{=mediawiki} and
+`{{ic|/opt/VirtualGL/bin/glxinfo}}`{=mediawiki} is `{{ic|vglxinfo}}`{=mediawiki}.
 
 ## Usage
 
@@ -43,25 +42,24 @@ configure it. On arch, `{{ic|/opt/VirtualGL/bin/vglserver_config}}`{=mediawiki} 
 1.  \"3D\" rendering happens here
 2.  \"2D\" rendering happens here
 
-*Advantages of this set-up, compared to using [VirtualGL with VNC](#With_VNC "VirtualGL with VNC"){.wikilink}:*
+*Advantages of this set-up, compared to using [VirtualGL with VNC](#With_VNC "wikilink"):*
 
-- seamless windows
-- uses a little less CPU resources on the server side
-- supports stereo rendering (for viewing with \"3D glasses\")
+-   seamless windows
+-   uses a little less CPU resources on the server side
+-   supports stereo rendering (for viewing with \"3D glasses\")
 
 #### Instructions
 
 ##### Preparation
 
-In addition to setting up VirtualGL on the remote server [as described
-above](#Installation_and_setup "as described above"){.wikilink}, this usage scenario requires you to:
+In addition to setting up VirtualGL on the remote server [as described above](#Installation_and_setup "wikilink"), this
+usage scenario requires you to:
 
-- install the `{{Pkg|virtualgl}}`{=mediawiki} package on the client side as well *(but no need to set it up like on the
-  server side, we just need the `{{ic|vglconnect}}`{=mediawiki} and `{{ic|vglclient}}`{=mediawiki} binaries on this
-  end)*.
-- set up [SSH with X11 forwarding](X11_forwarding "SSH with X11 forwarding"){.wikilink} *(confirm that connecting from
-  the client to the server via `{{ic|ssh -X user@server}}`{=mediawiki} and running GUI applications in the resulting
-  shell works)*
+-   install the `{{Pkg|virtualgl}}`{=mediawiki} package on the client side as well *(but no need to set it up like on
+    the server side, we just need the `{{ic|vglconnect}}`{=mediawiki} and `{{ic|vglclient}}`{=mediawiki} binaries on
+    this end)*.
+-   set up [SSH with X11 forwarding](X11_forwarding "wikilink") *(confirm that connecting from the client to the server
+    via `{{ic|ssh -X user@server}}`{=mediawiki} and running GUI applications in the resulting shell works)*
 
 ##### Connecting
 
@@ -79,7 +77,7 @@ the SSH shell - you can stop it with `{{ic|vglclient -kill}}`{=mediawiki}.
 
 Once connected, you can run remote applications with VirtualGL rendering enabled for their OpenGL parts, by starting
 them inside the SSH shell with `{{ic|vglrun}}`{=mediawiki} as described in [Running
-Applications](#Running_applications "Running Applications"){.wikilink} below.
+Applications](#Running_applications "wikilink") below.
 
 You do not need to restrict yourself to the shell that `{{ic|vglconnect}}`{=mediawiki} opened for you; any
 `{{ic|ssh -X}}`{=mediawiki} or `{{ic|ssh -Y}}`{=mediawiki} shell you open from the same X session on the client to the
@@ -109,24 +107,22 @@ that the VGL image stream is sent over the network to the IP/hostname belonging 
 1.  \"3D\" rendering happens here
 2.  \"2D\" rendering happens here
 
-*Advantages of this set-up, compared to using [VirtualGL with X11
-Forwarding](#With_X11_forwarding "VirtualGL with X11 Forwarding"){.wikilink}:*
+*Advantages of this set-up, compared to using [VirtualGL with X11 Forwarding](#With_X11_forwarding "wikilink"):*
 
-- can maintain better performance in case of low-bandwidth/high-latency networks
-- can send the same image stream to multiple clients (\"desktop sharing\")
-- the remote application can continue running even when the network connection drops
-- better support for non-Linux clients, as the architecture does not depend on a client-side X server
+-   can maintain better performance in case of low-bandwidth/high-latency networks
+-   can send the same image stream to multiple clients (\"desktop sharing\")
+-   the remote application can continue running even when the network connection drops
+-   better support for non-Linux clients, as the architecture does not depend on a client-side X server
 
 #### Instructions {#instructions_1}
 
-After setting up VirtualGL on the remote server [as described
-above](#Installation_and_setup "as described above"){.wikilink}, and establishing a working remote desktop connection
-using the [VNC client/server](Vncserver "VNC client/server"){.wikilink} implementation of your choice, no further
-configuration should be needed.
+After setting up VirtualGL on the remote server [as described above](#Installation_and_setup "wikilink"), and
+establishing a working remote desktop connection using the [VNC client/server](Vncserver "wikilink") implementation of
+your choice, no further configuration should be needed.
 
 Inside the VNC session (e.g. in a terminal emulator within the VNC desktop or even directly in
 `{{ic|~/.vnc/xstartup}}`{=mediawiki}), simply run selected applications with `{{ic|vglrun}}`{=mediawiki} as described in
-[Running Applications](#Running_applications "Running Applications"){.wikilink} below.
+[Running Applications](#Running_applications "wikilink") below.
 
 You can also run your entire session with `{{ic|vglrun}}`{=mediawiki}, so that all opengl applications work by default.
 For example, if you use xfce, you can run `{{ic|vglrun startxfce4}}`{=mediawiki} instead of
@@ -136,36 +132,35 @@ a display manager.
 
 #### Choosing an appropriate VNC package {#choosing_an_appropriate_vnc_package}
 
-VirtualGL can provide 3D rendering for *any* general-purpose [vncserver](vncserver "vncserver"){.wikilink}
-implementation (e.g. TightVNC, RealVNC, \...).
+VirtualGL can provide 3D rendering for *any* general-purpose [vncserver](vncserver "wikilink") implementation (e.g.
+TightVNC, RealVNC, \...).
 
 However, if you want to really get good performance out of it *(e.g. to make it viable to watch videos or play OpenGL
 games over VNC)*, you might want to use one of the VNC implementations that are specifically optimized for this
 use-case:
 
-- ```{=mediawiki}
-  {{AUR|turbovnc}}
-  ```
+-   ```{=mediawiki}
+    {{AUR|turbovnc}}
+    ```
+    : Developed by the same team as VirtualGL, with the explicit goal of providing the best performance in combination
+    with it. However, its vncserver implementation does not support all features a normal Xorg server provides, thus
+    *some* applications will run unusually slow or not at all in it.
 
-  :   Developed by the same team as VirtualGL, with the explicit goal of providing the best performance in combination
-      with it. However, its vncserver implementation does not support all features a normal Xorg server provides, thus
-      *some* applications will run unusually slow or not at all in it.
-
-- [TigerVNC](TigerVNC "TigerVNC"){.wikilink}: Also developed with VirtualGL in mind and achieves good performance with
-  it, while providing better Xorg compatibility than TurboVNC.
+-   [TigerVNC](TigerVNC "wikilink"): Also developed with VirtualGL in mind and achieves good performance with it, while
+    providing better Xorg compatibility than TurboVNC.
 
 ### With Xpra {#with_xpra}
 
 #### On your host {#on_your_host}
 
-- Setup Xpra and run it
-  [manually](Xpra#Run_applications_in_a_persistent_xpra_server_on_the_remote_host "manually"){.wikilink} or
-  [automatically by a systemd unit](Xpra#Server "automatically by a systemd unit"){.wikilink}. Remember the specified
-  Xorg display, e.g. `{{ic|:7}}`{=mediawiki}.
+-   Setup Xpra and run it [manually](Xpra#Run_applications_in_a_persistent_xpra_server_on_the_remote_host "wikilink") or
+    [automatically by a systemd unit](Xpra#Server "wikilink"). Remember the specified Xorg display, e.g.
+    `{{ic|:7}}`{=mediawiki}.
 
+```{=html}
 <!-- -->
-
-- Prepare a minimal xinit resource file that just locks your Xorg server\'s display:
+```
+-   Prepare a minimal xinit resource file that just locks your Xorg server\'s display:
 
 ```{=mediawiki}
 {{hc|~/.xinitrc-vgl|
@@ -173,19 +168,20 @@ use-case:
 exec slock
 }}
 ```
-- Start an Xorg server using the prepared resource file `{{ic|startx ~/.xinitrc-vgl}}`{=mediawiki}. Now,
-  `{{ic|pgrep xorg}}`{=mediawiki} should return two Xorg instances.
+-   Start an Xorg server using the prepared resource file `{{ic|startx ~/.xinitrc-vgl}}`{=mediawiki}. Now,
+    `{{ic|pgrep xorg}}`{=mediawiki} should return two Xorg instances.
 
+```{=html}
 <!-- -->
-
-- Run an application via vglrun command specifying the Xorg display used by your Xpra, e.g.
-  `{{ic|1=DISPLAY=:7 vglrun glxspheres64}}`{=mediawiki}. The application will not be visible yet.
+```
+-   Run an application via vglrun command specifying the Xorg display used by your Xpra, e.g.
+    `{{ic|1=DISPLAY=:7 vglrun glxspheres64}}`{=mediawiki}. The application will not be visible yet.
 
 #### On your client {#on_your_client}
 
-- Setup Xpra at the client and [attach to
-  it](Xpra#Run_applications_in_a_persistent_xpra_server_on_the_remote_host "attach to it"){.wikilink}. Now you should
-  see the glxspheres64 application started above.
+-   Setup Xpra at the client and [attach to
+    it](Xpra#Run_applications_in_a_persistent_xpra_server_on_the_remote_host "wikilink"). Now you should see the
+    glxspheres64 application started above.
 
 ```{=mediawiki}
 {{Note|
@@ -203,29 +199,23 @@ run selected applications with VirtualGL-accelerated rendering of their OpenGL p
 This has to be executed on the remote computer of course (where the application will run), i.e. inside your SSH or VNC
 session. The X servers that will be used, are determined from the following two environment variables:
 
-`{{ic|DISPLAY}}`{=mediawiki}
-:   *The X server \"2)\" that will handle the application, and render its non-OpenGL parts.* If using VNC, this refers
-    to the VNC server. In the case of SSH forwarding, it is a virtual X server number on the remote computer that SSH
-    internally maps to the real X server on the client. There is nothing VirtualGL-specific about this variable, and it
-    will already be set to the correct value within your SSH or VNC session.
-
-`{{ic|VGL_DISPLAY}}`{=mediawiki}
-:   *The X server \"1)\" to which VirtualGL should redirect OpenGL rendering.* See [Installation and
-    setup](#Installation_and_setup "Installation and setup"){.wikilink} above. If not set, the value
-    `{{ic|:0.0}}`{=mediawiki} is assumed. Note that the number after the dot can be used to select the graphics card.
+`{{ic|DISPLAY}}`{=mediawiki}: *The X server \"2)\" that will handle the application, and render its non-OpenGL parts.* If using VNC, this refers to the VNC server. In the case of SSH forwarding, it is a virtual X server number on the remote computer that SSH internally maps to the real X server on the client. There is nothing VirtualGL-specific about this variable, and it will already be set to the correct value within your SSH or VNC session.\
+`{{ic|VGL_DISPLAY}}`{=mediawiki}: *The X server \"1)\" to which VirtualGL should redirect OpenGL rendering.* See [Installation and setup](#Installation_and_setup "wikilink") above. If not set, the value `{{ic|:0.0}}`{=mediawiki} is assumed. Note that the number after the dot can be used to select the graphics card.
 
 Many more environment variables and command-line parameters are available to fine-tune `{{ic|vglrun}}`{=mediawiki} -
 refer to the user manual and `{{ic|vglrun -help}}`{=mediawiki} for reference. VirtualGL\'s behavior furthermore depends
 on which of its two main modes of operation is active (which `{{ic|vglrun}}`{=mediawiki} will choose automatically,
 based on the environment in which it is executed):
 
-- *\"**VGL Transport**\" - default when [using X11 forwarding](#With_X11_forwarding "using X11 forwarding"){.wikilink}*
+-   *\"**VGL Transport**\" - default when [using X11 forwarding](#With_X11_forwarding "wikilink")*
 
 :   In this mode, a compressed image stream of the rendered OpenGL scenes is sent through a custom network protocol to a
     `{{ic|vglclient}}`{=mediawiki} instance. By default it uses JPEG compression at 90% quality, but this can be fully
     customized, e.g.:
 
+```{=html}
 <!-- -->
+```
 
 :   ```{=mediawiki}
     {{bc|$ vglrun -q 30 -samp 4x glxgears              ''# use aggressive compression (to reduce bandwidth demand)''}}
@@ -235,13 +225,15 @@ based on the environment in which it is executed):
     {{bc|1=$ VGL_QUAL=30 VGL_SUBSAMP=4x vglrun glxgears  ''# same as above, using environment variables''}}
     ```
 
+```{=html}
 <!-- -->
+```
 
 :   There is also a GUI dialog that lets you change the most common VirtualGL rendering/compression options for an
     application on the fly, after you have already started it with `{{ic|vglrun}}`{=mediawiki} - simply press
     `{{ic|Ctrl+Shift+F9}}`{=mediawiki} while the application has keyboard focus, to open this dialog.
 
-- *\"**X11 Transport**\" - default when [using VNC](#With_VNC "using VNC"){.wikilink}*
+-   *\"**X11 Transport**\" - default when [using VNC](#With_VNC "wikilink")*
 
 :   In this mode, VirtualGL feeds raw (uncompressed) images through the normal X11 protocol directly to the X server
     that handles the application - e.g. a VNC server running on the same machine. Many of `{{ic|vglrun}}`{=mediawiki}\'s
@@ -265,8 +257,8 @@ application:
 `$ VGL_LOGO=1 vglrun glxgears`
 
 If the application runs but the logo does not appear, it means VirtualGL has failed to take effect (see
-[#Troubleshooting](#Troubleshooting "#Troubleshooting"){.wikilink} below) and the application has probably fallen back
-to software rendering.
+[#Troubleshooting](#Troubleshooting "wikilink") below) and the application has probably fallen back to software
+rendering.
 
 ### Measuring performance {#measuring_performance}
 
@@ -293,18 +285,18 @@ If `{{ic|vglrun}}`{=mediawiki} exits with an error messages like\...
 
 \...in the shell output, then this means that the 3D-capable X server on the server side (that is supposed to handle the
 OpenGL rendering) is either not running, or not properly set up for use with VirtualGL (see [Installation and
-setup](#Installation_and_setup "Installation and setup"){.wikilink}), or `{{ic|VGL_DISPLAY}}`{=mediawiki} is not set
-correctly (see [Running Applications](#Running_applications "Running Applications"){.wikilink}). If it used to work but
-not anymore, a package upgrade may have overwritten files modified by `{{ic|vglserver_config}}`{=mediawiki}, so run that
-script again and then restart the server-side X server.
+setup](#Installation_and_setup "wikilink")), or `{{ic|VGL_DISPLAY}}`{=mediawiki} is not set correctly (see [Running
+Applications](#Running_applications "wikilink")). If it used to work but not anymore, a package upgrade may have
+overwritten files modified by `{{ic|vglserver_config}}`{=mediawiki}, so run that script again and then restart the
+server-side X server.
 
 ### vglrun seems to have no effect at all {#vglrun_seems_to_have_no_effect_at_all}
 
 Symptoms:
 
-- no VirtualGL-accelerated 3D rendering - the program either aborts, or falls back to software rendering ([how to
-  check](#Confirming_that_VirtualGL_rendering_is_active "how to check"){.wikilink})
-- at the same time, *no* VirtualGL related error messages or info is printed to the shell
+-   no VirtualGL-accelerated 3D rendering - the program either aborts, or falls back to software rendering ([how to
+    check](#Confirming_that_VirtualGL_rendering_is_active "wikilink"))
+-   at the same time, *no* VirtualGL related error messages or info is printed to the shell
 
 This may happen when something blocks VirtualGL from getting preloaded into the application\'s executable(s). The way
 pre-loading works, is that `{{ic|vglrun}}`{=mediawiki} adds the names of some VirtualGL libraries to the
@@ -314,18 +306,18 @@ the `{{ic|LD_PRELOAD}}`{=mediawiki} variable and links the specified libraries i
 application binary before anything else. This will obviously not work if the environment variable is not propagated to
 the dynamic linker, e.g. in the following cases:
 
-- **The application is started through a script that explicitly unsets/overrides LD_PRELOAD**
+-   **The application is started through a script that explicitly unsets/overrides LD_PRELOAD**
 
 :   *Solution:* Edit the script to comment out or fix the offending line. (You can put the modified script in
     `{{ic|/usr/local/bin/}}`{=mediawiki} to prevent it from being reverted on the next package upgrade.)
 
-- **The application is started through multiple layers of scripts, and environment variables get lost along the way**
+-   **The application is started through multiple layers of scripts, and environment variables get lost along the way**
 
 :   *Solution:* Modify the final script that actually runs the application, to make it run the application with
     `{{ic|vglrun}}`{=mediawiki}.
 
-- **The application is started through a loader binary *(possibly itself!)*, in a way that fails to propagate
-  LD_PRELOAD**
+-   **The application is started through a loader binary *(possibly itself!)*, in a way that fails to propagate
+    LD_PRELOAD**
 
 :   *Solution:* If possible, bypass the loader binary and start the actual OpenGL application directly with
     `{{ic|vglrun}}`{=mediawiki} - an example is VirtualBox where you need to start your virtual machine session directly
@@ -347,12 +339,12 @@ messages like\...
 \...in the shell output, then the dynamic linker is correctly receiving instructions to preload the VirtualGL libraries
 into the application, but something prevents it from successfully performing this task. Three possible causes are:
 
-- **The VirtualGL libraries for the correct architecture are not installed**
+-   **The VirtualGL libraries for the correct architecture are not installed**
 
-:   To run a 32-bit application (like [Wine](Wine "Wine"){.wikilink}) with VirtualGL, you need to install
-    `{{Pkg|lib32-virtualgl}}`{=mediawiki} from the [multilib](multilib "multilib"){.wikilink} repository.
+:   To run a 32-bit application (like [Wine](Wine "wikilink")) with VirtualGL, you need to install
+    `{{Pkg|lib32-virtualgl}}`{=mediawiki} from the [multilib](multilib "wikilink") repository.
 
-- **The application executable has the setuid/setgid flag set**
+-   **The application executable has the setuid/setgid flag set**
 
 :   You can confirm whether this is the case by inspecting the executable\'s file permissions using
     `{{ic|ls -l}}`{=mediawiki}: It will show the letter `{{ic|s}}`{=mediawiki} in place of the *user executable* bit if
@@ -361,30 +353,37 @@ into the application, but something prevents it from successfully performing thi
     the setuid flag set as well. You can set this flag for the VirtualGL libraries in question by executing the
     following as root:
 
+```{=html}
 <div style="margin-left:1em;">
+```
 ```{=mediawiki}
 {{bc|
 $ chmod u+s /usr/lib/lib{rr,dl}faker.so    # for the native-architecture versions provided by {{Pkg|virtualgl}}
 $ chmod u+s /usr/lib32/lib{rr,dl}faker.so  # for the multilib versions provided by {{Pkg|lib32-virtualgl}}
 }}
 ```
+```{=html}
 </div>
+```
 
-:   However, make sure you fully understand the security implications of [setuid](Wikipedia:Setuid "setuid"){.wikilink}
-    before deciding to do this in a server environment where security is critical.
+:   However, make sure you fully understand the security implications of [setuid](Wikipedia:Setuid "wikilink") before
+    deciding to do this in a server environment where security is critical.
 
-- **You might need to specify the full path of the VirtualGL libraries**
+-   **You might need to specify the full path of the VirtualGL libraries**
 
 :   Open /usr/bin/vglrun and specify the libraries\' full path in the LD_PRELOAD variable. Example:
 
+```{=html}
 <div style="margin-left:1em;">
+```
 ```{=mediawiki}
 {{bc|
 libvglfaker$SUFFIX.so  ->  /usr/lib/libvglfaker$SUFFIX.so
 }}
 ```
+```{=html}
 </div>
-
+```
 ### vglrun fails with ERROR: Could not connect to VGL client. {#vglrun_fails_with_error_could_not_connect_to_vgl_client.}
 
 If your \'client\' program is running on the same server as virtualGL (e.g. if you are using virtualGL for VNC), try
@@ -428,9 +427,7 @@ If you use newer NVIDIA drivers (e.g., version 440) you might be affected by a s
 the framerate to approx. 1 frame per second according to the [VirtualGL mailing
 list](https://groups.google.com/d/msg/virtualgl-users/d8k1ujwKJXo/2faAa9yNAQAJ). Instead of downgrading the NVIDIA
 driver one workaround is to set `{{ic|HardDPMS}}`{=mediawiki} to `{{ic|false}}`{=mediawiki} in your X server
-configuration (see
-[NVIDIA/Troubleshooting#HardDPMS](NVIDIA/Troubleshooting#HardDPMS "NVIDIA/Troubleshooting#HardDPMS"){.wikilink} for
-details).
+configuration (see [NVIDIA/Troubleshooting#HardDPMS](NVIDIA/Troubleshooting#HardDPMS "wikilink") for details).
 
 ### rendering glitches, unusually poor performance, or application errors {#rendering_glitches_unusually_poor_performance_or_application_errors}
 
@@ -439,8 +436,8 @@ different rendering techniques. VirtualGL\'s default strategy for how to redirec
 new frame works well with most interactive 3D programs, but may prove inefficient or even problematic for *some*
 applications. If you suspect that this may be the case, you can tweak VirtualGL\'s mode of operation by setting certain
 environment variables before starting your application with `{{ic|vglrun}}`{=mediawiki}. For example you could try
-setting some of the following [environment variables](environment_variables "environment variables"){.wikilink} *(try
-them one at a time, and be aware that each of them could also make things worse!)*:
+setting some of the following [environment variables](environment_variables "wikilink") *(try them one at a time, and be
+aware that each of them could also make things worse!)*:
 
 `VGL_ALLOWINDIRECT=1`\
 `VGL_FORCEALPHA=1`\
@@ -465,8 +462,7 @@ rendering using you graphics card, e.g. your default Xorg server that is run usi
 
 ## See also {#see_also}
 
-- [VirtualGL Online Documentation](https://www.virtualgl.org/Documentation/Documentation) (you can also find it at
-  `{{ic|/usr/share/doc/virtualgl/index.html}}`{=mediawiki} if you have `{{Pkg|virtualgl}}`{=mediawiki} installed)
+-   [VirtualGL Online Documentation](https://www.virtualgl.org/Documentation/Documentation) (you can also find it at
+    `{{ic|/usr/share/doc/virtualgl/index.html}}`{=mediawiki} if you have `{{Pkg|virtualgl}}`{=mediawiki} installed)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:Remote
-desktop](Category:Remote_desktop "Category:Remote desktop"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:Remote desktop](Category:Remote_desktop "wikilink")

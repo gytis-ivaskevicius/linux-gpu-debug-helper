@@ -1,6 +1,5 @@
-[de:Minecraft](de:Minecraft "de:Minecraft"){.wikilink} [hu:Minecraft](hu:Minecraft "hu:Minecraft"){.wikilink}
-[ja:Minecraft](ja:Minecraft "ja:Minecraft"){.wikilink}
-[zh-hans:Minecraft](zh-hans:Minecraft "zh-hans:Minecraft"){.wikilink} `{{Style|
+[de:Minecraft](de:Minecraft "wikilink") [hu:Minecraft](hu:Minecraft "wikilink") [ja:Minecraft](ja:Minecraft "wikilink")
+[zh-hans:Minecraft](zh-hans:Minecraft "wikilink") `{{Style|
 * Does not follow the conventional format for most pages, encapsulates a lot of different software, which gets highly confusing whether this is a minecraft install guide or whether this is a package page
 * These guides and troubleshooting should be split off into dedicated pages to be more clear. Compressing them all into a single page is messy and hard to find the information you want.
 * The page would benefit from the use of a "software" category, listing all the software, and linking to the dedicated page if there is one for it.
@@ -29,7 +28,7 @@ website.
 #### Firewall configuration for Client/LAN worlds {#firewall_configuration_for_clientlan_worlds}
 
 Most shared Minecraft worlds are hosted using dedicated Minecraft servers. For more information about hosting dedicated
-servers, see the [#Server](#Server "#Server"){.wikilink} section below.
+servers, see the [#Server](#Server "wikilink") section below.
 
 A simpler way is to allow others to join your current Minecraft game. When playing, your Minecraft client also allows
 others to join the game in progress. Your client automatically broadcasts the info about your game on port 4445. It will
@@ -37,17 +36,17 @@ also listen for TCP connections on which other players join. This TCP listening 
 start Minecraft. This works well if you do not have a firewall. But if your firewall blocks incoming TCP connections,
 then it is very tricky to allow this random port in.
 
-To allow your client to host a local LAN game, your [firewall](firewall "firewall"){.wikilink} needs to allow:
+To allow your client to host a local LAN game, your [firewall](firewall "wikilink") needs to allow:
 
-- UDP port `{{ic|4445}}`{=mediawiki} to broadcast your game.
-- A TCP port to allow friends to join your game.
+-   UDP port `{{ic|4445}}`{=mediawiki} to broadcast your game.
+-   A TCP port to allow friends to join your game.
 
 ```{=mediawiki}
 {{Tip|After a world has been opened to LAN, a confirmation message will be sent to the game's chat with the TCP port number. For example: {{ic|Local game hosted on port ''port_number''.}}}}
 ```
 See also:
 
-- [Setting up a LAN world](https://minecraft.wiki/w/Tutorials/Setting_up_a_LAN_world).
+-   [Setting up a LAN world](https://minecraft.wiki/w/Tutorials/Setting_up_a_LAN_world).
 
 ### Bedrock Edition {#bedrock_edition}
 
@@ -60,7 +59,7 @@ UI interface for `{{AUR|mcpelauncher-linux}}`{=mediawiki}.
 Minecraft with online features stripped out, since the code is mostly based on the Minecraft for Windows 10 edition
 (i.e. a win32 codebase).
 
-It can be installed manually and runs fine with [Wine](Wine "Wine"){.wikilink} or [Proton](Proton "Proton"){.wikilink}.
+It can be installed manually and runs fine with [Wine](Wine "wikilink") or [Proton](Proton "wikilink").
 
 Additionally, Minecraft Education can be used as a gateway to Minecraft RTX running on Linux using
 `{{Pkg|vkd3d}}`{=mediawiki} (This is exclusive to the Microsoft store, x64 release of Minecraft Education).
@@ -72,19 +71,19 @@ Additionally, Minecraft Education can be used as a gateway to Minecraft RTX runn
 
 ### Java Edition {#java_edition_1}
 
-See [Minecraft/Java Edition server](Minecraft/Java_Edition_server "Minecraft/Java Edition server"){.wikilink} for more
-information on how to set up a Minecraft Java server.
+See [Minecraft/Java Edition server](Minecraft/Java_Edition_server "wikilink") for more information on how to set up a
+Minecraft Java server.
 
 ### Bedrock Edition {#bedrock_edition_1}
 
 #### Installation {#installation_1}
 
 The Bedrock Minecraft server can be installed via the `{{aur|minecraft-bedrock-server}}`{=mediawiki} package. It
-provides a [systemd](systemd "systemd"){.wikilink} unit file. This package creates a separate
+provides a [systemd](systemd "wikilink") unit file. This package creates a separate
 `{{ic|minecraft-bedrock}}`{=mediawiki} account.
 
 To start the server, you may either use systemd or run it directly from the command line. Using systemd, you may
-[start](start "start"){.wikilink} and [enable](enable "enable"){.wikilink} the included
+[start](start "wikilink") and [enable](enable "wikilink") the included
 `{{ic|minecraft-bedrock-server.service}}`{=mediawiki}. Alternatively, run the following as the minecraft-bedrock user
 inside the `{{ic|/opt/minecraft-bedrock-server}}`{=mediawiki} directory:
 
@@ -103,69 +102,69 @@ authentication.
 You can launch Minecraft from different so called *launchers* that often include an array of modpacks to enhance one\'s
 gameplay and add [mods](https://minecraft.wiki/Mods).
 
-- ```{=mediawiki}
-  {{App|ATLauncher|Minecraft ModPack launcher consisting of multiple different modpacks made by the community.|https://atlauncher.com/|{{AUR|atlauncher}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|ATLauncher|Minecraft ModPack launcher consisting of multiple different modpacks made by the community.|https://atlauncher.com/|{{AUR|atlauncher}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Badlion Client|PvP modpack for all modern versions of Minecraft.|https://client.badlion.net|{{AUR|badlion-client}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Badlion Client|PvP modpack for all modern versions of Minecraft.|https://client.badlion.net|{{AUR|badlion-client}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|CheatBreaker Client|The free FPS boosting modpack for Minecraft 1.7 & 1.8|https://cheatbreaker.net/|{{AUR|cheatbreaker}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|CheatBreaker Client|The free FPS boosting modpack for Minecraft 1.7 & 1.8|https://cheatbreaker.net/|{{AUR|cheatbreaker}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Feed The Beast|Originated as a custom challenge map in Minecraft that made heavy use of multiple tech mods, and later evolved into a mod package launcher.|https://www.feed-the-beast.com/|{{AUR|ftb-app}}, {{AUR|feedthebeast-classic}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Feed The Beast|Originated as a custom challenge map in Minecraft that made heavy use of multiple tech mods, and later evolved into a mod package launcher.|https://www.feed-the-beast.com/|{{AUR|ftb-app}}, {{AUR|feedthebeast-classic}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|GDLauncher Carbon|Open-source Minecraft launcher written in Electron/React.|https://gdlauncher.com/|{{AUR|gdlauncher-carbon-bin}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|GDLauncher Carbon|Open-source Minecraft launcher written in Electron/React.|https://gdlauncher.com/|{{AUR|gdlauncher-carbon-bin}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Hello Minecraft Launcher|Open-source Minecraft launcher supports Mod Management, Game Customizing, Auto Installing, Modpack Creating, UI Customization...|https://github.com/HMCL-dev/HMCL|{{AUR|hmcl}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Hello Minecraft Launcher|Open-source Minecraft launcher supports Mod Management, Game Customizing, Auto Installing, Modpack Creating, UI Customization...|https://github.com/HMCL-dev/HMCL|{{AUR|hmcl}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Labymod Launcher|LabyMod Launcher for launching LabyMod, which is a Minecraft client that adds bunch of useful features|https://www.labymod.net/|{{AUR|labymodlauncher-appimage}} and {{aur|labymodlauncher}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Labymod Launcher|LabyMod Launcher for launching LabyMod, which is a Minecraft client that adds bunch of useful features|https://www.labymod.net/|{{AUR|labymodlauncher-appimage}} and {{aur|labymodlauncher}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|LauncherX|Next generation Minecraft launcher with powerful features and pleasing UI.|https://corona.studio/lx|{{AUR|launcherx}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|LauncherX|Next generation Minecraft launcher with powerful features and pleasing UI.|https://corona.studio/lx|{{AUR|launcherx}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Lunar Client|PvP modpack for all modern versions of Minecraft.|https://lunarclient.com|{{AUR|lunar-client}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Lunar Client|PvP modpack for all modern versions of Minecraft.|https://lunarclient.com|{{AUR|lunar-client}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{AUR|modrinth-app-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{AUR|modrinth-app-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|MultiMC|Sandbox environment manager for separable pack association.|https://multimc.org/|{{AUR|multimc-bin}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|MultiMC|Sandbox environment manager for separable pack association.|https://multimc.org/|{{AUR|multimc-bin}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|PolyMC|Power user launcher with features like mod management. Originally forked from MultiMC.|https://polymc.org/|{{AUR|polymc}}, {{AUR|polymc-qt5}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|PolyMC|Power user launcher with features like mod management. Originally forked from MultiMC.|https://polymc.org/|{{AUR|polymc}}, {{AUR|polymc-qt5}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|portablemc|Cross-platform command-line Minecraft launcher and API for developers. Supports mod loaders such as Fabric, Forge, NeoForge and Quilt.|https://github.com/mindstorm38/portablemc|{{AUR|portablemc}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|portablemc|Cross-platform command-line Minecraft launcher and API for developers. Supports mod loaders such as Fabric, Forge, NeoForge and Quilt.|https://github.com/mindstorm38/portablemc|{{AUR|portablemc}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Prism Launcher| Power user launcher with features like mod management. Originally forked from MultiMC, now forked from PolyMC.|https://prismlauncher.org/|{{Pkg|prismlauncher}}, {{AUR|prismlauncher-qt5}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Prism Launcher| Power user launcher with features like mod management. Originally forked from MultiMC, now forked from PolyMC.|https://prismlauncher.org/|{{Pkg|prismlauncher}}, {{AUR|prismlauncher-qt5}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|SKlauncher|A free Minecraft Launcher supporting skins and capes.|https://skmedix.pl|{{AUR|sklauncher-bin}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|SKlauncher|A free Minecraft Launcher supporting skins and capes.|https://skmedix.pl|{{AUR|sklauncher-bin}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Technic Launcher|Modpack installer with a focus on mod discovery via popularity rankings.|https://www.technicpack.net/|{{AUR|minecraft-technic-launcher}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Technic Launcher|Modpack installer with a focus on mod discovery via popularity rankings.|https://www.technicpack.net/|{{AUR|minecraft-technic-launcher}}}}
+    ```
 
 ## Other programs and editors {#other_programs_and_editors}
 
@@ -174,27 +173,30 @@ experience a little easier to navigate. The most common of these programs are ma
 programs will allow you to load up a Minecraft world file and render it as a 2D image, providing you with a top-down map
 of the world.
 
-- ```{=mediawiki}
-  {{App|AMIDST|Standing for Advanced Minecraft Interface and Data/Structure Tracking, it is a program that aids in the process of finding structures, biomes, and players in Minecraft worlds. It can draw the biomes of a world out and show where points of interest are likely to be by either giving it a seed, telling it to make a random seed, or having it read the seed from an existing world (in which case it can also show where players in that world are). The project has been forked in the past, of which the most notable one is "Amidst Exporter" ({{AUR|amidstexporter}}) which includes a patch for calculating Ocean Monument locations in 1.8+ worlds.|https://github.com/toolbox4minecraft/amidst|{{AUR|amidst}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|AMIDST|Standing for Advanced Minecraft Interface and Data/Structure Tracking, it is a program that aids in the process of finding structures, biomes, and players in Minecraft worlds. It can draw the biomes of a world out and show where points of interest are likely to be by either giving it a seed, telling it to make a random seed, or having it read the seed from an existing world (in which case it can also show where players in that world are). The project has been forked in the past, of which the most notable one is "Amidst Exporter" ({{AUR|amidstexporter}}) which includes a patch for calculating Ocean Monument locations in 1.8+ worlds.|https://github.com/toolbox4minecraft/amidst|{{AUR|amidst}}}}
+    ```
 
+```{=html}
 <!-- -->
+```
+-   ```{=mediawiki}
+    {{App|Mapcrafter|A high performance Minecraft map renderer written in C++ which renders worlds to maps with an 3D-isometric perspective. You can view these maps in any webbrowser hence they are easily deployed on one's server. Mapcrafter has a simple configuration file format to specify worlds to render, different rendermodes such as day/night/cave and can also render worlds from different rotations.|https://github.com/mapcrafter/mapcrafter|{{AUR|mapcrafter-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Mapcrafter|A high performance Minecraft map renderer written in C++ which renders worlds to maps with an 3D-isometric perspective. You can view these maps in any webbrowser hence they are easily deployed on one's server. Mapcrafter has a simple configuration file format to specify worlds to render, different rendermodes such as day/night/cave and can also render worlds from different rotations.|https://github.com/mapcrafter/mapcrafter|{{AUR|mapcrafter-git}}}}
-  ```
-
+```{=html}
 <!-- -->
+```
+-   ```{=mediawiki}
+    {{App|MCA Selector|An external tool to export or delete selected chunks and regions from a world save of Minecraft Java Edition.|https://github.com/Querz/mcaselector|{{AUR|mcaselector}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|MCA Selector|An external tool to export or delete selected chunks and regions from a world save of Minecraft Java Edition.|https://github.com/Querz/mcaselector|{{AUR|mcaselector}}}}
-  ```
-
+```{=html}
 <!-- -->
-
-- ```{=mediawiki}
-  {{App|Minutor|A minimalistic map generator for Minecraft. You are provided with a simple GTK based interface for viewing your world. Several rendering modes are available, as well as custom coloring modes and the ability to slice through z-levels.|http://seancode.com/minutor/|{{AUR|minutor-git}}}}
-  ```
+```
+-   ```{=mediawiki}
+    {{App|Minutor|A minimalistic map generator for Minecraft. You are provided with a simple GTK based interface for viewing your world. Several rendering modes are available, as well as custom coloring modes and the ability to slice through z-levels.|http://seancode.com/minutor/|{{AUR|minutor-git}}}}
+    ```
 
 ## Troubleshooting
 
@@ -206,12 +208,12 @@ of the world.
 Screen logs are in `{{ic|/tmp/spigot_spigot_command_dump.txt}}`{=mediawiki} file. If *systemctl* fails to start the
 service, inspect the *screen* logs.
 
-[Journal](Journal "Journal"){.wikilink} logs are under `{{ic|spigot.service}}`{=mediawiki}.
+[Journal](Journal "wikilink") logs are under `{{ic|spigot.service}}`{=mediawiki}.
 
 ### Client or server does not start {#client_or_server_does_not_start}
 
-It might be a problem with the [Java](Java "Java"){.wikilink} version. Different Minecraft version numbers have
-different JRE requirements.
+It might be a problem with the [Java](Java "wikilink") version. Different Minecraft version numbers have different JRE
+requirements.
 
   Minecraft Version   Minimum Compatible JRE Version
   ------------------- --------------------------------
@@ -293,13 +295,12 @@ You may see an error like
 `{{ic|GLFW error 65548: Wayland: The platform does not support setting the window icon}}`{=mediawiki}.
 
 This is because of the version of GLFW bundled with Minecraft defaulting to X. If you do not want to use
-[Xwayland](Xwayland "Xwayland"){.wikilink}, you can resolve this by using the system installation of
-`{{Pkg|glfw}}`{=mediawiki}:
+[Xwayland](Xwayland "wikilink"), you can resolve this by using the system installation of `{{Pkg|glfw}}`{=mediawiki}:
 
-- For MultiMC-based launchers (like `{{Pkg|prismlauncher}}`{=mediawiki}) check *Workarounds \> Native Settings \> Use
-  system GLFW* in the instance settings.
-- For others, add `{{ic|1=-Dorg.lwjgl.glfw.libname=/usr/lib/libglfw.so}}`{=mediawiki} to the java command in the
-  settings.
+-   For MultiMC-based launchers (like `{{Pkg|prismlauncher}}`{=mediawiki}) check *Workarounds \> Native Settings \> Use
+    system GLFW* in the instance settings.
+-   For others, add `{{ic|1=-Dorg.lwjgl.glfw.libname=/usr/lib/libglfw.so}}`{=mediawiki} to the java command in the
+    settings.
 
 ```{=mediawiki}
 {{Warning|Native Wayland is not officially supported and the Forge and NeoForge mod loaders may not launch at all.}}
@@ -314,19 +315,19 @@ This is because of the version of GLFW bundled with Minecraft defaulting to X. I
 
 This is a problem caused by LWGLJ2. There are a few ways to fix it:
 
-- Use a client that uses an updated version of LWGLJ or adds the patch themselves.
-- Switch keyboard layout to a different one (e.g. German).
-- Use mods to fix it. On 1.8.9 Forge, you can use [mckeyboardfix](https://github.com/Leo3418/mckeyboardfix).
+-   Use a client that uses an updated version of LWGLJ or adds the patch themselves.
+-   Switch keyboard layout to a different one (e.g. German).
+-   Use mods to fix it. On 1.8.9 Forge, you can use [mckeyboardfix](https://github.com/Leo3418/mckeyboardfix).
 
 ## See also {#see_also}
 
-- [Official Minecraft site](https://www.minecraft.net/)
-- [Minecraft community links](https://www.minecraft.net/community)
-- [Minecraft Wiki](https://minecraft.wiki/)
-- [Minecraft Client and Server download link](https://minecraft.net/download)
-- [Crafting Recipes](https://www.minecraft.wiki/wiki/Crafting)
-- [Block and item data values](https://www.minecraft.wiki/wiki/Data_values)
-- [Reddit Minecraft community](https://www.reddit.com/r/minecraft)
-- [Minecraft Skins](https://www.minecraftskins.net)
+-   [Official Minecraft site](https://www.minecraft.net/)
+-   [Minecraft community links](https://www.minecraft.net/community)
+-   [Minecraft Wiki](https://minecraft.wiki/)
+-   [Minecraft Client and Server download link](https://minecraft.net/download)
+-   [Crafting Recipes](https://www.minecraft.wiki/wiki/Crafting)
+-   [Block and item data values](https://www.minecraft.wiki/wiki/Data_values)
+-   [Reddit Minecraft community](https://www.reddit.com/r/minecraft)
+-   [Minecraft Skins](https://www.minecraftskins.net)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -1,37 +1,34 @@
-[de:AMDGPU](de:AMDGPU "de:AMDGPU"){.wikilink} [hu:AMDGPU](hu:AMDGPU "hu:AMDGPU"){.wikilink}
-[ja:AMDGPU](ja:AMDGPU "ja:AMDGPU"){.wikilink} [ru:AMDGPU](ru:AMDGPU "ru:AMDGPU"){.wikilink}
-[zh-hans:AMDGPU](zh-hans:AMDGPU "zh-hans:AMDGPU"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:AMDGPU](de:AMDGPU "wikilink") [hu:AMDGPU](hu:AMDGPU "wikilink") [ja:AMDGPU](ja:AMDGPU "wikilink")
+[ru:AMDGPU](ru:AMDGPU "wikilink") [zh-hans:AMDGPU](zh-hans:AMDGPU "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|ATI}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-[AMDGPU](Wikipedia:AMDGPU "AMDGPU"){.wikilink} is the open source graphics driver for AMD Radeon graphics cards since
-the [Graphics Core Next](wikipedia:Graphics_Core_Next "Graphics Core Next"){.wikilink} family.
+[AMDGPU](Wikipedia:AMDGPU "wikilink") is the open source graphics driver for AMD Radeon graphics cards since the
+[Graphics Core Next](wikipedia:Graphics_Core_Next "wikilink") family.
 
 ## Selecting the right driver {#selecting_the_right_driver}
 
-Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "Xorg#AMD"){.wikilink}. This driver
-supports [Southern Islands](https://www.x.org/wiki/RadeonFeature/) (GCN 1, released in 2012) cards and later. AMD has no
-plans to support pre-GCN GPUs.
+Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "wikilink"). This driver supports [Southern
+Islands](https://www.x.org/wiki/RadeonFeature/) (GCN 1, released in 2012) cards and later. AMD has no plans to support
+pre-GCN GPUs.
 
-Owners of unsupported GPUs may use the open source [ATI](ATI "ATI"){.wikilink} driver.
+Owners of unsupported GPUs may use the open source [ATI](ATI "wikilink") driver.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|mesa}}`{=mediawiki} package, which provides both the DRI driver for
-3D acceleration and VA-API/VDPAU drivers for [accelerated video
-decoding](#Video_acceleration "accelerated video decoding"){.wikilink}.
+[Install](Install "wikilink") the `{{Pkg|mesa}}`{=mediawiki} package, which provides both the DRI driver for 3D
+acceleration and VA-API/VDPAU drivers for [accelerated video decoding](#Video_acceleration "wikilink").
 
-- For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} package from the
-  [multilib](multilib "multilib"){.wikilink} repository.
-- For 2D acceleration under [Xorg](Xorg "Xorg"){.wikilink}, you may optionally install the
-  `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} package, which provides the AMD-specific DDX driver. Most systems using the
-  `{{ic|amdgpu}}`{=mediawiki} kernel driver will work correctly with the generic *modesetting* DDX built into
-  `{{Pkg|xorg-server}}`{=mediawiki}. However, `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} could be required for features
-  such as `{{ic|TearFree}}`{=mediawiki} or to resolve hardware-specific issues on some AMD hardware, like *Southern
-  Islands*. Read the Note at [Intel
-  graphics#Installation](Intel_graphics#Installation "Intel graphics#Installation"){.wikilink}.
-- For [Vulkan](Vulkan "Vulkan"){.wikilink} support install `{{Pkg|vulkan-radeon}}`{=mediawiki}
-  (`{{Pkg|lib32-vulkan-radeon}}`{=mediawiki} for 32-bit applications).
+-   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} package from the
+    [multilib](multilib "wikilink") repository.
+-   For 2D acceleration under [Xorg](Xorg "wikilink"), you may optionally install the
+    `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} package, which provides the AMD-specific DDX driver. Most systems using the
+    `{{ic|amdgpu}}`{=mediawiki} kernel driver will work correctly with the generic *modesetting* DDX built into
+    `{{Pkg|xorg-server}}`{=mediawiki}. However, `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} could be required for features
+    such as `{{ic|TearFree}}`{=mediawiki} or to resolve hardware-specific issues on some AMD hardware, like *Southern
+    Islands*. Read the Note at [Intel graphics#Installation](Intel_graphics#Installation "wikilink").
+-   For [Vulkan](Vulkan "wikilink") support install `{{Pkg|vulkan-radeon}}`{=mediawiki}
+    (`{{Pkg|lib32-vulkan-radeon}}`{=mediawiki} for 32-bit applications).
 
 ### Experimental
 
@@ -39,13 +36,13 @@ It may be worthwhile for some users to use the upstream experimental build of me
 
 Install the `{{AUR|mesa-git}}`{=mediawiki} package, which provides the DRI driver for 3D acceleration.
 
-- For 32-bit application support, also install the `{{AUR|lib32-mesa-git}}`{=mediawiki} package from the *mesa-git*
-  repository or the [AUR](AUR "AUR"){.wikilink}.
-- For the DDX driver (which provides 2D acceleration in [Xorg](Xorg "Xorg"){.wikilink}), install the
-  `{{AUR|xf86-video-amdgpu-git}}`{=mediawiki} package.
-- For [Vulkan](Vulkan "Vulkan"){.wikilink} support using the *mesa-git* repository, install the *vulkan-radeon-git*
-  package. Optionally install the *lib32-vulkan-radeon-git* package for 32-bit application support. This should not be
-  required if building `{{AUR|mesa-git}}`{=mediawiki} from the AUR.
+-   For 32-bit application support, also install the `{{AUR|lib32-mesa-git}}`{=mediawiki} package from the *mesa-git*
+    repository or the [AUR](AUR "wikilink").
+-   For the DDX driver (which provides 2D acceleration in [Xorg](Xorg "wikilink")), install the
+    `{{AUR|xf86-video-amdgpu-git}}`{=mediawiki} package.
+-   For [Vulkan](Vulkan "wikilink") support using the *mesa-git* repository, install the *vulkan-radeon-git* package.
+    Optionally install the *lib32-vulkan-radeon-git* package for 32-bit application support. This should not be required
+    if building `{{AUR|mesa-git}}`{=mediawiki} from the AUR.
 
 ```{=mediawiki}
 {{Tip|Users who do not wish to go through the process of compiling the {{AUR|mesa-git}} package can use the [[Unofficial user repositories#mesa-git|mesa-git]] unofficial repository.}}
@@ -55,10 +52,10 @@ Install the `{{AUR|mesa-git}}`{=mediawiki} package, which provides the DRI drive
 ```{=mediawiki}
 {{Remove|When [https://lists.freedesktop.org/archives/amd-gfx/2025-November/133749.html upstream changes] making AMDGPU the default reach {{Pkg|linux-lts}}, this will no longer need to be documented.}}
 ```
-[Officially supported kernels](Kernel#Officially_supported_kernels "Officially supported kernels"){.wikilink} enable
-AMDGPU support for cards of the Southern Islands (GCN 1, released in 2012) and Sea Islands (GCN 2, released in 2013).
-The `{{ic|amdgpu}}`{=mediawiki} kernel driver needs to be loaded before the [radeon](ATI "radeon"){.wikilink} one. You
-can check which kernel driver is loaded by running `{{ic|lspci -k}}`{=mediawiki}. It should be like this:
+[Officially supported kernels](Kernel#Officially_supported_kernels "wikilink") enable AMDGPU support for cards of the
+Southern Islands (GCN 1, released in 2012) and Sea Islands (GCN 2, released in 2013). The `{{ic|amdgpu}}`{=mediawiki}
+kernel driver needs to be loaded before the [radeon](ATI "wikilink") one. You can check which kernel driver is loaded by
+running `{{ic|lspci -k}}`{=mediawiki}. It should be like this:
 
 ```{=mediawiki}
 {{hc|$ lspci -k -d ::03xx|
@@ -72,8 +69,8 @@ If the `{{ic|amdgpu}}`{=mediawiki} driver is not in use, follow instructions in 
 
 #### Load amdgpu driver {#load_amdgpu_driver}
 
-The [module parameters](module_parameter "module parameter"){.wikilink} of both `{{ic|amdgpu}}`{=mediawiki} and
-`{{ic|radeon}}`{=mediawiki} modules are `{{ic|1=cik_support=}}`{=mediawiki} and `{{ic|1=si_support=}}`{=mediawiki}.
+The [module parameters](module_parameter "wikilink") of both `{{ic|amdgpu}}`{=mediawiki} and `{{ic|radeon}}`{=mediawiki}
+modules are `{{ic|1=cik_support=}}`{=mediawiki} and `{{ic|1=si_support=}}`{=mediawiki}.
 
 They need to be set as kernel parameters or in a *modprobe* configuration file, and depend on the cards GCN version.
 
@@ -84,10 +81,10 @@ You can use both parameters if you are unsure which kernel card you have.
 ```
 ##### Set module parameters in kernel command line {#set_module_parameters_in_kernel_command_line}
 
-Set one of the following [kernel parameters](kernel_parameters "kernel parameters"){.wikilink}:
+Set one of the following [kernel parameters](kernel_parameters "wikilink"):
 
-- Southern Islands (SI): `{{ic|1=radeon.si_support=0 amdgpu.si_support=1}}`{=mediawiki}
-- Sea Islands (CIK): `{{ic|1=radeon.cik_support=0 amdgpu.cik_support=1}}`{=mediawiki}
+-   Southern Islands (SI): `{{ic|1=radeon.si_support=0 amdgpu.si_support=1}}`{=mediawiki}
+-   Sea Islands (CIK): `{{ic|1=radeon.cik_support=0 amdgpu.cik_support=1}}`{=mediawiki}
 
 Furthermore, if you are using an AMD A10 APU with an integrated Sea Island (GCN 1.1) card, you may have to disable
 Radeon Dynamic Power Management to get a proper boot. This is a feature that dynamically re-clocks the graphics core in
@@ -97,14 +94,12 @@ following the instructions above, add `{{ic|1=radeon.dpm=0}}`{=mediawiki} to the
 #### Specify the correct module order {#specify_the_correct_module_order}
 
 Make sure `{{ic|amdgpu}}`{=mediawiki} has been set as first module in the
-[Mkinitcpio#MODULES](Mkinitcpio#MODULES "Mkinitcpio#MODULES"){.wikilink} array, e.g.
-`{{ic|1=MODULES=(amdgpu radeon)}}`{=mediawiki}.
+[Mkinitcpio#MODULES](Mkinitcpio#MODULES "wikilink") array, e.g. `{{ic|1=MODULES=(amdgpu radeon)}}`{=mediawiki}.
 
 ##### Set kernel module parameters {#set_kernel_module_parameters}
 
 For Southern Islands (SI) use the `{{ic|1=si_support=1}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "kernel module parameter"){.wikilink}, for Sea Islands (CIK) use
-`{{ic|1=cik_support=1}}`{=mediawiki}:
+parameter](kernel_module_parameter "wikilink"), for Sea Islands (CIK) use `{{ic|1=cik_support=1}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/amdgpu.conf|2=
@@ -119,21 +114,19 @@ options radeon cik_support=0
 }}
 ```
 Make sure `{{ic|modconf}}`{=mediawiki} is in the `{{ic|HOOKS}}`{=mediawiki} array in
-`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} and [regenerate the
-initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}.
+`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} and [regenerate the initramfs](regenerate_the_initramfs "wikilink").
 
 ##### Compile kernel which supports amdgpu driver {#compile_kernel_which_supports_amdgpu_driver}
 
-When building or compiling a [kernel](kernel "kernel"){.wikilink}, `{{ic|1=CONFIG_DRM_AMDGPU_SI=Y}}`{=mediawiki} and/or
+When building or compiling a [kernel](kernel "wikilink"), `{{ic|1=CONFIG_DRM_AMDGPU_SI=Y}}`{=mediawiki} and/or
 `{{ic|1=CONFIG_DRM_AMDGPU_CIK=Y}}`{=mediawiki} should be set in the config.
 
 ### ACO compiler {#aco_compiler}
 
 The [ACO compiler](https://steamcommunity.com/games/221410/announcements/detail/1602634609636894200) is an open source
-shader compiler created and developed by [Valve Corporation](wikipedia:Valve_Corporation "Valve Corporation"){.wikilink}
-to directly compete with the [LLVM compiler](https://llvm.org/), as well as [Windows
-10](wikipedia:Windows_10 "Windows 10"){.wikilink}. It offers lesser compilation time and also performs better while
-gaming than LLVM.
+shader compiler created and developed by [Valve Corporation](wikipedia:Valve_Corporation "wikilink") to directly compete
+with the [LLVM compiler](https://llvm.org/), as well as [Windows 10](wikipedia:Windows_10 "wikilink"). It offers lesser
+compilation time and also performs better while gaming than LLVM.
 
 Some benchmarks can be seen on [GitHub](https://gist.github.com/pendingchaos/aba1e4c238cf039d17089f29a8c6aa63) and
 Phoronix [1](https://www.phoronix.com/scan.php?page=article&item=radv-aco-llvm&num=1)
@@ -148,23 +141,21 @@ The `{{ic|amdgpu}}`{=mediawiki} kernel module is supposed to load automatically 
 
 If it does not:
 
-- Make sure to [#Enable Southern Islands (SI) and Sea Islands (CIK)
-  support](#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "#Enable Southern Islands (SI) and Sea Islands (CIK) support"){.wikilink}
-  when needed.
-- Make sure you have the latest `{{Pkg|linux-firmware-amdgpu}}`{=mediawiki} package installed. This driver requires the
-  latest firmware for each model to successfully boot.
-- Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} or `{{ic|1=vga=}}`{=mediawiki} as a [kernel
-  parameter](kernel_parameter "kernel parameter"){.wikilink}, since `{{ic|amdgpu}}`{=mediawiki} requires
-  [KMS](KMS "KMS"){.wikilink}.
-- Check that you have not disabled `{{ic|amdgpu}}`{=mediawiki} by using any [kernel module
-  blacklisting](Kernel_modules#Blacklisting "kernel module blacklisting"){.wikilink}.
+-   Make sure to [#Enable Southern Islands (SI) and Sea Islands (CIK)
+    support](#Enable_Southern_Islands_(SI)_and_Sea_Islands_(CIK)_support "wikilink") when needed.
+-   Make sure you have the latest `{{Pkg|linux-firmware-amdgpu}}`{=mediawiki} package installed. This driver requires
+    the latest firmware for each model to successfully boot.
+-   Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} or `{{ic|1=vga=}}`{=mediawiki} as a [kernel
+    parameter](kernel_parameter "wikilink"), since `{{ic|amdgpu}}`{=mediawiki} requires [KMS](KMS "wikilink").
+-   Check that you have not disabled `{{ic|amdgpu}}`{=mediawiki} by using any [kernel module
+    blacklisting](Kernel_modules#Blacklisting "wikilink").
 
 It is possible it loads, but late, after the X server requires it. In this case see [Kernel mode setting#Early KMS
-start](Kernel_mode_setting#Early_KMS_start "Kernel mode setting#Early KMS start"){.wikilink}.
+start](Kernel_mode_setting#Early_KMS_start "wikilink").
 
 ## Xorg configuration {#xorg_configuration}
 
-[Xorg](Xorg "Xorg"){.wikilink} will automatically load the driver and it will use your monitor\'s EDID to set the native
+[Xorg](Xorg "wikilink") will automatically load the driver and it will use your monitor\'s EDID to set the native
 resolution. Configuration is only required for tuning the driver.
 
 If you want manual configuration, create `{{ic|/etc/X11/xorg.conf.d/20-amdgpu.conf}}`{=mediawiki}, and add the
@@ -191,7 +182,7 @@ respectively.
 
 `Option "TearFree" "true"`
 
-You can also enable TearFree temporarily with [xrandr](xrandr "xrandr"){.wikilink}:
+You can also enable TearFree temporarily with [xrandr](xrandr "wikilink"):
 
 `$ xrandr --output `*`output`*` --set TearFree on`
 
@@ -201,13 +192,13 @@ Where `{{ic|''output''}}`{=mediawiki} should look like `{{ic|DisplayPort-0}}`{=m
 ### DRI level {#dri_level}
 
 *DRI* sets the maximum level of DRI to enable. Valid values are *2* for DRI2 or *3* for DRI3. The default is *3* for
-DRI3 if the [Xorg](Xorg "Xorg"){.wikilink} version is \>= 1.18.3, otherwise DRI2 is used:
+DRI3 if the [Xorg](Xorg "wikilink") version is \>= 1.18.3, otherwise DRI2 is used:
 
 `Option "DRI" "3"`
 
 ### Variable refresh rate {#variable_refresh_rate}
 
-See [Variable refresh rate](Variable_refresh_rate "Variable refresh rate"){.wikilink}.
+See [Variable refresh rate](Variable_refresh_rate "wikilink").
 
 ### 10-bit color {#bit_color}
 
@@ -216,7 +207,7 @@ See [Variable refresh rate](Variable_refresh_rate "Variable refresh rate"){.wiki
 ```
 Newer AMD cards support 10bpc color, but the default is 24-bit color and 30-bit color must be explicitly enabled.
 Enabling it can reduce visible banding/artifacts in gradients, if the applications support this too. To check if your
-monitor supports it search for \"EDID\" in your [Xorg log file](Xorg#General "Xorg log file"){.wikilink} (e.g.
+monitor supports it search for \"EDID\" in your [Xorg log file](Xorg#General "wikilink") (e.g.
 `{{ic|/var/log/Xorg.0.log}}`{=mediawiki} or `{{ic|~/.local/share/xorg/Xorg.0.log}}`{=mediawiki}):
 
 `[   336.695] (II) AMDGPU(0): EDID for output DisplayPort-0`\
@@ -264,8 +255,7 @@ Section "OutputClass"
 EndSection
 }}
 ```
-See [Gaming#Reducing DRI latency](Gaming#Reducing_DRI_latency "Gaming#Reducing DRI latency"){.wikilink} to further
-reduce latency.
+See [Gaming#Reducing DRI latency](Gaming#Reducing_DRI_latency "wikilink") to further reduce latency.
 
 ```{=mediawiki}
 {{Note|Setting these options may cause tearing and short-lived artifacts to appear.}}
@@ -274,8 +264,7 @@ reduce latency.
 
 ### Video acceleration {#video_acceleration}
 
-See [Hardware video
-acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "Hardware video acceleration#AMD/ATI"){.wikilink}.
+See [Hardware video acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "wikilink").
 
 ### Monitoring
 
@@ -283,35 +272,35 @@ Monitoring your GPU is often used to check the temperature and also the P-states
 
 #### CLI
 
-- ```{=mediawiki}
-  {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|nvtop|GPUs process monitoring for AMD, Intel and NVIDIA|https://github.com/Syllo/nvtop|{{Pkg|nvtop}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|nvtop|GPUs process monitoring for AMD, Intel and NVIDIA|https://github.com/Syllo/nvtop|{{Pkg|nvtop}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|radeontop|A GPU utilization viewer, both for the total activity percent and individual blocks|https://github.com/clbr/radeontop|{{Pkg|radeontop}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|radeontop|A GPU utilization viewer, both for the total activity percent and individual blocks|https://github.com/clbr/radeontop|{{Pkg|radeontop}}}}
+    ```
 
 #### GUI
 
-- ```{=mediawiki}
-  {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|AmdGuid|A basic fan control GUI fully written in Rust.|https://github.com/Eraden/amdgpud|{{AUR|amdguid-wayland-bin}}, {{AUR|amdguid-glow-bin}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|AmdGuid|A basic fan control GUI fully written in Rust.|https://github.com/Eraden/amdgpud|{{AUR|amdguid-wayland-bin}}, {{AUR|amdguid-glow-bin}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Radeon Profile|A Qt5 tool to read and change current clocks of AMD Radeon cards.|https://github.com/emerge-e-world/radeon-profile|{{AUR|radeon-profile-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Radeon Profile|A Qt5 tool to read and change current clocks of AMD Radeon cards.|https://github.com/emerge-e-world/radeon-profile|{{AUR|radeon-profile-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|TuxClocker|A Qt5 monitoring and overclocking tool.|https://github.com/Lurkki14/tuxclocker|{{AUR|tuxclocker}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|TuxClocker|A Qt5 monitoring and overclocking tool.|https://github.com/Lurkki14/tuxclocker|{{AUR|tuxclocker}}}}
+    ```
 
 #### Manually
 
@@ -355,7 +344,7 @@ graphics card via `{{ic|/sys/class/drm/card0/device/pp_od_clk_voltage}}`{=mediaw
 #### Boot parameter {#boot_parameter}
 
 It is required to unlock access to adjust clocks and voltages in sysfs by appending the [Kernel
-parameter](Kernel_parameter "Kernel parameter"){.wikilink} `{{ic|1=amdgpu.ppfeaturemask=0xffffffff}}`{=mediawiki}.
+parameter](Kernel_parameter "wikilink") `{{ic|1=amdgpu.ppfeaturemask=0xffffffff}}`{=mediawiki}.
 
 Not all bits are defined, and new features may be added over time. Setting all 32 bits may enable unstable features that
 cause problems such as screen flicker or broken resume from suspend. It should be sufficient to set the
@@ -373,7 +362,7 @@ For in-depth information on all possible options, read the kernel documentation 
 control](https://docs.kernel.org/gpu/amdgpu/thermal.html#pp-od-clk-voltage).
 
 To enable manual overclocking, select the `{{ic|manual}}`{=mediawiki} performance level as described in [#Performance
-levels](#Performance_levels "#Performance levels"){.wikilink}.
+levels](#Performance_levels "wikilink").
 
 To set the GPU clock for the maximum P-state 7 on e.g. a Polaris GPU to 1209MHz and 900mV voltage, run:
 
@@ -431,31 +420,31 @@ community to assist you to overclock and monitor your AMD GPU.
 
 ##### CLI tools {#cli_tools}
 
-- ```{=mediawiki}
-  {{App|amdgpu-clocks|A script that can be used to monitor and set custom power states for AMD GPUs. It also offers a Systemd service to apply the settings automatically upon boot.|https://github.com/sibradzic/amdgpu-clocks|{{AUR|amdgpu-clocks-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|amdgpu-clocks|A script that can be used to monitor and set custom power states for AMD GPUs. It also offers a Systemd service to apply the settings automatically upon boot.|https://github.com/sibradzic/amdgpu-clocks|{{AUR|amdgpu-clocks-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|ruby-amdgpu_fan|A CLI for interacting with the amdgpu Linux driver written in Ruby.|https://github.com/HarlemSquirrel/amdgpu-fan-rb|{{AUR|ruby-amdgpu_fan}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|ruby-amdgpu_fan|A CLI for interacting with the amdgpu Linux driver written in Ruby.|https://github.com/HarlemSquirrel/amdgpu-fan-rb|{{AUR|ruby-amdgpu_fan}}}}
+    ```
 
 ##### GUI tools {#gui_tools}
 
-- ```{=mediawiki}
-  {{App|TuxClocker|A Qt5 monitoring and overclocking tool.|https://github.com/Lurkki14/tuxclocker|{{AUR|tuxclocker}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|TuxClocker|A Qt5 monitoring and overclocking tool.|https://github.com/Lurkki14/tuxclocker|{{AUR|tuxclocker}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|CoreCtrl|A GUI overclocking tool with a WattMan-like UI that supports per-application profiles.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|CoreCtrl|A GUI overclocking tool with a WattMan-like UI that supports per-application profiles.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|LACT|A GTK tool to view information and control your AMD GPU.|https://github.com/ilya-zlobintsev/LACT|{{Pkg|lact}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|LACT|A GTK tool to view information and control your AMD GPU.|https://github.com/ilya-zlobintsev/LACT|{{Pkg|lact}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|Radeon Profile|A Qt5 tool to read and change current clocks of AMD Radeon cards.|https://github.com/emerge-e-world/radeon-profile|{{AUR|radeon-profile-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|Radeon Profile|A Qt5 tool to read and change current clocks of AMD Radeon cards.|https://github.com/emerge-e-world/radeon-profile|{{AUR|radeon-profile-git}}}}
+    ```
 
 #### Startup on boot {#startup_on_boot}
 
@@ -475,14 +464,14 @@ ACTION=="add", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_
 AMDGPU offers several performance levels, the file power_dpm_force_performance_level is used for this, it is possible to
 select between these levels:
 
-- **auto**: dynamically select the optimal power profile for current conditions in the driver.
-- **low**: clocks are forced to the lowest power state.
-- **high**: clocks are forced to the highest power state.
-- **manual**: user can manually adjust which power states are enabled for each clock domain (used for setting [#Power
-  profiles](#Power_profiles "#Power profiles"){.wikilink})
-- **profile_standard**, **profile_min_sclk**, **profile_min_mclk**, **profile_peak**: clock and power gating are
-  disabled and the clocks are set for different profiling cases. This mode is recommended for profiling specific work
-  loads
+-   **auto**: dynamically select the optimal power profile for current conditions in the driver.
+-   **low**: clocks are forced to the lowest power state.
+-   **high**: clocks are forced to the highest power state.
+-   **manual**: user can manually adjust which power states are enabled for each clock domain (used for setting [#Power
+    profiles](#Power_profiles "wikilink"))
+-   **profile_standard**, **profile_min_sclk**, **profile_min_mclk**, **profile_peak**: clock and power gating are
+    disabled and the clocks are set for different profiling cases. This mode is recommended for profiling specific work
+    loads
 
 To set the AMDGPU device to use a low performance level, the following command can be executed:
 
@@ -539,10 +528,10 @@ native resolution of the monitor, execute:
 Possible values for `{{ic|"scaling mode"}}`{=mediawiki} are: `{{ic|None}}`{=mediawiki}, `{{ic|Full}}`{=mediawiki},
 `{{ic|Center}}`{=mediawiki}, `{{ic|Full aspect}}`{=mediawiki}.
 
-- To show the available outputs and settings, execute: `{{bc|$ xrandr --prop}}`{=mediawiki}
-- To set `{{ic|1=scaling mode = Full aspect}}`{=mediawiki} for just every available output, execute:
-  `{{bc|$ for output in $(xrandr --prop {{!}}`{=mediawiki} grep -E -o -i \"\^\[A-Z\\-\]+-\[0-9\]+\"); do xrandr
-  \--output \"\$output\" \--set \"scaling mode\" \"Full aspect\"; done}}
+-   To show the available outputs and settings, execute: `{{bc|$ xrandr --prop}}`{=mediawiki}
+-   To set `{{ic|1=scaling mode = Full aspect}}`{=mediawiki} for just every available output, execute:
+    `{{bc|$ for output in $(xrandr --prop {{!}}`{=mediawiki} grep -E -o -i \"\^\[A-Z\\-\]+-\[0-9\]+\"); do xrandr
+    \--output \"\$output\" \--set \"scaling mode\" \"Full aspect\"; done}}
 
 ### Virtual display on headless setups {#virtual_display_on_headless_setups}
 
@@ -557,9 +546,9 @@ Choose the AMD GPU to use:
 }}
 ```
 Add the `{{ic|1=virtual_display=''1234:56:78.9'',''x''}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "kernel module parameter"){.wikilink} for the `{{ic|amdgpu}}`{=mediawiki} module,
-where `{{ic|''1234:56:78.9''}}`{=mediawiki} is the PCI address of the GPU and `{{ic|''x''}}`{=mediawiki} is the number
-of crtc (virtual monitors) to expose. Using this parameter also disables physical outputs.
+parameter](kernel_module_parameter "wikilink") for the `{{ic|amdgpu}}`{=mediawiki} module, where
+`{{ic|''1234:56:78.9''}}`{=mediawiki} is the PCI address of the GPU and `{{ic|''x''}}`{=mediawiki} is the number of crtc
+(virtual monitors) to expose. Using this parameter also disables physical outputs.
 [3](https://bugzilla.kernel.org/show_bug.cgi?id=203339)
 
 Multiple GPUs can also be used by separating PCI address with a semicolon (;) as shown below:
@@ -586,9 +575,9 @@ sources](https://raw.githubusercontent.com/torvalds/linux/master/drivers/gpu/drm
 
 ### Xorg or applications will not start {#xorg_or_applications_will_not_start}
 
-- \"(EE) AMDGPU(0): \[DRI2\] DRI2SwapBuffers: drawable has no back or front?\" error after opening *glxgears*, can open
-  Xorg server but OpenGL applications crash.
-- \"(EE) AMDGPU(0): Given depth (32) is not supported by amdgpu driver\" error, Xorg will not start.
+-   \"(EE) AMDGPU(0): \[DRI2\] DRI2SwapBuffers: drawable has no back or front?\" error after opening *glxgears*, can
+    open Xorg server but OpenGL applications crash.
+-   \"(EE) AMDGPU(0): Given depth (32) is not supported by amdgpu driver\" error, Xorg will not start.
 
 Setting the screen\'s depth under Xorg to 16 or 32 will cause problems/crash. To avoid that, you should use a standard
 screen depth of 24 by adding this to your \"screen\" section:
@@ -606,20 +595,18 @@ EndSection
 ```
 ### Screen artifacts and frequency problem {#screen_artifacts_and_frequency_problem}
 
-[Dynamic power management](ATI#Dynamic_power_management "Dynamic power management"){.wikilink} may cause screen
-artifacts to appear when displaying to monitors at higher frequencies (anything above 60Hz) due to issues in the way GPU
-clock speeds are
+[Dynamic power management](ATI#Dynamic_power_management "wikilink") may cause screen artifacts to appear when displaying
+to monitors at higher frequencies (anything above 60Hz) due to issues in the way GPU clock speeds are
 managed[4](https://bugs.freedesktop.org/show_bug.cgi?id=96868)[5](https://gitlab.freedesktop.org/drm/amd/-/issues/234).
 
 A workaround [6](https://bugs.freedesktop.org/show_bug.cgi?id=96868#c13) is to set the `{{ic|high}}`{=mediawiki} or
-`{{ic|low}}`{=mediawiki} performance level as described in [#Performance
-levels](#Performance_levels "#Performance levels"){.wikilink}.
+`{{ic|low}}`{=mediawiki} performance level as described in [#Performance levels](#Performance_levels "wikilink").
 
 Changing the kernel version can also help eliminate this issue. For example, it appears to be fixed in 6.12.9.
 
 #### Artifacts in Chromium {#artifacts_in_chromium}
 
-If you see artifacts in [Chromium](Chromium "Chromium"){.wikilink}, forcing the vulkan-based backend might help. Go to
+If you see artifacts in [Chromium](Chromium "wikilink"), forcing the vulkan-based backend might help. Go to
 `{{ic|chrome://flags}}`{=mediawiki} and *enable* `{{ic|#ignore-gpu-blocklist}}`{=mediawiki} and
 `{{ic|#enable-vulkan}}`{=mediawiki}.
 
@@ -628,38 +615,37 @@ If you see artifacts in [Chromium](Chromium "Chromium"){.wikilink}, forcing the 
 If you experience issues [7](https://gitlab.freedesktop.org/mesa/mesa/-/issues/1222) with a AMD R9 390 series graphics
 card, set
 `{{ic|1=radeon.cik_support=0 radeon.si_support=0 amdgpu.cik_support=1 amdgpu.si_support=1 amdgpu.dc=1}}`{=mediawiki} as
-[kernel parameters](kernel_parameters "kernel parameters"){.wikilink} to force the use of amdgpu driver instead of
-radeon.
+[kernel parameters](kernel_parameters "wikilink") to force the use of amdgpu driver instead of radeon.
 
 If it still does not work, disabling DPM might help, add
 `{{ic|1=radeon.cik_support=0 radeon.si_support=0 amdgpu.cik_support=1 amdgpu.si_support=1}}`{=mediawiki} to the [kernel
-parameters](kernel_parameters "kernel parameters"){.wikilink}.
+parameters](kernel_parameters "wikilink").
 
 ### Freezes with \"\[drm\] IP block:gmc_v8_0 is hung!\" kernel error {#freezes_with_drm_ip_blockgmc_v8_0_is_hung_kernel_error}
 
 If you experience freezes and kernel crashes during a GPU intensive task with the kernel error \" \[drm\] IP
 block:gmc_v8_0 is hung!\" [8](https://gitlab.freedesktop.org/drm/amd/issues/226), a workaround is to set
-`{{ic|1=amdgpu.vm_update_mode=3}}`{=mediawiki} as [kernel parameters](kernel_parameters "kernel parameters"){.wikilink}
-to force the GPUVM page tables update to be done using the CPU. Downsides are listed here
+`{{ic|1=amdgpu.vm_update_mode=3}}`{=mediawiki} as [kernel parameters](kernel_parameters "wikilink") to force the GPUVM
+page tables update to be done using the CPU. Downsides are listed here
 [9](https://gitlab.freedesktop.org/drm/amd/-/issues/226#note_308665).
 
 ### Screen flickering white/gray {#screen_flickering_whitegray}
 
 When you change resolution or connect to an external monitor, if the screen flickers or stays white, add
-`{{ic|1=amdgpu.sg_display=0}}`{=mediawiki} as a [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}.
+`{{ic|1=amdgpu.sg_display=0}}`{=mediawiki} as a [kernel parameter](kernel_parameter "wikilink").
 
 ### System freeze or crash when gaming on Vega cards {#system_freeze_or_crash_when_gaming_on_vega_cards}
 
-[Dynamic power management](ATI#Dynamic_power_management "Dynamic power management"){.wikilink} may cause a complete
-system freeze whilst gaming due to issues in the way GPU clock speeds are managed.
-[10](https://gitlab.freedesktop.org/drm/amd/-/issues/716) A workaround is to set the `{{ic|high}}`{=mediawiki}
-performance level as described in [#Performance levels](#Performance_levels "#Performance levels"){.wikilink}.
+[Dynamic power management](ATI#Dynamic_power_management "wikilink") may cause a complete system freeze whilst gaming due
+to issues in the way GPU clock speeds are managed. [10](https://gitlab.freedesktop.org/drm/amd/-/issues/716) A
+workaround is to set the `{{ic|high}}`{=mediawiki} performance level as described in [#Performance
+levels](#Performance_levels "wikilink").
 
 ### WebRenderer (Firefox) corruption {#webrenderer_firefox_corruption}
 
 Artifacts and other anomalies may present themselves (e.g. inability to select extension options) when
-[WebRenderer](Firefox/Tweaks#WebRender "WebRenderer"){.wikilink} is force enabled by the user. Workaround is to fall
-back to OpenGL compositing.
+[WebRenderer](Firefox/Tweaks#WebRender "wikilink") is force enabled by the user. Workaround is to fall back to OpenGL
+compositing.
 
 ### Double-speed or \"chipmunk\" audio, or no audio when a 4K@60Hz device is connected {#double_speed_or_chipmunk_audio_or_no_audio_when_a_4k60hz_device_is_connected}
 
@@ -671,7 +657,7 @@ based TVs, this means setting this to \"Standard\" instead of \"Optimal\".
 
 If you encounter issues where the kernel driver is loaded, but the discrete graphics card still is not available for
 games or becomes disabled during use (similar to [11](https://gitlab.freedesktop.org/drm/amd/-/issues/1820)), you can
-workaround the issue by setting the [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}
+workaround the issue by setting the [kernel parameter](kernel_parameter "wikilink")
 `{{ic|1=amdgpu.runpm=0}}`{=mediawiki}, which prevents the dGPU from being powered down dynamically at runtime.
 
 ### Frozen or unresponsive display (flip_done timed out) {#frozen_or_unresponsive_display_flip_done_timed_out}
@@ -679,7 +665,7 @@ workaround the issue by setting the [kernel parameter](kernel_parameter "kernel 
 A bug in the amdgpu driver may stop the display from updating
 [12](https://gitlab.freedesktop.org/drm/amd/-/issues/4141). It is suggested to append the
 `{{ic|1=amdgpu.dcdebugmask=0x10}}`{=mediawiki} or `{{ic|1=amdgpu.dcdebugmask=0x12}}`{=mediawiki} [kernel
-parameter](kernel_parameter "kernel parameter"){.wikilink} as a workaround.
+parameter](kernel_parameter "wikilink") as a workaround.
 
 ### kfd: amdgpu: TOPAZ not supported in kfd {#kfd_amdgpu_topaz_not_supported_in_kfd}
 
@@ -687,8 +673,8 @@ In the system journal or the kernel message keyring a critical level error messa
 
 `kfd: amdgpu: TOPAZ not supported in kfd`
 
-may appear. If you are not planning to use [Radeon Open Compute](GPGPU#ROCm "Radeon Open Compute"){.wikilink}, this can
-be safely ignored. It is not supported in TOPAZ, as they are old GPUs.
+may appear. If you are not planning to use [Radeon Open Compute](GPGPU#ROCm "wikilink"), this can be safely ignored. It
+is not supported in TOPAZ, as they are old GPUs.
 [13](https://github.com/RadeonOpenCompute/ROCm/issues/1148#issuecomment-747849592)
 [14](https://www.reddit.com/r/linuxquestions/comments/yhbbiz/kfd_kfd_amdgpu_topaz_not_supported_in_kfd/)
 
@@ -719,8 +705,9 @@ You will see something like:
 `kernel: Call Trace:`\
 `kernel:  `
 
+```{=html}
 <TASK>
-
+```
 `kernel:  dump_stack_lvl+0x47/0x60`\
 `kernel:  warn_alloc+0x165/0x1e0`\
 `kernel:  __alloc_pages_slowpath.constprop.0+0xd7d/0xde0`\
@@ -762,7 +749,7 @@ In dmesg you can see logs like theese:
 `amdgpu:          RW: 0x1`
 
 If you have similar problems, check the maximum frequency of the video core in the system with what is stated by the
-manufacturer. To decrease maximum frequency, refer to [#Overclocking](#Overclocking "#Overclocking"){.wikilink}.
+manufacturer. To decrease maximum frequency, refer to [#Overclocking](#Overclocking "wikilink").
 
 ### AMD dedicated GPU HDMI freezing issue on Wayland {#amd_dedicated_gpu_hdmi_freezing_issue_on_wayland}
 
@@ -799,7 +786,7 @@ PPS is a featured supported on Laptops in which the laptop\'s GPU is instructed 
 name of saving power. This, however, leads to washed out colors whenever selecting more aggressive power-saving modes on
 the aforementioned power-profiles-daemon and tuned. Therefore, there is interest in disabling this feature entirely.
 
-It can be done by setting the following [kernel parameter](kernel_parameter "kernel parameter"){.wikilink} to zero:
+It can be done by setting the following [kernel parameter](kernel_parameter "wikilink") to zero:
 
 `amdgpu.abmlevel=0`
 
@@ -809,23 +796,22 @@ Issues with some PowerPlay features, such as [GFXOFF](https://www.phoronix.com/n
 frequent, unrecoverable driver crashes[22](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
 with idle GPU usage on a multi-monitor setup, and especially waking up from sleep mode.
 
-A well-known solution is appending a kernel parameter (as described in [#Boot
-parameter](#Boot_parameter "#Boot parameter"){.wikilink}) that disables PP_GFXOFF_MASK, for example
-`{{ic|1=amdgpu.ppfeaturemask=0xffff7fff}}`{=mediawiki} - this particular one leaves all other (implemented and
-unimplemented) PowerPlay features enabled.
+A well-known solution is appending a kernel parameter (as described in [#Boot parameter](#Boot_parameter "wikilink"))
+that disables PP_GFXOFF_MASK, for example `{{ic|1=amdgpu.ppfeaturemask=0xffff7fff}}`{=mediawiki} - this particular one
+leaves all other (implemented and unimplemented) PowerPlay features enabled.
 
 Alternative solutions rely on disabling more features than just GFXOFF:
 
-- Disable [PP_GFXOFF_MASK and PP_STUTTER_MODE](https://www.reddit.com/r/linux4noobs/comments/1ahb8pf/comment/koppio6/)
-  with `{{ic|0xfffd7fff}}`{=mediawiki},
-- Disable [PP_GFXOFF_MASK, PP_STUTTER_MODE and
-  PP_OVERDRIVE_MASK](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453/7?u=krzeszny) with
-  `{{ic|0xfffd3fff}}`{=mediawiki},
-- Disable [PP_GFXOFF_MASK, PP_GFX_DCS_MASK and
-  PP_OVERDRIVE_MASK](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453/15?u=krzeszny) with
-  `{{ic|0xfff73fff}}`{=mediawiki},
-- Disable every feature with `{{ic|0}}`{=mediawiki} (or `{{ic|0x0}}`{=mediawiki}). This can be used if the cause of
-  driver crashes is unknown.
+-   Disable [PP_GFXOFF_MASK and PP_STUTTER_MODE](https://www.reddit.com/r/linux4noobs/comments/1ahb8pf/comment/koppio6/)
+    with `{{ic|0xfffd7fff}}`{=mediawiki},
+-   Disable [PP_GFXOFF_MASK, PP_STUTTER_MODE and
+    PP_OVERDRIVE_MASK](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453/7?u=krzeszny) with
+    `{{ic|0xfffd3fff}}`{=mediawiki},
+-   Disable [PP_GFXOFF_MASK, PP_GFX_DCS_MASK and
+    PP_OVERDRIVE_MASK](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453/15?u=krzeszny) with
+    `{{ic|0xfff73fff}}`{=mediawiki},
+-   Disable every feature with `{{ic|0}}`{=mediawiki} (or `{{ic|0x0}}`{=mediawiki}). This can be used if the cause of
+    driver crashes is unknown.
 
 You can create your own feature mask from `{{ic|1=amdgpu.ppfeaturemask=0x}}`{=mediawiki} followed by an 8-character mask
 calculated with a [hexadecimal bitwise
@@ -839,8 +825,7 @@ Make sure the parameter doesn\'t get removed during kernel updates.
 
 ## See also {#see_also}
 
-- [Gentoo:AMDGPU](Gentoo:AMDGPU "Gentoo:AMDGPU"){.wikilink}
-- [AMDGPU issue tracker](https://gitlab.freedesktop.org/drm/amd)
+-   [Gentoo:AMDGPU](Gentoo:AMDGPU "wikilink")
+-   [AMDGPU issue tracker](https://gitlab.freedesktop.org/drm/amd)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

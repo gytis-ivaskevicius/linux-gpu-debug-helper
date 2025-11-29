@@ -1,7 +1,6 @@
-[de:Intel](de:Intel "de:Intel"){.wikilink} [es:Intel graphics](es:Intel_graphics "es:Intel graphics"){.wikilink}
-[ja:Intel graphics](ja:Intel_graphics "ja:Intel graphics"){.wikilink} [ru:Intel
-graphics](ru:Intel_graphics "ru:Intel graphics"){.wikilink} [zh-hans:Intel
-graphics](zh-hans:Intel_graphics "zh-hans:Intel graphics"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:Intel](de:Intel "wikilink") [es:Intel graphics](es:Intel_graphics "wikilink") [ja:Intel
+graphics](ja:Intel_graphics "wikilink") [ru:Intel graphics](ru:Intel_graphics "wikilink") [zh-hans:Intel
+graphics](zh-hans:Intel_graphics "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Intel GMA 3600}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|Kernel mode setting}}`{=mediawiki}
 `{{Related|Xrandr}}`{=mediawiki} `{{Related|Hybrid graphics}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
 `{{Related|GPGPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
@@ -9,8 +8,8 @@ graphics](zh-hans:Intel_graphics "zh-hans:Intel graphics"){.wikilink} `{{Related
 Since Intel provides and supports open source drivers, Intel graphics are essentially plug-and-play.
 
 For a comprehensive list of Intel GPU models and corresponding chipsets and CPUs, see [Wikipedia:Intel Graphics
-Technology](Wikipedia:Intel_Graphics_Technology "Wikipedia:Intel Graphics Technology"){.wikilink} and
-[Gentoo:Intel#Feature support](Gentoo:Intel#Feature_support "Gentoo:Intel#Feature support"){.wikilink}.
+Technology](Wikipedia:Intel_Graphics_Technology "wikilink") and [Gentoo:Intel#Feature
+support](Gentoo:Intel#Feature_support "wikilink").
 
 ```{=mediawiki}
 {{Note|
@@ -21,33 +20,33 @@ Technology](Wikipedia:Intel_Graphics_Technology "Wikipedia:Intel Graphics Techno
 ```
 ## Installation
 
-- [Install](Install "Install"){.wikilink} one of the following packages, which provide the
-  [DRI](wikipedia:Direct_Rendering_Infrastructure "DRI"){.wikilink} driver for 3D acceleration.
-  - ```{=mediawiki}
-    {{Pkg|mesa}}
-    ```
-    is the up-to-date [Mesa](Mesa "Mesa"){.wikilink} package which includes the modern Gallium3D drivers for Gen 3
-    hardware and later. This is the recommended choice.
+-   [Install](Install "wikilink") one of the following packages, which provide the
+    [DRI](wikipedia:Direct_Rendering_Infrastructure "wikilink") driver for 3D acceleration.
+    -   ```{=mediawiki}
+        {{Pkg|mesa}}
+        ```
+        is the up-to-date [Mesa](Mesa "wikilink") package which includes the modern Gallium3D drivers for Gen 3 hardware
+        and later. This is the recommended choice.
 
-  - ```{=mediawiki}
-    {{Pkg|mesa-amber}}
-    ```
-    is the legacy Mesa package which includes the classic (non-Gallium3D) drivers from Gen 2 to Gen 11 hardware. This
-    driver might have better performance or stability for Gen 7 and older hardware, but is unmaintained.
-- For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} or
-  `{{Pkg|lib32-mesa-amber}}`{=mediawiki} package from the [multilib](multilib "multilib"){.wikilink} repository.
-- For the [DDX](wikipedia:X.Org_Server#DDX "DDX"){.wikilink} driver which provides 2D acceleration in
-  [Xorg](Xorg "Xorg"){.wikilink}, use one of the following drivers:
-  - The *modesetting* driver included in the `{{Pkg|xorg-server}}`{=mediawiki} package is the recommended choice for Gen
-    3 hardware and later. It uses the DRI driver for acceleration via *glamor*.
-  - The `{{Pkg|xf86-video-intel}}`{=mediawiki} package provides the legacy intel DDX driver from Gen 2 to Gen 9
-    hardware. This package is generally not recommended, see note below.
-- For [Vulkan](Vulkan "Vulkan"){.wikilink} support (Broadwell and newer; support for earlier chips is [incomplete or
-  missing](https://gitlab.freedesktop.org/mesa/mesa/-/issues/8249#note_1758622)), install the
-  `{{Pkg|vulkan-intel}}`{=mediawiki} package. For 32-bit [Vulkan](Vulkan "Vulkan"){.wikilink} support, install the
-  `{{Pkg|lib32-vulkan-intel}}`{=mediawiki} package.
+    -   ```{=mediawiki}
+        {{Pkg|mesa-amber}}
+        ```
+        is the legacy Mesa package which includes the classic (non-Gallium3D) drivers from Gen 2 to Gen 11 hardware.
+        This driver might have better performance or stability for Gen 7 and older hardware, but is unmaintained.
+-   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} or
+    `{{Pkg|lib32-mesa-amber}}`{=mediawiki} package from the [multilib](multilib "wikilink") repository.
+-   For the [DDX](wikipedia:X.Org_Server#DDX "wikilink") driver which provides 2D acceleration in
+    [Xorg](Xorg "wikilink"), use one of the following drivers:
+    -   The *modesetting* driver included in the `{{Pkg|xorg-server}}`{=mediawiki} package is the recommended choice for
+        Gen 3 hardware and later. It uses the DRI driver for acceleration via *glamor*.
+    -   The `{{Pkg|xf86-video-intel}}`{=mediawiki} package provides the legacy intel DDX driver from Gen 2 to Gen 9
+        hardware. This package is generally not recommended, see note below.
+-   For [Vulkan](Vulkan "wikilink") support (Broadwell and newer; support for earlier chips is [incomplete or
+    missing](https://gitlab.freedesktop.org/mesa/mesa/-/issues/8249#note_1758622)), install the
+    `{{Pkg|vulkan-intel}}`{=mediawiki} package. For 32-bit [Vulkan](Vulkan "wikilink") support, install the
+    `{{Pkg|lib32-vulkan-intel}}`{=mediawiki} package.
 
-Also see [Hardware video acceleration](Hardware_video_acceleration "Hardware video acceleration"){.wikilink}.
+Also see [Hardware video acceleration](Hardware_video_acceleration "wikilink").
 
 ```{=mediawiki}
 {{Note|1=<nowiki/>
@@ -62,82 +61,93 @@ The Intel kernel module should load fine automatically on system boot.
 
 If it does not happen, then:
 
-- Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} as a [kernel
-  parameter](kernel_parameter "kernel parameter"){.wikilink}, since Intel requires kernel mode-setting.
-- Also, check that you have not disabled Intel by using any modprobe blacklisting within
-  `{{ic|/etc/modprobe.d/}}`{=mediawiki} or `{{ic|/usr/lib/modprobe.d/}}`{=mediawiki}.
+-   Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} as a [kernel parameter](kernel_parameter "wikilink"),
+    since Intel requires kernel mode-setting.
+-   Also, check that you have not disabled Intel by using any modprobe blacklisting within
+    `{{ic|/etc/modprobe.d/}}`{=mediawiki} or `{{ic|/usr/lib/modprobe.d/}}`{=mediawiki}.
 
 ### Early KMS {#early_kms}
 
-[Kernel mode setting](Kernel_mode_setting "Kernel mode setting"){.wikilink} (KMS) is supported by the
-`{{ic|i915}}`{=mediawiki} and `{{ic|xe}}`{=mediawiki} drivers, and is enabled early since
-[mkinitcpio](mkinitcpio "mkinitcpio"){.wikilink} v32, as the `{{ic|kms}}`{=mediawiki}
-[hook](Mkinitcpio#Common_hooks "hook"){.wikilink} is included by default. For other setups, see [Kernel mode
-setting#Early KMS start](Kernel_mode_setting#Early_KMS_start "Kernel mode setting#Early KMS start"){.wikilink} for
-instructions on how to enable KMS as soon as possible at the boot process.
+[Kernel mode setting](Kernel_mode_setting "wikilink") (KMS) is supported by the `{{ic|i915}}`{=mediawiki} and
+`{{ic|xe}}`{=mediawiki} drivers, and is enabled early since [mkinitcpio](mkinitcpio "wikilink") v32, as the
+`{{ic|kms}}`{=mediawiki} [hook](Mkinitcpio#Common_hooks "wikilink") is included by default. For other setups, see
+[Kernel mode setting#Early KMS start](Kernel_mode_setting#Early_KMS_start "wikilink") for instructions on how to enable
+KMS as soon as possible at the boot process.
 
 ### Enable GuC / HuC firmware loading {#enable_guc_huc_firmware_loading}
 
 Starting with Gen9 (Skylake and onwards), Intel GPUs include a *Graphics micro (μ) Controller* (GuC) which provides the
 following functionality:
 
-- Offloading some media decoding functionality from the CPU to the *HEVC/H.265 micro (µ) Controller* (HuC). Only
-  applicable if using `{{Pkg|intel-media-driver}}`{=mediawiki} for [hardware video
-  acceleration](hardware_video_acceleration "hardware video acceleration"){.wikilink}. Introduced with Gen9.
-- Using the GuC for scheduling, context submission, and power management. Introduced with Alder Lake-P (Mobile), within
-  Gen12.
+-   Offloading some media decoding functionality from the CPU to the *HEVC/H.265 micro (µ) Controller* (HuC). Only
+    applicable if using `{{Pkg|intel-media-driver}}`{=mediawiki} for [hardware video
+    acceleration](hardware_video_acceleration "wikilink"). Introduced with Gen9.
+-   Using the GuC for scheduling, context submission, and power management. Introduced with Alder Lake-P (Mobile),
+    within Gen12.
 
 To use this functionality, first ensure that `{{Pkg|linux-firmware-intel}}`{=mediawiki} is
-[installed](install "install"){.wikilink}, as it provides the GuC and HuC firmware files.
+[installed](install "wikilink"), as it provides the GuC and HuC firmware files.
 
 Next, the GuC firmware must be loaded. With regards to HuC support, some video features (e.g. CBR rate control on SKL
 low-power encoding mode) require loading the HuC firmware as well
 [1](https://github.com/intel/media-driver#known-issues-and-limitations).
 
-The [new experimental](#Testing_the_new_experimental_Xe_driver "new experimental"){.wikilink} `{{ic|xe}}`{=mediawiki}
-driver enables Guc and Huc functionality by default.
+The [new experimental](#Testing_the_new_experimental_Xe_driver "wikilink") `{{ic|xe}}`{=mediawiki} driver enables Guc
+and Huc functionality by default.
 
 For the `{{ic|i915}}`{=mediawiki} driver, GuC functionality is controlled by the `{{ic|enable_guc}}`{=mediawiki} [kernel
-module parameter](kernel_module_parameter "kernel module parameter"){.wikilink}. Its usage is as follows:
+module parameter](kernel_module_parameter "wikilink"). Its usage is as follows:
 
 ```{=mediawiki}
 {{Accuracy|Despite Intel's documentation, Tiger Lake and Rocket Lake GPUs may actually support {{ic|1=enable_guc=3}}, and have a default of {{ic|1=enable_guc=1}}.|Talk:Intel graphics#TGL/RKL GuC Submission}}
 ```
-+------------------+-----------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
-| enable_guc value | GuC Submission  | HuC Firmware Loading | Default for platforms                                                                                                              | Supported on platforms     |
-+==================+=================+======================+====================================================================================================================================+============================+
-| 0                | ```{=mediawiki} | ```{=mediawiki}      | Tiger Lake, Rocket Lake, and Pre-Gen12                                                                                             | All                        |
-|                  | {{No}}          | {{No}}               | [2](https://github.com/torvalds/linux/blob/b3454ce0b2c8a56e760e6baa88ed10278585072b/drivers/gpu/drm/i915/gt/uc/intel_uc.c#L26-L36) |                            |
-|                  | ```             | ```                  |                                                                                                                                    |                            |
-+------------------+-----------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
-| 1                | ```{=mediawiki} | ```{=mediawiki}      | {{-}}                                                                                                                              | Alder Lake-P (Mobile) and  |
-|                  | {{Yes}}         | {{No}}               |                                                                                                                                    | newer                      |
-|                  | ```             | ```                  |                                                                                                                                    |                            |
-+------------------+-----------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
-| 2                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-S (Desktop)                                                                                                             | Gen9 and newer             |
-|                  | {{No}}          | {{Yes}}              | [3](https://github.com/torvalds/linux/blob/b3454ce0b2c8a56e760e6baa88ed10278585072b/drivers/gpu/drm/i915/gt/uc/intel_uc.c#L38-L42) |                            |
-|                  | ```             | ```                  | [4](https://lore.kernel.org/all/87ee6wit2r.fsf@intel.com/T/)                                                                       |                            |
-+------------------+-----------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
-| 3                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-P (Mobile) and newer                                                                                                    | Gen 9.5 and newer (better  |
-|                  | {{Yes}}         | {{Yes}}              |                                                                                                                                    | for some)                  |
-|                  | ```             | ```                  |                                                                                                                                    |                            |
-+------------------+-----------------+----------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------+
++------------------+-----------------+----------------------+-------------------------+-------------------------+
+| enable_guc value | GuC Submission  | HuC Firmware Loading | Default for platforms   | Supported on platforms  |
++==================+=================+======================+=========================+=========================+
+| 0                | ```{=mediawiki} | ```{=mediawiki}      | Tiger Lake, Rocket      | All                     |
+|                  | {{No}}          | {{No}}               | Lake, and Pre-Gen12     |                         |
+|                  | ```             | ```                  | [2](https://git         |                         |
+|                  |                 |                      | hub.com/torvalds/linux/ |                         |
+|                  |                 |                      | blob/b3454ce0b2c8a56e76 |                         |
+|                  |                 |                      | 0e6baa88ed10278585072b/ |                         |
+|                  |                 |                      | drivers/gpu/drm/i915/gt |                         |
+|                  |                 |                      | /uc/intel_uc.c#L26-L36) |                         |
++------------------+-----------------+----------------------+-------------------------+-------------------------+
+| 1                | ```{=mediawiki} | ```{=mediawiki}      | {{-}}                   | Alder Lake-P (Mobile)   |
+|                  | {{Yes}}         | {{No}}               |                         | and newer               |
+|                  | ```             | ```                  |                         |                         |
++------------------+-----------------+----------------------+-------------------------+-------------------------+
+| 2                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-S (Desktop)  | Gen9 and newer          |
+|                  | {{No}}          | {{Yes}}              | [3](https://git         |                         |
+|                  | ```             | ```                  | hub.com/torvalds/linux/ |                         |
+|                  |                 |                      | blob/b3454ce0b2c8a56e76 |                         |
+|                  |                 |                      | 0e6baa88ed10278585072b/ |                         |
+|                  |                 |                      | drivers/gpu/drm/i915/gt |                         |
+|                  |                 |                      | /uc/intel_uc.c#L38-L42) |                         |
+|                  |                 |                      | [4](https://lo          |                         |
+|                  |                 |                      | re.kernel.org/all/87ee6 |                         |
+|                  |                 |                      | wit2r.fsf@intel.com/T/) |                         |
++------------------+-----------------+----------------------+-------------------------+-------------------------+
+| 3                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-P (Mobile)   | Gen 9.5 and newer       |
+|                  | {{Yes}}         | {{Yes}}              | and newer               | (better for some)       |
+|                  | ```             | ```                  |                         |                         |
++------------------+-----------------+----------------------+-------------------------+-------------------------+
 
 If GuC submission or HuC firmware loading is not enabled by default for your GPU, you can manually enable it.
 
 ```{=mediawiki}
 {{Warning|1=Manually enabling GuC / HuC firmware loading taints the kernel [https://bugs.freedesktop.org/show_bug.cgi?id=111918 even when the feature is not supported]. Moreover, enabling GuC/HuC firmware loading can cause issues on some systems; disable it if you experience freezing (for example, after resuming from hibernation).}}
 ```
-Set the `{{ic|1=enable_guc=}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "kernel module parameter"){.wikilink}. For example, with:
+Set the `{{ic|1=enable_guc=}}`{=mediawiki} [kernel module parameter](kernel_module_parameter "wikilink"). For example,
+with:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/i915.conf|2=
 options i915 enable_guc=3
 }}
 ```
-[Regenerate the initramfs](Regenerate_the_initramfs "Regenerate the initramfs"){.wikilink}, on next boot you can verify
-both GuC and HuC are enabled by using [dmesg](dmesg "dmesg"){.wikilink}:
+[Regenerate the initramfs](Regenerate_the_initramfs "wikilink"), on next boot you can verify both GuC and HuC are
+enabled by using [dmesg](dmesg "wikilink"):
 
 ```{=mediawiki}
 {{hc|# dmesg {{!}}
@@ -178,10 +188,10 @@ Note that the related warning  is not fatal, as explained in [https://github.com
 ```
 ## Xorg configuration {#xorg_configuration}
 
-There is generally no need for any configuration to run [Xorg](Xorg "Xorg"){.wikilink}.
+There is generally no need for any configuration to run [Xorg](Xorg "wikilink").
 
-However, to take advantage of some driver options or if [Xorg](Xorg "Xorg"){.wikilink} does not start, you can create an
-Xorg configuration file.
+However, to take advantage of some driver options or if [Xorg](Xorg "wikilink") does not start, you can create an Xorg
+configuration file.
 
 ### With the modesetting driver {#with_the_modesetting_driver}
 
@@ -224,7 +234,7 @@ options are `{{ic|UXA}}`{=mediawiki}, `{{ic|SNA}}`{=mediawiki} (default) and `{{
 
 If you experience issues with default `{{ic|SNA}}`{=mediawiki} (e.g. pixelated graphics, corrupt text, etc.), try using
 `{{ic|UXA}}`{=mediawiki} instead, which can be done by adding the following line to your [configuration
-file](#Xorg_configuration "configuration file"){.wikilink}:
+file](#Xorg_configuration "wikilink"):
 
 `Option      "AccelMethod"  "uxa"`
 
@@ -248,8 +258,7 @@ TripleBuffer and SwapbuffersWait can usually be disabled to improve performance 
 ## Module-based options {#module_based_options}
 
 The `{{ic|i915}}`{=mediawiki} kernel module allows for configuration via [module
-options](Kernel_modules#Setting_module_options "module options"){.wikilink}. Some of the module options impact power
-saving.
+options](Kernel_modules#Setting_module_options "wikilink"). Some of the module options impact power saving.
 
 A list of all options along with short descriptions and default values can be generated with the following command:
 
@@ -260,8 +269,7 @@ To check which options are currently enabled, run
 `# systool -m i915 -av`
 
 You will note that many options default to -1, resulting in per-chip powersaving defaults. It is however possible to
-configure more aggressive powersaving by using [module
-options](Kernel_modules#Setting_module_options "module options"){.wikilink}.
+configure more aggressive powersaving by using [module options](Kernel_modules#Setting_module_options "wikilink").
 
 ```{=mediawiki}
 {{Note|1=Diverting from the defaults will mark the kernel as [https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=fc9740cebc3ab7c65f3c5f6ce0caf3e4969013ca tainted] from Linux 3.18 onwards. This basically implies using other options than the per-chip defaults is considered experimental and not supported by the developers. }}
@@ -281,7 +289,7 @@ grep enable_fbc\| parm: enable_fbc:Enable frame buffer compression for power sav
 default)) (int) }}
 
 If the parm is set to `{{ic|-1}}`{=mediawiki}, you do not need to do anything. Otherwise, to force-enable FBC, use
-`{{ic|1=i915.enable_fbc=1}}`{=mediawiki} as [kernel parameter](kernel_parameter "kernel parameter"){.wikilink} or set in
+`{{ic|1=i915.enable_fbc=1}}`{=mediawiki} as [kernel parameter](kernel_parameter "wikilink") or set in
 `{{ic|/etc/modprobe.d/i915.conf}}`{=mediawiki}:
 
 ```{=mediawiki}
@@ -309,13 +317,12 @@ The solution is to disable frame buffer compression which will imperceptibly inc
 {{Note|1=This parameter is enabled by default for Skylake and newer[https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3d6535cbed4a4b029602ff83efb2adec7cb8d28b] as well as Bay- and Cherry-Trail (VLV/CHV)[https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7360c9f6b857e22a48e545f4e99c79630994e932] since Linux 5.1[https://kernelnewbies.org/Linux_5.1#Graphics],
 has subsequently been removed completely since Linux 6.7[https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=58883680a8416661b48a800e5530e2efcea64a4a], and fastboot has finally been enabled for all GPU generations (including those older than Skylake) since Linux 6.9.[https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1b923307a1b0067a302b394e73311aeaebc06f65]}}
 ```
-The goal of Intel Fastboot is to preserve the frame-buffer as setup by the BIOS or [boot
-loader](boot_loader "boot loader"){.wikilink} to avoid any flickering until [Xorg](Xorg "Xorg"){.wikilink} has
+The goal of Intel Fastboot is to preserve the frame-buffer as setup by the BIOS or [boot loader](boot_loader "wikilink")
+to avoid any flickering until [Xorg](Xorg "wikilink") has
 started.[5](https://lists.freedesktop.org/archives/intel-gfx/2012-May/017653.html)[6](https://www.phoronix.com/scan.php?page=news_item&px=MTEwNzc)
 
 To force enable fastboot on platforms where it is not the default already, set `{{ic|1=i915.fastboot=1}}`{=mediawiki} as
-[kernel parameter](kernel_parameter "kernel parameter"){.wikilink} or set in
-`{{ic|/etc/modprobe.d/i915.conf}}`{=mediawiki}:
+[kernel parameter](kernel_parameter "wikilink") or set in `{{ic|/etc/modprobe.d/i915.conf}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/i915.conf|2=
@@ -324,7 +331,7 @@ options i915 fastboot=1
 ```
 ### Intel GVT-g graphics virtualization support {#intel_gvt_g_graphics_virtualization_support}
 
-See [Intel GVT-g](Intel_GVT-g "Intel GVT-g"){.wikilink} for details.
+See [Intel GVT-g](Intel_GVT-g "wikilink") for details.
 
 ### Enable performance support {#enable_performance_support}
 
@@ -337,8 +344,8 @@ Counters*
 [9](https://01.org/sites/default/files/documentation/intel-gfx-prm-osrc-skl-vol14-observability.pdf)`{{Dead link|2023|09|16|status=404}}`{=mediawiki}.
 
 By default, only programs running with the [CAP_SYS_ADMIN](https://lwn.net/Articles/486306/) (equivalent to root) or
-[CAP_PERFMON](https://lwn.net/Articles/812719/) [capabilities](capabilities "capabilities"){.wikilink} can utilize the
-observation architecture
+[CAP_PERFMON](https://lwn.net/Articles/812719/) [capabilities](capabilities "wikilink") can utilize the observation
+architecture
 [10](https://github.com/torvalds/linux/blob/b14ffae378aa1db993e62b01392e70d1e585fb23/drivers/gpu/drm/i915/i915_perf.c#L267)
 [11](https://github.com/torvalds/linux/blob/b14ffae378aa1db993e62b01392e70d1e585fb23/drivers/gpu/drm/i915/i915_perf.c#L3481-L3484).
 Most applications will be running without either of these, resulting in the following warning:
@@ -346,7 +353,7 @@ Most applications will be running without either of these, resulting in the foll
 `MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0`
 
 To enable performance support without using the capabilities (or root), set the kernel parameter as described in
-[sysctl](sysctl "sysctl"){.wikilink}.
+[sysctl](sysctl "wikilink").
 
 ```{=mediawiki}
 {{Warning|The restrictive defaults of the {{ic|perf_event_paranoid}} family of options exists because there is risk associated with allowing applications to access performance data [https://docs.kernel.org/admin-guide/perf-security.html]. With this being said, {{ic|dev.i915.perf_stream_paranoid}} only influences access to GPU performance counters, which carry less risk than e.g. CPU architectural execution context registers.}}
@@ -361,23 +368,20 @@ This can be useful for some full screen applications:
 
 where `{{ic|''param''}}`{=mediawiki} can be:
 
-- ```{=mediawiki}
-  {{ic|center}}
-  ```
+-   ```{=mediawiki}
+    {{ic|center}}
+    ```
+    : resolution will be kept exactly as defined, no scaling will be made,
 
-  :   resolution will be kept exactly as defined, no scaling will be made,
+-   ```{=mediawiki}
+    {{ic|full}}
+    ```
+    : scale the resolution so it uses the entire screen or
 
-- ```{=mediawiki}
-  {{ic|full}}
-  ```
-
-  :   scale the resolution so it uses the entire screen or
-
-- ```{=mediawiki}
-  {{ic|full_aspect}}
-  ```
-
-  :   scale the resolution to the maximum possible but keep the aspect ratio.
+-   ```{=mediawiki}
+    {{ic|full_aspect}}
+    ```
+    : scale the resolution to the maximum possible but keep the aspect ratio.
 
 If it does not work, try:
 
@@ -391,37 +395,36 @@ where `{{ic|''param''}}`{=mediawiki} is one of `{{ic|"Full"}}`{=mediawiki}, `{{i
 ```
 ### Overriding reported OpenGL version {#overriding_reported_opengl_version}
 
-The `{{ic|MESA_GL_VERSION_OVERRIDE}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink} can be used to override the reported OpenGL version to
-any application. For example, setting `{{ic|1=MESA_GL_VERSION_OVERRIDE=4.5}}`{=mediawiki} will report OpenGL 4.5.
+The `{{ic|MESA_GL_VERSION_OVERRIDE}}`{=mediawiki} [environment variable](environment_variable "wikilink") can be used to
+override the reported OpenGL version to any application. For example, setting
+`{{ic|1=MESA_GL_VERSION_OVERRIDE=4.5}}`{=mediawiki} will report OpenGL 4.5.
 
 ```{=mediawiki}
 {{Note|You can use this variable to report any known OpenGL version, even if it is not supported by the GPU. Some applications might no longer crash, some may start crashing - you probably do not want to set this variable globally.}}
 ```
 ### Monitoring
 
-See [Hardware video
-acceleration#Verification](Hardware_video_acceleration#Verification "Hardware video acceleration#Verification"){.wikilink}.
+See [Hardware video acceleration#Verification](Hardware_video_acceleration#Verification "wikilink").
 
 ### Setting brightness and gamma {#setting_brightness_and_gamma}
 
-See [Backlight](Backlight "Backlight"){.wikilink}.
+See [Backlight](Backlight "wikilink").
 
 ### Testing the new experimental Xe driver {#testing_the_new_experimental_xe_driver}
 
 To try the (experimental) [new Xe driver](https://docs.kernel.org/gpu/xe/index.html), you need:
 
-- ```{=mediawiki}
-  {{pkg|linux}}
-  ```
-  6.8 or above
+-   ```{=mediawiki}
+    {{pkg|linux}}
+    ```
+    6.8 or above
 
-- [Tiger Lake](Wikipedia:Tiger_Lake "Tiger Lake"){.wikilink} integrated graphics and newer, or a discrete graphics card.
+-   [Tiger Lake](Wikipedia:Tiger_Lake "wikilink") integrated graphics and newer, or a discrete graphics card.
 
-- ```{=mediawiki}
-  {{Pkg|mesa}}
-  ```
-  .
+-   ```{=mediawiki}
+    {{Pkg|mesa}}
+    ```
+    .
 
 Note your PCI ID with:
 
@@ -430,8 +433,7 @@ Note your PCI ID with:
 00:02.0 VGA compatible controller [0300]: Intel Corporation TigerLake-LP GT2 [Iris Xe Graphics] [8086:'''9a49'''] (rev 01)
 }}
 ```
-Then add the following to your [Kernel parameters](Kernel_parameter "Kernel parameter"){.wikilink} with the appropriate
-PCI ID:
+Then add the following to your [Kernel parameters](Kernel_parameter "wikilink") with the appropriate PCI ID:
 
 `... i915.force_probe=!`**`9a49`**` xe.force_probe=`**`9a49`**
 
@@ -445,7 +447,7 @@ Make sure you have an alternate solution to boot in order to revert if necessary
 
 The SNA acceleration method causes tearing on some machines. To fix this, enable the `{{ic|TearFree}}`{=mediawiki}
 option in the `{{Pkg|xf86-video-intel}}`{=mediawiki} driver by adding the following line to your [configuration
-file](#Xorg_configuration "configuration file"){.wikilink}:
+file](#Xorg_configuration "wikilink"):
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/20-intel.conf|
@@ -487,8 +489,8 @@ EndSection}}
 
 Useful when:
 
-- Chromium/Chrome has lags and slow performance due to GPU and runs smoothly with \--disable-gpu switch
-- glxgears test does not show desired performance
+-   Chromium/Chrome has lags and slow performance due to GPU and runs smoothly with \--disable-gpu switch
+-   glxgears test does not show desired performance
 
 The intel-driver uses [Triple
 Buffering](https://www.intel.com/content/www/us/en/support/articles/000006930/graphics.html) for vertical
@@ -508,7 +510,7 @@ benchmarking) use this `{{ic|.drirc}}`{=mediawiki} in your home directory:
 
 *DRI3* is the default DRI version in `{{Pkg|xf86-video-intel}}`{=mediawiki}. On some systems this can cause issues such
 as [this](https://bugs.chromium.org/p/chromium/issues/detail?id=370022). To switch back to *DRI2* add the following line
-to your [configuration file](#Xorg_configuration "configuration file"){.wikilink}:
+to your [configuration file](#Xorg_configuration "wikilink"):
 
 `Option "DRI" "2"`
 
@@ -518,7 +520,7 @@ environment variable `{{ic|1=LIBGL_DRI3_DISABLE=1}}`{=mediawiki}.
 ### Missing glyphs in GTK applications {#missing_glyphs_in_gtk_applications}
 
 Should you experience missing font glyphs in GTK applications, the following workaround might help.
-[Edit](textedit "Edit"){.wikilink} `{{ic|/etc/environment}}`{=mediawiki} to add the following line:
+[Edit](textedit "wikilink") `{{ic|/etc/environment}}`{=mediawiki} to add the following line:
 
 ```{=mediawiki}
 {{hc|/etc/environment|output=
@@ -531,14 +533,14 @@ See also [FreeDesktop bug 88584](https://bugs.freedesktop.org/show_bug.cgi?id=88
 
 If you experience corrupted and/or frozen graphics in some applications (such as random colors filling the application
 window, extreme unreasonable blurriness, an application failing to update its graphics at all while performing other
-tasks without lag, etc), try running the application with [OpenGL](OpenGL "OpenGL"){.wikilink} instead of
-[Vulkan](Vulkan "Vulkan"){.wikilink}. This has occurred on some configurations with Intel Arc GPUs.
+tasks without lag, etc), try running the application with [OpenGL](OpenGL "wikilink") instead of
+[Vulkan](Vulkan "wikilink"). This has occurred on some configurations with Intel Arc GPUs.
 
 ### X freeze/crash with intel driver {#x_freezecrash_with_intel_driver}
 
 Some issues with X crashing, GPU hanging, or problems with X freezing, can be fixed by disabling the GPU usage with the
 `{{ic|NoAccel}}`{=mediawiki} option - add the following lines to your [configuration
-file](#Xorg_configuration "configuration file"){.wikilink}:
+file](#Xorg_configuration "wikilink"):
 
 `  Option "NoAccel" "True"`
 
@@ -548,14 +550,14 @@ Alternatively, try to disable the 3D acceleration only with the `{{ic|DRI}}`{=me
 
 ### Adding undetected resolutions {#adding_undetected_resolutions}
 
-This issue is covered on the [Xrandr page](Xrandr#Adding_undetected_resolutions "Xrandr page"){.wikilink}.
+This issue is covered on the [Xrandr page](Xrandr#Adding_undetected_resolutions "wikilink").
 
 ### Backlight is not adjustable {#backlight_is_not_adjustable}
 
 If after resuming from suspend, the hotkeys for changing the screen brightness do not take effect, check your
-configuration against the [Backlight](Backlight "Backlight"){.wikilink} article.
+configuration against the [Backlight](Backlight "wikilink") article.
 
-If the problem persists, try one of the following [kernel parameters](kernel_parameters "kernel parameters"){.wikilink}:
+If the problem persists, try one of the following [kernel parameters](kernel_parameters "wikilink"):
 
 `acpi_osi=Linux`\
 `acpi_osi="!Windows 2012"`\
@@ -570,18 +572,18 @@ for breaking backlight controls.
 If you experience corruption, unresponsiveness, lags or slow performance in Chromium and/or Firefox some possible
 solutions are:
 
-- [Set the AccelMethod to \"uxa\"](#AccelMethod "Set the AccelMethod to "uxa""){.wikilink}
-- [Disable VSYNC](#Disable_Vertical_Synchronization_(VSYNC) "Disable VSYNC"){.wikilink}
-- [Enable the TearFree option](#Tearing "Enable the TearFree option"){.wikilink}
-- Disable \"DRI\" and acceleration method (tested on Intel Iris 10th generation): `{{bc|<nowiki>
-  Option "NoAccel" "True"
-  Option "DRI" "False"
-  </nowiki>}}`{=mediawiki}
+-   [Set the AccelMethod to \"uxa\"](#AccelMethod "wikilink")
+-   [Disable VSYNC](#Disable_Vertical_Synchronization_(VSYNC) "wikilink")
+-   [Enable the TearFree option](#Tearing "wikilink")
+-   Disable \"DRI\" and acceleration method (tested on Intel Iris 10th generation): `{{bc|<nowiki>
+    Option "NoAccel" "True"
+    Option "DRI" "False"
+    </nowiki>}}`{=mediawiki}
 
 ### Kernel crashing w/kernels 4.0+ on Broadwell/Core-M chips {#kernel_crashing_wkernels_4.0_on_broadwellcore_m_chips}
 
-A few seconds after X/Wayland loads the machine will freeze and [journalctl](journalctl "journalctl"){.wikilink} will
-log a kernel crash referencing the Intel graphics as below:
+A few seconds after X/Wayland loads the machine will freeze and [journalctl](journalctl "wikilink") will log a kernel
+crash referencing the Intel graphics as below:
 
 `Jun 16 17:54:03 hostname kernel: BUG: unable to handle kernel NULL pointer dereference at           (null)`\
 `Jun 16 17:54:03 hostname kernel: IP: [<          (null)>]           (null)`\
@@ -606,7 +608,7 @@ log a kernel crash referencing the Intel graphics as below:
 `Jun 16 17:54:03 hostname kernel: RIP  [<          (null)>]           (null)`
 
 This can be fixed by disabling execlist support which was changed to default on with kernel 4.0. Add the following
-[kernel parameter](kernel_parameter "kernel parameter"){.wikilink}:
+[kernel parameter](kernel_parameter "wikilink"):
 
 `i915.enable_execlists=0`
 
@@ -621,8 +623,8 @@ the mouse cursor). Removing the `{{ic|1=enable_fbc=1}}`{=mediawiki} option fixes
 
 Panel Self Refresh (PSR), a power saving feature used by Intel iGPUs is known to cause flickering in some instances
 `{{Bug|49628}}`{=mediawiki} `{{Bug|49371}}`{=mediawiki} `{{Bug|50605}}`{=mediawiki}. A temporary solution is to disable
-this feature using the [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}
-`{{ic|1=i915.enable_psr=0}}`{=mediawiki} or `{{ic|1=xe.enable_psr=0}}`{=mediawiki}.
+this feature using the [kernel parameter](kernel_parameter "wikilink") `{{ic|1=i915.enable_psr=0}}`{=mediawiki} or
+`{{ic|1=xe.enable_psr=0}}`{=mediawiki}.
 
 This can solve error messages like `{{ic|[i915] *ERROR* CPU pipe A FIFO underrun}}`{=mediawiki}.
 
@@ -656,17 +658,17 @@ manually by setting `{{ic|/etc/drirc}}`{=mediawiki} or `{{ic|~/.drirc}}`{=mediaw
 
 One of the low-resolution video ports may be enabled on boot which is causing the terminal to utilize a small area of
 the screen. To fix, explicitly disable the port with an i915 module setting with `{{ic|1=video=SVIDEO-1:d}}`{=mediawiki}
-in the kernel command line parameter in the boot loader. See [Kernel
-parameters](Kernel_parameters "Kernel parameters"){.wikilink} for more info.
+in the kernel command line parameter in the boot loader. See [Kernel parameters](Kernel_parameters "wikilink") for more
+info.
 
 If that does not work, try disabling TV1 or VGA1 instead of SVIDEO-1. Video port names can be listed with
-[xrandr](xrandr "xrandr"){.wikilink}.
+[xrandr](xrandr "wikilink").
 
 ### No sound through HDMI on a Haswell CPU {#no_sound_through_hdmi_on_a_haswell_cpu}
 
 According to a [Linux kernel issue](https://bugzilla.kernel.org/show_bug.cgi?id=60769), sound will not be output through
 HDMI if `{{ic|1=intel_iommu=on}}`{=mediawiki}. To fix this problem, use the following [kernel
-parameter](kernel_parameter "kernel parameter"){.wikilink}:
+parameter](kernel_parameter "wikilink"):
 
 `intel_iommu=on,igfx_off`
 
@@ -681,8 +683,8 @@ Or alternatively, disable IOMMU:
 ```
 Low-powered Intel processors and/or laptop processors have a tendency to randomly hang or crash due to the problems with
 the power management features found in low-power Intel chips. If such a crash happens, you will not see any logs
-reporting this problem. Adding the following [Kernel parameters](Kernel_parameters "Kernel parameters"){.wikilink} may
-help to resolve the problem.
+reporting this problem. Adding the following [Kernel parameters](Kernel_parameters "wikilink") may help to resolve the
+problem.
 
 ```{=mediawiki}
 {{Note|It is not advised to use all three of the below kernel parameters together.}}
@@ -735,9 +737,9 @@ In case you infrequently wake up to a black screen, but the system otherwise pro
 `{{ic|CPU pipe A FIFO underrun}}`{=mediawiki} messages in the journal and limiting
 `{{ic|1=intel_idle.max_cstate=1}}`{=mediawiki} reliably prevents that, [you
 can](https://bbs.archlinux.org/viewtopic.php?pid=2175597#p2175597) use [Suspend and hibernate#Sleep
-hooks](Suspend_and_hibernate#Sleep_hooks "Suspend and hibernate#Sleep hooks"){.wikilink} and
-`{{man|1|cpupower-idle-set}}`{=mediawiki} to effectively control the C-state around the suspend cycle with
-`{{ic|-D0}}`{=mediawiki} and `{{ic|-E}}`{=mediawiki} to not permanently run the CPU in the lowest C-state.
+hooks](Suspend_and_hibernate#Sleep_hooks "wikilink") and `{{man|1|cpupower-idle-set}}`{=mediawiki} to effectively
+control the C-state around the suspend cycle with `{{ic|-D0}}`{=mediawiki} and `{{ic|-E}}`{=mediawiki} to not
+permanently run the CPU in the lowest C-state.
 
 ### Add support for 165Hz monitor {#add_support_for_165hz_monitor}
 
@@ -745,8 +747,7 @@ hooks](Suspend_and_hibernate#Sleep_hooks "Suspend and hibernate#Sleep hooks"){.w
 {{Merge|Kernel mode setting#Forcing modes and EDID|This technique does not appear to be specific to i915. Before merging, one should verify that the install script is necessary, and that there is not an easier way to add the EDID BIN to the initramfs.}}
 ```
 For some 165Hz monitors, *xrandr* might not display the 165Hz option, and the fix in [#Adding undetected
-resolutions](#Adding_undetected_resolutions "#Adding undetected resolutions"){.wikilink} does not solve this. In this
-case, see
+resolutions](#Adding_undetected_resolutions "wikilink") does not solve this. In this case, see
 [i915-driver-stuck-at-40hz-on-165hz-screen](https://unix.stackexchange.com/questions/680356/i915-driver-stuck-at-40hz-on-165hz-screen).
 
 ```{=mediawiki}
@@ -852,7 +853,7 @@ duplicate device handle to `{{ic|00 00}}`{=mediawiki}:
 
 The modified VBT can then be loaded by copying it to `{{ic|/lib/firmware/modified_vbt}}`{=mediawiki} passing
 `{{ic|i915.vbt_firmware{{=}}`{=mediawiki}modified_vbt}} as a kernel parameter and, if required, [regenerate the
-initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}.
+initramfs](regenerate_the_initramfs "wikilink").
 
 ### Washed out colors {#washed_out_colors}
 
@@ -882,7 +883,7 @@ for ((i = 0; i < ${#proptest_result[*]}; i += 2)); do
 done
 </nowiki>}}
 ```
-If you are using [GNOME](GNOME "GNOME"){.wikilink}, [an
+If you are using [GNOME](GNOME "wikilink"), [an
 alternative](https://gitlab.gnome.org/GNOME/mutter/-/issues/1871#note_2090262) is to add
 `{{ic|<rgbrange>full</rgbrange>}}`{=mediawiki} to the `{{ic|~/.config/monitors.xml}}`{=mediawiki} configuration. For
 example:
@@ -936,12 +937,11 @@ only when UEFI mode is active, without legacy support.
 
 ## See also {#see_also}
 
-- [linux
-  graphics](https://www.intel.com/content/www/us/en/support/articles/000005520/graphics.html?wapkw=linux%20graphics)
-  (includes a list of 106 related products)
-- [Intel® Processor
-  Graphics](https://www.intel.com/content/www/us/en/developer/articles/guide/intel-graphics-developers-guides.html?wapkw=linux%20graphics)
-  (includes a table of processor series, former code name, launch date and graphics technology)
+-   [linux
+    graphics](https://www.intel.com/content/www/us/en/support/articles/000005520/graphics.html?wapkw=linux%20graphics)
+    (includes a list of 106 related products)
+-   [Intel® Processor
+    Graphics](https://www.intel.com/content/www/us/en/developer/articles/guide/intel-graphics-developers-guides.html?wapkw=linux%20graphics)
+    (includes a table of processor series, former code name, launch date and graphics technology)
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

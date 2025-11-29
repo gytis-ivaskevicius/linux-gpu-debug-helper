@@ -1,20 +1,19 @@
-[de:Vivaldi](de:Vivaldi "de:Vivaldi"){.wikilink} [es:Vivaldi](es:Vivaldi "es:Vivaldi"){.wikilink}
-[ja:Vivaldi](ja:Vivaldi "ja:Vivaldi"){.wikilink} [pl:Vivaldi](pl:Vivaldi "pl:Vivaldi"){.wikilink}
-[pt:Vivaldi](pt:Vivaldi "pt:Vivaldi"){.wikilink} [ru:Vivaldi](ru:Vivaldi "ru:Vivaldi"){.wikilink}
-[zh-hans:Vivaldi](zh-hans:Vivaldi "zh-hans:Vivaldi"){.wikilink} `{{Related articles start}}`{=mediawiki}
+[de:Vivaldi](de:Vivaldi "wikilink") [es:Vivaldi](es:Vivaldi "wikilink") [ja:Vivaldi](ja:Vivaldi "wikilink")
+[pl:Vivaldi](pl:Vivaldi "wikilink") [pt:Vivaldi](pt:Vivaldi "wikilink") [ru:Vivaldi](ru:Vivaldi "wikilink")
+[zh-hans:Vivaldi](zh-hans:Vivaldi "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Chromium}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "Opera"){.wikilink} founder &
-team members, based on [Chromium](Chromium "Chromium"){.wikilink} and focused on personalization aspects.
+[Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "wikilink") founder & team
+members, based on [Chromium](Chromium "wikilink") and focused on personalization aspects.
 
 ## Installation
 
-Vivaldi can be [installed](install "install"){.wikilink} with `{{pkg|vivaldi}}`{=mediawiki} or
+Vivaldi can be [installed](install "wikilink") with `{{pkg|vivaldi}}`{=mediawiki} or
 `{{AUR|vivaldi-snapshot}}`{=mediawiki}. Prebuilt packages can alternatively be found in the
-[herecura](Unofficial_user_repositories#herecura "herecura"){.wikilink} unofficial repository. For differences between
-snapshot and stable versions, see [this page](https://vivaldi.com/blog/snapshot-vs-stable/).
+[herecura](Unofficial_user_repositories#herecura "wikilink") unofficial repository. For differences between snapshot and
+stable versions, see [this page](https://vivaldi.com/blog/snapshot-vs-stable/).
 
-To use [Qt](Qt "Qt"){.wikilink} instead of [GTK](GTK "GTK"){.wikilink} dialogs for file selections just install
+To use [Qt](Qt "wikilink") instead of [GTK](GTK "wikilink") dialogs for file selections just install
 `{{Pkg|kdialog}}`{=mediawiki}.
 
 ## Extensions
@@ -27,8 +26,7 @@ Store](https://chrome.google.com/webstore/category/extensions).
 ```
 To see which extensions are installed/enabled, type `{{ic|vivaldi://extensions}}`{=mediawiki} in the address bar.
 
-See also [Wikipedia:Google Chrome
-Extension](Wikipedia:Google_Chrome_Extension "Wikipedia:Google Chrome Extension"){.wikilink}.
+See also [Wikipedia:Google Chrome Extension](Wikipedia:Google_Chrome_Extension "wikilink").
 
 ## Media playback {#media_playback}
 
@@ -61,8 +59,8 @@ under `{{ic|$XDG_CONFIG_HOME}}`{=mediawiki} if you have configured that environm
 
 No special syntax is used; flags are defined as if they were written in a terminal.
 
-- The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
-- Flags can be placed in separate lines for readability, but this is not required.
+-   The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
+-   Flags can be placed in separate lines for readability, but this is not required.
 
 Below is an example `{{ic|vivaldi-stable.conf}}`{=mediawiki} file that disables hardware media keys for the browser:
 
@@ -107,14 +105,14 @@ in search settings.
 
 When viewing some video, you can press the picture-in-picture button to detach it to a separate window. By default this
 window is not kept above others and it is inconvenient. To fix it in KDE, create a window rule to keep it above others.
-See [KDE#Using window rules](KDE#Using_window_rules "KDE#Using window rules"){.wikilink}.
+See [KDE#Using window rules](KDE#Using_window_rules "wikilink").
 
 ## Troubleshooting
 
 ### Chromium page {#chromium_page}
 
 Some troubleshooting is common for Vivaldi and Chromium, such as for example, force enabling hardware acceleration. For
-such, consult the [Chromium#Troubleshooting](Chromium#Troubleshooting "Chromium#Troubleshooting"){.wikilink}.
+such, consult the [Chromium#Troubleshooting](Chromium#Troubleshooting "wikilink").
 
 ### Certificates management {#certificates_management}
 
@@ -126,6 +124,6 @@ vivaldi settings where cert management it is missing). See
 
 ## See also {#see_also}
 
-- [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "Wikipedia:Vivaldi (web browser)"){.wikilink}
+-   [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "wikilink")
 
-[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Web browser](Category:Web_browser "wikilink")

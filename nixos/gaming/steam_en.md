@@ -21,8 +21,8 @@ as shown in the \`steam-tui\` section.
 
 #### System setup {#system_setup}
 
-To install the [Steam](Steam "Steam"){.wikilink} package and enable all the system options necessary to allow it to run,
-add the following to your `/etc/nixos/configuration.nix`:
+To install the [Steam](Steam "wikilink") package and enable all the system options necessary to allow it to run, add the
+following to your `/etc/nixos/configuration.nix`:
 
 ``` nix
 # Example for /etc/nixos/configuration.nix
@@ -245,7 +245,7 @@ that, create a bug report.
 
 ### Steam is not updated {#steam_is_not_updated}
 
-When you restart [Steam](Steam "Steam"){.wikilink} after an update, it starts the old version.
+When you restart [Steam](Steam "wikilink") after an update, it starts the old version.
 ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
 `/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
 the terminal or with your file manager. After that, Steam can be set up again by restarting.
@@ -255,10 +255,10 @@ the terminal or with your file manager. After that, Steam can be set up again by
 Games may fail to start because they lack dependencies (this should be added to the script, for now), or because they
 cannot be patched. The steps to launch a game directly are:
 
-- Patch the script/binary if you can
-- Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout from
-  steam)
-- Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
+-   Patch the script/binary if you can
+-   Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout
+    from steam)
+-   Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
 
 ``` bash
 LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...curl-7.29.0/lib:. ./Osmos.bin32 (if you could not patchelf the game, call ld.so directly with the binary as parameter)
@@ -285,12 +285,12 @@ hardware.graphics = {
 };
 ```
 
-In the presence of both drivers, [Steam](Steam "Steam"){.wikilink} will default to amdvlk. The amdvlk driver can be
-considered more correct regarding Vulkan specification implementation, but less performant than radv. However, this
-tradeoff between correctness and performance can sometimes make or break the gaming experience. To \"reset\" your driver
-to radv when both radv and amdvlk are installed, set either `AMD_VULKAN_ICD = "RADV"` or
+In the presence of both drivers, [Steam](Steam "wikilink") will default to amdvlk. The amdvlk driver can be considered
+more correct regarding Vulkan specification implementation, but less performant than radv. However, this tradeoff
+between correctness and performance can sometimes make or break the gaming experience. To \"reset\" your driver to radv
+when both radv and amdvlk are installed, set either `AMD_VULKAN_ICD = "RADV"` or
 `VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` environment variable. For example,
-if you start [Steam](Steam "Steam"){.wikilink} from the shell, you can enable radv for the current session by running
+if you start [Steam](Steam "wikilink") from the shell, you can enable radv for the current session by running
 `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a game with
 [MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show what driver is
 currently in use.
@@ -345,14 +345,13 @@ might be useful
 its own outdated java binary that refuses to start if path contains non-Latin characters. Check for errors by directly
 starting local java binary within `steam-run bash`.
 
-Resetting your password through the [Steam](Steam "Steam"){.wikilink} app may fail at the CAPTCHA step repeatedly, with
-[Steam](Steam "Steam"){.wikilink} itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows
-success. Resetting password through the [Steam](Steam "Steam"){.wikilink} website should work around that.
+Resetting your password through the [Steam](Steam "wikilink") app may fail at the CAPTCHA step repeatedly, with
+[Steam](Steam "wikilink") itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows success.
+Resetting password through the [Steam](Steam "wikilink") website should work around that.
 
 ## References
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
 
 [^1]: <https://store.steampowered.com/>
 

@@ -1,9 +1,9 @@
-[ja:Valheim](ja:Valheim "ja:Valheim"){.wikilink} [Valheim](https://www.valheimgame.com/) is a survival and sandbox game
-made by Swedish developers at [Iron Gate Studio](https://irongatestudio.se/). It is currently in early access since 2nd
-February 2021 with no full release date announced so far.
+[ja:Valheim](ja:Valheim "wikilink") [Valheim](https://www.valheimgame.com/) is a survival and sandbox game made by
+Swedish developers at [Iron Gate Studio](https://irongatestudio.se/). It is currently in early access since 2nd February
+2021 with no full release date announced so far.
 
 This guide is related to the [Steam](https://store.steampowered.com/app/892970/Valheim/) version of the game, which has
-a native Linux build since it is built with [Unity3D](Unity3D "Unity3D"){.wikilink} engine.
+a native Linux build since it is built with [Unity3D](Unity3D "wikilink") engine.
 
 ## Installation
 
@@ -13,11 +13,11 @@ a native Linux build since it is built with [Unity3D](Unity3D "Unity3D"){.wikili
 {{Note|The official [https://valheim.fandom.com/ wiki] says the [https://valheim.fandom.com/wiki/Valheim_Dedicated_Server#Server_Requirements Valheim Dedicated Server requirements] are at least a 4 core CPU with 2GB of RAM and 2 GB of storage. In practice even with a relatively small world (~25 MB) and few players the server will require around 3 GB of RAM.}}
 ```
 If you buy the game on Steam you will also have the [Valheim Dedicated Server tool](https://steamdb.info/app/896660/),
-but you can [install](install "install"){.wikilink} `{{AUR|valheim-server}}`{=mediawiki} and edit
+but you can [install](install "wikilink") `{{AUR|valheim-server}}`{=mediawiki} and edit
 `{{ic|/etc/valheim/server.conf}}`{=mediawiki} to change the name, port, password, and world name of the server.
 
-[Start/enable](Start/enable "Start/enable"){.wikilink} `{{ic|valheim-server.service}}`{=mediawiki}. The server will log
-into the [journal](journal "journal"){.wikilink}.
+[Start/enable](Start/enable "wikilink") `{{ic|valheim-server.service}}`{=mediawiki}. The server will log into the
+[journal](journal "wikilink").
 
 If you want to import the world you played previously, you should find your data in
 `{{ic|~/.config/unity3d/IronGate/Valheim/worlds_local}}`{=mediawiki} or
@@ -43,8 +43,8 @@ only with the native version, not when launching via Proton.
 In the zip, there is folder BexInPack_Valheim, unpack its contents to the root folder of Valheim, so you have BenInEx
 folder and `{{ic|start_game/server/bepinex.sh}}`{=mediawiki} in the same folder as `{{ic|valheim.exe}}`{=mediawiki}.
 
-Make the `{{ic|start_game_bepinex.sh}}`{=mediawiki} [executable](executable "executable"){.wikilink} and in Steam go to
-the game\'s properties and set the game\'s launch arguments to:
+Make the `{{ic|start_game_bepinex.sh}}`{=mediawiki} [executable](executable "wikilink") and in Steam go to the game\'s
+properties and set the game\'s launch arguments to:
 
 `./start_game_bepinex.sh %command%`
 
@@ -54,8 +54,8 @@ have information that Valheim is modded.
 Now you can download [mods](https://valheim.thunderstore.io/package/) and unpack the *.dll*s to
 `{{ic|Valheim/BepInEx/Plugins}}`{=mediawiki}.
 
-- [BepInEx ConfigurationManager](https://valheim.thunderstore.io/package/TJzilla/BepInEx_ConfigurationManager/) - allows
-  Open Config Menu button in the bottom left to check which mods loaded and edit their configs.
+-   [BepInEx ConfigurationManager](https://valheim.thunderstore.io/package/TJzilla/BepInEx_ConfigurationManager/) -
+    allows Open Config Menu button in the bottom left to check which mods loaded and edit their configs.
 
 #### Server
 
@@ -71,4 +71,4 @@ Run the script and the server should create `{{ic|BepInEx/config/org.bepinex.val
 
 Some mods will require the *.dll* to be in the plugin folder on both the client and server.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -6,7 +6,7 @@ This page attempts to cover everything related to the use of NVIDIA GPUs on NixO
 
 Kernel modules from NVIDIA offer better performance than other alternatives, but make the system unfree by requiring
 proprietary userspace libraries that can interface with the kernel modules. Users that want to have a fully free and
-open-source system should use [Nouveau](NVIDIA#Nouveau "Nouveau"){.wikilink} instead.
+open-source system should use [Nouveau](NVIDIA#Nouveau "wikilink") instead.
 
 To enable them, add `"nvidia"` to the list of enabled video drivers defined by the `services.xserver.videoDrivers`
 option.
@@ -272,7 +272,7 @@ Note that nixGL is not specific to NVIDIA GPUs, and should work with just about 
 
 ### CUDA and using your GPU for compute {#cuda_and_using_your_gpu_for_compute}
 
-See the [CUDA](CUDA "CUDA"){.wikilink} wiki page.
+See the [CUDA](CUDA "wikilink") wiki page.
 
 ### Running Specific NVIDIA Driver Versions {#running_specific_nvidia_driver_versions}
 
@@ -297,10 +297,10 @@ version along with the corresponding SHA256 hashes. Below is an example configur
 ```
 In this configuration:
 
-- Replace `version` with the desired driver version.
-- Update the SHA256 hashes to match the new version you want to use.
-- After updating the configuration, run `sudo nixos-rebuild switch` to apply the changes and load the specified NVIDIA
-  driver version.
+-   Replace `version` with the desired driver version.
+-   Update the SHA256 hashes to match the new version you want to use.
+-   After updating the configuration, run `sudo nixos-rebuild switch` to apply the changes and load the specified NVIDIA
+    driver version.
 
 This allows you to pin the specific driver version being used in your NixOS installation. You might want to do this if
 you are running the newest kernel, as the packaged drivers may fail to build otherwise[^2].
@@ -402,11 +402,12 @@ Note that disabling both NVIDIA kernel modules and Nouveau effectively disables 
 
 ## Footnotes
 
+```{=html}
 <references />
-
+```
 4\. <https://discourse.nixos.org/t/nvidia-open-breaks-hardware-acceleration/58770/1>
 
-[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "wikilink")
 
 [^1]: <https://www.phoronix.com/forums/forum/linux-graphics-x-org-drivers/open-source-nvidia-linux-nouveau/998310-nouveau-persevered-in-2017-for-open-source-nvidia-but-2018-could-be-much-better#post998316>
 

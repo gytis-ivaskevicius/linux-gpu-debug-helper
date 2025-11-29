@@ -78,10 +78,12 @@ packages](https://nixos.org/manual/nixpkgs/stable/#sec-allow-unfree) if necessar
 
 ## See also {#see_also}
 
-- [Qutebrowser website](https://qutebrowser.org/)
+-   [Qutebrowser website](https://qutebrowser.org/)
 
+```{=html}
 <hr />
+```
+```{=html}
 <references />
-
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
-Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
+```
+[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")

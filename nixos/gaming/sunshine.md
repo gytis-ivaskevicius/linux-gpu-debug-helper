@@ -32,5 +32,4 @@ Simply press the button that says `Add Host Manually`, from there you will need 
 If this doesn't work you should double check the port in the Sunshine's WebGUI. You can access this from the Host PC in
 a web browser [`https://localhost:47990`](https://localhost:47990)
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

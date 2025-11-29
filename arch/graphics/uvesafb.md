@@ -1,4 +1,4 @@
-[ja:Uvesafb](ja:Uvesafb "ja:Uvesafb"){.wikilink} [zh-hans:Uvesafb](zh-hans:Uvesafb "zh-hans:Uvesafb"){.wikilink}
+[ja:Uvesafb](ja:Uvesafb "wikilink") [zh-hans:Uvesafb](zh-hans:Uvesafb "wikilink")
 `{{Related articles start}}`{=mediawiki} `{{Related|Kernel modules}}`{=mediawiki}
 `{{Related|Kernel parameters}}`{=mediawiki} `{{Related|sysctl}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 `{{Style|Many [[Help:Style]] issues}}`{=mediawiki}
@@ -15,13 +15,13 @@ It should support as much hardware as vesafb.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{aur|uvesafb-dkms}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{aur|uvesafb-dkms}}`{=mediawiki} package.
 
 ## Configuration
 
-Remove any framebuffer-related [kernel parameter](kernel_parameter "kernel parameter"){.wikilink} from the [boot
-loader](boot_loader "boot loader"){.wikilink} configuration to disable the old vesafb framebuffer from loading. The
-following commands should return no result:
+Remove any framebuffer-related [kernel parameter](kernel_parameter "wikilink") from the [boot
+loader](boot_loader "wikilink") configuration to disable the old vesafb framebuffer from loading. The following commands
+should return no result:
 
 `$ grep vga /proc/cmdline`\
 `$ grep -ir vga /etc/modprobe.d/`
@@ -48,8 +48,7 @@ To prevent your customizations being overwritten when the package is updated, co
 and then make sure `{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} includes `{{ic|modconf}}`{=mediawiki} in the
 `{{ic|HOOKS}}`{=mediawiki} array.
 
-To make changes take effect, [regenerate the initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}
-and reboot the system.
+To make changes take effect, [regenerate the initramfs](regenerate_the_initramfs "wikilink") and reboot the system.
 
 ### Optimizing resolution {#optimizing_resolution}
 
@@ -71,7 +70,7 @@ settings are honored:
 ## Kernel module parameters {#kernel_module_parameters}
 
 If you compile your own kernel then you can also compile uvesafb into the kernel and run v86d later. In this case, the
-options can be passed as [kernel parameters](kernel_parameters "kernel parameters"){.wikilink} in the format
+options can be passed as [kernel parameters](kernel_parameters "wikilink") in the format
 `{{ic|1=video=uvesafb:''options''}}`{=mediawiki}.
 
 ## Troubleshooting
@@ -82,13 +81,12 @@ Check if you forgot to remove any `{{ic|1=vga=}}`{=mediawiki} kernel parameter �
 with a standard VESA one.
 
 Try to add `{{ic|1=video=vesa:off vga=normal}}`{=mediawiki} to the [kernel command
-line](kernel_command_line "kernel command line"){.wikilink}.
+line](kernel_command_line "wikilink").
 
 ## See also {#see_also}
 
-- [Uvesafb Kernel Page](https://docs.kernel.org/fb/uvesafb.html)
-- [Gentoos uvesafb Page](https://web.archive.org/web/20121118062504/http://dev.gentoo.org/~spock/projects/uvesafb/)
-- [VESA mode numbers](wikipedia:VESA_BIOS_Extensions#VBE_mode_numbers "VESA mode numbers"){.wikilink}
+-   [Uvesafb Kernel Page](https://docs.kernel.org/fb/uvesafb.html)
+-   [Gentoos uvesafb Page](https://web.archive.org/web/20121118062504/http://dev.gentoo.org/~spock/projects/uvesafb/)
+-   [VESA mode numbers](wikipedia:VESA_BIOS_Extensions#VBE_mode_numbers "wikilink")
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:Eye
-candy](Category:Eye_candy "Category:Eye candy"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:Eye candy](Category:Eye_candy "wikilink")

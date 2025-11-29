@@ -33,8 +33,8 @@ necessary files, as shown in the \`steam-tui\` section. `</translate>`{=html}
 
 `</translate>`{=html}
 
-`<translate>`{=html} To install the [Steam](Steam "Steam"){.wikilink} package and enable all the system options
-necessary to allow it to run, add the following to your `/etc/nixos/configuration.nix`: `</translate>`{=html}
+`<translate>`{=html} To install the [Steam](Steam "wikilink") package and enable all the system options necessary to
+allow it to run, add the following to your `/etc/nixos/configuration.nix`: `</translate>`{=html}
 
 ``` nix
 # Example for /etc/nixos/configuration.nix
@@ -296,8 +296,8 @@ is not installed, temporarily install it using `nix-shell -p strace` or
 
 ### Steam is not updated {#steam_is_not_updated}
 
-`</translate>`{=html} `<translate>`{=html} When you restart [Steam](Steam "Steam"){.wikilink} after an update, it starts
-the old version. ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
+`</translate>`{=html} `<translate>`{=html} When you restart [Steam](Steam "wikilink") after an update, it starts the old
+version. ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
 `/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
 the terminal or with your file manager. After that, Steam can be set up again by restarting. `</translate>`{=html}
 
@@ -308,10 +308,10 @@ the terminal or with your file manager. After that, Steam can be set up again by
 `</translate>`{=html} `<translate>`{=html} Games may fail to start because they lack dependencies (this should be added
 to the script, for now), or because they cannot be patched. The steps to launch a game directly are:
 
-- Patch the script/binary if you can
-- Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout from
-  steam)
-- Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
+-   Patch the script/binary if you can
+-   Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout
+    from steam)
+-   Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
 
 `</translate>`{=html}
 
@@ -342,14 +342,14 @@ hardware.graphics = {
 };
 ```
 
-`<translate>`{=html} In the presence of both drivers, [Steam](Steam "Steam"){.wikilink} will default to amdvlk. The
-amdvlk driver can be considered more correct regarding Vulkan specification implementation, but less performant than
-radv. However, this tradeoff between correctness and performance can sometimes make or break the gaming experience.
+`<translate>`{=html} In the presence of both drivers, [Steam](Steam "wikilink") will default to amdvlk. The amdvlk
+driver can be considered more correct regarding Vulkan specification implementation, but less performant than radv.
+However, this tradeoff between correctness and performance can sometimes make or break the gaming experience.
 `</translate>`{=html} `<translate>`{=html} To \"reset\" your driver to radv when both radv and amdvlk are installed, set
 either `AMD_VULKAN_ICD = "RADV"` or `VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"`
-environment variable. For example, if you start [Steam](Steam "Steam"){.wikilink} from the shell, you can enable radv
-for the current session by running `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you
-can launch a game with [MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show
+environment variable. For example, if you start [Steam](Steam "wikilink") from the shell, you can enable radv for the
+current session by running `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can
+launch a game with [MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show
 what driver is currently in use. `</translate>`{=html} `<translate>`{=html}
 
 ### SteamVR
@@ -407,17 +407,16 @@ might be useful `</translate>`{=html} `<translate>`{=html}
 This is not related to java at all, it carries its own outdated java binary that refuses to start if path contains
 non-Latin characters. Check for errors by directly starting local java binary within `steam-run bash`.
 
-Resetting your password through the [Steam](Steam "Steam"){.wikilink} app may fail at the CAPTCHA step repeatedly, with
-[Steam](Steam "Steam"){.wikilink} itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows
-success. Resetting password through the [Steam](Steam "Steam"){.wikilink} website should work around that.
-`</translate>`{=html} `<translate>`{=html}
+Resetting your password through the [Steam](Steam "wikilink") app may fail at the CAPTCHA step repeatedly, with
+[Steam](Steam "wikilink") itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows success.
+Resetting password through the [Steam](Steam "wikilink") website should work around that. `</translate>`{=html}
+`<translate>`{=html}
 
 ## References
 
 `</translate>`{=html}
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
 
 [^1]: <https://store.steampowered.com/>
 

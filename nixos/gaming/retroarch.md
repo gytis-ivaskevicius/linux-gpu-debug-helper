@@ -5,9 +5,9 @@ allows for installing RetroArch cores in a declarative and customizable way.
 
 A RetroArch installation can be customized via different packages:
 
-- `retroarch-full`, contains all libretro cores.
-- `retroarch-free`, excludes unfree cores.
-- `retroarch.withCores`, a helper function for generating a retroarch package with a custom list of cores.
+-   `retroarch-full`, contains all libretro cores.
+-   `retroarch-free`, excludes unfree cores.
+-   `retroarch.withCores`, a helper function for generating a retroarch package with a custom list of cores.
 
 ### Installing only certain cores {#installing_only_certain_cores}
 
@@ -59,8 +59,9 @@ changes.
 
 })
 
+```{=html}
 </syntaxhighlight>
-
+```
 1.  After switching over to the new configuration and restarting Retroarch, you will see the mappings got updated.
 2.  Now you can create a pull request from your fork to the retroarch-joypad-autoconfig project to upstream your
     changes.
@@ -79,7 +80,6 @@ arrow keys to choose between options (left/right change some values).
 ### Error save controller profile {#error_save_controller_profile}
 
 This is because the location of the controller profile is in the nix store, making it read-only. To actually remap a
-controller, see the [Mapping](RetroArch#Mapping "Mapping"){.wikilink} section.
+controller, see the [Mapping](RetroArch#Mapping "wikilink") section.
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

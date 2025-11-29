@@ -1,9 +1,8 @@
-[ja:RPCS3](ja:RPCS3 "ja:RPCS3"){.wikilink} [RPCS3](Wikipedia:RPCS3 "RPCS3"){.wikilink} is an emulator for PlayStation 3
-games.
+[ja:RPCS3](ja:RPCS3 "wikilink") [RPCS3](Wikipedia:RPCS3 "wikilink") is an emulator for PlayStation 3 games.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} `{{AUR|rpcs3-git}}`{=mediawiki} or `{{AUR|rpcs3-bin}}`{=mediawiki}.
+[Install](Install "wikilink") `{{AUR|rpcs3-git}}`{=mediawiki} or `{{AUR|rpcs3-bin}}`{=mediawiki}.
 
 To be able to actually run games, the PlayStation 3 system software is required, as indicated in the [quickstart
 guide](https://rpcs3.net/quickstart). Fortunately it is easy to acquire this firmware compared with other Sony systems
@@ -15,8 +14,8 @@ After installing RPCS3, open it and go to *File* \> *Install Firmware*, then cho
 
 ## Configuration
 
-In order to play games comfortably, a [gamepad](gamepad "gamepad"){.wikilink} should be present. In the most optimal
-case, it is an original PlayStation 3 controller. Other gamepads are supported as well, make sure *Handlers* is set to
+In order to play games comfortably, a [gamepad](gamepad "wikilink") should be present. In the most optimal case, it is
+an original PlayStation 3 controller. Other gamepads are supported as well, make sure *Handlers* is set to
 `{{ic|evdev}}`{=mediawiki} under the menu entry *Pads*.
 
 ## Installing games {#installing_games}
@@ -78,14 +77,13 @@ startup to be slower.
 `Failed to set RLIMIT_MEMLOCK size to 2 GiB. Try to update your system configuration`
 
 Install `{{Pkg|realtime-privileges}}`{=mediawiki} and add your own user to the `{{ic|realtime}}`{=mediawiki} [user
-group](user_group "user group"){.wikilink}.
+group](user_group "wikilink").
 
 ## See also {#see_also}
 
-- [Official website](https://rpcs3.net)
-- [RPCS3 Wiki](https://wiki.rpcs3.net/)
-- <https://emulation.gametechwiki.com/index.php/RPCS3>
-- <https://github.com/RipleyTom/rpcn>
+-   [Official website](https://rpcs3.net)
+-   [RPCS3 Wiki](https://wiki.rpcs3.net/)
+-   <https://emulation.gametechwiki.com/index.php/RPCS3>
+-   <https://github.com/RipleyTom/rpcn>
 
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Emulation](Category:Emulation "wikilink") [Category:Gaming](Category:Gaming "wikilink")

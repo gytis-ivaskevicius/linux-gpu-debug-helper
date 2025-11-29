@@ -1,11 +1,10 @@
-[ja:OpenTTD](ja:OpenTTD "ja:OpenTTD"){.wikilink} [zh-hans:OpenTTD](zh-hans:OpenTTD "zh-hans:OpenTTD"){.wikilink} OpenTTD
-is a free re-implementation of the popular DOS game [Transport Tycoon
-Deluxe](Wikipedia:Transport_Tycoon_Deluxe "Transport Tycoon Deluxe"){.wikilink}. You are a transport company owner, and
-you must manage it over the years in order to make profit.
+[ja:OpenTTD](ja:OpenTTD "wikilink") [zh-hans:OpenTTD](zh-hans:OpenTTD "wikilink") OpenTTD is a free re-implementation of
+the popular DOS game [Transport Tycoon Deluxe](Wikipedia:Transport_Tycoon_Deluxe "wikilink"). You are a transport
+company owner, and you must manage it over the years in order to make profit.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|openttd}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{Pkg|openttd}}`{=mediawiki} package.
 
 If you do not own the original game, `{{Pkg|openttd-opengfx}}`{=mediawiki} and `{{Pkg|openttd-opensfx}}`{=mediawiki}
 contains the free graphics & sounds.
@@ -13,8 +12,7 @@ contains the free graphics & sounds.
 Additionally, you may install the free OpenMSX music pack either from
 [openttd.org](https://wiki.openttd.org/en/Basesets/OpenMSX), from `{{AUR|openttd-openmsx}}`{=mediawiki} or in-game from
 the main menu option *Check Online Content*. You can check [FluidSynth#Standalone
-mode](FluidSynth#Standalone_mode "FluidSynth#Standalone mode"){.wikilink} to make sure
-[FluidSynth](FluidSynth "FluidSynth"){.wikilink} works properly.
+mode](FluidSynth#Standalone_mode "wikilink") to make sure [FluidSynth](FluidSynth "wikilink") works properly.
 
 ### Original Transport Tycoon Deluxe data (optional) {#original_transport_tycoon_deluxe_data_optional}
 
@@ -29,9 +27,9 @@ installation archive available at [Abandonia](http://www.abandonia.com/en/games/
 To use the original graphics & sound effects, copy the following files to `{{ic|/usr/share/openttd/data/}}`{=mediawiki}
 or `{{ic|~/.openttd/baseset}}`{=mediawiki} :
 
-- Windows : trg1r.grf, trgcr.grf, trghr.grf, trgir.grf, trgtr.grf
-- DOS : TRG1.GRF, TRGC.GRF, TRGH.GRF, TRGI.GRF, TRGT.GRF
-- sample.cat from either version
+-   Windows : trg1r.grf, trgcr.grf, trghr.grf, trgir.grf, trgtr.grf
+-   DOS : TRG1.GRF, TRGC.GRF, TRGH.GRF, TRGI.GRF, TRGT.GRF
+-   sample.cat from either version
 
 For the original soundtrack, copy the files from the gm folder of the original TTD game directory to
 `{{ic|~/.openttd/gm}}`{=mediawiki}.
@@ -108,12 +106,11 @@ loss.
 
 ### Music is not playing {#music_is_not_playing}
 
-The soundtrack of the game is made of [MIDI](MIDI "MIDI"){.wikilink} files. Therefore, you need a [MIDI
-synthesizer](MIDI#Synthesizers "MIDI synthesizer"){.wikilink} to play them.
+The soundtrack of the game is made of [MIDI](MIDI "wikilink") files. Therefore, you need a [MIDI
+synthesizer](MIDI#Synthesizers "wikilink") to play them.
 
-The game will automatically try to use [FluidSynth](FluidSynth "FluidSynth"){.wikilink} with no additional arguments.
-Make sure a soundfont is also installed. Usually, installing `{{Pkg|soundfont-fluid}}`{=mediawiki} should enable music
-playback.
+The game will automatically try to use [FluidSynth](FluidSynth "wikilink") with no additional arguments. Make sure a
+soundfont is also installed. Usually, installing `{{Pkg|soundfont-fluid}}`{=mediawiki} should enable music playback.
 
 If for some reason you need/want to use another synthesizer, OpenTTD provides the \"extmidi\" music driver, which allows
 you to configure a command to be ran to play music.
@@ -148,7 +145,7 @@ trap "pkill fluidsynth" EXIT
 fluidsynth -a pulseaudio -i /usr/share/soundfonts/FluidR3_GM2-2.sf2 $*
 }}
 ```
-Mark it as [executable](executable "executable"){.wikilink}.
+Mark it as [executable](executable "wikilink").
 
 Then you can specify the full path to the script as the command to be used with extmidi :
 
@@ -160,8 +157,8 @@ musicdriver = "extmidi:cmd=/home/<user>/.openttd/playmidi"
 ```
 ## See also {#see_also}
 
-- [OpenTTD](https://www.openttd.org)
-- [OpenTTD FAQ](https://wiki.openttd.org/en/Archive/Community/FAQ%20troubleshooting)
-- [OpenTTD Wiki](https://wiki.openttd.org/en/)
+-   [OpenTTD](https://www.openttd.org)
+-   [OpenTTD FAQ](https://wiki.openttd.org/en/Archive/Community/FAQ%20troubleshooting)
+-   [OpenTTD Wiki](https://wiki.openttd.org/en/)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

@@ -1,34 +1,33 @@
-[de:ATI](de:ATI "de:ATI"){.wikilink} [ja:ATI](ja:ATI "ja:ATI"){.wikilink} [ru:ATI](ru:ATI "ru:ATI"){.wikilink}
-[zh-hans:ATI](zh-hans:ATI "zh-hans:ATI"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|AMDGPU}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[de:ATI](de:ATI "wikilink") [ja:ATI](ja:ATI "wikilink") [ru:ATI](ru:ATI "wikilink")
+[zh-hans:ATI](zh-hans:ATI "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki}
+`{{Related|Xorg}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 This article covers the [radeon](https://wiki.freedesktop.org/xorg/radeon/) open source driver which supports older AMD
 (previously ATI) GPUs.
 
 ## Selecting the right driver {#selecting_the_right_driver}
 
-Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "Xorg#AMD"){.wikilink}. This page has
-instructions for **ATI**.
+Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "wikilink"). This page has instructions for
+**ATI**.
 
-If unsure, try the [AMDGPU](AMDGPU "AMDGPU"){.wikilink} driver first, it will suit most needs for cards released since
-2015. See the [feature matrix](https://www.x.org/wiki/RadeonFeature) to know what is supported by this driver and the
-[decoding table](Wikipedia:List_of_AMD_graphics_processing_units#Features_overview "decoding table"){.wikilink} to
-translate marketing names (e.g. Radeon HD4330) to chip names (e.g. R700).
+If unsure, try the [AMDGPU](AMDGPU "wikilink") driver first, it will suit most needs for cards released since 2015. See
+the [feature matrix](https://www.x.org/wiki/RadeonFeature) to know what is supported by this driver and the [decoding
+table](Wikipedia:List_of_AMD_graphics_processing_units#Features_overview "wikilink") to translate marketing names (e.g.
+Radeon HD4330) to chip names (e.g. R700).
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{Pkg|mesa}}`{=mediawiki} package, which provides both the DRI driver for
-3D acceleration and VA-API/VDPAU drivers for [accelerated video
-decoding](Hardware_video_acceleration#AMD/ATI "accelerated video decoding"){.wikilink}. Or
-`{{Pkg|mesa-amber}}`{=mediawiki} for very old GPUs ([R200](Wikipedia:Radeon_R200_series "R200"){.wikilink} and prior).
+[Install](Install "wikilink") the `{{Pkg|mesa}}`{=mediawiki} package, which provides both the DRI driver for 3D
+acceleration and VA-API/VDPAU drivers for [accelerated video decoding](Hardware_video_acceleration#AMD/ATI "wikilink").
+Or `{{Pkg|mesa-amber}}`{=mediawiki} for very old GPUs ([R200](Wikipedia:Radeon_R200_series "wikilink") and prior).
 
 ```{=mediawiki}
 {{Accuracy|The modesetting driver may not work in all cases, this section should be worded more carefully. See the related note in [[Intel graphics#Installation]].}}
 ```
-- For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki}
-  (`{{Pkg|lib32-mesa-amber}}`{=mediawiki}) package from the [multilib](multilib "multilib"){.wikilink} repository.
-- For the DDX driver (which provides 2D acceleration in [Xorg](Xorg "Xorg"){.wikilink}), you can install the
-  `{{Pkg|xf86-video-ati}}`{=mediawiki} package. However, it is not required since default modesetting driver exists.
+-   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki}
+    (`{{Pkg|lib32-mesa-amber}}`{=mediawiki}) package from the [multilib](multilib "wikilink") repository.
+-   For the DDX driver (which provides 2D acceleration in [Xorg](Xorg "wikilink")), you can install the
+    `{{Pkg|xf86-video-ati}}`{=mediawiki} package. However, it is not required since default modesetting driver exists.
 
 ## Loading
 
@@ -36,10 +35,10 @@ The radeon kernel module should load fine automatically on system boot.
 
 If it does not happen, then:
 
-- Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} or `{{ic|1=vga=}}`{=mediawiki} as a [kernel
-  parameter](kernel_parameter "kernel parameter"){.wikilink}, since radeon requires [KMS](KMS "KMS"){.wikilink}.
-- Also, check that you have not disabled radeon by using any [kernel module
-  blacklisting](Kernel_modules#Blacklisting "kernel module blacklisting"){.wikilink}.
+-   Make sure you do **not** have `{{ic|nomodeset}}`{=mediawiki} or `{{ic|1=vga=}}`{=mediawiki} as a [kernel
+    parameter](kernel_parameter "wikilink"), since radeon requires [KMS](KMS "wikilink").
+-   Also, check that you have not disabled radeon by using any [kernel module
+    blacklisting](Kernel_modules#Blacklisting "wikilink").
 
 ## Xorg configuration {#xorg_configuration}
 
@@ -61,18 +60,17 @@ Using this section, you can enable features and tweak the driver settings.
 
 ### Enabling video acceleration {#enabling_video_acceleration}
 
-See [Hardware video
-acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "Hardware video acceleration#AMD/ATI"){.wikilink}.
+See [Hardware video acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "wikilink").
 
 ### Graphical tools {#graphical_tools}
 
-- ```{=mediawiki}
-  {{App|radeon-profile|Qt application for displaying info about a Radeon card.|https://github.com/marazmista/radeon-profile|{{AUR|radeon-profile-git}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|radeon-profile|Qt application for displaying info about a Radeon card.|https://github.com/marazmista/radeon-profile|{{AUR|radeon-profile-git}}}}
+    ```
 
-- ```{=mediawiki}
-  {{App|CoreCtrl|Popular general purpose GPU/CPU controller. See their [https://gitlab.com/corectrl/corectrl/-/wikis/Setup Setup] page for advanced usage.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
-  ```
+-   ```{=mediawiki}
+    {{App|CoreCtrl|Popular general purpose GPU/CPU controller. See their [https://gitlab.com/corectrl/corectrl/-/wikis/Setup Setup] page for advanced usage.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
+    ```
 
 ### Driver options {#driver_options}
 
@@ -134,7 +132,7 @@ Below is a sample configuration file of `{{ic|/etc/X11/xorg.conf.d/'''20-radeon.
 {{Tip|You may want to debug the new parameters with {{ic|systool}} as stated in [[Kernel modules#Obtaining information]].}}
 ```
 Defining the **gartsize**, if not autodetected, can be done by adding `{{ic|1=radeon.gartsize=32}}`{=mediawiki} as a
-[kernel parameter](kernel_parameter "kernel parameter"){.wikilink}.
+[kernel parameter](kernel_parameter "wikilink").
 
 ```{=mediawiki}
 {{Note|Setting this parameter should not be needed anymore with modern AMD video cards:
@@ -152,7 +150,7 @@ The changes take effect at the next reboot.
 Since kernel 3.6, PCI Express 2.0 in **radeon** is turned on by default.
 
 It may be unstable with some motherboards. It can be deactivated by adding `{{ic|1=radeon.pcie_gen2=0}}`{=mediawiki} as
-a [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}.
+a [kernel parameter](kernel_parameter "wikilink").
 
 See [Phoronix article](https://www.phoronix.com/scan.php?page=article&item=amd_pcie_gen2&num=1) for more information.
 
@@ -163,13 +161,13 @@ of applications that are rendering, such as games. These can show values such as
 for each CPU core or an average of all of them. The HUD is controlled by the GALLIUM_HUD environment variable, and can
 be passed the following list of parameters among others:
 
-- \"fps\" - displays current frames per second
-- \"cpu\" - displays the average CPU load
-- \"cpu0\" - displays the CPU load for the first CPU core
-- \"cpu0+cpu1\" - displays the CPU load for the first two CPU cores
-- \"draw-calls\" - displays how many times each material in an object is drawn to the screen
-- \"requested-VRAM\" - displays how much VRAM is being used on the GPU
-- \"samples-passed\" - displays how many pixels are being displayed
+-   \"fps\" - displays current frames per second
+-   \"cpu\" - displays the average CPU load
+-   \"cpu0\" - displays the CPU load for the first CPU core
+-   \"cpu0+cpu1\" - displays the CPU load for the first two CPU cores
+-   \"draw-calls\" - displays how many times each material in an object is drawn to the screen
+-   \"requested-VRAM\" - displays how much VRAM is being used on the GPU
+-   \"samples-passed\" - displays how many pixels are being displayed
 
 To see a full list of parameters, as well as some notes on operating GALLIUM_HUD, you can also pass the \"help\"
 parameter to a simple application such as glxgears and see the corresponding terminal output:
@@ -185,11 +183,11 @@ post](https://kparal.wordpress.com/2014/03/03/fraps-like-fps-overlay-for-linux/)
 It is the technology used on recent laptops equiped with two GPUs, one power-efficent (generally Intel integrated card)
 and one more powerful and more power-hungry (generally Radeon or Nvidia). There are two ways to get it work:
 
-- If it is not required to run \'GPU-hungry\' applications, it is possible to disable the discrete card (see [Ubuntu
-  wiki](https://help.ubuntu.com/community/HybridGraphics#Using_vga_switcheroo)):
-  `{{bc|# echo OFF > /sys/kernel/debug/vgaswitcheroo/switch}}`{=mediawiki}
-- [PRIME](PRIME "PRIME"){.wikilink}: Is a proper way to use hybrid graphics on Linux, but still requires a bit of manual
-  intervention from the user.
+-   If it is not required to run \'GPU-hungry\' applications, it is possible to disable the discrete card (see [Ubuntu
+    wiki](https://help.ubuntu.com/community/HybridGraphics#Using_vga_switcheroo)):
+    `{{bc|# echo OFF > /sys/kernel/debug/vgaswitcheroo/switch}}`{=mediawiki}
+-   [PRIME](PRIME "wikilink"): Is a proper way to use hybrid graphics on Linux, but still requires a bit of manual
+    intervention from the user.
 
 ## Powersaving
 
@@ -198,9 +196,9 @@ and one more powerful and more power-hungry (generally Radeon or Nvidia). There 
 ```
 You can choose between three different methods:
 
-1.  [dpm](#Dynamic_power_management "dpm"){.wikilink} (enabled by default since kernel 3.13)
-2.  [dynpm](#Dynamic_frequency_switching "dynpm"){.wikilink}
-3.  [profile](#Profile-based_frequency_switching "profile"){.wikilink}
+1.  [dpm](#Dynamic_power_management "wikilink") (enabled by default since kernel 3.13)
+2.  [dynpm](#Dynamic_frequency_switching "wikilink")
+3.  [profile](#Profile-based_frequency_switching "wikilink")
 
 See <https://www.x.org/wiki/RadeonFeature/#index3h2> for more details.
 
@@ -209,30 +207,30 @@ See <https://www.x.org/wiki/RadeonFeature/#index3h2> for more details.
 Since kernel 3.13, DPM is enabled by default for [lots of AMD Radeon
 hardware](https://kernelnewbies.org/Linux_3.13#head-f95c198f6fdc7defe36f470dc8369cf0e16898df). If you want to disable it
 and use another method instead, add the parameter `{{ic|1=radeon.dpm=0}}`{=mediawiki} to the [kernel
-parameters](kernel_parameters "kernel parameters"){.wikilink}.
+parameters](kernel_parameters "wikilink").
 
 ```{=mediawiki}
 {{Tip|DPM works on R6xx gpus, but is not enabled by default in the kernel (only R7xx and up). Setting the {{ic|1=radeon.dpm=1}} kernel parameter will enable dpm.}}
 ```
-Unlike [dynpm](#Dynamic_frequency_switching "dynpm"){.wikilink}, the \"dpm\" method uses hardware on the GPU to
-dynamically change the clocks and voltage based on GPU load. It also enables clock and power gating.
+Unlike [dynpm](#Dynamic_frequency_switching "wikilink"), the \"dpm\" method uses hardware on the GPU to dynamically
+change the clocks and voltage based on GPU load. It also enables clock and power gating.
 
 There are 3 operation modes to choose from:
 
-- ```{=mediawiki}
-  {{ic|battery}}
-  ```
-  lowest power consumption
+-   ```{=mediawiki}
+    {{ic|battery}}
+    ```
+    lowest power consumption
 
-- ```{=mediawiki}
-  {{ic|balanced}}
-  ```
-  sane default
+-   ```{=mediawiki}
+    {{ic|balanced}}
+    ```
+    sane default
 
-- ```{=mediawiki}
-  {{ic|performance}}
-  ```
-  highest performance
+-   ```{=mediawiki}
+    {{ic|performance}}
+    ```
+    highest performance
 
 They can be changed via sysfs:
 
@@ -240,27 +238,27 @@ They can be changed via sysfs:
 
 For testing or debugging purposes, you can force the card to run in a set performance mode:
 
-- ```{=mediawiki}
-  {{ic|auto}}
-  ```
-  default; uses all levels in the power state
+-   ```{=mediawiki}
+    {{ic|auto}}
+    ```
+    default; uses all levels in the power state
 
-- ```{=mediawiki}
-  {{ic|low}}
-  ```
-  enforces the lowest performance level
+-   ```{=mediawiki}
+    {{ic|low}}
+    ```
+    enforces the lowest performance level
 
-- ```{=mediawiki}
-  {{ic|high}}
-  ```
-  enforces the highest performance level
+-   ```{=mediawiki}
+    {{ic|high}}
+    ```
+    enforces the highest performance level
 
 `# echo low > /sys/class/drm/card0/device/power_dpm_force_performance_level`
 
 #### Command-line tools {#command_line_tools}
 
-- [radcard](https://github.com/superjamie/snippets/blob/master/sh/radcard) - A script to get and set DPM power states
-  and levels
+-   [radcard](https://github.com/superjamie/snippets/blob/master/sh/radcard) - A script to get and set DPM power states
+    and levels
 
 ### Old methods {#old_methods}
 
@@ -287,33 +285,34 @@ To activate the method, run the following command:
 
 Select one of the available profiles:
 
-- ```{=mediawiki}
-  {{ic|default}}
-  ```
-  uses the default clocks and does not change the power state. This is the default behaviour.
+-   ```{=mediawiki}
+    {{ic|default}}
+    ```
+    uses the default clocks and does not change the power state. This is the default behaviour.
 
-- ```{=mediawiki}
-  {{ic|auto}}
-  ```
-  selects between `{{ic|mid}}`{=mediawiki} and `{{ic|high}}`{=mediawiki} power states based on the whether the system is
-  on battery power or not.
+-   ```{=mediawiki}
+    {{ic|auto}}
+    ```
+    selects between `{{ic|mid}}`{=mediawiki} and `{{ic|high}}`{=mediawiki} power states based on the whether the system
+    is on battery power or not.
 
-- ```{=mediawiki}
-  {{ic|low}}
-  ```
-  forces the gpu to be in the `{{ic|low}}`{=mediawiki} power state all the time. Note that `{{ic|low}}`{=mediawiki} can
-  cause display problems on some laptops, which is why `{{ic|auto}}`{=mediawiki} only uses `{{ic|low}}`{=mediawiki} when
-  monitors are off. Selected on other profiles when the monitors are in the [DPMS](DPMS "DPMS"){.wikilink}-off state.
+-   ```{=mediawiki}
+    {{ic|low}}
+    ```
+    forces the gpu to be in the `{{ic|low}}`{=mediawiki} power state all the time. Note that `{{ic|low}}`{=mediawiki}
+    can cause display problems on some laptops, which is why `{{ic|auto}}`{=mediawiki} only uses
+    `{{ic|low}}`{=mediawiki} when monitors are off. Selected on other profiles when the monitors are in the
+    [DPMS](DPMS "wikilink")-off state.
 
-- ```{=mediawiki}
-  {{ic|mid}}
-  ```
-  forces the gpu to be in the `{{ic|mid}}`{=mediawiki} power state all the time.
+-   ```{=mediawiki}
+    {{ic|mid}}
+    ```
+    forces the gpu to be in the `{{ic|mid}}`{=mediawiki} power state all the time.
 
-- ```{=mediawiki}
-  {{ic|high}}
-  ```
-  forces the gpu to be in the `{{ic|high}}`{=mediawiki} power state all the time.
+-   ```{=mediawiki}
+    {{ic|high}}
+    ```
+    forces the gpu to be in the `{{ic|high}}`{=mediawiki} power state all the time.
 
 As an example, we will activate the `{{ic|low}}`{=mediawiki} profile (replace `{{ic|low}}`{=mediawiki} with any of the
 aforementioned profiles as necessary):
@@ -322,17 +321,16 @@ aforementioned profiles as necessary):
 
 ### Persistent configuration {#persistent_configuration}
 
-The methods described above are not persistent. To make them persistent, you may create a [udev](udev "udev"){.wikilink}
-rule (example for [#Profile-based frequency
-switching](#Profile-based_frequency_switching "#Profile-based frequency switching"){.wikilink}):
+The methods described above are not persistent. To make them persistent, you may create a [udev](udev "wikilink") rule
+(example for [#Profile-based frequency switching](#Profile-based_frequency_switching "wikilink")):
 
 ```{=mediawiki}
 {{hc|/etc/udev/rules.d/30-radeon-pm.rules|2=
 KERNEL=="card0", SUBSYSTEM=="drm", DRIVERS=="radeon", ATTR{device/power_method}="profile", ATTR{device/power_profile}="low"
 }}
 ```
-As another example, [dynamic power management](#Dynamic_power_management "dynamic power management"){.wikilink} can be
-permanently forced to a certain performance level:
+As another example, [dynamic power management](#Dynamic_power_management "wikilink") can be permanently forced to a
+certain performance level:
 
 ```{=mediawiki}
 {{hc|/etc/udev/rules.d/30-radeon-pm.rules|2=
@@ -358,7 +356,7 @@ Thermal sensors are implemented via external i2c chips or via the internal therm
 the temperature on asics that use i2c chips, you need to load the appropriate hwmon driver for the sensor used on your
 board (lm63, lm64, etc.). The drm will attempt to load the appropriate hwmon driver. On boards that use the internal
 thermal sensor, the drm will set up the hwmon interface automatically. When the appropriate driver is loaded, the
-temperatures can be accessed via [lm_sensors](lm_sensors "lm_sensors"){.wikilink} tools or via sysfs in
+temperatures can be accessed via [lm_sensors](lm_sensors "wikilink") tools or via sysfs in
 `{{ic|/sys/class/hwmon}}`{=mediawiki}.
 
 ## Fan speed {#fan_speed}
@@ -373,11 +371,9 @@ idle state. In this case, and when your card supports it, you can change the fan
 }}
 ```
 To control the GPU fan, see [Fan speed control#AMDGPU sysfs fan
-control](Fan_speed_control#AMDGPU_sysfs_fan_control "Fan speed control#AMDGPU sysfs fan control"){.wikilink} (amdgpu and
-radeon share the same controls for this).
+control](Fan_speed_control#AMDGPU_sysfs_fan_control "wikilink") (amdgpu and radeon share the same controls for this).
 
-For persistence, see the example in [#Persistent
-configuration](#Persistent_configuration "#Persistent configuration"){.wikilink}.
+For persistence, see the example in [#Persistent configuration](#Persistent_configuration "wikilink").
 
 If a fixed value is not desired, there are possibilities to define a custom fan curve manually by, for example, writing
 a script in which fan speeds are set depending on the current temperature (current value in
@@ -421,8 +417,8 @@ To disable the output, do
 
 ### Force TV-out in KMS {#force_tv_out_in_kms}
 
-The kernel can recognize `{{ic|1=video=}}`{=mediawiki} parameter in following form (see [KMS](KMS "KMS"){.wikilink} for
-more details):
+The kernel can recognize `{{ic|1=video=}}`{=mediawiki} parameter in following form (see [KMS](KMS "wikilink") for more
+details):
 
 `video=``<conn>`{=html}`:``<xres>`{=html}`x``<yres>`{=html}`[M][R][-``<bpp>`{=html}`][@``<refresh>`{=html}`][i][m][eDd]`
 
@@ -442,7 +438,7 @@ You can get list of your video outputs with following command:
 ## HDMI audio {#hdmi_audio}
 
 HDMI audio is supported in the `{{Pkg|xf86-video-ati}}`{=mediawiki} video driver. To disable HDMI audio add
-`{{ic|1=radeon.audio=0}}`{=mediawiki} to your [kernel parameters](kernel_parameters "kernel parameters"){.wikilink}.
+`{{ic|1=radeon.audio=0}}`{=mediawiki} to your [kernel parameters](kernel_parameters "wikilink").
 
 If there is no video after boot up, the driver option has to be disabled.
 
@@ -457,8 +453,8 @@ If there is no video after boot up, the driver option has to be disabled.
 
 ### Using the RandR extension {#using_the_randr_extension}
 
-See [Multihead#RandR](Multihead#RandR "Multihead#RandR"){.wikilink} how to setup multiple monitors by using
-[RandR](Wikipedia:RandR "RandR"){.wikilink}.
+See [Multihead#RandR](Multihead#RandR "wikilink") how to setup multiple monitors by using
+[RandR](Wikipedia:RandR "wikilink").
 
 ### Independent X screens {#independent_x_screens}
 
@@ -485,9 +481,8 @@ VGA, will only select and use HDMI+DVI outputs for the dual-head setup, unless y
 ## Turn vsync off {#turn_vsync_off}
 
 The radeon driver will probably enable vsync by default, which is perfectly fine except for benchmarking. To turn it
-off, try the `{{ic|1=vblank_mode=0}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink} or create `{{ic|~/.drirc}}`{=mediawiki} (edit it if it
-already exists) and add the following:
+off, try the `{{ic|1=vblank_mode=0}}`{=mediawiki} [environment variable](environment_variable "wikilink") or create
+`{{ic|~/.drirc}}`{=mediawiki} (edit it if it already exists) and add the following:
 
 ```{=mediawiki}
 {{hc|~/.drirc|2=
@@ -505,7 +500,7 @@ already exists) and add the following:
 {{Note|Make sure the driver is '''dri2''', not your video card code (like r600).}}
 ```
 If vsync is still enabled, you can disable it by editing `{{ic|/etc/X11/xorg.conf.d/20-radeon.conf}}`{=mediawiki}. See
-[#Driver options](#Driver_options "#Driver options"){.wikilink}.
+[#Driver options](#Driver_options "wikilink").
 
 ## Troubleshooting
 
@@ -533,8 +528,7 @@ EndSection
 ```
 ### Adding undetected/unsupported resolutions {#adding_undetectedunsupported_resolutions}
 
-See [Xrandr#Adding undetected
-resolutions](Xrandr#Adding_undetected_resolutions "Xrandr#Adding undetected resolutions"){.wikilink}.
+See [Xrandr#Adding undetected resolutions](Xrandr#Adding_undetected_resolutions "wikilink").
 
 ### TV showing a black border around the screen {#tv_showing_a_black_border_around_the_screen}
 
@@ -542,8 +536,7 @@ resolutions](Xrandr#Adding_undetected_resolutions "Xrandr#Adding undetected reso
 {{Note|Make sure the TV has been setup correctly (see manual) before attempting the following solution.}}
 ```
 When connecting a TV using the HDMI port, the TV may show a blurry picture with a 2-3cm border around it. This protects
-against overscanning (see [Wikipedia:Overscan](Wikipedia:Overscan "Wikipedia:Overscan"){.wikilink}), but can be turned
-off using xrandr:
+against overscanning (see [Wikipedia:Overscan](Wikipedia:Overscan "wikilink")), but can be turned off using xrandr:
 
 `xrandr --output HDMI-0 --set underscan off`
 
@@ -552,7 +545,7 @@ off using xrandr:
 This is a solution to the no-console problem that might come up, when using two or more ATI cards on the same PC.
 Fujitsu Siemens Amilo PA 3553 laptop for example has this problem. This is due to fbcon console driver mapping itself to
 the wrong framebuffer device that exists on the wrong card. This can be fixed by using the following [kernel
-parameter](kernel_parameter "kernel parameter"){.wikilink}:
+parameter](kernel_parameter "wikilink"):
 
 `fbcon=map:1`
 
@@ -568,12 +561,11 @@ instead.
 
 There are three possible solutions:
 
-- Try adding `{{ic|1=pci=nomsi}}`{=mediawiki} to your boot loader [Kernel
-  parameters](Kernel_parameters "Kernel parameters"){.wikilink}.
-- If this does not work, you can try adding `{{ic|noapic}}`{=mediawiki} instead of `{{ic|1=pci=nomsi}}`{=mediawiki}.
-- If none of the above work, then you can try running `{{ic|1=vblank_mode=0 glxgears}}`{=mediawiki} or
-  `{{ic|1=vblank_mode=1 glxgears}}`{=mediawiki} to see which one works for you, then [set the option
-  permanently](#Turn_vsync_off "set the option permanently"){.wikilink}.
+-   Try adding `{{ic|1=pci=nomsi}}`{=mediawiki} to your boot loader [Kernel parameters](Kernel_parameters "wikilink").
+-   If this does not work, you can try adding `{{ic|noapic}}`{=mediawiki} instead of `{{ic|1=pci=nomsi}}`{=mediawiki}.
+-   If none of the above work, then you can try running `{{ic|1=vblank_mode=0 glxgears}}`{=mediawiki} or
+    `{{ic|1=vblank_mode=1 glxgears}}`{=mediawiki} to see which one works for you, then [set the option
+    permanently](#Turn_vsync_off "wikilink").
 
 ### Cursor corruption after coming out of sleep {#cursor_corruption_after_coming_out_of_sleep}
 
@@ -583,8 +575,7 @@ If the cursor becomes corrupted (e.g. repeating itself vertically after the moni
 
 ### DisplayPort stays black on multimonitor mode {#displayport_stays_black_on_multimonitor_mode}
 
-Try booting with the [kernel parameter](kernel_parameter "kernel parameter"){.wikilink}
-`{{ic|1=radeon.audio=0}}`{=mediawiki}.
+Try booting with the [kernel parameter](kernel_parameter "wikilink") `{{ic|1=radeon.audio=0}}`{=mediawiki}.
 
 ### R9-390 Poor Performance and/or Instability {#r9_390_poor_performance_andor_instability}
 
@@ -614,12 +605,11 @@ Be sure to use a high speed HDMI cable for this.
 If you use 390X (or perhaps similar models) and the 4k output from DP, you may experiencing occasional horizontal
 artifacts / flickering (i.e. every half an hour or so, a horizontal strip of pixels with a height of \~100 pixels across
 the whole screen\'s width shaking up and down for a few seconds). This might be a bug of the radeon driver. Changing to
-[AMDGPU](AMDGPU "AMDGPU"){.wikilink} seems to fix it.
+[AMDGPU](AMDGPU "wikilink") seems to fix it.
 
 ## See also {#see_also}
 
 [Benchmark](https://www.phoronix.com/scan.php?page=article&item=radeonsi-cat-wow&num=1) showing the open source driver
 is on par performance-wise with the proprietary driver for many cards.
 
-[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
-server](Category:X_server "Category:X server"){.wikilink}
+[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")

@@ -1,9 +1,9 @@
 Star Citizen is playable on NixOS, thanks to a few community projects. In case you have issues, over there is a good
 place to start
 
-- [Robertsspaceindustries.com - LUG (Linux User Group)](https://robertsspaceindustries.com/orgs/LUG) &
-  [wiki.starcitizen-lug.org - LUG Wiki](https://wiki.starcitizen-lug.org)
-- [GitHub - fufexan/nix-gaming](https://github.com/fufexan/nix-gaming)
+-   [Robertsspaceindustries.com - LUG (Linux User Group)](https://robertsspaceindustries.com/orgs/LUG) &
+    [wiki.starcitizen-lug.org - LUG Wiki](https://wiki.starcitizen-lug.org)
+-   [GitHub - fufexan/nix-gaming](https://github.com/fufexan/nix-gaming)
 
 ## RAM, ZRAM & Swap {#ram_zram_swap}
 
@@ -60,5 +60,4 @@ in
 }
 ```
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

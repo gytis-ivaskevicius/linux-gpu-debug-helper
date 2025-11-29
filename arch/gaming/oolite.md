@@ -1,9 +1,9 @@
-[ja:Oolite](ja:Oolite "ja:Oolite"){.wikilink} [Oolite](http://www.oolite.space/) is a space trading / simulation game
-based on the well-known Elite game from the 80\'s.
+[ja:Oolite](ja:Oolite "wikilink") [Oolite](http://www.oolite.space/) is a space trading / simulation game based on the
+well-known Elite game from the 80\'s.
 
 ## Installation
 
-[Install](Install "Install"){.wikilink} the `{{AUR|oolite}}`{=mediawiki} package.
+[Install](Install "wikilink") the `{{AUR|oolite}}`{=mediawiki} package.
 
 ## Troubleshooting
 
@@ -22,8 +22,8 @@ this on the Arch Linux forums or register a bug.
 
 ### Verify which setting works {#verify_which_setting_works}
 
-[Edit](textedit "Edit"){.wikilink} `{{ic|~/GNUstep/Defaults/.GNUstepDefaults}}`{=mediawiki} and look for these lines at
-the bottom:
+[Edit](textedit "wikilink") `{{ic|~/GNUstep/Defaults/.GNUstepDefaults}}`{=mediawiki} and look for these lines at the
+bottom:
 
 `<key>`{=html}`shader-mode``</key>`{=html}\
 `   ``<integer>`{=html}`3``</integer>`{=html}
@@ -43,4 +43,4 @@ shader-mode value that works for you.
 This info will be used to determine the correct default shader setting for Oolite for your card/driver combination. This
 will then become part of the Oolite graphics configuration data in a later version.
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")

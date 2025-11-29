@@ -1,6 +1,5 @@
-[ja:PCSX-Reloaded](ja:PCSX-Reloaded "ja:PCSX-Reloaded"){.wikilink}
-[PCSX-Reloaded](Wikipedia:PCSX-Reloaded "PCSX-Reloaded"){.wikilink}, also known as PCSXR, PCSXr or PCSX-r, is a plugin
-based console emulator built on top of the [PSEmu
+[ja:PCSX-Reloaded](ja:PCSX-Reloaded "wikilink") [PCSX-Reloaded](Wikipedia:PCSX-Reloaded "wikilink"), also known as
+PCSXR, PCSXr or PCSX-r, is a plugin based console emulator built on top of the [PSEmu
 Pro](https://web.archive.org/web/19990428033703/http://www.psemu.com/index.html) plugin interface, which allows playing
 Play Station 1 games on a PC.
 
@@ -9,7 +8,7 @@ higher than those supported by the original console.
 
 ## Installation
 
-The last stable version was released 2015-09-25 and can be [installed](install "install"){.wikilink} with the
+The last stable version was released 2015-09-25 and can be [installed](install "wikilink") with the
 `{{AUR|pcsxr}}`{=mediawiki} package. The `{{AUR|pcsxr-git}}`{=mediawiki} package allows the installation of the
 development version, the latest commit having taken place in 2017.
 
@@ -103,8 +102,8 @@ HD Graphics 965 installed on them, but the bug is reportedly happening on AMD an
 Open the file `{{ic|~/.pcsxr/pcsxr.cfg}}`{=mediawiki} and change the `{{ic|Cpu}}`{=mediawiki} property\'s value from
 `{{ic|0}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} to fix it.
 
-You may also want to investigate the cause of the segfault by examining the [Core
-dump](Core_dump "Core dump"){.wikilink} with [coredumpctl](Core_dump#Analyzing_a_core_dump "coredumpctl"){.wikilink}.
+You may also want to investigate the cause of the segfault by examining the [Core dump](Core_dump "wikilink") with
+[coredumpctl](Core_dump#Analyzing_a_core_dump "wikilink").
 
 ### error while loading shared libraries: libgtk-1.2.so.0 {#error_while_loading_shared_libraries_libgtk_1.2.so.0}
 
@@ -112,8 +111,7 @@ Install `{{AUR|lib32-gtk}}`{=mediawiki}.
 
 ## See also {#see_also}
 
-- [Wikipedia:PCSX-Reloaded](Wikipedia:PCSX-Reloaded "Wikipedia:PCSX-Reloaded"){.wikilink}
-- [Emulation General wiki - Playstation emulators](https://emulation.gametechwiki.com/index.php/PlayStation_emulators)
+-   [Wikipedia:PCSX-Reloaded](Wikipedia:PCSX-Reloaded "wikilink")
+-   [Emulation General wiki - Playstation emulators](https://emulation.gametechwiki.com/index.php/PlayStation_emulators)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Emulation](Category:Emulation "Category:Emulation"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink") [Category:Emulation](Category:Emulation "wikilink")

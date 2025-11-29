@@ -38,6 +38,5 @@ Murmur is the server service for Mumble clients. It can be enabled and has sever
 The initial password for the user *SuperUser* is written in the *slog* table in the sqlite database:
 /var/lib/murmur/murmur.sqlite
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Server](Category:Server "Category:Server"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Server](Category:Server "wikilink")

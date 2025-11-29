@@ -24,6 +24,5 @@ services.quakejs = {
 Join your own dedicated server using the url: `http://quakejs.example.org/play?connect%20192.0.2.0:27960, where`
 192.0.2.0 `is the public IP of your dedicated server.`
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
-[Category:Server](Category:Server "Category:Server"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Server](Category:Server "wikilink")

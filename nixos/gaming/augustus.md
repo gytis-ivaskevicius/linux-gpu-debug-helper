@@ -8,20 +8,21 @@ the „augustus" package.
 
 The three versions of the game:
 
-- Caesar III/ Caesar 3: 1998 version of the game
-- Julius: Modern engine to run the game. The game itself is true to Caesar III.
-- Augustus: Based on Julius but with more changes in gameplay compared to Julius.
+-   Caesar III/ Caesar 3: 1998 version of the game
+-   Julius: Modern engine to run the game. The game itself is true to Caesar III.
+-   Augustus: Based on Julius but with more changes in gameplay compared to Julius.
 
 ## Install game {#install_game}
 
-- Install the game: You can e.g. install the GOG version of Caesar III via Lutris:
-  <https://lutris.net/games/caesar-iii/>
-- Install the augustus engine: just add the package to your NixOS configuration and rebuild:
+-   Install the game: You can e.g. install the GOG version of Caesar III via Lutris:
+    <https://lutris.net/games/caesar-iii/>
+-   Install the augustus engine: just add the package to your NixOS configuration and rebuild:
 
 environment.systemPackages = with pkgs; \[ augustus \];
 
+```{=html}
 </syntaxhighlight>
-
+```
 ## Install modifications {#install_modifications}
 
 ### Better music files {#better_music_files}
@@ -39,8 +40,7 @@ installed Caesar III game. You can always use the terminal to start „augustus"
 
 ## References
 
-- Augustus Engine: <https://github.com/Keriew/augustus>
-- Julius Engine: <https://github.com/bvschaik/julius>
+-   Augustus Engine: <https://github.com/Keriew/augustus>
+-   Julius Engine: <https://github.com/bvschaik/julius>
 
-[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

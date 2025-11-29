@@ -1,31 +1,29 @@
-[ja:Gamescope](ja:Gamescope "ja:Gamescope"){.wikilink}
-[zh-hans:Gamescope](zh-hans:Gamescope "zh-hans:Gamescope"){.wikilink} `{{Related articles start}}`{=mediawiki}
-`{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:Gamescope](ja:Gamescope "wikilink") [zh-hans:Gamescope](zh-hans:Gamescope "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
-[Gamescope](https://github.com/ValveSoftware/gamescope) is a
-[microcompositor](Wayland#Compositors "microcompositor"){.wikilink} from Valve that is used on the [Steam
-Deck](Steam_Deck "Steam Deck"){.wikilink}. Its goal is to provide an isolated compositor that is tailored towards gaming
-and supports many gaming-centric features such as:
+[Gamescope](https://github.com/ValveSoftware/gamescope) is a [microcompositor](Wayland#Compositors "wikilink") from
+Valve that is used on the [Steam Deck](Steam_Deck "wikilink"). Its goal is to provide an isolated compositor that is
+tailored towards gaming and supports many gaming-centric features such as:
 
-- Spoofing resolutions.
-- Upscaling using AMD FidelityFX™ Super Resolution or NVIDIA Image Scaling.
-- Limiting framerates.
+-   Spoofing resolutions.
+-   Upscaling using AMD FidelityFX™ Super Resolution or NVIDIA Image Scaling.
+-   Limiting framerates.
 
 As a microcompositor it is designed to run as a nested session on top of your existing desktop environment though it is
 also possible to use it as an embedded compositor as well.
 
 ## Installation
 
-Gamescope can be [installed](install "install"){.wikilink} with the `{{pkg|gamescope}}`{=mediawiki} package.
-Additionally there is also `{{aur|gamescope-plus}}`{=mediawiki} which includes extra patches not present in the mainline
-build.
+Gamescope can be [installed](install "wikilink") with the `{{pkg|gamescope}}`{=mediawiki} package. Additionally there is
+also `{{aur|gamescope-plus}}`{=mediawiki} which includes extra patches not present in the mainline build.
 
 ### Requirements
 
-- AMD: Mesa 20.3 or above
-- Intel: Mesa 21.2 or above
-- NVIDIA: proprietary drivers 515.43.04 or above, and the `{{ic|1=nvidia_drm.modeset=1}}`{=mediawiki} [kernel
-  parameter](kernel_parameter "kernel parameter"){.wikilink}
+-   AMD: Mesa 20.3 or above
+-   Intel: Mesa 21.2 or above
+-   NVIDIA: proprietary drivers 515.43.04 or above, and the `{{ic|1=nvidia_drm.modeset=1}}`{=mediawiki} [kernel
+    parameter](kernel_parameter "wikilink")
 
 ## Usage
 
@@ -34,8 +32,7 @@ command from a terminal.
 
 ### From a display manager {#from_a_display_manager}
 
-See [Steam#Big Picture Mode from a display
-manager](Steam#Big_Picture_Mode_from_a_display_manager "Steam#Big Picture Mode from a display manager"){.wikilink}.
+See [Steam#Big Picture Mode from a display manager](Steam#Big_Picture_Mode_from_a_display_manager "wikilink").
 
 ### From a desktop session {#from_a_desktop_session}
 
@@ -56,23 +53,22 @@ You can run games from Steam using Gamescope by adding the following to the game
 
 ### From Wine {#from_wine}
 
-To run programs using Gamescope through [Wine](Wine "Wine"){.wikilink}, simply append *wine* followed by the executable.
+To run programs using Gamescope through [Wine](Wine "wikilink"), simply append *wine* followed by the executable.
 
 `$ gamescope -W 1920 -H 1080 -r 60 -- wine supertuxkart.exe`
 
-Almost all the popular Wine managers such as [Lutris](Lutris "Lutris"){.wikilink},
-[Bottles](Bottles "Bottles"){.wikilink}, and [PlayOnLinux](PlayOnLinux "PlayOnLinux"){.wikilink} have support for
-Gamescope. Using them is as simple as installing the desired Gamescope package and checking the *Use Gamescope* (or
-similar) option.
+Almost all the popular Wine managers such as [Lutris](Lutris "wikilink"), [Bottles](Bottles "wikilink"), and
+[PlayOnLinux](PlayOnLinux "wikilink") have support for Gamescope. Using them is as simple as installing the desired
+Gamescope package and checking the *Use Gamescope* (or similar) option.
 
 ```{=mediawiki}
 {{Note|Wine managers also tend to have a graphical interface to configure basic Gamescope options making them, in general, the easiest way to use Gamescope.}}
 ```
 ### From Flatpak {#from_flatpak}
 
-You can also use Gamescope from [Flatpak](Flatpak "Flatpak"){.wikilink} versions of Wine managers and
-[Steam](Steam "Steam"){.wikilink} in the same way as you would from a package install. It does however require that you
-first install Gamescope from Flathub with the following command:
+You can also use Gamescope from [Flatpak](Flatpak "wikilink") versions of Wine managers and [Steam](Steam "wikilink") in
+the same way as you would from a package install. It does however require that you first install Gamescope from Flathub
+with the following command:
 
 `$ flatpak install gamescope`
 
@@ -97,30 +93,30 @@ specially noticeable in classic JRPG. To have a pixelated look and keep aspect r
 
 Filters can be changed while the game is running:
 
-- ```{=mediawiki}
-  {{ic|Super+n}}
-  ```
-  toggle nearest filtering.
+-   ```{=mediawiki}
+    {{ic|Super+n}}
+    ```
+    toggle nearest filtering.
 
-- ```{=mediawiki}
-  {{ic|Super+u}}
-  ```
-  toggle FSR upscaling.
+-   ```{=mediawiki}
+    {{ic|Super+u}}
+    ```
+    toggle FSR upscaling.
 
-- ```{=mediawiki}
-  {{ic|Super+y}}
-  ```
-  toggle NIS upscaling.
+-   ```{=mediawiki}
+    {{ic|Super+y}}
+    ```
+    toggle NIS upscaling.
 
-- ```{=mediawiki}
-  {{ic|Super+o}}
-  ```
-  increase FSR sharpness by 1.
+-   ```{=mediawiki}
+    {{ic|Super+o}}
+    ```
+    increase FSR sharpness by 1.
 
-- ```{=mediawiki}
-  {{ic|Super+i}}
-  ```
-  decrease FSR sharpness by 1.
+-   ```{=mediawiki}
+    {{ic|Super+i}}
+    ```
+    decrease FSR sharpness by 1.
 
 ### HDR support {#hdr_support}
 
@@ -132,8 +128,8 @@ Gamescope session using the `{{ic|--hdr-enabled}}`{=mediawiki} flag.
 ```
 ### Wayland support {#wayland_support}
 
-Gamescope does not support [Wayland](Wayland "Wayland"){.wikilink} clients by default. To enable support for Wayland
-clients, add the `{{ic|--expose-wayland}}`{=mediawiki} flag to Gamescope\'s parameters.
+Gamescope does not support [Wayland](Wayland "wikilink") clients by default. To enable support for Wayland clients, add
+the `{{ic|--expose-wayland}}`{=mediawiki} flag to Gamescope\'s parameters.
 
 ### SDR Gamut Wideness {#sdr_gamut_wideness}
 
@@ -148,7 +144,7 @@ equal or between 0-1:
 
 ### Mangoapp
 
-Using traditional [MangoHud](MangoHud "MangoHud"){.wikilink} with gamescope [is not
+Using traditional [MangoHud](MangoHud "wikilink") with gamescope [is not
 supported](https://github.com/flightlessmango/MangoHud?tab=readme-ov-file#gamescope). Instead the gamescope argument
 `{{ic|--mangoapp}}`{=mediawiki} should be used. This allows MangoHud to run on top of gamescope instead of the
 underlying application. Certain MangoHud configurations, such as displaying FSR or HDR status, require the use of
@@ -162,8 +158,8 @@ If your monitor supports it, enable variable refresh rate by passing the `{{ic|-
 
 ### Recording the gamescope output {#recording_the_gamescope_output}
 
-Gamescope exposes a video node in [PipeWire](PipeWire "PipeWire"){.wikilink} for recording. You can record this with
-[GStreamer](GStreamer "GStreamer"){.wikilink}.
+Gamescope exposes a video node in [PipeWire](PipeWire "wikilink") for recording. You can record this with
+[GStreamer](GStreamer "wikilink").
 
 `$ gst-launch-1.0 --eos-on-shutdown pipewiresrc do-timestamp=true target-object=gamescope ! vaapih264enc ! h264parse ! mux. pulsesrc do-timestamp=true device="Recording_$(pactl get-default-sink).monitor" ! opusenc ! mux. matroskamux name=mux ! filesink location=recording.mkv`
 
@@ -202,9 +198,8 @@ environment variable with the following command:
 `$ flatpak override --env=GBM_BACKENDS_PATH=/usr/lib/x86_64-linux-gnu/GL/nvidia-`*`XXX`*`-`*`YY`*`-`*`ZZ`*`/extra/gbm `*`packageid`*
 
 where `{{ic|''packageid''}}`{=mediawiki} is the Flatpak package identifier of Gamescope **or** the app you want to use
-Gamescope with, such as [Bottles](Bottles "Bottles"){.wikilink}. Replace
-`{{ic|nvidia-''XXX''-''YY''-''ZZ''}}`{=mediawiki} with the currently installed NVIDIA driver version; inside Flatpak, it
-can be queried with this command:
+Gamescope with, such as [Bottles](Bottles "wikilink"). Replace `{{ic|nvidia-''XXX''-''YY''-''ZZ''}}`{=mediawiki} with
+the currently installed NVIDIA driver version; inside Flatpak, it can be queried with this command:
 
 `$ flatpak run --command=ls `*`packageid`*` /usr/lib/x86_64-linux-gnu/GL`
 
@@ -223,8 +218,7 @@ The command '''must''' be reran, and modified accordingly, on every driver updat
 
 If gamescope outputs corrupted image colors on Intel graphics disabling lossless color compression can be a work-around
 at the cost of increased memory bandwidth utilization. [1](https://github.com/ValveSoftware/gamescope/issues/356) To
-disable it pass `{{ic|1=INTEL_DEBUG=noccs}}`{=mediawiki} [environment
-variable](environment_variable "environment variable"){.wikilink}.
+disable it pass `{{ic|1=INTEL_DEBUG=noccs}}`{=mediawiki} [environment variable](environment_variable "wikilink").
 
 ### VRR stutters when HDR is enabled {#vrr_stutters_when_hdr_is_enabled}
 
@@ -237,12 +231,13 @@ composite the final image. This requires one of two setups:
 
 #### Steam Deck kernel {#steam_deck_kernel}
 
-- The Steam Deck Linux kernel `{{AUR|linux-neptune-65}}`{=mediawiki} or a kernel built with the [Steam Deck color
-  management patch](https://gitlab.com/evlaV/linux-integration/-/commit/90e3a855c922d0b8c4b18c886c5cf73223d69475.patch)
+-   The Steam Deck Linux kernel `{{AUR|linux-neptune-65}}`{=mediawiki} or a kernel built with the [Steam Deck color
+    management
+    patch](https://gitlab.com/evlaV/linux-integration/-/commit/90e3a855c922d0b8c4b18c886c5cf73223d69475.patch)
 
-- ```{=mediawiki}
-  {{Pkg|gamescope}}
-  ```
+-   ```{=mediawiki}
+    {{Pkg|gamescope}}
+    ```
 
 #### Linux kernel with experimental AMD color management enabled {#linux_kernel_with_experimental_amd_color_management_enabled}
 
@@ -258,7 +253,7 @@ this issue.
 ### Swapchain Errors {#swapchain_errors}
 
 A common cause of swapchain errors is improperly attempting to use mangohud instead of mangoapp. See the Mangoapp
-section of [#Usage](#Usage "#Usage"){.wikilink}, above.
+section of [#Usage](#Usage "wikilink"), above.
 
 ### Launching gamescope from Steam, stuttering after \~24 minutes (Gamescope Lag Bomb) {#launching_gamescope_from_steam_stuttering_after_24_minutes_gamescope_lag_bomb}
 
@@ -283,8 +278,8 @@ See [ValveSoftware/gamescope#163](https://github.com/ValveSoftware/gamescope/iss
 Several reports have indicated that some games on certain systems will crash if Gamescope is not launched in fullscreen,
 and the current workaround is to add `{{ic|--fullscreen}}`{=mediawiki} to the launch options. This will, however, lead
 to issues where the camera can pan in games rotationally indefinitely due to a failure to capture the mouse cursor
-correctly (see [4.1](#Troubleshooting "4.1"){.wikilink}). Thus, `{{ic|--force-grab-cursor}}`{=mediawiki} is recommended
-to be used in conjunction with this fix.
+correctly (see [4.1](#Troubleshooting "wikilink")). Thus, `{{ic|--force-grab-cursor}}`{=mediawiki} is recommended to be
+used in conjunction with this fix.
 
 ### Rapidly cycling framebuffer on OpenGL/32-bit games with NVidia. {#rapidly_cycling_framebuffer_on_opengl32_bit_games_with_nvidia.}
 
@@ -293,8 +288,7 @@ details. Causes are unconfirmed, and no fixes have been listed yet.
 
 ## See also {#see_also}
 
-- [Gamescope Github Page](https://github.com/ValveSoftware/gamescope)
-- [Gamescope at Steamtinkerlaunch Github Wiki](https://github.com/sonic2kk/steamtinkerlaunch/wiki/GameScope)
+-   [Gamescope Github Page](https://github.com/ValveSoftware/gamescope)
+-   [Gamescope at Steamtinkerlaunch Github Wiki](https://github.com/sonic2kk/steamtinkerlaunch/wiki/GameScope)
 
-[Category:Wayland compositors](Category:Wayland_compositors "Category:Wayland compositors"){.wikilink}
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Wayland compositors](Category:Wayland_compositors "wikilink") [Category:Gaming](Category:Gaming "wikilink")

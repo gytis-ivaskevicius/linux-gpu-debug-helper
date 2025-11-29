@@ -1,11 +1,11 @@
-[ja:RuneScape](ja:RuneScape "ja:RuneScape"){.wikilink} From [Wikipedia](Wikipedia:RuneScape "Wikipedia"){.wikilink}:
+[ja:RuneScape](ja:RuneScape "wikilink") From [Wikipedia](Wikipedia:RuneScape "wikilink"):
 
 :   RuneScape is a fantasy massively multiplayer online role-playing game (MMORPG) developed and published by Jagex,
     released in January 2001. RuneScape was originally a browser game built with the Java programming language; it was
     largely replaced by a standalone C++ client in 2016. The game has had over 300 million accounts created and was
     recognised by the Guinness World Records as the largest and most-updated free MMORPG.
 
-From [Wikipedia](Wikipedia:Jagex#Old_School_RuneScape "Wikipedia"){.wikilink}:
+From [Wikipedia](Wikipedia:Jagex#Old_School_RuneScape "wikilink"):
 
 :   Old School RuneScape is a separate incarnation of RuneScape released on 22 February 2013, based on a copy of the
     game from August 2007. Old School RuneScape receives regular content updates, which must be voted on by its players
@@ -20,8 +20,8 @@ The installation alternatives offer different features to make a choice on, and 
 ```
 ### Jagex Launcher {#jagex_launcher}
 
-The Jagex Launcher offers installation and shortcuts to each game client
-[Executable](Wikipedia:Executable "Executable"){.wikilink} and does not Linux support on release.
+The Jagex Launcher offers installation and shortcuts to each game client [Executable](Wikipedia:Executable "wikilink")
+and does not Linux support on release.
 
 #### Unofficial client {#unofficial_client}
 
@@ -29,8 +29,8 @@ The Jagex Launcher offers installation and shortcuts to each game client
 projects to install the Jagex Launcher and use Jagex Accounts in Linux\" as recommended by [Jagex
 Support](https://help.jagex.com/hc/en-gb/articles/13413514881937-Downloading-the-Jagex-Launcher-on-Linux).
 
-[Bolt](https://github.com/adamcake/Bolt) is a third-party launcher. [Install](Install "Install"){.wikilink} with the
-`{{AUR|bolt-launcher}}`{=mediawiki} package or with [Flatpak](Flatpak "Flatpak"){.wikilink} as
+[Bolt](https://github.com/adamcake/Bolt) is a third-party launcher. [Install](Install "wikilink") with the
+`{{AUR|bolt-launcher}}`{=mediawiki} package or with [Flatpak](Flatpak "wikilink") as
 `{{ic|com.adamcake.Bolt}}`{=mediawiki} from [Flathub](https://flathub.org/).
 
 ### RuneScape
@@ -38,7 +38,7 @@ Support](https://help.jagex.com/hc/en-gb/articles/13413514881937-Downloading-the
 #### Official client {#official_client}
 
 Install the official RuneScape NXT client with the `{{AUR|runescape-launcher}}`{=mediawiki} package. The official client
-can also be installed with [Flatpak](Flatpak "Flatpak"){.wikilink} as `{{ic|com.jagex.RuneScape}}`{=mediawiki} from
+can also be installed with [Flatpak](Flatpak "wikilink") as `{{ic|com.jagex.RuneScape}}`{=mediawiki} from
 [Flathub](https://flathub.org/).
 
 ### Old School RuneScape (OSRS) {#old_school_runescape_osrs}
@@ -59,11 +59,11 @@ installation from the AUR, `{{AUR|osrs-launcher}}`{=mediawiki}.
 
 ### Steam
 
-It is worth mentioning that RuneScape and OSRS are individually available on [Steam](Steam "Steam"){.wikilink}, which
-offers its own [Compatibility layer](Wikipedia:Compatibility_layer "Compatibility layer"){.wikilink}
-[Proton](Wikipedia:Proton_(software) "Proton"){.wikilink}. Steam is a separate program, and **not recommended** if
-unfamiliar. The Steam releases predate the official [#Jagex Launcher](#Jagex_Launcher "#Jagex Launcher"){.wikilink}
-release by around three years, and lack support for Jagex Account features such as multiple characters.
+It is worth mentioning that RuneScape and OSRS are individually available on [Steam](Steam "wikilink"), which offers its
+own [Compatibility layer](Wikipedia:Compatibility_layer "wikilink") [Proton](Wikipedia:Proton_(software) "wikilink").
+Steam is a separate program, and **not recommended** if unfamiliar. The Steam releases predate the official [#Jagex
+Launcher](#Jagex_Launcher "wikilink") release by around three years, and lack support for Jagex Account features such as
+multiple characters.
 
 ## Troubleshooting
 
@@ -72,7 +72,7 @@ release by around three years, and lack support for Jagex Account features such 
 The Java client (jagexappletviewer.jar) requires `{{Pkg|pulseaudio-alsa}}`{=mediawiki} to be installed for sound to work
 properly. Otherwise there will be no in-game sound or other applications will not be able to play audio due to the
 client claiming direct access to `{{ic|/dev/snd/*}}`{=mediawiki} devices. For more details, see
-[PulseAudio#ALSA](PulseAudio#ALSA "PulseAudio#ALSA"){.wikilink}.
+[PulseAudio#ALSA](PulseAudio#ALSA "wikilink").
 
 ### SSL errors {#ssl_errors}
 
@@ -87,7 +87,7 @@ This error may be due to Java\'s new TLSv1.3 implementation. Try adding
 
 ## See also {#see_also}
 
-- [The RuneScape Wiki](https://runescape.wiki/w/Linux)
-- [Jagex Support](https://support.runescape.com/hc/en-gb/articles/206659489-Linux-native-clients)
+-   [The RuneScape Wiki](https://runescape.wiki/w/Linux)
+-   [Jagex Support](https://support.runescape.com/hc/en-gb/articles/206659489-Linux-native-clients)
 
-[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Gaming](Category:Gaming "wikilink")
