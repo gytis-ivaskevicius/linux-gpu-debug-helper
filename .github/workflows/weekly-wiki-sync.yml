@@ -1,5 +1,8 @@
 name: Weekly Wiki Sync
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 0 * * 1'
@@ -19,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y curl pandoc
-      
+
       - name: Run wiki sync script
         run: |
           chmod +x fetch-wiki-pages.sh
