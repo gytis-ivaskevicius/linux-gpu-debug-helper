@@ -1,0 +1,143 @@
+{
+  "repo_notes": [
+    {
+      "content": "This repository contains curated documentation from NixOS Wiki and Arch Wiki for debugging Linux graphics, gaming, and browser issues."
+    },
+    {
+      "content": "Arch instructions and troubleshooting steps are applicable to NixOS, only the way system is configured differs."
+    },
+    {
+      "content": "Repository main paths: arch/graphics, arch/gaming, arch/browsers, nixos/graphics, nixos/gaming, nixos/browsers"
+    },
+    {
+      "content": "This repository is specifically designed to be used as context by AI agents when troubleshooting graphics, display, and performance problems."
+    },
+    {
+      "content": "For NixOS users, Arch documentation provides valuable troubleshooting concepts that can be adapted using NixOS-specific package management and configuration methods."
+    },
+    {
+      "content": "Key areas covered: Graphics Drivers (AMD, NVIDIA, Intel), Display Systems (Xorg, multi-monitor), Gaming (Wine, Steam, emulators), Browsers (hardware acceleration, configurations)."
+    }
+  ],
+  "pages": [
+    {
+      "title": "Linux GPU Debug Helper",
+      "purpose": "A comprehensive knowledge base for debugging hardware acceleration, gaming, and browser issues on Linux systems."
+    },
+    {
+      "title": "Arch Linux Documentation",
+      "purpose": "Arch Linux-specific documentation covering graphics drivers, gaming setup, and browser configurations for hardware acceleration.",
+      "parent": "Linux GPU Debug Helper"
+    },
+    {
+      "title": "NixOS Documentation",
+      "purpose": "NixOS-specific configurations and troubleshooting for graphics, gaming, and browsers.",
+      "parent": "Linux GPU Debug Helper"
+    },
+    {
+      "title": "Arch Graphics",
+      "purpose": "Graphics driver installation, troubleshooting, and optimization for Arch Linux.",
+      "parent": "Arch Linux Documentation"
+    },
+    {
+      "title": "Arch Gaming",
+      "purpose": "Gaming on Arch Linux, including Steam, Wine, emulators, and game-specific fixes.",
+      "parent": "Arch Linux Documentation"
+    },
+    {
+      "title": "Arch Browsers",
+      "purpose": "Browser configurations and hardware acceleration on Arch Linux.",
+      "parent": "Arch Linux Documentation"
+    },
+    {
+      "title": "NixOS Graphics",
+      "purpose": "Graphics driver setup and configuration on NixOS.",
+      "parent": "NixOS Documentation"
+    },
+    {
+      "title": "NixOS Gaming",
+      "purpose": "Gaming on NixOS, including Steam, emulators, and game-specific configurations.",
+      "parent": "NixOS Documentation"
+    },
+    {
+      "title": "NixOS Browsers",
+      "purpose": "Browser configurations and hardware acceleration on NixOS.",
+      "parent": "NixOS Documentation"
+    },
+    {
+      "title": "NVIDIA Graphics",
+      "purpose": "Official NVIDIA graphics card drivers installation, configuration, troubleshooting, and optimization.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "AMD Graphics",
+      "purpose": "AMD graphics driver setup, including amdgpu and amdgpu_pro.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "Intel Graphics",
+      "purpose": "Intel integrated graphics driver configuration and troubleshooting.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "OpenGL and Vulkan",
+      "purpose": "Graphics APIs support including OpenGL, Vulkan, and OpenCL.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "Steam Gaming",
+      "purpose": "Steam installation, configuration, and troubleshooting on Arch Linux.",
+      "parent": "Arch Gaming"
+    },
+    {
+      "title": "Wine Gaming",
+      "purpose": "Wine configuration for running Windows games on Linux.",
+      "parent": "Arch Gaming"
+    },
+    {
+      "title": "Hardware Video Acceleration",
+      "purpose": "GPU hardware acceleration for video decoding and encoding.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "Multi-monitor Setup",
+      "purpose": "Configuration for multiple display setups and display scaling.",
+      "parent": "Arch Graphics"
+    },
+    {
+      "title": "Firefox Configuration",
+      "purpose": "Firefox browser setup, privacy tweaks, and hardware acceleration.",
+      "parent": "Arch Browsers"
+    },
+    {
+      "title": "Chromium Configuration",
+      "purpose": "Chromium browser configuration and hardware acceleration setup.",
+      "parent": "Arch Browsers"
+    },
+    {
+      "title": "Mesa Graphics",
+      "purpose": "Mesa graphics library configuration and OpenGL implementation.",
+      "parent": "NixOS Graphics"
+    },
+    {
+      "title": "NixOS NVIDIA Setup",
+      "purpose": "NVIDIA graphics driver configuration specific to NixOS.",
+      "parent": "NixOS Graphics"
+    },
+    {
+      "title": "NixOS Steam Gaming",
+      "purpose": "Steam installation and configuration on NixOS.",
+      "parent": "NixOS Gaming"
+    },
+    {
+      "title": "Virtual Reality Support",
+      "purpose": "VR headset configuration and support on both Arch and NixOS.",
+      "parent": "NixOS Gaming"
+    },
+    {
+      "title": "fetch-wiki-pages.sh",
+      "purpose": "Script for fetching and updating wiki pages from external sources.",
+      "parent": "Linux GPU Debug Helper"
+    }
+  ]
+}
