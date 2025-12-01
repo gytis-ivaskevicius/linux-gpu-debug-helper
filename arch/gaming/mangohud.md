@@ -49,30 +49,31 @@ A GUI for configuring MangoHud can be installed from `{{Pkg|goverlay}}`{=mediawi
 
 ### Keyboard commands {#keyboard_commands}
 
--   ```{=mediawiki}
-    {{ic|RShift+F12}}
-    ```
-    -- Toggle overlay
+The default keyboard shortcuts include:
 
--   ```{=mediawiki}
-    {{ic|RShift+F11}}
-    ```
-    -- Change overlay position
-
--   ```{=mediawiki}
-    {{ic|RShift+F10}}
-    ```
-    -- Toggle preset
-
--   ```{=mediawiki}
-    {{ic|LShift+F2}}
-    ```
-    -- Toggle logging
-
--   ```{=mediawiki}
-    {{ic|LShift+F4}}
-    ```
-    -- Reload config
++-------------------+-------------------------+
+| Keyboard Shortcut | Description             |
++===================+=========================+
+| ```{=mediawiki}   | Toggle overlay          |
+| {{ic|RShift+F12}} |                         |
+| ```               |                         |
++-------------------+-------------------------+
+| ```{=mediawiki}   | Change overlay position |
+| {{ic|RShift+F11}} |                         |
+| ```               |                         |
++-------------------+-------------------------+
+| ```{=mediawiki}   | Toggle preset           |
+| {{ic|RShift+F10}} |                         |
+| ```               |                         |
++-------------------+-------------------------+
+| ```{=mediawiki}   | Toggle loading          |
+| {{ic|LShift+F2}}  |                         |
+| ```               |                         |
++-------------------+-------------------------+
+| ```{=mediawiki}   | Reload config           |
+| {{ic|LShift+F4}}  |                         |
+| ```               |                         |
++-------------------+-------------------------+
 
 ### Test configuration {#test_configuration}
 

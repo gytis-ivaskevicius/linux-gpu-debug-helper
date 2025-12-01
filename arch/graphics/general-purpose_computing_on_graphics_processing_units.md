@@ -1,12 +1,11 @@
-[ja:GPGPU](ja:GPGPU "wikilink") [ru:GPGPU](ru:GPGPU "wikilink")
-`{{Move|General-purpose computing on graphics processing units|Like with [[ALSA]], follow [[Help:Style#Title]].}}`{=mediawiki}
-`{{Related articles start}}`{=mediawiki} `{{Related|Nvidia}}`{=mediawiki}
-`{{Related|Hardware video acceleration}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:GPGPU](ja:GPGPU "wikilink") [ru:GPGPU](ru:GPGPU "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Nvidia}}`{=mediawiki} `{{Related|Hardware video acceleration}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
-GPGPU stands for [General-purpose computing on graphics processing units](Wikipedia:GPGPU "wikilink"). Some GPGPU API
-definitions include the vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA.
-Each API can have multiple implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a
-different GPGPU API (shim/transpiler).
+Some [General-purpose computing on graphics processing units](Wikipedia:GPGPU "wikilink") (GPGPU) API definitions
+include the vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA. Each API can
+have multiple implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a different
+GPGPU API (shim/transpiler).
 
 ## OpenCL
 
@@ -394,12 +393,8 @@ Device 0:
 
 }}
 ```
-```{=mediawiki}
-{{Out of date|Is the driver for AMD {{AUR|opencl-legacy-amdgpu-pro}} or {{AUR|opencl-amd}}?}}
-```
 Drivers known to at least partially support SPIR or SPIR-V include `{{pkg|intel-compute-runtime}}`{=mediawiki},
-`{{AUR|intel-opencl-runtime}}`{=mediawiki}, `{{Pkg|pocl}}`{=mediawiki} and
-`{{AUR|amdgpu-pro-opencl}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki}.
+`{{AUR|intel-opencl-runtime}}`{=mediawiki}, and `{{Pkg|pocl}}`{=mediawiki}.
 
 ##### Other uses of SPIR/SPIR-V {#other_uses_of_spirspir_v}
 
@@ -660,8 +655,6 @@ multiple versions of same `{{ic|.so}}`{=mediawiki}.
 -   [SPIR official homepage](https://www.khronos.org/spir/)
 -   [CUDA Toolkit homepage](https://developer.nvidia.com/cuda-toolkit)
 -   [Intel SDK for OpenCL Applications homepage](https://software.intel.com/en-us/intel-opencl)
--   [ComputeCpp official
-    homepage](https://developer.codeplay.com/home/)`{{Dead link|2025|11|17|status=404}}`{=mediawiki}
 -   [List of OpenCL frameworks applicable for different GPUs](https://gitlab.com/illwieckz/i-love-compute)
 
 [Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

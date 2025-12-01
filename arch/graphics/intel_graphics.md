@@ -3,7 +3,7 @@ graphics](ja:Intel_graphics "wikilink") [ru:Intel graphics](ru:Intel_graphics "w
 graphics](zh-hans:Intel_graphics "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Intel GMA 3600}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|Kernel mode setting}}`{=mediawiki}
 `{{Related|Xrandr}}`{=mediawiki} `{{Related|Hybrid graphics}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
-`{{Related|GPGPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 Since Intel provides and supports open source drivers, Intel graphics are essentially plug-and-play.
 

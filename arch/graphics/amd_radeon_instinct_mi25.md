@@ -1,5 +1,6 @@
 [ja:AMD Radeon Instinct MI25](ja:AMD_Radeon_Instinct_MI25 "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|AMDGPU}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|AMDGPU}}`{=mediawiki} `{{Related|General-purpose computing on graphics processing units}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 This page describes the steps necessary to perform [general-purpose computing on graphics processing
 units](Wikipedia:General-purpose_computing_on_graphics_processing_units "wikilink") (GPGPU) on the [AMD Radeon Instinct
@@ -81,8 +82,9 @@ use, is quite a nice option, although a homemade solution would also suffice.
 ## ROCm
 
 The MI25 and other gfx900 GPUs are deprecated and official support has ended. They were officially supported under ROCm
-4, and unsupported under ROCm 5 and 6. However, the [ROCm 6](GPGPU#ROCm "wikilink") packages in the arch repos are
-compiled with gfx900 support and now works out of the box.
+4, and unsupported under ROCm 5 and 6. However, the [ROCm
+6](General-purpose_computing_on_graphics_processing_units#ROCm "wikilink") packages in the arch repos are compiled with
+gfx900 support and now works out of the box.
 
 ## GPGPU accelerated software {#gpgpu_accelerated_software}
 

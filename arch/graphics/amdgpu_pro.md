@@ -1,7 +1,7 @@
 [ja:AMDGPU PRO](ja:AMDGPU_PRO "wikilink") [ru:AMDGPU PRO](ru:AMDGPU_PRO "wikilink") [zh-hans:AMDGPU
 PRO](zh-hans:AMDGPU_PRO "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki}
-`{{Related|Vulkan}}`{=mediawiki} `{{Related|GPGPU}}`{=mediawiki} `{{Related|DaVinci Resolve}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+`{{Related|Vulkan}}`{=mediawiki} `{{Related|General-purpose computing on graphics processing units}}`{=mediawiki}
+`{{Related|DaVinci Resolve}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 `{{Archive|AMD has stopped releasing their proprietary components. See [https://www.amd.com/en/resources/support-articles/release-notes/RN-AMDGPU-UNIFIED-LINUX-25-10-1.html announcement]. [https://aur.archlinux.org/pkgbase/amdgpu-pro-installer amdgpu-pro-installer] is going to be deleted from AUR.}}`{=mediawiki}
 
 This page describes close source drivers for AMD GPUs.
@@ -78,7 +78,8 @@ following packages:
 ```{=mediawiki}
 {{Note|OGLP is not a performance optimization of OpenGL, it is an all-new GL driver codebase written from scratch, based on the PAL architecture. in version > 22.20.5 it replaces the libgl.}}
 ```
-For available OpenCL implementations see [GPGPU#OpenCL on AMD/ATI GPU](GPGPU#OpenCL_on_AMD/ATI_GPU "wikilink").
+For available OpenCL implementations see [General-purpose computing on graphics processing units#OpenCL on AMD/ATI
+GPU](General-purpose_computing_on_graphics_processing_units#OpenCL_on_AMD/ATI_GPU "wikilink").
 
 ## Usage
 

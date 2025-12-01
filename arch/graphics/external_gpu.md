@@ -83,10 +83,11 @@ For NVIDIA eGPUs on some systems you may need to early load the thunderbolt kern
 
 ## Compute-only workloads {#compute_only_workloads}
 
-Right after completing [installation steps](#Installation "wikilink"), compute-only workloads like
-[GPGPU#CUDA](GPGPU#CUDA "wikilink") that do not need to display anything should work without any extra configuration.
-The *nvidia-smi* utility (provided by the `{{Pkg|nvidia-utils}}`{=mediawiki} package) should work with the proprietary
-NVIDIA driver. Proprietary [NVENC/NVDEC](Wikipedia:Nvidia_NVENC "wikilink") should work (without OpenGL interop).
+Right after completing [installation steps](#Installation "wikilink"), compute-only workloads like [General-purpose
+computing on graphics processing units#CUDA](General-purpose_computing_on_graphics_processing_units#CUDA "wikilink")
+that do not need to display anything should work without any extra configuration. The *nvidia-smi* utility (provided by
+the `{{Pkg|nvidia-utils}}`{=mediawiki} package) should work with the proprietary NVIDIA driver. Proprietary
+[NVENC/NVDEC](Wikipedia:Nvidia_NVENC "wikilink") should work (without OpenGL interop).
 
 This use-case should also support full hotplug. Hot-unplug should be also possible (probably depending on drivers used).
 On NVIDIA, active `{{ic|nvidia-persistenced}}`{=mediawiki} is expected to prevent clean hot-unplug.

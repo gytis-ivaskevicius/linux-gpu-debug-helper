@@ -120,7 +120,8 @@ possibly this example of the swap on video ram
 {{Warning|Multiple users have reported this to cause system [https://github.com/Overv/vramfs/issues/3 freezes], even with the fix in [[#Complete system freeze under high memory pressure]]. Other GPU management processes or libraries may be swapped out, leading to nonrecoverable page faults.}}
 ```
 This method works on hardware with OpenCL support using a [FUSE](FUSE "wikilink") filesystem backing a swapfile. See
-[GPGPU](GPGPU "wikilink") for more information.
+[General-purpose computing on graphics processing
+units](General-purpose_computing_on_graphics_processing_units "wikilink") for more information.
 
 ### Setup {#setup_1}
 

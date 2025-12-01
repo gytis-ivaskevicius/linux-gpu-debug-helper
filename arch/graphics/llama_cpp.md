@@ -5,7 +5,7 @@
 {{Related|Vulkan}}
 ```
 ```{=mediawiki}
-{{Related|GPGPU}}
+{{Related|General-purpose computing on graphics processing units}}
 ```
 ```{=mediawiki}
 {{Related articles end}}
