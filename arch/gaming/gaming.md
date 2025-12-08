@@ -595,20 +595,6 @@ services that do not normally support this.
 |             | ```         | (ex         | ```         |             |             |             |             |
 |             |             | perimental) |             |             |             |             |             |
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| [VDI Stream | ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | VDI client  |
-| Client](ht  | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | with 3D GPU |
-| tps://githu | {{A         | {{No}}      | {{Y|Win     | {{No}}      | {{Yes}}     | {{No}}      | a           |
-| b.com/mbroe | UR|vdi-stre | ```         | dows-only}} | ```         | ```         | ```         | cceleration |
-| mme/vdi-str | am-client}} |             | ```         |             |             |             | and         |
-| eam-client) | ```         |             |             |             |             |             | built-in    |
-|             | ```{        |             |             |             |             |             | USB         |
-|             | =mediawiki} |             |             |             |             |             | redirection |
-|             | {{Broken    |             |             |             |             |             |             |
-|             |  package li |             |             |             |             |             |             |
-|             | nk|package  |             |             |             |             |             |             |
-|             | not found}} |             |             |             |             |             |             |
-|             | ```         |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 | [Playkey]   | ```{        | ?           | ?           | ?           | ?           | ?           | {{-}}       |
 | (https://pl | =mediawiki} |             |             |             |             |             |             |
 | aykey.net/) | {{AUR|play  |             |             |             |             |             |             |

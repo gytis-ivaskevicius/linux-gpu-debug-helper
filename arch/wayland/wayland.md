@@ -56,11 +56,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Enlightenment]]|See [[Enlightenment#Manually]]. More Info: [https://git.enlightenment.org/enlightenment/enlightenment/src/branch/master/README.md] [https://www.enlightenment.org/about-wayland]|https://www.enlightenment.org/|{{Pkg|enlightenment}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|https://web.archive.org/web/20241220075628/https://hikari.acmelabs.space/|{{AUR|hikari}}}}
+    {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|http://hikari.acmelabs.space/|{{AUR|hikari}}}}
     ```
 
 -   ```{=mediawiki}
@@ -69,10 +65,6 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 
 -   ```{=mediawiki}
     {{App|[[labwc]]|wlroots-based compositor inspired by Openbox.|https://github.com/labwc/labwc|{{Pkg|labwc}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|Liri Shell|Part of [[Liri]], built using QtQuick and QtCompositor as a compositor for Wayland.|https://github.com/lirios/shell|{{AUR|liri-shell-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -609,7 +601,7 @@ Until this issue is patched in future kernel releases, a workaround is to add
 
 See: <https://community.frame.work/t/wayland-lag-stuttering-since-kernel-6-11-2/59422>
 
-### Games / applications suspended when not in focus {#games_applications_suspended_when_not_in_focus}
+### VRR/Vsync on Games / applications suspended when not in focus {#vrrvsync_on_games_applications_suspended_when_not_in_focus}
 
 ```{=mediawiki}
 {{Expansion|Add more information and reference to upstream documentation here if found: the feature is elusive and seems poorly documented.}}
@@ -617,13 +609,15 @@ See: <https://community.frame.work/t/wayland-lag-stuttering-since-kernel-6-11-2/
 When changing workspace or using `{{ic|Alt+Tab}}`{=mediawiki}, games (and possibly other graphical applications) are
 suspended, put in some weird state, and they (partially) stop. Symptoms include things like audio dropping (partially)
 out, game not progressing, ping times rising high or network dropping out, but only if the game window is not in focus.
+This may only affect applications with VSync on.
 
 It is possible some games can work around this issue by changing to a window, but some do not. This is extremely
 annoying in more complex games which require heavy usage of web browsing, documentation and 3rd party tools or if the
 gameplay is interrupted for some reason.
 
 Possible workaround include setting environment variables `{{ic|1=MESA_VK_WSI_PRESENT_MODE=immediate}}`{=mediawiki}
-and/or `{{ic|1=vk_xwayland_wait_ready=false}}`{=mediawiki}.
+and/or `{{ic|1=vk_xwayland_wait_ready=false}}`{=mediawiki}, but setting these will break any VSync or VRR
+implementations.
 
 ## See also {#see_also}
 

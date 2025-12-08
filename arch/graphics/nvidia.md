@@ -126,7 +126,8 @@ If you have installed a different version of the driver, you may need to [blackl
 
 Since NVIDIA does not support [automatic KMS late loading](Kernel_mode_setting#Late_KMS_start "wikilink"), enabling DRM
 ([Direct Rendering Manager](Wikipedia:Direct_Rendering_Manager "wikilink")) [kernel mode
-setting](kernel_mode_setting "wikilink") is required to make Wayland compositors function properly.
+setting](kernel_mode_setting "wikilink") is required to make Wayland compositors function properly. KMS is also required
+for native Wayland rendering on NVIDIA dGPUs for dual-GPU setups.
 
 Starting from `{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5, DRM defaults to
 enabled.[1](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22)

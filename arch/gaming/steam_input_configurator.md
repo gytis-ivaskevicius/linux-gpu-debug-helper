@@ -44,9 +44,9 @@ name to match what you want to find. To browse steam game layouts, match the gam
 
 ## Gyro
 
-Many games benefit from using gyro for more fine tuned aiming. It is recommended to use *Gyro To Mouse \[Beta\]* as
-it\'s less prone to errors than the old *As Mouse*. Depending on a game not having simultaneous mouse and controller
-support it might be good to select the *Gyro To Joystick Camera \[Beta\]*.
+Many games benefit from using gyro for more fine tuned aiming. It is recommended to use *Gyro To Mouse* as it\'s less
+prone to errors than the old *As Mouse*. Depending on a game not having simultaneous mouse and controller support it
+might be good to select the *Gyro To Joystick Camera*.
 
 ### Gyro calibration {#gyro_calibration}
 

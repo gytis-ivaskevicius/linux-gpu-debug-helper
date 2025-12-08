@@ -22,9 +22,10 @@ Windows, applications may suffer behavioral, compatibility, or performance penal
 ## Installation
 
 Wine can be installed either through the `{{Pkg|wine}}`{=mediawiki} (development), `{{AUR|wine-stable}}`{=mediawiki}
-(stable) or `{{Pkg|wine-staging}}`{=mediawiki} (testing) package. [Wine Staging](https://wine-staging.com/) is a patched
-version of [Wine](https://www.winehq.org/), which contains bug fixes and features that have not been integrated into the
-stable or development branch yet.
+(stable) or `{{Pkg|wine-staging}}`{=mediawiki} (testing) package. [Wine
+Staging](https://gitlab.winehq.org/wine/wine-staging/-/wikis/home) is a patched version of
+[Wine](https://www.winehq.org/), which contains bug fixes and features that have not been integrated into the stable or
+development branch yet.
 
 ```{=mediawiki}
 {{Tip|Consider installing {{pkg|wine-gecko}} and {{pkg|wine-mono}} for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed. However, you should [[System maintenance#Use the package manager to install software|manage them with pacman]].}}

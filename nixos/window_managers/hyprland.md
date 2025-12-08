@@ -62,7 +62,7 @@ You may also be interested in the Hypr project\'s collection of tools:
 
 -   **hyprlock**: Hyprland\'s GPU-accelerated screen locking utility.
 -   **hypridle**: Hyprland\'s idle daemon.
--   **hyprpaper**: Hyprland\'s wallpaper utility.
+-   [hyprpaper](hyprpaper "wikilink"): Hyprland\'s wallpaper utility.
 -   **hyprsunset**: Application to enable a blue-light filter on Hyprland.
 -   **hyprpicker**: Wayland color picker that does not suck.
 -   **hyprpolkitagent**: Polkit authentication agent written in QT/QML.
@@ -114,19 +114,19 @@ If you experience performance drops in video games or graphics tools like Blende
 the system\'s mesa package with Hyprland\'s own.
 
 ```{=mediawiki}
-{{file|configuration.nix|nix|<nowiki>
+{{file|3=<nowiki>
 {pkgs, inputs, ...}: let
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   hardware.graphics = {
-    package = pkgs-unstable.mesa.drivers;
+    package = pkgs-unstable.mesa;
 
     # if you also want 32-bit support (e.g for Steam)
     enable32Bit = true;
-    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa;
   };
 }
-</nowiki>}}
+</nowiki>|name=configuration.nix|lang=nix}}
 ```
 #### Cachix
 

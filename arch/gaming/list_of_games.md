@@ -1707,7 +1707,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 ### Free, libre, open source games {#free_libre_open_source_games}
 
 -   [\"LibreGameWiki, the libre, opensource and free games encyclopedia\"](https://libregamewiki.org/List_of_games)
--   [reddit.com/r/linux list of free games](https://www.reddit.com/r/linux_gaming/wiki/freegames)
+-   [r/linux_gaming List of free games](https://www.reddit.com/r/linux_gaming/wiki/freegames)
 -   [LGames - open source games for Linux](https://lgames.sourceforge.net/about.php)
 -   [Source ports](Wikipedia:Source_port "wikilink"): [Open Source Game Clones](https://osgameclones.com/)
 

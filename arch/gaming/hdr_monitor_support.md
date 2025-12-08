@@ -271,7 +271,7 @@ been merged as of version 141.0.7370.0.
 
 [Kodi](Kodi "wikilink") wiki [maintains the list of fair use HDR video
 samples](https://kodi.wiki/view/Samples#4K_(UltraHD)_&_HDR_Formats). These can be used to test the HDR output using
-video players that support HDR such has [#mpv](#mpv "wikilink").
+video players that support HDR such as [#mpv](#mpv "wikilink").
 
 ## Troubleshooting
 

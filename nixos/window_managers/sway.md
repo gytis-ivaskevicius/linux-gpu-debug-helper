@@ -1,4 +1,4 @@
-Sway is a tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It works with your
+Sway is a tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It can work with an
 existing i3 configuration and supports most of i3\'s features, plus a few extras. [i3 migration
 guide](https://github.com/swaywm/sway/wiki/i3-Migration-Guide)
 
@@ -10,8 +10,8 @@ You can install Sway by enabling it in NixOS directly, or by using [Home Manager
 
 Here is a minimal configuration:
 
-``` nix
-{ config, pkgs, lib, ... }:
+```{=mediawiki}
+{{File|3={ config, pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
     grim # screenshot functionality
@@ -29,9 +29,8 @@ Here is a minimal configuration:
     enable = true;
     wrapperFeatures.gtk = true;
   };
-}
+}|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-
 By default, the Sway module in NixOS comes with a set of extra packages, including the `foot` terminal, `swayidle`,
 `swaylock`, and `wmenu`, which can be configured under
 [`programs.sway.extraPackages`](https://search.nixos.org/options?show=programs.sway.extraPackages) option. You may also
@@ -58,30 +57,28 @@ NixOS configuration: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 security.polkit.enable = true;
 </nowiki>}}`{=mediawiki}
 
-Then you can enable Sway in your home manager configuration. Here is a minimal example: \<syntaxhighlight lang=\"nix\>
+Then you can enable Sway in your home manager configuration. Here is a minimal example:
 
-` wayland.windowManager.sway = {`\
-`   enable = true;`\
-`   wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps`\
-`   config = rec {`\
-`     modifier = "Mod4";`\
-`     # Use kitty as default terminal`\
-`     terminal = "kitty"; `\
-`     startup = [`\
-`       # Launch Firefox on start`\
-`       {command = "firefox";}`\
-`     ];`\
-`   };`\
-` };`
-
-```{=html}
-</syntaxhighlight>
+```{=mediawiki}
+{{File|3=wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+    config = rec {
+      modifier = "Mod4";
+      # Use kitty as default terminal
+      terminal = "kitty"; 
+      startup = [
+        # Launch Firefox on start
+        {command = "firefox";}
+      ];
+    };
+  };|name=/etc/nixos/home.nix|lang=nix}}
 ```
 See [Home Manager\'s Options for
 Sway](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.enable) for a complete
 list of configuration options.
 
-You might need to active dbus manually from .zshrc to use i.e: dunst, see [Dunst crashes if run as
+You may need to activate dbus manually from .zshrc to use i.e: dunst, see [Dunst crashes if run as
 service](https://discourse.nixos.org/t/dunst-crashes-if-run-as-service/27671/2)
 
 ```{=mediawiki}

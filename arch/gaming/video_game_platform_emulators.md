@@ -21,7 +21,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|BizHawk|A multi-system emulator on .NET. Features rerecording and tools for TASing. (Mono runtime)|https://tasvideos.org/BizHawk|{{AUR|bizhawk-bin}}}}
+    {{App|BizHawk|A multi-system emulator on .NET. Features rerecording and tools for TASing. (Mono runtime.)|https://tasvideos.org/BizHawk|{{AUR|bizhawk-bin}}}}
     ```
 
 -   ```{=mediawiki}
@@ -83,7 +83,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|GBCC|A Game Boy Color emulator written in C|https://github.com/philj56/GBCC|{{AUR|gbcc-git}}}}
+    {{App|GBCC|A Game Boy Color emulator written in C.|https://github.com/philj56/GBCC|{{AUR|gbcc-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -107,7 +107,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|Mesen|Multi-system emulator (NES, SNES, Game Boy and PC Engine)|https://github.com/SourMesen/Mesen2|{{AUR|mesen2-git}}}}
+    {{App|Mesen|Multi-system emulator (NES, SNES, Game Boy and PC Engine.)|https://github.com/SourMesen/Mesen2|{{AUR|mesen2-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -131,11 +131,11 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|puNES|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music Player|https://github.com/punesemu/puNES|{{Aur|punes}} (Note: Fails to run on Wayland as of 0.109. Use {{AUR|punes-git}} for working version.)}}
+    {{App|puNES|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music Player.|https://github.com/punesemu/puNES|{{Aur|punes}} (Note: Fails to run on Wayland as of 0.109. Use {{AUR|punes-git}} for working version.)}}
     ```
 
 -   ```{=mediawiki}
-    {{App|SameBoy|An accuracy-focused Game Boy/Game Boy Color emulator|https://github.com/LIJI32/SameBoy|{{AUR|sameboy}}}}
+    {{App|SameBoy|An accuracy-focused Game Boy/Game Boy Color emulator.|https://github.com/LIJI32/SameBoy|{{AUR|sameboy}}}}
     ```
 
 -   ```{=mediawiki}
@@ -157,7 +157,7 @@ platform or system so as to allow applications and games to be run in environmen
 ## Sony
 
 -   ```{=mediawiki}
-    {{App|DuckStation| DuckStation is an simulator/emulator of the Sony PlayStation(TM) console, focusing on playability, speed, and long-term maintainability.|https://github.com/stenzek/duckstation|{{AUR|duckstation}}}}
+    {{App|DuckStation|DuckStation is an simulator/emulator of the Sony PlayStation™ console, focusing on playability, speed, and long-term maintainability.|https://github.com/stenzek/duckstation|{{AUR|duckstation}}}}
     ```
 
 -   ```{=mediawiki}
@@ -169,7 +169,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|[[PCSX-Reloaded|PCSXR]] | PlayStation emulator; Debian fork of the abandoned original PCSX.|3=https://archive.codeplex.com/?p=pcsxr|4={{AUR|pcsxr}}}}
+    {{App|[[PCSX-Reloaded|PCSXR]]|Debian fork of the abandoned original PCSX PlayStation emulator.|3=https://archive.codeplex.com/?p=pcsxr|4={{AUR|pcsxr}}}}
     ```
 
 -   ```{=mediawiki}
@@ -195,7 +195,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|FlyCast|Sega Dreamcast Emulator|https://github.com/flyinghead/flycast|{{AUR|flycast-git}}}}
+    {{App|FlyCast|Sega Dreamcast Emulator.|https://github.com/flyinghead/flycast|{{AUR|flycast-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -217,11 +217,11 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|Supermodel|A Sega Model 3 Arcade Emulator|https://www.supermodel3.com/{{Dead link|2025|08|16|status=domain name not resolved}}|{{AUR|supermodel-git}}}}
+    {{App|Supermodel|A Sega Model 3 Arcade Emulator.|https://www.supermodel3.com/{{Dead link|2025|08|16|status=domain name not resolved}}|{{AUR|supermodel-git}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Virtual Jaguar|A portable Atari Jaguar emulator|https://icculus.org/virtualjaguar/|{{AUR|virtualjaguar-git}}}}
+    {{App|Virtual Jaguar|A portable Atari Jaguar emulator.|https://icculus.org/virtualjaguar/|{{AUR|virtualjaguar-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -243,39 +243,39 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|ARAnyM|Atari Running on Any Machine|https://aranym.github.io/index.html|{{AUR|aranym}}}}
+    {{App|ARAnyM|Atari Running on Any Machine.|https://aranym.github.io/index.html|{{AUR|aranym}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Atari++|An emulator of Atari 400/800/400XL/800XL/130XE/5200|http://www.xl-project.com/|{{AUR|atari++}}}}
+    {{App|Atari++|An emulator of Atari 400/800/400XL/800XL/130XE/5200.|http://www.xl-project.com/|{{AUR|atari++}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Atari800|An emulator of the Atari 800/800XL/130XE/5200 with various extensions|https://atari800.github.io/|{{AUR|atari800}}}}
+    {{App|Atari800|An emulator of the Atari 800/800XL/130XE/5200 with various extensions.|https://atari800.github.io/|{{AUR|atari800}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Basilisk II|Open Source 68k Macintosh Emulator|https://basilisk.cebix.net|{{AUR|basiliskii-git}}}}
+    {{App|Basilisk II|Open Source 68k Macintosh Emulator.|https://basilisk.cebix.net|{{AUR|basiliskii-git}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|BeebEM|BBC Micro Emulator|http://beebem-unix.bbcmicro.com/|{{AUR|beebem}}}}
+    {{App|BeebEM|BBC Micro Emulator.|http://beebem-unix.bbcmicro.com/|{{AUR|beebem}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|box64|Linux Userspace x86_64 Emulator with a twist|https://github.com/ptitSeb/box64|{{AUR|box64}}}}
+    {{App|box64|Linux Userspace x86_64 Emulator with a twist.|https://github.com/ptitSeb/box64|{{AUR|box64}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|CaPriCe32|An emulator of the Amstrad CPC 8bit home computer range (CPC 464, 664, 6128)|https://github.com/ColinPitrat/caprice32 |{{AUR|caprice32-git}}}}
+    {{App|CaPriCe32|An emulator of the Amstrad CPC 8bit home computer range (CPC 464, 664, 6128).|https://github.com/ColinPitrat/caprice32 |{{AUR|caprice32-git}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|CLK|A latency hating emulator for 8 and 16 bit platforms|https://github.com/TomHarte/CLK|SDL frontend: {{AUR|clk-sdl}}, QT5 frontend: {{AUR|clk-qt}}}}
+    {{App|CLK|A latency hating emulator for 8 and 16 bit platforms.|https://github.com/TomHarte/CLK|SDL frontend: {{AUR|clk-sdl}}, QT5 frontend: {{AUR|clk-qt}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Denise|Highly accurate C64/Amiga emulator|https://sourceforge.net/projects/deniseemu/|{{AUR|denise}}}}
+    {{App|Denise|Highly accurate C64/Amiga emulator.|https://sourceforge.net/projects/deniseemu/|{{AUR|denise}}}}
     ```
 
 -   ```{=mediawiki}
@@ -307,11 +307,11 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|LinApple|Apple 2e emulator|https://github.com/linappleii/linapple|{{AUR|linapple-git}}}}
+    {{App|LinApple|Apple 2e emulator.|https://github.com/linappleii/linapple|{{AUR|linapple-git}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Mini vMac|a miniature early Macintosh emulator|https://www.gryphel.com/c/minivmac/{{Dead link|2025|11|17|status=SSL error}}|{{AUR|minivmac}}}}
+    {{App|Mini vMac|A miniature early Macintosh emulator.|https://www.gryphel.com/c/minivmac/{{Dead link|2025|11|17|status=SSL error}}|{{AUR|minivmac}}}}
     ```
 
 -   ```{=mediawiki}
@@ -335,7 +335,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|ZEsarUX|A Zx80/Zx81/Z88, Zx Spectrum 16/48/128/+2/+2A and ZX-Uno emulator with ULAPlus support|https://github.com/chernandezba/zesarux|{{AUR|zesarux}}}}
+    {{App|ZEsarUX|A Zx80/Zx81/Z88, Zx Spectrum 16/48/128/+2/+2A and ZX-Uno emulator with ULAPlus support.|https://github.com/chernandezba/zesarux|{{AUR|zesarux}}}}
     ```
 
 ## Fantasy computers {#fantasy_computers}

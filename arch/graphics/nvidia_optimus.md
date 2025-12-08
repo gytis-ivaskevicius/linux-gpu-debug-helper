@@ -27,6 +27,10 @@ There are several methods available:
     automated approaches.
 -   Using both (use NVIDIA GPU when needed and keep it powered off to save power):
     -   [#Using PRIME render offload](#Using_PRIME_render_offload "wikilink") - official method supported by NVIDIA.
+    -   [#Using switcheroo-control](#Using_switcheroo-control "wikilink") - Similar to PRIME render offload, but has
+        desktop environment integration, and also works with AMD and Intel GPUs. Allows applications to specify if they
+        prefer the dedicated GPU in their [desktop entry](desktop_entry "wikilink") file, and lets you manually run any
+        application on the dedicated GPU from the right-click menu.
     -   [#Using optimus-manager](#Using_optimus-manager "wikilink") - switches graphics with a single command (logout
         and login required to take effect). Also supports hybrid mode with PRIME render offload. It achieves maximum
         performance out of NVIDIA GPU and switches it off if not in use. Since the 1.4 release AMD+NVIDIA combination is
@@ -36,10 +40,6 @@ There are several methods available:
     -   [#Using Bumblebee](#Using_Bumblebee "wikilink") - provides Windows-like functionality by allowing to run
         selected applications with NVIDIA graphics while using Intel graphics for everything else. Has significant
         performance issues.
-    -   [#Using switcheroo-control](#Using_switcheroo-control "wikilink") - Similar to Bumblebee, but specifically for
-        [GNOME](GNOME "wikilink") users. Allows applications to specify if they prefer the dedicated GPU in their
-        [desktop entry](desktop_entry "wikilink") file, and lets you manually run any application on the NVIDIA GPU from
-        the right-click menu.
     -   [#Using nouveau](#Using_nouveau "wikilink") - offers poorer performance (compared to the proprietary NVIDIA
         driver) and may cause issues with sleep and hibernate. Does not work with latest NVIDIA GPUs.
     -   [#Using EnvyControl](#Using_EnvyControl "wikilink") - Similar to optimus-manager but does not require extensive
@@ -206,26 +206,26 @@ This is the official NVIDIA method to support switchable graphics.
 
 See [PRIME#PRIME render offload](PRIME#PRIME_render_offload "wikilink") for details.
 
-### Using nouveau {#using_nouveau}
-
-See [PRIME](PRIME "wikilink") for graphics switching and [nouveau](nouveau "wikilink") for open-source NVIDIA driver.
-
-### Using Bumblebee {#using_bumblebee}
-
-See [Bumblebee](Bumblebee "wikilink").
-
 ### Using switcheroo-control {#using_switcheroo_control}
 
-See [PRIME#GNOME integration](PRIME#GNOME_integration "wikilink").
-
-### Using nvidia-xrun {#using_nvidia_xrun}
-
-See [nvidia-xrun](nvidia-xrun "wikilink").
+See [PRIME#Desktop environment integration](PRIME#Desktop_environment_integration "wikilink").
 
 ### Using optimus-manager {#using_optimus_manager}
 
 See [Optimus-manager](https://github.com/Askannz/optimus-manager) upstream documentation. It covers both installation
 and configuration in Arch Linux systems.
+
+### Using nvidia-xrun {#using_nvidia_xrun}
+
+See [nvidia-xrun](nvidia-xrun "wikilink").
+
+### Using Bumblebee {#using_bumblebee}
+
+See [Bumblebee](Bumblebee "wikilink").
+
+### Using nouveau {#using_nouveau}
+
+See [PRIME](PRIME "wikilink") for graphics switching and [nouveau](nouveau "wikilink") for open-source NVIDIA driver.
 
 ### Using EnvyControl {#using_envycontrol}
 

@@ -194,14 +194,17 @@ When using on a [Steam](Steam "wikilink") game, the launcher command line can be
 ```{=mediawiki}
 {{Note|The value of __NV_PRIME_RENDER_OFFLOAD may need to be set to 0 depending on the system. It is recommended to check which GPU is 0 and which is 1 since this variable specifies which GPU will be used.}}
 ```
-#### GNOME integration {#gnome_integration}
+#### Desktop environment integration {#desktop_environment_integration}
 
-For GNOME integration, [install](install "wikilink") `{{Pkg|switcheroo-control}}`{=mediawiki} and
-[enable](enable "wikilink") `{{ic|switcheroo-control.service}}`{=mediawiki}.
+[Install](Install "wikilink") `{{Pkg|switcheroo-control}}`{=mediawiki} and [enable](enable "wikilink")
+`{{ic|switcheroo-control.service}}`{=mediawiki}.
 
-GNOME will respect the `{{ic|PrefersNonDefaultGPU}}`{=mediawiki} property in the [desktop
-entry](desktop_entry "wikilink"). Alternatively, you can launch applications with GPU by right clicking on the icon and
-choosing *Launch using Discrete Graphics Card*.
+The GNOME, KDE Plasma, Cinnamon, COSMIC and Budgie desktop environments will respect the
+`{{ic|PrefersNonDefaultGPU}}`{=mediawiki} property in the [desktop entry](desktop_entry "wikilink"), and automatically
+launch apps on the specified GPU.
+
+Alternatively, on GNOME and Cinnamon, you can launch applications with GPU by right-clicking on the icon and choosing
+*Launch using Discrete Graphics Card* or *Run with dedicated GPU*, respectively.
 
 #### Troubleshooting
 
@@ -459,6 +462,16 @@ problem. The only known workaround is to start X session [entirely on NVIDIA
 GPU](NVIDIA_Optimus#Use_NVIDIA_graphics_only "wikilink"). A user friendly way to switching between NVIDIA only and PRIME
 offload method is the [optimus-manager](NVIDIA_Optimus#Using_optimus-manager "wikilink") utility or write some
 automation scripts yourself.
+
+### Vulkan/OpenGL applications segfault on Wayland {#vulkanopengl_applications_segfault_on_wayland}
+
+```{=mediawiki}
+{{ic|VK_KHR_wayland_surface}}
+```
+requires Kernel modesetting. If you are using a Wayland compositor and unable to start applications on the dGPU without
+having to force them to run under Xwayland, make sure modesetting is enabled.
+
+This means removing `{{ic|nvidia_drm.modeset{{=}}`{=mediawiki}0}} from Kernel parameters if present.
 
 ## See also {#see_also}
 

@@ -63,7 +63,7 @@ services.gnome.gnome-keyring.enable = true; # secret service
 security.pam.services.swaylock = {};
 
 programs.waybar.enable = true; # top bar
-environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ]
+environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ];
 |name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 Or using [Home Manager](Home_Manager "wikilink"):`{{file|~/.config/home-manager/home.nix|nix|3=

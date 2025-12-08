@@ -541,7 +541,10 @@ Install it with the `{{AUR|xboxdrv}}`{=mediawiki} package. Then [start](start "w
 `{{ic|xboxdrv.service}}`{=mediawiki}.
 
 If you have issues with the controller being recognized but not working in steam games or working but with incorrect
-mappings, it may be required to modify you configuration as such: `{{hc
+mappings, it may be required to modify you configuration as such:
+
+```{=mediawiki}
+{{hc
 |/etc/default/xboxdrv|2=
 [xboxdrv]
 silent = true
@@ -551,8 +554,8 @@ deadzone = 4000
 
 [xboxdrv-daemon]
 dbus = disabled
-}}`{=mediawiki}
-
+}}
+```
 Then [restart](restart "wikilink") `{{ic|xboxdrv.service}}`{=mediawiki}.
 
 ##### Multiple controllers {#multiple_controllers}
@@ -805,6 +808,14 @@ LED), monitor the battery status, and power off the controller. To use it, [inst
 If you want to use your gamepad with another computer over a network, you can use [USB/IP](USB/IP "wikilink") or
 `{{AUR|netstick-git}}`{=mediawiki} to do this.
 
+### Measure controller polling rates and latencies via gamepadla-polling {#measure_controller_polling_rates_and_latencies_via_gamepadla_polling}
+
+*See also: [Mouse polling rate](Mouse_polling_rate "wikilink")*
+
+Gamepadla hosts a crowdsourced database for controller-specific latency, and polling data.[5](https://gamepadla.com) The
+tool for making these reports reads evdev/hidraw events via pygame/SDL and it can be obtained from
+`{{AUR|gamepadla-polling}}`{=mediawiki}.
+
 ## Troubleshooting
 
 ### Device permissions {#device_permissions}
@@ -824,7 +835,7 @@ Some examples of applications which ship noteworthy rules:
 
 -   [systemd](systemd "wikilink")\'s default rules set the group of all `{{ic|input}}`{=mediawiki} devices to
     `{{ic|input}}`{=mediawiki}, and the mode of joystick devices to `{{ic|664}}`{=mediawiki}
-    [5](https://github.com/systemd/systemd/blob/edfb4a474e5cbef6578a70aae7f08a0f435c6c6a/rules.d/50-udev-default.rules.in#L33).
+    [6](https://github.com/systemd/systemd/blob/edfb4a474e5cbef6578a70aae7f08a0f435c6c6a/rules.d/50-udev-default.rules.in#L33).
 -   [Steam](Steam "wikilink") ships udev rules allowing access to a variety of controllers. See [this Steam
     discussion](https://steamcommunity.com/app/353370/discussions/2/1735465524711324558/) for further info about the
     contents of the rules.
@@ -872,7 +883,7 @@ For a workaround, see [#Mimic Xbox 360 controller](#Mimic_Xbox_360_controller "w
 The Nintendo Switch Pro Controller and variants may disconnect when receiving rumble inputs.
 
 This can be worked around by changing the name of the Bluetooth adapter to
-\"Nintendo\".[6](https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2790843365)
+\"Nintendo\".[7](https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2790843365)
 
 ### Steam Controller {#steam_controller_1}
 
@@ -914,7 +925,7 @@ USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "wiki
 This can occur when using a third party Xbox One controller with the `{{ic|xpad}}`{=mediawiki} or
 [#xboxdrv](#xboxdrv "wikilink") drivers. Try switching to [#xpadneo](#xpadneo "wikilink").
 
-### Playstation 4 controllers {#playstation_4_controllers}
+### PlayStation 4 Controllers {#playstation_4_controllers}
 
 #### Controller not recognized when using Bluetooth {#controller_not_recognized_when_using_bluetooth}
 

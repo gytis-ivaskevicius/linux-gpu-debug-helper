@@ -352,6 +352,59 @@ investigate the `hardware.nvidia.powerManagement.finegrained` option:
 gnome-shell in time so it's not trying to access the graphics hardware. [^3] The entire purpose is to manually \"pause\"
 the GNOME Shell process just before the system sleeps and \"un-pause\" it just after the system wakes up.
 
+```{=html}
+<hr>
+```
+If you have graphical corruption upon waking from suspend, and the above causes the system to go back to sleep \~20-30
+seconds after wakeup, the following may solve both issues:
+
+```{=mediawiki}
+{{File|3={
+  # https://discourse.nixos.org/t/black-screen-after-suspend-hibernate-with-nvidia/54341/6
+  # https://discourse.nixos.org/t/suspend-problem/54033/28
+  systemd = {
+    # Uncertain if this is still required or not.
+    services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+
+    services."gnome-suspend" = {
+      description = "suspend gnome shell";
+      before = [
+        "systemd-suspend.service"
+        "systemd-hibernate.service"
+        "nvidia-suspend.service"
+        "nvidia-hibernate.service"
+      ];
+      wantedBy = [
+        "systemd-suspend.service"
+        "systemd-hibernate.service"
+      ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = ''${pkgs.procps}/bin/pkill -f -STOP ${pkgs.gnome-shell}/bin/gnome-shell'';
+      };
+    };
+    services."gnome-resume" = {
+      description = "resume gnome shell";
+      after = [
+        "systemd-suspend.service"
+        "systemd-hibernate.service"
+        "nvidia-resume.service"
+      ];
+      wantedBy = [
+        "systemd-suspend.service"
+        "systemd-hibernate.service"
+      ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = ''${pkgs.procps}/bin/pkill -f -CONT ${pkgs.gnome-shell}/bin/gnome-shell'';
+      };
+    };
+  };
+
+  # https://discourse.nixos.org/t/black-screen-after-suspend-hibernate-with-nvidia/54341/23
+  hardware.nvidia.powerManagement.enable = true;
+}|name=configuration.nix|lang=nix}}
+```
 ### Black screen or \'nothing works\' on laptops {#black_screen_or_nothing_works_on_laptops}
 
 The kernel module`i915`for Intel or`amdgpu`for AMD may interfere with the NVIDIA driver. This may result in a black

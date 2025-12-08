@@ -483,7 +483,7 @@ implementation of HIP using NVIDIA\'s CUDA stack.
 
 ### ROCm-enabled models {#rocm_enabled_models}
 
-ROCm should suppport AMD GPUs from the Polaris architecture (RX 500 series) and above. The official [list of GPU
+ROCm should support AMD GPUs from the Polaris architecture (RX 500 series) and above. The official [list of GPU
 models](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html) is very short,
 consisting of mostly profession models. However, consumer GPUs and APUs of the equivalent generations are known to work.
 Other generations may work with unofficial or partial support. To support Polaris, you need to set the runtime variable
