@@ -22,8 +22,8 @@ acceleration and VA-API/VDPAU drivers for [accelerated video decoding](#Video_ac
 -   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} package from the
     [multilib](multilib "wikilink") repository.
 -   For 2D acceleration under [Xorg](Xorg "wikilink"), you may optionally install the
-    `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} package, which provides the AMD-specific DDX driver. Most systems using the
-    `{{ic|amdgpu}}`{=mediawiki} kernel driver will work correctly with the generic *modesetting* DDX built into
+    `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} package, which provides the AMD-specific DDX driver. Most Xorg systems using
+    the `{{ic|amdgpu}}`{=mediawiki} kernel driver will work correctly with the generic *modesetting* DDX built into
     `{{Pkg|xorg-server}}`{=mediawiki}. However, `{{Pkg|xf86-video-amdgpu}}`{=mediawiki} could be required for features
     such as `{{ic|TearFree}}`{=mediawiki} or to resolve hardware-specific issues on some AMD hardware, like *Southern
     Islands*. Read the Note at [Intel graphics#Installation](Intel_graphics#Installation "wikilink").
@@ -98,6 +98,9 @@ Make sure `{{ic|amdgpu}}`{=mediawiki} has been set as first module in the
 
 ##### Set kernel module parameters {#set_kernel_module_parameters}
 
+```{=mediawiki}
+{{Remove|When [https://lists.freedesktop.org/archives/dri-devel/2025-November/536754.html upstream changes] making AMDGPU enabled for SI and CIK, this section will be valid only for pre 6.19 kernels. Add a note about it when 6.19 released.}}
+```
 For Southern Islands (SI) use the `{{ic|1=si_support=1}}`{=mediawiki} [kernel module
 parameter](kernel_module_parameter "wikilink"), for Sea Islands (CIK) use `{{ic|1=cik_support=1}}`{=mediawiki}:
 
@@ -667,24 +670,45 @@ A bug in the amdgpu driver may stop the display from updating
 `{{ic|1=amdgpu.dcdebugmask=0x10}}`{=mediawiki} or `{{ic|1=amdgpu.dcdebugmask=0x12}}`{=mediawiki} [kernel
 parameter](kernel_parameter "wikilink") as a workaround.
 
-### kfd: amdgpu: TOPAZ not supported in kfd {#kfd_amdgpu_topaz_not_supported_in_kfd}
+### kfd fails to initialize {#kfd_fails_to_initialize}
 
-In the system journal or the kernel message keyring a critical level error message
+kfd can fail to initialize depending on the GPU\'s architecture. gfx803 (GCN 4) requires PCIe atomics support, while
+gfx9xx (Vega) and later devices does not require PCIe atomics. kfd does not support GCN 3 or older devices.
 
-`kfd: amdgpu: TOPAZ not supported in kfd`
+If you are not planning to use [ROCm](GPGPU#ROCm "wikilink"), these errors can be safely ignored.
 
-may appear. If you are not planning to use [Radeon Open Compute](GPGPU#ROCm "wikilink"), this can be safely ignored. It
-is not supported in TOPAZ, as they are old GPUs.
-[13](https://github.com/RadeonOpenCompute/ROCm/issues/1148#issuecomment-747849592)
-[14](https://www.reddit.com/r/linuxquestions/comments/yhbbiz/kfd_kfd_amdgpu_topaz_not_supported_in_kfd/)
+#### \"\[GPU Core Name\] not supported in kfd\" {#gpu_core_name_not_supported_in_kfd}
+
+In the system journal or the kernel message keyring a critical level error message may appear relating to kfd:
+`{{hc|# dmesg {{!}}`{=mediawiki} grep kfd\| kfd kfd: amdgpu: BONAIRE not supported in kfd }}
+
+(Replace BONAIRE with the name of the core that\'s in your GPU, such as TOPAZ, HAWAII, etc. You can find the core name
+by looking up your GPU or by using a GPU diagnostic utility such as `{{pkg|amdgpu_top}}`{=mediawiki})
+
+This means that your GPU is not supported in kfd and will not work with
+ROCm.[13](https://github.com/RadeonOpenCompute/ROCm/issues/1148#issuecomment-747849592)[14](https://www.reddit.com/r/linuxquestions/comments/yhbbiz/kfd_kfd_amdgpu_topaz_not_supported_in_kfd/)
+
+#### \"PCI rejects atomics\" {#pci_rejects_atomics}
+
+On GCN 4 GPUs, your CPU must support PCIe atomics and the slot that the GPU is in supports at least PCIe
+3.0.[15](https://github.com/ROCm/ROCm/issues/2224#issuecomment-2299689450) If these requirements are not met, you will
+encounter this message: `{{hc|# dmesg {{!}}`{=mediawiki} grep kfd\| kfd kfd: amdgpu: skipped device 1002:67e3, PCI
+rejects atomics 730\<0 }}
+
+You can check if your CPU supports PCIe atomics by running this command:
+
+`grep flags /sys/class/kfd/kfd/topology/nodes/*/io_links/0/properties`
+
+If your CPU supports PCIe atomics (the result being `{{ic|1}}`{=mediawiki}), change the slot that the GPU is in, it may
+have lanes coming from the chipset and not the CPU.
 
 ### High idle power draw due to MCLK locked at MAX (1000MHz), or MIN (96MHz) causing low game performance (on 6.4 kernel) {#high_idle_power_draw_due_to_mclk_locked_at_max_1000mhz_or_min_96mhz_causing_low_game_performance_on_6.4_kernel}
 
 On high resolutions and refresh rates, the MCLK (vram / memory clock) may be locked at the highest clock rate (1000MHz)
-[15](https://gitlab.freedesktop.org/drm/amd/-/issues/1403) [16](https://gitlab.freedesktop.org/drm/amd/-/issues/2646)
+[16](https://gitlab.freedesktop.org/drm/amd/-/issues/1403) [17](https://gitlab.freedesktop.org/drm/amd/-/issues/2646)
 causing higher GPU idle power draw. On Linux kernel 6.4.x, MCLK clocks at the lowest (96MHz), causing low performance in
-games [17](https://gitlab.freedesktop.org/drm/amd/-/issues/2657)
-[18](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
+games [18](https://gitlab.freedesktop.org/drm/amd/-/issues/2657)
+[19](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
 
 This is likely due to a monitor not using Coordinated Video Timings (CVT) with a low V-Blank value for the affected
 resolutions and refresh rates, see [this gist](https://gist.github.com/Rend0e/3bddac4285dc1f4fbe303f326f36f6cc) for a
@@ -731,9 +755,9 @@ There is a bug in the amdgpu module, due to which the video core frequencies can
 manufacturer, which can cause system instability during the game, when exiting sleep, when rebooting.
 
 The problem has been noticed on RDNA 3 GPUs (7XXX Models)
-[19](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
-[20](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
-[21](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
+[20](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
+[21](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
+[22](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
 
 In dmesg you can see logs like theese:
 
@@ -793,7 +817,7 @@ It can be done by setting the following [kernel parameter](kernel_parameter "wik
 ### System freezes or reboots when idle {#system_freezes_or_reboots_when_idle}
 
 Issues with some PowerPlay features, such as [GFXOFF](https://www.phoronix.com/news/AMDGPU-GFXOFF-Patches) can cause
-frequent, unrecoverable driver crashes[22](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
+frequent, unrecoverable driver crashes[23](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
 with idle GPU usage on a multi-monitor setup, and especially waking up from sleep mode.
 
 A well-known solution is appending a kernel parameter (as described in [#Boot parameter](#Boot_parameter "wikilink"))
@@ -821,7 +845,15 @@ mask](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dr
 You can keep \"XORing\" more features to the result. You can skip zeroes before the first non-zero character: for
 example, 0x8000 is equivalent to 0x00008000.
 
-Make sure the parameter doesn\'t get removed during kernel updates.
+Make sure the parameter does not get removed during kernel updates.
+
+### HDMI 4K capped at 120hz {#hdmi_4k_capped_at_120hz}
+
+Due to [licensing issues](https://www.phoronix.com/news/HDMI-2.1-OSS-Rejected) the `{{pkg|mesa}}`{=mediawiki} driver
+cannot support HDMI 2.1. You must use DisplayPort. If your display does not support DisplayPort, some users have
+[reported success with converter
+devices](https://www.reddit.com/r/linux_gaming/comments/1nh5y0f/hdmi_21_works_on_amd_gpu_with_this_converter/) that take
+DisplayPort input and output HDMI 2.1 signals.
 
 ## See also {#see_also}
 

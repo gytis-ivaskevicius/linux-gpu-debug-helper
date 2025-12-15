@@ -77,7 +77,7 @@ See the [documentation](https://qutebrowser.org/doc/help/configuring.html#_bindi
 
 You can add an option in your `{{ic|config.py}}`{=mediawiki} to open a video in *mpv*, in the following example pressing
 `{{ic|Ctrl+/}}`{=mediawiki} will bring up all the available video links on the page, then simply press the corresponding
-key combination for the video link you require and it will open it up in mpv
+key combination for the video link you require and it will open it up in mpv:
 
 ```{=mediawiki}
 {{hc|config.py|
@@ -151,12 +151,12 @@ To further clarify, the pass-structure that is used by default should look somet
 
 {{ hc\| user@computer\$ pass \|
 
-`Password Store `\
-`├── example.site1.com `\
-`│   └── username `\
-`├── example.site2.com `\
-`│   └── username1 `\
-`│   └── username2 `
+`Password Store`\
+`├── example.site1.com`\
+`│   └── username`\
+`├── example.site2.com`\
+`│   └── username1`\
+`│   └── username2`
 
 }}
 
@@ -250,7 +250,7 @@ bypass ads, tracking, etc. You can of course replace mpv by the video player of 
 
 ### Route the traffic through tor {#route_the_traffic_through_tor}
 
-This requires [tor](tor "wikilink") to be enabled and running. Note this is only using the tor proxy but does not
+This requires [Tor](Tor "wikilink") to be enabled and running. Note this is only using the tor proxy but does not
 provide you any protection from fingerprinting you might have on tor browser.
 
 `:set content.proxy socks://localhost:9050/`
@@ -318,7 +318,7 @@ Then load the style sheet when launching qutebrowser:
 {{Note|The style sheet will not be applied if there is an instance of qutebrowser already running.}}
 ```
 ```{=mediawiki}
-{{Tip|You can use a [[Desktop entries#Application entry|desktop entry]] to create a convenient launcher when specifying extra arguments, such as in this instance.}}
+{{Tip|You can use a [[Desktop entries#Desktop entries for applications|desktop entry]] to create a convenient launcher when specifying extra arguments, such as in this instance.}}
 ```
 See the [bug report](https://github.com/qutebrowser/qutebrowser/issues/4520) for details.
 

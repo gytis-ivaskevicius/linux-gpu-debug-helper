@@ -268,7 +268,7 @@ loaded (e.g. into `{{ic|edid_override}}`{=mediawiki}), so you don\'t have to phy
 ### Forcing modes {#forcing_modes}
 
 ```{=mediawiki}
-{{Warning|The method described below is somehow incomplete because e.g. [[Xorg]] does not take into account the resolution specified, so users are encouraged to use the method described above. However, specifying resolution with {{ic|1=video=}} command line may be useful in some scenarios.}}
+{{Note|The method described below is somehow imperfect because e.g. [[Xorg]] does not take into account the resolution specified, so users are encouraged to use the method described above. However, specifying resolution with {{ic|1=video=}} command line is useful for all [[Wayland compositor]]s.}}
 ```
 From [the nouveau wiki](https://nouveau.freedesktop.org/wiki/KernelModeSetting):
 
@@ -353,6 +353,44 @@ You can override the modes of several outputs using `{{ic|<nowiki>video=</nowiki
 instance, to force `{{ic|DVI}}`{=mediawiki} to *1024x768* at *85 Hz* and `{{ic|TV-out}}`{=mediawiki} off:
 
 `video=DVI-I-1:1024x768@85 video=TV-1:d`
+
+Options can also be passed after the mode, using commas as separator:
+
+`video=DVI-I-1:720x480,rotate=180`
+
+Valid options are:
+
+-   ```{=mediawiki}
+    {{ic|margin_top}}
+    ```
+    , `{{ic|margin_bottom}}`{=mediawiki}, `{{ic|margin_left}}`{=mediawiki}, `{{ic|margin_right}}`{=mediawiki} (integer):
+    Number of pixels in the margins, typically to deal with overscan on TVs
+
+-   ```{=mediawiki}
+    {{ic|reflect_x}}
+    ```
+    (boolean): Perform an axial symmetry on the X axis
+
+-   ```{=mediawiki}
+    {{ic|reflect_y}}
+    ```
+    (boolean): Perform an axial symmetry on the Y axis
+
+-   ```{=mediawiki}
+    {{ic|rotate}}
+    ```
+    (integer): Rotate the initial framebuffer by x degrees. Valid values are 0, 90, 180 and 270.
+
+-   ```{=mediawiki}
+    {{ic|tv_mode}}
+    ```
+    : Analog TV mode. One of \"NTSC\", \"NTSC-443\", \"NTSC-J\", \"PAL\", \"PAL-M\", \"PAL-N\", or \"SECAM\".
+
+-   ```{=mediawiki}
+    {{ic|panel_orientation}}
+    ```
+    , one of \"normal\", \"upside_down\", \"left_side_up\", or \"right_side_up\". For KMS drivers only, this sets the
+    \"panel orientation\" property on the kms connector as hint for kms users.
 
 To get the name and current status of connectors, you can use the following shell oneliner:
 

@@ -785,12 +785,12 @@ Table), as described in freedesktop issues [5531](https://gitlab.freedesktop.org
 iGPU. In this case, all of the documented cases concern duplicate eDP entries.
 
 Considering most vendors [will not](https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/7402) publish a BIOS update
-for a laptop with a properly working Windows OS, Linux users could only address the issue on the kernel side. There are
-two methods for a user to prevent the duplicate eDP entries from affecting the kernel: [patching the
-kernel](https://bbs.archlinux.org/viewtopic.php?id=284176) or [loading a modified
-VBT](https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/7709).
+for a laptop with a properly working Windows OS, Linux users could only address the issue on the kernel side. The
+preferred way to prevent this, is [loading a modified
+VBT](https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/7709). The idea is to remove duplicate eDP entries from the
+VBT, including a modified VBT in the intramfs and passing it to the i915 driver as a kernel parameter.
 
-For patching the kernel, the duplicate eDP entry needs to be identified by analyzing the output of:
+The duplicate eDP entry needs to be identified by analyzing the output of:
 
 ```{=mediawiki}
 {{hc|# intel_vbt_decode /sys/kernel/debug/dri/1/i915_vbt|
@@ -803,32 +803,6 @@ For patching the kernel, the duplicate eDP entry needs to be identified by analy
         Device type: 0x1806 (unknown)
 }}
 ```
-This shows that there is in fact a duplicate eDP, and the kernel should ignore the second entry, but the user is still
-encouraged to check this. This can then be patched with the following kernel patch in which the index of the duplicate
-screen can be substituted for `{{ic|ignoreEntry {{=}}`{=mediawiki} 1}} if it needs be.
-
-`--- a/drivers/gpu/drm/i915/display/intel_bios.c`\
-`+++ b/drivers/gpu/drm/i915/display/intel_bios.c`\
-`@@ -3688,6 +3688,14 @@`\
-`{`\
-`       struct intel_bios_encoder_data *devdata;`\
-\
-`+       int ignoreEntry = 0;`\
-`+`\
-`       list_for_each_entry(devdata, &i915->display.vbt.display_devices, node)`\
-`-               func(i915, devdata);`\
-`+       {`\
-`+               if (ignoreEntry != 1)`\
-`+               {`\
-`+                       func(i915, devdata);`\
-`+                       ignoreEntry++;`\
-`+               }`\
-`+       }`\
-`}`
-
-A second way to solve this is to edit the VBT by directly [erasing the duplicate entry from the
-VBT](https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/7709).
-
 This works by copying the VBT and editing it with a hex editor and changing the device type corresponding with the
 duplicate device handle to `{{ic|00 00}}`{=mediawiki}:
 
@@ -851,9 +825,14 @@ duplicate device handle to `{{ic|00 00}}`{=mediawiki}:
 ``  000001d0  00 00 00 00 00 00 00 00  00 20 00 04 00 d2 60 00  |......... ....`.| ``\
 ` 000001e0  10 10 00 23 21 10 00 00  00 00 00 07 00 00 02 00  |...#!...........|`
 
-The modified VBT can then be loaded by copying it to `{{ic|/lib/firmware/modified_vbt}}`{=mediawiki} passing
-`{{ic|i915.vbt_firmware{{=}}`{=mediawiki}modified_vbt}} as a kernel parameter and, if required, [regenerate the
-initramfs](regenerate_the_initramfs "wikilink").
+The modified VBT can then be loaded by copying it to `{{ic|/lib/firmware/i915/modified_vbt}}`{=mediawiki} and including
+the file in the initramfs. For [mkinitcpio](mkinitcpio "wikilink"), the `{{ic|FILES}}`{=mediawiki} field in
+`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} can be used:
+
+`FILES=(/lib/firmware/i195/modified_vbt)`
+
+[regenerate the initramfs](regenerate_the_initramfs "wikilink"), and pass the new table to the i915 as a kernel
+parameter: `{{ic|i915.vbt_firmware{{=}}`{=mediawiki}i915/modified_vbt}}.
 
 ### Washed out colors {#washed_out_colors}
 

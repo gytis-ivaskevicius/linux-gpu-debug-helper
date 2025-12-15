@@ -200,8 +200,14 @@ You might need to disable the Skia renderer, as it is currently not compatible w
 
 ### KDE integration {#kde_integration}
 
-For integration into [Plasma](Plasma "wikilink") install `{{Pkg|plasma-browser-integration}}`{=mediawiki}. See [KDE
-Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more details.
+For integration into [Plasma](Plasma "wikilink"), you can:
+
+-   install `{{Pkg|plasma-browser-integration}}`{=mediawiki} on your system, and [Plasma
+    Integration](https://chromewebstore.google.com/detail/plasma-integration/cimiefiiaegbelhefglklhhakcgmhkai) in your
+    browser (see [KDE Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more
+    details)
+-   install `{{Pkg|kdialog}}`{=mediawiki} to allow Chromium to use native KDE open/save dialogs
+-   [configure Chromium to use KWallet](KDE_Wallet#KDE_Wallet_for_Chrome_and_Chromium "wikilink")
 
 ### PDF viewer plugin {#pdf_viewer_plugin}
 

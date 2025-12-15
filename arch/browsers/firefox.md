@@ -1147,10 +1147,10 @@ such as [i3](i3 "wikilink"), then you may need to manually install one. [Install
 
 ### Notifications are not floating in tiling window managers or Wayland compositors {#notifications_are_not_floating_in_tiling_window_managers_or_wayland_compositors}
 
-If you\'re using a [tiling window manager](tiling_window_manager "wikilink") or [Wayland
-compositor](Wayland#Tiling "wikilink"), and the HTML notifications appear as normal Firefox windows instead of floating
-pop-ups, you need to [install](install "wikilink") `{{Pkg|libnotify}}`{=mediawiki} and make sure you have a working
-[Desktop notifications](Desktop_notifications "wikilink") server, such as `{{Pkg|mako}}`{=mediawiki}.
+If you are using a [tiling window manager](tiling_window_manager "wikilink") or a [Wayland
+compositor](Wayland_compositor "wikilink"), and the HTML notifications appear as normal Firefox windows instead of
+floating pop-ups, you need to [install](install "wikilink") `{{Pkg|libnotify}}`{=mediawiki} and make sure you have a
+working [Desktop notifications](Desktop_notifications "wikilink") server, such as `{{Pkg|mako}}`{=mediawiki}.
 
 ### DNIe certificate is not picked up after renewal from the card reader {#dnie_certificate_is_not_picked_up_after_renewal_from_the_card_reader}
 

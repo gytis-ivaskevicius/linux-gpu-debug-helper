@@ -55,8 +55,11 @@ platform or system so as to allow applications and games to be run in environmen
 ## Nintendo
 
 -   ```{=mediawiki}
-    {{App|azahar|Open-source 3DS emulator project based on Citra & Lime3DS.|https://github.com/azahar-emu/azahar|{{AUR|azahar}}}}
+    {{App|Azahar|Open-source 3DS emulator project based on Citra & Lime3DS.|https://github.com/azahar-emu/azahar|{{AUR|azahar}}}}
     ```
+
+:\*
+`{{App|AzaharPlus|Fork of Azahar which restores some features|https://github.com/AzaharPlus/AzaharPlus|{{AUR|azaharplus-appimage}}}}`{=mediawiki}
 
 -   ```{=mediawiki}
     {{App|bsnes|Super Nintendo emulator focusing on performance, features, and ease of use.|https://github.com/bsnes-emu/bsnes|{{AUR|bsnes-qt5}} HD Fork: {{AUR|bsnes-hd}}}}
@@ -147,6 +150,10 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
+    {{App|Tanuki3DS|3DS Emulator|https://github.com/burhanr13/Tanuki3DS|{{AUR|tanuki3ds}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Visual Boy Advance|Game Boy emulator with Game Boy Advance, Game Boy Color, and Super Game Boy support.|https://vba-m.com/|GTK frontend {{AUR|vbam-wx}}, SDL frontend {{AUR|vbam-sdl}}}}
     ```
 
@@ -162,6 +169,10 @@ platform or system so as to allow applications and games to be run in environmen
 
 -   ```{=mediawiki}
     {{App|[[ePSXe]]|Emulator for the PlayStation video game console for x86-based PC hardware.|https://www.epsxe.com/|{{AUR|epsxe}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Iris|Experimental PlayStation 2 emulator|https://github.com/allkern/iris|{{AUR|iris-emu}}}}
     ```
 
 -   ```{=mediawiki}
@@ -199,6 +210,14 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
+    {{App|Gearsystem|Sega Master System / Game Gear / SG-1000 Emulator|https://github.com/drhelius/Gearsystem|{{AUR|gearsystem}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|jgenesis|Sega Genesis / Sega CD / SNES / Master System / Game Gear Emulator|https://github.com/jsgroth/jgenesis|{{AUR|jgenesis}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Kega Fusion|An emulator of classic Sega consoles like Genesis/Mega Drive, Master System, Sega CD. Game Gear, 32X.|https://www.carpeludum.com/kega-fusion/|{{AUR|kega-fusion}}}}
     ```
 
@@ -210,7 +229,19 @@ platform or system so as to allow applications and games to be run in environmen
     {{App|Yabause|A Sega Saturn emulator.|https://yabause.org/|{{AUR|yabause-qt5}}}}
     ```
 
+-   ```{=mediawiki}
+    {{App|Ymir|Sega Saturn emulator.|https://github.com/StrikerX3/Ymir|{{AUR|ymir-emu}}}}
+    ```
+
 ## Other consoles {#other_consoles}
+
+-   ```{=mediawiki}
+    {{App|Gearcoleco|ColecoVision emulator|https://github.com/drhelius/Gearcoleco|{{AUR|gearcoleco}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Geargrafx|PC Engine / TurboGrafx-16 emulator and debugger|https://github.com/drhelius/Geargrafx|{{AUR|geargrafx}}}}
+    ```
 
 -   ```{=mediawiki}
     {{App|Stella|Atari 2600 VCS emulator.|https://stella-emu.github.io/|{{Pkg|stella}}}}

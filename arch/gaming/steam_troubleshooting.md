@@ -47,10 +47,11 @@ The `{{AUR|steam-native-runtime}}`{=mediawiki} package depends on over 130 packa
 Steam runtime, some games may however still require additional packages.
 
 This package provides the `{{ic|steam-native}}`{=mediawiki} script, which launches Steam with the
-`{{ic|1=STEAM_RUNTIME=0}}`{=mediawiki} environment variable making it ignore its runtime and only use system libraries.
+`{{ic|1=STEAM_RUNTIME=0}}`{=mediawiki} environment variable and `{{ic|1=-compat-force-slr off}}`{=mediawiki} flag,
+making it ignore its runtime and only use system libraries.
 
 ```{=mediawiki}
-{{Note|{{ic|1=STEAM_RUNTIME=0}} only disables runtime for Steam itself, games are still forced to use the Scout runtime. To run games with system libraries you also have to use cli argument {{ic|1=-compat-force-slr off}} when launching Steam. Note that this will only apply to games that use the Scout runtime, if developers choose to use the Sniper runtime, take for example Barony, the only way to escape that will be to either launch the game not from Steam or modify the launch arguments to something like {{ic|1=./<game_executable> &vert;&vert; exit &vert;&vert; %command%}}.}}
+{{Note|This will only apply to games that use the Steam Linux Runtime 1 and Steam itself, if developers choose to use Steam Linux Runtime 3 or newer, take for example Barony, the only way to escape that will be to either launch the game not from Steam or modify the launch arguments to something like {{ic|1=./<game_executable>; exit; %command%}}, which launches the game in system environment since runtimes are only applied for {{ic|1=%command%}}.}}
 ```
 You can also use the Steam native runtime without `{{AUR|steam-native-runtime}}`{=mediawiki} by manually installing just
 the packages you need. See [#Finding missing runtime libraries](#Finding_missing_runtime_libraries "wikilink").
@@ -611,12 +612,16 @@ back to non-Beta:
 
 Report the issue after looking for duplicates at <https://github.com/ValveSoftware/steam-for-linux>.
 
-### Cannot access store page (client displays error -105) {#cannot_access_store_page_client_displays_error__105}
+### Cannot access store page (client displays error -105 or -102) {#cannot_access_store_page_client_displays_error__105_or__102}
 
 If the store page is inaccessible but other networking features (such as game downloads) are working, it may be a DNS
 resolution failure. A possible solution is to ensure [systemd-resolved](systemd-resolved "wikilink") is enabled and
 started, then create the `{{ic|/etc/resolv.conf}}`{=mediawiki} symlink as explained in
 [systemd-resolved#DNS](systemd-resolved#DNS "wikilink").
+
+Other solution would be to flush DNS as explained here [6](https://askubuntu.com/a/929478):
+
+Run `{{ic|resolvectl flush-caches}}`{=mediawiki} or `{{ic|systemd-resolve --flush-caches}}`{=mediawiki} as root.
 
 ## Steam Remote Play issues {#steam_remote_play_issues}
 
@@ -785,7 +790,7 @@ options](launch_option "wikilink").
 {{Expansion|Seems to be a general issue, e.g. [https://github.com/ValveSoftware/Source-1-Games/issues/1685]}}
 ```
 If you are running 2K games such as Civilization 5 on [XFS](XFS "wikilink") partitions, then the game may not start or
-run properly due to how the game loads files as it starts. [6](https://bbs.archlinux.org/viewtopic.php?id=185222)
+run properly due to how the game loads files as it starts. [7](https://bbs.archlinux.org/viewtopic.php?id=185222)
 
 ### Steam controller not being detected correctly {#steam_controller_not_being_detected_correctly}
 
@@ -984,7 +989,7 @@ Steam\'s use of `{{ic|1=steamloopback.host}}`{=mediawiki} in its Chromium backen
 can hang the interface. This causes very long startups (if it ever starts) and a slow-responding (or not at all) user
 interface. This issue can temporary be addressed by editing `{{ic|1=/etc/nsswitch.conf}}`{=mediawiki} to change
 `{{ic|1=mdns}}`{=mediawiki} to `{{ic|1=mdns_minimal}}`{=mediawiki} and restarting systemd-resolvd. For more details, see
-[7](https://github.com/ValveSoftware/steam-for-linux/issues/10879).
+[8](https://github.com/ValveSoftware/steam-for-linux/issues/10879).
 
 ## See also {#see_also}
 

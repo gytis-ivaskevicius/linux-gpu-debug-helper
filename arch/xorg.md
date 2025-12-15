@@ -461,6 +461,10 @@ standalone composite manager can be used.
     ```
 
 -   ```{=mediawiki}
+    {{App|fastcompmgr|A lightweight compositor for X11 with a focus on speed.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr-git}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Gamescope]]|The micro-compositor from Valve, with gaming-oriented features such as FSR upscaling. Forked from steamos-compositor.|https://github.com/ValveSoftware/gamescope|{{Pkg|gamescope}}}}
     ```
 

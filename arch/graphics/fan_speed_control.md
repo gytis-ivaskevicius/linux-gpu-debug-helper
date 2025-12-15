@@ -628,6 +628,11 @@ variables `{{ic|DEVNAME}}`{=mediawiki} and `{{ic|DEVPATH}}`{=mediawiki} to deter
 keep changing, this will prevent fancontrol from running no matter what you do. However, one can circumvent this
 problem. Open `{{ic|/usr/bin/fancontrol}}`{=mediawiki}, and comment out this part of the script:
 
+`if [ "$DIR" = "/" -a -n "$DEVPATH" ]`\
+`then`\
+`   echo "Unneeded DEVPATH with absolute device paths" >&2`\
+`   exit 1`\
+`fi`\
 `if ! ValidateDevices "$DEVPATH" "$DEVNAME"`\
 ` then`\
 `     echo "Configuration appears to be outdated, please run pwmconfig again" >&2`\

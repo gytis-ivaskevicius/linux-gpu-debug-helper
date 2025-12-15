@@ -113,6 +113,14 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|[[Wikipedia:The Legend of Zelda: A Link to the Past|The Legend of Zelda: A Link to the Past]]|Reversed engineered PC port of ''The Legend of Zelda: A Link to the Past'' for the Super Nintendo|https://github.com/snesrev/zelda3|{{AUR|zelda3-git}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:The Legend of Zelda: Majora's Mask|The Legend of Zelda: Majora's Mask]]|Reversed engineered PC port of ''The Legend of Zelda: Majora's Mask'' for Nintendo 64|https://github.com/Zelda64Recomp/Zelda64Recomp|{{AUR|zelda64recomp}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:Liquid_War|Liquid War]]|2D multiplayer game with a simple and unique game mechanic. It could be classified as a fast-paced strategy.|https://www.ufoot.org/liquidwar/|{{AUR|liquidwar}}}}
     ```
 
@@ -149,7 +157,11 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
-    {{App|The Ur-Quan Masters|A port of Star Control 2.|https://sc2.sourceforge.net/|{{Pkg|uqm}}}}
+    {{App|[[Wikipedia:Super Metroid|Super Metroid]]|Reverse engineered implementation of ''Super Metroid'' for the Super Nintendo|https://github.com/snesrev/sm|{{AUR|sm-git}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:The Ur-Quan Masters|The Ur-Quan Masters]]|A port of Star Control 2.|https://sc2.sourceforge.net/|{{Pkg|uqm}}}}
     ```
 
 -   ```{=mediawiki}
@@ -631,6 +643,14 @@ See also [Minecraft](Minecraft "wikilink").
 
 -   ```{=mediawiki}
     {{App|Secret Maryo Chronicles|Mario-style game.|http://www.secretmaryo.org/|{{AUR|smc}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Super Mario Bros. Remastered|Recreation of the original Super Mario Bros.|https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public|{{AUR|smb1r-bin}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:Super Mario World|Super Mario World]]|Reverse engineered implementation of ''Super Mario World'' for the Super Nintendo|https://github.com/snesrev/smw|{{AUR|smw}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1256,6 +1276,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 
 :   ```{=mediawiki}
     {{Note|[[Wikipedia:S.T.A.L.K.E.R.: Call of Pripyat|S.T.A.L.K.E.R.: Call of Pripyat]] is the only supported game as of January 2023. Support for [[Wikipedia:S.T.A.L.K.E.R.: Clear Sky|S.T.A.L.K.E.R.: Clear Sky]] and [[Wikipedia:S.T.A.L.K.E.R.: Shadow of Chernobyl|S.T.A.L.K.E.R.: Shadow of Chernobyl]] is coming soon [https://github.com/OpenXRay/xray-16/issues/382] [https://github.com/OpenXRay/xray-16/issues/392].}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:Perfect Dark|Perfect Dark]]|Reverse engineered port of ''Perfect Dark'' for the Nintendo 64|https://github.com/fgsfdsfgs/perfect_dark|{{AUR|perfect-dark-git}}}}
     ```
 
 -   ```{=mediawiki}

@@ -343,6 +343,15 @@ vsync = true;
 
 `hardware.nvidia.powerManagement.enable = true` can also sometimes fix this issue; it is `false` by default.
 
+```{=mediawiki}
+{{Note|When the <code>hardware.nvidia.powerManagement.enable</code> option is enabled, the driver saves video memory to <code>/tmp</code> by default. If <code>/tmp</code> is backed by tmpfs (RAM) and the GPU VRAM usage exceeds the available space, the system will not resume and you will see a blank screen instead.
+
+To resolve this, redirect the temporary file to a storage location with sufficient capacity (e.g., <code>/var/tmp</code>) using kernel parameters:
+{{file|configuration.nix|nix|<nowiki>
+boot.kernelParams = [ "nvidia.NVreg_TemporaryFilePath=/var/tmp" ];
+</nowiki>}}
+}}
+```
 If you have a modern NVIDIA GPU (Turing
 [1](https://en.wikipedia.org/wiki/Turing_(microarchitecture)#Products_using_Turing) or later), you may also want to
 investigate the `hardware.nvidia.powerManagement.finegrained` option:
@@ -418,6 +427,10 @@ boot.kernelParams = [ "module_blacklist=i915" ];
 # AMD
 boot.kernelParams = [ "module_blacklist=amdgpu" ];
 ```
+
+### NVIDIA Docker Containers {#nvidia_docker_containers}
+
+See: [Docker#NVIDIA Docker Containers](Docker#NVIDIA_Docker_Containers "wikilink")
 
 ## Disabling
 

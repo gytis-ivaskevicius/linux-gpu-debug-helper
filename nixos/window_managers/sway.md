@@ -355,6 +355,15 @@ configuration, if it is not already present, may resolve the issue:
 
 `include /etc/sway/config.d/*`
 
+### dbus-issues: no icons in tray, can\'t open files from Nautilus with the right program {#dbus_issues_no_icons_in_tray_cant_open_files_from_nautilus_with_the_right_program}
+
+If you\'re using Gnome-Apps like Nautilus on NixOS with Sway, you might run into issue with settings standard
+applications to open files from Nautilus (e.g. there being no way of linking PDF to your preferred PDF-reader). You
+might also experience tray icons not showing up in your bar.
+
+This is fixed by running `dbus-update-activation-environment --all` after starting your session. Make it permanent by
+adding `exec dbus-update-activation-environment --all` to your sway config file.
+
 ## Tips and tricks {#tips_and_tricks}
 
 ### Toggle monitor modes script {#toggle_monitor_modes_script}

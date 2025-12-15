@@ -1,47 +1,50 @@
-[de:Steam](de:Steam "wikilink") [fi:Steam](fi:Steam "wikilink") [fr:Steam](fr:Steam "wikilink")
-[hu:Steam](hu:Steam "wikilink") [ja:Steam](ja:Steam "wikilink") [pt:Steam](pt:Steam "wikilink")
-[ru:Steam](ru:Steam "wikilink") [zh-hans:Steam](zh-hans:Steam "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|Steam/Troubleshooting}}`{=mediawiki} `{{Related|Steam/Game-specific troubleshooting}}`{=mediawiki}
-`{{Related|Gaming}}`{=mediawiki} `{{Related|Gamepad}}`{=mediawiki} `{{Related|List of games}}`{=mediawiki}
-`{{Related|Gamescope}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+```{=mediawiki}
+{{TranslationStatus (Magyar)|Steam|2025.12.14|856264}}
+```
+[de:Steam](de:Steam "wikilink") [en:Steam](en:Steam "wikilink") [fi:Steam](fi:Steam "wikilink")
+[fr:Steam](fr:Steam "wikilink") [ja:Steam](ja:Steam "wikilink") [pt:Steam](pt:Steam "wikilink")
+[ru:Steam](ru:Steam "wikilink") [zh-hans:Steam](zh-hans:Steam "wikilink")
+`{{Related articles start (Magyar)}}`{=mediawiki} `{{Related|Steam (Magyar)/Troubleshooting (Magyar)}}`{=mediawiki}
+`{{Related|Steam (Magyar)/Game-specific troubleshooting (Magyar)}}`{=mediawiki}
+`{{Related|Gaming (Magyar)}}`{=mediawiki} `{{Related|Gamepad (Magyar)}}`{=mediawiki}
+`{{Related|List of games (Magyar)}}`{=mediawiki} `{{Related|Gamescope (Magyar)}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
-[Steam](https://store.steampowered.com/about/) is a popular game distribution platform by Valve.
+A [Steam](https://store.steampowered.com/about/) egy népszerű játékterjesztő platform, amelyet a Valve fejlesztett ki.
 
 ```{=mediawiki}
-{{Note|Steam for Linux only supports the latest Ubuntu or Ubuntu LTS.[https://help.steampowered.com/en/faqs/view/1114-3F74-0B8A-B784][https://github.com/ValveSoftware/steam-for-linux] Thus, do not turn to Valve for support for issues with Steam on Arch Linux.}}
+{{Note (Magyar)|A Steam for Linux kizárólag a legfrissebb Ubuntu vagy Ubuntu LTS verziót támogatja.[https://help.steampowered.com/en/faqs/view/1114-3F74-0B8A-B784][https://github.com/ValveSoftware/steam-for-linux] Ezért ne forduljon a Valve fejlesztőihez támogatásért a Steam Arch Linuxon való használatával kapcsolatos problémák esetén.}}
 ```
-## Installation
+## Telepítés
 
-Enable the [multilib](multilib "wikilink") repository and [install](install "wikilink") the `{{Pkg|steam}}`{=mediawiki}
-package (recommended) or alternatively the `{{AUR|steam-native-runtime}}`{=mediawiki} package for running Steam with
-native system libraries. See [/Troubleshooting#Steam runtime](/Troubleshooting#Steam_runtime "wikilink").
+Engedélyezze a [multilib](multilib_(Magyar) "wikilink") szoftvercsomag-tárolót, és
+[telepítse](install_(Magyar) "wikilink") a `{{Pkg|steam}}`{=mediawiki} szoftvercsomagot (ajánlott), vagy alternatívaként
+telepítse a `{{AUR|steam-native-runtime}}`{=mediawiki} szoftvercsomagot a Steam futtatásához natív
+rendszerfüggvénykönyvtárakkal. Tekintse meg ezzel kapcsolatban a [/Troubleshooting (Magyar)#Steam
+runtime](/Troubleshooting_(Magyar)#Steam_runtime "wikilink") című leírást.
 
 ```{=mediawiki}
-{{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues like being unable to use Vulkan at all when you install it by accident for different GPU vendor.}}
+{{Note (Magyar)|Ha Ön először telepíti a Steam szoftvercsomagot, akkor előfordulhat, hogy a 32 bites [[Vulkan (Magyar)|Vulkan]] alkalmazásprogramozási interfészt tartalmazó szoftvercsomagot kéri az operációs rendszer. Alapértelmezés szerint a [[pacman (Magyar)|pacman]] ábécérendben a {{Pkg|lib32-nvidia-utils}} szoftvercsomagot választja ki a feltelepítéshez, ami problémákat okozhat, például teljesen használhatatlanná teheti a Vulkan alkalmazásprogramozási interfészt, ha véletlenül Ön más GPU gyártóhoz telepíti.}}
 ```
-In order to run Steam on Arch Linux:
+Ahhoz, hogy a Steam futni tudjon az Arch Linux operációs rendszeren, a következőkre van szükség:
 
--   You must install the 32-bit version of the [OpenGL graphics driver](Xorg#Driver_installation "wikilink") appropriate
-    for your system.
-
--   If not already done [during installation](Installation_guide#Localization "wikilink"), you must [generate the
-    en_US.UTF-8 locale](Locale#Generating_locales "wikilink") to prevent invalid pointer errors.
-
--   If you need to add library folders or add non-Steam games to your Steam library, install [XDG Desktop
-    Portal](XDG_Desktop_Portal "wikilink") with a backend providing a file chooser.
-
--   If using [systemd-resolved](systemd-resolved "wikilink") for DNS, follow [the
-    steps](systemd-resolved#DNS "wikilink") to fix `{{ic|/etc/resolv.conf}}`{=mediawiki} in order for Steam to be able
-    to resolve hostnames.
-
--   If using the Big Picture Mode (Steam Deck UI), [NetworkManager](NetworkManager "wikilink") may be required for the
-    network-related panels to work correctly.
-
--   ```{=mediawiki}
-    {{ic|vm.max_map_count}}
-    ```
-    must be increased in order to run some games without crashing, see [Gaming#Increase
-    vm.max_map_count](Gaming#Increase_vm.max_map_count "wikilink").
+-   Telepíteni kell az Ön operációs rendszerének megfelelő [OpenGL grafikus
+    illesztőprogram](Xorg#Driver_installation "wikilink") 32 bites verzióját.
+-   Ha ez még nem történt meg [a telepítés során](Installation_guide_(Magyar)#Nyelvterület_beállítása "wikilink"), akkor
+    Önnek [létre kell hoznia az en_US.UTF-8 nyelvterületi beállítást](Locale#Generating_locales "wikilink"), annak
+    érdekében, hogy elkerülje az érvénytelen pointerhibákat.
+-   Ha Önnek függvénykönyvtárak könyvtárait kell hozzáadnia, vagy ha olyan játékokat szeretne hozzáadni a Steam
+    könyvtárához amelyek nem Steam alapúak, akkor telepítse az [XDG Desktop Portal](XDG_Desktop_Portal "wikilink")
+    szoftvercsomagot egy olyan háttérszoftverrel, amely fájlkiválasztót biztosít.
+-   Ha Ön a [systemd-resolved](systemd-resolved_(Magyar) "wikilink") szolgáltatást használja DNS névfeloldáshoz, akkor
+    kövesse [a lépéseket](systemd-resolved_(Magyar)#DNS "wikilink") a `{{ic|/etc/resolv.conf}}`{=mediawiki} javításához,
+    hogy a Steam képes legyen feloldani a gépneveket.
+-   Ha Ön a Big Picture Mode grafikai felületet (Steam Deck UI) használja, akkor előfordulhat, hogy a
+    [NetworkManager](NetworkManager_(Magyar) "wikilink") szükséges ahhoz, hogy a hálózattal kapcsolatos panelek
+    megfelelően működjenek.
+-   A `{{ic|vm.max_map_count}}`{=mediawiki} értékét növelni kell ahhoz, hogy bizonyos játékok összeomlás nélkül
+    fussanak. Részletekért tekintse meg a [Gaming#Increase
+    vm.max_map_count](Gaming#Increase_vm.max_map_count "wikilink") című leírást.
 
 ### SteamCMD
 
@@ -69,9 +72,9 @@ In order for Steam to recognize a game it needs to have an `{{ic|appmanifest_''A
 determines the game directory name.
 
 ```{=mediawiki}
-{{Note|In order to add additional drives to a Steam installation made through flathub, the user must first give the Steam Client authorization to access the mount-point of the additional drive manually through a tool such as {{AUR|flatseal}}.}}
+{{Note (Magyar)|In order to add additional drives to a Steam installation made through flathub, the user must first give the Steam Client authorization to access the mount-point of the additional drive manually through a tool such as {{AUR|flatseal}}.}}
 ```
-## Usage
+## Használat
 
 `steam [ -options ] [ `[`steam://`](steam://)` URL ]`
 
@@ -262,17 +265,17 @@ Type=Application
 }}
 ```
 ```{=mediawiki}
-{{Note|The {{ic|-tenfoot}} flag tells Steam to start in Big Picture Mode.}}
+{{Note (Magyar)|The {{ic|-tenfoot}} flag tells Steam to start in Big Picture Mode.}}
 ```
 Then instruct your display manager to launch gamescope.
 
 ```{=mediawiki}
-{{Warning|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}} on a terminal. You can also create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
+{{Warning (Magyar)|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}} on a terminal. You can also create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
 ```
 ### Steam skins {#steam_skins}
 
 ```{=mediawiki}
-{{Note|A new Steam UI was released in June 2023. Skins not updated for this new UI will have no effect.}}
+{{Note (Magyar)|A new Steam UI was released in June 2023. Skins not updated for this new UI will have no effect.}}
 ```
 The Steam interface can be customized using skins. Follow [this Steam
 guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3003438937) for more information.
@@ -303,7 +306,7 @@ You can change the Steam notification position by altering `{{ic|Notifications.P
 Both files are overwritten by Steam on startup and `{{ic|steam.styles}}`{=mediawiki} is only read on startup.
 
 ```{=mediawiki}
-{{Note|Some games do not respect the setting in {{ic|gameoverlay.styles}} e.g. XCOM: Enemy Unknown.}}
+{{Note (Magyar)|Some games do not respect the setting in {{ic|gameoverlay.styles}} e.g. XCOM: Enemy Unknown.}}
 ```
 #### Use a skin {#use_a_skin}
 
@@ -334,7 +337,7 @@ And the [#Launch options](#Launch_options "wikilink") should be something like:
 ### Steam Remote Play {#steam_remote_play}
 
 ```{=mediawiki}
-{{Note|Steam In-Home Streaming [https://store.steampowered.com/news/51761/ has become Steam Remote Play].}}
+{{Note (Magyar)|Steam In-Home Streaming [https://store.steampowered.com/news/51761/ has become Steam Remote Play].}}
 ```
 Steam has built-in support for [remote play](https://store.steampowered.com/streaming/).
 
@@ -355,7 +358,7 @@ There are four file systems, that can be read/write by both Windows and Linux.
 #### NTFS
 
 ```{=mediawiki}
-{{Warning|Valve discourages the usage of NTFS to store a steam libray as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
+{{Warning (Magyar)|Valve discourages the usage of NTFS to store a steam libray as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
 
 You WILL run into problems where games don't start. You WILL run into problems where games crash unexpectedly.}}
 ```
@@ -387,7 +390,7 @@ This filesystem eliminates most NTFS/exFAT compatibility issues, but **sharing a
 has limitations**:
 
 ```{=mediawiki}
-{{Note|
+{{Note (Magyar)|
 Valve [https://github.com/ValveSoftware/steam-for-linux/blob/master/RelNotes.md#installation officially discourages] sharing Steam libraries between OSes. Even with correct WinBtrfs UID/GID mappings, Windows processes create lock-files and staging folders owned by {{ic|nobody:100}}, causing "Disk write failure" or "content file locked" errors in Linux.  
 
 After Windows usage you must run:
@@ -486,7 +489,7 @@ specific games.
 ### Flatpak
 
 ```{=mediawiki}
-{{Note|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}
+{{Note (Magyar)|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}
 ```
 Steam can also be installed with [Flatpak](Flatpak "wikilink") as `{{ic|com.valvesoftware.Steam}}`{=mediawiki} from
 [Flathub](https://flathub.org/). The easiest way to install it for the current user is by using the Flathub repository:
@@ -550,7 +553,7 @@ As a result, when launching the Steam Minimal (Runtime) shortcut you will get an
 functional enough to install and run games, and when launching the standard Steam (Runtime) shortcut you will get a
 full-fledged client.
 
-## Troubleshooting
+## Hibaelhárítás
 
 See [Steam/Troubleshooting](Steam/Troubleshooting "wikilink").
 

@@ -1,27 +1,28 @@
 [Hyprland](https://hyprland.org/) is an independent, extensible, bleeding-edge [Wayland](Wayland "wikilink") compositor
 written in modern C++ with an emphasis on looks. In addition, Hyprland also offers a number of first-party tools as well
-as a custom plugin system. The most up-to-date and complete documentation can be found in the project\'s own
+as a custom plugin system. The most up-to-date and complete documentation may be found on the project\'s own
 [wiki](https://wiki.hyprland.org/).
 
 Some of the most notable features of Hyprland are:
 
--   **Independent Wayland implementation**: does not rely on wlroots or other external libraries and provides in-house
-    alternatives to common components (screen locking, idle daemon, etc).
--   **Easy to configure**: uses a live reloading config file in plain-text with useful defaults.
--   **Dynamic tiling support**: supports both automatic tiling and floating mode with multiple layouts.
--   **Socket-based IPC**: allows controlling the compositor at runtime via UNIX socket.
--   **Global shortcuts**: permits setting global keybinds for any application (for apps such as [OBS
+-   **Independent Wayland implementation**: Does not rely on wlroots or other external libraries, and provides an
+    in-house alternatives to common components (screen locking, idle daemon, etc).
+-   **Easy to configure**: Uses a live reloading config file in plain-text with useful defaults.
+-   **Dynamic tiling support**: Supports both automatic tiling and floating mode with multiple layouts.
+-   **Socket-based IPC**: Allows controlling the compositor at runtime via UNIX socket.
+-   **Global shortcuts**: Permits setting global keybinds for any application (for apps such as [OBS
     Studio](OBS_Studio "wikilink")).
--   **Window/Workspace Rules**: set special behaviors for certain windows and workspaces.
+-   **Window/Workspace Rules**: Set special behaviors for certain windows and workspaces.
 
 ## Installation
 
 NixOS 24.11 added support for launching Hyprland with [Universal Wayland Session
 Manager](https://github.com/Vladimir-csp/uwsm) (UWSM) and is the recommended way to launch Hyprland as it neatly
-integrates with [Systemd](Systemd "wikilink").
+integrates with [Systemd](Systemd "wikilink"). [Options for configuring UWSM may be found here](UWSM "wikilink"). Also
+see the Hyprland wiki [page for UWSM here](https://wiki.hypr.land/Useful-Utilities/Systemd-start/#uwsm).
 
 ```{=mediawiki}
-{{file|configuration.nix|nix|<nowiki>
+{{file|||<nowiki>
 {
   programs.hyprland = {
     enable = true;
@@ -29,7 +30,13 @@ integrates with [Systemd](Systemd "wikilink").
     xwayland.enable = true; # Xwayland can be disabled.
   };
 }
-</nowiki>}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
+```
+```{=mediawiki}
+{{Warning|If you use the Home Manager module, make sure to disable systemd integration, as it conflicts with UWSM.
+</br>
+{{File|3=wayland.windowManager.hyprland.systemd.enable = false;
+|name=/etc/nixos/home.nix|lang=nix}}}}
 ```
 ### Nix on Non-NixOS Systems {#nix_on_non_nixos_systems}
 
@@ -163,10 +170,10 @@ By default, Hyprland does not come with a [display manager](https://wiki.nixos.o
 does not advertise support for one. Though one can start hyprland directly from tty with `Hyprland` or with
 `uwsm start select`, some display managers packaged in NixOS are compatible including but may not be limited to:
 
--   SDDM
--   GDM (works but crashes Hyprland on first launch)
--   greetd (especially with ReGreet)
--   ly (not recommended but works)
+-   [SDDM](SDDM "wikilink")
+-   [GDM](GDM "wikilink") (works but crashes Hyprland on first launch)
+-   [Greetd](Greetd "wikilink") (especially with ReGreet)
+-   [Ly](Ly "wikilink") (not recommended but works)
 
 ## Configuration
 
@@ -176,12 +183,17 @@ repository](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf).
 
 ### Using [Home Manager](Home_Manager "wikilink") {#using_home_manager}
 
-Home Manager allows for declarative configuration of Hyprland using Nix syntax.
+Home Manager allows for declarative configuration of Hyprland using Nix syntax. Entries with the same key should be
+written as lists. Variables' and colors' names should be quoted.
+
+Find additional options under [Home Manager -
+wayland.windowManager.hyprland](https://home-manager.dev/manual/23.11/options.xhtml#opt-wayland.windowManager.hyprland.enable).
+Also, see the [Hyprland Page for Home Manager](https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/) for more examples.
 
 ```{=mediawiki}
-{{file|/etc/nixos/home.nix or ~/.config/home-manager/home.nix|nix|<nowiki>
-{
-  wayland.windowManager.hyprland.settings = {
+{{File|3=wayland.windowManager.hyprland = {
+  systemd.enable = false;
+  settings = {
     decoration = {
       shadow_offset = "0 5";
       "col.shadow" = "rgba(00000099)";
@@ -189,17 +201,32 @@ Home Manager allows for declarative configuration of Hyprland using Nix syntax.
 
     "$mod" = "SUPER";
 
-    bindm = [
-      # mouse movements
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
-  };
-  # ...
-}
-</nowiki>}}
+    bind = [
+      # Execute Rofi with only the SUPER key
+      "$mod, Super_L, exec, pkill rofi {{!}}
 ```
+{{!}} rofi -show drun\"
+
+`     "$mod, F, exec, librewolf"`
+
+`     "CONTROL ALT, T, exec, wezterm"`\
+`   ];`
+
+`   # Startup Apps`\
+`   exec-once = [`\
+`     "hyprpanel"`\
+`   ];`
+
+`   bindm = [`\
+`     # mouse movements`\
+`     "$mod, mouse:272, movewindow"`\
+`     "$mod, mouse:273, resizewindow"`\
+`     "$mod ALT, mouse:272, resizewindow"`\
+`   ];`\
+` };`
+
+};\|name=/etc/nixos/home.nix\|lang=nix}}
+
 ## Plugin Support {#plugin_support}
 
 Hyprland boasts a growing plugin ecosystem that extends the functionality of the compositor such as adding support for
@@ -209,21 +236,17 @@ built.
 The [Home Manager](Home_Manager "wikilink") module for Hyprland should be used instead:
 
 ```{=mediawiki}
-{{file|/etc/nixos/home.nix or ~/.config/home-manager/home.nix|nix|<nowiki>
-{
+{{File|3={
   wayland.windowManager.hyprland.plugins = [
     pkgs.hyprlandPlugins.PLUGIN_NAME
   ];
-}
-</nowiki>}}
+}|name=/etc/nixos/home.nix|lang=nix}}
 ```
-### hyprland-plugins {#hyprland_plugins}
-
 [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins) is a repository of first-party plugins. If you wish to
-use these plugins then it\'s recommended to use the Hyprland flake instead of the Nixpkgs version as well as using the
-[Home Manager](Home_Manager "wikilink") module.
+use these plugins it is recommended to use the Hyprland flake instead of the Nixpkgs version, and to use the [Home
+Manager](Home_Manager "wikilink") module for configuration.
 
-Add the flake to your flake inputs: `{{file|flake.nix|nix|<nowiki>
+Add the flake into your flake inputs: `{{file|flake.nix|nix|<nowiki>
 {
   inputs = {
     hyprland.url = "github:hyprwm/Hyprland";
@@ -238,7 +261,7 @@ Add the flake to your flake inputs: `{{file|flake.nix|nix|<nowiki>
 }
 </nowiki>}}`{=mediawiki}
 
-And then add the plugin using the hyprland-plugins input:
+Then, add the plugin using the hyprland-plugins input:
 
 ```{=mediawiki}
 {{file|/etc/nixos/home.nix or ~/.config/home-manager/home.nix|nix|<nowiki>
