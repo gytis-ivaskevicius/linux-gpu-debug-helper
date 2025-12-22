@@ -218,6 +218,43 @@ To enable reverse sync mode, set the `hardware.nvidia.prime.reverseSync.enable` 
 }
 </nowiki>}}
 ```
+### Wayland
+
+#### Requirements
+
+Wayland requires kernel mode setting (KMS) to be enabled (Highly Recommended):
+`{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{
+  hardware.nvidia.modesetting.enable = true;
+}
+</nowiki>}}`{=mediawiki}
+
+#### Supported Compositors {#supported_compositors}
+
+-   **GNOME (Wayland)**
+
+Fully supported on recent drivers (≥ 535 recommended, ≥ 555 strongly recommended).
+
+-   **KDE Plasma (Wayland)**
+
+Usable since Plasma 6 with recent NVIDIA drivers, though some issues may remain.
+
+-   **Hyprland**
+
+Generally works with recent NVIDIA drivers, but support is not officially guaranteed. Regressions may occur after driver
+or compositor updates.
+
+#### PRIME and Wayland {#prime_and_wayland}
+
+-   PRIME **sync** and **reverse sync** modes are **X11-only** and do not work under Wayland.
+-   PRIME **offload** works under Wayland, but application offloading may behave differently depending on the
+    compositor.
+
+#### Explict Sync {#explict_sync}
+
+Drivers ≥ 555 introduce explicit sync support, which greatly improves frame pacing and reduces flickering and stuttering
+under Wayland. For the best Wayland experience, recent NVIDIA drivers are strongly recommended.
+
 ## Tips and tricks {#tips_and_tricks}
 
 ### Check nixos-hardware {#check_nixos_hardware}

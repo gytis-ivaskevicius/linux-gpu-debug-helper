@@ -1,7 +1,7 @@
 [ja:Uvesafb](ja:Uvesafb "wikilink") [zh-hans:Uvesafb](zh-hans:Uvesafb "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Kernel modules}}`{=mediawiki}
-`{{Related|Kernel parameters}}`{=mediawiki} `{{Related|sysctl}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-`{{Style|Many [[Help:Style]] issues}}`{=mediawiki}
+`{{Archive|No longer packaged.}}`{=mediawiki} `{{Related articles start}}`{=mediawiki}
+`{{Related|Kernel modules}}`{=mediawiki} `{{Related|Kernel parameters}}`{=mediawiki} `{{Related|sysctl}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki} `{{Style|Many [[Help:Style]] issues}}`{=mediawiki}
 `{{Expansion|Since this is the redirect for [[framebuffer]], it should mention what a framebuffer is, what it does, why we care, etc.}}`{=mediawiki}
 In contrast with other framebuffer drivers, uvesafb needs a userspace virtualizing daemon, called
 `{{AUR|v86d}}`{=mediawiki}. It may seem foolish to emulate x86 code on a x86, but this is important if one wants to use
@@ -15,7 +15,8 @@ It should support as much hardware as vesafb.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{aur|uvesafb-dkms}}`{=mediawiki} package.
+[Install](Install "wikilink") the
+`{{aur|uvesafb-dkms}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} package.
 
 ## Configuration
 

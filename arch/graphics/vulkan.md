@@ -62,7 +62,7 @@ about your graphics card, you will know that Vulkan is working.
 ### Switching between devices {#switching_between_devices}
 
 On systems with multiple GPUs you may need to force the usage of a specific GPU.
-`{{Pkg|vulkan-mesa-device-select}}`{=mediawiki} is required for this to work. By setting
+`{{Pkg|vulkan-mesa-implicit-layers}}`{=mediawiki} is required for this to work. By setting
 `{{ic|MESA_VK_DEVICE_SELECT}}`{=mediawiki} to `{{ic|''vendorID:deviceID''}}`{=mediawiki}, you can choose the desired
 GPU.
 

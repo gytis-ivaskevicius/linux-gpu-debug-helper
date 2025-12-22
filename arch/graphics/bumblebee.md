@@ -22,7 +22,7 @@ graphics](https://hybrid-graphics-linux.tuxfamily.org/index.php?title=Hybrid_gra
 multiplexer. The integrated GPU manages the display while the dedicated GPU manages the most demanding rendering and
 ships the work to the integrated GPU to be displayed. When the laptop is running on battery supply, the dedicated GPU is
 turned off to save power and prolong the battery life. It has also been tested successfully with desktop machines with
-Intel integrated graphics and an nVidia dedicated graphics card.
+Intel integrated graphics and an NVIDIA dedicated graphics card.
 
 Bumblebee is a software implementation comprising two parts:
 
@@ -584,7 +584,7 @@ Intel module, a workaround is to merge `{{ic|/etc/X11/xorg.conf.d/20-intel.conf}
 
 It could be also necessary to comment the driver line in `{{ic|/etc/X11/xorg.conf.d/10-monitor.conf}}`{=mediawiki}.
 
-If you are using the `{{ic|nouveau}}`{=mediawiki} driver you could try switching to the `{{ic|nvidia}}`{=mediawiki}
+If you are using the [nouveau](nouveau "wikilink") driver you could try switching to the [NVIDIA](NVIDIA "wikilink")
 driver.
 
 You might need to define the NVIDIA card somewhere (e.g. file `{{ic|/etc/bumblebee/xorg.conf.nvidia}}`{=mediawiki}),
@@ -665,16 +665,14 @@ modprobe: ERROR: could not insert 'nvidia': Exec format error
 }}
 ```
 This could be because the nvidia driver is out of sync with the Linux kernel, for example if you installed the latest
-nvidia driver and have not updated the kernel in a while. A full system update , followed by a reboot into the updated
-kernel, might resolve the issue. If the problem persists you should try manually compiling the nvidia packages against
-your current kernel, for example with `{{Pkg|nvidia-dkms}}`{=mediawiki} or by compiling `{{pkg|nvidia}}`{=mediawiki}
-from the [ABS](ABS "wikilink").
+[NVIDIA](NVIDIA "wikilink") driver and have not updated the kernel in a while. A full system update , followed by a
+reboot into the updated kernel.
 
 #### NOUVEAU(0): \[drm\] failed to set drm interface version {#nouveau0_drm_failed_to_set_drm_interface_version}
 
-Consider switching to the official nvidia driver. As commented
-[here](https://github.com/Bumblebee-Project/Bumblebee/issues/438#issuecomment-22005923), nouveau driver has some issues
-with some cards and bumblebee.
+Consider switching to the official NVIDIA driver. As commented
+[upstream](https://github.com/Bumblebee-Project/Bumblebee/issues/438#issuecomment-22005923), the nouveau driver has some
+issues with some cards and bumblebee.
 
 ### \[ERROR\]Cannot access secondary GPU - error: X did not start properly {#errorcannot_access_secondary_gpu___error_x_did_not_start_properly}
 
@@ -813,8 +811,8 @@ This makes primus display the previously rendered frame.
 
 ### Problems with bumblebee after resuming from standby {#problems_with_bumblebee_after_resuming_from_standby}
 
-In some systems, it can happens that the nvidia module is loaded after resuming from standby. One possible solution for
-this is to install the `{{pkg|acpi_call}}`{=mediawiki} and `{{pkg|acpi}}`{=mediawiki} package.
+In some systems, it can happens that the `{{ic|nvidia}}`{=mediawiki} module is loaded after resuming from standby. One
+possible solution for this is to install the `{{pkg|acpi_call}}`{=mediawiki} and `{{pkg|acpi}}`{=mediawiki} package.
 
 ### Optirun does not work, no debug output {#optirun_does_not_work_no_debug_output}
 
@@ -885,18 +883,17 @@ If Bumblebee starts/works in a random manner, check that you have set your [Netw
 resolution](Network_configuration#Local_network_hostname_resolution "wikilink") (details
 [here](https://github.com/Bumblebee-Project/Bumblebee/pull/939)).
 
-### Discrete card always on and nvidia driver cannot be unloaded {#discrete_card_always_on_and_nvidia_driver_cannot_be_unloaded}
+### Discrete card always on and NVIDIA driver cannot be unloaded {#discrete_card_always_on_and_nvidia_driver_cannot_be_unloaded}
 
 Make sure `{{ic|nvidia-persistenced.service}}`{=mediawiki} is disabled and not currently active. It is intended to keep
-the `{{ic|nvidia}}`{=mediawiki} driver running at all times
+the NVIDIA driver running at all times
 [5](https://us.download.nvidia.com/XFree86/Linux-x86_64/367.57/README/nvidia-persistenced.html), which prevents the card
 being turned off.
 
 ### Discrete card is silently activated when EGL is requested by some application {#discrete_card_is_silently_activated_when_egl_is_requested_by_some_application}
 
 If the discrete card is activated by some program (e.g. `{{Pkg|mpv}}`{=mediawiki} with its GPU backend), it might stays
-on. The problem might be `{{ic|libglvnd}}`{=mediawiki} which is loading the `{{Pkg|nvidia}}`{=mediawiki} drivers and
-activating the card.
+on. The problem might be `{{ic|libglvnd}}`{=mediawiki} which is loading the NVIDIA drivers and activating the card.
 
 To disable this set environment variable `{{ic|__EGL_VENDOR_LIBRARY_FILENAMES}}`{=mediawiki} (see
 [documentation](https://github.com/NVIDIA/libglvnd/blob/master/src/EGL/icd_enumeration.md)) to only load mesa
@@ -909,14 +906,14 @@ configuration file:
 ```
 (and its branches) is installing the configuration file at
 `{{ic|/usr/share/glvnd/egl_vendor.d/10_nvidia.json}}`{=mediawiki} which has priority and causes libglvnd to load the
-`{{Pkg|nvidia}}`{=mediawiki} drivers and enable the card.
+NVIDIA drivers and enable the card.
 
 The other solution is to [avoid installing](Pacman#Skip_files_from_being_installed_to_system "wikilink") the
 configuration file provided by `{{Pkg|nvidia-utils}}`{=mediawiki}.
 
 ### Framerate drops to 1 FPS after a fixed period of time {#framerate_drops_to_1_fps_after_a_fixed_period_of_time}
 
-With the nvidia 440.36 driver, the [DPMS setting is enabled by
+With the NVIDIA 440.36 driver, the [DPMS setting is enabled by
 default](https://devtalk.nvidia.com/default/topic/1067676/linux/440-36-with-bumblebee-drops-to-1-fps-after-running-for-10-minutes/post/5409047/#5409047)
 resulting in a timeout after a fixed period of time (e.g. 10 minutes) which causes the frame rate to throttle down to 1
 FPS. To work around this, add the following line to the \"Device\" section in

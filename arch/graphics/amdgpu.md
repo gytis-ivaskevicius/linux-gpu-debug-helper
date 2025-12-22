@@ -8,7 +8,8 @@
 
 ## Selecting the right driver {#selecting_the_right_driver}
 
-Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "wikilink"). This driver supports [Southern
+Identify your hardware and find the right driver by reading [Graphics processing
+unit#Installation](Graphics_processing_unit#Installation "wikilink"). This driver supports [Southern
 Islands](https://www.x.org/wiki/RadeonFeature/) (GCN 1, released in 2012) cards and later. AMD has no plans to support
 pre-GCN GPUs.
 

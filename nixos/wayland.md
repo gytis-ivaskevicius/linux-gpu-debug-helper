@@ -83,6 +83,10 @@ Example: to launch `code` *(`{{Nixpkg|pkgs/applications/editors/vscode/vscode.ni
 NIXOS_OZONE_WL=1 code
 ```
 
+## Virtualization
+
+To have wayland work inside of [QEMU](QEMU "wikilink"), you may need to pass `-vga qxl`.
+
 ## See also {#see_also}
 
 -   [Xorg](Xorg "wikilink")

@@ -3,8 +3,12 @@
 [zh-hans:Wayland](zh-hans:Wayland "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|KMS}}`{=mediawiki}
 `{{Related|Xorg}}`{=mediawiki} `{{Related|Screen capture#Wayland}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Wayland](https://wayland.freedesktop.org/) is a display server protocol. It is aimed to become the successor of the [X
-Window System](X_Window_System "wikilink"). You can find a [comparison between Wayland and Xorg on
+[Wayland](https://wayland.freedesktop.org/) is a display server protocol. It has been widely established as the
+successor of the [X Window System](X_Window_System "wikilink")
+[1](https://blogs.kde.org/2025/11/26/going-all-in-on-a-wayland-future/)
+[2](https://blogs.gnome.org/alatiera/2025/06/08/the-x11-session-removal/)
+[3](https://discourse.ubuntu.com/t/ubuntu-25-10-drops-support-for-gnome-on-xorg/62538)
+[4](https://pagure.io/fesco/issue/3408). You can find a [comparison between Wayland and Xorg on
 Wikipedia](Wikipedia:Wayland_(display_server_protocol)#Differences_between_Wayland_and_X "wikilink").
 
 Display servers using the Wayland protocol are called **compositors** because they also act as [compositing window
@@ -30,7 +34,7 @@ APIs: [GBM](Wikipedia:Generic_Buffer_Management "wikilink") and
   EGLStreams   [NVIDIA](NVIDIA "wikilink")                       [GNOME](GNOME "wikilink")
 
 :   \* NVIDIA ≥ 495 supports both EGLStreams and
-    GBM.[1](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-495.44-Linux-Driver)
+    GBM.[5](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-495.44-Linux-Driver)
 
 Since NVIDIA introduced GBM support, many compositors (including Mutter and KWin) started using it by default for NVIDIA
 ≥ 495. GBM is generally considered better with wider support, and EGLStreams only had support because NVIDIA did not
@@ -88,7 +92,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|wlmaker|wlroots-based compositor that's inspired by [[Window Maker]].|https://github.com/phkaeser/wlmaker|{{AUR|wlmaker}}}}
+    {{App|wlmaker|wlroots-based compositor that's inspired by [[Window Maker]].|https://phkaeser.github.io/wlmaker/|{{AUR|wlmaker}}}}
     ```
 
 -   ```{=mediawiki}
@@ -198,7 +202,7 @@ Display managers listed below support launching Wayland compositors.
 | {{AUR|lidm}}                  |                                         | display manager made in C.              |
 | ```                           |                                         |                                         |
 +-------------------------------+-----------------------------------------+-----------------------------------------+
-| [LightDM](LightDM "wikilink") | Xorg[2](https://g                       | Cross-desktop display manager.          |
+| [LightDM](LightDM "wikilink") | Xorg[6](https://g                       | Cross-desktop display manager.          |
 |                               | ithub.com/canonical/lightdm/issues/267) |                                         |
 +-------------------------------+-----------------------------------------+-----------------------------------------+
 | ```{=mediawiki}               | tty                                     | TUI display manager written in Zig      |
@@ -231,11 +235,17 @@ compatibility and instructions on how to start Xwayland.
 
 ```{=mediawiki}
 {{Note|
-* Security: Xwayland is an X server, so it does not have the security features of Wayland
-* Performance: Xwayland has a [https://openbenchmarking.org/result/2202053-NE-NVIDIARTX35 nearly identical performance] to that of X11. In some cases you might notice degraded performance, especially on NVIDIA cards.
+* Security: Xwayland is an X server, so it does not have the security features of Wayland.
+* Performance: Xwayland has a [https://openbenchmarking.org/result/2202053-NE-NVIDIARTX35 nearly identical performance] to that of X11, in most cases.
 * Compatibility: Xwayland is not fully backward compatible with X11. Some applications may not work properly under Xwayland.
 }}
 ```
+### Wayback
+
+[Wayback](https://wayback.freedesktop.org/) (`{{AUR|wayback-x11}}`{=mediawiki}, `{{AUR|wayback-x11-git}}`{=mediawiki}),
+is an X11 compatibility layer which allows for running full X11 desktop environments using Wayland components. It is
+intended to eventually replace the classic X.Org server, thus reducing maintenance burden of X11 applications.
+
 ### NVIDIA driver {#nvidia_driver}
 
 ```{=mediawiki}
@@ -245,20 +255,10 @@ Enabling [DRM KMS](NVIDIA#DRM_kernel_mode_setting "wikilink") is required. There
 [official documentation](https://download.nvidia.com/XFree86/Linux-x86_64/515.48.07/README/xwayland.html) regarding your
 display manager (e.g. [GDM](GDM#Wayland_and_the_proprietary_NVIDIA_driver "wikilink")).
 
-### Kwin Wayland debug console {#kwin_wayland_debug_console}
-
-If you use `{{pkg|kwin}}`{=mediawiki}, execute the following to see which windows use Xwayland or native Wayland,
-surfaces, input events, clipboard contents, and more.
-
-`$ qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole`
-
 ### Detect Xwayland applications {#detect_xwayland_applications}
 
-To determine whether an application is running via Xwayland, you can run `{{AUR|extramaus}}`{=mediawiki}. Move your
-mouse pointer over the window of an application. If the red mouse moves, the application is running via Xwayland.
-
-Alternatively, you can use `{{pkg|xorg-xeyes}}`{=mediawiki} and see if the eyes are moving, when moving the mouse
-pointer over an application window.
+To determine whether an application is running via Xwayland, you can use `{{pkg|xorg-xeyes}}`{=mediawiki} and see if the
+eyes are moving, when moving the mouse pointer over an application window.
 
 Another option is to run *xwininfo* (from `{{Pkg|xorg-xwininfo}}`{=mediawiki}) in a terminal window: when hovering over
 an Xwayland window the mouse pointer will turn into a + sign. If you click the window it will display some information
@@ -267,6 +267,12 @@ and end, but it will not do anything with native Wayland windows.You can use `{{
 You can also use *xlsclients* (from the `{{Pkg|xorg-xlsclients}}`{=mediawiki} package). To list all applications running
 via Xwayland, run `{{ic|xlsclients -l}}`{=mediawiki}.
 
+Alternatively, you can start `{{AUR|extramaus}}`{=mediawiki} and move your mouse pointer over the window of an
+application. If the red mouse moves, the application is running via Xwayland.
+
+```{=mediawiki}
+{{Tip|For KDE Plasma, you can also inspect windows with [[KDE#KWin debug console]].}}
+```
 ## GUI libraries {#gui_libraries}
 
 ### GTK
@@ -283,14 +289,14 @@ To enable Wayland support in [Qt](Qt "wikilink") 5, install the `{{Pkg|qt5-wayla
 applications will then run under Wayland on a Wayland session.
 
 While it should not be necessary, to explicitly run a Qt application with the Wayland plugin
-[3](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F), use `{{ic|1=-platform wayland}}`{=mediawiki} or
+[7](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F), use `{{ic|1=-platform wayland}}`{=mediawiki} or
 `{{ic|1=QT_QPA_PLATFORM=wayland}}`{=mediawiki} [environment variable](environment_variable "wikilink").
 
 To force the usage of [X11](X11 "wikilink") on a Wayland session, use `{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki}.
 
 This might be necessary for some proprietary applications that do not use the system\'s implementation of Qt.
 `{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
-available.[4](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
+available.[8](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 
 ```{=mediawiki}
 {{Accuracy|This feels wrong or outdated. I don't know about other potential applications, but KeepassXC doesn't need any of this to minimize to tray properly under Sway}}
@@ -319,7 +325,7 @@ In [SDL3](SDL "wikilink"), Wayland is used by default to communicate with the de
 
 To run an SDL2 application on Wayland, set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
 `{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
-available.[5](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
+available.[9](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
 enable window decorations (for example, on GNOME).
 
 Refer to the [official documentation](https://wiki.libsdl.org/SDL3/README/wayland) for more details.
@@ -351,7 +357,7 @@ Xwayland by modifying environment variables:
 -   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
 -   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
     `{{ic|1=DISPLAY}}`{=mediawiki} variable.
-    [6](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
+    [10](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
 
 ### Electron
 
@@ -501,12 +507,12 @@ normal.
     ```
     and `{{Pkg|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
-    [7](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
+    [11](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 
 -   ```{=mediawiki}
     {{pkg|mutter}}
     ```
-    has now remote desktop enabled at compile time, see [8](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
+    has now remote desktop enabled at compile time, see [12](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
     `{{Pkg|gnome-remote-desktop}}`{=mediawiki} for details.
 
 -   ```{=mediawiki}

@@ -19,7 +19,7 @@ To use GameCube controllers NixOS udev rules are required.
 ```
 To enable [GCC to USB adapter
 overclocking](https://docs.google.com/document/d/1cQ3pbKZm_yUtcLK9ZIXyPzVbTJkvnfxKIyvuFMwzWe0) for improved polling
-rates, use the `gcadapter-oc-kmod` kernel module.
+rates with the Wii U or Mayflash adapter, use the `gcadapter-oc-kmod` kernel module.
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>

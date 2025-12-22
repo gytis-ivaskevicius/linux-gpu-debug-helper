@@ -7,8 +7,8 @@ This article covers the [radeon](https://wiki.freedesktop.org/xorg/radeon/) open
 
 ## Selecting the right driver {#selecting_the_right_driver}
 
-Depending on the card you have, find the right driver in [Xorg#AMD](Xorg#AMD "wikilink"). This page has instructions for
-**ATI**.
+Identify your hardware and find the right driver by reading [Graphics processing
+unit#Installation](Graphics_processing_unit#Installation "wikilink"). This page has instructions for **ATI**.
 
 If unsure, try the [AMDGPU](AMDGPU "wikilink") driver first, it will suit most needs for cards released since 2015. See
 the [feature matrix](https://www.x.org/wiki/RadeonFeature) to know what is supported by this driver and the [decoding
@@ -70,6 +70,10 @@ See [Hardware video acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "w
 
 -   ```{=mediawiki}
     {{App|CoreCtrl|Popular general purpose GPU/CPU controller. See their [https://gitlab.com/corectrl/corectrl/-/wikis/Setup Setup] page for advanced usage.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|radeontop|A GPU utilization viewer, both for the total activity percent and individual blocks. Works with R600 and newer GPUs as well as cards using the [[AMDGPU]] driver|https://github.com/clbr/radeontop|{{Pkg|radeontop}}}}
     ```
 
 ### Driver options {#driver_options}

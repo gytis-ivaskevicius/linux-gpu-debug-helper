@@ -430,14 +430,14 @@ closed-source parallel computing architecture and framework. It requires an NVID
 components:
 
 -   Required:
-    -   Proprietary NVIDIA kernel module
+    -   NVIDIA kernel module
     -   CUDA \"driver\" and \"runtime\" libraries
 -   Optional:
     -   Additional libraries: CUBLAS, CUFFT, CUSPARSE, etc.
     -   CUDA toolkit, including the `{{ic|nvcc}}`{=mediawiki} compiler
     -   CUDA SDK, which contains many code samples and examples of CUDA and OpenCL programs
 
-The kernel module and CUDA \"driver\" library are shipped in `{{Pkg|nvidia}}`{=mediawiki} and
+The kernel module and CUDA \"driver\" library are shipped in `{{Pkg|nvidia-open}}`{=mediawiki} and
 `{{Pkg|opencl-nvidia}}`{=mediawiki}. The \"runtime\" library and the rest of the CUDA toolkit are available in
 `{{Pkg|cuda}}`{=mediawiki}. `{{ic|cuda-gdb}}`{=mediawiki} needs `{{aur|ncurses5-compat-libs}}`{=mediawiki} to be
 installed, see `{{Bug|46598}}`{=mediawiki}.

@@ -313,7 +313,7 @@ gamepad buttons to keyboard keys. Gamepad-specific tools for this include:
     ```
 
 -   ```{=mediawiki}
-    {{AUR|sc-controller}}
+    {{Pkg|sc-controller}}
     ```
 
 -   ```{=mediawiki}
@@ -361,7 +361,7 @@ With some programs you can also configure your gamepad further, including the fo
 List of software:
 
 -   ```{=mediawiki}
-    {{App|SC Controller|Open-source software supporting button remapping and Xbox 360 Controller emulation.|https://github.com/Ryochan7/sc-controller|{{AUR|sc-controller}}}}
+    {{App|SC Controller|Open-source software supporting button remapping and Xbox 360 Controller emulation.|https://github.com/Ryochan7/sc-controller|{{Pkg|sc-controller}}}}
     ```
 
 -   ```{=mediawiki}

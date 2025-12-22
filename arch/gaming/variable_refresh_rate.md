@@ -53,7 +53,7 @@ For setup purposes, it is necessary to differentiate between "native" G-SYNC mon
 
 == Hardware configuration ==
 
-The monitor must be plugged in via DisplayPort. Some displays which implement (part of) the HDMI 2.1 specification also support VRR over HDMI. This is [https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-440.31-Linux-Release supported] by the Nvidia driver and is supported by the AMD driver (pre HDMI 2.1) in Kernel 5.13 and later [https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.13-Released].
+The monitor must be plugged in via DisplayPort. Some displays which implement (at least part of) the HDMI 2.1 specification also support VRR over HDMI. This is [https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-440.31-Linux-Release supported] by the Nvidia driver and is supported by the AMD driver (pre HDMI 2.1) in Kernel 5.13 and later [https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.13-Released].
 
 Some monitors may not support VRR at their maximum refresh rate. For example, a monitor that supports 165Hz may only support VRR when set to use 144Hz or less.
 

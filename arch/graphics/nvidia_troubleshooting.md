@@ -24,12 +24,6 @@ causes a machine poweroff, try the below workarounds:
 -   Use the `{{ic|1=rcutree.gp_init_delay=1}}`{=mediawiki} [kernel parameter](kernel_parameter "wikilink").
 -   You can also try to add the `{{ic|nvidia}}`{=mediawiki} module directly to your
     [mkinitcpio.conf](mkinitcpio.conf "wikilink").
--   If the screen still stays black with **both** the `{{ic|1=rcutree.gp_init_delay=1}}`{=mediawiki} [kernel
-    parameter](kernel_parameter "wikilink") and the `{{ic|nvidia}}`{=mediawiki} module directly in the
-    [mkinitcpio.conf](mkinitcpio.conf "wikilink"), try re-installing `{{Pkg|nvidia}}`{=mediawiki} and
-    `{{Pkg|nvidia-utils}}`{=mediawiki} in that order, and finally reload the driver:
-
-`# modprobe nvidia`
 
 ### Screen(s) found, but none have a usable configuration {#screens_found_but_none_have_a_usable_configuration}
 
@@ -99,10 +93,10 @@ If you have additional cards needed for the desktop then list them in Wants and 
 ### Black screen on systems with integrated GPU {#black_screen_on_systems_with_integrated_gpu}
 
 If you have a system with an integrated GPU (e.g. Intel HD 4000, VIA VX820 Chrome 9 or AMD Cezanne) and have installed
-the `{{Pkg|nvidia}}`{=mediawiki} package, you may experience a black screen on boot, when changing virtual terminal, or
-when exiting an X session. This may be caused by a conflict between the graphics modules. This is solved by blacklisting
-the relevant GPU modules. Create the file `{{ic|/etc/modprobe.d/blacklist.conf}}`{=mediawiki} and prevent the relevant
-modules from loading on boot:
+the `{{AUR|nvidia-580xx-dkms}}`{=mediawiki} or earlier package, you may experience a black screen on boot, when changing
+virtual terminal, or when exiting an X session. This may be caused by a conflict between the graphics modules. This is
+solved by blacklisting the relevant GPU modules. Create the file `{{ic|/etc/modprobe.d/blacklist.conf}}`{=mediawiki} and
+prevent the relevant modules from loading on boot:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/blacklist.conf|

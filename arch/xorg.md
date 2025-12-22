@@ -1,5 +1,5 @@
 [de:X](de:X "wikilink") [fr:Xorg](fr:Xorg "wikilink") [hu:Xorg](hu:Xorg "wikilink") [ja:Xorg](ja:Xorg "wikilink")
-[pt:Xorg](pt:Xorg "wikilink") [ru:Xorg](ru:Xorg "wikilink") [uk:Xorg](uk:Xorg "wikilink")
+[lv:Xorg](lv:Xorg "wikilink") [pt:Xorg](pt:Xorg "wikilink") [ru:Xorg](ru:Xorg "wikilink") [uk:Xorg](uk:Xorg "wikilink")
 [zh-hans:Xorg](zh-hans:Xorg "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|Autostarting}}`{=mediawiki}
 `{{Related|Cursor themes}}`{=mediawiki} `{{Related|Desktop environment}}`{=mediawiki}
 `{{Related|Display manager}}`{=mediawiki} `{{Related|Font configuration}}`{=mediawiki}
@@ -24,153 +24,25 @@ tasks. They are pointed out in the relevant sections.
 Finally, an `{{Grp|xorg}}`{=mediawiki} group is also available, which includes Xorg server packages, packages from the
 `{{Grp|xorg-apps}}`{=mediawiki} group and fonts.
 
-### Driver installation {#driver_installation}
+### Drivers
 
-```{=mediawiki}
-{{Move|Graphics processing unit|Except for DDX, nothing else is specific to Xorg.|ArchWiki talk:Requests#GPU article}}
-```
-The Linux kernel includes open-source video drivers and support for hardware accelerated framebuffers. However, userland
-support is required for [OpenGL](OpenGL "wikilink"), [Vulkan](Vulkan "wikilink") and 2D acceleration in X11.
+See [Graphics processing unit#Installation](Graphics_processing_unit#Installation "wikilink") to identify your hardware
+and choose the driver for it.
 
-First, identify the graphics card (the *Subsystem* output shows the specific model):
-
-`$ lspci -v -nn -d ::03xx`
-
-```{=mediawiki}
-{{Tip|{{ic|::03}} here means "[https://admin.pci-ids.ucw.cz/read/PD/03 Display controller] PCI device class", and {{ic|xx}} stands for "any subclass of the class".}}
-```
-Then, install an appropriate driver. You can search the package database for a complete list of open-source [Device
-Dependent X (DDX)](https://dri.freedesktop.org/wiki/DDX/) drivers:
-
-`$ pacman -Ss xf86-video`
-
-However, hardware-specific DDX is considered legacy nowadays. There is a generic `{{man|4|modesetting}}`{=mediawiki} DDX
-driver in `{{pkg|xorg-server}}`{=mediawiki}, which uses [kernel mode setting](kernel_mode_setting "wikilink") and works
-well on modern hardware. The modesetting DDX driver uses
+Hardware-specific [Device Dependent X (DDX)](https://dri.freedesktop.org/wiki/DDX/) drivers are considered legacy: there
+is a generic `{{man|4|modesetting}}`{=mediawiki} DDX driver in `{{pkg|xorg-server}}`{=mediawiki}, which uses [kernel
+mode setting](kernel_mode_setting "wikilink") and works well on modern hardware. The modesetting DDX driver uses
 [Glamor](https://www.freedesktop.org/wiki/Software/Glamor/)[1](https://gitlab.freedesktop.org/xorg/xserver/-/tree/server-21.1-branch/glamor)
-for 2D acceleration, which requires OpenGL.
+for 2D acceleration, which requires [OpenGL](OpenGL "wikilink").
 
 If you want to install another DDX driver, note that Xorg searches for installed DDX drivers automatically:
 
--   If it cannot find the specific driver installed for the hardware (listed below), it first searches for *fbdev*
+-   If it cannot find the specific driver installed for the hardware (listed in [Graphics processing
+    unit#Installation](Graphics_processing_unit#Installation "wikilink")), it first searches for *fbdev*
     (`{{pkg|xf86-video-fbdev}}`{=mediawiki}), which does not include any 2D or 3D acceleration.
 -   If that is not found, it searches for *vesa* (`{{pkg|xf86-video-vesa}}`{=mediawiki}), the generic driver, which
     handles a large number of chipsets but does not include any 2D or 3D acceleration.
 -   If *vesa* is not found, Xorg will fall back to `{{man|4|modesetting}}`{=mediawiki} DDX driver.
-
-In order for video acceleration to work, and often to expose all the modes that the GPU can set, a proper video driver
-is required:
-
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-| Brand      | Type       | Doc        | DRM driver | OpenGL     | OpenGL     | Vulkan     | Vulkan     | DDX driver |
-|            |            | umentation |            |            | ([m        |            | ([m        |            |
-|            |            |            |            |            | ultilib](m |            | ultilib](m |            |
-|            |            |            |            |            | ultilib "w |            | ultilib "w |            |
-|            |            |            |            |            | ikilink")) |            | ikilink")) |            |
-+============+============+============+============+============+============+============+============+============+
-| AMD        | Open       | [AMDGPU    | included   | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-| (ex-ATI)   | source     | ](AMDGPU " | in         | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            | wikilink") | [Linu      | {{         | {{Pkg|li   | {          | {{Pkg|l    | {{Pkg      |
-|            |            |            | x](Linux " | Pkg|mesa}} | b32-mesa}} | {Pkg|vulka | ib32-vulka | |xf86-vide |
-|            |            |            | wikilink") | ```        | ```        | n-radeon}} | n-radeon}} | o-amdgpu}} |
-|            |            |            |            | ^3^        | ^3^        | ```        | ```        | ```        |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-|            |            | [          |            |            |            | None       |            | ```{=      |
-|            |            | ATI](ATI " |            |            |            |            |            | mediawiki} |
-|            |            | wikilink") |            |            |            |            |            | {{         |
-|            |            |            |            |            |            |            |            | Pkg|xf86-v |
-|            |            |            |            |            |            |            |            | ideo-ati}} |
-|            |            |            |            |            |            |            |            | ```        |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-| Intel      | Open       | [Intel     |            | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            | source     | graphi     |            | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            | cs](Intel_ |            | {{         | {{Pkg|li   | {{Pkg|vulk | {{Pkg|     | {{Pk       |
-|            |            | graphics " |            | Pkg|mesa}} | b32-mesa}} | an-intel}} | lib32-vulk | g|xf86-vid |
-|            |            | wikilink") |            | ```        | ```        | ```        | an-intel}} | eo-intel}} |
-|            |            |            |            | ^3^        | ^3^        |            | ```        | ```        |
-|            |            |            |            |            |            |            |            | ^2^        |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-| NVIDIA     | Open       | [N         |            | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            | source     | ouveau](No |            | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            | uveau "wik |            | {{         | {{Pkg|li   | {{         | {{Pkg|li   | {{Pkg|     |
-|            |            | ilink")^1^ |            | Pkg|mesa}} | b32-mesa}} | Pkg|vulkan | b32-vulkan | xf86-video |
-|            |            |            |            | ```        | ```        | -nouveau}} | -nouveau}} | -nouveau}} |
-|            |            |            |            | ^3^        | ^3^        | ```        | ```        | ```        |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-|            | P          | [NVIDIA](N | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            | roprietary | VIDIA "wik | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            | ilink")^1^ | {{Pk       | {{Pkg|nvid | {{Pkg|     | {{Pkg|nvid | {{Pkg|     | {{Pkg|nvid |
-|            |            |            | g|nvidia}} | ia-utils}} | lib32-nvid | ia-utils}} | lib32-nvid | ia-utils}} |
-|            |            |            | ```        | ```        | ia-utils}} | ```        | ia-utils}} | ```        |
-|            |            |            | or         |            | ```        |            | ```        |            |
-|            |            |            | `{{Pkg     |            |            |            |            |            |
-|            |            |            | |nvidia-op |            |            |            |            |            |
-|            |            |            | en}}`{=med |            |            |            |            |            |
-|            |            |            | iawiki}^4^ |            |            |            |            |            |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-|            |            |            | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            |            |            | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            |            | {{AUR      | {{AUR|     | {{         | {{AUR|     | {{         | {{AUR|     |
-|            |            |            | |nvidia-53 | nvidia-535 | AUR|lib32- | nvidia-535 | AUR|lib32- | nvidia-535 |
-|            |            |            | 5xx-dkms}} | xx-utils}} | nvidia-535 | xx-utils}} | nvidia-535 | xx-utils}} |
-|            |            |            | ```        | ```        | xx-utils}} | ```        | xx-utils}} | ```        |
-|            |            |            |            |            | ```        |            | ```        |            |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-|            |            |            | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            |            |            | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            |            | {{AUR      | {{AUR|     | {{         | {{AUR|     | {{         | {{AUR|     |
-|            |            |            | |nvidia-47 | nvidia-470 | AUR|lib32- | nvidia-470 | AUR|lib32- | nvidia-470 |
-|            |            |            | 0xx-dkms}} | xx-utils}} | nvidia-470 | xx-utils}} | nvidia-470 | xx-utils}} |
-|            |            |            | ```        | ```        | xx-utils}} | ```        | xx-utils}} | ```        |
-|            |            |            |            |            | ```        |            | ```        |            |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-|            |            |            | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      | ```{=      |
-|            |            |            | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} | mediawiki} |
-|            |            |            | {{AUR      | {{AUR|     | {{         | {{AUR|     | {{         | {{AUR|     |
-|            |            |            | |nvidia-39 | nvidia-390 | AUR|lib32- | nvidia-390 | AUR|lib32- | nvidia-390 |
-|            |            |            | 0xx-dkms}} | xx-utils}} | nvidia-390 | xx-utils}} | nvidia-390 | xx-utils}} |
-|            |            |            | ```        | ```        | xx-utils}} | ```        | xx-utils}} | ```        |
-|            |            |            |            |            | ```        |            | ```        |            |
-+------------+------------+------------+------------+------------+------------+------------+------------+------------+
-
-1.  For NVIDIA Optimus enabled laptop which uses an integrated video card combined with a dedicated GPU, see [NVIDIA
-    Optimus](NVIDIA_Optimus "wikilink").
-2.  For Intel graphics, the *modesetting* DDX driver is recommended. See [Intel
-    graphics#Installation](Intel_graphics#Installation "wikilink") for details.
-3.  For older hardware, classic OpenGL (non-Gallium3D) drivers in
-    `{{Pkg|mesa-amber}}`{=mediawiki}/`{{Pkg|lib32-mesa-amber}}`{=mediawiki} might be useful (Mesa 22.0 and higher have
-    dropped support for non-Gallium3D classic drivers), see [OpenGL#Installation](OpenGL#Installation "wikilink").
-4.  For the difference between `{{Pkg|nvidia}}`{=mediawiki} and `{{Pkg|nvidia-open}}`{=mediawiki}, see
-    [NVIDIA#Installation](NVIDIA#Installation "wikilink").
-
-Other DDX drivers can be found in the `{{Grp|xorg-drivers}}`{=mediawiki} group.
-
-Xorg should run smoothly without closed source drivers, which are typically needed only for advanced features such as
-fast 3D-accelerated rendering for games. The exceptions to this rule are recent GPUs (especially NVIDIA GPUs) not
-supported by open source drivers.
-
-#### AMD
-
-For a translation of model names (e.g. *Radeon RX 6800*) to GPU architectures (e.g. *RDNA 2*), see [Wikipedia:List of
-AMD graphics processing units#Features
-overview](Wikipedia:List_of_AMD_graphics_processing_units#Features_overview "wikilink").
-
-+------------------+--------------------------------------------------------+--------------------+
-| GPU architecture | Open-source driver                                     | Proprietary driver |
-+==================+========================================================+====================+
-| RDNA and later   | [AMDGPU](AMDGPU "wikilink")                            | *not available*    |
-+------------------+--------------------------------------------------------+--------------------+
-| GCN 3 and later  |                                                        |                    |
-+------------------+--------------------------------------------------------+--------------------+
-| GCN 1&2          | [AMDGPU](AMDGPU "wikilink")^1^ / [ATI](ATI "wikilink") | *not available*    |
-+------------------+--------------------------------------------------------+--------------------+
-| TeraScale\       | [ATI](ATI "wikilink")                                  | *not available*    |
-| and older        |                                                        |                    |
-+------------------+--------------------------------------------------------+--------------------+
-|                  |                                                        |                    |
-+------------------+--------------------------------------------------------+--------------------+
-
-1.  Experimental.
 
 ## Running
 

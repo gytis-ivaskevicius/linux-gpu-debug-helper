@@ -240,8 +240,7 @@ To enable VA-API in Firefox:
 -   Wayland sometimes interferes with hardware video decoding. If video briefly flickers when you go fullscreen, you may
     need to set `{{ic|1=widget.wayland.opaque-region.enabled=false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
 -   If you are using `{{Pkg|nvidia-open}}`{=mediawiki} or `{{Pkg|nvidia-open-dkms}}`{=mediawiki},
-    `{{ic|nvidia-smi}}`{=mediawiki} may show the VRAM usage by firefox is 0MB. This is normal and can be ignored. You
-    can switch driver to `{{Pkg|nvidia}}`{=mediawiki} or `{{Pkg|nvidia-dkms}}`{=mediawiki} to fix it.
+    `{{ic|nvidia-smi}}`{=mediawiki} may show the VRAM usage by firefox is 0MB. This is normal and can be ignored.
 
 }}
 

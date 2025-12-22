@@ -1,3 +1,4 @@
+[hu:Steam (Magyar)/Troubleshooting](hu:Steam_(Magyar)/Troubleshooting "wikilink")
 [ja:Steam/トラブルシューティング](ja:Steam/トラブルシューティング "wikilink") [ru:Steam
 (Русский)/Troubleshooting](ru:Steam_(Русский)/Troubleshooting "wikilink")
 [zh-hans:Steam/疑难解答](zh-hans:Steam/疑难解答 "wikilink")
@@ -93,8 +94,9 @@ Steam is using (not all of these are part of the Steam runtime):
 {{Out of date| Steam no longer redirects stdout and stderr to {{ic|/tmp/dumps/''USER''_stdout.txt}} by default. See: [https://github.com/ValveSoftware/steam-for-linux/issues/7114 steam-for-linux issue 7114] A similar effect can be achieved by starting steam with {{ic|steam 2>&1 | tee /path/to/logfile}} }}
 ```
 The Steam launcher redirects its stdout and stderr to `{{ic|/tmp/dumps/''USER''_stdout.txt}}`{=mediawiki}. This means
-you do not have to run Steam from the command-line to see that output. s It is possible to debug Steam to gain more
-information which could be useful to find out why something does not work.
+you do not have to run Steam from the command-line to see that output.
+
+It is possible to debug Steam to gain more information which could be useful to find out why something does not work.
 
 You can set `{{ic|DEBUGGER}}`{=mediawiki} environment variable with one of `{{ic|gdb}}`{=mediawiki},
 `{{ic|cgdb}}`{=mediawiki}, `{{ic|valgrind}}`{=mediawiki}, `{{ic|callgrind}}`{=mediawiki}, `{{ic|strace}}`{=mediawiki}
@@ -144,10 +146,14 @@ In these cases, try replacing the `{{ic|libsteam_api.so}}`{=mediawiki} file from
 that works. This error usually happens for games that were not updated recently when Steam runtime is disabled. This
 error has been encountered with AYIM, Bastion and Monaco.
 
-If the game crashes with `{{ic|terminate called after throwing an instance of 'dxvk::DxvkError'}}`{=mediawiki} it\'s
-likely that conflicting versions of vulkan are
+If the game crashes with
+
+```{=mediawiki}
+{{ic|terminate called after throwing an instance of 'dxvk::DxvkError'}}
+```
+it\'s likely that conflicting versions of Vulkan are
 [installed](https://www.reddit.com/r/archlinux/comments/s1vjjg/comment/hsb10ac/?context=3).
-`{{Pkg|lib32-vulkan-intel}}`{=mediawiki} and Nvidia vulkan drivers are mutually exclusive. This is solved by
+`{{Pkg|lib32-vulkan-intel}}`{=mediawiki} and NVIDIA Vulkan drivers are mutually exclusive. This is solved by
 uninstalling the unneeded driver. To obtain information about the chipset vendor one can run:
 
 `# lshw -C display | grep vendor`
@@ -168,11 +174,11 @@ moving the incompatible lib can be a workaround.
 
 ### Some games freeze at start when in focus {#some_games_freeze_at_start_when_in_focus}
 
-A combination of using `{{ic|ForceFullCompositionPipeline}}`{=mediawiki}, specific Proton versions and Nvidia driver
+A combination of using `{{ic|ForceFullCompositionPipeline}}`{=mediawiki}, specific Proton versions and NVIDIA driver
 version 535 is known [to freeze some games](https://github.com/ValveSoftware/Proton/issues/6869) [using
 DXVK/Vulkan](https://github.com/doitsujin/dxvk/issues/3670) at launch under Xorg. Using Alt+Tab allows bringing Steam in
 focus, and the game seems to run properly in the background. Solution: disable
-`{{ic|ForceFullCompositionPipeline}}`{=mediawiki} or downgrade Nvidia drivers.
+`{{ic|ForceFullCompositionPipeline}}`{=mediawiki} or downgrade NVIDIA drivers.
 
 ### Version \`CURL_OPENSSL_3\` not found {#version_curl_openssl_3_not_found}
 
@@ -219,7 +225,7 @@ and [#8420](https://github.com/ValveSoftware/steam-for-linux/issues/8420).
 
 ### Steam: An X Error occurred {#steam_an_x_error_occurred}
 
-When using an NVidia GPU and proprietary drivers, Steam may fail to start and (if run from the terminal) produce errors
+When using an NVIDIA GPU and proprietary drivers, Steam may fail to start and (if run from the terminal) produce errors
 of the form:
 
 `Steam: An X Error occurred`\
@@ -228,11 +234,8 @@ of the form:
 `Serial number of failed request:  51`\
 `xerror_handler: X failed, continuing`
 
-Install the package `{{Pkg|lib32-nvidia-utils}}`{=mediawiki} (or `{{AUR|lib32-nvidia-390xx-utils}}`{=mediawiki} if using
-an old GPU).
-
-If `{{Pkg|lib32-nvidia-utils}}`{=mediawiki} is installed, ensure that the package version matches
-`{{Pkg|nvidia}}`{=mediawiki} with
+Ensure the *lib32-* [NVIDIA](NVIDIA "wikilink") driver for your card is installed, and matches the main package version
+with:
 
 `# pacman -Qs nvidia`
 
@@ -264,7 +267,7 @@ Make sure that you have enabled *User namespace* in *General setup -\> Namespace
 
 ### Steam Library won\'t start {#steam_library_wont_start}
 
-Opening the steam library either displays nothing, or a brief splash, but no window appears. Running
+Opening the Steam library either displays nothing, or a brief splash, but no window appears. Running
 `{{ic|/usr/bin/steam}}`{=mediawiki} in a terminal window gives this error:
 
 `Assertion 'device' failed at src/libsystemd/sd-device/device-private.c:103, function device_get_tags_generation(). Aborting.`
@@ -306,27 +309,33 @@ to be comfortably viewed.
 ### Steam flicker/blink with black screen not loading Store/Library or other pages {#steam_flickerblink_with_black_screen_not_loading_storelibrary_or_other_pages}
 
 When Steam is started on Wayland (not confirmed X11) with dual graphics in some cases Steam client is unstable display
-black screen and flicker/blink. This is due to option PrefersNonDefaultGPU set to true in steam.desktop file.
+black screen and flicker/blink. This is due to the option `{{ic|PrefersNonDefaultGPU}}`{=mediawiki} being enabled in the
+[desktop entry](desktop_entry "wikilink").
 
-#### Method 1 - Edit steam.desktop file {#method_1___edit_steam.desktop_file}
+#### Fix by editing desktop entry {#fix_by_editing_desktop_entry}
 
-Locate .desktop file you are starting from your Application Launcher, and change line: From: PrefersNonDefaultGPU=true
-To: PrefersNonDefaultGPU=false Usually located at \~/.local/share/applications/steam.desktop
+First, [make a user copy of the desktop entry](Desktop_entries#Modify_desktop_files "wikilink") for Steam (from
+`{{ic|/usr/share/applications/steam.desktop}}`{=mediawiki}). Then, change the option:
 
-If opened close steam and relaunch.
+```{=mediawiki}
+{{hc|~/.local/share/applications/steam.desktop|2=
+...
+'''PrefersNonDefaultGPU=false'''
+...
+}}
+```
+If opened, close Steam and relaunch.
 
-#### Method 2 - KDE Plasma - edit menu option in GUI {#method_2___kde_plasma___edit_menu_option_in_gui}
+```{=mediawiki}
+{{Tip|Some desktop environments provide a GUI for editing application options. For KDE Plasma: Right click on .desktop file > Edit application... > select tab "Application" > Advanced Options > Uncheck option "Run using dedicated graphics card". }}
+```
+#### Bypass desktop entry {#bypass_desktop_entry}
 
-.Right click on .desktop file \> Edit application\... \> select tab \"Application\" \> Advanced Options \> Uncheck
-option \"Run using dedicated graphics card\" \> save changes, and relaunch Steam
-
-#### Workaround 1 - run steam from terminal {#workaround_1___run_steam_from_terminal}
-
-It has been noted that starting steam from terminal is not affected so it is a known workaround.
+The desktop entry options do not take effect if you start Steam from the terminal, bypassing the issue.
 
 `$ steam &`
 
-Ampersand (&) at the end is to run steam in background, terminal can be closed after Steam starts.
+Ampersand (&) at the end is to run Steam in background, terminal can be closed after Steam starts.
 
 ## Audio issues {#audio_issues}
 
@@ -347,7 +356,7 @@ First [#Configure PulseAudio](#Configure_PulseAudio "wikilink") and see if that 
 audio in the videos which play within the Steam client, it is possible that the ALSA libraries packaged with Steam are
 not working.
 
-Attempting to playback a video within the steam client results in an error similar to:
+Attempting to playback a video within the Steam client results in an error similar to:
 
 `ALSA lib pcm_dmix.c:1018:(snd_pcm_dmix_open) unable to open slave`
 
@@ -398,7 +407,7 @@ OpenAL versions default to disallow audio streams from being moved. Try to add t
 
 ### Cracking Microphone in Steam Voice and Games {#cracking_microphone_in_steam_voice_and_games}
 
-If you experience cracking with your audio input while using Steam Voice or in games, you can try to launch steam with
+If you experience cracking with your audio input while using Steam Voice or in games, you can try to launch Steam with
 the environmental variable `{{ic|PULSE_LATENCY_MSEC{{=}}`{=mediawiki}30}}
 
 ## Steam client issues {#steam_client_issues}
@@ -444,15 +453,21 @@ Something else that might help would be disabling [IPv6](IPv6 "wikilink"). See
 [2](https://github.com/ValveSoftware/steam-for-linux/issues/6126) for more information.
 
 Another potential fix is to disable HTTP2 [3](https://github.com/ValveSoftware/steam-for-linux/issues/10248) by creating
-\~/.steam/steam/steam_dev.cfg with the line
+the file:
 
-`@nClientDownloadEnableHTTP2PlatformLinux 0`
+```{=mediawiki}
+{{hc|~/.steam/steam/steam_dev.cfg|
+@nClientDownloadEnableHTTP2PlatformLinux 0
+}}
+```
+To increase the server connections at the potential cost of negatively affecting speeds, add:
 
-Adding the following line to the steam_dev.cfg file to increase the server connections may improve but may also
-negatively affect speeds
-
-`@fDownloadRateImprovementToAddAnotherConnection 1.0`
-
+```{=mediawiki}
+{{hc|~/.steam/steam/steam_dev.cfg|
+...
+@fDownloadRateImprovementToAddAnotherConnection 1.0
+}}
+```
 ### \"Needs to be online\" error {#needs_to_be_online_error}
 
 ```{=mediawiki}
@@ -552,9 +567,9 @@ This can fix various issues that come with a broken install.
 
 ### Missing taskbar menu {#missing_taskbar_menu}
 
-If clicking your steam taskbar icon does not give you a menu, it may be necessary to install the
+If clicking your Steam taskbar icon does not give you a menu, it may be necessary to install the
 `{{AUR|libappindicator-gtk2}}`{=mediawiki} and `{{AUR|lib32-libappindicator-gtk2}}`{=mediawiki} packages and restart
-steam.
+Steam.
 
 ### \"Your browser does not support the minimum set of features required to watch this broadcast\" error {#your_browser_does_not_support_the_minimum_set_of_features_required_to_watch_this_broadcast_error}
 
@@ -574,9 +589,9 @@ broadcast*\" when attempting to watch a stream/broadcast try the following troub
 
 ### Using system titlebar and frame {#using_system_titlebar_and_frame}
 
-Currently steam client tries to manage its windows itself, but it does it improperly, see
+Currently Steam client tries to manage its windows itself, but it does it improperly, see
 [steam-for-linux#1040](https://github.com/ValveSoftware/steam-for-linux/issues/1040). As a workaround you can use
-[steamwm](https://github.com/dscharrer/steamwm) project. Run steam like this: `{{ic|./steamwm.cpp steam}}`{=mediawiki}.
+[steamwm](https://github.com/dscharrer/steamwm) project. Run Steam like this: `{{ic|./steamwm.cpp steam}}`{=mediawiki}.
 Also the project provides a skin that removes unnative control buttons and frame, but leaves default skin decorations.
 
 ### More selective DPMS inhibition {#more_selective_dpms_inhibition}
@@ -636,7 +651,7 @@ With that, Steam should no longer crash when trying to launch a game through Rem
 
 ### Hardware decoding not available {#hardware_decoding_not_available}
 
-Remote Play hardware decoding uses `{{ic|vaapi}}`{=mediawiki}, but steam requires `{{ic|libva2_32bit}}`{=mediawiki},
+Remote Play hardware decoding uses `{{ic|vaapi}}`{=mediawiki}, but Steam requires `{{ic|libva2_32bit}}`{=mediawiki},
 where as Arch defaults to 64bit.
 
 As a basic set, this is `{{Pkg|libva}}`{=mediawiki} and `{{Pkg|lib32-libva}}`{=mediawiki}. Intel graphics users will
@@ -644,14 +659,14 @@ also require both `{{Pkg|libva-intel-driver}}`{=mediawiki} and `{{Pkg|lib32-libv
 
 For more information about vaapi see [hardware video acceleration](hardware_video_acceleration "wikilink").
 
-It may also be necessary to remove the steam runtime version of libva, in order to force it to use system libraries. The
+It may also be necessary to remove the Steam runtime version of libva, in order to force it to use system libraries. The
 current library in use can be found by using:
 
 `$ pgrep steam | xargs -I {} cat /proc/{}/maps | grep libva`
 
-If this shows locations in `{{ic|~/.local/Share/steam}}`{=mediawiki} steam is still using its packaged version of libva.
+If this shows locations in `{{ic|~/.local/Share/steam}}`{=mediawiki} Steam is still using its packaged version of libva.
 This can be rectified by deleting the libva library files at
-`{{ic|~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*}}`{=mediawiki}, so that steam
+`{{ic|~/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libva*}}`{=mediawiki}, so that Steam
 falls back to the system libraries.
 
 ### Big Picture Mode minimizes itself after losing focus {#big_picture_mode_minimizes_itself_after_losing_focus}
@@ -724,12 +739,14 @@ Also you can try running Steam with this environment variable set:
 
 ### Text is corrupt or missing {#text_is_corrupt_or_missing}
 
-Try installing `{{Pkg|lib32-fontconfig}}`{=mediawiki}, `{{Pkg|ttf-liberation}}`{=mediawiki} and
-`{{Pkg|wqy-zenhei}}`{=mediawiki} (for Asian characters), then restart Steam to see whether the problem is solved.
+Try installing `{{Pkg|lib32-fontconfig}}`{=mediawiki}, `{{Pkg|ttf-liberation}}`{=mediawiki},
+`{{Pkg|xorg-fonts-misc}}`{=mediawiki} (Steam updater window shows void squares instead of all non-Latin characters if
+this package not installed) and `{{Pkg|wqy-zenhei}}`{=mediawiki} (for Asian characters), then restart Steam to see
+whether the problem is solved.
 
 ```{=mediawiki}
 {{Note|
-* Steam for Linux does not follow system-level font configurations.[https://github.com/ValveSoftware/steam-for-linux/issues/10422#issuecomment-1944396010] Thus, modify user-level configuration if you want change fontconfig for steam.
+* Steam for Linux does not follow system-level font configurations.[https://github.com/ValveSoftware/steam-for-linux/issues/10422#issuecomment-1944396010] Thus, modify user-level configuration if you want change fontconfig for Steam.
 * When Steam cannot find the Arial font, font-config likes to fall back onto the Helvetica bitmap font. Steam does not render this and possibly other bitmap fonts correctly, so either removing problematic fonts or [[Font configuration#Disable bitmap fonts|disabling bitmap fonts]] will most likely fix the issue without installing the Arial or ArialBold fonts. The font being used in place of Arial can be found with the command: {{bc|$ fc-match -v Arial}}
 }}
 ```
@@ -805,7 +822,7 @@ recognized](Gamepad#Steam_Controller_makes_a_game_crash_or_not_recognized "wikil
 
 [BBS#177245](https://bbs.archlinux.org/viewtopic.php?id=177245)
 
-You have an Nvidia GPU and Steam has the following output:
+You have an NVIDIA GPU and Steam has the following output:
 
 `Running Steam on arch rolling 64-bit`\
 `STEAM_RUNTIME is enabled automatically`\
@@ -842,21 +859,21 @@ Steam outputs this error and exits.
 
 To work around this, run Steam with `{{ic|1=LIBGL_DRI3_DISABLE=1}}`{=mediawiki}, disabling DRI3 for Steam.
 
-### Launching games on Nvidia optimus laptops {#launching_games_on_nvidia_optimus_laptops}
+### Launching games on NVIDIA Optimus laptops {#launching_games_on_nvidia_optimus_laptops}
 
 ```{=mediawiki}
 {{Out of date|Was for using bumblebee : what is the equivalent for recommended setup now, using prime-run instead does not work }}
 ```
-To be able to play games which require using Nvidia GPU (for example, Hitman 2016) on optimus enabled laptop, you should
+To be able to play games which require using NVIDIA GPU (for example, Hitman 2016) on Optimus enabled laptop, you should
 start game with *primusrun* prefix in launch options. Otherwise, game will not work.
 
-Right click the game in your steam library and select *Properties \> GENERAL \> LAUNCH OPTIONS*. Change options to
+Right click the game in your Steam library and select *Properties \> GENERAL \> LAUNCH OPTIONS*. Change options to
 
 `primusrun %command%`
 
-Running steam with *primusrun* used to work. While steam has changed some behavior that now running steam with
+Running Steam with *primusrun* used to work. While Steam has changed some behavior that now running Steam with
 *primusrun* would not have effect on launching games. As a result, you need to set launch options for each game (and you
-do NOT have to run steam with *primusrun*).
+do NOT have to run Steam with *primusrun*).
 
 For *primusrun*, VSYNC is enabled by default it could result in a mouse input delay lag, slightly decrease performance
 and in-game FPS might be locked to a refresh rate of a monitor/display. In order to disable VSYNC for primusrun default
@@ -929,7 +946,7 @@ The file should contain something similar to:
 ### \"could not determine 32/64 bit of java\" {#could_not_determine_3264_bit_of_java}
 
 A forgotten install of the `{{AUR|linux-steam-integration}}`{=mediawiki} package caused this with at least one game.
-Early on there were conflicts between the system and the steam runtime versions of some libraries, and that package
+Early on there were conflicts between the system and the Steam runtime versions of some libraries, and that package
 helped resolve some of them. It is unclear whether it is still helpful, but uninstalling it resolved the above error
 message for Project Zomboid. The solution was discovered by noticing that running the
 `{{ic|projectzomboid.sh}}`{=mediawiki} command from the command line worked, but switching the launch options to
@@ -952,13 +969,13 @@ running the application with WineD3D OpenGL wrapper instead:
 
 `PROTON_USE_WINED3D=1 %command%`
 
-### File picker does not see anything but steam library {#file_picker_does_not_see_anything_but_steam_library}
+### File picker does not see anything but Steam library {#file_picker_does_not_see_anything_but_steam_library}
 
 See `{{Bug|78625}}`{=mediawiki}. You need to install `{{Pkg|xdg-desktop-portal}}`{=mediawiki}.
 
 ### DirectX errors on hybrid graphics {#directx_errors_on_hybrid_graphics}
 
-For laptop with Intel/Nvidia [Hybrid graphics](Hybrid_graphics "wikilink") encountering the following error:
+For laptop with Intel/NVIDIA [Hybrid graphics](Hybrid_graphics "wikilink") encountering the following error:
 
 `A d3d11-compatible gpu (feature level 11.0, shader model 5.0) is required to run the engine.`
 

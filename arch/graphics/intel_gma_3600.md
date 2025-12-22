@@ -1,6 +1,6 @@
 [ja:Intel GMA 3600](ja:Intel_GMA_3600 "wikilink") [zh-hans:Intel GMA 3600](zh-hans:Intel_GMA_3600 "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Intel graphics}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+`{{Archive|Relies on a dead AUR package.}}`{=mediawiki} `{{Related articles start}}`{=mediawiki}
+`{{Related|Intel graphics}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 The **Intel GMA 3600** series is a family of integrated video adapters based on the PowerVR SGX 545 graphics core. It is
 used in [Intel

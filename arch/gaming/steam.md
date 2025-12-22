@@ -19,9 +19,9 @@ native system libraries. See [/Troubleshooting#Steam runtime](/Troubleshooting#S
 ```{=mediawiki}
 {{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues like being unable to use Vulkan at all when you install it by accident for different GPU vendor.}}
 ```
-In order to run Steam on Arch Linux:
+In order to run Steam:
 
--   You must install the 32-bit version of the [OpenGL graphics driver](Xorg#Driver_installation "wikilink") appropriate
+-   You must install the 32-bit version of the [OpenGL graphics driver](OpenGL_graphics_driver "wikilink") appropriate
     for your system.
 
 -   If not already done [during installation](Installation_guide#Localization "wikilink"), you must [generate the
@@ -69,7 +69,7 @@ In order for Steam to recognize a game it needs to have an `{{ic|appmanifest_''A
 determines the game directory name.
 
 ```{=mediawiki}
-{{Note|In order to add additional drives to a Steam installation made through flathub, the user must first give the Steam Client authorization to access the mount-point of the additional drive manually through a tool such as {{AUR|flatseal}}.}}
+{{Note|In order to add additional drives to a Steam installation made through flathub, the user must first give the Steam Client authorization to access the mount-point of the additional drive manually through a tool such as {{Pkg|flatseal}}.}}
 ```
 ## Usage
 
@@ -388,7 +388,7 @@ has limitations**:
 
 ```{=mediawiki}
 {{Note|
-Valve [https://github.com/ValveSoftware/steam-for-linux/blob/master/RelNotes.md#installation officially discourages] sharing Steam libraries between OSes. Even with correct WinBtrfs UID/GID mappings, Windows processes create lock-files and staging folders owned by {{ic|nobody:100}}, causing "Disk write failure" or "content file locked" errors in Linux.  
+Valve [https://github.com/ValveSoftware/steam-for-linux/blob/master/RelNotes.md#installation officially discourages] sharing Steam libraries between OSes. Even with correct WinBtrfs UID/GID mappings, Windows processes create lock-files and staging folders owned by {{ic|nobody:100}}, causing "Disk write failure" or "content file locked" errors in Linux.
 
 After Windows usage you must run:
 
@@ -473,10 +473,12 @@ You can also use `{{AUR|protonup-qt}}`{=mediawiki} to manage them:
 Some systems and configurations seem to have issues with HTTP2. Disabling HTTP2 will probably yield faster downloads on
 those configurations. You can either use the console command
 `{{ic|@nClientDownloadEnableHTTP2PlatformLinux 0}}`{=mediawiki} or set it in `{{ic|steam_dev.cfg}}`{=mediawiki} like so:
-`{{hc|~/.steam/steam/steam_dev.cfg|
-@nClientDownloadEnableHTTP2PlatformLinux 0
-}}`{=mediawiki}
 
+```{=mediawiki}
+{{hc|~/.steam/steam/steam_dev.cfg|
+@nClientDownloadEnableHTTP2PlatformLinux 0
+}}
+```
 ### Run games using discrete GPU {#run_games_using_discrete_gpu}
 
 On [hybrid graphics](hybrid_graphics "wikilink") laptops, Steam runs games using the integrated GPU by default. See
@@ -485,6 +487,9 @@ specific games.
 
 ### Flatpak
 
+```{=mediawiki}
+{{Remove|Flatpak is not supported. For precedent for removal, see [[Special:Diff/806019]]. It could also suffice to move to a new application section of [[Flatpak]].}}
+```
 ```{=mediawiki}
 {{Note|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}
 ```
@@ -542,8 +547,12 @@ Make a copy of the Steam shortcut:
 `$ cp /usr/share/applications/steam.desktop ~/.local/share/applications/steam_minimal.desktop`
 
 and change the `{{ic|Exec{{=}}`{=mediawiki}}} and `{{ic|Name{{=}}`{=mediawiki}}} sections in the shortcut copy:
-`{{hc|~/.local/share/applications/steam_minimal.desktop|
-Name{{=}}`{=mediawiki}Steam Minimal (Runtime) Exec{{=}}/usr/bin/steam -cef-disable-gpu-compositing -cef-disable-gpu
+
+```{=mediawiki}
+{{hc|~/.local/share/applications/steam_minimal.desktop|
+Name{{=}}
+```
+Steam Minimal (Runtime) Exec{{=}}/usr/bin/steam -cef-disable-gpu-compositing -cef-disable-gpu
 <steam://open/minigameslist> %U }}
 
 As a result, when launching the Steam Minimal (Runtime) shortcut you will get an ascetic interface, which is still

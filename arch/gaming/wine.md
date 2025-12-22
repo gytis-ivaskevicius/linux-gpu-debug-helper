@@ -377,22 +377,13 @@ applications in Wine.
 
 ### Wayland
 
-```{=mediawiki}
-{{Warning|The native [[Wayland]] driver is still experimental.}}
-```
-By default, Wine runs on Wayland through [Xwayland](Xwayland "wikilink"), providing a satisfactory experience for most
-users. As of version 9.0rc1, Wine has made substantial progress on merging native Wayland support, now making it
-suitable for some use cases.
+The [Wayland](Wayland "wikilink") graphics driver is enabled by default, but the [X11](X11 "wikilink") driver still
+takes precedence if both are available [6](https://gitlab.winehq.org/wine/wine/-/releases/wine-10.0#wayland-driver).
 
-To experiment with the native Wayland driver added in recent Wine versions, you can follow these steps:
+To force using the Wayland driver in that case, make sure that the `{{ic|DISPLAY}}`{=mediawiki} environment variable is
+unset:
 
--   For Wine versions older than 9.22, run the following command to change a setting in the Wine registry:
-    `{{bc|$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\Drivers' /v Graphics /t REG_SZ /d 'x11,wayland'}}`{=mediawiki}
--   Bypass the use of Xwayland and force the native Wayland driver by unsetting the `{{Ic|DISPLAY}}`{=mediawiki}
-    [environment variable](environment_variable "wikilink"): `{{bc|1=$ env -u DISPLAY wine example.exe}}`{=mediawiki}
-
-If the second step makes Wine stop working, check to see if your Wine version is built with support for the new Wayland
-driver.
+`$ env -u DISPLAY wine example.exe`
 
 ### Stop running Wine {#stop_running_wine}
 
@@ -469,8 +460,7 @@ package if you are running a 32-bit application.
 
 ##### Graphics drivers {#graphics_drivers}
 
-You need to install the 32-bit version of your graphics driver. Please install the package that is listed in the *OpenGL
-(multilib)* column in the table in [Xorg#Driver installation](Xorg#Driver_installation "wikilink").
+You need to install the 32-bit version of your [OpenGL graphics driver](OpenGL_graphics_driver "wikilink").
 
 A good sign that your drivers are inadequate or not properly configured is when Wine reports the following in your
 terminal window:
@@ -499,12 +489,11 @@ Install the correct packages for the audio driver you want to use:
         , `{{Pkg|lib32-alsa-lib}}`{=mediawiki}, and `{{Pkg|lib32-alsa-plugins}}`{=mediawiki} to use ALSA as a frontend.
 -   For [OSS](OSS "wikilink") install `{{Pkg|lib32-alsa-oss}}`{=mediawiki}
 
-If *winecfg* **still** fails to detect the audio driver (Selected driver: (none)), [configure it via the
-registry](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#using-regedit). For example, in a case where the
-microphone was not working in a 32-bit Windows application on a 64-bit stock install of wine-1.9.7, this provided full
+If *winecfg* still fails to detect the audio driver (*Selected driver: (none)*), [configure it via the
+registry](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#using-regedit). For example, to provide full
 access to the sound hardware (sound playback and mic): open *regedit*, look for the key *HKEY_CURRENT_USER \> Software
-\> Wine \> Drivers*, and add a string called *Audio* and give it the value `{{ic|alsa}}`{=mediawiki}. Also, it may help
-to [recreate the prefix](#WINEPREFIX "wikilink").
+\> Wine \> Drivers*, add a string called *Audio* and give it the value `{{ic|alsa}}`{=mediawiki}. Also, it may help to
+[recreate the prefix](#WINEPREFIX "wikilink").
 
 ##### WINEARCH
 
@@ -639,7 +628,7 @@ Currently there are 3 options available to improve the performance, and you shou
 
 -   ESync - User-space eventfd-based synchronization.
     -   Not included in `{{Pkg|wine}}`{=mediawiki}. Included in `{{Pkg|wine-staging}}`{=mediawiki} up to version
-        10.15[6](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
+        10.15[7](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
         enabled by default.
     -   Enabled by default in [Proton](Proton "wikilink") unless FSync is available.
 -   FSync - In-kernel Futex2-based implementation of synchronization, should have better performance than ESync.
@@ -1018,10 +1007,10 @@ yet\").
 This is an issue with the application itself, not Wine. The only way to work around this issue is to unset the large
 environment variables in your system so that the total size doesn\'t exceed the threshold. Note that Wine intentionally
 does not import some environment variables, which alleviates the
-issue.[7](https://gitlab.winehq.org/wine/wine/-/blob/a99dc1a779c392980aed0ff12149a2b33966693e/dlls/ntdll/unix/env.c#L343-359)
+issue.[8](https://gitlab.winehq.org/wine/wine/-/blob/a99dc1a779c392980aed0ff12149a2b33966693e/dlls/ntdll/unix/env.c#L343-359)
 It is also possible to prevent specific environment variables from being imported by setting an environment variable
 with the same key prefixed with
-`{{ic|WINE_HOST_}}`{=mediawiki}.[8](https://gitlab.winehq.org/wine/wine/-/blob/baeb97c3572bfcc41b0c13c8e93aa09ae15b7c35/dlls/ntdll/unix/env.c#L884)
+`{{ic|WINE_HOST_}}`{=mediawiki}.[9](https://gitlab.winehq.org/wine/wine/-/blob/baeb97c3572bfcc41b0c13c8e93aa09ae15b7c35/dlls/ntdll/unix/env.c#L884)
 
 ## See also {#see_also}
 

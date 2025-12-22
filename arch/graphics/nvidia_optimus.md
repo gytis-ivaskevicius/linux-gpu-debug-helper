@@ -12,7 +12,7 @@ Optimus](zh-hans:NVIDIA_Optimus "wikilink") `{{Related articles start}}`{=mediaw
 ```
 [NVIDIA Optimus](Wikipedia:NVIDIA_Optimus "wikilink") is a technology that allows an integrated GPU and discrete NVIDIA
 GPU to be built into and accessed by a laptop. As a prerequisite, install the relevant [GPU
-driver](Xorg#Driver_installation "wikilink") for both cards.
+driver](Graphics_processing_unit#Installation "wikilink") for both cards.
 
 ## Available methods {#available_methods}
 

@@ -36,7 +36,7 @@ At first, note that for *any* method you use, you should *always* disable:
 -   Any `{{ic|<nowiki>vga=</nowiki>}}`{=mediawiki} options in your [boot loader](boot_loader "wikilink") as these will
     conflict with the native resolution enabled by KMS.
 -   Any `{{ic|<nowiki>video=</nowiki>}}`{=mediawiki} lines that enable a framebuffer that conflicts with the driver.
--   Any other framebuffer drivers (such as [uvesafb](uvesafb "wikilink")).
+-   Any other [framebuffer](framebuffer "wikilink") drivers.
 
 ```{=mediawiki}
 {{Out of date|Arch [[Kernel#Officially supported kernels|officially supported kernels]] have ''simpledrm'' KMS driver inbuilt [https://gitlab.archlinux.org/archlinux/packaging/packages/linux/-/blob/88ea405f03782d77b9cb30f54efa1f52280e53aa/config#L6955] for years now. Which means Arch users '''always''' have early KMS start. So this section is more about "when ''simpledrm'' transfers control to another driver".}}
@@ -79,8 +79,8 @@ driver](Xorg#Driver_installation "wikilink") to the initramfs configuration file
 -   ```{=mediawiki}
     {{ic|nvidia nvidia_modeset nvidia_uvm nvidia_drm}}
     ```
-    for the out-of-tree `{{Pkg|nvidia}}`{=mediawiki} and `{{Pkg|nvidia-open}}`{=mediawiki} drivers. See [NVIDIA#DRM
-    kernel mode setting](NVIDIA#DRM_kernel_mode_setting "wikilink") for details.
+    for the out-of-tree [NVIDIA](NVIDIA "wikilink") drivers. See [NVIDIA#DRM kernel mode
+    setting](NVIDIA#DRM_kernel_mode_setting "wikilink") for details.
 
 ```{=html}
 <!-- -->

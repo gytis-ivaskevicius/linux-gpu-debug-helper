@@ -39,14 +39,13 @@ Then, install the appropriate driver for your card:
 |                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
 |                                      | for any kernel(s)                    |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
-| [Maxwell                             | ```{=mediawiki}                      | Current, supported^1^                |
-| (NV110/GMXXX)](https://nouveau.f     | {{Pkg|nvidia}}                       |                                      |
+| [Maxwell                             | ```{=mediawiki}                      | Legacy, supported                    |
+| (NV110/GMXXX)](https://nouveau.f     | {{AUR|nvidia-580xx-dkms}}            |                                      |
 | reedesktop.org/CodeNames.html#NV110) | ```                                  |                                      |
-| through\                             | for `{{Pkg|linux}}`{=mediawiki}\     |                                      |
-| [Ada Lovelace                        | `{{Pkg|nvidia-lts}}`{=mediawiki} for |                                      |
-| (NV190/ADXXX)](https://nouveau.f     | `{{Pkg|linux-lts}}`{=mediawiki}\     |                                      |
-| reedesktop.org/CodeNames.html#NV190) | `{{Pkg|nvidia-dkms}}`{=mediawiki}    |                                      |
-|                                      | for any kernel(s)                    |                                      |
+| through\                             |                                      |                                      |
+| [Volta                               |                                      |                                      |
+| (NV140/GVXXX)](https://nouveau.f     |                                      |                                      |
+| reedesktop.org/CodeNames.html#NV140) |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Kepler                              | ```{=mediawiki}                      | Legacy, unsupported^3,4^             |
 | (NVE0/GKXXX)](https://nouveau.       | {{AUR|nvidia-470xx-dkms}}            |                                      |
@@ -72,7 +71,7 @@ Then, install the appropriate driver for your card:
 2.  NVIDIA\'s open kernel modules cannot enable [D3 Power
     Management](PRIME#PCI-Express_Runtime_D3_(RTD3)_Power_Management "wikilink") on Turing. This reduces battery life on
     notebooks with Turing in an [NVIDIA Optimus](NVIDIA_Optimus "wikilink") configuration. Use the proprietary module
-    (e.g. `{{Pkg|nvidia}}`{=mediawiki}) with [module parameter](module_parameter "wikilink")
+    (e.g. `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with [module parameter](module_parameter "wikilink")
     `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead. [More information about this
     issue](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-2188114679).
 3.  May not function correctly on Linux 5.18 (or later) on systems with Intel CPUs [11th Gen and
@@ -203,10 +202,8 @@ information.
 
 #### fbdev
 
-```{=mediawiki}
-{{Out of date|As of {{Pkg|linux}} 6.14.2 and {{Pkg|nvidia}} 570.133.07 Wayland seems to work well with fbdev disabled and the {{ic|cat}} command can return {{ic|N}}, so this section is probably only relevant for older versions of the driver.}}
-```
-Enabling `{{ic|fbdev}}`{=mediawiki} is necessary for some Wayland configurations.
+For legacy driver versions that are no longer supported enabling `{{ic|fbdev}}`{=mediawiki} might be necessary for some
+Wayland configurations.
 
 It is specifically a hard requirement on Linux 6.11 and later, but it is currently unclear whether this is intended
 behavior or a bug, see

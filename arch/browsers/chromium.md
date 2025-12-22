@@ -118,10 +118,9 @@ AcceleratedVideoDecodeLinuxGL }}
 
 ```{=mediawiki}
 {{Note|
-* In addition, the following flag can improve performance when using EGL/Wayland:
-{{ic|--enable-features{{=}}AcceleratedVideoDecodeLinuxZeroCopyGL}}
+* When using EGL/Wayland, using {{ic|--enable-features{{=}}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL}}
 ```
-.
+instead of the above flag may improve performance.
 
 -   Chromium versions prior to 131 should use `{{ic|--enable-features{{=}}`{=mediawiki}VaapiVideoDecodeLinuxGL}}
     instead.

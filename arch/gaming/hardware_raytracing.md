@@ -46,7 +46,7 @@ NVIDIA\'s raytracing implementation for Linux is pretty much on par with Windows
 hardware and the correct drivers RTX works well on Linux.
 
 -   **GPU** - Any card with the RTX moniker (RTX 2060+, RTX 3050+, RTX 4050+)
--   **Driver** - `{{Pkg|nvidia}}`{=mediawiki} 510.60.02 or newer with `{{Pkg|nvidia-utils}}`{=mediawiki} and
+-   **Driver** - `{{Pkg|nvidia-open}}`{=mediawiki} with `{{Pkg|nvidia-utils}}`{=mediawiki} and
     `{{Pkg|nvidia-settings}}`{=mediawiki} (with their lib32 variants)
 
 ### Usage {#usage_2}

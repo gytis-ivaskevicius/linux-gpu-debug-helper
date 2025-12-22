@@ -15,10 +15,7 @@ from what was used for the first X server.
 
 [Install](Install "wikilink"):
 
--   ```{=mediawiki}
-    {{Pkg|nvidia}}
-    ```
-    \- if using older drivers you have to edit nvidia-xrun\'s PKGBUILD and remove the NVIDIA depend
+-   The [NVIDIA](NVIDIA "wikilink") driver
 
 -   ```{=mediawiki}
     {{AUR|nvidia-xrun-git}}
@@ -32,9 +29,6 @@ from what was used for the first X server.
 
 ### Setting the right bus id {#setting_the_right_bus_id}
 
-```{=mediawiki}
-{{Note|If you installed package from [[AUR]], the bus id has been automatically set in {{ic|/etc/X11/nvidia-xorg.conf}}. Make sure the bus ID has been correctly set, otherwise change it (you can find correct bus ID using {{ic|lspci}} command). In some cases you need to convert the hex output from {{ic|lspci}} to decimal for {{ic|nvidia-xorg.conf}}, e.g. {{ic|3b:00.0}} becomes {{ic|"PCI:59:0:0"}}.}}
-```
 Find your display device bus id:
 
 `$ lspci -d 10de::03xx | awk '{print $1}'`

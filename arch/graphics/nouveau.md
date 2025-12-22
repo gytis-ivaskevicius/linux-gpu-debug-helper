@@ -4,8 +4,7 @@
 `{{Related|Xorg}}`{=mediawiki} `{{Related|Bumblebee}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 This article covers the reverse-engineered open-source [Nouveau](https://nouveau.freedesktop.org/) driver for NVIDIA
-graphics cards. For information about the upstream proprietary `{{Pkg|nvidia}}`{=mediawiki} and open-source
-`{{Pkg|nvidia-open}}`{=mediawiki} drivers, see [NVIDIA](NVIDIA "wikilink").
+graphics cards. For information about the upstream drivers, see [NVIDIA](NVIDIA "wikilink").
 
 Find your card\'s [code name](https://nouveau.freedesktop.org/wiki/CodeNames) (a more detailed list is available on
 [Wikipedia](Wikipedia:Comparison_of_Nvidia_Graphics_Processing_Units "wikilink")), and compare it with the [feature
@@ -43,9 +42,9 @@ Before enabling NVK you must [uninstall](uninstall "wikilink") any of the follow
 `{{ic|lib32}}`{=mediawiki} and [DKMS](DKMS "wikilink") variants):
 
 -   ```{=mediawiki}
-    {{Pkg|nvidia}}
+    {{Pkg|nvidia-open}}
     ```
-    , `{{Pkg|nvidia-open}}`{=mediawiki}, `{{Pkg|nvidia-lts}}`{=mediawiki}, `{{AUR|nvidia-beta}}`{=mediawiki}
+    , `{{Pkg|nvidia-open-lts}}`{=mediawiki}, `{{AUR|nvidia-beta}}`{=mediawiki}
 
 -   ```{=mediawiki}
     {{Pkg|nvidia-settings}}
