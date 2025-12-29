@@ -129,12 +129,10 @@ access and linking to ollama open webUI for example.
 
 To change the torch and torchvision packages to ROCM 6.3 after the installer script has run, execute the following:
 
-`$ sudo -u sdwebui -s`\
-`$ cd`\
-`$ source venv/bin/activate`\
-`$ pip uninstall torch torchvision`\
-`$ deactivate`\
-`$ exit`
+`[sdwebui]$ cd`\
+`[sdwebui]$ source venv/bin/activate`\
+`[sdwebui]$ pip uninstall torch torchvision`\
+`[sdwebui]$ deactivate`
 
 Restart `{{ic|stable-diffusion-webui.service}}`{=mediawiki} for changes to take effect and for the installation to
 complete.

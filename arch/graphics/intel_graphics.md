@@ -14,8 +14,8 @@ support](Gentoo:Intel#Feature_support "wikilink").
 ```{=mediawiki}
 {{Note|
 * PowerVR-based graphics ([[Intel GMA 3600|GMA 3600]] series) are not supported by open source drivers.
-* Intel's Gen''N'' hardware does not refer to the generation of the CPU, it refers to the [[Wikipedia:List of Intel graphics processing units|generation of the GPU]], which is different from the generation of the CPU. 
-* See [[Xorg#Driver installation]] to identify your card. 
+* Intel's Gen ''N'' hardware does not refer to the generation of the CPU, it refers to the [[Wikipedia:List of Intel graphics processing units|generation of the GPU]], which is different from the generation of the CPU. 
+* See [[Graphics processing unit#Installation]] to identify your card. 
 }}
 ```
 ## Installation
@@ -76,14 +76,14 @@ KMS as soon as possible at the boot process.
 
 ### Enable GuC / HuC firmware loading {#enable_guc_huc_firmware_loading}
 
-Starting with Gen9 (Skylake and onwards), Intel GPUs include a *Graphics micro (μ) Controller* (GuC) which provides the
+Starting with Gen 9 (Skylake and onwards), Intel GPUs include a *Graphics micro (μ) Controller* (GuC) which provides the
 following functionality:
 
 -   Offloading some media decoding functionality from the CPU to the *HEVC/H.265 micro (µ) Controller* (HuC). Only
     applicable if using `{{Pkg|intel-media-driver}}`{=mediawiki} for [hardware video
-    acceleration](hardware_video_acceleration "wikilink"). Introduced with Gen9.
+    acceleration](hardware_video_acceleration "wikilink"). Introduced with Gen 9.
 -   Using the GuC for scheduling, context submission, and power management. Introduced with Alder Lake-P (Mobile),
-    within Gen12.
+    within Gen 12.
 
 To use this functionality, first ensure that `{{Pkg|linux-firmware-intel}}`{=mediawiki} is
 [installed](install "wikilink"), as it provides the GuC and HuC firmware files.
@@ -105,7 +105,7 @@ module parameter](kernel_module_parameter "wikilink"). Its usage is as follows:
 | enable_guc value | GuC Submission  | HuC Firmware Loading | Default for platforms   | Supported on platforms  |
 +==================+=================+======================+=========================+=========================+
 | 0                | ```{=mediawiki} | ```{=mediawiki}      | Tiger Lake, Rocket      | All                     |
-|                  | {{No}}          | {{No}}               | Lake, and Pre-Gen12     |                         |
+|                  | {{No}}          | {{No}}               | Lake, and pre-Gen 12    |                         |
 |                  | ```             | ```                  | [2](https://git         |                         |
 |                  |                 |                      | hub.com/torvalds/linux/ |                         |
 |                  |                 |                      | blob/b3454ce0b2c8a56e76 |                         |
@@ -117,7 +117,7 @@ module parameter](kernel_module_parameter "wikilink"). Its usage is as follows:
 |                  | {{Yes}}         | {{No}}               |                         | and newer               |
 |                  | ```             | ```                  |                         |                         |
 +------------------+-----------------+----------------------+-------------------------+-------------------------+
-| 2                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-S (Desktop)  | Gen9 and newer          |
+| 2                | ```{=mediawiki} | ```{=mediawiki}      | Alder Lake-S (Desktop)  | Gen 9 and newer         |
 |                  | {{No}}          | {{Yes}}              | [3](https://git         |                         |
 |                  | ```             | ```                  | hub.com/torvalds/linux/ |                         |
 |                  |                 |                      | blob/b3454ce0b2c8a56e76 |                         |
@@ -242,7 +242,7 @@ See the \"AccelMethod\" option under `{{man|4|intel|CONFIGURATION DETAILS}}`{=me
 
 #### Using Intel DDX driver with recent GPUs {#using_intel_ddx_driver_with_recent_gpus}
 
-For Intel GPUs starting from Gen8 (Broadwell), the Iris Mesa driver is needed:
+For Intel GPUs starting from Gen 8 (Broadwell), the Iris Mesa driver is needed:
 
 `Option      "DRI"  "iris"`
 
@@ -298,18 +298,14 @@ options i915 enable_fbc=1
 }}
 ```
 ```{=mediawiki}
-{{Note|Framebuffer compression may be unreliable or unavailable on Intel GPU generations before Sandy Bridge (generation 6). This results in messages logged to the system journal similar to this one:
+{{Note|
+Framebuffer compression may be unreliable or unavailable before Gen 6 (Sandy Bridge). Having it enabled results in endless error messages:
 
- kernel: drm: not enough stolen space for compressed buffer, disabling.
+ [drm] not enough stolen space for compressed buffer (need 4325376 bytes), disabling
+ [drm] hint: you may be able to increase stolen memory size in the BIOS to avoid this
 
-Enabling frame buffer compression on pre-Sandy Bridge CPUs results in endless error messages:
-
-{{hc|# dmesg|
-[ 2360.475430] [drm] not enough stolen space for compressed buffer (need 4325376 bytes), disabling
-[ 2360.475437] [drm] hint: you may be able to increase stolen memory size in the BIOS to avoid this
+The solution is to disable frame buffer compression (which will increase power consumption by around 0.06 W) with the {{ic|1=i915.enable_fbc=0}} [[kernel parameter]]. [https://web.archive.org/web/20200228230053/https://kernel.ubuntu.com/~cking/power-benchmarking/background-colour-and-framebuffer-compression/]
 }}
-
-The solution is to disable frame buffer compression which will imperceptibly increase power consumption (around 0.06 W). In order to disable it add {{ic|1=i915.enable_fbc=0}} to the kernel line parameters. More information on the results of disabled compression can be found [https://web.archive.org/web/20200228230053/https://kernel.ubuntu.com/~cking/power-benchmarking/background-colour-and-framebuffer-compression/ here].}}
 ```
 ### Fastboot
 
@@ -335,7 +331,7 @@ See [Intel GVT-g](Intel_GVT-g "wikilink") for details.
 
 ### Enable performance support {#enable_performance_support}
 
-Starting with Gen6 (Sandy Bridge and onwards), Intel GPUs provide performance counters used for exposing internal
+Starting with Gen 6 (Sandy Bridge and onwards), Intel GPUs provide performance counters used for exposing internal
 performance data to drivers. The drivers and hardware registers refer to this infrastructure as the *Observation
 Architecture* (internally \"OA\") [7](https://www.phoronix.com/scan.php?page=news_item&px=Intel-HSW-Observation-Arch),
 but Intel\'s documentation also more generally refers to this functionality as providing *Observability Performance
@@ -575,7 +571,7 @@ solutions are:
 -   [Set the AccelMethod to \"uxa\"](#AccelMethod "wikilink")
 -   [Disable VSYNC](#Disable_Vertical_Synchronization_(VSYNC) "wikilink")
 -   [Enable the TearFree option](#Tearing "wikilink")
--   Disable \"DRI\" and acceleration method (tested on Intel Iris 10th generation): `{{bc|<nowiki>
+-   Disable \"DRI\" and acceleration method (tested on Gen 10): `{{bc|<nowiki>
     Option "NoAccel" "True"
     Option "DRI" "False"
     </nowiki>}}`{=mediawiki}

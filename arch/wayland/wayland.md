@@ -106,10 +106,6 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|MangoWC|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/DreamMaoMao/mangowc|{{AUR|mangowc-git}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|miracle-wm|A Wayland compositor based on Mir in the style of i3 and sway with the intention to be flashier and more feature-rich than either, like swayfx.|https://github.com/miracle-wm-org/miracle-wm|{{AUR|miracle-wm}}}}
     ```
 
@@ -137,6 +133,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 
 -   ```{=mediawiki}
     {{App|[[cwc]]|[[awesome]]-like Wayland compositor based on wlroots.|https://cudiph.github.io/cwc/apidoc/| {{AUR|cwc}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Mangowc]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/DreamMaoMao/mangowc|{{AUR|mangowc}}}}
     ```
 
 -   ```{=mediawiki}
@@ -321,11 +321,22 @@ To run a Clutter application on Wayland, set `{{ic|1=CLUTTER_BACKEND=wayland}}`{
 
 ### SDL
 
-In [SDL3](SDL "wikilink"), Wayland is used by default to communicate with the desktop compositor.
+In [SDL3](SDL "wikilink"), Wayland is used by default if the compositor supports the [fifo-v1
+protocol](https://wayland.app/protocols/fifo-v1).
+[9](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
+Otherwise, X11 and Wayland are tried in order. Either can be forced either using the
+`{{ic|1=SDL_VIDEO_DRIVER=x11}}`{=mediawiki} or `{{ic|1=SDL_VIDEO_DRIVER=wayland}}`{=mediawiki} environment variables
+respectively (or, with a lower precedence, the SDL2 environment variable
+below)[10](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802).
 
-To run an SDL2 application on Wayland, set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
+```{=mediawiki}
+{{Pkg|sdl2-compat}}
+```
+follows the SDL3 rules above, barring [application-specific
+exceptions](https://github.com/libsdl-org/sdl2-compat/blob/8b85f95bbcc3411c78c1f2cbd62b23b7f96093c2/src/sdl2_compat.c#L504-L538).
+As for SDL2 proper (e.g. `{{AUR|sdl2}}`{=mediawiki}), set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
 `{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
-available.[9](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
+available.[11](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
 enable window decorations (for example, on GNOME).
 
 Refer to the [official documentation](https://wiki.libsdl.org/SDL3/README/wayland) for more details.
@@ -357,7 +368,7 @@ Xwayland by modifying environment variables:
 -   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
 -   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
     `{{ic|1=DISPLAY}}`{=mediawiki} variable.
-    [10](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
+    [12](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
 
 ### Electron
 
@@ -507,12 +518,12 @@ normal.
     ```
     and `{{Pkg|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
-    [11](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
+    [13](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 
 -   ```{=mediawiki}
     {{pkg|mutter}}
     ```
-    has now remote desktop enabled at compile time, see [12](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
+    has now remote desktop enabled at compile time, see [14](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
     `{{Pkg|gnome-remote-desktop}}`{=mediawiki} for details.
 
 -   ```{=mediawiki}

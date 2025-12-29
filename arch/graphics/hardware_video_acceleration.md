@@ -13,8 +13,7 @@ There are several ways to achieve this on Linux:
     to offload portions of the video decoding process and video post-processing to the GPU video-hardware, developed by
     NVIDIA.
 -   [Advanced Media Framework SDK](https://gpuopen.com/advanced-media-framework/) (AMF) is an open source framework
-    which allows \"Optimal\" access to AMD GPUs for multimedia processing using the [AMDGPU PRO](AMDGPU_PRO "wikilink")
-    Stack, Developed by AMD.
+    which allows \"Optimal\" access to AMD GPUs for multimedia processing, developed by AMD.
 -   [NVDEC](Wikipedia:Nvidia_NVDEC "wikilink")/[NVENC](Wikipedia:Nvidia_NVENC "wikilink") - NVIDIA\'s proprietary APIs
     for hardware video acceleration, used by NVIDIA GPUs from Fermi onwards.
 -   [Vulkan Video](https://www.khronos.org/blog/an-introduction-to-vulkan-video) is an extension of the
@@ -28,7 +27,7 @@ For comprehensive overview of driver and application support see [#Comparison ta
 
 #### VA-API {#va_api}
 
-[Intel graphics](Intel_graphics "wikilink") open-source drivers support VA-API:
+The [Intel graphics](Intel_graphics "wikilink") open-source driver supports VA-API:
 
 -   HD Graphics series starting from [Broadwell](https://github.com/intel/media-driver/#supported-platforms)
     [(2014)](wikipedia:Template:Intel_processor_roadmap "wikilink") and newer (e.g. Intel Arc) are supported by
@@ -68,13 +67,13 @@ For [Intel VPL](https://github.com/intel/libvpl), [install](install "wikilink") 
 
 ### NVIDIA
 
-[Nouveau](Nouveau "wikilink") open-source driver supports both VA-API and VDPAU:
+The [Nouveau](Nouveau "wikilink") open-source driver supports VA-API:
 
 -   GeForce 8 series and newer GPUs up until GeForce GTX 750 are supported by `{{Pkg|mesa}}`{=mediawiki}.
 -   [Requires](https://nouveau.freedesktop.org/wiki/VideoAcceleration/#firmware) `{{AUR|nouveau-fw}}`{=mediawiki}
     firmware package, presently extracted from the NVIDIA binary driver.
 
-[NVIDIA](NVIDIA "wikilink") proprietary driver supports via `{{Pkg|nvidia-utils}}`{=mediawiki}:
+The [NVIDIA](NVIDIA "wikilink") proprietary driver supports (via `{{Pkg|nvidia-utils}}`{=mediawiki}):
 
 -   VDPAU on [GeForce 8 series](Wikipedia:GeForce_8_series "wikilink") and newer GPUs;
 -   NVDEC on [Fermi](Wikipedia:Fermi_(microarchitecture) "wikilink") and newer GPUs
@@ -92,15 +91,14 @@ For [Intel VPL](https://github.com/intel/libvpl), [install](install "wikilink") 
 RADV open-source [vulkan](vulkan "wikilink") driver provides Vulkan Video support via
 `{{Pkg|vulkan-radeon}}`{=mediawiki}.
 
-[AMDGPU PRO](AMDGPU_PRO "wikilink") proprietary driver is built on top of AMDGPU driver and supports both VA-API and
-VDPAU in addition to AMF.
-
+```{=mediawiki}
+{{Out of date|The latest release of the AMD Media Framework no longer requires the proprietary additions to the open driver, but the AUR package has not been revamped, nor a new ''amf'' package relying on the open [[AMDGPU]] driver been uploaded.}}
+```
 -   AMF on [Fiji](Wikipedia:Radeon_Rx_300_series "wikilink") and newer GPUs supported by
     `{{AUR|amf-amdgpu-pro}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Note|
-* You may need to force your application to use [[AMDGPU PRO]] [[Vulkan]] Driver.
 * [[Wikipedia:High Efficiency Video Coding|HEVC]] encoding may not be available on GPUs older than [[Wikipedia:Radeon RX 5000 series|Navi]].
 }}
 ```
@@ -246,6 +244,9 @@ extension revision 8 }}
 
 ## Configuration
 
+```{=mediawiki}
+{{Accuracy|Very [[Xorg]]-centric: what is the way to tell which value is "guessed" on [[Wayland]]? Is it even necessary to have this step if readers are expected to have followed the previous section?}}
+```
 Although the video driver should automatically enable hardware video acceleration support for both VA-API and VDPAU, it
 may be needed to configure VA-API/VDPAU manually. Only continue to this section if you went through
 [#Verification](#Verification "wikilink").
@@ -302,6 +303,9 @@ variable](environment_variable "wikilink"):
 
 ### Configuring VDPAU {#configuring_vdpau}
 
+```{=mediawiki}
+{{Out of date|{{Pkg|mesa}} 25.3.0 [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632 removed] support from the open source drivers. Instructions for the open drivers need to be adjusted to only talk about {{Pkg|libvdpau-va-gl}} or outright removed.}}
+```
 You can override the driver for VDPAU by using the `{{ic|VDPAU_DRIVER}}`{=mediawiki} [environment
 variable](environment_variable "wikilink").
 
@@ -419,56 +423,55 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 | Decoding             |                      |                      |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | MPEG-2               | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | See [#NVIDIA driver  |
-|                      | {{G|                 | {{G|B                | {{G|Radeon H         | only](#NVIDIA_dri    |
-|                      | GMA 4500 and newer}} | roadwell and newer}} | D 6000 - Radeon RX 6 | ver_only "wikilink") |
-|                      | ```                  | ```                  | 000<br>GeForce 8 and |                      |
-|                      |                      |                      |  newer<sup>1</sup>}} |                      |
+|                      | {{G|GM               | {{G|B                | {                    | only](#NVIDIA_dri    |
+|                      | A 4500 to Ice Lake}} | roadwell and newer}} | {G|Radeon HD 6000 -  | ver_only "wikilink") |
+|                      | ```                  | ```                  | Radeon RX 6000<br>Ge |                      |
+|                      |                      |                      | Force 8 to GTX 750}} |                      |
 |                      |                      |                      | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.263/MPEG-4         | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-| Visual^3^            | {{No}}               | {{No}}               | {{G|Radeon HD 600    |                      |
+| Visual^1^            | {{No}}               | {{No}}               | {{G|Radeon HD 600    |                      |
 |                      | ```                  | ```                  | 0 - Radeon RX 6000}} |                      |
 |                      |                      |                      | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VC-1                 | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
-|                      | {{G|Sand             | `{{G|Broadwell and   | {{G|Radeon HD 2      |                      |
-|                      | y Bridge and newer}} | newer}}`{=mediawiki} | 000 - Radeon RX 6000 |                      |
-|                      | ```                  |                      | <br>GeForce 9300 and |                      |
-|                      |                      |                      |  newer<sup>1</sup>}} |                      |
+|                      | {{G|Sandy            | `{{G|Broadwell and   | {{G|                 |                      |
+|                      | Bridge to Ice Lake}} | newer}}`{=mediawiki} | Radeon HD 2000 - Rad |                      |
+|                      | ```                  |                      | eon RX 6000<br>GeFor |                      |
+|                      |                      |                      | ce 9300 to GTX 750}} |                      |
 |                      |                      |                      | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.264/MPEG-4 AVC     | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
-|                      | {{G|                 | {{G|R                |                      |                      |
-|                      | Ironlake and newer}} | adeon HD 2000 and ne |                      |                      |
-|                      | ```                  | wer<br>GeForce 8 and |                      |                      |
-|                      |                      |  newer<sup>1</sup>}} |                      |                      |
+|                      | {{G|Ir               | {{G|Radeon HD        |                      |                      |
+|                      | onlake to Ice Lake}} | 2000 and newer<br>Ge |                      |                      |
+|                      | ```                  | Force 8 to GTX 750}} |                      |                      |
 |                      |                      | ```                  |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.265/HEVC 8bit      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|Cherryview/      | {{G                  | {{G|Radeon           |                      |
-|                      | Braswell and newer}} | |Skylake and newer}} |  R9 Fury and newer}} |                      |
+|                      | {{G|Cherryview/Br    | {{G                  | {{G|Radeon           |                      |
+|                      | aswell to Ice Lake}} | |Skylake and newer}} |  R9 Fury and newer}} |                      |
 |                      | ```                  | ```                  | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.265/HEVC 10bit     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G                  | {{G|Broxton/Apo      | {{G|Ra               |                      |
-|                      | |Broxton and newer}} | llo Lake and newer}} | deon 400 and newer}} |                      |
+|                      | {{G|B                | {{G|Broxton/Apo      | {{G|Ra               |                      |
+|                      | roxton to Ice Lake}} | llo Lake and newer}} | deon 400 and newer}} |                      |
 |                      | ```                  | ```                  | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP8                  | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|B                | {{G|B                | {{No}}               |                      |
-|                      | roadwell and newer}} | roadwell and newer}} | ```                  |                      |
+|                      | {{G|Bro              | {{G|B                | {{No}}               |                      |
+|                      | adwell to Ice Lake}} | roadwell and newer}} | ```                  |                      |
 |                      | ```                  | ```                  |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP9 8bit             | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=2            |                      |
-|                      | {{G|Broxton and      | {{G|Broxton/Apo      | `{{G|Raven Ridge +   |                      |
-|                      |  newer <br> Hybrid:  | llo Lake and newer}} | Radeon RX 5000 and n |                      |
+|                      | {{G|Broxton to Ic    | {{G|Broxton/Apo      | `{{G|Raven Ridge +   |                      |
+|                      | e Lake <br> Hybrid:  | llo Lake and newer}} | Radeon RX 5000 and n |                      |
 |                      | Haswell refresh to S | ```                  | ewer }}`{=mediawiki} |                      |
 |                      | kylake<sup>2</sup>}} |                      |                      |                      |
 |                      | ```                  |                      |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP9 10bit & 12bit    | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
-|                      | {{G|K                | {{G|K                |                      |                      |
-|                      | aby Lake and newer}} | aby Lake and newer}} |                      |                      |
+|                      | {{G|Kab              | {{G|K                |                      |                      |
+|                      | y Lake to Ice Lake}} | aby Lake and newer}} |                      |                      |
 |                      | ```                  | ```                  |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | AV1 8bit & 10bit     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
@@ -479,37 +482,38 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 | Encoding             |                      |                      |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | MPEG-2               | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=8            |
-|                      | {{G|Iv               | {{G|Broadwell a      | {{No}}               | `{{                  |
-|                      | y Bridge and newer}} | nd newer<br>except B | ```                  | No}}`{=mediawiki}^4^ |
+|                      | {{G|Ivy              | {{G|Broadwell a      | {{No}}               | `{{                  |
+|                      | Bridge to Ice Lake}} | nd newer<br>except B | ```                  | No}}`{=mediawiki}^3^ |
 |                      | ```                  | roxton/Apollo Lake}} |                      |                      |
 |                      |                      | ```                  |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.264/MPEG-4 AVC     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|Sand             | {{G|B                | {{G|Radeon           |                      |
-|                      | y Bridge and newer}} | roadwell and newer}} |  HD 7000 and newer}} |                      |
+|                      | {{G|Sandy            | {{G|B                | {{G|Radeon           |                      |
+|                      | Bridge to Ice Lake}} | roadwell and newer}} |  HD 7000 and newer}} |                      |
 |                      | ```                  | ```                  | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.265/HEVC 8bit      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G                  | {{G                  | {{G|Ra               |                      |
-|                      | |Skylake and newer}} | |Skylake and newer}} | deon 400 and newer}} |                      |
+|                      | {{G|S                | {{G                  | {{G|Ra               |                      |
+|                      | kylake to Ice Lake}} | |Skylake and newer}} | deon 400 and newer}} |                      |
 |                      | ```                  | ```                  | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | H.265/HEVC 10bit     | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
-|                      | {{G|K                | `{{G|Kaby Lake and   | {{G|                 |                      |
-|                      | aby Lake and newer}} | newer}}`{=mediawiki} | Raven Ridge + Radeon |                      |
+|                      | {{G|Kab              | `{{G|Kaby Lake and   | {{G|                 |                      |
+|                      | y Lake to Ice Lake}} | newer}}`{=mediawiki} | Raven Ridge + Radeon |                      |
 |                      | ```                  |                      |  RX 5000 and newer}} |                      |
 |                      |                      |                      | ```                  |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP8                  | ```{=mediawiki}      | rowspan=3            |                      |                      |
-|                      | {{G|Cherryview/Bras  | `{{No}}`{=mediawiki} |                      |                      |
-|                      | well and newer <br>  |                      |                      |                      |
+|                      | {                    | `{{No}}`{=mediawiki} |                      |                      |
+|                      | {G|Cherryview/Braswe |                      |                      |                      |
+|                      | ll to Ice Lake <br>  |                      |                      |                      |
 |                      | Hybrid: Haswell to S |                      |                      |                      |
 |                      | kylake<sup>2</sup>}} |                      |                      |                      |
 |                      | ```                  |                      |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP9 8bit             | ```{=mediawiki}      | rowspan=2            |                      |                      |
-|                      | {{G|K                | `{{G|Ice Lake and    |                      |                      |
-|                      | aby Lake and newer}} | newer}}`{=mediawiki} |                      |                      |
+|                      | {{G|Kab              | `{{G|Ice Lake and    |                      |                      |
+|                      | y Lake to Ice Lake}} | newer}}`{=mediawiki} |                      |                      |
 |                      | ```                  |                      |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 | VP9 10bit & 12bit    | rowspan=2            |                      |                      |                      |
@@ -521,91 +525,77 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 |                      | ```                  | ```                  |                      |                      |
 +----------------------+----------------------+----------------------+----------------------+----------------------+
 
-1.  Up until GeForce GTX 750.
-2.  Hybrid VP8 encoder and VP9 decoder supported by `{{AUR|intel-hybrid-codec-driver-git}}`{=mediawiki}.
-3.  MPEG-4 Part 2 is disabled by default due to VAAPI limitations. Set the [environment
+1.  MPEG-4 Part 2 is disabled by default due to VAAPI limitations. Set the [environment
     variable](environment_variable "wikilink") `{{ic|1=VAAPI_MPEG4_ENABLED=true}}`{=mediawiki} to try to use it anyway.
-4.  NVIDIA CUDA adapter codec support is in active development and susceptible to change
+2.  Hybrid VP8 encoder and VP9 decoder supported by `{{AUR|intel-hybrid-codec-driver-git}}`{=mediawiki}.
+3.  NVIDIA CUDA adapter codec support is in active development and susceptible to change
     [9](https://github.com/elFarto/nvidia-vaapi-driver/issues/116).
 
 ### VDPAU drivers {#vdpau_drivers}
 
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| Codec               | Color\      | ```{=mediawiki}         | ```{=mediawiki}         | ```{=mediawiki}         |
-|                     | depth       | {{pkg|mesa}}            | {{pkg|nvidia-utils}}    | {{pkg|libvdpau-va-gl}}  |
-|                     |             | ```                     | ```                     | ```                     |
-|                     |             | [10](https://www.x.o    |                         | \                       |
-|                     |             | rg/wiki/RadeonFeature/) |                         | (VA-API adapter)        |
-|                     |             | [11](https://no         |                         |                         |
-|                     |             | uveau.freedesktop.org/w |                         |                         |
-|                     |             | iki/VideoAcceleration/) |                         |                         |
-+=====================+=============+=========================+=========================+=========================+
-| Decoding            |             |                         |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| MPEG-2              | 8bit        | ```{=mediawiki}         | ```{=mediawiki}         | rowspan=3               |
-|                     |             | {{G|Radeon R600 an      | {{                      | `{{No}}`{=mediawiki}    |
-|                     |             | d newer <br> GeForce 8  | G|GeForce 8 and newer}} |                         |
-|                     |             | and newer<sup>1</sup>}} | ```                     |                         |
-|                     |             | ```                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| H.263/MPEG-4 Visual | 8bit        | ```{=mediawiki}         | ```{=mediawiki}         |                         |
-|                     |             | {{G|Radeon HD 6000 and  | {{G|                    |                         |
-|                     |             | newer <br> GeForce 200  | GeForce 200 and newer}} |                         |
-|                     |             | and newer<sup>1</sup>}} | ```                     |                         |
-|                     |             | ```                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| VC-1                | 8bit        | ```{=mediawiki}         | ```{=mediawiki}         |                         |
-|                     |             | {                       | {{G|GeForce 8           |                         |
-|                     |             | {G|Radeon HD 2000 and n | and newer<sup>2</sup>}} |                         |
-|                     |             | ewer <br> GeForce 9300  | ```                     |                         |
-|                     |             | and newer<sup>1</sup>}} |                         |                         |
-|                     |             | ```                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| H.264/MPEG-4 AVC    | 8bit        | ```{=mediawiki}         | ```{=mediawiki}         | See [#VA-API            |
-|                     |             | {{G|Radeon HD 2000 an   | {{                      | drivers](#VA-           |
-|                     |             | d newer <br> GeForce 8  | G|GeForce 8 and newer}} | API_drivers "wikilink") |
-|                     |             | and newer<sup>1</sup>}} | ```                     |                         |
-|                     |             | ```                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| H.265/HEVC          | 8bit        | ```{=mediawiki}         | ```{=mediawiki}         | rowspan=6               |
-|                     |             | {{G|Rad                 | {{G|GeForce 900         | `{{No}}`{=mediawiki}    |
-|                     |             | eon R9 Fury and newer}} | and newer<sup>3</sup>}} |                         |
-|                     |             | ```                     | ```                     |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-|                     | 10bit       | ```{=mediawiki}         | ```{=mediawiki}         |                         |
-|                     |             | {{G                     | {{No}}                  |                         |
-|                     |             | |Radeon 400 and newer}} | ```                     |                         |
-|                     |             | ```                     | ^4^                     |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| VP9                 | 8bit        | rowspan=2               | ```{=mediawiki}         |                         |
-|                     |             | `{{G|Raven R            | {{G|GeForce 900         |                         |
-|                     |             | idge + Radeon RX 5000 a | and newer<sup>3</sup>}} |                         |
-|                     |             | nd newer}}`{=mediawiki} | ```                     |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-|                     | 10bit/12bit | ```{=mediawiki}         |                         |                         |
-|                     |             | {{No}}                  |                         |                         |
-|                     |             | ```                     |                         |                         |
-|                     |             | ^4^                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-| AV1                 | 8bit        | rowspan=2               | ```{=mediawiki}         |                         |
-|                     |             | `{{G|                   | {{G                     |                         |
-|                     |             | Radeon RX 6600 and high | |GeForce 30 and newer}} |                         |
-|                     |             | er/newer}}`{=mediawiki} | ```                     |                         |
-|                     |             |                         | ^5^                     |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
-|                     | 10bit       | ```{=mediawiki}         |                         |                         |
-|                     |             | {{No}}                  |                         |                         |
-|                     |             | ```                     |                         |                         |
-|                     |             | ^4^                     |                         |                         |
-+---------------------+-------------+-------------------------+-------------------------+-------------------------+
+Starting from `{{Pkg|mesa}}`{=mediawiki} 25.3.0 the VDPAU support was
+[removed](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632) from the open source drivers.
 
-1.  Up until GeForce GTX 750.
-2.  [Except](Wikipedia:Nvidia_PureVideo "wikilink") GeForce 8800 Ultra, 8800 GTX, 8800 GTS (320/640 MB).
-3.  Except GeForce GTX 970 and GTX 980.
-4.  NVIDIA implementation is limited to 8bit streams
-    [12](https://forums.developer.nvidia.com/t/vdpau-expose-hevc-main10-support-where-available-on-die/43163)
-    [13](https://us.download.nvidia.com/XFree86/Linux-x86_64/410.57/README/vdpausupport.html#vdpau-implementation-limits).
-5.  Starting with driver version 510.[14](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-510-Linux-Beta)
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| Codec               | Color\      | ```{=mediawiki}                         | ```{=mediawiki}                                   |
+|                     | depth       | {{pkg|nvidia-utils}}                    | {{pkg|libvdpau-va-gl}}                            |
+|                     |             | ```                                     | ```                                               |
+|                     |             |                                         | \                                                 |
+|                     |             |                                         | (VA-API adapter)                                  |
++=====================+=============+=========================================+===================================================+
+| Decoding            |             |                                         |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| MPEG-2              | 8bit        | ```{=mediawiki}                         | rowspan=3 `{{No}}`{=mediawiki}                    |
+|                     |             | {{G|GeForce 8 and newer}}               |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| H.263/MPEG-4 Visual | 8bit        | ```{=mediawiki}                         |                                                   |
+|                     |             | {{G|GeForce 200 and newer}}             |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| VC-1                | 8bit        | ```{=mediawiki}                         |                                                   |
+|                     |             | {{G|GeForce 8 and newer<sup>1</sup>}}   |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| H.264/MPEG-4 AVC    | 8bit        | ```{=mediawiki}                         | See [#VA-API drivers](#VA-API_drivers "wikilink") |
+|                     |             | {{G|GeForce 8 and newer}}               |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| H.265/HEVC          | 8bit        | ```{=mediawiki}                         | rowspan=6 `{{No}}`{=mediawiki}                    |
+|                     |             | {{G|GeForce 900 and newer<sup>2</sup>}} |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+|                     | 10bit       | ```{=mediawiki}                         |                                                   |
+|                     |             | {{No}}                                  |                                                   |
+|                     |             | ```                                     |                                                   |
+|                     |             | ^3^                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| VP9                 | 8bit        | ```{=mediawiki}                         |                                                   |
+|                     |             | {{G|GeForce 900 and newer<sup>2</sup>}} |                                                   |
+|                     |             | ```                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+|                     | 10bit/12bit | ```{=mediawiki}                         |                                                   |
+|                     |             | {{No}}                                  |                                                   |
+|                     |             | ```                                     |                                                   |
+|                     |             | ^3^                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+| AV1                 | 8bit        | ```{=mediawiki}                         |                                                   |
+|                     |             | {{G|GeForce 30 and newer}}              |                                                   |
+|                     |             | ```                                     |                                                   |
+|                     |             | ^4^                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+|                     | 10bit       | ```{=mediawiki}                         |                                                   |
+|                     |             | {{No}}                                  |                                                   |
+|                     |             | ```                                     |                                                   |
+|                     |             | ^3^                                     |                                                   |
++---------------------+-------------+-----------------------------------------+---------------------------------------------------+
+
+1.  [Except](Wikipedia:Nvidia_PureVideo "wikilink") GeForce 8800 Ultra, 8800 GTX, 8800 GTS (320/640 MB).
+2.  Except GeForce GTX 970 and GTX 980.
+3.  NVIDIA implementation is limited to 8bit streams
+    [10](https://forums.developer.nvidia.com/t/vdpau-expose-hevc-main10-support-where-available-on-die/43163)
+    [11](https://us.download.nvidia.com/XFree86/Linux-x86_64/410.57/README/vdpausupport.html#vdpau-implementation-limits).
+4.  Starting with driver version 510.[12](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-510-Linux-Beta)
 
 ### NVIDIA driver only {#nvidia_driver_only}
 
@@ -613,7 +603,7 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 | Codec             | ```{=mediawiki}                                           |
 |                   | {{Pkg|nvidia-utils}}                                      |
 |                   | ```                                                       |
-|                   | [15](https://developer.nvidia.com/nvidia-video-codec-sdk) |
+|                   | [13](https://developer.nvidia.com/nvidia-video-codec-sdk) |
 +===================+===========================================================+
 | NVDEC             | NVENC                                                     |
 +-------------------+-----------------------------------------------------------+

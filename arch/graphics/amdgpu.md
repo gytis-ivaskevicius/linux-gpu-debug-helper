@@ -272,41 +272,11 @@ See [Hardware video acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "w
 
 ### Monitoring
 
-Monitoring your GPU is often used to check the temperature and also the P-states of your GPU.
+Monitoring your GPU is often used to check the temperature and also the P-states of your GPU. See [Graphics processing
+unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink") for a list of CLI and GUI tools.
 
-#### CLI
-
--   ```{=mediawiki}
-    {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|nvtop|GPUs process monitoring for AMD, Intel and NVIDIA|https://github.com/Syllo/nvtop|{{Pkg|nvtop}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|radeontop|A GPU utilization viewer, both for the total activity percent and individual blocks|https://github.com/clbr/radeontop|{{Pkg|radeontop}}}}
-    ```
-
-#### GUI
-
--   ```{=mediawiki}
-    {{App|amdgpu_top|Tool to display AMDGPU usage|https://github.com/Umio-Yasuno/amdgpu_top|{{Pkg|amdgpu_top}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|AmdGuid|A basic fan control GUI fully written in Rust.|https://github.com/Eraden/amdgpud|{{AUR|amdguid-wayland-bin}}, {{AUR|amdguid-glow-bin}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|Radeon Profile|A Qt5 tool to read and change current clocks of AMD Radeon cards.|https://github.com/emerge-e-world/radeon-profile|{{AUR|radeon-profile-git}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|TuxClocker|A Qt5 monitoring and overclocking tool.|https://github.com/Lurkki14/tuxclocker|{{AUR|tuxclocker}}}}
-    ```
-
-#### Manually
+If you want to manually monitor individual elements, for example to use them within scripts, all the information is
+available in `{{ic|/sys/}}`{=mediawiki}.
 
 To check your GPU\'s P-states, execute:
 

@@ -240,10 +240,9 @@ To enable it run:
 ```{=mediawiki}
 {{Note|
 * Reverse PRIME is not supported for AMDGPU + NVIDIA on NVIDIA driver prior to 470 beta. See [https://forums.developer.nvidia.com/t/hp-omen-15-ryzen-4600h-nvidia-1660ti-no-display-over-hdmi/165265/2] for more details.
-* Currently when only external display is enabled, you will only get 1 FPS. See [https://gitlab.freedesktop.org/xorg/xserver/-/issues/1028] for more details, but a workaround is most likely to export "LIBGL_DRI3_DISABLE{{=}}
+* Currently when only the external display is enabled, you will only get 1 FPS. See [https://gitlab.freedesktop.org/xorg/xserver/-/issues/1028] for more details.
+}}
 ```
-true\" }}
-
 If the second GPU has outputs that are not accessible by the primary GPU, you can use **Reverse PRIME** to make use of
 them. This will involve using the primary GPU to render the images, and then pass them off to the second GPU.
 

@@ -92,8 +92,9 @@ services.gnome-keyring.enable = true;
 ### Systemd services {#systemd_services}
 
 Kanshi is an output configuration daemon. As explained above, we don\'t run Sway itself as a systemd service. There are
-auxiliary daemons that we do want to run as systemd services, for example Kanshi [4](https://sr.ht/~emersion/kanshi/),
-which implements monitor hot swapping. It would be enabled as follows: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+auxiliary daemons that we do want to run as systemd services, for example Kanshi
+[4](https://gitlab.freedesktop.org/emersion/kanshi), which implements monitor hot swapping. It would be enabled as
+follows: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
   # kanshi systemd service
   systemd.user.services.kanshi = {
     description = "kanshi daemon";

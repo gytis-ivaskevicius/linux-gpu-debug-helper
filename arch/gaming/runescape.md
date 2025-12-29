@@ -29,7 +29,7 @@ and does not Linux support on release.
 projects to install the Jagex Launcher and use Jagex Accounts in Linux\" as recommended by [Jagex
 Support](https://help.jagex.com/hc/en-gb/articles/13413514881937-Downloading-the-Jagex-Launcher-on-Linux).
 
-[Bolt](https://github.com/adamcake/Bolt) is a third-party launcher. [Install](Install "wikilink") with the
+[Bolt](https://codeberg.org/Adamcake/Bolt) is a third-party launcher. [Install](Install "wikilink") with the
 `{{AUR|bolt-launcher}}`{=mediawiki} package or with [Flatpak](Flatpak "wikilink") as
 `{{ic|com.adamcake.Bolt}}`{=mediawiki} from [Flathub](https://flathub.org/).
 

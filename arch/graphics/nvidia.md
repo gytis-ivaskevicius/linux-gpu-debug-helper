@@ -3,8 +3,8 @@
 [zh-hans:NVIDIA](zh-hans:NVIDIA "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|NVIDIA/Tips and tricks}}`{=mediawiki} `{{Related|NVIDIA/Troubleshooting}}`{=mediawiki}
 `{{Related|Nouveau}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
-`{{Related|Bumblebee}}`{=mediawiki} `{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
-`{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|Bumblebee}}`{=mediawiki} `{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 This article covers the official [NVIDIA](https://www.nvidia.com) graphics card drivers. For the community open-source
 driver, see [Nouveau](Nouveau "wikilink"). If you have a laptop with hybrid graphics, see also [NVIDIA
@@ -34,18 +34,20 @@ Then, install the appropriate driver for your card:
 | and newer                            | for `{{Pkg|linux}}`{=mediawiki}\     | /blog/nvidia-transitions-fully-towar |
 |                                      | `                                    | ds-open-source-gpu-kernel-modules/)\ |
 |                                      | {{Pkg|nvidia-open-lts}}`{=mediawiki} | Current, supported^1^\               |
-|                                      | for `{{Pkg|linux-lts}}`{=mediawiki}\ | Possible power management issue on   |
-|                                      | `{                                   | Turing^2^                            |
-|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
-|                                      | for any kernel(s)                    |                                      |
+|                                      | for `{{Pkg|linux-lts}}`{=mediawiki}\ | No [RTD3 Power                       |
+|                                      | `{                                   | Mana                                 |
+|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} | gement](PRIME#PCI-Express_Runtime_D3 |
+|                                      | for any kernel(s)                    | _(RTD3)_Power_Management "wikilink") |
+|                                      |                                      | on Turing^2^\                        |
+|                                      |                                      | Crashes some laptops^2^              |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Maxwell                             | ```{=mediawiki}                      | Legacy, supported                    |
 | (NV110/GMXXX)](https://nouveau.f     | {{AUR|nvidia-580xx-dkms}}            |                                      |
 | reedesktop.org/CodeNames.html#NV110) | ```                                  |                                      |
 | through\                             |                                      |                                      |
-| [Volta                               |                                      |                                      |
-| (NV140/GVXXX)](https://nouveau.f     |                                      |                                      |
-| reedesktop.org/CodeNames.html#NV140) |                                      |                                      |
+| [Ada Lovelace                        |                                      |                                      |
+| (NV190/ADXXX)](https://nouveau.f     |                                      |                                      |
+| reedesktop.org/CodeNames.html#NV190) |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Kepler                              | ```{=mediawiki}                      | Legacy, unsupported^3,4^             |
 | (NVE0/GKXXX)](https://nouveau.       | {{AUR|nvidia-470xx-dkms}}            |                                      |
@@ -66,14 +68,14 @@ Then, install the appropriate driver for your card:
 | and older                            |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 
-1.  If these packages do not work, it is usually due to new hardware releases. `{{AUR|nvidia-open-beta}}`{=mediawiki}
-    may have a newer driver version that offers support.
-2.  NVIDIA\'s open kernel modules cannot enable [D3 Power
-    Management](PRIME#PCI-Express_Runtime_D3_(RTD3)_Power_Management "wikilink") on Turing. This reduces battery life on
-    notebooks with Turing in an [NVIDIA Optimus](NVIDIA_Optimus "wikilink") configuration. Use the proprietary module
-    (e.g. `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with [module parameter](module_parameter "wikilink")
-    `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead. [More information about this
-    issue](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-2188114679).
+1.  If these packages do not work (usually due to new hardware releases) `{{AUR|nvidia-open-beta}}`{=mediawiki} may have
+    a newer version that offers support.
+2.  NVIDIA\'s [GSP firmware](https://download.nvidia.com/XFree86/Linux-x86_64/580.119.02/README/gsp.html) is known to
+    cause issues, from [suboptimal power management of Turing
+    GPUs](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-2188114679) to [complete failure on
+    some laptops containing Ampere GPUs](https://bbs.archlinux.org/viewtopic.php?pid=2217692#p2217692). If affected, use
+    the proprietary driver (e.g. `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with the [module
+    parameter](module_parameter "wikilink") `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead.
 3.  May not function correctly on Linux 5.18 (or later) on systems with Intel CPUs [11th Gen and
     newer](https://web.archive.org/web/20250209200337/https://www.intel.com/content/www/us/en/newsroom/opinion/intel-cet-answers-call-protect-common-malware-threats.html)
     due an incompatibility with [Indirect Branch

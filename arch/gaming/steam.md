@@ -386,21 +386,22 @@ NTFS can be also converted into Btrfs, see [Btrfs#NTFS to Btrfs conversion](Btrf
 This filesystem eliminates most NTFS/exFAT compatibility issues, but **sharing a Steam library between Windows and Linux
 has limitations**:
 
-```{=mediawiki}
-{{Note|
-Valve [https://github.com/ValveSoftware/steam-for-linux/blob/master/RelNotes.md#installation officially discourages] sharing Steam libraries between OSes. Even with correct WinBtrfs UID/GID mappings, Windows processes create lock-files and staging folders owned by {{ic|nobody:100}}, causing "Disk write failure" or "content file locked" errors in Linux.
+Valve [officially discourages](https://github.com/ValveSoftware/steam-for-linux/blob/master/RelNotes.md#installation)
+sharing Steam libraries between OSes. Even with correct WinBtrfs UID/GID mappings, Windows processes create lock-files
+and staging folders owned by `{{ic|nobody:100}}`{=mediawiki}, causing \"Disk write failure\" or \"content file locked\"
+errors in Linux.
 
 After Windows usage you must run:
 
+```{=mediawiki}
 {{bc|
 # chown -R $USER:$USER /path/to/steam_library/steamapps
 $ find /path/to/steam_library/steamapps -name "*.lock" -delete
 $ rm -rf /path/to/steam_library/steamapps/{downloading,temp}/*
 }}
-
-Only then start Steam on Linux. For reliable operation, keep separate libraries per OS.
-}}
 ```
+Only then start Steam on Linux. For reliable operation, keep separate libraries per OS.
+
 #### UDF
 
 This filesystem can be used without issue, but to ensure compatibility, it must be formatted to the correct UDF

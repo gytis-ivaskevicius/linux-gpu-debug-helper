@@ -1,8 +1,9 @@
-[cs:DOSBox](cs:DOSBox "wikilink") [es:DOSBox](es:DOSBox "wikilink") [ja:DOSBox](ja:DOSBox "wikilink")
-[pl:Dosbox](pl:Dosbox "wikilink") [ru:DOSBox](ru:DOSBox "wikilink") [zh-hans:DOSBox](zh-hans:DOSBox "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Wine}}`{=mediawiki} `{{Related|Proton}}`{=mediawiki}
-`{{Related|Video game platform emulators}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-[DOSBox](https://www.dosbox.com/) is an x86 PC DOS-emulator for running old DOS games or programs.
+[cs:DOSBox](cs:DOSBox "wikilink") [es:DOSBox](es:DOSBox "wikilink") [hu:DOSBox](hu:DOSBox "wikilink")
+[ja:DOSBox](ja:DOSBox "wikilink") [pl:Dosbox](pl:Dosbox "wikilink") [ru:DOSBox](ru:DOSBox "wikilink")
+[zh-hans:DOSBox](zh-hans:DOSBox "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|Wine}}`{=mediawiki}
+`{{Related|Proton}}`{=mediawiki} `{{Related|Video game platform emulators}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki} [DOSBox](https://www.dosbox.com/) is an x86 PC DOS-emulator for running old DOS
+games or programs.
 
 ## Installation
 

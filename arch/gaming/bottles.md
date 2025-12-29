@@ -1,10 +1,11 @@
-[fr:Bottles](fr:Bottles "wikilink") [ja:Bottles](ja:Bottles "wikilink") [ru:Bottles](ru:Bottles "wikilink")
-[zh-hans:Bottles](zh-hans:Bottles "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|Wine}}`{=mediawiki}
-`{{Related|Proton}}`{=mediawiki} `{{Related articles end}}`{=mediawiki} Bottles is a [Wine](Wine "wikilink") prefix
-manager written in [Python](Python "wikilink") using the [GTK](GTK "wikilink") framework. It can be used to create and
-manage Wine prefixes as well as automatically handling the installation of various Wine runners, Windows dependencies
-and installation of some Windows applications. It can also be used to override Windows DLL files inside a prefix and
-manage environment variables for Wine sessions.
+[fr:Bottles](fr:Bottles "wikilink") [hu:Bottles](hu:Bottles "wikilink") [ja:Bottles](ja:Bottles "wikilink")
+[ru:Bottles](ru:Bottles "wikilink") [zh-hans:Bottles](zh-hans:Bottles "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|Wine}}`{=mediawiki} `{{Related|Proton}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki} Bottles is a [Wine](Wine "wikilink") prefix manager written in
+[Python](Python "wikilink") using the [GTK](GTK "wikilink") framework. It can be used to create and manage Wine prefixes
+as well as automatically handling the installation of various Wine runners, Windows dependencies and installation of
+some Windows applications. It can also be used to override Windows DLL files inside a prefix and manage environment
+variables for Wine sessions.
 
 It can be used to run Native Windows applications and games with, in most cases, near native performance and in its
 officially supported mode also supports application sandboxing.

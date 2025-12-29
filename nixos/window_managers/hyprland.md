@@ -346,4 +346,4 @@ manually.
 -   [Community-maintained list of tools, plugins and extensions](https://github.com/hyprland-community/awesome-hyprland)
 
 [Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Applications](Category:Applications "wikilink") [Category:Hyprland](Category:Hyprland "wikilink")

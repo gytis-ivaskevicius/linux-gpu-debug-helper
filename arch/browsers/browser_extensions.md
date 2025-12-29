@@ -13,7 +13,7 @@ Chrome extensions can be installed from the [Chrome Web Store](https://chrome.go
 and managed at `{{ic|chrome://extensions/}}`{=mediawiki}.
 
 Additionally, a few Firefox extensions can be found in the [official
-repositories](https://archlinux.org/packages/?q=firefox%20extension) and some more in the
+repositories](https://archlinux.org/groups/any/firefox-addons/) and some more in the
 [AUR](https://aur.archlinux.org/packages/?K=firefox-extension).
 
 To simplify maintenance, this article does not link store pages or [AUR](AUR "wikilink") packages of extensions. Readers
@@ -42,6 +42,7 @@ tricks#Security](Chromium/Tips_and_tricks#Security "wikilink").
 -   ```{=mediawiki}
     {{App|uMatrix|Now abandoned fork of HTTP Switchboard. Lets you selectively block Javascript, plugins or other resources and control third-party resources. It also features extensive privacy features like user-agent masquerading, referring blocking and so on. It effectively replaces NoScript and RequestPolicy. See the [https://github.com/gorhill/httpswitchboard/wiki/How-to-use-HTTP-Switchboard:-Two-opposing-views old HTTP Switchboard wiki] for different ways how to use it.|https://github.com/gorhill/uMatrix|{{AUR|firefox-umatrix}}, [[Chromium]]}}
     ```
+    `{{Warning|Development of uMatrix has [https://github.com/uBlockOrigin/uMatrix-issues/issues/291#issuecomment-694988696 ceased]. An alternative is uBlock Origin in [https://github.com/gorhill/uBlock/wiki/Blocking-mode:-hard-mode Hard Mode] with similar, but more limited, functionality.}}`{=mediawiki}
 
 -   ```{=mediawiki}
     {{App|ScriptSafe|Gives users control of the web and more secure browsing while emphasizing simplicity and intuitiveness. Due to the nature of this extension, this will break most sites! It is designed to learn over time with sites that you allow.|https://github.com/andryou/scriptsafe|[[Firefox]], [[Chromium]]}}

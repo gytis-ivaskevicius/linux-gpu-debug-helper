@@ -1,4 +1,4 @@
-[fr:CrossOver](fr:CrossOver "wikilink") [ja:CrossOver](ja:CrossOver "wikilink")
+[fr:CrossOver](fr:CrossOver "wikilink") [hu:CrossOver](hu:CrossOver "wikilink") [ja:CrossOver](ja:CrossOver "wikilink")
 [CrossOver](https://www.codeweavers.com/crossover) is the paid, commercialized version of [Wine](Wine "wikilink") which
 provides more comprehensive end-user support. It includes scripts, patches, a
 [GUI](wikipedia:Graphical_user_interface "wikilink"), and third-party software which may never be accepted in the Wine

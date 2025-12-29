@@ -56,25 +56,17 @@ following:
 
 Using this section, you can enable features and tweak the driver settings.
 
-## Performance tuning {#performance_tuning}
+## Features
 
 ### Enabling video acceleration {#enabling_video_acceleration}
 
 See [Hardware video acceleration#AMD/ATI](Hardware_video_acceleration#AMD/ATI "wikilink").
 
-### Graphical tools {#graphical_tools}
+### Monitoring
 
--   ```{=mediawiki}
-    {{App|radeon-profile|Qt application for displaying info about a Radeon card.|https://github.com/marazmista/radeon-profile|{{AUR|radeon-profile-git}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|CoreCtrl|Popular general purpose GPU/CPU controller. See their [https://gitlab.com/corectrl/corectrl/-/wikis/Setup Setup] page for advanced usage.|https://gitlab.com/corectrl/corectrl|{{Pkg|corectrl}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|radeontop|A GPU utilization viewer, both for the total activity percent and individual blocks. Works with R600 and newer GPUs as well as cards using the [[AMDGPU]] driver|https://github.com/clbr/radeontop|{{Pkg|radeontop}}}}
-    ```
+Monitoring your GPU is often used to check the temperature and also the P-states of your GPU. See [Graphics processing
+unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink") for a list of CLI and GUI tools. An historical tool not
+listed there is `{{Pkg|corectrl}}`{=mediawiki}, which is now in maintenance mode.
 
 ### Driver options {#driver_options}
 
