@@ -35,6 +35,38 @@ some extent due to [the number of PCIe lanes and OPI Mode](https://egpu.io/best-
 grep PCIe\| \[19888.928225\] pci 0000:1a:10.3: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at
 0000:05:01.0 (capable of 126.016 Gb/s with 8.0 GT/s PCIe x16 link) }}
 
+You may need to make your system hotplug aware by adding the following [kernel
+parameters](kernel_parameters "wikilink"):
+
+`pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G`
+
+This tells the kernel that your PCIe is hot-pluggable, which is required for Thunderbolt.
+
+```{=mediawiki}
+{{Note|After adding this setting, your network adapter device names may change. This may break custom eccentric network setups (for example, if network bonding is used to bond two or more network ports into a single interface). If this happens simply rebuild your bonding rules.}}
+```
+You may also need to add a modprobe rule to ensure the driver loads after thunderbolt, if your thunderbolt GPU is using
+the same drivers as your internal GPU (whether discrete or integrated)
+
+The below example is for `{{ic|amdgpu}}`{=mediawiki}. [Create](Create "wikilink"):
+
+```{=mediawiki}
+{{hc|/etc/modprobe.d/amdgpu.conf|
+softdep amdgpu pre: thunderbolt
+}}
+```
+Substitute `{{ic|amdgpu}}`{=mediawiki} for the driver of your choice if you are not using an AMD GPU.
+
+You may also need to tell mkinitcpio to load the thunderbolt driver before executing any hooks by modifying the
+`{{ic|1=MODULES=()}}`{=mediawiki} line in `{{ic|mkinitcpio.conf}}`{=mediawiki}:
+
+`MODULES=(thunderbolt)`
+
+after that, [regenerate the initramfs](regenerate_the_initramfs "wikilink") and reboot.
+
+This ensures that the amdgpu driver loads only after the thunderbolt driver has initialized the subsystem and has made
+the external GPU also available, allowing it to properly initialize both GPUs.
+
 ### Drivers
 
 A driver compatible with your GPU model should be installed:

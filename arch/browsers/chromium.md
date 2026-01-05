@@ -434,14 +434,30 @@ when Chromium thinks the website you are visiting could do with some distilling.
 In multi-GPU systems, Chromium automatically detects which GPU should be used for rendering (discrete or integrated).
 This works 99% of the time, except when it does not - if an unavailable GPU is picked (for example, discrete graphics on
 VFIO GPU passthrough-enabled systems), `{{ic|chrome://gpu}}`{=mediawiki} will complain about not being able to
-initialize the GPU process. On the same page below **Driver Information** there will be multiple GPUs shown (GPU0, GPU1,
-\...). There is no way to switch between them in a user-friendly way, but you can read the device/vendor IDs present
-there and configure Chromium to use a specific GPU with flags:
+initialize the GPU process.
 
-`$ chromium --gpu-testing-vendor-id=0x8086 --gpu-testing-device-id=0x1912`
+On this page below **Driver Information** there will be multiple GPUs shown (GPU0, GPU1, \...). There is no
+user-friendly way to switch between them. However we can read their PCI addresses then compel Chromium to select the GPU
+at a specific PCI address via command-line argument:
 
-\...where `{{ic|0x8086}}`{=mediawiki} and `{{ic|0x1912}}`{=mediawiki} is replaced by the IDs of the GPU you want to use
-(as shown on the `{{ic|chrome://gpu}}`{=mediawiki} page).
+```{=mediawiki}
+{{hc|$ ls -l /dev/dri/by-path/|
+pci-0000:'''01:00.0'''-render -> ../../renderD128
+pci-0000:'''03:00.0'''-render -> ../../renderD129
+}}
+```
+Then we can identify which is which:
+`{{hc|lspci -k <nowiki>|</nowiki> grep "'''01:00.0'''\<nowiki>|</nowiki>'''03:00.0'''"|
+'''01:00.0''' VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590]
+'''03:00.0''' VGA compatible controller: NVIDIA Corporation GA106 [GeForce RTX 3060 Lite Hash Rate] (rev a1)
+}}`{=mediawiki} Then to launch Chromium:
+
+`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`01:00.0`**`-render`\
+`### or ###`\
+`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`03:00.0`**`-render`\
+
+Unfortunately the simpler `{{ic|/dev/dri/renderD128}}`{=mediawiki} or `{{ic|/dev/dri/renderD129}}`{=mediawiki}
+specifiers are unstable and subject to change based on driver/kernel module load order.
 
 #### Import bookmarks from Firefox {#import_bookmarks_from_firefox}
 

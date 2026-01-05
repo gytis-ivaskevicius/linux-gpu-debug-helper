@@ -14,7 +14,7 @@ LLM inference in C/C++
 
 ## Installation
 
-llama.cpp is available in the [AUR](Arch_User_Repository "wikilink"):
+llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   Install `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
 -   Install `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.

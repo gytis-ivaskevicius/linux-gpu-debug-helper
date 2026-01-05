@@ -315,7 +315,7 @@ window being fractional scaled.
 ### Clutter
 
 The Clutter toolkit has a Wayland backend that allows it to run as a Wayland client. The backend is enabled in the
-`{{Pkg|clutter}}`{=mediawiki} package.
+`{{AUR|clutter}}`{=mediawiki} package.
 
 To run a Clutter application on Wayland, set `{{ic|1=CLUTTER_BACKEND=wayland}}`{=mediawiki}.
 

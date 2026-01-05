@@ -23,6 +23,9 @@ page](https://nouveau.freedesktop.org/CodeNames.html) corresponding to its model
 
 `$ lspci -k -d ::03xx`
 
+```{=mediawiki}
+{{Expansion|Clarification is needed for GPU families which supports both nvidia-open and nvidia-580 drivers.|section=Clarify_the_possible_intersection_in_driver_support_for_some_families_when_choosing_driver}}
+```
 Then, install the appropriate driver for your card:
 
 +--------------------------------------+--------------------------------------+--------------------------------------+

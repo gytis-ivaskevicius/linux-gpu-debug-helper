@@ -20,7 +20,7 @@ support is required for [OpenGL](OpenGL "wikilink"), [Vulkan](Vulkan "wikilink")
 
 First, identify the graphics card (the *Subsystem* output shows the specific model):
 
-`$ lspci -v -nn -d ::03xx`
+`$ lspci -vnnd ::03xx`
 
 ```{=mediawiki}
 {{Tip|{{ic|::03}} here means "[https://admin.pci-ids.ucw.cz/read/PD/03 Display controller] PCI device class", and {{ic|xx}} stands for "any subclass of the class".}}
@@ -35,7 +35,7 @@ For X11, other [Device Dependent X (DDX)](https://dri.freedesktop.org/wiki/DDX/)
 `{{Grp|xorg-drivers}}`{=mediawiki} group or searching for [xf86-video](https://aur.archlinux.org/packages?K=xf86-video).
 In most cases, you do not need to install any DDX drivers; see [Xorg#Drivers](Xorg#Drivers "wikilink") for details.
 
-### AMD (ex-ATI) {#amd_ex_ati}
+### AMD
 
 AMD supports the open source driver. A proprietary driver was provided before but it is no longer packaged.
 [1](https://www.amd.com/en/resources/support-articles/release-notes/RN-AMDGPU-UNIFIED-LINUX-25-10-1.html)[2](https://lists.archlinux.org/archives/list/aur-requests@lists.archlinux.org/thread/P5XHCIBVBY7PBPUC7AV3QD4CTROCRYSG/#KPTEHMZ2GPTRMXR37D25HJ4HY2KYPVKJ)

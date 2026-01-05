@@ -13,7 +13,7 @@ support](Gentoo:Intel#Feature_support "wikilink").
 
 ```{=mediawiki}
 {{Note|
-* PowerVR-based graphics ([[Intel GMA 3600|GMA 3600]] series) are not supported by open source drivers.
+* PowerVR-based graphics (GMA 3600 series) are not supported by open source drivers.
 * Intel's Gen ''N'' hardware does not refer to the generation of the CPU, it refers to the [[Wikipedia:List of Intel graphics processing units|generation of the GPU]], which is different from the generation of the CPU. 
 * See [[Graphics processing unit#Installation]] to identify your card. 
 }}

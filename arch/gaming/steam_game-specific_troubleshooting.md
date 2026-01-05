@@ -1,3 +1,4 @@
+[hu:Steam (Magyar)/Game-specific troubleshooting](hu:Steam_(Magyar)/Game-specific_troubleshooting "wikilink")
 [ja:Steam/ゲーム別のトラブルシューティング](ja:Steam/ゲーム別のトラブルシューティング "wikilink")
 [zh-hans:Steam/游戏疑难解答](zh-hans:Steam/游戏疑难解答 "wikilink") See
 [Steam/Troubleshooting](Steam/Troubleshooting "wikilink") first.
@@ -922,7 +923,7 @@ If you are not on GNOME or dragging the window back and forth did not work you c
 
 `$ wmctrl -r "Counter-Strike: Global Offensive - OpenGL" -e 0,`*`X`*`,`*`Y`*`,`*`W`*`,`*`H`*
 
-**Example**: SecondaryMonitor: on the left 2560x1600, GamingMonitor: on the right 2560x1440).
+**Example** (Secondary monitor: On the left, 2560x1600. Gaming monitor: On the right, 2560x1440) :
 
 `$ wmctrl -r "Counter-Strike: Global Offensive - OpenGL" -e 0,2560,0,1600,1200`
 
@@ -3121,6 +3122,42 @@ workaround alone does not usually work. The game seems to be trying to use libra
 libraries. It also depends on `{{Pkg|libcurl-gnutls}}`{=mediawiki}. It is unlikely the game will run on modern systems
 or be updated again by the developer.
 
+As of today (Jan/2026) the steps below will not work, left as a reference. A newer solution exists in [the
+BBS](https://bbs.archlinux.org/viewtopic.php?id=307036) which is similar (simpler).
+
+Add a script called myrun.sh to the game directory (\~/.local/share/Steam/steamapps/common/WormsWMD on a standard steam
+install). Remember to make it executable (chmod +x)
+
+Add the script to the game launch options in Steam
+
+```{=mediawiki}
+{{hc|head=Launch options|output=
+./myrun.sh %command%
+}}
+```
+Run the game using the \"Play Worms W.M.D\" option.
+
+The current working script is as follows
+
+```{=mediawiki}
+{{hc|head=myrun.sh|output=
+#!/bin/bash
+
+_libraries=(
+    lib/libQt5*.so.5
+    /usr/lib/libwavpack.so.1
+    "$STEAM_RUNTIME"/amd64/lib/x86_64-linux-gnu/libdbus-1.so.3
+    "$STEAM_RUNTIME"/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4
+    "$STEAM_RUNTIME"/usr/lib/x86_64-linux-gnu/libidn.so.11
+    "$STEAM_RUNTIME"/lib/x86_64-linux-gnu/libgcrypt.so.11
+    "$STEAM_RUNTIME"/usr/lib/x86_64-linux-gnu/librtmp.so.0
+)
+
+export LD_PRELOAD="${_libraries[@]}"
+
+exec "$@" > ~/worms-stdout.log 2> ~/worms-stderr.log
+}}
+```
 So, editing the script is needed. At the moment (2/2024) the following works on a system, however this may change at any
 time (edit `{{ic|STEAM_RUNTIME}}`{=mediawiki} and `{{ic|WORMSWMDINSTALLDIR}}`{=mediawiki} as required):
 

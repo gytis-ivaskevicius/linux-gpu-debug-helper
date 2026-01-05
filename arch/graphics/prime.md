@@ -57,9 +57,10 @@ installed, as well as `{{Pkg|lib32-vulkan-mesa-layers}}`{=mediawiki} for 32 bit 
 ```{=mediawiki}
 {{Merge|DXVK|Gaming is not the primary topic of this page.}}
 ```
-When running Windows DirectX games under Wine or Proton, you need to instruct [DXVK](DXVK "wikilink") directly using:
+When running Windows DirectX games under Wine or Proton, you need to instruct [DXVK](DXVK "wikilink") directly using the
+environment variable:
 
-`DXVK_FILTER_DEVICE_NAME "[your preferred card name]"`
+`DXVK_FILTER_DEVICE_NAME="[your preferred card name]"`
 
 Get the card name from `{{ic|vulkaninfo}}`{=mediawiki}; DXVK uses substring match.
 
@@ -168,6 +169,12 @@ If it says `{{ic|Runtime D3 status: Not supported}}`{=mediawiki}, you may need t
 post](https://bbs.archlinux.org/viewtopic.php?pid=2181317#p2181317) to disable. [One user
 noted](https://bbs.archlinux.org/viewtopic.php?pid=2187680#p2187680) disabling the `{{ic|GpuFirmware}}`{=mediawiki} only
 works on the closed source driver, not on `{{Pkg|nvidia-open}}`{=mediawiki}.
+
+To check what uses the GPU, you can use the following command:
+
+`# lsof +c0 /dev/nvidia*`
+
+Unlike nvidia-smi, it reports every process using the device, and it doesn\'t wake up the GPU.
 
 We also need to [enable](enable "wikilink") `{{ic|nvidia-persistenced.service}}`{=mediawiki} to avoid the kernel tearing
 down the device state whenever the NVIDIA device resources are no longer in use.

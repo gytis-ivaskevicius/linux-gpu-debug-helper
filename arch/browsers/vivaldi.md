@@ -86,7 +86,7 @@ You can also use `{{AUR|vivaldi-autoinject-custom-js-ui}}`{=mediawiki}. It can h
 from `{{ic|window.html}}`{=mediawiki}, and redo changes at vivaldi updates. For usage, visit the project
 [page](https://github.com/budlabs/vivaldi-autoinject-custom-js-ui).
 
-## Tips and Tricks {#tips_and_tricks}
+## Tips and tricks {#tips_and_tricks}
 
 ### Transfer your profile to snapshot version {#transfer_your_profile_to_snapshot_version}
 

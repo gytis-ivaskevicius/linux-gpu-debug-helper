@@ -258,7 +258,7 @@ lower in some applications compared to RadeonSI.
 
 Note that Zink no longer works out-of-the-box on X systems that use the AMD or Intel DDX drivers
 (`{{pkg|xf86-video-amdgpu}}`{=mediawiki} and `{{pkg|xf86-video-intel}}`{=mediawiki}, respectively). Upstream developers
-recommend use of the generic `{{man|4|modesetting}}`{=mediawiki} [DDX driver](Xorg#Driver_installation "wikilink").
+recommend use of the generic `{{man|4|modesetting}}`{=mediawiki} [DDX driver](Xorg#Drivers "wikilink").
 [1](https://gitlab.freedesktop.org/mesa/mesa/-/issues/10093) Alternatively, to bypass this issue, you can use the
 following environment variables:
 

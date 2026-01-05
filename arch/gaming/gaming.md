@@ -285,95 +285,57 @@ For Wine wrappers, see [Wine#Third-party applications](Wine#Third-party_applicat
 Game launchers are important tools for managing and running games on various platforms. Below is a comparison of
 different game launchers available for Linux, particularly focusing on their features and compatibility.
 
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| Package     | Open Source | Supports    | DLC         | Cro         | ProtonDB    | D           | Recommended |
-|             |             | Wine        | Management  | ss-platform | Support     | ependencies |             |
-+=============+=============+=============+=============+=============+=============+=============+=============+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|athe  | {{Yes}}     | {{No}}      | {{Yes}}     | {{Yes}}     | {{Yes}}     |             | {{Yes}}     |
-| naeum-git}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| [Flatpa     | ```{        | ```{        | ```{        | ```{        | ```{        | Flatpak     | ```{        |
-| k](Flatpak  | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | runtime     | =mediawiki} |
-| "wikilink") | {{No}}      | {{No}}      | {{No}}      | {{Yes}}     | {{No}}      |             | {{No}}      |
-|             | ```         | ```         | ```         | ```         | ```         |             | ```         |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | Python 3    | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|lgogd | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{No}}      | {{Yes}}     |             | {{Yes}}     |
-| ownloader}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | Qt 5        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|h     | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{Yes}}     |             | {{Yes}}     |
-| eroic-games | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| -launcher}} |             |             |             |             |             |             |             |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|itch- | {{Yes}}     | {{No}}      | {{No}}      | {{Yes}}     | {{Yes}}     |             | {{Yes}}     |
-| setup-bin}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|      | {{Yes}}     | {{Yes}}     | {{No}}      | {{No}}      | {{Yes}}     |             | {{Yes}}     |
-| legendary}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | Python 3,   | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | Wine        | =mediawiki} |
-| {{P         | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{Yes}}     |             | {{Yes}}     |
-| kg|lutris}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|m     | {{Yes}}     | {{No}}      | {{No}}      | {{No}}      | {{No}}      |             | {{No}}      |
-| odrinth-app | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| -appimage}} |             |             |             |             |             |             |             |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AU        | {{Yes}}     | {{Yes}}     | {{No}}      | {{No}}      | {{No}}      |             | {{Yes}}     |
-| R|play.it}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|p     | {{Yes}}     | {{Yes}}     | {{No}}      | {{Yes}}     | {{Yes}}     |             | {{No}}      |
-| ortproton}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{AUR|      | {{Yes}}     | {{Yes}}     | {{No}}      | {{No}}      | {{Yes}}     |             | {{Yes}}     |
-| proton-ge-c | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ustom-bin}} |             |             |             |             |             |             |             |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {           | {{Yes}}     | {{Yes}}     | {{No}}      | {{No}}      | {{No}}      |             | {{No}}      |
-| {AUR|rare}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| [St         | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| eam](Steam  | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| "wikilink") | {{No}}      | {{Yes}}     | {{Yes}}     | {{Yes}}     | {{Yes}}     |             | {{Yes}}     |
-|             | ```         | ```         | ```         | ```         | ```         |             | ```         |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | None        | ```{        |
-| =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} |
-| {{Pkg|umu   | {{Yes}}     | {{Yes}}     | {{No}}      | {{No}}      | {{No}}      |             | {{No}}      |
-| -launcher}} | ```         | ```         | ```         | ```         | ```         |             | ```         |
-| ```         |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| Package                       | Open Source     | Supports Wine   | DLC Management  | Cross-platform  | ProtonDB Support | Dependencies    |
++===============================+=================+=================+=================+=================+==================+=================+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|athenaeum-git}}         | {{Yes}}         | {{No}}          | {{Yes}}         | {{Yes}}         | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| [Flatpak](Flatpak "wikilink") | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Flatpak runtime |
+|                               | {{No}}          | {{No}}          | {{No}}          | {{Yes}}         | {{No}}           |                 |
+|                               | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Python 3        |
+| {{AUR|lgogdownloader}}        | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{No}}          | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Qt 5            |
+| {{AUR|heroic-games-launcher}} | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|itch-setup-bin}}        | {{Yes}}         | {{No}}          | {{No}}          | {{Yes}}         | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|legendary}}             | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Python 3, Wine  |
+| {{Pkg|lutris}}                | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|play.it}}               | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|portproton}}            | {{Yes}}         | {{Yes}}         | {{No}}          | {{Yes}}         | {{Yes}}          |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{AUR|rare}}                  | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| [Steam](Steam "wikilink")     | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+|                               | {{No}}          | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                 |
+|                               | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
+| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None            |
+| {{Pkg|umu-launcher}}          | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                 |
+| ```                           | ```             | ```             | ```             | ```             | ```              |                 |
++-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+-----------------+
 
 ## Configuring games {#configuring_games}
 
@@ -914,7 +876,7 @@ improvement. They might not be optimal for your use case; consider modifying the
 # echo 8 > /sys/kernel/debug/sched/nr_migrate
 }}
 ```
-Further, it is recommended to test different schedulers as described in [Improving_performance#CPU
+Further, it is recommended to test different schedulers as described in [Improving performance#CPU
 scheduler](Improving_performance#CPU_scheduler "wikilink"). For example, the
 [scx_cosmos](https://github.com/sched-ext/scx/tree/main/scheds/rust/scx_cosmos) scheduler from
 `{{Pkg|scx-scheds}}`{=mediawiki} shows promise for improving response time consistency, as it optimizes task-to-CPU

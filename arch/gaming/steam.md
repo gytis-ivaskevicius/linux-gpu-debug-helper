@@ -560,6 +560,35 @@ As a result, when launching the Steam Minimal (Runtime) shortcut you will get an
 functional enough to install and run games, and when launching the standard Steam (Runtime) shortcut you will get a
 full-fledged client.
 
+### Limit permission to create arbitrary keyboard input to a specific user group {#limit_permission_to_create_arbitrary_keyboard_input_to_a_specific_user_group}
+
+By default, the Steam package will place an udev rule, which basically allows any logged in user to create arbitrary
+(globally available) input devices which includes virtual keyboards. This [may allow things like sandbox
+escape](https://github.com/ValveSoftware/steam-devices/issues/71).
+
+The following pacman hook can be used to modify the global uinput permission to be only granted to a specific user
+group.
+
+```{=mediawiki}
+{{Note|This only gives you any benefit if you use a dedicated user account just for gaming. When logged into this user, all possible security issues with having user accessible uinput still apply!}}
+```
+```{=mediawiki}
+{{hc|/etc/pacman.d/hooks/20-steam-input.hook|
+[Trigger]
+Operation {{=}}
+```
+Install Operation {{=}} Upgrade Type {{=}} Package Target {{=}} steam
+
+\[Action\] Description {{=}} Patching out uaccess for uinput in 60-steam-input.rules When {{=}} PostTransaction Exec
+{{=}} /usr/bin/sed -i \'/\^KERNEL{{=}}{{=}}\"uinput\"/s/TAG+{{=}}\"uaccess\"/GROUP{{=}}\"steam\"/g\'
+/usr/lib/udev/rules.d/60-steam-input.rules }}
+
+When creating the group, be sure to create a system group:
+
+`# groupadd --system steam`
+
+Then add the users, you want to be able to use \"Steam Input\", to this group.
+
 ## Troubleshooting
 
 See [Steam/Troubleshooting](Steam/Troubleshooting "wikilink").

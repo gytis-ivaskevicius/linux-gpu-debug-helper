@@ -1,7 +1,7 @@
 `<languages/>`{=html} `<translate>`{=html} [Steam](https://store.steampowered.com/) is a digital distribution platform
 for video games, offering a vast library for purchase, download, and management. On NixOS, Steam is generally easy to
 install and use, often working \"out-of-the-box\". It supports running many Windows games on Linux through its
-compatibility layer, Proton.[^1] `</translate>`{=html}
+compatibility layer, [Proton](#Proton "wikilink").[^1] `</translate>`{=html}
 
 `<translate>`{=html}
 
@@ -18,14 +18,14 @@ compatibility layer, Proton.[^1] `</translate>`{=html}
 `<translate>`{=html} To temporarily use Steam-related tools like `steam-run` (for FHS environments) or `steamcmd` (for
 server management or tools like steam-tui setup) in a shell environment, you can run: `</translate>`{=html}
 
-``` bash
-nix-shell -p steam-run # For FHS environment
-nix-shell -p steamcmd  # For steamcmd
+``` console
+$ nix-shell -p steam-run # For FHS environment
+$ nix-shell -p steamcmd  # For steamcmd
 ```
 
 `<translate>`{=html} This provides the tools in your current shell without adding them to your system configuration. For
 `steamcmd` to work correctly for some tasks (like initializing for steam-tui), you might need to run it once to generate
-necessary files, as shown in the \`steam-tui\` section. `</translate>`{=html}
+necessary files, as shown in the [ steam-tui section](#steam-tui "wikilink"). `</translate>`{=html}
 
 `<translate>`{=html}
 
@@ -34,33 +34,30 @@ necessary files, as shown in the \`steam-tui\` section. `</translate>`{=html}
 `</translate>`{=html}
 
 `<translate>`{=html} To install the [Steam](Steam "wikilink") package and enable all the system options necessary to
-allow it to run, add the following to your `/etc/nixos/configuration.nix`: `</translate>`{=html}
+allow it to run, add the following to your system configuration:
 
-``` nix
-# Example for /etc/nixos/configuration.nix
+`</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
 # boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
-```
+</nowiki>
+}}`{=mediawiki}
 
 `<translate>`{=html} [Anecdata on kernel 6.10 issues](https://news.ycombinator.com/item?id=41549030)
 `</translate>`{=html}
 
 ```{=mediawiki}
-{{note|Enabling [[steam]] installs several unfree packages. If you are using <code>allowUnfreePredicate</code> you will need to ensure that your configurations permit all of them.
+{{note|Enabling [[steam]] installs several [[unfree software|unfree packages]]. If you are using <code>allowUnfreePredicate</code> you will need to ensure that your configurations permit all of them.
 <syntaxhighlight lang="nix">
-{
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
   ];
-}
 </syntaxhighlight>
 }}
 ```
@@ -70,29 +67,23 @@ programs.steam = {
 
 `</translate>`{=html}
 
-`<translate>`{=html} Basic Steam features can be enabled directly within the `programs.steam` attribute set:
-`</translate>`{=html}
-
-``` nix
+`<translate>`{=html} Basic Steam features can be enabled directly within the
+`{{nixos:option|programs.steam}}`{=mediawiki} attribute set: `</translate>`{=html}
+`{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
-  remotePlay.openFirewall = true;  # For Steam Remote Play
-  dedicatedServer.openFirewall = true; # For Source Dedicated Server hosting
+  remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
 # Tip: For improved gaming performance, you can also enable GameMode:
 # programs.gamemode.enable = true;
-```
-
-`<translate>`{=html} If you are using a Steam Controller or a Valve Index, ensure Steam hardware support is enabled.
-This is typically handled by `programs.steam.enable = true;` which sets `hardware.steam-hardware.enable = true;`
-implicitly. You can verify or explicitly set it if needed: `</translate>`{=html}
-
-``` nix
-hardware.steam-hardware.enable = true;
-```
-
-`<translate>`{=html}
+</nowiki>
+}}`{=mediawiki} `<translate>`{=html}
+`{{note|If you are using a Steam Controller or a Valve Index, Steam hardware support is implicitly enabled by <code>programs.steam.enable {{=}}`{=mediawiki}
+true;`</code>`{=html} which sets `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} to true.}}
+`</translate>`{=html} `<translate>`{=html}
 
 ## Tips and tricks {#tips_and_tricks}
 

@@ -248,7 +248,7 @@ Has good support out of the box.
 For E18, go to the E Setting panel. In *Look \> Scaling*, you can control the UI scaling ratios. A ratio of 1.2 seems to
 work well for the native resolution of the MacBook Pro 15\" screen.
 
-## Window managers {#window_managers}
+## Wayland compositors {#wayland_compositors}
 
 ### Sway
 

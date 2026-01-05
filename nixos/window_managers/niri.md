@@ -8,7 +8,7 @@
 | os = Linux, FreeBSD
 | programmingLanguage = Rust, GLSL
 | github = YaLTeR/niri
-| documentation = [https://github.com/YaLTeR/niri/wiki Official wiki], [https://github.com/sodiboo/niri-flake/blob/main/docs.md niri-flake]
+| documentation = [https://yalter.github.io/niri/ Official wiki], [https://github.com/sodiboo/niri-flake/blob/main/docs.md niri-flake]
 | image = Niri-icon.svg
 | bugTracker = https://github.com/YaLTeR/niri/issues
 | latestRelease = 25.11; 29 Nov 2025
@@ -45,7 +45,7 @@ You might want to start from [the default configuration
 file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl) described at
 [1](https://github.com/YaLTeR/niri/wiki/Getting-Started#main-default-hotkeys).
 
-See [the wiki](https://github.com/YaLTeR/niri/wiki) for configuration options for Niri.
+See [the wiki](https://yalter.github.io/niri/) for configuration options for Niri.
 
 ## Additional Setup {#additional_setup}
 

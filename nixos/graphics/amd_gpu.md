@@ -1,5 +1,8 @@
-This guide is about setting up NixOS to correctly use your AMD Graphics card if it is relatively new (aka, after the GCN
-architecture).
+[AMDGPU](https://en.wikipedia.org/wiki/AMDgpu_(Linux_kernel_module)) is an open source graphics driver for AMD Radeon
+graphics cards. It supports AMD GPUs based on the [GCN architecture Graphics Core Next
+(GCN)](https://en.wikipedia.org/wiki/Graphics_Core_Next) architecture and later, covering hardware released from
+approximately 2012 onward. This guide is about configuration of NixOS to correctly use AMD GPUs supported by the AMDGPU
+driver.
 
 ## Basic Setup {#basic_setup}
 
@@ -16,98 +19,6 @@ hardware.graphics = {
 There is also the [amdgpu nixos module available for common configuration
 options](https://search.nixos.org/options?channel=unstable&query=hardware.amdgpu), such as enabling opencl, legacy
 support, overdrive/overclocking and loading during initrd.
-
-## Problems
-
-### Low resolution during initramfs phase {#low_resolution_during_initramfs_phase}
-
-If you encounter a low resolution output during early boot phases, you can load the amdgpu module in the initial ramdisk
-
-``` nix
-hardware.amdgpu.initrd.enable = true; # sets boot.initrd.kernelModules = ["amdgpu"];
-```
-
-### Dual Monitors {#dual_monitors}
-
-If you encounter problems having multiple monitors connected to your GPU, adding \`video\` parameters for each connector
-to the kernel command line sometimes helps.
-
-For example:
-
-``` nix
-boot.kernelParams = [
-  "video=DP-1:2560x1440@144"
-  "video=DP-2:2560x1440@144"
-];
-```
-
-With the connector names (like \`DP-1\`), the resolution and frame rate adjusted accordingly.
-
-To figure out the connector names, execute the following command while your monitors are connected:
-
-``` bash
-head /sys/class/drm/*/status
-```
-
-### System Hang with Vega Graphics (and select GPUs) {#system_hang_with_vega_graphics_and_select_gpus}
-
-Currently on the latest kernel/mesa (currently 6.13 and 24.3.4 respectively), Vega integrated graphics (and other GPUs
-like the RX 6600[^1]) will have a possibility to hang due to context-switching between Graphics and Compute.[^2] There
-are currently two sets of patches to choose between stability or speed that can be applied:
-[amdgpu-stable](https://github.com/SeryogaBrigada/linux/commits/v6.13-amdgpu) and
-[amdgpu-testing](https://github.com/SeryogaBrigada/linux/commits/v6.13-amdgpu-testing).
-
-See [Linux Kernel#Patching a single In-tree kernel
-module](Linux_Kernel#Patching_a_single_In-tree_kernel_module "wikilink"), keep in mind how to make [patch diffs from
-commits from GitHub](https://stackoverflow.com/a/23525893), and consider this example configuration:
-
-``` nix
-{ config, pkgs, ... }:
-let
-  amdgpu-kernel-module = pkgs.callPackage ./packages/amdgpu-kernel-module.nix {
-    # Make sure the module targets the same kernel as your system is using.
-    kernel = config.boot.kernelPackages.kernel;
-  };
-  # linuxPackages_latest 6.13 (or linuxPackages_zen 6.13)
-  amdgpu-stability-patch = pkgs.fetchpatch {
-    name = "amdgpu-stability-patch";
-    url = "https://github.com/torvalds/linux/compare/ffd294d346d185b70e28b1a28abe367bbfe53c04...SeryogaBrigada:linux:4c55a12d64d769f925ef049dd6a92166f7841453.diff";
-    hash = "sha256-q/gWUPmKHFBHp7V15BW4ixfUn1kaeJhgDs0okeOGG9c=";
-  };
-  /*
-  # linuxPackages_zen 6.12
-  amdgpu-stability-patch = pkgs.fetchpatch {
-    name = "amdgpu-stability-patch-zen";
-    url = "https://github.com/zen-kernel/zen-kernel/compare/fd00d197bb0a82b25e28d26d4937f917969012aa...WhiteHusky:zen-kernel:f4c32ca166ad55d7e2bbf9adf121113500f3b42b.diff";
-    hash = "sha256-bMT5OqBCyILwspWJyZk0j0c8gbxtcsEI53cQMbhbkL8=";
-  };
-  */
-in
-{
-  # amdgpu instability with context switching between compute and graphics
-  # https://bbs.archlinux.org/viewtopic.php?id=301798
-  # side-effects: plymouth fails to show at boot, but does not interfere with booting
-  boot.extraModulePackages = [
-    (amdgpu-kernel-module.overrideAttrs (_: {
-      patches = [
-        amdgpu-stability-patch
-      ];
-    }))
-  ];
-}
-```
-
-### Sporadic Crashes {#sporadic_crashes}
-
-If getting error messages in `dmesg` with `page fault` or `GCVM_L2_PROTECTION_FAULT_STATUS` it might be from AMD GPU
-boosting too high without enough voltage
-
-Use a tool like LACT to increase power usage limit to 15%, undervolt by moderate amount (e.g. -50mV for 7900 XTX) and
-optionally decrease maximum GPU clock.
-
--   <https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes>
--   <https://gitlab.freedesktop.org/mesa/mesa/-/issues/11532>
--   <https://gitlab.freedesktop.org/drm/amd/-/issues/3067>
 
 ## Special Configuration {#special_configuration}
 
@@ -317,18 +228,108 @@ services.lact.enable = true;
 
 ## Troubleshooting
 
-#### Error: `amdgpu: Failed to get gpu_info firmware` {#error_amdgpu_failed_to_get_gpu_info_firmware}
+### Low resolution during initramfs phase {#low_resolution_during_initramfs_phase}
+
+If you encounter a low resolution output during early boot phases, you can load the amdgpu module in the initial ramdisk
+
+``` nix
+hardware.amdgpu.initrd.enable = true; # sets boot.initrd.kernelModules = ["amdgpu"];
+```
+
+### Dual Monitors {#dual_monitors}
+
+If you encounter problems having multiple monitors connected to your GPU, adding \`video\` parameters for each connector
+to the kernel command line sometimes helps.
+
+For example:
+
+``` nix
+boot.kernelParams = [
+  "video=DP-1:2560x1440@144"
+  "video=DP-2:2560x1440@144"
+];
+```
+
+With the connector names (like \`DP-1\`), the resolution and frame rate adjusted accordingly.
+
+To figure out the connector names, execute the following command while your monitors are connected:
+
+``` bash
+head /sys/class/drm/*/status
+```
+
+### System Hang with Vega Graphics (and select GPUs) {#system_hang_with_vega_graphics_and_select_gpus}
+
+Currently on the latest kernel/mesa (currently 6.13 and 24.3.4 respectively), Vega integrated graphics (and other GPUs
+like the RX 6600[^1]) will have a possibility to hang due to context-switching between Graphics and Compute.[^2] There
+are currently two sets of patches to choose between stability or speed that can be applied:
+[amdgpu-stable](https://github.com/SeryogaBrigada/linux/commits/v6.13-amdgpu) and
+[amdgpu-testing](https://github.com/SeryogaBrigada/linux/commits/v6.13-amdgpu-testing).
+
+See [Linux Kernel#Patching a single In-tree kernel
+module](Linux_Kernel#Patching_a_single_In-tree_kernel_module "wikilink"), keep in mind how to make [patch diffs from
+commits from GitHub](https://stackoverflow.com/a/23525893), and consider this example configuration:
+
+``` nix
+{ config, pkgs, ... }:
+let
+  amdgpu-kernel-module = pkgs.callPackage ./packages/amdgpu-kernel-module.nix {
+    # Make sure the module targets the same kernel as your system is using.
+    kernel = config.boot.kernelPackages.kernel;
+  };
+  # linuxPackages_latest 6.13 (or linuxPackages_zen 6.13)
+  amdgpu-stability-patch = pkgs.fetchpatch {
+    name = "amdgpu-stability-patch";
+    url = "https://github.com/torvalds/linux/compare/ffd294d346d185b70e28b1a28abe367bbfe53c04...SeryogaBrigada:linux:4c55a12d64d769f925ef049dd6a92166f7841453.diff";
+    hash = "sha256-q/gWUPmKHFBHp7V15BW4ixfUn1kaeJhgDs0okeOGG9c=";
+  };
+  /*
+  # linuxPackages_zen 6.12
+  amdgpu-stability-patch = pkgs.fetchpatch {
+    name = "amdgpu-stability-patch-zen";
+    url = "https://github.com/zen-kernel/zen-kernel/compare/fd00d197bb0a82b25e28d26d4937f917969012aa...WhiteHusky:zen-kernel:f4c32ca166ad55d7e2bbf9adf121113500f3b42b.diff";
+    hash = "sha256-bMT5OqBCyILwspWJyZk0j0c8gbxtcsEI53cQMbhbkL8=";
+  };
+  */
+in
+{
+  # amdgpu instability with context switching between compute and graphics
+  # https://bbs.archlinux.org/viewtopic.php?id=301798
+  # side-effects: plymouth fails to show at boot, but does not interfere with booting
+  boot.extraModulePackages = [
+    (amdgpu-kernel-module.overrideAttrs (_: {
+      patches = [
+        amdgpu-stability-patch
+      ];
+    }))
+  ];
+}
+```
+
+### Sporadic Crashes {#sporadic_crashes}
+
+If getting error messages in `dmesg` with `page fault` or `GCVM_L2_PROTECTION_FAULT_STATUS` it might be from AMD GPU
+boosting too high without enough voltage
+
+Use a tool like LACT to increase power usage limit to 15%, undervolt by moderate amount (e.g. -50mV for 7900 XTX) and
+optionally decrease maximum GPU clock.
+
+-   <https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes>
+-   <https://gitlab.freedesktop.org/mesa/mesa/-/issues/11532>
+-   <https://gitlab.freedesktop.org/drm/amd/-/issues/3067>
+
+### Error: `amdgpu: Failed to get gpu_info firmware` {#error_amdgpu_failed_to_get_gpu_info_firmware}
 
 Solution:
 
 `hardware.firmware = [ pkgs.linux-firmware ];`
 
-### Links
+## See Also {#see_also}
 
 -   <https://wiki.archlinux.org/title/AMDGPU>
 -   <https://wiki.gentoo.org/wiki/AMDGPU>
 
-### References
+## References
 
 [Category:Video](Category:Video "wikilink")
 

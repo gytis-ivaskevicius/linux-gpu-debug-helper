@@ -1008,10 +1008,10 @@ looks like with a Patchbay like Catia from `{{AUR|cadence}}`{=mediawiki}.
 
 ### Geolocation does not work {#geolocation_does_not_work}
 
-Recently, Google limited the use of its location service with Arch Linux, which causes the following error when
-geolocation is enabled on a website: `{{ic|Geolocation error: Unknown error acquiring position}}`{=mediawiki}.
-Region-locked services such as [Hulu](https://www.hulu.com/) may display a similar error indicating that your location
-could not be determined even though you have allowed location services for the site.
+Google limits the use of its location service, which causes the following error when geolocation is enabled on a
+website: `{{ic|Geolocation error: Unknown error acquiring position}}`{=mediawiki}. Region-locked services such as
+[Hulu](https://www.hulu.com/) may display a similar error indicating that your location could not be determined even
+though you have allowed location services for the site.
 
 See `{{Bug|65241}}`{=mediawiki} for more details.
 

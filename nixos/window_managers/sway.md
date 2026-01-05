@@ -31,11 +31,15 @@ Here is a minimal configuration:
   };
 }|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-By default, the Sway module in NixOS comes with a set of extra packages, including the `foot` terminal, `swayidle`,
-`swaylock`, and `wmenu`, which can be configured under
+By default, the Sway module in NixOS comes with a set of extra packages, including
+[Foot](https://codeberg.org/dnkl/foot/) terminal, [Swayidle](Swayidle "wikilink"), [Swaylock](Swaylock "wikilink"), and
+[wmenu](https://codeberg.org/adnano/wmenu/), which may be configured under the
 [`programs.sway.extraPackages`](https://search.nixos.org/options?show=programs.sway.extraPackages) option. You may also
-want to include `wl-clipboard` for clipboard functionality and `slurp` for screenshot region selection. Additionally,
-for a more customizable bar implementation than `sway-bar`, `waybar` can be enabled with `programs.waybar.enable`.
+want to include `wl-clipboard` for clipboard functionality, as well as a screenshot utility such as
+[Slurp](https://github.com/emersion/slurp) or [Flameshot](Flameshot "wikilink") for screenshot region selection.
+
+Additionally, for a more customizable bar implementation than `sway-bar`, [Waybar](Waybar "wikilink") may be enabled
+with `programs.waybar.enable`.
 
 The default Sway configuration is symlinked to `/etc/sway/config` and `/etc/sway/config.d/nixos.conf`. The latter file
 contains dbus and systemd configuration that is critical to using apps that depend on XDG desktop portals with Sway, and
@@ -52,12 +56,12 @@ A few general comments:
 
 ### Using Home Manager {#using_home_manager}
 
-To set up Sway using [Home Manager](Home_Manager "wikilink"), first you must enable [Polkit](Polkit "wikilink") in your
-NixOS configuration: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+To set up Sway using [Home Manager](Home_Manager "wikilink"), you must first enable [Polkit](Polkit "wikilink") in your
+NixOS configuration. `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 security.polkit.enable = true;
 </nowiki>}}`{=mediawiki}
 
-Then you can enable Sway in your home manager configuration. Here is a minimal example:
+Then you may enable Sway in your Home Manager configuration. Here is a minimal example:
 
 ```{=mediawiki}
 {{File|3=wayland.windowManager.sway = {
@@ -117,13 +121,13 @@ exec sleep 5; systemctl --user start kanshi.service
 ```
 When you launch Sway, the systemd service is started.
 
-### Using greeter {#using_greeter}
+### Using a greeter {#using_a_greeter}
 
-Installing a greeter based on
-[greetd](https://search.nixos.org/options?channel=unstable&show=services.greetd.settings&from=0&size=50&sort=relevance&type=packages&query=greetd)
-is the most straightforward way to launch Sway.
+Installing a greeter based on [greetd](greetd "wikilink") is the most straightforward way to launch Sway.
 
-Tuigreet does not even need a separate compositor to launch.
+#### TUIGreet
+
+Tuigreet is a simple and lightweight option that does not require a separate compositor to launch.
 
 ```{=mediawiki}
 {{file|||<nowiki>
@@ -138,10 +142,17 @@ services.greetd = {
 };                                                                       
 </nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
+#### Regreet
+
+[Regreet](https://github.com/rharish101/ReGreet) is a clean and customizable GTK-based greeter written in Rust. It will
+automatically find Sway and remembers the last picked option. Additional configuration options may be found under
+[programs.regreet](https://search.nixos.org/options?&query=regreet).
+`{{File|3=programs.regreet.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
+
 ### Automatic startup on boot {#automatic_startup_on_boot}
 
-The snippet below will start Sway immediately on startup, without a greeter and **without login prompt**. Only consider
-using this in conjunction with [Full Disk Encryption](Full_Disk_Encryption "wikilink")!
+The snippet below will start Sway immediately on startup, without a greeter and **without a login prompt**. Only
+consider using this in conjunction with [Full Disk Encryption](Full_Disk_Encryption "wikilink").
 
 ``` nix
 services.getty = {
@@ -153,16 +164,16 @@ environment.loginShellInit = ''
 '';
 ```
 
-When launched directly from the TTY sway won\'t inherit the user environment. This can cause issues with systemd user
-services such as application launchers or swayidle. To fix this add the following to your home-manager
-configuration:`{{file|home.nix|nix|<nowiki>
+When launched directly from the TTY, Sway will not inherit the user environment. This may cause issues with systemd user
+services such as application launchers or [Swayidle](Swayidle "wikilink"). To fix this, add the following to your Home
+Manager configuration:`{{file|home.nix|nix|<nowiki>
  wayland.windowManager.sway.systemd.variables = ["--all"];
 </nowiki>}}`{=mediawiki}
 
 ## Configuration
 
-Sway can be configured for specific users using Home-Manager or manually through configuration files. Default is
-`/etc/sway/config` and custom user configuration in `~/.config/sway/config`.
+Sway may be configured for specific users using Home Manager or manually through configuration files. The default
+location is `/etc/sway/config`, and custom user configuration in `~/.config/sway/config`.
 
 ### Keyboard layout {#keyboard_layout}
 
@@ -188,8 +199,8 @@ output * scale 1.5
 
 ### Brightness and volume {#brightness_and_volume}
 
-You can set up brightness and volume function keys as follows by binding the key codes to their corresponding commands
-in your sway config. The following configurations accomplish this using `light` and `pulseaudio`:
+You may set the brightness and volume function keys by binding the key codes to their corresponding commands within your
+sway config. The following configurations accomplish this using `light` and `pulseaudio`:
 `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 users.users.yourusername.extraGroups = [ "video" ];
 programs.light.enable = true;
@@ -197,7 +208,7 @@ environment.systemPackages = [ pkgs.pulseaudio ];
 </nowiki>}}`{=mediawiki}
 
 ```{=mediawiki}
-{{file|sway config|bash|
+{{file|||
 
 # Brightness
 bindsym XF86MonBrightnessDown exec light -U 10
@@ -207,8 +218,42 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
-}}
+|name=Sway Config|lang=bash}}
 ```
+Or alternatively in Home Manager: `{{File|3=wayland.windowManager.sway = {
+  enable = true;
+  config = {
+    keybindings = {
+      # Brightness Controls
+      "XF86MonBrightnessDown" = "exec light -U 10";
+      "XF86MonBrightnessUp" = "exec light -A 10";
+        
+      # Volume Controls
+      "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
+      "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
+      "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    };
+  };
+};|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}For an on screen display for audio and brightness, check
+[swayosd](swayosd "wikilink").
+
+### Touchpad
+
+See the [sway-input man page](https://www.mankier.com/5/sway-input) for options. `{{File|3=wayland.windowManager.sway = 
+  {
+    enable = true;
+    config.input = {
+      "type:touchpad" = {
+        # Enables or disables tap for specified input device.
+        tap = "enabled";
+        # Enables or disables natural (inverted) scrolling for the specified input device.
+        natural_scroll = "enabled";
+        # Enables or disables disable-while-typing for the specified input device.
+        dwt = "enabled";
+      };
+    };
+  };|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}
+
 ## Troubleshooting
 
 ### Cursor is missing icons or too tiny on HiDPI displays {#cursor_is_missing_icons_or_too_tiny_on_hidpi_displays}
@@ -234,29 +279,26 @@ In \~/.config/sway/config
 
 #### With Home Manager {#with_home_manager}
 
-Using [Home Manager](Home_Manager "wikilink") try configuring a general mouse cursor size and theme. The reason that
-your cursor might be missing in some applications, is because `XCURSOR_THEME`is missing, which will cause applications
+Using [Home Manager](Home_Manager "wikilink") you may configure the mouse cursor size and theme. The reason that your
+cursor might be missing in some applications, is because `XCURSOR_THEME` is missing, which will cause applications
 relying on `XWAYLAND` to misbehave. Setting `sway.enable = true`, combined with the `name`, `package` and size will set
 the correct environment variables, which sway will then use.
 
-``` nix
-home-manager.users.myUser = {
-    home.pointerCursor = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-      size = 24;
-      x11 = {
-        enable = true;
-        defaultCursor = "Adwaita";
-      };
-      sway.enable = true;
+```{=mediawiki}
+{{File|3=home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    size = 24;
+    x11 = {
+      enable = true;
+      defaultCursor = "Adwaita";
     };
-};
+
+  sway.enable = true;
+
+};|name=/etc/nixos/home.nix|lang=nix}}
 ```
-
-Replace `myUser` with your user running the graphical environment.
-
-### Missing fonts on Xorg applications {#missing_fonts_on_xorg_applications}
+### Missing fonts in Xorg applications {#missing_fonts_in_xorg_applications}
 
 If fonts for certain languages are missing in Xorg applications (e.g. Japanese fonts don\'t appear in Discord) even
 though they\'re in the system, you can set them as default fonts in your configuration file.
@@ -309,7 +351,7 @@ Enabling this option allows any program run by the \"users\" group to request re
 
 ### WLR Error when trying to launch Sway {#wlr_error_when_trying_to_launch_sway}
 
-When this happens on a new nixos system, enabling opengl in configuration.nix may fix this issue.
+When this happens on a new NixOS system, enabling OpenGL in configuration.nix may fix this issue.
 
 ```{=mediawiki}
 {{Note|<code>hardware.opengl</code> was renamed to <code>hardware.graphics</code> in NixOS 24.11.}}
@@ -407,10 +449,10 @@ Map the script binary to a specific key
     };
 ```
 
-### Screen sharing with Firefox, Chromium {#screen_sharing_with_firefox_chromium}
+### Screen sharing {#screen_sharing}
 
-``` nix
-{ pkgs, ... }:
+```{=mediawiki}
+{{File|3={ pkgs, ... }:
 {
   # xdg portal + pipewire = screensharing
   xdg.portal = {
@@ -422,9 +464,11 @@ Map the script binary to a specific key
     alsa.enable = true;
     pulse.enable = true;
   };
-}
+}|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-
+```{=mediawiki}
+{{Tip|Make sure that you do not have conflicting definitions for xdg.portal in Home Manager.}}
+```
 ### Screen dimming with wl-gammarelay-rs {#screen_dimming_with_wl_gammarelay_rs}
 
 Add `wl-gammarelay-rs` to programs.sway.extraPackages, then add the following to sway config:

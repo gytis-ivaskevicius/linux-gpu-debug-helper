@@ -111,6 +111,7 @@ If you have an unvalidated G-SYNC Compatible monitor, you can override NVIDIA's 
 {{Note|If a monitor did fail NVIDIA's certification to be G-SYNC compatible, there may be issues with the experience such as poor image quality, flickering, or lack of VRR activation due to limited refresh rate range. [https://www.nvidia.com/en-us/geforce/news/g-sync-compatible-validation/]}}
 
 == Wayland configuration ==
+
 === NVIDIA ===
 
 VRR Wayland using the proprietary driver [https://forums.developer.nvidia.com/t/wayland-information-for-r545-beta-release/214275 requires a Volta GPU architecture or newer].
@@ -156,6 +157,25 @@ You can verify that your display supports adaptive sync with hyprctl:
  Monitor DP-2 (ID 0):
          ...
 	 vrr: 1
+}}
+
+=== niri ===
+
+Niri supports variable refresh rate. 
+To enable it, you need to add either  {{ic|variable-refresh-rate}} or {{ic|variable-refresh-rate on-demand{{=}}true}}[https://yalter.github.io/niri/Configuration%3A-Outputs.html] in your output section of your {{ic|config.kdl}} :
+
+ output "DP-1" {
+    variable-refresh-rate
+ }
+
+{{ic|variable-refresh-rate{{=}} }} always enables variable refresh rate, while {{ic|variable-refresh-rate on-demand{{=}}true }} will only enable VRR when a window matches the variable-refresh-rate window rule[https://yalter.github.io/niri/Configuration%3A-Window-Rules.html]. This is helpful to avoid various issues with VRR, since it can be disabled most of the time, and only enabled for specific windows, like games or video players.
+
+You can check whether an output supports VRR:
+
+{{hc|$ niri msg outputs|
+ Output "Display Name" (DP-1)
+  ...
+  Variable refresh rate: supported
 }}
 
 == Testing ==

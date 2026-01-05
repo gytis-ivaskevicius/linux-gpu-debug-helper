@@ -131,7 +131,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|LauncherX|Next generation Minecraft launcher with powerful features and pleasing UI.|https://corona.studio/lx|{{AUR|launcherx}}}}
+    {{App|LauncherX|Next generation Minecraft launcher with powerful features and pleasing UI.|https://corona.studio/lx|{{AUR|launcherx-bin}}}}
     ```
 
 -   ```{=mediawiki}

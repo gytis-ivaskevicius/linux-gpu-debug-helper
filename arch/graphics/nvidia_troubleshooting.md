@@ -244,8 +244,8 @@ This bug is present only for new games that depend on them, like Final Fantasy V
 absence of environments when using NVIDIA GPUs even with latest beta drivers.
 [2](https://github.com/ValveSoftware/Proton/issues/8408)
 
-However, [pyroveil](https://github.com/ValveSoftware/Proton/issues/8408#issuecomment-2657340142), recently developed,
-allows you to get around the problem with SPIR-V, while waiting for a fix from NVIDIA.
+However, [pyroveil](https://github.com/ValveSoftware/Proton/issues/8408#issuecomment-2657340142) allows you to get
+around the problem with SPIR-V, while waiting for a fix from NVIDIA.
 
 You need to compile and install the tool by following [the tutorial on
 GitHub](https://github.com/HansKristian-Work/pyroveil#pyroveil), then run the game with the

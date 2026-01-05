@@ -2,10 +2,10 @@
 `{{Related|Nvidia}}`{=mediawiki} `{{Related|Hardware video acceleration}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-Some [General-purpose computing on graphics processing units](Wikipedia:GPGPU "wikilink") (GPGPU) API definitions
-include the vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA. Each API can
-have multiple implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a different
-GPGPU API (shim/transpiler).
+[General-purpose computing on graphics processing units](Wikipedia:GPGPU "wikilink") (GPGPU) API definitions include the
+vendor-independent OpenCL, SYCL, HIP, OpenMP, and Vulkan compute shader; and Nvidia\'s CUDA. Each API can have multiple
+implementations on multiple types of hardware or software: GPUs, CPUs, NPUs, FPGAs, or just a different GPGPU API
+(shim/transpiler).
 
 ## OpenCL
 
@@ -151,25 +151,29 @@ grep -i \"image support\"\|output=
 -   ```{=mediawiki}
     {{pkg|intel-compute-runtime}}
     ```
-    : a.k.a. the Neo OpenCL runtime, the open-source implementation for Intel HD Graphics GPU on Gen12 (Alder Lake) and
-    beyond.
+    : a.k.a. the \"NEO\" runtime, the open-source OpenCL (and oneAPI Level Zero) implementation for Intel Gen12
+    (Rocket/Tiger Lake) Integrated Graphics and above (includes all discrete Intel GPUs).
 
 -   ```{=mediawiki}
     {{AUR|intel-compute-runtime-legacy}}
     ```
-    : same as above only for Gen11(Rocket Lake) and lower
+    : same as above (with partial oneAPI Level Zero support), only for Intel Gen8 (Broadwell), Gen9 (Skylake and
+    variants), and Gen11 (Ice/Elkhart Lake) Graphics. The OpenCL ICD provided for legacy platforms has the suffix
+    \"legacy1\".
 
 -   ```{=mediawiki}
     {{AUR|beignet}}
     ```
-    : the open-source implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
-    favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge, Haswell).
+    : the open-source OpenCL implementation for Intel Gen7 (Ivy Bridge) Graphics and above, deprecated by Intel in
+    favour of the NEO OpenCL runtime, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge,
+    Haswell).
 
 -   ```{=mediawiki}
     {{AUR|intel-opencl}}
     ```
-    : the proprietary implementation for Intel HD Graphics GPU on Gen7 (Ivy Bridge) and beyond, deprecated by Intel in
-    favour of NEO OpenCL driver, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge, Haswell).
+    : the proprietary OpenCL implementation for Intel Gen7 (Ivy Bridge) Graphics and above, deprecated by Intel in
+    favour of the NEO OpenCL runtime, remains recommended solution for legacy hardware platforms (e.g. Ivy Bridge,
+    Haswell).
 
 #### OpenCL on CPU {#opencl_on_cpu}
 
@@ -641,7 +645,9 @@ having the compiler split out the marked part for offloading or multiprocessing.
 To use PyTorch with ROCm install `{{Pkg|python-pytorch-rocm}}`{=mediawiki}.
 
 ```{=mediawiki}
-{{hc|$ python -c 'import torch; print(torch.cuda.is_available())'|True}}
+{{hc|$ python -c 'import torch; print(torch.cuda.is_available())'|
+True
+}}
 ```
 ROCm pretends to be CUDA so this should return `{{ic|True}}`{=mediawiki}. If it does not, either it is not compiled with
 your GPU support or you might have conflicting dependencies. You can verify those by looking at
