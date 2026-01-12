@@ -539,6 +539,15 @@ To enable user queues, set the following environment variable:
 
 `export AMD_USERQ=1`
 
+### Dedicated transfer-only Queue using SDMA {#dedicated_transfer_only_queue_using_sdma}
+
+The code merged for Mesa 26.0 has the RADV dedicated transfer queue support working on GFX9 (Vega) and newer GPUs.
+Enabling this feature currently requires the `{{ic|RADV_PERFTEST{{=}}`{=mediawiki}transfer_queue}} [environment
+variable](environment_variable "wikilink") to be set. The DXVK Direct3D-on-Vulkan layer is among the software able to
+benefit from the Vulkan transfer queues support although there are no performance/benchmark numbers noted in [the merge
+request](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/25594) for quantifying the benefit of the new
+functionality.
+
 ## Troubleshooting
 
 ### Module parameters {#module_parameters}

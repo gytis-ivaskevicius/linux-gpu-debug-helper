@@ -1,6 +1,7 @@
-Sway is a tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It can work with an
-existing i3 configuration and supports most of i3\'s features, plus a few extras. [i3 migration
-guide](https://github.com/swaywm/sway/wiki/i3-Migration-Guide)
+[Sway](https://swaywm.org/) is a tiling [Wayland](Wayland "wikilink") compositor and a drop-in replacement for the
+[i3](i3 "wikilink") window manager for X11. It can work with an existing i3 configuration and supports most of i3\'s
+features, plus a few extras. For users migrating from i3, see the [i3 migration
+guide](https://github.com/swaywm/sway/wiki/i3-Migration-Guide).
 
 ## Setup
 
@@ -469,6 +470,26 @@ Map the script binary to a specific key
 ```{=mediawiki}
 {{Tip|Make sure that you do not have conflicting definitions for xdg.portal in Home Manager.}}
 ```
+### Auto mounting {#auto_mounting}
+
+#### USB storage devices (e.g. Flash Drives) {#usb_storage_devices_e.g._flash_drives}
+
+You can use [udiskie](https://github.com/coldfix/udiskie) to automatically mount external storage medias.
+
+You will need to install and enable [udisks2](https://www.freedesktop.org/wiki/Software/udisks/).
+`{{File|3=services.udisks2.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} Then, in Home
+Manager you can enable udiskie.
+`{{File|3=services.udiskie.enable = true;|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki} Udiskie will automatically
+mount attached USB storage media.
+
+See related info on [USB storage devices](USB_storage_devices "wikilink").
+
+#### MTP (Android Phone Storage) {#mtp_android_phone_storage}
+
+File managers that support [GVfs](https://wiki.gnome.org/Projects/gvfs), such as [Thunar](Thunar "wikilink"), can mount
+MTP devices using GVfs. See the page on [MTP](MTP "wikilink") for related information.
+`{{File|3=services.gvfs.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
+
 ### Screen dimming with wl-gammarelay-rs {#screen_dimming_with_wl_gammarelay_rs}
 
 Add `wl-gammarelay-rs` to programs.sway.extraPackages, then add the following to sway config:

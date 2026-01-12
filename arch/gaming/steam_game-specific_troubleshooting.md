@@ -1408,7 +1408,7 @@ If Firewatch starts but does not show anything, try running Steam with
 
 ### Football Manager 2014 {#football_manager_2014}
 
-This game will not run when installed on an [XFS](XFS "wikilink") or reiserfs filesystem. Workaround is to install on an
+This game will not run when installed on an [XFS](XFS "wikilink") or ReiserFS filesystem. Workaround is to install on an
 ext4 filesystem.
 
 ### FORCED

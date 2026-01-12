@@ -22,6 +22,7 @@
   [Cataclysm: Dark Days Ahead](https://cataclysmdda.org/)                                               Survival, Rogue-like     In nixpkgs                                                             Post-apocalyptic survival game.
   [Shattered Pixel Dungeon](https://shatteredpixel.com/)                                                Rogue-like, RPG          In nixpkgs                                                             Rogue-like dungeon crawler with pixel graphics.
   [Simon Tatham\'s Portable Puzzle Collection](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)   Puzzle                   In nixpkgs                                                             Simon Tatham\'s portable puzzle collection
+  [Luanti](https://luanti.org)                                                                          Sandbox                  In nixpkgs                                                             An open source voxel game engine.
 
 ## Other resources {#other_resources}
 

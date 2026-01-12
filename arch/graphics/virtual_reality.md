@@ -199,9 +199,11 @@ provided by [OpenComposite](https://lvra.gitlab.io/docs/fossvr/opencomposite/) o
 [WiVRn](https://github.com/WiVRn/WiVRn/) is a Monado fork/wrapper capable of streaming to standalone headsets. It
 currently supports most available Android based HMDs, and also has experimental support for PC to PC streaming.
 
-Install the server using `{{AUR|wivrn-server}}`{=mediawiki} and the (optional) configuration dashboard with
-`{{AUR|wivrn-dashboard}}`{=mediawiki}. You can download the prebuilt Android client from the [GitHub
-releases](https://github.com/WiVRn/WiVRn/releases), or compile it yourself according to the [build
+Upstream recommends to install it with its [flatpak package](https://flathub.org/apps/io.github.wivrn.wivrn) but it is
+also possible to install the server using `{{AUR|wivrn-server}}`{=mediawiki} and the (optional) configuration dashboard
+with `{{AUR|wivrn-dashboard}}`{=mediawiki}. You can install the Android client from your devices\' store, download the
+prebuilt Android client from the [GitHub releases](https://github.com/WiVRn/WiVRn/releases) to sideload, or compile it
+yourself according to the [build
 documentation](https://github.com/WiVRn/WiVRn/blob/master/docs/building.md#client-headset).
 
 ### OpenVR / SteamVR {#openvr_steamvr}
@@ -278,12 +280,12 @@ See <https://sidequestvr.com/setup-howto> for installation steps:
 
 See the [SideQuest website](https://sidequestvr.com) for more information.
 
-### wlx-overlay-s {#wlx_overlay_s}
+### WayVR
 
-[wlx-overlay-s](https://github.com/galister/wlx-overlay-s/) is a lightweight OpenXR/OpenVR overlay that can mirror and
-control X11/Wayland desktops. It can also act as a Wayland compositor if compiled with the wayvr feature.
+[WayVR](https://github.com/wlx-team/wayvr) is a lightweight OpenXR/OpenVR overlay that can mirror and control
+X11/Wayland desktops. It can also act as a Wayland compositor.
 
-Available as `{{AUR|wlx-overlay-s-git}}`{=mediawiki}.
+Available as `{{AUR|wayvr}}`{=mediawiki} and `{{AUR|wayvr-git}}`{=mediawiki}.
 
 ### Stardust XR {#stardust_xr}
 

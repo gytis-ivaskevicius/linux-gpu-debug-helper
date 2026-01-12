@@ -173,8 +173,8 @@ workaround.
 
 ### Switching to fullscreen causes low performance {#switching_to_fullscreen_causes_low_performance}
 
-This is a known bug when using Gamescopes fullscreen hotkey `{{ic|Meta+f}}`{=mediawiki}, if you encounter this issue it
-can be worked around by using the fullscreen flag `{{ic|-f}}`{=mediawiki} when launching the game.
+This is a known bug when using Gamescope\'s fullscreen hotkey `{{ic|Meta+f}}`{=mediawiki}, if you encounter this issue
+it can be worked around by using the fullscreen flag `{{ic|-f}}`{=mediawiki} when launching the game.
 
 ### Setting Gamescopes priority {#setting_gamescopes_priority}
 

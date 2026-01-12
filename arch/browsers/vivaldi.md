@@ -122,6 +122,33 @@ manually type the address `{{ic|chrome://settings/certificates}}`{=mediawiki}. N
 vivaldi settings where cert management it is missing). See
 [here](https://forum.vivaldi.net/topic/57001/import-client-certificates) for more details.
 
+### Sync failing due to dropped ICMP Fragmentation Needed packets {#sync_failing_due_to_dropped_icmp_fragmentation_needed_packets}
+
+For some users, Vivaldi\'s Sync feature will consistently fail to work. Navigate to
+`{{ic|vivaldi://sync-internals}}`{=mediawiki} in your browser and check the error code in the \"GetUpdates Response\"
+entry under the \"Sync Protocol Log\" section of the page. If you see \"Network error (ERR_TIMED_OUT)\" then your sync
+is failing due to some network device (yours, your ISP\'s, or some other intermediary\'s) dropping \"ICMP Fragmentation
+Needed\" packets. To work around this issue, you can enable Packetization Layer Path MTU Discovery (PLPMTUD). See [this
+post on the Vivaldi forums](https://forum.vivaldi.net/topic/101287/vivaldi-not-syncing/) for more details. Follow the
+steps below to enable PLPMTUD:
+
+Verify that PLPMTUD is currently disabled:
+
+`# sysctl net.ipv4.tcp_mtu_probing`
+
+Should output `{{ic|net.ipv4.tcp_mtu_probing {{=}}`{=mediawiki} 0}} if it is disabled. If you see any other value, then
+you should stop here as your sync issue is not the same as what is covered by the workaround below.
+
+[Create](Create "wikilink"):
+
+```{=mediawiki}
+{{hc|/etc/sysctl.d/99-tcp-mtu-probing.conf|2=
+net.ipv4.tcp_mtu_probing = 1
+}}
+```
+[Restart](Restart "wikilink") `{{ic|systemd-sysctl.service}}`{=mediawiki}, then restart Vivaldi if you already had it
+open.
+
 ## See also {#see_also}
 
 -   [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "wikilink")

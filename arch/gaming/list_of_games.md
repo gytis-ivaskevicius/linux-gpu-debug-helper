@@ -1459,6 +1459,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
+    {{App|[[Star Citizen]]|A multiplayer, space trading and combat simulation video game.|https://github.com/starcitizen-lug/lug-helper|Community launcher: {{AUR|lug-helper}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|The Powder Toy|Open source physics sandbox game, which simulates air pressure and velocity, heat, gravity and a countless number of interactions between different substances.|https://powdertoy.co.uk/|{{AUR|powder-toy}}}}
     ```
 

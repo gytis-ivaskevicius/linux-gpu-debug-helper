@@ -198,6 +198,17 @@ of the world.
     {{App|Minutor|A minimalistic map generator for Minecraft. You are provided with a simple GTK based interface for viewing your world. Several rendering modes are available, as well as custom coloring modes and the ability to slice through z-levels.|http://seancode.com/minutor/|{{AUR|minutor-git}}}}
     ```
 
+## Tips and Tricks {#tips_and_tricks}
+
+### Enable HRTF directional audio support {#enable_hrtf_directional_audio_support}
+
+Edit the following file and then enable directional audio in the in-game sound settings:
+
+```{=mediawiki}
+{{hc|1=~/.alsoftrc|2=
+hrtf=true
+}}
+```
 ## Troubleshooting
 
 ### Logs
@@ -241,7 +252,8 @@ bottom, on the left side.
 
 ### MultiMC forks unable to build {#multimc_forks_unable_to_build}
 
-If you are trying to install one of *multimc5* forks like (`{{AUR|polymc}}`{=mediawiki}) and get an error similar to:
+If you are trying to install one of *multimc5* forks like (`{{Pkg|prismlauncher}}`{=mediawiki}) and get an error similar
+to:
 
 ```{=mediawiki}
 {{bc|
@@ -276,7 +288,7 @@ If you are unable to switch the audio output device (indicated by `{{ic|DONT_MOV
 allow-moves=yes
 }}
 ```
-### Audio stutters on PipeWire or Java crashes with SIGFPE {#audio_stutters_on_pipewire_or_java_crashes_with_sigfpe}
+### Audio missing/stutters on PipeWire or Java crashes with SIGFPE {#audio_missingstutters_on_pipewire_or_java_crashes_with_sigfpe}
 
 OpenAL defaults to using JACK over PipeWire\'s PulseAudio backend. If that causes issues for you, you can tell OpenAL to
 use Pulse instead:
@@ -286,8 +298,8 @@ use Pulse instead:
 drivers=pulse
 }}
 ```
-Alternatively, you can set the following environment variable `{{ic|1=ALSOFT_DRIVERS=pulse}}`{=mediawiki} if you do not
-want to set it for all applications.
+Alternatively, you can set the environment variable `{{ic|1=ALSOFT_DRIVERS=pulse}}`{=mediawiki} for Minecraft if you do
+not want to configure this for all applications.
 
 ### Minecraft does not start on native Wayland {#minecraft_does_not_start_on_native_wayland}
 

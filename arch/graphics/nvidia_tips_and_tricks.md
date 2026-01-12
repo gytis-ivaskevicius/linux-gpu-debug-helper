@@ -434,8 +434,7 @@ To make it possible to adjust the fanspeed of more than one graphics card, run:
 
 The Nvidia Management Library (NVML) provides an API that can manage the GPU\'s core and memory clock offsets and power
 limit. To utilise this, you can install `{{AUR|python-nvidia-ml-py}}`{=mediawiki} and then use the following Python
-script with your desired settings. This script needs to be run as root after every restart to re-apply the overclock /
-undervolt.
+script with your desired settings. This script needs to be run as root after every restart to re-apply the overclock.
 
 ```{=mediawiki}
 {{bc|1=
@@ -459,6 +458,117 @@ nvmlDeviceSetMemClkVfOffset(myGPU, 000)
 nvmlDeviceSetPowerManagementLimit(myGPU, 000000)
 }}
 ```
+### Undervolting with NVML {#undervolting_with_nvml}
+
+The NVML API also allows undervolting a GPU, which reduces power consumption and temperatures with minimal performance
+loss or even a slight gain. This might be specially desirable for laptop users.
+
+```{=mediawiki}
+{{Note|Extreme undervolting can cause major instability issues, and specially if configured directly in the firmware, may render the computer unbootable. Because of this, some motherboards come with an undervolt protection setting, which must be disabled before proceeding (for example, this is the case with the Alienware m16 R1 laptop). Your mileage may vary depending on the motherboard's brand and model.
+
+
+Moreover, undervolting, like overclocking, should be done in small incremental steps, while [[Stress_testing|testing the system's stability]] in between.}}
+```
+[Install](Install "wikilink") `{{AUR|python-nvidia-ml-py}}`{=mediawiki}, [create](create "wikilink") the following
+script and make it [executable](executable "wikilink"):
+
+```{=mediawiki}
+{{hc|head=''/usr/local/sbin/''nvidia-undervolt.py|output=#!/bin/env python
+
+# Adapted from https://www.reddit.com/r/linux_gaming/comments/1fm17ea/comment/lo7mo09
+
+from pynvml import *
+from ctypes import byref
+
+nvmlInit()
+
+# This sets the GPU to adjust - if this gives you errors or you have multiple GPUs, set to 1 or try other values.
+myGPU = nvmlDeviceGetHandleByIndex(0)
+##print(f"myGPU value: {myGPU}")
+
+# Get the minimum and maximum power values allowed.
+##min_power, max_power = nvmlDeviceGetPowerManagementLimitConstraints(myGPU)
+##print(f"Allowed range: {min_power} mW to {max_power} mW")
+
+# The power limit can be set below in mW - 216W becomes 216000, etc.
+# This value must be within the minimum and maximum allowed power limits.
+# Remove or comment out the line below if you don't want to adjust power limits.
+nvmlDeviceSetPowerManagementLimit(myGPU, 000000)
+
+# Define the minimum and maximum clocks allowed.
+# The clocks supported by your GPU can be verified with:
+# nvidia-smi -q -d SUPPORTED_CLOCKS
+nvmlDeviceSetGpuLockedClocks(myGPU,''210'',''2340'')
+
+
+####################################
+# ============ P0 State ============
+####################################
+
+# ============ Memory ============
+# Uncomment and edit this section if desired.
+# Note: The memory clock offset should be **multiplied by 2**.
+# E.g. a desired offset of 500 means inserting 
+# a value of 1000 in the clockOffsetMHz line.
+
+##infoMemP0 = c_nvmlClockOffset_t()
+##infoMemP0.version = nvmlClockOffset_v1
+##infoMemP0.type = NVML_CLOCK_MEM
+##infoMemP0.pstate = NVML_PSTATE_0
+##infoMemP0.clockOffsetMHz = ''2000''
+### This offset is simply how much faster your memory will run.
+### E.g. instead of running at 8000 MHz, 
+### the memory will run at 8000 + (2000 / 2) = 9000 MHz.
+
+##nvmlDeviceSetClockOffsets(myGPU, byref(infoMemP0))
+
+
+# ============ Core =============
+infoCoreP0 = c_nvmlClockOffset_t()
+infoCoreP0.version = nvmlClockOffset_v1
+infoCoreP0.type = NVML_CLOCK_GRAPHICS
+infoCoreP0.pstate = NVML_PSTATE_0
+infoCoreP0.clockOffsetMHz = ''270''
+## What this offset means is: The frequency-voltage 
+## curve is lifted up by 270 MHz.
+## E.g. the voltage value originally assigned to 2070 MHz 
+## will now be used at 2070 + 270 = 2340 MHz.
+
+nvmlDeviceSetClockOffsets(myGPU, byref(infoCoreP0))
+
+
+nvmlShutdown() }}
+```
+The details of the functions used can be read in Section 5.18 of the [NVML API
+documentation](https://docs.nvidia.com/deploy/nvml-api/index.html). [This Reddit
+post](https://www.reddit.com/r/linux_gaming/comments/1fm17ea/comment/lo7mo09/) expĺains why the undervolting is done
+this way, with a clock offset.
+
+This script only applies the undervolt to the GPU\'s highest
+[P-state](https://docs.nvidia.com/gameworks/content/gameworkslibrary/coresdk/nvapi/group__gpupstate.html). If you want
+to configure other P-states aside from P0, check [this Reddit
+post](https://www.reddit.com/r/linux_gaming/comments/1fm17ea/comment/n4vmb4k) for advice.
+
+```{=mediawiki}
+{{Note|Unfortunately, some GPUs don't support changing the power limit via the NVML API. This can be tested with {{ic|nvidia-smi -pl ''000''}} as root.
+
+
+If this happens to you, remove or comment out the power limit section of the script, and as a last resource, you can [[NVIDIA/Tips_and_tricks#Dynamic_Boost|configure Dynamic Boost.]]}}
+```
+Run the script manually as root to apply the settings to your GPU and [test your
+configuration](Stress_testing "wikilink"). **Do not apply your settings permanently unless you have tested them and made
+sure no problems occur, i.e. your configuration is stable.**
+
+After finding a good setup, you need to re-apply it at every boot. One wat to do this is with a systemd service:
+`{{hc|head=/etc/systemd/system/nvidia-undervolt.service|output=[Unit]
+Description{{=}}`{=mediawiki}Undervolt the Nvidia GPU
+
+\[Service\] Type{{=}}oneshot ExecStart{{=}}/bin/python */usr/local/sbin/*nvidia-undervolt.py StandardOutput{{=}}journal
+StandardError{{=}}journal
+
+\[Install\] WantedBy{{=}}graphical.target}} Finally, [enable](enable "wikilink") the service so your settings are
+applied every time the system boots up.
+
 ## Kernel module parameters {#kernel_module_parameters}
 
 Some options can be set as kernel module parameters, a full list can be obtained by running

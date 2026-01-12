@@ -114,17 +114,27 @@ There is a optional dependency for Niri which is highly recommended to install (
 ```{=mediawiki}
 {{File|3=environment.systemPackages = with pkgs; [ 
     xwayland-satellite # xwayland support
-];|name=❄︎ /etc/nixos/configuration.nix|lang=Nix}}
+];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 Or using [Home Manager](Home_Manager "wikilink")
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
   xwayland-satellite # xwayland support
-];|name=❄︎ ~/.config/home-manager/home.nix|lang=Nix}}
+];|name=~/.config/home-manager/home.nix|lang=nix}}
 ```
 After you installed `{{ic|xwayland-satellite}}`{=mediawiki} Niri will integrate it out of the box and all of your
 XWayland apps will function properly.
+
+### File picker not working {#file_picker_not_working}
+
+If you are using `xdg-desktop-portal-gnome`, it will attempt to use Nautilus as the file picker, which will fail if
+Nautilus is not installed.
+
+To work around this problem, you can force usage of the gtk or kde portals for file picker instead:
+`{{File|3=xdg.portal.config.niri = {
+  "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
+};|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
 ## See Also {#see_also}
 

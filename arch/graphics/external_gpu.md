@@ -1,7 +1,8 @@
 [ja:外付け GPU](ja:外付け_GPU "wikilink") [zh-hans:外接显卡](zh-hans:外接显卡 "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
-`{{Related|Thunderbolt}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki}
-`{{Related|NVIDIA/Tips and tricks}}`{=mediawiki} `{{Related|Docks}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related articles start}}`{=mediawiki} `{{Related|Graphics processing unit}}`{=mediawiki}
+`{{Related|Xorg}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Thunderbolt}}`{=mediawiki}
+`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|NVIDIA/Tips and tricks}}`{=mediawiki}
+`{{Related|Docks}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 On computers equipped with [Thunderbolt 3+](Wikipedia:Thunderbolt_(interface)#Thunderbolt_3 "wikilink") or
 [USB4](Wikipedia:USB4 "wikilink"), it is possible to attach a desktop-grade external graphics card (eGPU) using a GPU
@@ -43,7 +44,7 @@ parameters](kernel_parameters "wikilink"):
 This tells the kernel that your PCIe is hot-pluggable, which is required for Thunderbolt.
 
 ```{=mediawiki}
-{{Note|After adding this setting, your network adapter device names may change. This may break custom eccentric network setups (for example, if network bonding is used to bond two or more network ports into a single interface). If this happens simply rebuild your bonding rules.}}
+{{Note|After adding this setting, your network adapter device names may change. This may break custom eccentric network setups (for example, if network bonding is used to bond two or more network ports into a single interface). If this happens simply rebuild your network rules. It may also affect services that bind to the adapter like [[Samba]], [[Squid]] or [[dnsmasq]], in wich you will need to correct the configuration file for the services affected.}}
 ```
 You may also need to add a modprobe rule to ensure the driver loads after thunderbolt, if your thunderbolt GPU is using
 the same drivers as your internal GPU (whether discrete or integrated)

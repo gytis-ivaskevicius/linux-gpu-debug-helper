@@ -660,17 +660,15 @@ Or for FSync with patched Wine:
 `WINEFSYNC=1`
 
 NTSync does not require setting an environment variable, instead it will automatically be used if the
-`{{ic|ntsync}}`{=mediawiki} kernel module is loaded. `{{Pkg|wine}}`{=mediawiki} and `{{Pkg|wine-staging}}`{=mediawiki}
-ship with a file to [load the module at boot](load_the_module_at_boot "wikilink"), otherwise you can manually create:
+`{{ic|ntsync}}`{=mediawiki} [kernel module](kernel_module "wikilink") is loaded. `{{Pkg|wine}}`{=mediawiki} and
+`{{Pkg|wine-staging}}`{=mediawiki} ship with a file to [load the module at boot](load_the_module_at_boot "wikilink").
+
+If you are using a custom, unofficial version of Proton or Wine (e.g. from the AUR) you can manually create:
 
 ```{=mediawiki}
 {{hc|/etc/modules-load.d/ntsync.conf|
 ntsync
 }}
-```
-```{=mediawiki}
-{{Note|Now in Arch Linux packages {{Pkg|wine}} and {{Pkg|wine-staging}} since [https://gitlab.archlinux.org/archlinux/packaging/packages/wine/-/commit/3fb78d47987fbe35cea74ddcfc3921850da4fa34 version 10.16] automatically create the /usr/lib/modules-load.d/10-ntsync.conf configuration file by default during installation to enable autoloading of the ntsync kernel module on every system reboot. Therefore, you don't need to manually create this file yourself. You should only restart your system after installing these packages, or instead manually run the ntsync kernel module once.
-However, you may still need to do so only if you're using a custom, unofficial version of Proton or Wine from the AUR.}}
 ```
 [MangoHud](MangoHud "wikilink") can shows the absence or presence of ESync, FSync or NTSync in games if you have enabled
 an indication of *winesync* in its config file.

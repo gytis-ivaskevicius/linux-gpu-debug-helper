@@ -618,15 +618,16 @@ Until this issue is patched in future kernel releases, a workaround is to add
 
 See: <https://community.frame.work/t/wayland-lag-stuttering-since-kernel-6-11-2/59422>
 
-### VRR/Vsync on Games / applications suspended when not in focus {#vrrvsync_on_games_applications_suspended_when_not_in_focus}
+### Games / applications suspended when changing a virtual desktop {#games_applications_suspended_when_changing_a_virtual_desktop}
 
 ```{=mediawiki}
 {{Expansion|Add more information and reference to upstream documentation here if found: the feature is elusive and seems poorly documented.}}
 ```
 When changing workspace or using `{{ic|Alt+Tab}}`{=mediawiki}, games (and possibly other graphical applications) are
-suspended, put in some weird state, and they (partially) stop. Symptoms include things like audio dropping (partially)
-out, game not progressing, ping times rising high or network dropping out, but only if the game window is not in focus.
-This may only affect applications with VSync on.
+suspended, put in some weird state, and they (partially) stop. This includes VRR applications and applications with
+VSync turned on but is not limited to them only. Symptoms include things like audio dropping (partially) out, game not
+progressing, ping times rising high or network dropping out, but only if the game window is not in focus. This may only
+affect applications with VSync on.
 
 It is possible some games can work around this issue by changing to a window, but some do not. This is extremely
 annoying in more complex games which require heavy usage of web browsing, documentation and 3rd party tools or if the
