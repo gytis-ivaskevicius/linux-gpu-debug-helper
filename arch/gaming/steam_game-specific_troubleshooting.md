@@ -2429,15 +2429,20 @@ when starting a new game. This is a bug with the SDL2 lib bundled with the game.
 
 Install `{{AUR|sdl2}}`{=mediawiki}.
 
-Modify this config line: `{{hc|~/.steam/steam/steamapps/common/Stardew\ Valley/MonoGame.Framework.dll.config|<nowiki>
+Modify this config line:
+
+```{=mediawiki}
+{{hc|~/.steam/steam/steamapps/common/Stardew\ Valley/MonoGame.Framework.dll.config|<nowiki>
 <dllmap dll="SDL2.dll" os="linux" cpu="x86-64" target="./lib64/libSDL2-2.0.so.0"/>
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 To this (the period is removed at the beginning of target):
-`{{hc|~/.steam/steam/steamapps/common/Stardew\ Valley/MonoGame.Framework.dll.config|<nowiki>
-<dllmap dll="SDL2.dll" os="linux" cpu="x86-64" target="/lib64/libSDL2-2.0.so.0"/>
-</nowiki>}}`{=mediawiki}
 
+```{=mediawiki}
+{{hc|~/.steam/steam/steamapps/common/Stardew\ Valley/MonoGame.Framework.dll.config|<nowiki>
+<dllmap dll="SDL2.dll" os="linux" cpu="x86-64" target="/lib64/libSDL2-2.0.so.0"/>
+</nowiki>}}
+```
 ### Steel Storm: Burning Retribution {#steel_storm_burning_retribution}
 
 #### Start with black screen {#start_with_black_screen}
@@ -3344,7 +3349,7 @@ finds all required files and install missing packages if necessary (`{{AUR|sdl2}
 
 #### Unable to start with steam native {#unable_to_start_with_steam_native}
 
-needs `{{ic|libgconf-2.so.4}}`{=mediawiki} which is not available in arch repositories, loading it from steams runtime
+Needs `{{ic|libgconf-2.so.4}}`{=mediawiki} which is not available in arch repositories, loading it from steams runtime
 seems to work.
 
 `LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_32/steam-runtime/usr/lib/x86_64-linux-gnu/libgconf-2.so.4" %command%`

@@ -3,10 +3,15 @@ large language models locally.
 
 ## Installation
 
--   [Install](Install "wikilink") `{{Pkg|ollama}}`{=mediawiki} to run models on CPU
--   To run models on GPU:
-    -   [Install](Install "wikilink") `{{Pkg|ollama-cuda}}`{=mediawiki} for [NVIDIA](NVIDIA "wikilink")
-    -   [Install](Install "wikilink") `{{Pkg|ollama-rocm}}`{=mediawiki} for [AMD](AMD "wikilink").
+[Install](Install "wikilink") the `{{Pkg|ollama}}`{=mediawiki} package, which provides a daemon, command line tool, and
+CPU inference.
+
+For GPU inference:
+
+-   Install `{{Pkg|ollama-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
+-   Install `{{Pkg|ollama-rocm}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
+-   Install `{{Pkg|ollama-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink")
+    ([experimental](https://docs.ollama.com/gpu#vulkan-gpu-support)).
 
 Next, [enable/start](enable/start "wikilink") `{{ic|ollama.service}}`{=mediawiki}. Then, verify Ollama\'s status:
 
@@ -103,7 +108,7 @@ Then, run your model as usual. You may wish to monitor GPU utilization with `{{P
 
 ### Models are not removed after uninstalling Ollama {#models_are_not_removed_after_uninstalling_ollama}
 
-You can easily remove the model files manually. They are stored in `{{ic|/var/lib/ollama/blobs}}`{=mediawiki}.
+`# rm -Rf /var/lib/ollama`
 
 ## See also {#see_also}
 

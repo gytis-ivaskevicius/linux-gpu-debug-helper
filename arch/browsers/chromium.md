@@ -447,14 +447,21 @@ pci-0000:'''03:00.0'''-render -> ../../renderD129
 }}
 ```
 Then we can identify which is which:
-`{{hc|lspci -k <nowiki>|</nowiki> grep "'''01:00.0'''\<nowiki>|</nowiki>'''03:00.0'''"|
-'''01:00.0''' VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590]
-'''03:00.0''' VGA compatible controller: NVIDIA Corporation GA106 [GeForce RTX 3060 Lite Hash Rate] (rev a1)
-}}`{=mediawiki} Then to launch Chromium:
 
-`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`01:00.0`**`-render`\
-`### or ###`\
-`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`03:00.0`**`-render`\
+```{=mediawiki}
+{{hc|lspci -k {{!}}
+```
+grep \"**01:00.0**\\{{!}}**03:00.0**\"\| **01:00.0** VGA compatible controller: Advanced Micro Devices, Inc. \[AMD/ATI\]
+Ellesmere \[Radeon RX 470/480/570/570X/580/580X/590\] **03:00.0** VGA compatible controller: NVIDIA Corporation GA106
+\[GeForce RTX 3060 Lite Hash Rate\] (rev a1) }}
+
+Then to launch Chromium:
+
+`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`01:00.0`**`-render`
+
+or
+
+`$ chromium --render-node-override=/dev/dri/by-path/pci-0000:`**`03:00.0`**`-render`
 
 Unfortunately the simpler `{{ic|/dev/dri/renderD128}}`{=mediawiki} or `{{ic|/dev/dri/renderD129}}`{=mediawiki}
 specifiers are unstable and subject to change based on driver/kernel module load order.

@@ -289,7 +289,7 @@ module option take effect, reboot.
 
 ## Visual issues {#visual_issues}
 
-### Avoid screen tearing {#avoid_screen_tearing}
+### Avoid screen tearing on Xorg {#avoid_screen_tearing_on_xorg}
 
 ```{=mediawiki}
 {{Note|
@@ -297,8 +297,25 @@ module option take effect, reboot.
 * {{ic|ForceFullCompositionPipeline}} is known [https://github.com/ValveSoftware/Proton/issues/6869 to break some games] using Vulkan under Proton with NVIDIA driver 535.
 }}
 ```
-Tearing can be avoided by forcing a full composition pipeline, regardless of the compositor you are using. To test
-whether this option will work, run:
+The NVIDIA driver conditionally applies a [composition
+pipeline](https://www.reddit.com/r/linux_gaming/comments/6voivr/comment/dm1uz2j/) to prepare the image for display. This
+not to be confused with a [composite manager](composite_manager "wikilink") which takes over window presentation (and
+can also mitigate screen tearing, via VSync). By default, the composition pipeline is only applied if the current screen
+transformations require it. The pipeline uses the GPU\'s specialized display engine if possible, then the more general
+graphics engine. There are a couple of options to control this:
+
+-   ```{=mediawiki}
+    {{ic|ForceCompositionPipeline}}
+    ```
+    forces usage of the pipeline.
+
+-   ```{=mediawiki}
+    {{ic|ForceCompositionPipelineFull}}
+    ```
+    forces usage of the pipeline, and forces it to all be done with the graphics engine.
+
+Tearing on Xorg can be avoided by setting `{{ic|ForceCompositionPipelineFull{{=}}`{=mediawiki}On}}. To test whether this
+option will work, run:
 
 `$ nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"`
 

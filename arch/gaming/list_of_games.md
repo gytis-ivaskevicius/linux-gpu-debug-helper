@@ -583,6 +583,10 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
+    {{App|Hytale|Early access sandbox adventure game primarily developed by [[Wikipedia:Hypixel|Hypixel]] Studios.|https://hytale.com|{{AUR|hytale-launcher-bin}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Luanti|Voxel-based sandbox game engine and game.|https://www.luanti.org/|{{Pkg|luanti}}, {{Pkg|luanti-server}}}}
     ```
 

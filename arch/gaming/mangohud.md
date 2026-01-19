@@ -66,7 +66,7 @@ The default keyboard shortcuts include:
 | {{ic|RShift+F10}} |                         |
 | ```               |                         |
 +-------------------+-------------------------+
-| ```{=mediawiki}   | Toggle loading          |
+| ```{=mediawiki}   | Toggle logging          |
 | {{ic|LShift+F2}}  |                         |
 | ```               |                         |
 +-------------------+-------------------------+

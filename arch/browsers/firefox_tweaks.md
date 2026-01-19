@@ -279,8 +279,9 @@ toolbarbutton#scrollbutton-up, toolbarbutton#scrollbutton-down {
 ```
 #### Vertical/tree tabs {#verticaltree_tabs}
 
-To place the tab bar in a sidebar/tree, use one of the following addons:
+To place the tab bar in a sidebar/tree, use one of the following:
 
+-   Native vertical tabs (since [Firefox 140.0](https://www.firefox.com/en-US/firefox/140.0/releasenotes/))
 -   [Tree Style Tab](https://addons.mozilla.org/firefox/addon/tree-style-tab/)
 -   [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
 -   [Tabby](https://addons.mozilla.org/firefox/addon/tabby-window-tab-manager/)

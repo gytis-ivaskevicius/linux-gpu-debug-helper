@@ -385,6 +385,9 @@ unset:
 
 `$ env -u DISPLAY wine example.exe`
 
+To force Wayland prefix-wide, add a string value with name `{{ic|Graphics}}`{=mediawiki} and data
+`{{ic|wayland}}`{=mediawiki} in `{{ic|HKEY_CURRENT_USER\Software\Wine\Drivers}}`{=mediawiki}
+
 ### Stop running Wine {#stop_running_wine}
 
 Stopping started executables, `{{ic|wine}}`{=mediawiki} with Ctrl+Z or `{{ic|wineconsole}}`{=mediawiki} with Ctrl+C,

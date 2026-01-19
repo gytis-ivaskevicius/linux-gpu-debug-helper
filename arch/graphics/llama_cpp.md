@@ -87,7 +87,7 @@ reduce quality compared to higher numbers (**Q8**).
 For further memory efficiency, you can quantize the KV (key-value) cache.
 
 ```{=mediawiki}
-{{bc|$ llama-cli -ctk ''q4_0'' -ctv ''q4_0'' -fa ''on'' -m ''model.gguf''}}
+{{bc|$ llama-cli -ctk ''q4_0'' -ctv ''q4_0'' -m ''model.gguf''}}
 ```
 This can significantly reduce memory usage.
 

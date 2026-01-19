@@ -15,8 +15,6 @@ Here is a minimal configuration:
 {{File|3={ config, pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
-    grim # screenshot functionality
-    slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
   ];
@@ -238,7 +236,9 @@ Or alternatively in Home Manager: `{{File|3=wayland.windowManager.sway = {
 };|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}For an on screen display for audio and brightness, check
 [swayosd](swayosd "wikilink").
 
-### Touchpad
+### Input
+
+#### Touchpad
 
 See the [sway-input man page](https://www.mankier.com/5/sway-input) for options. `{{File|3=wayland.windowManager.sway = 
   {
@@ -450,6 +450,38 @@ Map the script binary to a specific key
     };
 ```
 
+### Screenshots
+
+Screenshots using grim, slurp, and [grimshot](https://github.com/XodTech/grimshot) for selection screenshots/full screen
+screenshots.
+
+Install tools `{{File|3=environment.systemPackages = with pkgs; [
+  grim
+  slurp
+  sway-contrib.grimshot
+];|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} Example Home Manager configuration.
+`{{File|3=wayland.windowManager.sway = {
+  enable = true;
+  config = let
+    modifier = config.wayland.windowManager.sway.config.modifier;
+    in {
+    modifier = "Mod4";
+    keybindings = lib.mkOptionDefault {
+
+      # Super + Shift + S
+      # Screenshot a selection that saves to ~/Screenshots and copies to clipboard.
+      "${modifier}+Shift+s" = "exec selection=$(slurp) && grim -g \"$selection\" - {{!}}`{=mediawiki} tee
+\~/Screenshots/\$(date +%Y-%m-%d\_%H-%M-%S).png {{!}} wl-copy\";
+
+`     # Print Screen Button`\
+`     # Screenshot the currently focused screen, save to ~/Screenshots and copy to clipboard.`\
+`     "Print" = "exec grimshot save output - {{!}} tee ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png {{!}} wl-copy";`
+
+`   };`\
+` };`
+
+};\|name=/etc/nixos/home.nix\|lang=nix}}
+
 ### Screen sharing {#screen_sharing}
 
 ```{=mediawiki}
@@ -489,6 +521,27 @@ See related info on [USB storage devices](USB_storage_devices "wikilink").
 File managers that support [GVfs](https://wiki.gnome.org/Projects/gvfs), such as [Thunar](Thunar "wikilink"), can mount
 MTP devices using GVfs. See the page on [MTP](MTP "wikilink") for related information.
 `{{File|3=services.gvfs.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
+
+### SwayFX
+
+[SwayFX](https://github.com/WillPower3309/swayfx) is a fork of Sway that adds eye-candy effects, installing it is as
+simple as replacing your Sway package with SwayFX. Check the [SwayFX](SwayFX "wikilink") page on the wiki for additional
+details. `{{File|3=wayland.windowManager.sway = {
+  enable = true;
+  package = pkgs.swayfx;
+  
+  # Needed to build without errors.
+  checkConfig = false;
+    
+  # SwayFX options must be configured through extraConfig.
+  extraConfig = ''
+    shadows enable
+    corner_radius 11
+    blur_radius 7
+    blur_passes 2
+  '';
+
+};|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}
 
 ### Screen dimming with wl-gammarelay-rs {#screen_dimming_with_wl_gammarelay_rs}
 

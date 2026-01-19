@@ -241,6 +241,35 @@ TTS is disabled by default; you may enable it via an override:
 (pkgs.discord.override { withTTS = true; })
 ```
 
+### Discord RPC not functioning {#discord_rpc_not_functioning}
+
+#### NixOS
+
+Install [arRPC](https://github.com/OpenAsar/arrpc):
+
+``` nixos
+{pkgs, ...}:{
+  enviroment.systemPackages = with pkgs; [
+    arrpc
+  ];
+  systemd.packages = with pkgs; [ arrpc ];
+}
+```
+
+#### Home Manager {#home_manager}
+
+Add the following to your Home Manager configuration
+
+``` nixos
+{pkgs, ...}:{
+    services.arrpc = {
+        enable = true;
+        package = pkgs.arrpc; #Default
+        systemdTarget = "graphical-session.target"; #Default
+    };
+}
+```
+
 [Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
 
 [^1]: <https://github.com/Legcord/Legcord>

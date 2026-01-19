@@ -23,34 +23,46 @@ page](https://nouveau.freedesktop.org/CodeNames.html) corresponding to its model
 
 `$ lspci -k -d ::03xx`
 
-```{=mediawiki}
-{{Expansion|Clarification is needed for GPU families which supports both nvidia-open and nvidia-580 drivers.|section=Clarify_the_possible_intersection_in_driver_support_for_some_families_when_choosing_driver}}
-```
 Then, install the appropriate driver for your card:
 
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | GPU family                           | Driver                               | Status                               |
 +======================================+======================================+======================================+
-| [Turing                              | ```{=mediawiki}                      | [Recommended by                      |
-| (NV160/TUXXX)](https://nouveau.f     | {{Pkg|nvidia-open}}                  | up                                   |
-| reedesktop.org/CodeNames.html#NV160) | ```                                  | stream](https://developer.nvidia.com |
+| [Blackwell                           | ```{=mediawiki}                      | [Recommended by                      |
+| (GBXXX)](Wikipedia:Black             | {{Pkg|nvidia-open}}                  | up                                   |
+| well_(microarchitecture) "wikilink") | ```                                  | stream](https://developer.nvidia.com |
 | and newer                            | for `{{Pkg|linux}}`{=mediawiki}\     | /blog/nvidia-transitions-fully-towar |
 |                                      | `                                    | ds-open-source-gpu-kernel-modules/)\ |
-|                                      | {{Pkg|nvidia-open-lts}}`{=mediawiki} | Current, supported^1^\               |
-|                                      | for `{{Pkg|linux-lts}}`{=mediawiki}\ | No [RTD3 Power                       |
-|                                      | `{                                   | Mana                                 |
-|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} | gement](PRIME#PCI-Express_Runtime_D3 |
-|                                      | for any kernel(s)                    | _(RTD3)_Power_Management "wikilink") |
-|                                      |                                      | on Turing^2^\                        |
-|                                      |                                      | Crashes some laptops^2^              |
+|                                      | {{Pkg|nvidia-open-lts}}`{=mediawiki} | Current, supported^1^                |
+|                                      | for `{{Pkg|linux-lts}}`{=mediawiki}\ |                                      |
+|                                      | `{                                   |                                      |
+|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
+|                                      | for any kernel(s)                    |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [Turing                              | Supported both by:                   |                                      |
+| (NV160/TUXXX)](https://nouveau.f     |                                      |                                      |
+| reedesktop.org/CodeNames.html#NV160) | -   ```{=mediawiki}                  |                                      |
+| through\                             |     {{Pkg|nvidia-open}}              |                                      |
+| [Ada Lovelace                        |     ```                              |                                      |
+| (NV190/ADXXX)](https://nouveau.f     |     with no [RTD3 Power              |                                      |
+| reedesktop.org/CodeNames.html#NV190) |     Mana                             |                                      |
+|                                      | gement](PRIME#PCI-Express_Runtime_D3 |                                      |
+|                                      | _(RTD3)_Power_Management "wikilink") |                                      |
+|                                      |     on Turing^2^,\                   |                                      |
+|                                      |     possible crashes on              |                                      |
+|                                      |     Ampere-equiped laptops^2^        |                                      |
+|                                      |                                      |                                      |
+|                                      | -   ```{=mediawiki}                  |                                      |
+|                                      |     {{AUR|nvidia-580xx-dkms}}        |                                      |
+|                                      |     ```                              |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Maxwell                             | ```{=mediawiki}                      | Legacy, supported                    |
 | (NV110/GMXXX)](https://nouveau.f     | {{AUR|nvidia-580xx-dkms}}            |                                      |
 | reedesktop.org/CodeNames.html#NV110) | ```                                  |                                      |
 | through\                             |                                      |                                      |
-| [Ada Lovelace                        |                                      |                                      |
-| (NV190/ADXXX)](https://nouveau.f     |                                      |                                      |
-| reedesktop.org/CodeNames.html#NV190) |                                      |                                      |
+| [Volta                               |                                      |                                      |
+| (NV140/GV100)](https://nouveau.f     |                                      |                                      |
+| reedesktop.org/CodeNames.html#NV140) |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Kepler                              | ```{=mediawiki}                      | Legacy, unsupported^3,4^             |
 | (NVE0/GKXXX)](https://nouveau.       | {{AUR|nvidia-470xx-dkms}}            |                                      |

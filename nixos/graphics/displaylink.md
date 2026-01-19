@@ -17,7 +17,7 @@ environment.systemPackages = with pkgs; [
 
 Then add the videoDrivers:
 
-``` nixos
+``` nix
 services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 ```
 
@@ -41,7 +41,9 @@ At first add displayLink driver to nix store as above described.
 
 ##### evdi module {#evdi_module}
 
-You probably will need the \`evdi\` module `{{bc|<nowiki>
+You probably will need the \`evdi\` module
+
+``` nix
 boot = {
   extraModulePackages = [ config.boot.kernelPackages.evdi ];
   initrd = {
@@ -51,26 +53,27 @@ boot = {
     ];
   };
 };
-</nowiki>}}`{=mediawiki}
+```
 
 ##### **Gnome Wayland** {#gnome_wayland}
 
 Install displayLink package
 
-```{=mediawiki}
-{{bc|<nowiki>
+``` nix
 environment.systemPackages = with pkgs; [
   displaylink
 ];
-</nowiki>}}
 ```
+
 Define videoDrivers `{{bc|<nowiki>
 services.xserver.videoDrivers = [ "displaylink" ];
 </nowiki>}}`{=mediawiki}
 
-Add dlm service `{{bc|<nowiki>
+Add dlm service
+
+``` nix
 systemd.services.dlm.wantedBy = [ "multi-user.target" ];
-</nowiki>}}`{=mediawiki}
+```
 
 ##### **KDE Plasma** {#kde_plasma}
 
@@ -78,8 +81,7 @@ Apparently KDE Plasma (Wayland) requires a slight different approach.
 
 Esnure you properly enabled wayland session
 
-```{=mediawiki}
-{{bc|<nowiki>
+``` nix
 environment.variables = {
   KWIN_DRM_PREFER_COLOR_DEPTH = "24";
 };
@@ -97,44 +99,35 @@ services = {
   };
 
 };
-</nowiki>}}
 ```
+
 Install displayLink package
 
-```{=mediawiki}
-{{bc|<nowiki>
+``` nix
 environment.systemPackages = with pkgs; [
   displaylink
 ];
-</nowiki>}}
 ```
+
 Instead of dlm setup display-link server as follows:
 
-```{=mediawiki}
-{{bc|<nowiki>
-# --- THIS IS THE CRUCIAL PART FOR ENABLING THE SERVICE ---
+``` nix
 systemd.services.displaylink-server = {
   enable = true;
-  # Ensure it starts after udev has done its work
   requires = [ "systemd-udevd.service" ];
   after = [ "systemd-udevd.service" ];
-  wantedBy = [ "multi-user.target" ]; # Start at boot
-  # *** THIS IS THE CRITICAL 'serviceConfig' BLOCK ***
+  wantedBy = [ "multi-user.target" ];
   serviceConfig = {
-    Type = "simple"; # Or "forking" if it forks (simple is common for daemons)
-    # The ExecStart path points to the DisplayLinkManager binary provided by the package
+    Type = "simple";
     ExecStart = "${pkgs.displaylink}/bin/DisplayLinkManager";
-    # User and Group to run the service as (root is common for this type of daemon)
     User = "root";
     Group = "root";
-    # Environment variables that the service itself might need
-    # Environment = [ "DISPLAY=:0" ]; # Might be needed in some cases, but generally not for this
     Restart = "on-failure";
     RestartSec = 5; # Wait 5 seconds before restarting
   };
 };
-</nowiki>}}
 ```
+
 ## Sway
 
 Identify which card has the render device, `evdi` is the DisplayLink interface, so it\'s not `card0`, but `card1`.
@@ -170,5 +163,44 @@ Note as of [2024-10-30](https://github.com/NixOS/nixpkgs/pull/351752) nixos-unst
 above applies correctly but you will need to invoke sway with the `--unsupported-gpu` flag.
 
 [Source](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1823#note_2146862)
+
+## Troubleshooting
+
+### Suspend blocked by `pre-sleep.service` {#suspend_blocked_by_pre_sleep.service}
+
+As of NixOS 25.05, installing `pkgs.displaylink` inserts some directives into the script referenced by
+`pre-sleep.service`. If suspending does not work and causes the reboot and poweroff buttons to stop working, it may be a
+symptom of [suspend being blocked by
+pre-sleep.service](Power_Management#Suspend_blocked_by_pre-sleep.service "wikilink").
+
+The script in question:
+
+``` {.bash .numberLines}
+#!/nix/store/cfqbabpc7xwg8akbcchqbq3cai6qq2vs-bash-5.2p37/bin/bash
+set -e
+
+#flush any bytes in pipe
+while read -n 1 -t 1 SUSPEND_RESULT < /tmp/PmMessagesPort_out; do : ; done;
+
+#suspend DisplayLinkManager
+echo "S" > /tmp/PmMessagesPort_in
+
+#wait until suspend of DisplayLinkManager finish
+if [ -f /tmp/PmMessagesPort_out ]; then
+  #wait until suspend of DisplayLinkManager finish
+  read -n 1 -t 10 SUSPEND_RESULT < /tmp/PmMessagesPort_out
+fi
+```
+
+Because of a stray `/tmp/PmMessagesPort_out` caused by an unclean shutdown, the suspend action was blocked by this
+script trying to flush the port. A myriad of solutions can be used to unblock the script and restore suspend:
+
+-   Start `dlm.service` so that DisplayLinkManager can clear the ports and unblock the script
+-   Use `sudo DisplayLinkManager` to clear the ports and unblock the script
+
+Untested solutions:
+
+-   Removing the file
+-   Killing the script
 
 [Category:Video](Category:Video "wikilink") [Category:Video](Category:Video "wikilink")

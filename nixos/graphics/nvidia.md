@@ -107,20 +107,21 @@ double checking that the listed devices are indeed your integrated and dedicated
 the beginning of each line. Exact results may vary, but an example output might look like:
 
 ``` console
-$ nix shell nixpkgs#pciutils -c lspci -d ::03xx
+$ nix shell nixpkgs#pciutils -c lspci -D -d ::03xx
 0000:00:02.0 VGA compatible controller: Intel Corporation TigerLake-H GT1 [UHD Graphics] (rev 01)
 0000:01:00.0 VGA compatible controller: NVIDIA Corporation GA106M [GeForce RTX 3060 Mobile / Max-Q] (rev a1)
 ```
 
-Before putting them into your configuration, however, **they must first be reformatted** --- take the last three
-numbers, convert them from hexadecimal to decimal, remove the leading zeroes, concatenate them with colons, and then add
-a `PCI:` prefix. Then, they can be set under `intelBusId`, `nvidiaBusId`, or `amdgpuBusId` in `hardware.nvidia.prime`,
-depending on the manufacturer of the GPU:`{{file|configuration.nix|nix|<nowiki>
+Before putting them into your configuration, however, **they must first be reformatted** --- assuming the bus address is
+`<domain>`{=html}`:``<bus>`{=html}`:``<device>`{=html}`.``<func>`{=html}, convert all numbers from hexadecimal to
+decimal, then the formatted string is `PCI:``<bus>`{=html}`@``<domain>`{=html}`:``<device>`{=html}`:``<func>`{=html}.
+They can be set under `intelBusId`, `nvidiaBusId`, or `amdgpuBusId` in `hardware.nvidia.prime`, depending on the
+manufacturer of the GPU:`{{file|configuration.nix|nix|<nowiki>
 {
   hardware.nvidia.prime = {
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-    #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
+    # amdgpuBusId = "PCI:5@0:0:0"; # If you have an AMD iGPU
   };
 }
 </nowiki>}}`{=mediawiki}
@@ -151,9 +152,9 @@ To enable offload mode, set the `hardware.nvidia.prime.offload.enable` option to
   hardware.nvidia.prime = {
     offload.enable = true;
     
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-    #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
+    # amdgpuBusId = "PCI:5@0:0:0"; # If you have an AMD iGPU
   };
 }
 </nowiki>}}
@@ -188,9 +189,9 @@ To enable sync mode, set the `hardware.nvidia.prime.sync.enable` option to `true
   hardware.nvidia.prime = {
     sync.enable = true;
     
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-    #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
+    # amdgpuBusId = "PCI:5@0:0:0"; # If you have an AMD iGPU
   };
 }
 </nowiki>}}
@@ -211,9 +212,9 @@ To enable reverse sync mode, set the `hardware.nvidia.prime.reverseSync.enable` 
   hardware.nvidia.prime = {
     reverseSync.enable = true;
 
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-    #amdgpuBusId = "PCI:54:0:0"; # If you have an AMD iGPU
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
+    # amdgpuBusId = "PCI:5@0:0:0"; # If you have an AMD iGPU
   };
 }
 </nowiki>}}

@@ -116,11 +116,13 @@ instructions on how to enable KMS as soon as possible at the boot process.
 If you want to keep the proprietary NVIDIA driver installed (and are not using OpenGL), but want to use the Nouveau
 driver, follow the steps below:
 
-Comment out nouveau blacklisting in `{{ic|/etc/modprobe.d/nouveau_blacklist.conf}}`{=mediawiki} or
-`{{ic|/usr/lib/modprobe.d/nvidia-utils.conf}}`{=mediawiki}, modifying it as follows:
+Comment out nouveau blacklisting as follows:
 
-`#blacklist nouveau`
-
+```{=mediawiki}
+{{hc|/etc/modprobe.d/nouveau_blacklist.conf|
+#blacklist nouveau
+}}
+```
 You may also need to comment out other configuration files that prioritize the proprietary driver, e.g.
 [systemd-modules-load](https://man.archlinux.org/man/systemd-modules-load.service.8.en)\'s
 `{{ic|/usr/lib/modules-load.d/nvidia-utils.conf}}`{=mediawiki} and [udev](udev "wikilink")\'s

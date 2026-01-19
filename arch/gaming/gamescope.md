@@ -1,6 +1,6 @@
-[ja:Gamescope](ja:Gamescope "wikilink") [zh-hans:Gamescope](zh-hans:Gamescope "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[hu:Gamescope](hu:Gamescope "wikilink") [ja:Gamescope](ja:Gamescope "wikilink")
+[zh-hans:Gamescope](zh-hans:Gamescope "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Steam}}`{=mediawiki} `{{Related|Gaming}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [Gamescope](https://github.com/ValveSoftware/gamescope) is a [microcompositor](Wayland#Compositors "wikilink") from
 Valve that is used on the [Steam Deck](Steam_Deck "wikilink"). Its goal is to provide an isolated compositor that is
@@ -179,9 +179,14 @@ it can be worked around by using the fullscreen flag `{{ic|-f}}`{=mediawiki} whe
 ### Setting Gamescopes priority {#setting_gamescopes_priority}
 
 Another known cause of low performance and/or stuttering is not having Gamescope\'s priority set correctly. You can tell
-this is the case if you see an error like this in the terminal while Gamescope is running: `{{bc|
+this is the case if you see an error like this in the terminal while Gamescope is running:
+
+```{=mediawiki}
+{{bc|
 No CAP_SYS_NICE, falling back to regular-priority compute and threads.
-Performance will be affected.}}`{=mediawiki} The following command will fix this:
+Performance will be affected.}}
+```
+The following command will fix this:
 
 `# setcap 'CAP_SYS_NICE=eip' $(which gamescope)`
 

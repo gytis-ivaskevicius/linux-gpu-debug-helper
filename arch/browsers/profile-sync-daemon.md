@@ -167,12 +167,14 @@ by uncommenting the `{{ic|1=USE_OVERLAYFS="yes"}}`{=mediawiki} line in
 `{{ic|$XDG_CONFIG_HOME/psd/psd.conf}}`{=mediawiki} followed by a [restart](restart "wikilink") of the daemon.
 
 Since version 6.05 of psd, users wanting to take advantage of this mode MUST have [sudo](sudo "wikilink") rights
-(without password prompt) to `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} or global sudo rights. The following line
-in `{{ic|/etc/sudoers}}`{=mediawiki} will supply a [user](user "wikilink") with these rights. Add it using
-[visudo](visudo "wikilink"):
+(without password prompt) to `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} or global sudo rights. Create the
+following drop-in file using the `{{ic|visudo}}`{=mediawiki} command as root.:
 
-*`username`*` ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper`
-
+```{=mediawiki}
+{{hc|/etc/sudoers.d/profile-sync-daemon|2=
+''user'' ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
+}}
+```
 See the example in the PREVIEW MODE section above which shows a system using overlayfs to illustrate the memory savings
 that can be achieved. Note the \"overlayfs size\" report compared to the total \"profile size\" report for each profile.
 Be aware that these numbers will change depending on how much data is written to the profile, but in common use cases

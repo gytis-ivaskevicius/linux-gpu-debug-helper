@@ -267,6 +267,12 @@ Type=Application
 Then instruct your display manager to launch gamescope.
 
 ```{=mediawiki}
+{{Note|[[Install]] {{Pkg|pipewire-pulse}} if the audio settings do not show any audio devices.}}
+```
+```{=mediawiki}
+{{Warning|{{Pkg|polkit}} needs to be installed to be able to use the "Suspend System", "Turn Off System" and "Restart System" options of the Power menu.}}
+```
+```{=mediawiki}
 {{Warning|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}} on a terminal. You can also create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
 ```
 ### Steam skins {#steam_skins}
@@ -355,7 +361,7 @@ There are four file systems, that can be read/write by both Windows and Linux.
 #### NTFS
 
 ```{=mediawiki}
-{{Warning|Valve discourages the usage of NTFS to store a steam libray as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
+{{Warning|Valve discourages the usage of NTFS to store a steam library as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
 
 You WILL run into problems where games don't start. You WILL run into problems where games crash unexpectedly.}}
 ```

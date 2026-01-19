@@ -198,7 +198,7 @@ of the world.
     {{App|Minutor|A minimalistic map generator for Minecraft. You are provided with a simple GTK based interface for viewing your world. Several rendering modes are available, as well as custom coloring modes and the ability to slice through z-levels.|http://seancode.com/minutor/|{{AUR|minutor-git}}}}
     ```
 
-## Tips and Tricks {#tips_and_tricks}
+## Tips and tricks {#tips_and_tricks}
 
 ### Enable HRTF directional audio support {#enable_hrtf_directional_audio_support}
 
@@ -252,6 +252,9 @@ bottom, on the left side.
 
 ### MultiMC forks unable to build {#multimc_forks_unable_to_build}
 
+```{=mediawiki}
+{{Remove|No longer an issue.}}
+```
 If you are trying to install one of *multimc5* forks like (`{{Pkg|prismlauncher}}`{=mediawiki}) and get an error similar
 to:
 
@@ -275,7 +278,9 @@ Available Java environments:
   java-8-openjdk
 }}
 ```
-You can set the default java version using `{{ic|archlinux-java set ''version''}}`{=mediawiki}.
+You can set the default java version using
+
+`# archlinux-java set `*`version`*
 
 ### Cannot change pulseaudio sink {#cannot_change_pulseaudio_sink}
 

@@ -1,10 +1,10 @@
-[de:X](de:X "wikilink") [fr:Xorg](fr:Xorg "wikilink") [hu:Xorg](hu:Xorg "wikilink") [ja:Xorg](ja:Xorg "wikilink")
-[lv:Xorg](lv:Xorg "wikilink") [pt:Xorg](pt:Xorg "wikilink") [ru:Xorg](ru:Xorg "wikilink") [uk:Xorg](uk:Xorg "wikilink")
-[zh-hans:Xorg](zh-hans:Xorg "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|Autostarting}}`{=mediawiki}
-`{{Related|Cursor themes}}`{=mediawiki} `{{Related|Desktop environment}}`{=mediawiki}
-`{{Related|Display manager}}`{=mediawiki} `{{Related|Font configuration}}`{=mediawiki}
-`{{Related|Window manager}}`{=mediawiki} `{{Related|XDMCP}}`{=mediawiki} `{{Related|xinit}}`{=mediawiki}
-`{{Related|xrandr}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[de:X](de:X "wikilink") [es:Xorg](es:Xorg "wikilink") [fr:Xorg](fr:Xorg "wikilink") [hu:Xorg](hu:Xorg "wikilink")
+[ja:Xorg](ja:Xorg "wikilink") [lv:Xorg](lv:Xorg "wikilink") [pt:Xorg](pt:Xorg "wikilink") [ru:Xorg](ru:Xorg "wikilink")
+[uk:Xorg](uk:Xorg "wikilink") [zh-hans:Xorg](zh-hans:Xorg "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Autostarting}}`{=mediawiki} `{{Related|Cursor themes}}`{=mediawiki}
+`{{Related|Desktop environment}}`{=mediawiki} `{{Related|Display manager}}`{=mediawiki}
+`{{Related|Font configuration}}`{=mediawiki} `{{Related|Window manager}}`{=mediawiki} `{{Related|XDMCP}}`{=mediawiki}
+`{{Related|xinit}}`{=mediawiki} `{{Related|xrandr}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [X.Org Server](Wikipedia:X.Org_Server "wikilink") --- commonly referred to as simply **X** --- is the [X.Org
 Foundation](Wikipedia:X.Org_Foundation "wikilink") implementation of the [X Window
@@ -333,7 +333,7 @@ standalone composite manager can be used.
     ```
 
 -   ```{=mediawiki}
-    {{App|fastcompmgr|A lightweight compositor for X11 with a focus on speed.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr-git}}}}
+    {{App|fastcompmgr|A lightweight compositor for X11 with a focus on speed.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
     ```
 
 -   ```{=mediawiki}
