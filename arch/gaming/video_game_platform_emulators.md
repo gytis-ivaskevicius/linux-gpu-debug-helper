@@ -154,7 +154,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|Visual Boy Advance|Game Boy emulator with Game Boy Advance, Game Boy Color, and Super Game Boy support.|https://vba-m.com/|GTK frontend {{AUR|vbam-wx}}, SDL frontend {{AUR|vbam-sdl}}}}
+    {{App|Visual Boy Advance|Game Boy emulator with Game Boy Advance, Game Boy Color, and Super Game Boy support.|https://www.visualboyadvance-m.org/|GTK frontend {{AUR|vbam-wx}}, SDL frontend {{AUR|vbam-sdl}}}}
     ```
 
 -   ```{=mediawiki}

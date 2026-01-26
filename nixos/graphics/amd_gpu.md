@@ -156,21 +156,11 @@ The AMDVLK drivers can be used in addition to the Mesa RADV drivers. The program
 defaulting to AMDVLK):
 
 ``` nix
-#24.11 
 hardware.graphics.extraPackages = with pkgs; [
   amdvlk
 ];
 # For 32 bit applications 
 hardware.graphics.extraPackages32 = with pkgs; [
-  driversi686Linux.amdvlk
-];
-
-#24.05 and below
-hardware.opengl.extraPackages = with pkgs; [
-  amdvlk
-];
-# For 32 bit applications 
-hardware.opengl.extraPackages32 = with pkgs; [
   driversi686Linux.amdvlk
 ];
 ```

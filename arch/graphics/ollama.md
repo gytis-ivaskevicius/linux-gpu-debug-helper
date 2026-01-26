@@ -1,6 +1,21 @@
 [zh-hans:Ollama](zh-hans:Ollama "wikilink") [Ollama](https://ollama.com) is an application which lets you run offline
 large language models locally.
 
+```{=mediawiki}
+{{Related articles start}}
+```
+```{=mediawiki}
+{{Related|Vulkan}}
+```
+```{=mediawiki}
+{{Related|General-purpose computing on graphics processing units}}
+```
+```{=mediawiki}
+{{Related|llama.cpp}}
+```
+```{=mediawiki}
+{{Related articles end}}
+```
 ## Installation
 
 [Install](Install "wikilink") the `{{Pkg|ollama}}`{=mediawiki} package, which provides a daemon, command line tool, and

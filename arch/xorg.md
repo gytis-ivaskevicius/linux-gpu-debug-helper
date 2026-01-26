@@ -608,6 +608,17 @@ needs_root_rights = yes
 Wayback is an X11 compatibility layer which allows for running full X11 desktop environments (and window managers) using
 Wayland components. It\'s available from the AUR as `{{AUR|wayback-x11}}`{=mediawiki} package.
 
+### 12to11
+
+12to11 allows you to seamlessly run Wayland-only applications under X11. It\'s available from the AUR as
+`{{AUR|12to11-git}}`{=mediawiki}. Run with the EGL renderer for best performance:
+
+`RENDERER=egl 12to11`
+
+Run it as a background task by putting this in your .xinitrc or .xsession:
+
+`RENDERER=egl 12to11 &`
+
 ## Troubleshooting
 
 ### General

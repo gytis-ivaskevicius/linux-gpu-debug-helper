@@ -59,9 +59,6 @@ See [KDE#HDR](KDE#HDR "wikilink").
 
 ### Hyprland
 
-Ensure `{{pkg|hyprland}}`{=mediawiki} \>= 0.47.0 and set the `{{ic|xx_color_management_v4}}`{=mediawiki} variable to
-true.
-
 #### Monitor v1 {#monitor_v1}
 
 Append `{{ic|, bitdepth, 10, cm, hdr}}`{=mediawiki} to the monitor\'s config line in your Hyprland config file.
@@ -75,13 +72,15 @@ Add a new line to the monitor\'s config and add
 
 ```{=mediawiki}
 {{bc|
-   supports_wide_color {{=}}
+monitorv2 {
+   # ...
+   bitdepth {{=}}
 ```
-1
+10
 
-`  supports_hdr {{=}} 1`
+`  cm {{=}} hdr`
 
-}}
+} }}
 
 Additional settings can be found on the [Hyprland wiki](https://wiki.hypr.land/Configuring/Monitors/#monitor-v2).
 

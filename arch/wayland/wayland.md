@@ -20,9 +20,11 @@ which provides an X Server in Wayland.
 
 ## Requirements
 
-Most Wayland compositors only work on systems using [Kernel mode setting](Kernel_mode_setting "wikilink"). Wayland by
-itself does not provide a graphical environment; for this you also need a compositor (see the following section), or a
-desktop environment that includes a compositor (e.g. [GNOME](GNOME "wikilink") or [Plasma](Plasma "wikilink")).
+Wayland is just the protocol, unlike [Xorg](Xorg "wikilink") it does not have a common \"display server\" to install. To
+use it, you only need a compatible display driver (this section) and a compositor (next section) or [desktop
+environment](desktop_environment "wikilink") (e.g. [GNOME](GNOME "wikilink") or [Plasma](Plasma "wikilink")) that
+implements the Wayland protocol. Most Wayland compositors only work on systems using [Kernel mode
+setting](Kernel_mode_setting "wikilink").
 
 For the GPU driver and Wayland compositor to be compatible they must support the same buffer API. There are two main
 APIs: [GBM](Wikipedia:Generic_Buffer_Management "wikilink") and

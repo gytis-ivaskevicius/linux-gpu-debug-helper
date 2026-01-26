@@ -390,8 +390,9 @@ by setting the environment variable:
 `$ export SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY=1.`
 
 By default, `{{Pkg|sdl2-compat}}`{=mediawiki} forces 1:1 scaling (non-DPI-aware) using this
-hint,[6](https://github.com/libsdl-org/sdl2-compat/blob/main/src/sdl2_compat.c#L1379-L1383) with some per-application
-exceptions.[7](https://github.com/libsdl-org/sdl2-compat/blob/main/src/sdl2_compat.c#L490-L502)
+hint,[6](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L1381-L1385)
+with some per-application
+exceptions.[7](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L492-L504)
 
 ### Electron
 

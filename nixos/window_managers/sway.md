@@ -15,15 +15,14 @@ Here is a minimal configuration:
 {{File|3={ config, pkgs, lib, ... }:
 {
   environment.systemPackages = with pkgs; [
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
+    wl-clipboard # Copy/Paste functionality.
+    mako # Notification utility.
   ];
 
-  # Enable the gnome-keyring secrets vault. 
-  # Will be exposed through DBus to programs willing to store secrets.
+  # Enables Gnome Keyring to store secrets for applications. 
   services.gnome.gnome-keyring.enable = true;
 
-  # enable Sway window manager
+  # Enable Sway.
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -84,14 +83,6 @@ list of configuration options.
 You may need to activate dbus manually from .zshrc to use i.e: dunst, see [Dunst crashes if run as
 service](https://discourse.nixos.org/t/dunst-crashes-if-run-as-service/27671/2)
 
-```{=mediawiki}
-{{Note|
-It's recommended to enable a [[Secret Service]] provider, like GNOME Keyring:
-{{file|home.nix|nix|<nowiki>
-services.gnome-keyring.enable = true;
-</nowiki>}}
-}}
-```
 ### Systemd services {#systemd_services}
 
 Kanshi is an output configuration daemon. As explained above, we don\'t run Sway itself as a systemd service. There are
@@ -168,6 +159,23 @@ services such as application launchers or [Swayidle](Swayidle "wikilink"). To fi
 Manager configuration:`{{file|home.nix|nix|<nowiki>
  wayland.windowManager.sway.systemd.variables = ["--all"];
 </nowiki>}}`{=mediawiki}
+
+### Secret Service {#secret_service}
+
+It is recommended to enable a secret service provider such as [Gnome
+Keyring](https://wiki.gnome.org/Projects/GnomeKeyring). For more information on secret services check the [Secret
+Service](Secret_Service "wikilink") page.
+
+Install and enable:
+`{{File|3=services.gnome.gnome-keyring.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} In order
+to unlock the keyring through logins from greeters and screen locking utilities you will need to enable them through
+PAM. `{{File|3=security.pam.services = {
+  greetd.enableGnomeKeyring = true;
+  swaylock.enableGnomeKeyring = true;
+
+  # If using a display manager such as GDM
+  #gdm.enableGnomeKeyring = true;
+};|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
 ## Configuration
 

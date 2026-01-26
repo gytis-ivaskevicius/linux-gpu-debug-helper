@@ -81,9 +81,6 @@ driver](video_driver "wikilink") to the initramfs configuration file:
     for the out-of-tree [NVIDIA](NVIDIA "wikilink") drivers. See [NVIDIA#DRM kernel mode
     setting](NVIDIA#DRM_kernel_mode_setting "wikilink") for details.
 
-```{=html}
-<!-- -->
-```
 -   ```{=mediawiki}
     {{ic|mgag200}}
     ```
@@ -132,12 +129,12 @@ Initramfs configuration instructions are slightly different depending on the ini
 
 #### mkinitcpio
 
-For in-tree modules, make sure `{{ic|kms}}`{=mediawiki} is included in the HOOKS array in
-`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} (this is the default since [mkinitcpio
-v33](https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/merge_requests/126/diffs#57ac3bb5162944ca1d6c5fa29ff4d7cc886e04bb_53_52)).
+For in-tree modules, either use `{{ic|kms}}`{=mediawiki} in the HOOKS array in `{{ic|/etc/mkinitcpio.conf}}`{=mediawiki}
+(the default since [mkinitcpio
+v33](https://gitlab.archlinux.org/archlinux/mkinitcpio/mkinitcpio/-/merge_requests/126/diffs#57ac3bb5162944ca1d6c5fa29ff4d7cc886e04bb_53_52))
+or place the module names in the MODULES array.
 
-For out-of-tree modules, place the module names in the MODULES array. For example, to enable early KMS for the NVIDIA
-graphics driver:
+For the out-of-tree NVIDIA modules, you must place the module names in the MODULES array as follows:
 
 ```{=mediawiki}
 {{hc|/etc/mkinitcpio.conf|2=
@@ -192,6 +189,16 @@ force_drivers+{{=}}
 1.  \...
 
 }}
+
+If you are using the [#Forcing modes and EDID](#Forcing_modes_and_EDID "wikilink") method, you should embed the custom
+file as well:
+
+```{=mediawiki}
+{{hc|/etc/dracut.conf.d/myflags.conf|2=
+install_items+=" /usr/lib/firmware/edid/''your_edid''.bin "
+}}
+```
+Then [regenerate the dracut images](Dracut#Usage "wikilink").
 
 ## Troubleshooting
 

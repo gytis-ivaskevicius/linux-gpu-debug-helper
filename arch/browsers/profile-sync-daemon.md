@@ -171,7 +171,7 @@ Since version 6.05 of psd, users wanting to take advantage of this mode MUST hav
 following drop-in file using the `{{ic|visudo}}`{=mediawiki} command as root.:
 
 ```{=mediawiki}
-{{hc|/etc/sudoers.d/profile-sync-daemon|2=
+{{hc|/etc/sudoers.d/90-profile-sync-daemon|2=
 ''user'' ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
 }}
 ```

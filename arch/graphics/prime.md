@@ -265,9 +265,9 @@ First, identify integrated GPU BusID `{{hc|lspci -d ::03xx|
 01:00.0 VGA compatible controller: NVIDIA Corporation TU117M [GeForce GTX 1650 Mobile / Max-Q] (rev a1)
 }}`{=mediawiki}
 
-In the above example Intel card has 00:02.0 which translates to PCI:0:2:0.
+In the above example Intel card has `{{ic|00:02.0}}`{=mediawiki} which translates to `{{ic|PCI:0:2:0}}`{=mediawiki}.
 
-Set up your xorg.conf as follows and adjust BusID. `{{hc|/etc/X11/xorg.conf|
+Set up your `{{ic|xorg.conf}}`{=mediawiki} as follows and adjust BusID. `{{hc|/etc/X11/xorg.conf|
 Section "ServerLayout"
         Identifier "layout"
         Screen 0 "intel"
@@ -297,10 +297,16 @@ Section "Screen"
 EndSection
 }}`{=mediawiki}
 
-The command `{{ic|xrandr --setprovideroutputsource provider source}}`{=mediawiki} sets the provider as output for the
-source. For example:
+Secondary GPUs will be automatically set up as output-sinks and offload-sources thanks to
+`{{ic|AutoBindGPU}}`{=mediawiki}[5](https://man.archlinux.org/man/xorg.conf.5). If that doesn\'t happen, or you\'d like
+to configure it yourself, run `{{ic|xrandr --setprovideroutputsource provider source}}`{=mediawiki} to set the provider
+as output for the source. For example:
 
-`$ xrandr --setprovideroutputsource radeon Intel`
+`$ xrandr --listproviders`\
+`Providers: number : 2`\
+`Provider 0: id: 0x48 cap: 0xf, Source Output, Sink Output, Source Offload, Sink Offload crtcs: 4 outputs: 6 associated providers: 1 name:modesetting`\
+`Provider 1: id: 0x257 cap: 0x2, Sink Output crtcs: 4 outputs: 5 associated providers: 1 name:NVIDIA-G0`\
+`$ xrandr --setprovideroutputsource NVIDIA-G0 modesetting`
 
 When this is done, the discrete card\'s outputs should be available in xrandr, and you could do something like:
 
@@ -399,10 +405,10 @@ After this you can use `{{ic|1=DRI_PRIME=1}}`{=mediawiki} WITHOUT having to run
 ### Glitches/Ghosting synchronization problem on second monitor when using reverse PRIME {#glitchesghosting_synchronization_problem_on_second_monitor_when_using_reverse_prime}
 
 This problem can affect users when not using a [composite manager](composite_manager "wikilink"), such as with
-[i3](i3 "wikilink"). [5](https://bugs.freedesktop.org/show_bug.cgi?id=75579)
+[i3](i3 "wikilink"). [6](https://bugs.freedesktop.org/show_bug.cgi?id=75579)
 
 If you experience this problem under Gnome, then a possible fix is to set some environment variables in
-`{{ic|/etc/environment}}`{=mediawiki} [6](https://bbs.archlinux.org/viewtopic.php?id=177925)
+`{{ic|/etc/environment}}`{=mediawiki} [7](https://bbs.archlinux.org/viewtopic.php?id=177925)
 
 `CLUTTER_PAINT=disable-clipped-redraws:disable-culling`\
 `CLUTTER_VBLANK=True`
@@ -417,7 +423,7 @@ This error is given when the power management in the kernel driver is running. Y
 Some Vulkan applications (particularly ones using VK_PRESENT_MODE_FIFO_KHR and/or VK_PRESENT_MODE_FIFO_RELAXED_KHR,
 including Windows games ran with DXVK) will cause the GPU to lockup constantly (\~5-10 seconds freezed, \~1 second
 working
-fine)[7](https://devtalk.nvidia.com/default/topic/1044496/linux/hangs-freezes-when-vulkan-v-sync-vk_present_mode_fifo_khr-is-enabled/)
+fine)[8](https://devtalk.nvidia.com/default/topic/1044496/linux/hangs-freezes-when-vulkan-v-sync-vk_present_mode_fifo_khr-is-enabled/)
 when ran on a system using **reverse PRIME**.
 
 A GPU lockup will render any input unusable (this includes switching TTYs and using SysRq functions).
@@ -426,7 +432,7 @@ There is no known fix for this NVIDIA bug, but a few workarounds exist:
 
 -   Turning Vsync off (not possible for some applications)
 -   Turning PRIME
-    Synchronization[8](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) off (will
+    Synchronization[9](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) off (will
     introduce screen tearing):
 
 `xrandr --output HDMI-0 --set "PRIME Synchronization" 0 #replace HDMI-0 with your xrandr output ID`

@@ -273,7 +273,10 @@ Then instruct your display manager to launch gamescope.
 {{Warning|{{Pkg|polkit}} needs to be installed to be able to use the "Suspend System", "Turn Off System" and "Restart System" options of the Power menu.}}
 ```
 ```{=mediawiki}
-{{Warning|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}} on a terminal. You can also create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
+{{Warning|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}}. To do this from Steam, you can either:
+* Add {{ic|-steamos3}} to the Steam command-line arguments, which makes in the menu entry execute {{ic|steamos-session-select}} when selected. You can then add a script with this name in your [[PATH]] to customize the behavior; see [https://gist.github.com/Rishikant181/e26fb23d4c57db74bddaa0a57b26cd26#5-creating-a-script-to-switch-back-to-desktop-mode-close-steam this guide] for an example (note that {{ic|~/.local/bin}} is not part of Arch's default {{ic|PATH}}).
+** Be warned that {{ic|-steamos3}} has other effects such as [https://www.reddit.com/r/linux_gaming/comments/1f8zq0i/ replacing the in-game overlay with an inaccessible Steam Deck overlay].
+* Create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
 ```
 ### Steam skins {#steam_skins}
 

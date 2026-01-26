@@ -1605,7 +1605,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Wikipedia:Freeciv|Freeciv]]|Multiuser clone of the famous Microprose game of Civilization.|https://freeciv.wikia.com/wiki/Main_Page|{{Pkg|freeciv}}}}
+    {{App|[[Wikipedia:Freeciv|Freeciv]]|Multiuser clone of the famous Microprose game of Civilization.|https://freeciv.wikia.com/wiki/Main_Page|{{Pkg|freeciv-gtk3}}, {{Pkg|freeciv-gtk4}}, {{Pkg|freeciv-qt}}}}
     ```
 
 -   ```{=mediawiki}

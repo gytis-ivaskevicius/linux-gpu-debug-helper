@@ -2,7 +2,7 @@
 PRO](zh-hans:AMDGPU_PRO "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki}
 `{{Related|Vulkan}}`{=mediawiki} `{{Related|General-purpose computing on graphics processing units}}`{=mediawiki}
 `{{Related|DaVinci Resolve}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-`{{Archive|AMD has stopped releasing their proprietary components. See [https://www.amd.com/en/resources/support-articles/release-notes/RN-AMDGPU-UNIFIED-LINUX-25-10-1.html announcement]. [https://aur.archlinux.org/pkgbase/amdgpu-pro-installer amdgpu-pro-installer] is going to be deleted from AUR.}}`{=mediawiki}
+`{{Archive|AMD has stopped releasing their proprietary components. See [https://www.amd.com/en/resources/support-articles/release-notes/RN-AMDGPU-UNIFIED-LINUX-25-10-1.html announcement].}}`{=mediawiki}
 
 This page describes close source drivers for AMD GPUs.
 

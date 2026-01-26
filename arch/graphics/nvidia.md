@@ -120,11 +120,11 @@ prevent the initramfs from containing the `{{ic|nouveau}}`{=mediawiki} module ma
 during early boot.
 
 ```{=mediawiki}
-{{Note|If you are using [[#Wayland configuration|Wayland]] you should not restart until after following [[#DRM kernel mode setting]] or you may end up with a black screen.}}
+{{Note|
+* Wayland users should not restart before following [[#DRM kernel mode setting]] or they may end up with a black screen. They can then continue to [[#Wayland configuration]].
+* Xorg users can continue to [[#Xorg configuration]]
+}}
 ```
-Once the driver has been installed, continue to [#Xorg configuration](#Xorg_configuration "wikilink") or [#Wayland
-configuration](#Wayland_configuration "wikilink").
-
 ### Custom kernel {#custom_kernel}
 
 Ensure your kernel has `{{ic|1=CONFIG_DRM_SIMPLEDRM=y}}`{=mediawiki}, and if using
@@ -140,15 +140,12 @@ If you have installed a different version of the driver, you may need to [blackl
 
 ### DRM kernel mode setting {#drm_kernel_mode_setting}
 
-Since NVIDIA does not support [automatic KMS late loading](Kernel_mode_setting#Late_KMS_start "wikilink"), enabling DRM
-([Direct Rendering Manager](Wikipedia:Direct_Rendering_Manager "wikilink")) [kernel mode
-setting](kernel_mode_setting "wikilink") is required to make Wayland compositors function properly. KMS is also required
-for native Wayland rendering on NVIDIA dGPUs for dual-GPU setups.
-
-Starting from `{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5, DRM defaults to
-enabled.[1](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22)
-For older drivers, set the `{{ic|1=modeset=1}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia_drm}}`{=mediawiki} module.
+[Kernel mode setting](Kernel_mode_setting "wikilink") is required to make Wayland compositors function properly. KMS is
+also required for native Wayland rendering on NVIDIA dedicated GPUs for dual-GPU setups. NVIDIA does not support
+[automatic KMS late loading](Kernel_mode_setting#Late_KMS_start "wikilink") without enabling DRM ([Direct Rendering
+Manager](Wikipedia:Direct_Rendering_Manager "wikilink")). Starting from `{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5,
+DRM is [enabled by
+default](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22).
 
 To verify that DRM is actually enabled, execute the following:
 
@@ -156,9 +153,15 @@ To verify that DRM is actually enabled, execute the following:
 
 Which should now return `{{ic|Y}}`{=mediawiki}, and not `{{ic|N}}`{=mediawiki}.
 
-```{=mediawiki}
-{{Note|Kernels [[Kernel#Officially supported kernels|officially supported by Arch]] enable {{ic|simpledrm}}, while NVIDIA driver requires {{ic|efifb}} or {{ic|vesafb}} when {{ic|1=nvidia_drm.fbdev}} is disabled/unavailable (version < 545).}}
-```
+For drivers older than version 560, manually set the `{{ic|1=modeset=1}}`{=mediawiki} [kernel module
+parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia_drm}}`{=mediawiki} module.
+
+[Officially supported kernels](Kernel#Officially_supported_kernels "wikilink") enable `{{ic|simpledrm}}`{=mediawiki},
+while NVIDIA driver requires `{{ic|efifb}}`{=mediawiki} or `{{ic|vesafb}}`{=mediawiki} when [its own
+fbdev](#fbdev "wikilink") is disabled (or unavailable, with driver versions older than 545): see
+[BBS#307164](https://bbs.archlinux.org/viewtopic.php?pid=2269076#p2269076) for a possible workaround if you experience
+issues.
+
 #### Early loading {#early_loading}
 
 For basic functionality, just adding the kernel parameter should suffice. If you want to ensure it is loaded as early as
@@ -166,8 +169,7 @@ possible, or you are noticing startup issues (such as the `{{ic|nvidia}}`{=media
 the [display manager](display_manager "wikilink")), you can add `{{ic|nvidia}}`{=mediawiki},
 `{{ic|nvidia_modeset}}`{=mediawiki}, `{{ic|nvidia_uvm}}`{=mediawiki} and `{{ic|nvidia_drm}}`{=mediawiki} to the
 initramfs. See [Kernel module#Early module loading](Kernel_module#Early_module_loading "wikilink") to learn how to
-configure your initramfs generator. [mkinitcpio](mkinitcpio "wikilink") users after v40 version does not need to perform
-manual initramfs regeneration as built-in hook will already do this automatically.
+configure your initramfs generator.
 
 ### Hardware accelerated video decoding {#hardware_accelerated_video_decoding}
 
@@ -219,20 +221,21 @@ information.
 
 #### fbdev
 
-For legacy driver versions that are no longer supported enabling `{{ic|fbdev}}`{=mediawiki} might be necessary for some
-Wayland configurations.
+The supported driver versions from NVIDIA provide a [framebuffer](framebuffer "wikilink"). For legacy driver versions
+that are no longer supported, enabling the `{{ic|fbdev}}`{=mediawiki} [kernel module
+parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia_drm}}`{=mediawiki} module might be necessary for
+some Wayland configurations.
 
 It is specifically a hard requirement on Linux 6.11 and later, but it is currently unclear whether this is intended
 behavior or a bug, see
-[2](https://forums.developer.nvidia.com/t/drm-fbdev-wayland-presentation-support-with-linux-kernel-6-11-and-above/307920)
+[1](https://forums.developer.nvidia.com/t/drm-fbdev-wayland-presentation-support-with-linux-kernel-6-11-and-above/307920)
 for more details.
 
-It can be set the same way as the [modesetting parameter](#DRM_kernel_mode_setting "wikilink"), with the difference that
-executing:
+To verify that the NVIDIA framebuffer is actually enabled, execute the following:
 
 `# cat /sys/module/nvidia_drm/parameters/fbdev`
 
-Will return a missing file error if it is not set at all, instead of `{{ic|N}}`{=mediawiki}.
+It will return a missing file error if it is not set at all, instead of `{{ic|N}}`{=mediawiki}.
 
 ### Suspend support {#suspend_support}
 

@@ -26,7 +26,7 @@ Other alternatives include:
     ```
 
 -   ```{=mediawiki}
-    {{App|Firefox KDE|incorporates an OpenSUSE patch for better [[#KDE integration|KDE integration]] than is possible through simple Firefox add-ons|https://build.opensuse.org/package/show/mozilla:Factory/MozillaFirefox|{{AUR|firefox-kde-opensuse}}}}
+    {{App|Firefox KDE|incorporates an OpenSUSE patch for better [[#KDE integration|KDE integration]] than is possible through simple Firefox add-ons|https://build.opensuse.org/package/show/mozilla:Factory/MozillaFirefox|{{AUR|firefox-kde-opensuse}}{{Broken package link|package not found}}}}
     ```
 
 -   ```{=mediawiki}
@@ -343,9 +343,9 @@ The settings are:
     `{{ic|widget.use-xdg-desktop-portal.file-picker}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} in
     `{{ic|about:config}}`{=mediawiki}.
 -   For integration with KDE MIME type system, proxy and file dialog, one can use
-    `{{AUR|firefox-kde-opensuse}}`{=mediawiki} variant from AUR with OpenSUSE's patches applied. Alternatively,
-    integration with MIME types can be achieved by creating a symbolic link to the MIME database
-    `{{ic|~/.config/mimeapps.list}}`{=mediawiki} from the deprecated
+    `{{AUR|firefox-kde-opensuse}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} variant from AUR
+    with OpenSUSE's patches applied. Alternatively, integration with MIME types can be achieved by creating a symbolic
+    link to the MIME database `{{ic|~/.config/mimeapps.list}}`{=mediawiki} from the deprecated
     `{{ic|~/.local/share/applications/mimeapps.list}}`{=mediawiki} that is used by Firefox. See [XDG MIME
     Applications#mimeapps.list](XDG_MIME_Applications#mimeapps.list "wikilink").
 -   Extensions/add-ons may provide additional integration, such as:

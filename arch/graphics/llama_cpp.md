@@ -1,16 +1,8 @@
-```{=mediawiki}
-{{Related articles start}}
-```
-```{=mediawiki}
-{{Related|Vulkan}}
-```
-```{=mediawiki}
-{{Related|General-purpose computing on graphics processing units}}
-```
-```{=mediawiki}
-{{Related articles end}}
-```
-LLM inference in C/C++
+`{{Related articles start}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
+`{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related|Ollama}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
+
+LLM inference in C/C++.
 
 ## Installation
 
@@ -33,12 +25,9 @@ Primary executors are `{{ic|llama-cli}}`{=mediawiki} and `{{ic|llama-server}}`{=
 ```
 is the CLI executor:
 
-```{=mediawiki}
-{{bc|
-$ llama-cli --help
-$ llama-cli -m ''model.gguf''
-}}
-```
+`$ llama-cli --help`\
+`$ llama-cli -m `*`model.gguf`*
+
 ### llama-server {#llama_server}
 
 ```{=mediawiki}
@@ -46,13 +35,10 @@ $ llama-cli -m ''model.gguf''
 ```
 launches an HTTP server:
 
-```{=mediawiki}
-{{bc|
-$ llama-server --help
-$ llama-server -m ''model.gguf''
-}}
-```
-## Obtaining Models {#obtaining_models}
+`$ llama-server --help`\
+`$ llama-server -m `*`model.gguf`*
+
+## Obtaining models {#obtaining_models}
 
 llama.cpp uses models in the GGUF format.
 
@@ -60,20 +46,18 @@ llama.cpp uses models in the GGUF format.
 
 Download models from [Hugging Face](https://huggingface.co) using the `{{ic|-hf}}`{=mediawiki} flag:
 
-```{=mediawiki}
-{{bc|$ llama-cli -hf ''org/model''}}
-```
+`$ llama-cli -hf `*`org/model`*
+
 ```{=mediawiki}
 {{Warning|This may overwrite an existing model file without prompting.}}
 ```
-### Manual Download {#manual_download}
+### Manual download {#manual_download}
 
 Manually download models using `{{Pkg|wget}}`{=mediawiki} or `{{Pkg|curl}}`{=mediawiki}:
 
-```{=mediawiki}
-{{bc|$ wget -c ''model.gguf''}}
-```
-## Model Quantization {#model_quantization}
+`$ wget -c `*`model.gguf`*
+
+## Model quantization {#model_quantization}
 
 Quantization lowers model precision to reduce memory usage.
 
@@ -82,19 +66,18 @@ reduce quality compared to higher numbers (**Q8**).
 
 [Unsloth](https://huggingface.co/unsloth) provides a wide selection of quantized models on Hugging Face.
 
-## KV Cache Quantization {#kv_cache_quantization}
+## Key-value cache quantization {#key_value_cache_quantization}
 
-For further memory efficiency, you can quantize the KV (key-value) cache.
+For further memory efficiency, you can quantize the key-value cache.
 
-```{=mediawiki}
-{{bc|$ llama-cli -ctk ''q4_0'' -ctv ''q4_0'' -m ''model.gguf''}}
-```
+`$ llama-cli -ctk `*`q4_0`*` -ctv `*`q4_0`*` -m `*`model.gguf`*
+
 This can significantly reduce memory usage.
 
 ## See also {#see_also}
 
--   [Upstream GitHub Repository](https://github.com/ggml-org/llama.cpp)
--   [Upstream Community Discussions](https://github.com/ggml-org/llama.cpp/discussions)
--   [Unsloth Docs](https://docs.unsloth.ai)
+-   [Upstream GitHub repository](https://github.com/ggml-org/llama.cpp)
+-   [Upstream community discussions](https://github.com/ggml-org/llama.cpp/discussions)
+-   [Unsloth documentation](https://docs.unsloth.ai)
 
 [Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

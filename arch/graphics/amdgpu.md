@@ -276,7 +276,11 @@ Monitoring your GPU is often used to check the temperature and also the P-states
 unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink") for a list of CLI and GUI tools.
 
 If you want to manually monitor individual elements, for example to use them within scripts, all the information is
-available in `{{ic|/sys/}}`{=mediawiki}.
+available in `{{ic|/sys/}}`{=mediawiki}. For additional elements and details see [The Linux Kernel - GPU Power/Thermal
+Controls and Monitoring](https://docs.kernel.org/gpu/amdgpu/thermal.html).
+
+For the commands below, `{{ic|card0}}`{=mediawiki} may need replaced with another value (E.g.,
+`{{ic|card1}}`{=mediawiki}) depending on the number of GPUs in the system.
 
 To check your GPU\'s P-states, execute:
 
@@ -286,7 +290,7 @@ To monitor your GPU, execute:
 
 `# watch -n 0.5 cat /sys/kernel/debug/dri/0/amdgpu_pm_info`
 
-To check your GPU utilization, execute:
+To check your GPU utilization (%), execute:
 
 `$ cat /sys/class/drm/card0/device/gpu_busy_percent`
 
@@ -294,7 +298,7 @@ To check your GPU frequency, execute:
 
 `$ cat /sys/class/drm/card0/device/pp_dpm_sclk`
 
-To check your GPU temperature, execute:
+To check your GPU temperature (millidegrees Celsius), execute:
 
 `$ cat /sys/class/drm/card0/device/hwmon/hwmon*/temp1_input`
 
@@ -302,11 +306,11 @@ To check your VRAM frequency, execute:
 
 `$ cat /sys/class/drm/card0/device/pp_dpm_mclk`
 
-To check your VRAM usage, execute:
+To check your VRAM usage (bytes), execute:
 
 `$ cat /sys/class/drm/card0/device/mem_info_vram_used`
 
-To check your VRAM size, execute:
+To check your VRAM size (bytes), execute:
 
 `$ cat /sys/class/drm/card0/device/mem_info_vram_total`
 

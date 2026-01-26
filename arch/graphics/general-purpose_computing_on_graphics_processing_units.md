@@ -614,12 +614,9 @@ having the compiler split out the marked part for offloading or multiprocessing.
     {{Pkg|opencv}}
     ```
 
--   [ollama](ollama "wikilink") - LLM inference software
+-   [Ollama](Ollama "wikilink") - LLM inference software
 
--   ```{=mediawiki}
-    {{AUR|llama.cpp-cuda}}
-    ```
-    , `{{AUR|llama.cpp-hip}}`{=mediawiki} - Port of Facebook\'s LLaMA model in C/C++
+-   [llama.cpp](llama.cpp "wikilink") - LLM inference in C/C++
 
 -   ```{=mediawiki}
     {{AUR|pyrit}}

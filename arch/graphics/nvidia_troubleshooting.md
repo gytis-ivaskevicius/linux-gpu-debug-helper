@@ -307,7 +307,7 @@ graphics engine. There are a couple of options to control this:
 -   ```{=mediawiki}
     {{ic|ForceCompositionPipeline}}
     ```
-    forces usage of the pipeline.
+    forces usage of the pipeline (further discussed in [#Multi-monitor](#Multi-monitor "wikilink")).
 
 -   ```{=mediawiki}
     {{ic|ForceCompositionPipelineFull}}
@@ -356,6 +356,9 @@ and move it from `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to the preferred locati
 ```
 #### Multi-monitor {#multi_monitor}
 
+```{=mediawiki}
+{{Note|This has been reported to cause some fullscreen games to immediately freeze, making the system unresponsive until tabbing out. One workaround is to run the program in [[Gamescope]] borderless ({{ic|-b}}) and leaving at least one other window floating above (which may be the taskbar).}}
+```
 For multi-monitor setup you will need to specify `{{ic|1=ForceCompositionPipeline=On}}`{=mediawiki} for each display.
 For example:
 
