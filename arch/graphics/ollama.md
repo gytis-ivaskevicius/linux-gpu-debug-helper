@@ -1,21 +1,9 @@
-[zh-hans:Ollama](zh-hans:Ollama "wikilink") [Ollama](https://ollama.com) is an application which lets you run offline
-large language models locally.
+[zh-hans:Ollama](zh-hans:Ollama "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related|llama.cpp}}`{=mediawiki}
+`{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-```{=mediawiki}
-{{Related articles start}}
-```
-```{=mediawiki}
-{{Related|Vulkan}}
-```
-```{=mediawiki}
-{{Related|General-purpose computing on graphics processing units}}
-```
-```{=mediawiki}
-{{Related|llama.cpp}}
-```
-```{=mediawiki}
-{{Related articles end}}
-```
+[Ollama](https://ollama.com) is an application which lets you run offline large language models locally.
+
 ## Installation
 
 [Install](Install "wikilink") the `{{Pkg|ollama}}`{=mediawiki} package, which provides a daemon, command line tool, and
@@ -123,7 +111,7 @@ Then, run your model as usual. You may wish to monitor GPU utilization with `{{P
 
 ### Models are not removed after uninstalling Ollama {#models_are_not_removed_after_uninstalling_ollama}
 
-`# rm -Rf /var/lib/ollama`
+You can easily remove the model files manually. They are stored in `{{ic|/var/lib/ollama/blobs}}`{=mediawiki}.
 
 ## See also {#see_also}
 

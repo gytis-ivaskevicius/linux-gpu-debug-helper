@@ -623,11 +623,11 @@ following command to activate it in your Wine prefix (by default `{{ic|~/.wine}}
 ```
 #### xSync
 
-Some games heavily use windows sync objects to run multi-threaded workloads, Wine is able to provide a user space
-implementation through wineserver, however most of the time the default implementation have major performance impact in
-CPU bound scenarios.
+Some games heavily use Windows sync objects to run multi-threaded workloads. Wine provides a user-space implementation
+through wineserver, but it usually worsens performance in CPU-bound scenarios.
 
-Currently there are 3 options available to improve the performance, and you should use only one at same time:
+Currently there are 3 alternative implementations that improve performance, but you should use only one at the same
+time:
 
 -   ESync - User-space eventfd-based synchronization.
     -   Not included in `{{Pkg|wine}}`{=mediawiki}. Included in `{{Pkg|wine-staging}}`{=mediawiki} up to version

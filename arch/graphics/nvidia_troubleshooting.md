@@ -295,6 +295,7 @@ module option take effect, reboot.
 {{Note|
 * This has been reported to reduce the performance of some OpenGL applications and may produce issues in WebGL. It also drastically increases the time the driver needs to clock down after load ([https://forums.developer.nvidia.com/t/if-you-have-gpu-clock-boost-problems-please-try-gl-experimentalperfstrategy-1/71762 NVIDIA Support Thread]).
 * {{ic|ForceFullCompositionPipeline}} is known [https://github.com/ValveSoftware/Proton/issues/6869 to break some games] using Vulkan under Proton with NVIDIA driver 535.
+* This might cause some fullscreen applications to immediately freeze, making the system unresponsive until tabbing out. One workaround is to run the program in [[Gamescope]] as a borderless window ({{ic|-b}}) and leaving at least one other thing on the screen (which may be the taskbar or any graphical application). If you experience system freezes while running fullscreen graphical applications that seem to run normally while not in focus, try disabling {{ic|ForceFullCompositionPipeline}} (or follow the advice above).
 }}
 ```
 The NVIDIA driver conditionally applies a [composition
@@ -356,9 +357,6 @@ and move it from `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to the preferred locati
 ```
 #### Multi-monitor {#multi_monitor}
 
-```{=mediawiki}
-{{Note|This has been reported to cause some fullscreen games to immediately freeze, making the system unresponsive until tabbing out. One workaround is to run the program in [[Gamescope]] borderless ({{ic|-b}}) and leaving at least one other window floating above (which may be the taskbar).}}
-```
 For multi-monitor setup you will need to specify `{{ic|1=ForceCompositionPipeline=On}}`{=mediawiki} for each display.
 For example:
 

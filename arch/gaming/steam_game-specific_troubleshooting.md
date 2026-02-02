@@ -2079,6 +2079,14 @@ Replace the bundled files in the game binaries directory with symlinks to `{{ic|
 ```{=mediawiki}
 {{Note|Some systems will not have {{Pkg|glfw}} pre-installed: you will need to [[install]] it, then the files will be available in {{ic|/usr/lib/}}.}}
 ```
+### Patrick\'s Parabox {#patricks_parabox}
+
+#### Blank Screen {#blank_screen}
+
+Add the following to Steam launch options:
+
+`LD_PRELOAD=Patrick\'s\ Parabox_Data/Plugins/libfmodstudio.so %command%`
+
 ### Penumbra: Overture {#penumbra_overture}
 
 Dependencies:
@@ -3050,7 +3058,7 @@ Delete the `{{ic|lib}}`{=mediawiki} directory in the game directory to get rid o
 
 If there is no audio after launching the game, install `{{Pkg|pulseaudio-alsa}}`{=mediawiki}.
 
-#### Blank screen {#blank_screen}
+#### Blank screen {#blank_screen_1}
 
 If having a green or blank screen on startup, run the game with
 `{{ic|1=MESA_GL_VERSION_OVERRIDE=4.1COMPAT}}`{=mediawiki}.

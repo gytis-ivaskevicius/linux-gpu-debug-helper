@@ -30,7 +30,7 @@ See also [Wikipedia:Google Chrome Extension](Wikipedia:Google_Chrome_Extension "
 
 ## Media playback {#media_playback}
 
-Vivaldi automatically downloads `{{ic|$HOME/.local/lib/vivaldi/media-codecs-7.6/libffmpeg.so}}`{=mediawiki} and add
+Vivaldi automatically downloads `{{ic|$HOME/.local/lib/vivaldi/media-codecs-7.7/libffmpeg.so}}`{=mediawiki} and add
 support of proprietary codecs e.g. H.264, AAC, etc\...
 
 If you don\'t believe binary downloaded from somewhere, install `{{Pkg|vivaldi-ffmpeg-codecs}}`{=mediawiki},
@@ -40,7 +40,7 @@ source](https://chromium.googlesource.com/chromium/third_party/ffmpeg/)) or `{{A
 
 Or install `{{pkg|ffmpeg}}`{=mediawiki} and
 
-`ln -sf /usr/lib/libavformat.so.62 .local/lib/vivaldi/media-codecs-7.6/libffmpeg.so`
+`ln -sf /usr/lib/libavformat.so.62 .local/lib/vivaldi/media-codecs-7.7/libffmpeg.so`
 
 This avoids crushing external media player [1](https://github.com/mpv-player/mpv/issues/9875).
 

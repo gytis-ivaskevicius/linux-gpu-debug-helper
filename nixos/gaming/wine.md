@@ -15,7 +15,7 @@ These defaults can however be overwritten like this:
     # support both 32- and 64-bit applications
     wineWowPackages.stable
 
-    # support 32-bit only
+    # support 32-bit only (read above!)
     wine
 
     # support 64-bit only

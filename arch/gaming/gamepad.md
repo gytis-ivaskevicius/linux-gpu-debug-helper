@@ -638,7 +638,7 @@ Then, [reload udev rules](Udev#Loading_new_rules "wikilink"). Reconnect the game
 LED), monitor the battery status, and power off the controller. To use it, [install](install "wikilink")
 `{{AUR|dualsensectl-git}}`{=mediawiki}.
 
-## Tips and Tricks {#tips_and_tricks}
+## Tips and tricks {#tips_and_tricks}
 
 ### Gamepad over network {#gamepad_over_network}
 

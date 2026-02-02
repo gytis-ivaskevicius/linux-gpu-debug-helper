@@ -202,29 +202,32 @@ the configuration:
 {{hc|$ vdpauinfo|<nowiki>
 display: :0   screen: 0
 API version: 1
-Information string: G3DVL VDPAU Driver Shared Library version 1.0
+Information string: OpenGL/VAAPI backend for VDPAU
 
 Video surface:
 
 name   width height types
 -------------------------------------------
-420    16384 16384  NV12 YV12
-422    16384 16384  UYVY YUYV
-444    16384 16384  Y8U8V8A8 V8U8Y8A8
+420     4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
+422     4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
+444     4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
+420_16  4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
+422_16  4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
+444_16  4096  4096  NV12 YV12 UYVY YUYV Y8U8V8A8 V8U8Y8A8 NV24 YV24 P010 P016 Y_U_V_444_16 
 
 Decoder capabilities:
 
 name                        level macbs width height
 ----------------------------------------------------
 MPEG1                          --- not supported ---
-MPEG2_SIMPLE                    3  9216  2048  1152
-MPEG2_MAIN                      3  9216  2048  1152
-H264_BASELINE                  41  9216  2048  1152
-H264_MAIN                      41  9216  2048  1152
-H264_HIGH                      41  9216  2048  1152
-VC1_SIMPLE                      1  9216  2048  1152
-VC1_MAIN                        2  9216  2048  1152
-VC1_ADVANCED                    4  9216  2048  1152
+MPEG2_SIMPLE                   --- not supported ---
+MPEG2_MAIN                     --- not supported ---
+H264_BASELINE                  51 16384  2048  2048
+H264_MAIN                      51 16384  2048  2048
+H264_HIGH                      51 16384  2048  2048
+VC1_SIMPLE                     --- not supported ---
+VC1_MAIN                       --- not supported ---
+VC1_ADVANCED                   --- not supported ---
 ...
 </nowiki>}}
 ```
@@ -246,6 +249,9 @@ extension revision 8 }}
 
 ```{=mediawiki}
 {{Accuracy|Very [[Xorg]]-centric: what is the way to tell which value is "guessed" on [[Wayland]]? Is it even necessary to have this step if readers are expected to have followed the previous section?}}
+```
+```{=mediawiki}
+{{Out of date|{{Pkg|mesa}} 25.3.0 [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632 removed] support from the open source drivers, including the {{ic|radeonsi}} driver used in this example.}}
 ```
 Although the video driver should automatically enable hardware video acceleration support for both VA-API and VDPAU, it
 may be needed to configure VA-API/VDPAU manually. Only continue to this section if you went through
@@ -303,17 +309,13 @@ variable](environment_variable "wikilink"):
 
 ### Configuring VDPAU {#configuring_vdpau}
 
-```{=mediawiki}
-{{Out of date|{{Pkg|mesa}} 25.3.0 [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632 removed] support from the open source drivers. Instructions for the open drivers need to be adjusted to only talk about {{Pkg|libvdpau-va-gl}} or outright removed.}}
-```
 You can override the driver for VDPAU by using the `{{ic|VDPAU_DRIVER}}`{=mediawiki} [environment
 variable](environment_variable "wikilink").
 
 The correct driver name depends on your setup:
 
--   For Intel graphics you [need](#Failed_to_open_VDPAU_backend "wikilink") to set it to `{{ic|va_gl}}`{=mediawiki}.
--   For the open source AMD driver set it to `{{ic|radeonsi}}`{=mediawiki}.
--   For the open source Nouveau driver set it to `{{ic|nouveau}}`{=mediawiki}.
+-   For the open source AMD, Intel and Nouveau drivers you [need](#Failed_to_open_VDPAU_backend "wikilink") to set it to
+    `{{ic|va_gl}}`{=mediawiki}.
 -   For NVIDIA\'s proprietary version set it to `{{ic|nvidia}}`{=mediawiki}.
 
 ```{=mediawiki}
@@ -368,6 +370,12 @@ Multimedia recording/streaming:
 
 You need to set `{{ic|VDPAU_DRIVER}}`{=mediawiki} variable to point to correct driver. See [#Configuring
 VDPAU](#Configuring_VDPAU "wikilink").
+
+Starting from `{{Pkg|mesa}}`{=mediawiki} 25.3.0 the VDPAU support was
+[removed](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632) from the open source drivers
+(`{{ic|d3d12}}`{=mediawiki}, `{{ic|nouveau}}`{=mediawiki}, `{{ic|r600}}`{=mediawiki}, `{{ic|radeonsi}}`{=mediawiki} and
+`{{ic|virtio_gpu}}`{=mediawiki}). If you used one these drivers before, you\'ll need to replace them with one of the
+[#Translation layers](#Translation_layers "wikilink") or configure your applications to use VA-API directly.
 
 ### VAAPI init failed {#vaapi_init_failed}
 
@@ -533,9 +541,6 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 
 ### VDPAU drivers {#vdpau_drivers}
 
-Starting from `{{Pkg|mesa}}`{=mediawiki} 25.3.0 the VDPAU support was
-[removed](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632) from the open source drivers.
-
 +---------------------+-------------+-----------------------------------------+---------------------------------------------------+
 | Codec               | Color\      | ```{=mediawiki}                         | ```{=mediawiki}                                   |
 |                     | depth       | {{pkg|nvidia-utils}}                    | {{pkg|libvdpau-va-gl}}                            |
@@ -580,7 +585,7 @@ Starting from `{{Pkg|mesa}}`{=mediawiki} 25.3.0 the VDPAU support was
 |                     |             | ^3^                                     |                                                   |
 +---------------------+-------------+-----------------------------------------+---------------------------------------------------+
 | AV1                 | 8bit        | ```{=mediawiki}                         |                                                   |
-|                     |             | {{G|GeForce 30 and newer}}              |                                                   |
+|                     |             | {{G|RTX 30 series and newer}}           |                                                   |
 |                     |             | ```                                     |                                                   |
 |                     |             | ^4^                                     |                                                   |
 +---------------------+-------------+-----------------------------------------+---------------------------------------------------+

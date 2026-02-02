@@ -613,11 +613,7 @@ Wayland components. It\'s available from the AUR as `{{AUR|wayback-x11}}`{=media
 12to11 allows you to seamlessly run Wayland-only applications under X11. It\'s available from the AUR as
 `{{AUR|12to11-git}}`{=mediawiki}. Run with the EGL renderer for best performance:
 
-`RENDERER=egl 12to11`
-
-Run it as a background task by putting this in your .xinitrc or .xsession:
-
-`RENDERER=egl 12to11 &`
+`$ RENDERER=egl 12to11`
 
 ## Troubleshooting
 

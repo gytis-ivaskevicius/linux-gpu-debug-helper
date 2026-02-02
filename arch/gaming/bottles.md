@@ -10,6 +10,14 @@ variables for Wine sessions.
 It can be used to run Native Windows applications and games with, in most cases, near native performance and in its
 officially supported mode also supports application sandboxing.
 
+The Bottles application makes it easy to run games originally made for Windows on Linux. We do not even need to install
+the Steam client application, unless the game requires it. After installing the Bottles application on our Linux
+machine, we download the game installer for the desired game from somewhere (just as if we were on Windows). Then, on
+our Linux machine, we use the Bottles application to create a Wine prefix environment (create a \"bottle\"). Inside the
+created environment (inside the created bottle), we install the game (just as if we were on Windows). After that, we
+launch the game within the Wine prefix environment (inside the created bottle), so we end up playing a Windows game on
+our Arch Linux machine.
+
 ## Installation
 
 ```{=mediawiki}

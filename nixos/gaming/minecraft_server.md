@@ -97,11 +97,15 @@ To use a specific server version, or another Minecraft server---such as [PaperMC
 
 For example:
 
-`services.minecraft-server.package = pkgs.minecraftServers.vanilla-1-12;`
+``` nix
+services.minecraft-server.package = pkgs.minecraftServers.vanilla-1-12;
+```
 
 or
 
-`services.minecraft-server.package = pkgs.papermc;`
+``` nix
+services.minecraft-server.package = pkgs.papermc;
+```
 
 ### Prefer IPv4 {#prefer_ipv4}
 

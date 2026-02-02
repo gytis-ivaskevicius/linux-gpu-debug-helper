@@ -198,9 +198,6 @@ When using on a [Steam](Steam "wikilink") game, the launcher command line can be
 
 `__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command%`
 
-```{=mediawiki}
-{{Note|The value of __NV_PRIME_RENDER_OFFLOAD may need to be set to 0 depending on the system. It is recommended to check which GPU is 0 and which is 1 since this variable specifies which GPU will be used.}}
-```
 #### Desktop environment integration {#desktop_environment_integration}
 
 [Install](Install "wikilink") `{{Pkg|switcheroo-control}}`{=mediawiki} and [enable](enable "wikilink")
