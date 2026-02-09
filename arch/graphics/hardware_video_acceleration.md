@@ -251,7 +251,7 @@ extension revision 8 }}
 {{Accuracy|Very [[Xorg]]-centric: what is the way to tell which value is "guessed" on [[Wayland]]? Is it even necessary to have this step if readers are expected to have followed the previous section?}}
 ```
 ```{=mediawiki}
-{{Out of date|{{Pkg|mesa}} 25.3.0 [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632 removed] support from the open source drivers, including the {{ic|radeonsi}} driver used in this example.}}
+{{Out of date|{{Pkg|mesa}} 25.3.0 [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632 removed] VDPAU support from the open source drivers, including from the {{ic|radeonsi}} driver used in this example.}}
 ```
 Although the video driver should automatically enable hardware video acceleration support for both VA-API and VDPAU, it
 may be needed to configure VA-API/VDPAU manually. Only continue to this section if you went through
@@ -374,8 +374,8 @@ VDPAU](#Configuring_VDPAU "wikilink").
 Starting from `{{Pkg|mesa}}`{=mediawiki} 25.3.0 the VDPAU support was
 [removed](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36632) from the open source drivers
 (`{{ic|d3d12}}`{=mediawiki}, `{{ic|nouveau}}`{=mediawiki}, `{{ic|r600}}`{=mediawiki}, `{{ic|radeonsi}}`{=mediawiki} and
-`{{ic|virtio_gpu}}`{=mediawiki}). If you used one these drivers before, you\'ll need to replace them with one of the
-[#Translation layers](#Translation_layers "wikilink") or configure your applications to use VA-API directly.
+`{{ic|virtio_gpu}}`{=mediawiki}). If you were using any of these drivers before, you will need to replace them with one
+of the [#Translation layers](#Translation_layers "wikilink") or configure your applications to use VA-API directly.
 
 ### VAAPI init failed {#vaapi_init_failed}
 

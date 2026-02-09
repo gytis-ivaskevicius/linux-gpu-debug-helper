@@ -646,7 +646,7 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
-    {{App|Secret Maryo Chronicles|Mario-style game.|http://www.secretmaryo.org/|{{AUR|smc}}}}
+    {{App|Secret Maryo Chronicles|Mario-style game.|http://www.secretmaryo.org/|{{AUR|smc}}{{Broken package link|package not found}}}}
     ```
 
 -   ```{=mediawiki}

@@ -8,9 +8,10 @@
 
 [X.Org Server](Wikipedia:X.Org_Server "wikilink") --- commonly referred to as simply **X** --- is the [X.Org
 Foundation](Wikipedia:X.Org_Foundation "wikilink") implementation of the [X Window
-System](Wikipedia:X_Window_System "wikilink") (**X11**) display server, and it is the most popular display server among
-Linux users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in massive
-adoption from most distributions.
+System](Wikipedia:X_Window_System "wikilink") (**X11**) [display
+server](Wikipedia:Windowing_system#Display_server "wikilink"), and it is the most popular display server among Linux
+users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in massive adoption
+from most distributions.
 
 For the alternative and successor, see [Wayland](Wayland "wikilink").
 

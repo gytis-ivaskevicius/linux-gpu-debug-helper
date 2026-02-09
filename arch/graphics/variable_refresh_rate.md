@@ -168,7 +168,7 @@ To enable it, you need to add either  {{ic|variable-refresh-rate}} or {{ic|varia
     variable-refresh-rate
  }
 
-{{ic|variable-refresh-rate{{=}} }} always enables variable refresh rate, while {{ic|variable-refresh-rate on-demand{{=}}true }} will only enable VRR when a window matches the variable-refresh-rate window rule[https://yalter.github.io/niri/Configuration%3A-Window-Rules.html]. This is helpful to avoid various issues with VRR, since it can be disabled most of the time, and only enabled for specific windows, like games or video players.
+{{ic|variable-refresh-rate}} always enables variable refresh rate, while {{ic|variable-refresh-rate on-demand{{=}}true }} will only enable VRR when a window matches the variable-refresh-rate window rule[https://yalter.github.io/niri/Configuration%3A-Window-Rules.html]. This is helpful to avoid various issues with VRR, since it can be disabled most of the time, and only enabled for specific windows, like games or video players.
 
 You can check whether an output supports VRR:
 
@@ -279,7 +279,7 @@ You may follow one of the guides of people changing the freesync range on Window
 
 Process of overclocking on Linux (works only on NVidia GPUs): [https://forum.level1techs.com/t/overclock-your-monitor-with-nvidia-windows-and-linux/109323]
 
-=== Remove applications from Blacklist ===
+=== Remove applications from blacklist ===
 
 Mesa has a list of blacklisted applications to avoid unexpected behavior, you can edit this blacklist here:
 

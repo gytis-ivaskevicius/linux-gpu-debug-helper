@@ -53,7 +53,9 @@ For the installed Vulkan drivers, see `/run/opengl-driver/share/vulkan/icd.d/`. 
 ## OpenCL
 
 Computing things on the GPU is supported through the OpenCL API. To enable OpenCL support, add the right packages for
-your hardware to `hardware.graphics.extraPackages`. See also [the Arch Wiki](https://wiki.archlinux.org/title/GPGPU).
+your hardware to `hardware.graphics.extraPackages` (note that despite Mesa being present by default, its OpenCL drivers
+are placed in a separate `opencl` output that must be manually added). See also [the Arch
+Wiki](https://wiki.archlinux.org/title/GPGPU).
 
 To verify OpenCL support: `nix shell nixpkgs#clinfo -c clinfo`
 

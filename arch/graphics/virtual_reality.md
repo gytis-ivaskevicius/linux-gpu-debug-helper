@@ -87,40 +87,68 @@ supported by Monado.
 
 ### Standalone HMDs {#standalone_hmds}
 
-+--------------------+------------------------+-----------------------------------------------------------+
-| Device             | SteamVR (through ALVR) | WiVRn                                                     |
-+====================+========================+===========================================================+
-| Meta Quest/2/3/Pro | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{Yes}}                                                   |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-| Pico 4             | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{Yes}}                                                   |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-| Pico Neo 3         | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{No}}                                                    |
-|                    | ```                    | ```                                                       |
-|                    |                        | ([broken SDK](https://github.com/WiVRn/WiVRn/issues/123)) |
-+--------------------+------------------------+-----------------------------------------------------------+
-| HTC Vive Focus 3   | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{Yes}}                                                   |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-| HTC Vive XR Elite  | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{Yes}}                                                   |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-| Lynx R1            | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{Yes}}                                                   |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-| Apple Vision Pro   | ```{=mediawiki}        | ```{=mediawiki}                                           |
-|                    | {{Yes}}                | {{No}}                                                    |
-|                    | ```                    | ```                                                       |
-+--------------------+------------------------+-----------------------------------------------------------+
-|                    |                        |                                                           |
-+--------------------+------------------------+-----------------------------------------------------------+
+Entries marked with \"Yes\" but without store links can be sideloaded from their corresponding project websites.
+
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Device                | WiVRn                       | SteamVR through ALVR        | SteamVR through Steam Link  |
++=======================+=============================+=============================+=============================+
+| Meta Quest 2/3/3S/Pro | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{Yes}}                     |
+|                       | ```                         | ```                         | ```                         |
+|                       | ([Meta Quest                | ([Meta Quest                | ([Meta Quest                |
+|                       | Store                       | Stor                        | Store](https:               |
+|                       | ](https://www.meta.com/expe | e](https://www.meta.com/exp | //www.oculus.com/experience |
+|                       | riences/7959676140827574/)) | eriences/7674846229245715)) | s/quest/5841245619310585/)) |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Meta Quest 1          | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{No}}                      |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             | ([Sidequest](https://s      |                             |
+|                       |                             | idequestvr.com/app/9/alvr)) |                             |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Pico 4/4 Ultra        | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{Yes}}                     |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             |                             | ([Pico                      |
+|                       |                             |                             | Store](https://store-g      |
+|                       |                             |                             | lobal.picoxr.com/global/det |
+|                       |                             |                             | ail/1/7494362493653958711)) |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Pico Neo 3            | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{No}}                      | {{Yes}}                     | {{Yes}}                     |
+|                       | ```                         | ```                         | ```                         |
+|                       | ([broken                    |                             | ([Pico                      |
+|                       | SDK](https://github.c       |                             | Store](https://store-g      |
+|                       | om/WiVRn/WiVRn/issues/123)) |                             | lobal.picoxr.com/global/det |
+|                       |                             |                             | ail/1/7494362493653958711)) |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| HTC Vive Focus 3      | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{Yes}}                     |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             |                             | ([Viveport](https://www.vi  |
+|                       |                             |                             | veport.com/apps/88fa627f-6c |
+|                       |                             |                             | 4e-4dc2-a3f2-f593d14c3207)) |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| HTC Vive XR Elite     | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{Yes}}                     |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             |                             | ([Viveport](https://www.vi  |
+|                       |                             |                             | veport.com/apps/88fa627f-6c |
+|                       |                             |                             | 4e-4dc2-a3f2-f593d14c3207)) |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Lynx R1               | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{Yes}}                     | {{No}}                      |
+|                       | ```                         | ```                         | ```                         |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+| Apple Vision Pro      | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{No}}                      | {{Yes}}                     | {{No}}                      |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             | ([Apple App                 |                             |
+|                       |                             | Store](https://apps.apple.  |                             |
+|                       |                             | com/app/alvr/id6479728026)) |                             |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
+|                       |                             |                             |                             |
++-----------------------+-----------------------------+-----------------------------+-----------------------------+
 
 ### Tracking devices {#tracking_devices}
 
@@ -211,12 +239,6 @@ documentation](https://github.com/WiVRn/WiVRn/blob/master/docs/building.md#clien
 OpenVR is an effort by Valve to create an open API for VR development. Unfortunately, while the API is open, the actual
 default implementation (SteamVR) is not. SteamVR also provides an OpenXR runtime.
 
-#### SteamVR notes {#steamvr_notes}
-
-SteamVR on Linux is known to have many unfixable issues as of January 2025, and is widely considered abandonware by many
-in the Linux VR sphere. If you are looking for an actual solution for VR on Linux, use Monado or WiVRn if possible. For
-an easy start use Envision, its a GUI for Monado
-
 #### Setting up SteamVR {#setting_up_steamvr}
 
 [Install](Install "wikilink") [Vulkan](Vulkan "wikilink") and [Steam](Steam "wikilink"). If using
@@ -231,6 +253,13 @@ From Steam, install SteamVR from the tools menu.
 
 ALVR is a SteamVR driver which allows streaming to standalone headsets like the Meta/Oculus Quest. It is available in
 the `{{AUR|alvr}}`{=mediawiki} package.
+
+#### Steam Link {#steam_link}
+
+Valve\'s closed-source Steam Link App allows streaming games from a PC running SteamVR to supported headsets without
+relying on third-party software. It supports both a VR mode for proper VR games and a flat-screen mode for desktop
+games. If the App finds your PC but fails to connect to SteamVR, you may have to open some ports in your firewall as
+described [here](https://help.steampowered.com/faqs/view/3E3D-BE6B-787D-A5D2).
 
 ### OpenHMD
 

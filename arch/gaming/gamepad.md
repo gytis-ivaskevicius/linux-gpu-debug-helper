@@ -149,7 +149,7 @@ physically reconnect your device after running this command.
 ``\
 ` HKEY_CURRENT_USER\Software\Wine\DirectInput\DefaultDeadZone`\
 ``\
-`Source: [https://gitlab.winehq.org/wine/wine/-/wikis/Useful-Registry-Keys  Useful Registry Keys]`\
+`See [https://gitlab.winehq.org/wine/wine/-/wikis/Useful-Registry-Keys Useful Registry Keys].`\
 ``\
 `==== Xorg deadzones ====`\
 ``\

@@ -38,6 +38,8 @@ layouts.
 -   *Templates* contains layouts that are available for any game. Valve provides some of these, but the user can create
     their own templates by exporting the currently active layout.
 -   *Community Layouts* contains layouts that other users have shared for a given game.
+-   *Search* allows you to search through all the community layouts for the current game as well as every personal
+    layout
 
 Community layouts for non-steam games are defined by the game name. It is possible to browse layouts by changing the
 name to match what you want to find. To browse steam game layouts, match the game name with a game store page ID.

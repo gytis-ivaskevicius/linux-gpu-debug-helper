@@ -114,7 +114,7 @@ Create the `{{ic|kanshi.service}}`{=mediawiki} file:
 {{hc|1=~/.config/systemd/user/kanshi.service|2=
 [Unit]
 Description=Dynamic output configuration for Wayland compositors
-Documentation=https://gitlab.freedesktop.org/emersion/kanshi
+Documentation=man:kanshi(1)
 BindsTo=sway-session.target
 
 [Service]

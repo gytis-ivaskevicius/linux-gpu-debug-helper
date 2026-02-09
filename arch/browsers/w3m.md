@@ -65,8 +65,7 @@ to:
 ### Using Iterm2 image protocol {#using_iterm2_image_protocol}
 
 Users of the [wezterm](wezterm "wikilink") terminal emulator may chose to use the [Iterm2 graphics
-protocol](https://wezfurlong.org/wezterm/imgcat.html)`{{Dead link|2025|03|15|status=404}}`{=mediawiki} which WezTerm
-supports.
+protocol](https://web.archive.org/web/20240113173736/https://wezfurlong.org/wezterm/imgcat.html) which WezTerm supports.
 
 To do so simply change the following lines in `{{ic|~/.w3m/config}}`{=mediawiki}:
 
@@ -188,6 +187,9 @@ make w3m auto open magnet links using [Transmission](Transmission "wikilink").
 
 ### Fingerprinting
 
+```{=mediawiki}
+{{Accuracy|It is questionable how much these settings actually help reduce the user's fingerprint|section=Advice in Fingerprinting section is of questionable value}}
+```
 #### Using tor {#using_tor}
 
 You can use `{{man|1|torify}}`{=mediawiki} to route w3m traffic through `{{Pkg|tor}}`{=mediawiki}.

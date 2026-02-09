@@ -59,16 +59,18 @@ To view locally available models:
 
 ## Troubleshooting
 
-### ROCm is not utilizing my AMD integrated GPU {#rocm_is_not_utilizing_my_amd_integrated_gpu}
+### ROCm is not utilizing my AMD GPU {#rocm_is_not_utilizing_my_amd_gpu}
 
-You may have used utilities like `{{Pkg|amdgpu_top}}`{=mediawiki} to monitor the utilization of your integrated GPU
-during an Ollama session, but only to notice that your integrated GPU has not been used at all.
+You may have used utilities like `{{Pkg|amdgpu_top}}`{=mediawiki} to monitor the utilization of your GPU during an
+Ollama session, but only to notice that your GPU has not been used at all.
 
-That is expected: without configuration, [ROCm](ROCm "wikilink") simply ignores your integrated GPU, causing everything
-to be computed on CPU.
+Without configuration, [ROCm](ROCm "wikilink") simply ignores unsupported GPUs, causing everything to be computed on
+CPU.
 
-The required configuration is, however, very simple because all you need is to create a [drop-in
-file](drop-in_file "wikilink") for `{{ic|ollama.service}}`{=mediawiki}:
+```{=mediawiki}
+{{Note|Verify supported GPUs by consulting [https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html ROCm System Requirements].}}
+```
+To work this around, create a [drop-in file](drop-in_file "wikilink") for `{{ic|ollama.service}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|/etc/systemd/system/ollama.service.d/override_gfx_version.conf|2=
@@ -111,12 +113,12 @@ Then, run your model as usual. You may wish to monitor GPU utilization with `{{P
 
 ### Models are not removed after uninstalling Ollama {#models_are_not_removed_after_uninstalling_ollama}
 
-You can easily remove the model files manually. They are stored in `{{ic|/var/lib/ollama/blobs}}`{=mediawiki}.
+You can manually remove the model files. They are stored in `{{ic|/var/lib/ollama/blobs}}`{=mediawiki}.
 
 ## See also {#see_also}
 
 -   [Ollama Blog](https://ollama.com/blog)
--   [Ollama Docs](https://github.com/ollama/ollama/tree/main/docs)
+-   [Ollama Docs](https://docs.ollama.com)
 -   [What is rocBLAS](https://rocm.docs.amd.com/projects/rocBLAS/en/latest/how-to/what-is-rocblas.html)
 
 [Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

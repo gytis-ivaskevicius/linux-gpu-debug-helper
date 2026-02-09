@@ -3,12 +3,6 @@ Proton prefixes, and run Windows software within those prefixes.
 
 ## Installation
 
-Bottles can be installed from nixpkgs:
-
-``` nixos
-environment.systemPackages = with pkgs; [
-  bottles
-];
-```
+Simply [install](Adding_programs_to_PATH "wikilink") the `bottles` package.
 
 [Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

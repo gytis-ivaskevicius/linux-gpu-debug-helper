@@ -17,8 +17,9 @@ you need to override the Heroic derivation to pass extra packages.
 
 ``` nix
 (heroic.override {
-  extraPkgs = pkgs: [
-    pkgs.gamescope
+  extraPkgs = pkgs': with pkgs'; [
+    gamescope
+    gamemode
   ];
 })
 ```

@@ -2,31 +2,31 @@
 
 ## Installation
 
-add `vivaldi` to your `environment.systemPackages` and rebuild your system configuration.
+Simply [install](Adding_programs_to_PATH "wikilink") the `vivaldi` package.
 
-## Get it working with plasma 6 {#get_it_working_with_plasma_6}
+## Get it working with KDE Plasma 6 {#get_it_working_with_kde_plasma_6}
 
-Currently, vivaldi crash at startup on plasma6 due to improper packaging[^1], a workaround to this is to override the
-default package attributes by adding the following to your `environment.systemPackages` :
-
-``` nixos
-(vivaldi.overrideAttrs
-      (oldAttrs: {
-        dontWrapQtApps = false;
-        dontPatchELF = true;
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-      }))
-```
-
-## Force use of password store (KWlallet, GNOME Keyring) {#force_use_of_password_store_kwlallet_gnome_keyring}
-
-To force of specific password store you will have to modify the package according to [chromium
-docs](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/password_storage.md)
-
-Use `gnome-libsecret` for GNOME Keyring and `kwallet6` for KDE Plasma 6
+Currently Vivaldi crashes at startup on KDE Plasma 6 due to improper packaging.[^1] A workaround for this is to override
+the package attributes like the following.
 
 ``` nix
-(stable.vivaldi.override {
+(vivaldi.overrideAttrs (oldAttrs: {
+  dontWrapQtApps = false;
+  dontPatchELF = true;
+  nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
+}))
+```
+
+## Force use of password store (KWallet, GNOME Keyring) {#force_use_of_password_store_kwallet_gnome_keyring}
+
+To force of specific password store you will have to use flags according to [chromium
+docs](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/password_storage.md).
+
+Below is an example that modifies the package attributes. Use `gnome-libsecret` for GNOME Keyring and `kwallet6` for KDE
+Plasma 6
+
+``` nix
+(vivaldi.override {
   commandLineArgs = "--password-store=kwallet6";
 })
 ```

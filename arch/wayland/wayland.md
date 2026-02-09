@@ -1,10 +1,11 @@
 [de:Wayland](de:Wayland "wikilink") [es:Wayland](es:Wayland "wikilink") [hu:Wayland](hu:Wayland "wikilink")
 [ja:Wayland](ja:Wayland "wikilink") [pt:Wayland](pt:Wayland "wikilink") [ru:Wayland](ru:Wayland "wikilink")
-[zh-hans:Wayland](zh-hans:Wayland "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|KMS}}`{=mediawiki}
-`{{Related|Xorg}}`{=mediawiki} `{{Related|Screen capture#Wayland}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[zh-hans:Wayland](zh-hans:Wayland "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Graphics processing unit}}`{=mediawiki} `{{Related|KMS}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
+`{{Related|Screen capture#Wayland}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Wayland](https://wayland.freedesktop.org/) is a display server protocol. It has been widely established as the
-successor of the [X Window System](X_Window_System "wikilink")
+[Wayland](https://wayland.freedesktop.org/) is a [display server](Wikipedia:Windowing_system#Display_server "wikilink")
+protocol. It has been widely established as the successor of the [X Window System](X_Window_System "wikilink")
 [1](https://blogs.kde.org/2025/11/26/going-all-in-on-a-wayland-future/)
 [2](https://blogs.gnome.org/alatiera/2025/06/08/the-x11-session-removal/)
 [3](https://discourse.ubuntu.com/t/ubuntu-25-10-drops-support-for-gnome-on-xorg/62538)
@@ -26,8 +27,8 @@ environment](desktop_environment "wikilink") (e.g. [GNOME](GNOME "wikilink") or 
 implements the Wayland protocol. Most Wayland compositors only work on systems using [Kernel mode
 setting](Kernel_mode_setting "wikilink").
 
-For the GPU driver and Wayland compositor to be compatible they must support the same buffer API. There are two main
-APIs: [GBM](Wikipedia:Generic_Buffer_Management "wikilink") and
+For the [GPU driver](Graphics_processing_unit "wikilink") and Wayland compositor to be compatible they must support the
+same buffer API. There are two main APIs: [GBM](Wikipedia:Generic_Buffer_Management "wikilink") and
 [EGLStreams](https://www.phoronix.com/scan.php?page=news_item&px=XDC2016-Device-Memory-API).
 
   Buffer API   GPU driver support                                Wayland compositor support
@@ -108,6 +109,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
+    {{App|jay|A Wayland compositor, written in Rust. Appearance is based on the default i3 look and feel. Jay can be configured via a declarative TOML file or a shared library that gets injected into the compositor.|https://github.com/mahkoh/jay|{{AUR|jay}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|miracle-wm|A Wayland compositor based on Mir in the style of i3 and sway with the intention to be flashier and more feature-rich than either, like swayfx.|https://github.com/miracle-wm-org/miracle-wm|{{AUR|miracle-wm}}}}
     ```
 
@@ -155,6 +160,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 
 -   ```{=mediawiki}
     {{App|[[river]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river|{{Pkg|river}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|pinnacle-comp|A Smithay-based Wayland compositor, inspired by AwesomeWM and configured in Lua or Rust |https://github.com/pinnacle-comp/pinnacle|{{AUR|pinnacle-comp}}}}
     ```
 
 ### Other
@@ -301,7 +310,7 @@ This might be necessary for some proprietary applications that do not use the sy
 available.[8](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 
 ```{=mediawiki}
-{{Accuracy|This feels wrong or outdated. I don't know about other potential applications, but KeepassXC doesn't need any of this to minimize to tray properly under Sway}}
+{{Accuracy|This feels wrong or outdated. I do not know about other potential applications, but KeepassXC does not need any of this to minimize to tray properly under Sway}}
 ```
 On some compositors, for example [sway](sway "wikilink"), Qt applications running natively might have missing
 functionality. For example, [KeepassXC](https://keepassxc.org) will be unable to minimize to tray. This can be solved by
@@ -425,9 +434,9 @@ See [Debian:Wayland#Java Programs (supported since OpenJDK
 :   The `{{ic|_JAVA_AWT_WM_NONREPARENTING}}`{=mediawiki} [environment variable](environment_variable "wikilink") can be
     set to \"1\" to fix misbehavior where the application starts with a blank screen.
 
-Since XWayland doesn\'t have full feature parity with Wayland,
+Since XWayland does not have full feature parity with Wayland,
 [WLToolkit](https://wiki.openjdk.org/display/wakefield/Pure+Wayland+toolkit+prototype) can be used to fill the gaps
-while Wakefield isn\'t ready. It can be activated with `{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}}. Some
+while Wakefield is not ready. It can be activated with `{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}}. Some
 programs such as the [JetBrains IDEs support
 it](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/).
 

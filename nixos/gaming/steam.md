@@ -98,25 +98,34 @@ launch it from a TTY and have an experience very similar to the Steam Deck hardw
 
 ``` nix
 # Clean Quiet Boot
-boot.kernelParams = [ "quiet" "splash" "console=/dev/null" ];
-boot.plymouth.enable = true;
-
-programs.gamescope = {
-  enable = true;
-  capSysNice = true;
+boot = {
+  kernelParams = [
+    "quiet"
+    "splash"
+    "console=/dev/null"
+  ];
+  plymouth.enable = true;
 };
-programs.steam.gamescopeSession.enable = true; # Integrates with programs.steam
+
+programs = {
+  gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  steam.gamescopeSession.enable = true;
+};
 
 # Gamescope Auto Boot from TTY (example)
-services.xserver.enable = false; # Assuming no other Xserver needed
-services.getty.autologinUser = "USERNAME_HERE";
-
-services.greetd = {
-  enable = true;
-  settings = {
-    default_session = {
-      command = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
-      user = "USERNAME_HERE";
+services = {
+  xserver.enable = false; # Assuming no other Xserver needed
+  getty.autologinUser = <"USERNAME_HERE">;
+  greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${lib.getExe pkgs.gamescope} -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
+        user = <"USERNAME HERE">;
+      };
     };
   };
 };

@@ -23,9 +23,9 @@ our Arch Linux machine.
 ```{=mediawiki}
 {{Note|The Bottles developers strongly recommend that users install Bottles through [[Flatpak]] as it is used for sandboxing.}}
 ```
-Install Bottles from Flatpak using the following command
+Install Bottles from Flatpak using the following command:
 
-`$ flatpak install bottles`
+`$ flatpak install com.usebottles.bottles`
 
 Alternatively, Bottles is also available as `{{AUR|bottles}}`{=mediawiki} and `{{AUR|bottles-git}}`{=mediawiki}.
 
