@@ -36,8 +36,7 @@ Each output profile is delimited by brackets. It contains several output directi
 `{{man|5|sway-output}}`{=mediawiki}). A profile will be enabled if all of the listed outputs are connected.
 
 ```{=mediawiki}
-{{Tip|You can get a list of output names and additional information using the command {{ic|swaymsg -t get_outputs}}.
-}}
+{{Tip|You can get a list of output names and additional information using commands like {{ic|wlr-randr}}, {{ic|swaymsg -t get_outputs}} or use the GUI applications {{AUR|wdisplays-git}} or {{AUR|wdisplays-persistent}} which will write also directly to kanshi's configuration file.}}
 ```
 ### Advanced
 
@@ -68,9 +67,6 @@ profile home_1 {
 }
 }}
 ```
-Note that the *\$INTERNAL* output has as third segment *UNKNOWN*. This is because kanshi needs all three fields
-(manufacturer, model and serial number) to be populated. If one is missing the string *UNKNOWN* has to be used.
-
 You can find out these values with a command like [hyprctl
 monitors](https://wiki.hyprland.org/Configuring/Using-hyprctl/) which will display all three of those in its output.
 

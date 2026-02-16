@@ -686,18 +686,25 @@ You can check if your CPU supports PCIe atomics by running this command:
 If your CPU supports PCIe atomics (the result being `{{ic|1}}`{=mediawiki}), change the slot that the GPU is in, it may
 have lanes coming from the chipset and not the CPU.
 
-### High idle power draw due to MCLK locked at MAX (1000MHz), or MIN (96MHz) causing low game performance (on 6.4 kernel) {#high_idle_power_draw_due_to_mclk_locked_at_max_1000mhz_or_min_96mhz_causing_low_game_performance_on_6.4_kernel}
+### MCLK (pp_dpm_mclk) being locked at MAX (875Mhz or 1000Mhz) or MIN (96Mhz) {#mclk_pp_dpm_mclk_being_locked_at_max_875mhz_or_1000mhz_or_min_96mhz}
 
-On high resolutions and refresh rates, the MCLK (vram / memory clock) may be locked at the highest clock rate (1000MHz)
-[16](https://gitlab.freedesktop.org/drm/amd/-/issues/1403) [17](https://gitlab.freedesktop.org/drm/amd/-/issues/2646)
-causing higher GPU idle power draw. On Linux kernel 6.4.x, MCLK clocks at the lowest (96MHz), causing low performance in
-games [18](https://gitlab.freedesktop.org/drm/amd/-/issues/2657)
-[19](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
+On high resolutions and refresh rates, the MCLK (VRAM / memory clock) values may be locked at the highest clock rate
+(875Mhz or 1000Mhz) [16](https://gitlab.freedesktop.org/drm/amd/-/issues/1403)
+[17](https://gitlab.freedesktop.org/drm/amd/-/issues/2646), causing higher GPU idle power draw.
 
-This is likely due to a monitor not using Coordinated Video Timings (CVT) with a low V-Blank value for the affected
-resolutions and refresh rates, see [this gist](https://gist.github.com/Rend0e/3bddac4285dc1f4fbe303f326f36f6cc) for a
-workaround.
+In some cases, MCLK values may be locked at the lowest clock rate (96MHz), causing low performance in games
+[18](https://gitlab.freedesktop.org/drm/amd/-/issues/2657) [19](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
 
+When using [variable refresh rate](variable_refresh_rate "wikilink") technology (such as FreeSync), the problem may also
+manifest, particularly being locked at the lowest clock rate. [20](https://gitlab.freedesktop.org/drm/amd/-/issues/4707)
+
+Those problems are likely due to a monitor not using Coordinated Video Timings (CVT) with a low V-Blank value for the
+affected resolutions and refresh rates. See [this gist](https://gist.github.com/Rend0e/3bddac4285dc1f4fbe303f326f36f6cc)
+for a workaround.
+
+```{=mediawiki}
+{{Warning|After following the gist above, if the EDID file does not work as expected, your screen may present heavy distortion and flickering. To fix the issue, remove the EDID kernel argument.}}
+```
 ### Failure to suspend to RAM {#failure_to_suspend_to_ram}
 
 The `{{ic|amdgpu}}`{=mediawiki} kernel module tries to buffer VRAM in RAM when the system enters S3 to prevent memory
@@ -739,9 +746,9 @@ There is a bug in the amdgpu module, due to which the video core frequencies can
 manufacturer, which can cause system instability during the game, when exiting sleep, when rebooting.
 
 The problem has been noticed on RDNA 3 GPUs (7XXX Models)
-[20](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
-[21](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
-[22](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
+[21](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
+[22](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
+[23](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
 
 In dmesg you can see logs like theese:
 
@@ -801,7 +808,7 @@ It can be done by setting the following [kernel parameter](kernel_parameter "wik
 ### System freezes or reboots when idle {#system_freezes_or_reboots_when_idle}
 
 Issues with some PowerPlay features, such as [GFXOFF](https://www.phoronix.com/news/AMDGPU-GFXOFF-Patches) can cause
-frequent, unrecoverable driver crashes[23](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
+frequent, unrecoverable driver crashes[24](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
 with idle GPU usage on a multi-monitor setup, and especially waking up from sleep mode.
 
 A well-known solution is appending a kernel parameter (as described in [#Boot parameter](#Boot_parameter "wikilink"))

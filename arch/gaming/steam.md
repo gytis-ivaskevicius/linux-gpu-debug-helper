@@ -548,6 +548,12 @@ additional permissions to the flatpak package:
 
 For an alternative way to control permissions, install [flatseal](https://flathub.org/apps/com.github.tchx84.Flatseal).
 
+#### SteamCMD in flatpak {#steamcmd_in_flatpak}
+
+[SteamCMD](SteamCMD "wikilink") can also be used within the flatpak.
+
+`$ flatpak run --command=steamcmd com.valvesoftware.Steam`
+
 ### Steam settings to reduce video card memory usage {#steam_settings_to_reduce_video_card_memory_usage}
 
 This is useful for video cards with a small amount of video memory.

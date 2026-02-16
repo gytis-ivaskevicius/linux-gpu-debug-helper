@@ -28,7 +28,7 @@ You may also use provider index instead of provider name:
 ```{=mediawiki}
 {{Style|The following subsections are a messy, we name a subsection PRIME render offload without stating it's NVIDIA-centric, we shove generic PCI-E power management for the open source drivers inside, the merge flag from [[External GPU#Xorg rendered on iGPU, PRIME render offload to eGPU]] should probably be addressed on the other page, once this has cleaned up and we can link to here for the environment variables to use.}}
 ```
-### For open source drivers - PRIME {#for_open_source_drivers___prime}
+### For open source drivers---PRIME {#for_open_source_driversprime}
 
 To use your discrete card for the applications who need it the most (for example games, 3D modellers\...), prepend the
 `{{ic|1=DRI_PRIME=1}}`{=mediawiki} environment variable:
@@ -39,15 +39,17 @@ To use your discrete card for the applications who need it the most (for example
 grep \"OpenGL renderer\"\|2= OpenGL renderer string: Gallium 0.4 on AMD TURKS }}
 
 ```{=mediawiki}
-{{Note|Instead of numerical value, you can also specify a PCI device name. Format used is similar to {{ic|/sys/bus/pci/devices/}}, but prefix with {{ic|pci-}} and replace semicolons and dots by underscores, e.g. {{ic|1=DRI_PRIME=pci-0000_01_00_0}}.}}
+{{Note|
+* Instead of numerical value, you can also specify a PCI device name. Format used is similar to {{ic|/sys/bus/pci/devices/}}, but prefix with {{ic|pci-}} and replace semicolons and dots by underscores, e.g. {{ic|1=DRI_PRIME=pci-0000_01_00_0}}. You can list graphic devices by PCIe ID with {{ic|lspci -nnd ::03xx}}.
+* For Vulkan rendering, you can append {{ic|!}} to only expose the selected GPU to the application, e.g. {{ic|1=DRI_PRIME=1!}}.
+}}
 ```
 Other applications will still use the less power-hungry integrated card. These settings are lost once the X server
 restarts, you may want to make a script and auto-run it at the startup of your desktop environment (alternatively, put
 it in `{{ic|/etc/X11/xinit/xinitrc.d/}}`{=mediawiki}). This may reduce your battery life and increase heat though.
 
-See
-[Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use](Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use "wikilink")
-for more information.
+See [Gentoo:AMDGPU#Identifying which graphics card is in
+use](Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use "wikilink") for more information.
 
 For `{{ic|DRI_PRIME}}`{=mediawiki} to work on Vulkan applications `{{Pkg|vulkan-mesa-layers}}`{=mediawiki} needs to be
 installed, as well as `{{Pkg|lib32-vulkan-mesa-layers}}`{=mediawiki} for 32 bit applications.
@@ -485,5 +487,6 @@ This means removing `{{ic|nvidia_drm.modeset{{=}}`{=mediawiki}0}} from Kernel pa
 ## See also {#see_also}
 
 -   [Nouveau Optimus](https://wiki.freedesktop.org/nouveau/Optimus/)
+-   [DRI_PRIME on Mesa](https://docs.mesa3d.org/envvars.html#envvar-DRI_PRIME)
 
 [Category:Graphics](Category:Graphics "wikilink")

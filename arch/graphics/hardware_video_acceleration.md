@@ -128,7 +128,7 @@ with this section to see that it is the case.
 * [[mpv#Hardware video acceleration|mpv]] with its command-line support is great for testing hardware acceleration. Look at the log of {{ic|1=mpv --hwdec=auto ''video_filename''}} and see [https://mpv.io/manual/stable/#options-hwdec hwdec] for more details.
 * Use {{Pkg|nvtop}} to check "DEC" (decoder) usage on the top lines while playing a video, for AMD, Intel and NVIDIA.
 * For Intel GPU, use {{pkg|intel-gpu-tools}} and run {{ic|intel_gpu_top}} as root to monitor the GPU activity during video playback for example. The video bar being above 0% indicates GPU video decoder/encoder usage. (If [[Intel graphics#Testing the new experimental Xe driver|new Xe driver]] is in use {{ic|intel_gpu_top}} [https://gitlab.freedesktop.org/drm/igt-gpu-tools/-/issues/174 will throw error], so to check  run {{ic|gputop}}, [https://dri.freedesktop.org/docs/drm/gpu/i915.html#intel-gpu-basics vcs field (Video Command Streamer)] above 0% indicates GPU video decoder/encoder usage.)
-* For AMD GPU, use {{Pkg|radeontop}} to monitor GPU activity. Unlike {{pkg|intel-gpu-tools}}, there is currently no way to see decode/encode usage on {{Pkg|radeontop}} [https://github.com/clbr/radeontop/issues/29].
+* For AMD GPU, use {{Pkg|amdgpu_top}} to monitor GPU activity.
 * For any GPU, you can compare CPU usage with a tool like {{Pkg|htop}}. Especially for higher resolution videos (4k+), CPU usage when VA-API is enabled and working should be dramatically lower on laptops and other relatively low-power devices.
 }}
 ```

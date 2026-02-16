@@ -16,43 +16,24 @@ purchase, download, and management. On NixOS, Steam is generally easy to install
 
 #### Shell
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To temporarily use Steam-related tools like `steam-run` (for FHS environments) or `steamcmd` (for server management or
-tools like steam-tui setup) in a shell environment, you can run:
+要在 shell 环境中临时使用 Steam 相关工具，例如 `steam-run`（用于 FHS 环境）或 `steamcmd`（用于服务器管理或 steam-tui
+设置等工具），可以运行以下命令。
 
-```{=html}
-</div>
-```
 ``` bash
 nix-shell -p steam-run # For FHS environment
 nix-shell -p steamcmd  # For steamcmd
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-This provides the tools in your current shell without adding them to your system configuration. For `steamcmd` to work
-correctly for some tasks (like initializing for steam-tui), you might need to run it once to generate necessary files,
-as shown in the \`steam-tui\` section.
+这样就可以在当前 shell 中使用这些工具，而无需将其添加到系统配置中。为了使 `steamcmd` 能够正确执行某些任务（例如初始化
+steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，如 \`steam-tui\` 部分所示。
 
-```{=html}
-</div>
-```
 `<span id="System_setup">`{=html}`</span>`{=html}
 
 #### 系统设置
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To install the [Steam](Steam "wikilink") package and enable all the system options necessary to allow it to run, add the
-following to your `/etc/nixos/configuration.nix`:
+要安装 [Steam](Steam "wikilink") 软件包并启用所有必要的系统选项以使其运行，请将以下内容添加到您的
+`/etc/nixos/configuration.nix` 中：
 
-```{=html}
-</div>
-```
 ``` nix
 # Example for /etc/nixos/configuration.nix
 programs.steam = {
@@ -90,14 +71,8 @@ programs.steam = {
 
 ## 配置
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Basic Steam features can be enabled directly within the `programs.steam` attribute set:
+基本 Steam 功能可以直接在 `programs.steam` 属性集中启用：
 
-```{=html}
-</div>
-```
 ``` nix
 programs.steam = {
   enable = true; # Master switch, already covered in installation
@@ -109,16 +84,9 @@ programs.steam = {
 # programs.gamemode.enable = true;
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-If you are using a Steam Controller or a Valve Index, ensure Steam hardware support is enabled. This is typically
-handled by `programs.steam.enable = true;` which sets `hardware.steam-hardware.enable = true;` implicitly. You can
-verify or explicitly set it if needed:
+如果您使用的是 Steam 控制器或 Valve Index，请确保已启用 Steam 硬件支持。这通常由 `programs.steam.enable = true;`
+隐式地设置，该设置会同时启用 `hardware.steam-hardware.enable = true;` 。如有需要，您可以验证或显式地进行设置：
 
-```{=html}
-</div>
-```
 ``` nix
 hardware.steam-hardware.enable = true;
 ```
@@ -131,15 +99,8 @@ hardware.steam-hardware.enable = true;
 
 ### Gamescope Compositor / \"启动至 Steam Deck\" {#gamescope_compositor_启动至_steam_deck}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Gamescope can function as a minimal desktop environment, meaning you can launch it from a TTY and have an experience
-very similar to the Steam Deck hardware console.
+Gamescope 可以作为最小桌面环境运行，这意味着您可以从 TTY 启动它，并获得与 Steam Deck 硬件控制台非常相似的体验。
 
-```{=html}
-</div>
-```
 ``` nix
 # Clean Quiet Boot
 boot.kernelParams = [ "quiet" "splash" "console=/dev/null" ];
@@ -168,58 +129,33 @@ services.greetd = {
 
 ### steam-tui {#steam_tui}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-If you want the steam-tui client, you\'ll have to install it. It relies on `steamcmd` being set up, so you\'ll need to
-run `steamcmd` once to generate the necessary configuration files. First, ensure `steamcmd` is available (e.g., via
-`nix-shell -p steamcmd` or by adding it to `environment.systemPackages`), then run:
+如果您想使用 steam-tui 客户端，则需要自行安装。它依赖于 `steamcmd` 的设置，因此您需要运行一次 `steamcmd`
+来生成必要的配置文件。 首先，确保 `steamcmd` 可用（例如，运行 `nix-shell -p steamcmd` 或将其添加到
+`environment.systemPackages` ），然后运行：
 
-```{=html}
-</div>
-```
 ``` bash
 steamcmd +quit # This initializes steamcmd's directory structure
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Then install and run \`steam-tui\`. You may need to log in within \`steamcmd\` first if \`steam-tui\` has issues:
+然后安装并运行 \`steam-tui\`。如果 \`steam-tui\` 出现问题，您可能需要先在 \`steamcmd\` 中登录：
 
-```{=html}
-</div>
-```
 ``` bash
 # (Inside steamcmd prompt, if needed for full login before steam-tui)
 # login <username> <password> <steam_2fa_code>
 # quit
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-After setup, `steam-tui` (if installed e.g. via `home.packages` or `environment.systemPackages`) should start fine.
+安装完成后， `steam-tui` （例如通过 `home.packages` 或 `environment.systemPackages` 安装）应该可以正常启动。
 
-```{=html}
-</div>
-```
 `<span id="FHS_environment_only">`{=html}`</span>`{=html}
 
 ### 仅 FHS 环境 {#仅_fhs_环境}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To run proprietary games or software downloaded from the internet that expect a typical Linux Filesystem Hierarchy
-Standard (FHS), you can use `steam-run`. This provides an FHS-like environment without needing to patch the software.
-Note that this is not necessary for clients installed from Nixpkgs (like Minigalaxy or Itch), which already use the FHS
-environment as needed. There are two options to make `steam-run` available: 1. Install `steam-run` system-wide or
-user-specifically:
+要运行需要标准 Linux 文件系统层次结构标准 (FHS) 的专有游戏或从互联网下载的软件，可以使用 `steam-run` 。它提供了一个类似
+FHS 的环境，而无需对软件进行任何修改。 请注意，对于从 Nixpkgs 安装的客户端（如 Minigalaxy 或
+Itch），这并非必要，因为它们已经根据需要使用 FHS 环境。 有两种方法可以实现 `steam-run` 功能： 1. 安装 `steam-run`
+，可选择系统级安装或用户级安装：
 
-```{=html}
-</div>
-```
 ``` nix
 # In /etc/nixos/configuration.nix
 environment.systemPackages = with pkgs; [
@@ -227,14 +163,8 @@ environment.systemPackages = with pkgs; [
 ];
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-2\. If you need more flexibility or want to use an overridden Steam package\'s FHS environment:
+2\. 如果您需要更大的灵活性，或者想要使用已覆盖的 Steam 包的 FHS 环境：
 
-```{=html}
-</div>
-```
 ``` nix
 # In /etc/nixos/configuration.nix
 environment.systemPackages = with pkgs; [
@@ -244,26 +174,10 @@ environment.systemPackages = with pkgs; [
 
 ### Proton
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-You should be able to play most Windows games using Proton. If a game has a native Linux version that causes issues on
-NixOS, you can force the use of Proton by selecting a specific Proton version in the game\'s compatibility settings in
-Steam.
-
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-By default, Steam also looks for custom Proton versions in `~/.steam/root/compatibilitytools.d`. The environment
-variable `STEAM_EXTRA_COMPAT_TOOLS_PATHS` can be set to add other search paths.
-
-```{=html}
-</div>
-```
-自定义 Proton 版本的声明式安装（例如 GE-Proton）：
+您应该可以使用 Proton 运行大多数 Windows 游戏。如果某个游戏有原生 Linux 版本，但在 NixOS 上会出现问题，您可以通过在
+Steam 的游戏兼容性设置中选择特定的 Proton 版本来强制使用 Proton。 默认情况下，Steam 还会在
+`~/.steam/root/compatibilitytools.d` 中查找自定义 Proton 版本。可以通过设置环境变量 `STEAM_EXTRA_COMPAT_TOOLS_PATHS`
+来添加其他搜索路径。 自定义 Proton 版本的声明式安装（例如 GE-Proton）：
 
 ``` nix
 programs.steam.extraCompatPackages = with pkgs; [
@@ -283,24 +197,10 @@ environment.systemPackages = with pkgs; [
 
 ### 覆盖 Steam 软件包 {#覆盖_steam_软件包}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-In some cases, you may need to override the default Steam package to provide missing dependencies or modify its build.
-Use the `programs.steam.package` option for this. Steam on NixOS runs many games in an FHS environment, but the Steam
-client itself or certain tools might need extra libraries.
+在某些情况下，您可能需要覆盖默认的 Steam 程序包以提供缺失的依赖项或修改其构建。为此，请使用 `programs.steam.package`
+选项。NixOS 上的 Steam 会在 FHS 环境下运行许多游戏，但 Steam 客户端本身或某些工具可能需要额外的库。 示例：添加 Bumblebee
+和 Primus（适用于 NVIDIA Optimus）：
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Example: Adding Bumblebee and Primus (for NVIDIA Optimus):
-
-```{=html}
-</div>
-```
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [ bumblebee primus ];
@@ -310,14 +210,8 @@ programs.steam.package = pkgs.steam.override {
 # programs.steam.package = pkgs.steamFull.override { extraPkgs = pkgs': with pkgs'; [ bumblebee primus ]; };
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Example: Adding Xorg libraries for Gamescope (when used within Steam):
+示例：为 Gamescope 添加 Xorg 库（在 Steam 中使用时）：
 
-```{=html}
-</div>
-```
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
@@ -336,14 +230,10 @@ programs.steam.package = pkgs.steam.override {
 };
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-### Fix missing icons for games in GNOME dock and activities overview {#fix_missing_icons_for_games_in_gnome_dock_and_activities_overview}
+`<span id="Fix_missing_icons_for_games_in_GNOME_dock_and_activities_overview">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+### 修复 GNOME Dock 栏和活动概览中游戏图标缺失的问题 {#修复_gnome_dock_栏和活动概览中游戏图标缺失的问题}
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -354,31 +244,13 @@ game\'s .desktop file, found under `~/.local/share/applications/`.
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-For games running through Proton, the value should be `steam_app_``<game_id>`{=html} (where `<game_id>`{=html} matches
-the value after <steam://rungameid/> on the `Exec` line).
+对于通过 Proton 运行的游戏，该值应为 `steam_app_``<game_id>`{=html} （在哪里`<game_id>`{=html}与 `Exec` 行中
+<steam://rungameid/> 之后的值匹配）。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-For games running natively, the value should match the game\'s main executable.
+对于原生运行的游戏，该值应与游戏的主可执行文件匹配。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-For example, the modified .desktop file for Valheim looks like this:
+例如，Valheim 的修改后的 .desktop 文件如下所示：
 
-```{=html}
-</div>
-```
 ``` desktop
 [Desktop Entry]
 Name=Valheim
@@ -395,28 +267,15 @@ StartupWMClass=valheim.x86_64
 
 ## 故障排除
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-For all issues: first run `steam -dev -console` through the terminal and read the output.
+对于所有问题：首先通过终端运行 `steam -dev -console` 并读取输出。
 
-```{=html}
-</div>
-```
 `<span id="Steam_fails_to_start._What_do_I_do?">`{=html}`</span>`{=html}
 
 ### Steam 无法启动。我该怎么办？ {#steam_无法启动我该怎么办}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Run `strace steam -dev -console 2> steam.logs` in the terminal. If `strace` is not installed, temporarily install it
-using `nix-shell -p strace` or `nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` (if using Flakes). After
-that, create a bug report.
+在终端运行 `strace steam -dev -console 2> steam.logs` 命令。如果未安装 `strace` ，请使用 `nix-shell -p strace` 或
+`nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` （如果使用 Flakes 版本）临时安装。之后，请提交错误报告。
 
-```{=html}
-</div>
-```
 `<span id="Steam_is_not_updated">`{=html}`</span>`{=html}
 
 ### Steam 未更新 {#steam_未更新}
@@ -436,52 +295,27 @@ the terminal or with your file manager. After that, Steam can be set up again by
 
 ### 游戏无法启动
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Games may fail to start because they lack dependencies (this should be added to the script, for now), or because they
-cannot be patched. The steps to launch a game directly are:
+游戏可能无法启动，原因可能是缺少依赖项（目前应将此添加到脚本中），或者无法进行补丁更新。直接启动游戏的步骤如下：
+如果可以，请修补脚本/二进制文件。
 
--   Patch the script/binary if you can
--   Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout
-    from steam)
--   Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
+-   在二进制文件夹中添加一个名为 steam_appid.txt 的文件，内容为 appid（可在 Steam 的标准输出中找到）。
+-   使用来自 nix/store steam 脚本的 LD_LIBRARY_PATH，启动游戏二进制文件
 
-```{=html}
-</div>
-```
 ``` bash
 LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...curl-7.29.0/lib:. ./Osmos.bin32 (if you could not patchelf the game, call ld.so directly with the binary as parameter)
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Note: If a game gets stuck on Installing scripts, check for a DXSETUP.EXE process and run it manually, then restart the
-game launch.
+注意：如果游戏卡在"正在安装脚本"界面，请检查是否存在 DXSETUP.EXE 进程并手动运行它，然后重新启动游戏。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-#### Changing the driver on AMD GPUs {#changing_the_driver_on_amd_gpus}
+`<span id="Changing_the_driver_on_AMD_GPUs">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+#### 更改 AMD GPU 的驱动程序 {#更改_amd_gpu_的驱动程序}
+
 ```{=mediawiki}
 {{note|This is not recommended because radv drivers tend to perform better and are generally more stable than amdvlk.}}
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Sometimes, changing the driver on AMD GPUs helps. To try this, first, install multiple drivers such as radv and amdvlk:
+有时，更换 AMD GPU 的驱动程序会有帮助。要尝试此方法，首先，安装多个驱动程序，例如 radv 和 amdvlk：
 
-```{=html}
-</div>
-```
 ``` nix
 hardware.graphics = {
   ## radv: an open-source Vulkan driver from freedesktop
@@ -493,40 +327,18 @@ hardware.graphics = {
 };
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-In the presence of both drivers, [Steam](Steam "wikilink") will default to amdvlk. The amdvlk driver can be considered
-more correct regarding Vulkan specification implementation, but less performant than radv. However, this tradeoff
-between correctness and performance can sometimes make or break the gaming experience.
+如果两个驱动程序都存在，[Steam](Steam "wikilink") 将默认使用 amdvlk。amdvlk 驱动程序在 Vulkan
+规范实现方面更准确，但性能不如 radv。然而，这种在正确性和性能之间的权衡有时会直接影响游戏体验。 如果同时安装了 radv 和
+amdvlk，要将驱动程序"重置"为 radv，请设置环境变量 `AMD_VULKAN_ICD = "RADV"` 或
+`VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` 。例如，如果您从 shell 启动
+Steam，则可以通过运行 `AMD_VULKAN_ICD="RADV" steam` 为当前会话启用
+radv。如果您不确定当前使用的是哪个驱动程序，可以启动一个启用了 MangoHud 的游戏，MangoHud
+可以显示当前正在使用的驱动程序。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To \"reset\" your driver to radv when both radv and amdvlk are installed, set either `AMD_VULKAN_ICD = "RADV"` or
-`VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` environment variable. For example,
-if you start [Steam](Steam "wikilink") from the shell, you can enable radv for the current session by running
-`AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a game with
-[MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show what driver is
-currently in use.
-
-```{=html}
-</div>
-```
 ### SteamVR
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-The setcap issue at SteamVR start can be fixed with:
+SteamVR 启动时的 setcap 问题可以通过以下方法解决：
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
-
-```{=html}
-</div>
-```
 `<span id="Gamescope_fails_to_launch_when_used_within_Steam">`{=html}`</span>`{=html}
 
 ### 与 Steam 使用时 Gamescope 无法启动 {#与_steam_使用时_gamescope_无法启动}

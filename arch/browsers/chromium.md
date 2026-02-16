@@ -834,6 +834,11 @@ The flag `{{ic|1=--force-device-scale-factor=1}}`{=mediawiki} may be used to ove
 When [native Wayland support](#Native_Wayland_support "wikilink") is enabled, Chromium will automatically scale based on
 the configured scale of each monitor.
 
+There is a longstanding bug in chromium, which affects electron apps as well, with scaling under wayland when the
+desktop scale is less than 100% on some compositors (e.g. KDE). Windows will shrink themselves on every interaction and
+mouse positioning is scaled by the desktop scale percentage. The flag
+`{{ic|1=--disable-features=WaylandPerSurfaceScale}}`{=mediawiki} can be used to disable this behavior.
+
 ### Password prompt on every start with GNOME Keyring {#password_prompt_on_every_start_with_gnome_keyring}
 
 See [GNOME/Keyring#Passwords are not remembered](GNOME/Keyring#Passwords_are_not_remembered "wikilink").
@@ -1035,6 +1040,10 @@ You have to enable *Use system title bar and borders* via the *<chrome://setting
 ### Chromium has no sound but sound output device is present {#chromium_has_no_sound_but_sound_output_device_is_present}
 
 For WirePlumber users, [resetting WirePlumber state](WirePlumber#Delete_corrupt_settings "wikilink") may help.
+
+### File picker does not open when trying to save or download {#file_picker_does_not_open_when_trying_to_save_or_download}
+
+This is a problem with [XDG Desktop Portal](XDG_Desktop_Portal "wikilink"), restarting the user unit may help.
 
 ## See also {#see_also}
 

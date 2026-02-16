@@ -1,7 +1,8 @@
-`{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki}
-`{{Related|Intel}}`{=mediawiki} `{{Related|Wayland}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
-`{{Related|OpenGL}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki} `{{Related|Hardware video acceleration}}`{=mediawiki}
-`{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:画像処理装置](ja:画像処理装置 "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA}}`{=mediawiki}
+`{{Related|AMDGPU}}`{=mediawiki} `{{Related|Intel}}`{=mediawiki} `{{Related|Wayland}}`{=mediawiki}
+`{{Related|Xorg}}`{=mediawiki} `{{Related|OpenGL}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
+`{{Related|Hardware video acceleration}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
 A [graphics processing unit](Wikipedia:Graphics_processing_unit "wikilink") (GPU) is the hardware in your computer that
 generates the video feed that appears on your display. They are present in two device types: [Integrated Graphics

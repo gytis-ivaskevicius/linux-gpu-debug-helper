@@ -16,7 +16,7 @@ also possible to use it as an embedded compositor as well.
 ## Installation
 
 Gamescope can be [installed](install "wikilink") with the `{{pkg|gamescope}}`{=mediawiki} package. Additionally there is
-also `{{aur|gamescope-plus}}`{=mediawiki} which includes extra patches not present in the mainline build.
+also `{{aur|lib32-gamescope-plus}}`{=mediawiki} which includes extra patches not present in the mainline build.
 
 ### Requirements
 

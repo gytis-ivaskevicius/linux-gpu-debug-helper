@@ -8,8 +8,8 @@ graphical user environment enabling a variety of [desktop environments](:Categor
 On NixOS, users can enable and configure Xorg through the `{{nixos:option|services.xserver}}`{=mediawiki} module in
 their system configuration.
 
-See `{{NixOS Manual|name=NixOS Manual: Chapter - X Window Syestem|anchor=#sec-x11}}`{=mediawiki} for information on
-using X11 with NixOS.
+See `{{NixOS Manual|name=NixOS Manual: Chapter - X Window System|anchor=#sec-x11}}`{=mediawiki} for information on using
+X11 with NixOS.
 
 # Tips and tricks {#tips_and_tricks}
 

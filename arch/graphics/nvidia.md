@@ -235,7 +235,7 @@ To verify that the NVIDIA framebuffer is actually enabled, execute the following
 
 `# cat /sys/module/nvidia_drm/parameters/fbdev`
 
-It will return a missing file error if it is not set at all, instead of `{{ic|N}}`{=mediawiki}.
+It will return `{{ic|Y}}`{=mediawiki} if the framebuffer is enabled.
 
 ### Suspend support {#suspend_support}
 

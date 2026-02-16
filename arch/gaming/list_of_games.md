@@ -646,10 +646,6 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
-    {{App|Secret Maryo Chronicles|Mario-style game.|http://www.secretmaryo.org/|{{AUR|smc}}{{Broken package link|package not found}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|Super Mario Bros. Remastered|Recreation of the original Super Mario Bros.|https://github.com/JHDev2006/Super-Mario-Bros.-Remastered-Public|{{AUR|smb1r-bin}}}}
     ```
 

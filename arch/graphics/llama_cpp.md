@@ -19,8 +19,8 @@ LLM inference in C/C++.
 
 llama.cpp is available in the [AUR](AUR "wikilink"):
 
--   Install `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
--   Install `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
 
 ```{=mediawiki}
 {{Note|Ensure you have the appropriate [[Vulkan]] driver installed.}}
@@ -43,7 +43,7 @@ is the CLI executor:
 ```{=mediawiki}
 {{ic|llama-server}}
 ```
-launches an HTTP server:
+launches an OpenAI-compatible API server with a built-in WebUI:
 
 `$ llama-server --host `*`address`*` --port `*`port`*` -m `*`model.gguf`*
 
@@ -66,17 +66,16 @@ Manually download models using `{{Pkg|wget}}`{=mediawiki} or `{{Pkg|curl}}`{=med
 
 `$ wget -c `*`model.gguf`*
 
-## Model quantization {#model_quantization}
+## Tips and tricks {#tips_and_tricks}
+
+### Model quantization {#model_quantization}
 
 Quantization lowers model precision to reduce memory usage.
 
 GGUF models use suffixes to indicate quantization level. Generally, lower numbers (e.g. **Q4**) use less memory but may
 reduce quality compared to higher numbers (e.g. **Q8**).
 
-```{=mediawiki}
-{{Tip|[https://unsloth.ai/docs Unsloth] provides a wide selection of models quantized with their [https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs dynamic method].}}
-```
-## Knowledge distillation {#knowledge_distillation}
+### Knowledge distillation {#knowledge_distillation}
 
 Knowledge distillation compresses a larger model into a smaller model by training the smaller model to follow the
 behaviors of the larger model.
@@ -93,10 +92,7 @@ GGUF models indicate knowledge distillation using the `{{ic|student-teacher-dist
     ```
     represents the larger model.
 
-```{=mediawiki}
-{{Tip|[https://www.teichai.com/models TeichAI] provides a wide selection of models fine-tuned with their [https://www.teichai.com/datasets reasoning datasets].}}
-```
-## Specifying context size {#specifying_context_size}
+### Specifying context size {#specifying_context_size}
 
 llama.cpp loads the context size from the model by default, and it allocates memory for the whole context window.
 
@@ -104,7 +100,7 @@ Specify a lower context size in case you run out of memory.
 
 `$ llama-cli -c `*`32000`*` -m `*`model.gguf`*
 
-## Key-value cache quantization {#key_value_cache_quantization}
+### Key-value cache quantization {#key_value_cache_quantization}
 
 For further memory efficiency, you can quantize the key-value cache.
 
@@ -118,10 +114,15 @@ This, combined with a lower context size, can significantly reduce memory usage.
 * Aggressive quantization on '''values''' is usually better tolerated, but still risks degradation.
 }}
 ```
+### Monitoring GPU utilization {#monitoring_gpu_utilization}
+
+To monitor GPU utilization, [install](install "wikilink") utilities like `{{Pkg|nvtop}}`{=mediawiki} and/or
+`{{Pkg|amdgpu_top}}`{=mediawiki}.
+
 ## See also {#see_also}
 
 -   [Upstream GitHub repository](https://github.com/ggml-org/llama.cpp)
--   [Upstream issue tracker](https://github.com/ggml-org/llama.cpp/issues)
--   [Upstream community discussions](https://github.com/ggml-org/llama.cpp/discussions)
+-   [Upstream guide: using the new WebUI of llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/16938)
+-   [Upstream guide: running gpt-oss with llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/15396)
 
 [Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

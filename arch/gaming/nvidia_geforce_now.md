@@ -1,28 +1,47 @@
-`{{Related articles start}}`{=mediawiki} [ja:GeForce Now](ja:GeForce_Now "wikilink")
+[ja:GeForce Now](ja:GeForce_Now "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Gaming#Remote gaming}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-[GeForce Now](Wikipedia:GeForce_Now "wikilink") is a [cloud gaming](Gaming#Remote_gaming "wikilink") services that lets
+
+[GeForce NOW](Wikipedia:GeForce_Now "wikilink") is a [cloud gaming](Gaming#Remote_gaming "wikilink") services that lets
 users play video games in the browser (including on Arch Linux) and on dedicated apps available on other platforms.
 
-Unlike other cloud gaming platforms, GeForce Now connects to video game digital distribution services such as
-[Steam](Steam "wikilink") and the Epic game store, where games have to be bought separately from the GeForce Now
+Unlike other cloud gaming platforms, GeForce NOW connects to video game digital distribution services such as
+[Steam](Steam "wikilink") and the Epic game store, where games have to be bought separately from the GeForce NOW
 subscription. Given the nature of Cloud Gaming, you will not need to install the client from these services on your
 computer.
 
-## Usage
+It is available either as an official [Flatpak](Flatpak "wikilink") package from NVIDIA, or can be used without
+installation in a Chromium-based web browser.
 
-GeForce Now [supports](https://www.nvidia.com/en-us/geforce-now/system-reqs/) Chromium-based browsers out of the box, it
-should work for most people on [Chromium](Chromium "wikilink").
+## Flatpak version {#flatpak_version}
+
+To install the [Flatpak](Flatpak "wikilink") package, start by adding NVIDIA remote to your system:
+
+`# flatpak remote-add --if-not-exists GeForceNOW https://international.download.nvidia.com/GFNLinux/flatpak/geforcenow.flatpakrepo`
+
+Then proceed to install the package:
+
+`# flatpak install GeForceNOW com.nvidia.geforcenow`
+
+```{=mediawiki}
+{{Note|The [https://nvidia.custhelp.com/app/answers/detail/a_id/5765 official NVIDIA instructions] involve a binary graphical installer (''GeForceNOWSetup.bin'') that roughly does the equivalent of above upon its execution, preceded by a check for Ubuntu-based system for whether [[Flatpak]] is installed, and installing it otherwise.}}
+```
+## Browser version {#browser_version}
+
+### Usage
+
+GeForce NOW [supports](https://www.nvidia.com/en-us/geforce-now/system-reqs/#browser) Chromium-based browsers out of the
+box, it should work for most people on [Chromium](Chromium "wikilink").
 
 ```{=mediawiki}
 {{Note|While it is possible to change the User-Agent string to have your favorite [[browser]] appear as Chromium, it may not work correctly (some user have reported that the mouse cursor would not appear in games when running Firefox).}}
 ```
-## Non-qwerty keyboard layout {#non_qwerty_keyboard_layout}
+### Non-qwerty keyboard layout {#non_qwerty_keyboard_layout}
 
-As of October 2021, the setting to change keyboard layout may not be visible when accessing GeForce Now on Linux.
+As of October 2021, the setting to change keyboard layout may not be visible when accessing GeForce NOW on Linux.
 
 In some cases, the following steps allow to access this setting by making Chromium appear to run on Windows.
 
-### Edit indexDB {#edit_indexdb}
+#### Edit indexDB {#edit_indexdb}
 
 The values for the keyboard layout are saved in the indexDB, in the database \"gfnclient\" in the objectstore
 \"sharedStore\". You can use a webextension like
@@ -44,7 +63,7 @@ As an alternative, a [user-proivded extension](https://codeberg.org/Offerel/GFN_
 currently pre-defined layouts from the GFN page. Since this extension is not in the Chrome Webstore, you must sideload
 it as unpacked extension.
 
-### Launch Chromium with disabled User-Agent Client Hint {#launch_chromium_with_disabled_user_agent_client_hint}
+#### Launch Chromium with disabled User-Agent Client Hint {#launch_chromium_with_disabled_user_agent_client_hint}
 
 [User-Agent Client Hint](https://www.chromium.org/updates/ua-ch) is a new feature on Chromium-based browser designed to
 improve over User-Agent strings. Unfortunately, because it is new, there is not yet an extension that let users change
@@ -55,13 +74,13 @@ it. To disable this feature, launch Chrome or Chromium this way :
 ```{=mediawiki}
 {{Note|Using this command, the website can only rely on a User-Agent string to determine your OS, which will be dealt with in the next step.}}
 ```
-### Change your User-Agent string to make your OS appears as Windows {#change_your_user_agent_string_to_make_your_os_appears_as_windows}
+#### Change your User-Agent string to make your OS appears as Windows {#change_your_user_agent_string_to_make_your_os_appears_as_windows}
 
 ```{=mediawiki}
 {{Warning|Web extensions can access your browsing data, please check extension permissions before installing them. On Chromium, always use the Chrome Webstore, but be aware that not all extensions in the Chrome Webstore are reviewed by Google.}}
 ```
 Multiple extensions exist to switch the User-Agent string, they can be installed using the Chrome Webstore. While Google
-provides one of these, it seems to not reliably alter the User-Agent string, notably on GeForce Now. [User-Agent
+provides one of these, it seems to not reliably alter the User-Agent string, notably on GeForce NOW. [User-Agent
 Switcher and
 Manager](https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg) is
 another extension with this feature. The Firefox version being recommended by Mozilla, it seems trustworthy enough.
@@ -74,9 +93,17 @@ Windows\" one will work. If you are using another extension, a User-Agent string
 ```{=mediawiki}
 {{Tip|User-Agent strings contain the version of the web browser. If you read this article in the future, you may have to find a newer one to have your browser appear up to date.}}
 ```
-### Access the keyboard layout setting {#access_the_keyboard_layout_setting}
+#### Access the keyboard layout setting {#access_the_keyboard_layout_setting}
 
 With these steps applied, the keyboard layout settings will be available in the main settings panel, below the Network
 settings.
+
+## See also {#see_also}
+
+-   [NVIDIA\'s System Requirements page (Linux)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#linux-os)
+-   [NVIDIA\'s System Requirements page (Browser)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#browser)
+-   [NVIDIA\'s Linux installation/troubleshooting
+    instructions](https://nvidia.custhelp.com/app/answers/detail/a_id/5765)
+-   [NVIDIA GeForce NOW official download](https://www.nvidia.com/en-us/geforce-now/download/)
 
 [Category:Gaming](Category:Gaming "wikilink") [Category:Web applications](Category:Web_applications "wikilink")

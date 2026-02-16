@@ -14,7 +14,8 @@
 | latestRelease = 25.11; 29 Nov 2025
 }}
 ```
-[Niri](https://github.com/YaLTeR/niri) is a scrollable-tiling [Wayland](Wayland "wikilink") compositor.
+`<translate>`{=html} [Niri](https://github.com/YaLTeR/niri) is a scrollable-tiling [Wayland](Wayland "wikilink")
+compositor.
 
 ## Installation
 
@@ -142,6 +143,8 @@ To work around this problem, you can force usage of the gtk or kde portals for f
 -   [Sway](Sway "wikilink")
 -   [Wallpapers for Wayland](Wallpapers_for_Wayland "wikilink")
 -   [niri-flake](https://github.com/sodiboo/niri-flake/)
+
+`</translate>`{=html}
 
 [Category:Window managers](Category:Window_managers "wikilink")
 [Category:Applications](Category:Applications "wikilink")

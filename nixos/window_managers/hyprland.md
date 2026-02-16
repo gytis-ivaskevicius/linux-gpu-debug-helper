@@ -1,7 +1,7 @@
-[Hyprland](https://hyprland.org/) is an independent, extensible, bleeding-edge [Wayland](Wayland "wikilink") compositor
-written in modern C++ with an emphasis on looks. In addition, Hyprland also offers a number of first-party tools as well
-as a custom plugin system. The most up-to-date and complete documentation may be found on the project\'s own
-[wiki](https://wiki.hyprland.org/).
+`<translate>`{=html} [Hyprland](https://hyprland.org/) is an independent, extensible, bleeding-edge
+[Wayland](Wayland "wikilink") compositor written in modern C++ with an emphasis on looks. In addition, Hyprland also
+offers a number of first-party tools as well as a custom plugin system. The most up-to-date and complete documentation
+may be found on the project\'s own [wiki](https://wiki.hyprland.org/).
 
 Some of the most notable features of Hyprland are:
 
@@ -344,6 +344,8 @@ manually.
 -   [The official documentation](https://wiki.hyprland.org/)
 -   [Hyprland Github Page](https://github.com/hyprwm/Hyprland/)
 -   [Community-maintained list of tools, plugins and extensions](https://github.com/hyprland-community/awesome-hyprland)
+
+`</translate>`{=html}
 
 [Category:Window managers](Category:Window_managers "wikilink")
 [Category:Applications](Category:Applications "wikilink") [Category:Hyprland](Category:Hyprland "wikilink")
