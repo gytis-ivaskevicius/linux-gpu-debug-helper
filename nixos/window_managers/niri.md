@@ -7,10 +7,10 @@
 | license = GNU General Public License v3.0 only
 | os = Linux, FreeBSD
 | programmingLanguage = Rust, GLSL
-| github = YaLTeR/niri
+| github = niri-wm/niri
 | documentation = [https://yalter.github.io/niri/ Official wiki], [https://github.com/sodiboo/niri-flake/blob/main/docs.md niri-flake]
 | image = Niri-icon.svg
-| bugTracker = https://github.com/YaLTeR/niri/issues
+| bugTracker = https://github.com/niri-wm/niri/issues
 | latestRelease = 25.11; 29 Nov 2025
 }}
 ```
@@ -27,10 +27,10 @@ programs.niri.enable = true;
 }}
 ```
 ```{=mediawiki}
-{{Note|Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you want to use a very recent version of Niri or if you want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.}}
+{{Note|Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.}}
 ```
 ```{=mediawiki}
-{{Warning|Without [[#Configuration]] or [[#Additional Setup]], or in other words after fresh installation, you may be unable to launch apps because of missing Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit Niri and proceed to one of them.}}
+{{Warning|Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit Niri and proceed to one of them.}}
 ```
 ## Configuration
 

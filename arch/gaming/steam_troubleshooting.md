@@ -638,6 +638,11 @@ Other solution would be to flush DNS as explained here [6](https://askubuntu.com
 
 Run `{{ic|resolvectl flush-caches}}`{=mediawiki} or `{{ic|systemd-resolve --flush-caches}}`{=mediawiki} as root.
 
+### Steam client restarts while a game is running {#steam_client_restarts_while_a_game_is_running}
+
+A work around is to disable the *Enable GPU accelerated rendering in web views* option under the *Interface* tab in the
+Steam client settings.
+
 ## Steam Remote Play issues {#steam_remote_play_issues}
 
 See [Steam#Steam Remote Play](Steam#Steam_Remote_Play "wikilink").

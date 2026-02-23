@@ -254,10 +254,10 @@ programs.steam.package = pkgs.steam.override {
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis
@@ -309,10 +309,20 @@ StartupWMClass=valheim.x86_64
 
 ### Steam fails to start. What do I do? {#steam_fails_to_start._what_do_i_do}
 
-`</translate>`{=html} `<translate>`{=html} Run `strace steam -dev -console 2> steam.logs` in the terminal. If `strace`
-is not installed, temporarily install it using `nix-shell -p strace` or
-`nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` (if using Flakes). After that, create a bug report.
-`</translate>`{=html}
+`</translate>`{=html} `<translate>`{=html}
+
+One common issue preventing steam from being able to start, at least on `x86-64` platforms, is not having the following
+options enabled in your `/etc/nixos/hardware-configuration.nix`: `</translate>`{=html}
+
+`{`\
+`  hardware.graphics.enable = true;`\
+`  hardware.graphics.enable32Bit = true;`\
+`}`
+
+`<translate>`{=html} If you have those options set (or 32-bit isn\'t applicable to your system/platform) and still
+can\'t run steam, then run `strace steam -dev -console 2> steam.logs` in the terminal. If `strace` is not installed,
+temporarily install it using `nix-shell -p strace` or `nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` (if
+using Flakes). After that, create a bug report. `</translate>`{=html}
 
 `<translate>`{=html}
 
@@ -389,10 +399,10 @@ what driver is currently in use. `</translate>`{=html} `<translate>`{=html}
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis

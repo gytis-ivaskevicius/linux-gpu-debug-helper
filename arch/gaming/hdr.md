@@ -203,8 +203,8 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
 #### With Gamescope {#with_gamescope}
 
 Gamescope with proper HDR requires scRGB and `{{ic|xx-color-management-v4}}`{=mediawiki} protocol support or
-[`{{ic|frog-color-management-v1}}`{=mediawiki}](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/merge_requests/14)
-protocol support in your compositor.
+[frog-color-management-v1](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/merge_requests/14) protocol
+support in your compositor.
 
 Because of this gamescope will not work with the `{{AUR|vk-hdr-layer-kwin6-git}}`{=mediawiki} layer. Ensure
 `{{ic|ENABLE_HDR_WSI}}`{=mediawiki} is not `{{ic|1}}`{=mediawiki}.

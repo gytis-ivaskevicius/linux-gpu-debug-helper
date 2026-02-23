@@ -13,7 +13,7 @@ These defaults can however be overwritten like this:
     # ...
 
     # support both 32- and 64-bit applications
-    wineWowPackages.stable
+    wineWow64Packages.stable
 
     # support 32-bit only (read above!)
     wine
@@ -25,20 +25,20 @@ These defaults can however be overwritten like this:
     wine64
 
     # wine-staging (version with experimental features)
-    wineWowPackages.staging
+    wineWow64Packages.staging
 
     # winetricks (all versions)
     winetricks
 
     # native wayland support (unstable)
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
   ];
 }
 ```
 
 If you get the error
 `wine: '/path/to/your/wineprefix' is a 64-bit installation, it cannot be used with a 32-bit wineserver.`, then you need
-a 64-bit build like `wineWowPackages`.
+a 64-bit build like `wineWow64Packages`.
 
 The `override` method is mentioned in [the manual](https://nixos.org/nixos/manual/index.html#sec-customising-packages).
 

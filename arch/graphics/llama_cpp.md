@@ -34,7 +34,7 @@ Primary executors are `{{ic|llama-cli}}`{=mediawiki} and `{{ic|llama-server}}`{=
 ```{=mediawiki}
 {{ic|llama-cli}}
 ```
-is the CLI executor:
+is the command-line executor:
 
 `$ llama-cli -m `*`model.gguf`*
 
@@ -43,7 +43,7 @@ is the CLI executor:
 ```{=mediawiki}
 {{ic|llama-server}}
 ```
-launches an OpenAI-compatible API server with a built-in WebUI:
+launches an API server with a built-in WebUI:
 
 `$ llama-server --host `*`address`*` --port `*`port`*` -m `*`model.gguf`*
 

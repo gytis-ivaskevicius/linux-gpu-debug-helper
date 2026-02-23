@@ -1,8 +1,8 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[zh-hans:Kanshi](zh-hans:Kanshi "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|Sway}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[ja:Kanshi](ja:Kanshi "wikilink") [zh-hans:Kanshi](zh-hans:Kanshi "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|Sway}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [kanshi](https://gitlab.freedesktop.org/emersion/kanshi) allows you to define output profiles that are automatically
 enabled and disabled on hotplug. For instance, this can be used to turn a laptop\'s internal screen off when docked.

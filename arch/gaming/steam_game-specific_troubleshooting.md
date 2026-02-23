@@ -229,7 +229,7 @@ Dependencies: [6](https://steamcommunity.com/app/221410/discussions/0/8649571831
 
 The version of libSDL2 shipped with the game seems to be out-of-date and may not support your gamepad yet. Simply remove
 or rename `{{ic|<install_dir>/game/lib64/libSDL2-2.0.so.0}}`{=mediawiki}, the linker will fall back to using the
-up-to-date version from /usr/lib.
+up-to-date version from `{{ic|/usr/lib}}`{=mediawiki}.
 
 ### Amnesia: Rebirth {#amnesia_rebirth}
 
@@ -610,23 +610,25 @@ You will not be able to read or see anything, and you will have this in your log
 `Fontconfig error: "/etc/fonts/conf.d/10-scale-bitmap-fonts.conf", line 69: non-double matrix element`\
 `Fontconfig error: "/etc/fonts/conf.d/10-scale-bitmap-fonts.conf", line 69: wrong number of matrix elements`
 
-Workaround for the bug `{{Bug|35039}}`{=mediawiki} is available [here](https://archive.is/L9AoT) (replace
-`{{ic|/etc/fonts/conf.d/10-scale-bitmap-fonts.conf}}`{=mediawiki}).
+A workaround for the bug `{{Bug|35039}}`{=mediawiki} is to remove line 69 from
+`{{ic|/etc/fonts/conf.d/10-scale-bitmap-fonts.conf}}`{=mediawiki} (i.e.
+`{{ic|<double>0</double> <name>pixelsizefixupfactor</name>}}`{=mediawiki}).
 
 ### Cities Skylines {#cities_skylines}
 
 #### Game not starting {#game_not_starting}
 
-If you set ELECTRON_OZONE_PLATFORM_HINT=auto [environment variables](environment_variables "wikilink") globaly, because
-you want to switch all your [Electron](Electron "wikilink") apps use [Wayland](Wayland "wikilink") natively, you should
-know that the game launcher of Cities Skylines currently is [Electron](Electron "wikilink")-based and compiled as
-[x11](x11 "wikilink")-only, without [Wayland](Wayland "wikilink") support. So it will crashed when you try to start it.
-As workaround you should set ELECTRON_OZONE_PLATFORM_HINT=x11 %command% to the [Steam](Steam "wikilink")\'s command line
-for this game. So the game will work using [Xwayland](Xwayland "wikilink").
+If you set `{{ic|1=ELECTRON_OZONE_PLATFORM_HINT=auto}}`{=mediawiki} [environment
+variables](environment_variables "wikilink") globally, because you want to switch all your
+[Electron](Electron "wikilink") apps use [Wayland](Wayland "wikilink") natively, you should know that the game launcher
+of Cities Skylines currently is [Electron](Electron "wikilink")-based and compiled as [x11](x11 "wikilink")-only,
+without [Wayland](Wayland "wikilink") support. So it will crashed when you try to start it. As workaround you should set
+`{{ic|1=ELECTRON_OZONE_PLATFORM_HINT=x11 %command%}}`{=mediawiki} to the [Steam](Steam "wikilink")\'s command line for
+this game. So the game will work using [Xwayland](Xwayland "wikilink").
 
 If you set `{{ic|$XDG_DATA_HOME}}`{=mediawiki} to something other than `{{ic|$HOME/.local/share}}`{=mediawiki}, Cities
 Skylines will put some files in `{{ic|$XDG_DATA_HOME/Paradox Interactive}}`{=mediawiki} and some hard-coded in
-`{{ic|~/.local/share/Paradox Interactive}}`{=mediawiki}. Unset the Variable to fix this issue.
+`{{ic|~/.local/share/Paradox Interactive}}`{=mediawiki}. Unset the variable to fix this issue.
 
 #### Textures not rendering properly {#textures_not_rendering_properly}
 

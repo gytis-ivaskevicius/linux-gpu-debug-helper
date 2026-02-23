@@ -139,7 +139,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{AUR|modrinth-app-git}}}}
+    {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{AUR|modrinth-app}}}}
     ```
 
 -   ```{=mediawiki}
@@ -234,7 +234,7 @@ requirements.
   \> 1.20.4           21
 
 ```{=mediawiki}
-{{Warning|
+{{Note|
 * Note that the client/server work with newer versions of [[Java]], such as {{Pkg|jre-openjdk}}, but the Minecraft game launcher (and possibly mods) might only work with [[Java]] version 8.
 * If running an old Minecraft version, it is also recommended to run it with its potentially old "Minimum Compatible JRE Version". For example, the 1.20.1 is compatible with the JRE 17 and 21, but not with the JRE 24.
 }}
@@ -249,38 +249,6 @@ Force Unicode fonts from the language menu.
 Since you cannot read any of the menu options: in the main menu, choose the bottom-left most button is Options,
 second-from-the-bottom on the left side is the Language Button. From there, the Force Unicode Font button is on the
 bottom, on the left side.
-
-### MultiMC forks unable to build {#multimc_forks_unable_to_build}
-
-```{=mediawiki}
-{{Remove|No longer an issue.}}
-```
-If you are trying to install one of *multimc5* forks like (`{{Pkg|prismlauncher}}`{=mediawiki}) and get an error similar
-to:
-
-```{=mediawiki}
-{{bc|
-No CMAKE_Java_COMPILER could be found.
-Tell CMake where to find the compiler by setting either the environment
-variable "JAVA_COMPILER" or the CMake cache entry CMAKE_Java_COMPILER to
-the full path to the compiler, or to the compiler name if it is in the
-PATH.
-}}
-```
-The error could be caused by Java missing, which can be fixed by installing `{{Pkg|jdk8-openjdk}}`{=mediawiki}. If the
-error is not fixed by that or Java was properly installed in the first place, the wrong version could still be the
-default environment:
-
-```{=mediawiki}
-{{hc|$ archlinux-java status|
-Available Java environments:
-  java-13-openjdk (default)
-  java-8-openjdk
-}}
-```
-You can set the default java version using
-
-`# archlinux-java set `*`version`*
 
 ### Cannot change pulseaudio sink {#cannot_change_pulseaudio_sink}
 

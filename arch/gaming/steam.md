@@ -126,8 +126,8 @@ Steam Play for games that have and have not been whitelisted by Valve in that di
 Proton supports *Easy AntiCheat* integration if the developer activates it, however EAC may require a particular
 [patched version](https://github.com/ValveSoftware/Proton/issues/5214) of glibc: if a game is been reported to be
 working but is not in your machine, try using Steam Flatpak because it comes with glibc patched. Additionally, [setting
-the procfs mount option `{{ic|1=hidepid}}`{=mediawiki} to a hardened value](Security#hidepid "wikilink") may cause Easy
-Anti-Cheat to fail with the message \"Launch Error: 261\".
+the procfs mount option \"hidepid\" to a hardened value](Security#hidepid "wikilink") may cause Easy Anti-Cheat to fail
+with the message \"Launch Error: 261\".
 
 #### Force Proton usage {#force_proton_usage}
 

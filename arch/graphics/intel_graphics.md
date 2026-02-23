@@ -408,6 +408,9 @@ See [Backlight](Backlight "wikilink").
 
 ### Testing the new experimental Xe driver {#testing_the_new_experimental_xe_driver}
 
+```{=mediawiki}
+{{Accuracy|Setting {{ic|1=i915.force_probe=!9a49}} may not work. Using a non existing ID e,g {{ic|1=i915.force_probe=foo}} seems to force it correctly.|section=Experimental Xe driver probe overrule not working}}
+```
 To try the (experimental) [new Xe driver](https://docs.kernel.org/gpu/xe/index.html), you need:
 
 -   ```{=mediawiki}

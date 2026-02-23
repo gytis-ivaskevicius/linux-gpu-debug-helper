@@ -13,9 +13,6 @@ currently the only one capable of playing commercial games.
 ```{=mediawiki}
 {{Note|Dolphin is a resource-heavy application, so expect not all games to run properly. See the reason [https://dolphin-emu.org/docs/faq/#why-do-i-need-such-powerful-computer-emulate-old-c here].}}
 ```
-```{=mediawiki}
-{{Warning|Make sure you '''only''' use Dolphin for legally obtained self-made disc dumps of games you legally bought. Dolphin was not developed for unlawful use. Act legally as applying laws define. You are responsible for any usage of the emulator that you make. No links, instructions or tips for obtaining illegal content will be provided on this wiki. No copyright infringement intended.}}
-```
 Click on browse to set a directory of ISOs so that they are shown as a library on Dolphin\'s default screen. Otherwise
 just click *Open* and select the file.
 

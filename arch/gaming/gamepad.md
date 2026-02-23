@@ -352,6 +352,8 @@ physically reconnect your device after running this command.
 ``\
 `Dolphin Emulator has a [https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin page on their wiki] that explains how to use the official Nintendo USB adapter with a GameCube controller. This configuration also works with the Mayflash Controller Adapter if the switch is set to "Wii U".`\
 ``\
+`Steam Input supports the GameCube adapter, but it is not enabled by default since opening it is exclusive with other applications. To enable it anyway, launch Steam with the command line option {{ic|-enable-libusb-gamecube}}.[https://github.com/libsdl-org/SDL/issues/14682#issuecomment-3700715394]`\
+``\
 `For other applications, you can use {{AUR|wii-u-gc-adapter}}.`\
 ``\
 `=== Nintendo Switch Pro Controller and Joy-Cons ===`\
@@ -652,6 +654,16 @@ If you want to use your gamepad with another computer over a network, you can us
 Gamepadla hosts a crowdsourced database for controller-specific latency, and polling data.[1](https://gamepadla.com) The
 tool for making these reports reads evdev/hidraw events via pygame/SDL and it can be obtained from
 `{{AUR|gamepadla-polling}}`{=mediawiki}.
+
+### Overclock controller polling rates via usb_oc-dkms {#overclock_controller_polling_rates_via_usb_oc_dkms}
+
+```{=mediawiki}
+{{AUR|usb_oc-dkms}}
+```
+can be used to override bInterval on controller\'s USB device endpoints, effectively overclocking their polling rates,
+if the device will allow itself to be polled at a higher rate and give the host more data.
+
+Most notably popular devices like Sony DualSense can be overclocked (from 250 Hz to 1000 Hz, or partially to 8000 Hz).
 
 ## Troubleshooting
 

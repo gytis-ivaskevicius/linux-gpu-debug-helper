@@ -209,8 +209,9 @@ The GNOME, KDE Plasma, Cinnamon, COSMIC and Budgie desktop environments will res
 `{{ic|PrefersNonDefaultGPU}}`{=mediawiki} property in the [desktop entry](desktop_entry "wikilink"), and automatically
 launch apps on the specified GPU.
 
-Alternatively, on GNOME and Cinnamon, you can launch applications with GPU by right-clicking on the icon and choosing
-*Launch using Discrete Graphics Card* or *Run with dedicated GPU*, respectively.
+Alternatively, on GNOME, Cinnamon, and COSMIC, you can launch applications with GPU by right-clicking on the icon and
+choosing *Launch using Discrete Graphics Card* (GNOME), *Run with dedicated GPU* (Cinnamon), and *Run with (GPU name)*
+(COSMIC), respectively.
 
 #### Troubleshooting
 
@@ -462,7 +463,7 @@ run a program with the external GPU.
 ```{=mediawiki}
 {{hc|<nowiki>/etc/environment</nowiki>|2=
 __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
-VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json
+VK_DRIVER_FILES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json
 __GLX_VENDOR_LIBRARY_NAME=mesa
 }}
 ```

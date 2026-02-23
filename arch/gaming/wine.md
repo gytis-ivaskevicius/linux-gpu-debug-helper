@@ -624,61 +624,80 @@ following command to activate it in your Wine prefix (by default `{{ic|~/.wine}}
 #### Synchronization primitives {#synchronization_primitives}
 
 Some games heavily use Windows synchronization objects to run multi-threaded workloads. Wine provides a user-space
-implementation through `{{ic|wineserver}}`{=mediawiki}, but it usually worsens performance in CPU-bound scenarios.
-
-Currently, there are 3 alternative implementations that improve performance, but you should use only one of them at a
-time:
-
--   ESync --- user-space eventfd-based synchronization.
-    -   Not included in `{{Pkg|wine}}`{=mediawiki}. Included in `{{Pkg|wine-staging}}`{=mediawiki} [up to version
-        10.15](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
-        enabled by default.
-    -   Enabled by default in [Proton](Proton "wikilink"), unless FSync is available.
--   FSync --- in-kernel Futex2-based implementation of synchronization primitives. It should generally have better
-    performance than ESync.
-    -   Available if you use a kernel version [starting from
-        5.16](https://kernelnewbies.org/Linux_5.16#New_futex_waitv.28.29_system_call_for_faster_game_performance).
-    -   Not included in `{{Pkg|wine}}`{=mediawiki}; you will need a patched version.
-    -   Enabled by default in [Proton](Proton "wikilink").
--   [NTSync](https://www.youtube.com/watch?v=NjU4nyWyhU8) --- in-kernel implementation of synchronization primitives.
-    Compared to ESync and FSync, NTSync more closely translates the behavior of the Microsoft Windows NT kernel
-    implementation, with performance on par with FSync or smoother. It can fix some performance degradations present in
-    some applications (mainly games) that only happen when using either ESync or FSync.
-    -   Available if you use a kernel version [starting from
-        6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games).
-    -   NTSync [was implemented in Wine 10.16](https://gitlab.winehq.org/wine/wine/-/merge_requests/9091), but not
-        included in [Proton](Proton "wikilink"), because Proton\'s latest version is based on Wine 10.0 stable, which
-        did not yet include NTSync.
-    -   [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) (`{{AUR|proton-ge-custom-bin}}`{=mediawiki})
-        can be used if you want a Proton version with NTSync. Alternatively,
-        [Proton-TKG](https://github.com/Frogging-Family/wine-tkg-git) can be used.
+implementation through *wineserver*, but it usually worsens performance in CPU-bound scenarios. There are 3 alternative
+implementations---[NTSync](#NTSync "wikilink"), [FSync](#FSync "wikilink"), and [ESync](#ESync "wikilink")---that
+improve performance, but you should use only one of them at a time.
 
 ```{=mediawiki}
-{{Note|The Wine developers have no plans to add ESync or FSync because since Wine 10.16 the full version of NTSync has been added and enabled by default. NTSync is more accurate than ESync or FSync without performance degradations. Generally, you should stick to NTSync, unless an application behaves in a problematic way with it enabled.}}
+{{Tip|Stick to NTSync unless an application behaves in a problematic way with it enabled.}}
 ```
-To enable ESync, [export](export "wikilink") the following [environment variable](environment_variable "wikilink")
-before running Wine:
+```{=mediawiki}
+{{Note|
+* The Wine developers have no plans to add ESync or FSync because since Wine 10.16 the full version of NTSync has been added and enabled by default.
+* When using either ESync or FSync, some performance degradations—compared to NTSync—might happen in some applications (mainly games).
+}}
+```
+[MangoHud](MangoHud "wikilink") can be used to check the status of current synchronization method with the option
+*winesync* enabled in its configuration file.
 
-`WINEESYNC=1`
+##### NTSync
 
-Or for FSync with patched Wine:
+[NTSync](https://www.youtube.com/watch?v=NjU4nyWyhU8) is an in-kernel implementation of synchronization primitives.
 
-`WINEFSYNC=1`
+Compared to ESync and FSync, NTSync more closely translates the behavior of the Microsoft Windows NT kernel
+implementation, with performance on par with FSync or smoother. NTSync is more accurate than ESync or FSync without
+performance degradation.
+
+-   Available if you use a kernel version [starting from
+    6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games).
+-   NTSync [was implemented in Wine 10.16](https://gitlab.winehq.org/wine/wine/-/merge_requests/9091), but not included
+    in [Proton](Proton "wikilink"), because Proton\'s latest version is based on Wine 10.0 stable, which did not yet
+    include NTSync.
+-   [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) (`{{AUR|proton-ge-custom-bin}}`{=mediawiki}) can be
+    used if you want a Proton version with NTSync. Alternatively,
+    [Proton-TKG](https://github.com/Frogging-Family/wine-tkg-git) can be used.
 
 NTSync does not require setting an environment variable; instead, it will automatically be used if the
 `{{ic|ntsync}}`{=mediawiki} [kernel module](kernel_module "wikilink") is loaded. `{{Pkg|wine}}`{=mediawiki},
 `{{Pkg|wine-staging}}`{=mediawiki} and `{{AUR|proton-ge-custom-bin}}`{=mediawiki} ship with a file to [load the module
-at boot](load_the_module_at_boot "wikilink").
-
-If you are using a custom version of Wine or Proton, you can manually create the following file:
+at boot](load_the_module_at_boot "wikilink"). If you are using a custom version of Wine or Proton, you can manually
+create the following file:
 
 ```{=mediawiki}
 {{hc|/etc/modules-load.d/ntsync.conf|
 ntsync
 }}
 ```
-[MangoHud](MangoHud "wikilink") can be used to check the status of current synchronization method with the option
-*winesync* enabled in its configuration file.
+##### FSync
+
+FSync is an in-kernel Futex2-based implementation of synchronization primitives.
+
+It should generally have better performance than ESync.
+
+-   Available if you use a kernel version [starting from
+    5.16](https://kernelnewbies.org/Linux_5.16#New_futex_waitv.28.29_system_call_for_faster_game_performance).
+-   Not included in `{{Pkg|wine}}`{=mediawiki}; you will need a patched version.
+-   Enabled by default in [Proton](Proton "wikilink").
+
+To enable FSync, [export](export "wikilink") the following [environment variable](environment_variable "wikilink")
+before running patched Wine:
+
+`WINEFSYNC=1`
+
+##### ESync
+
+ESync is a user-space eventfd-based synchronization.
+
+-   Not included in `{{Pkg|wine}}`{=mediawiki}.
+-   Included in `{{Pkg|wine-staging}}`{=mediawiki} [up to version
+    10.15](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
+    enabled by default.
+-   Enabled by default in [Proton](Proton "wikilink"), unless FSync is available.
+
+To enable ESync, [export](export "wikilink") the following [environment variable](environment_variable "wikilink")
+before running Wine:
+
+`WINEESYNC=1`
 
 ### Unregister existing Wine file associations {#unregister_existing_wine_file_associations}
 

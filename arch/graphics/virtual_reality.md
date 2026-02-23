@@ -147,7 +147,13 @@ Entries marked with \"Yes\" but without store links can be sideloaded from their
 |                       |                             | Store](https://apps.apple.  |                             |
 |                       |                             | com/app/alvr/id6479728026)) |                             |
 +-----------------------+-----------------------------+-----------------------------+-----------------------------+
-|                       |                             |                             |                             |
+| Samsung Galaxy XR     | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
+|                       | {{Yes}}                     | {{No}}                      | {{No}}                      |
+|                       | ```                         | ```                         | ```                         |
+|                       |                             | ([partially                 |                             |
+|                       |                             | w                           |                             |
+|                       |                             | orking](https://github.com/ |                             |
+|                       |                             | alvr-org/ALVR/issues/3070)) |                             |
 +-----------------------+-----------------------------+-----------------------------+-----------------------------+
 
 ### Tracking devices {#tracking_devices}
