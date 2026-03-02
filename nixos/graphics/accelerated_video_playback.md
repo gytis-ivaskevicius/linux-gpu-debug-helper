@@ -54,9 +54,9 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
 `</translate>`{=html}
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{{file|3=<nowiki>
 { config, lib, ...}: {
-  environment.variables.LIBVA_DRIVER_NAME = "nvidia"
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 
   # If used with Firefox
   environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
@@ -79,7 +79,7 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
     "media.av1.enabled" = false;
   };
 }
-</nowiki>}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 `<translate>`{=html}
 

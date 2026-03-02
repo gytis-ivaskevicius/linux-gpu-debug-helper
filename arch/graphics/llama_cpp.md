@@ -116,8 +116,7 @@ This, combined with a lower context size, can significantly reduce memory usage.
 ```
 ### Monitoring GPU utilization {#monitoring_gpu_utilization}
 
-To monitor GPU utilization, [install](install "wikilink") utilities like `{{Pkg|nvtop}}`{=mediawiki} and/or
-`{{Pkg|amdgpu_top}}`{=mediawiki}.
+See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink").
 
 ## See also {#see_also}
 

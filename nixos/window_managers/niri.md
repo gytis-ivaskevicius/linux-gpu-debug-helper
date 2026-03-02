@@ -98,14 +98,18 @@ However, since Niri does not support text-input-v1, sometimes enabling text-inpu
 ```{=mediawiki}
 {{code|<nowiki>slack --wayland-text-input-version=3</nowiki>}}
 ```
-Alternatively, if the package supports `{{ic|commandLineArgs}}`{=mediawiki}, the following may be used instead:
+`wrapProgram` may be used to add the flag automatically:
 
 ```{=mediawiki}
-{{code|<nowiki>(pkgs.vscode.override {
-  commandLineArgs = [
-    "--wayland-text-input-version=3"
-  ];
-});</nowiki>}}
+{{file|/etc/nixos/configuration.nix|nix|3=
+environment.systemPackages = [
+  (pkgs.symlinkJoin {
+    pname = pkgs.vscode.pname;
+    paths = [ pkgs.vscode ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = "wrapProgram $out/bin/code --add-flags --wayland-text-input-version=3";
+  };)
+];}}
 ```
 ### XWayland apps not working {#xwayland_apps_not_working}
 

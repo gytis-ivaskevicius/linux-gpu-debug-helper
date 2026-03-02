@@ -67,7 +67,7 @@ FreeSync is only available if your [https://www.amd.com/en/products/freesync-mon
 
 ==== Using an Xorg conf file ====
 
-Add the line to your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "Device"}} block:
+Add the line to your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
 
  Option "VariableRefresh" "true"
 
@@ -82,7 +82,7 @@ xrandr will show the properties for all video output ports; make sure to look at
 
 ==== Multi-monitor configuration ====
 
-Suppose you have a new 144Hz FreeSync capable monitor and want to use it as your primary monitor and connect your old 60Hz monitor as secondary monitor. In that case you may want to enable the AsyncFlipSecondaries option in your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "Device"}} block:
+Suppose you have a new 144Hz FreeSync capable monitor and want to use it as your primary monitor and connect your old 60Hz monitor as secondary monitor. In that case you may want to enable the AsyncFlipSecondaries option in your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
 
  Option "AsyncFlipSecondaries" "true"
 

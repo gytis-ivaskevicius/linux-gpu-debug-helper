@@ -8,10 +8,7 @@
 browser.
 
 See [this page](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md) for
-an explanation of the differences between Chromium and Google Chrome. Additionally:
-
--   Sync is unavailable in Chromium 89+ (2021-03-02)
-    [1](https://archlinux.org/news/chromium-losing-sync-support-in-early-march/)
+an explanation of the differences between Chromium and Google Chrome.
 
 ```{=mediawiki}
 {{Note|Sync can be temporarily restored by [https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 using Chrome's OAuth2 credentials] or [https://www.chromium.org/developers/how-tos/api-keys getting your own], but pay attention to the disclaimers and do not consider this to be a long-term solution.
@@ -133,8 +130,8 @@ To enable accelerated **en**coding in Chromium:
 
 -   Append the `{{ic|AcceleratedVideoEncoder}}`{=mediawiki} feature, e.g.
     `{{ic|1=--enable-features{{=}}`{=mediawiki}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoEncoder}}. See
-    [2](https://github.com/chromium/chromium/blob/main/docs/gpu/vaapi.md#vaapi-on-linux) and
-    [3](https://issues.chromium.org/issues/40225939#comment54) for details.
+    [1](https://github.com/chromium/chromium/blob/main/docs/gpu/vaapi.md#vaapi-on-linux) and
+    [2](https://issues.chromium.org/issues/40225939#comment54) for details.
 
 To enable VA-API support:
 
@@ -146,13 +143,13 @@ To enable VA-API support:
     renderer and `{{Pkg|libva-intel-driver}}`{=mediawiki}.
 -   When using ANGLE, Chromium forces the older i965 driver and fails when `{{Pkg|intel-media-driver}}`{=mediawiki} is
     used. As a workaround, [configure VA-API manually](Hardware_video_acceleration#Configuring_VA-API "wikilink"). See
-    [4](https://github.com/intel/media-driver/issues/818) for details.
+    [3](https://github.com/intel/media-driver/issues/818) for details.
 -   To use the system GL renderer on Xorg or Wayland, use `{{ic|1=--use-gl=egl}}`{=mediawiki}. Setting this option might
     no longer be needed when using Chrome 112 and may break GPU acceleration when using AMD GPUs.
 -   If VA-API still does not work, try the `{{ic|1=--enable-features=VaapiIgnoreDriverChecks}}`{=mediawiki}
     or`{{ic|1=--disable-features=UseChromeOSDirectVideoDecoder}}`{=mediawiki} flag
 -   If VA-API still does not work on X11 and old GPUs, set the `{{ic|1=LIBVA_DRI3_DISABLE=1}}`{=mediawiki} [environment
-    variable](environment_variable "wikilink") [5](https://www.phoronix.com/news/VA-API-libva-2.18).
+    variable](environment_variable "wikilink") [4](https://www.phoronix.com/news/VA-API-libva-2.18).
 
 #### Vulkan
 
@@ -184,7 +181,7 @@ To reduce CPU usage while watching YouTube where VP8/VP9 hardware decoding is no
 [h264ify](https://chrome.google.com/webstore/detail/h264ify/aleakchihdccplidncghkekgioiakgal),
 [enhanced-h264ify](https://chrome.google.com/webstore/detail/enhanced-h264ify/omkfmpieigblcllmkgbflkikinpkodlk) or [Not
 yet,
-AV1](https://chrome.google.com/webstore/detail/not-yet-av1/dcmllfkiihingappljlkffafnlhdpbai)[6](https://bbs.archlinux.org/viewtopic.php?pid=2039884#p2039884)
+AV1](https://chrome.google.com/webstore/detail/not-yet-av1/dcmllfkiihingappljlkffafnlhdpbai)[5](https://bbs.archlinux.org/viewtopic.php?pid=2039884#p2039884)
 extension.
 
 On some systems (especially on Xwayland) you might need to [#Force GPU
@@ -253,7 +250,7 @@ If a `{{ic|AltGr}}`{=mediawiki}/`{{ic|Compose}}`{=mediawiki} key stops working, 
 
 If you are using Fcitx5 and not work properly when using the above flags, try using the
 `{{ic|--enable-wayland-ime}}`{=mediawiki} flag instead of `{{ic|--gtk-version{{=}}`{=mediawiki}4}}.
-[7](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron)
+[6](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron)
 
 `--enable-wayland-ime --wayland-text-input-version=3`
 
@@ -272,7 +269,7 @@ To enable two finger swipe to go back and forward through your history, use the 
 {{Merge|HiDPI#Chromium / Google Chrome|Same topic.}}
 ```
 To force a scale factor on native Wayland, use the following flags
-[8](https://chromium.googlesource.com/chromium/src/+/756e64489c84c22998470beddb1facab5e78e1fa):
+[7](https://chromium.googlesource.com/chromium/src/+/756e64489c84c22998470beddb1facab5e78e1fa):
 
 `--force-device-scale-factor=1.33 --gtk-version=4 --enable-features=WaylandPerSurfaceScale,WaylandUiScale`
 
@@ -391,7 +388,7 @@ your device.
 #### Reduce memory usage {#reduce_memory_usage}
 
 By default, Chromium uses a separate OS process for each *instance* of a visited web site.
-[9](https://www.chromium.org/developers/design-documents/process-models#Supported_Models) However, you can specify
+[8](https://www.chromium.org/developers/design-documents/process-models#Supported_Models) However, you can specify
 command-line switches when starting Chromium to modify this behaviour.
 
 For example, to share one process for all instances of a website:
@@ -413,21 +410,6 @@ Suspender](https://chrome.google.com/webstore/detail/tab-suspender/fiabciakcmgep
 
 The User Agent can be arbitrarily modified at the start of Chromium\'s base instance via its
 `{{Ic|<nowiki>--user-agent="[string]"</nowiki>}}`{=mediawiki} parameter.
-
-#### DOM Distiller {#dom_distiller}
-
-```{=mediawiki}
-{{Remove|The project has been archived and the flag no longer works.}}
-```
-Chromium has a similar reader mode to Firefox. In this case it is called DOM Distiller, which is an [open source
-project](https://github.com/chromium/dom-distiller). It is disabled by default, but can be enabled using the
-`{{Ic|chrome://flags/#enable-reader-mode}}`{=mediawiki} flag, which you can also make
-[persistent](#Making_flags_persistent "wikilink"). Not only does DOM Distiller provide a better reading experience by
-distilling the content of the page, it also simplifies pages for print. Even though the latter checkbox option has been
-removed from the print dialog, you can still print the distilled page, which basically has the same effect.
-
-After enabling the flag, you will find a new \"Enter reader mode\" menu item and corresponding icon in the address bar
-when Chromium thinks the website you are visiting could do with some distilling.
 
 #### Forcing specific GPU {#forcing_specific_gpu}
 
@@ -501,9 +483,9 @@ Go to `{{ic|chrome://flags#enable-system-notifications}}`{=mediawiki} and select
 
 #### Enabling autoscroll with middle mouse button {#enabling_autoscroll_with_middle_mouse_button}
 
-The autoscroll is still an experimental feature [10](https://niek.github.io/chrome-features/). It is intended to be
+The autoscroll is still an experimental feature [9](https://niek.github.io/chrome-features/). It is intended to be
 disabled by default if Chromium or Chromium-based browsers are not a development build and is running on a Linux
-environment. [11](https://issues.chromium.org/issues/40811836)
+environment. [10](https://issues.chromium.org/issues/40811836)
 
 To enable this feature, launch your browser with the `{{ic|1=--enable-features=MiddleClickAutoscroll}}`{=mediawiki}
 flag. In case you want to make the option persistent, see [#Making flags
@@ -702,14 +684,14 @@ to *Advanced* and under *Privacy and security*, check *Send a \"Do Not Track\" r
 #### Force a password store {#force_a_password_store}
 
 Chromium uses a password store to store your passwords and the *Chromium Safe Storage* key, which is used to encrypt
-cookie values. [12](https://codereview.chromium.org/24734007)
+cookie values. [11](https://codereview.chromium.org/24734007)
 
 By default Chromium auto-detects which password store to use, which can lead to you apparently losing your passwords and
 cookies when switching to another desktop environment or window manager.
 
 You can force Chromium to use a specific password store by launching it with the `{{ic|--password-store}}`{=mediawiki}
 flag with one of following the values
-[13](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/password_storage.md):
+[12](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/password_storage.md):
 
 -   ```{=mediawiki}
     {{ic|gnome-libsecret}}
@@ -748,7 +730,7 @@ automatically on login](KDE_Wallet#Unlock_KDE_Wallet_automatically_on_login "wik
 
 Chromium supports the hybrid post-quantum key exchange
 [X25519Kyber768](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-02.html) for TLS 1.3 since version 155
-[14](https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html). This feature is disabled by default,
+[13](https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html). This feature is disabled by default,
 but can be enabled using the `{{Ic|chrome://flags/#enable-tls13-kyber}}`{=mediawiki} flag.
 
 ### Open any website as a native application {#open_any_website_as_a_native_application}

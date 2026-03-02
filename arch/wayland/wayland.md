@@ -113,6 +113,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
+    {{App|IonWL|Manual tiling compositor. Follows Ion3's design with a comprehensive Python API.|https://codeberg.org/ideasman42/IonWL|{{AUR|ionwl-git}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|miracle-wm|A Wayland compositor based on Mir in the style of i3 and sway with the intention to be flashier and more feature-rich than either, like swayfx.|https://github.com/miracle-wm-org/miracle-wm|{{AUR|miracle-wm}}}}
     ```
 

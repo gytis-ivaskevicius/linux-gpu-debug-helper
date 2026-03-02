@@ -84,7 +84,7 @@ The following example shows running *vulkaninfo* with the required environment v
 rendering for Vulkan and [OpenGL](OpenGL#Mesa "wikilink") (with `{{ic|1=__GLX_VENDOR_LIBRARY_NAME=mesa}}`{=mediawiki}
 ensuring the command also works for [PRIME](PRIME "wikilink") users):
 
-`$ LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_DRIVER_FILES=/usr/share/vulkan/icd.d/lvp_icd.i686.json:/usr/share/vulkan/icd.d/lvp_icd.x86_64.json vulkaninfo`
+`$ LIBGL_ALWAYS_SOFTWARE=1 __GLX_VENDOR_LIBRARY_NAME=mesa VK_DRIVER_FILES=/usr/share/vulkan/icd.d/lvp_icd.json vulkaninfo`
 
 ## Vulkan hardware database {#vulkan_hardware_database}
 
@@ -132,7 +132,7 @@ See [NVIDIA/Troubleshooting#GSP firmware](NVIDIA/Troubleshooting#GSP_firmware "w
 
 Try to list both the intel_icd and primus_vk_wrapper configurations in VK_DRIVER_FILES
 
-`export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json`
+`export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/intel_icd.json:/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json`
 
 ### AMDGPU - ERROR_INITIALIZATION_FAILED after vulkaninfo {#amdgpu___error_initialization_failed_after_vulkaninfo}
 
@@ -165,7 +165,6 @@ Some forum threads about this problem: [1](https://bbs.archlinux.org/viewtopic.p
 If you install `{{Pkg|cuda}}`{=mediawiki}, you might find Vulkan applications, for example, Chromium, launch slowly.
 It\'s because `{{Pkg|nvidia-utils}}`{=mediawiki} provides an Vulkan driver and Vulkan would try nvidia drivers before
 radeon drivers. To solve it, set the [environment variable](environment_variable "wikilink")
-`{{ic|VK_DRIVER_FILES}}`{=mediawiki} to
-`{{ic|/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json}}`{=mediawiki}.
+`{{ic|VK_DRIVER_FILES}}`{=mediawiki} to `{{ic|/usr/share/vulkan/icd.d/radeon_icd.json}}`{=mediawiki}.
 
 [Category:Graphics](Category:Graphics "wikilink") [Category:Development](Category:Development "wikilink")

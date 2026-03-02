@@ -119,7 +119,15 @@ Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Third-Party-Applications) for 
     ```
 
 -   ```{=mediawiki}
+    {{App|Play.it|Creates pacman [[package]]s for games (also supports [[DOSBox]] and ScummVM games).|https://www.dotslashplay.it/|{{AUR|play.it}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:PlayOnLinux|PlayOnLinux]]|Graphical prefix manager for Wine. Contains scripts to assist with program installation and configuration.|https://www.playonlinux.com|{{AUR|playonlinux}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|portproton|Software for playing Microsoft Windows games and launchers.|https://linux-gaming.ru/|{{AUR|portproton}}}}
     ```
 
 -   ```{=mediawiki}
@@ -131,7 +139,7 @@ Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Third-Party-Applications) for 
     ```
 
 -   ```{=mediawiki}
-    {{App|WINEgui|A user-friendly WINE graphical interface.|https://gitlab.melroy.org/melroy/winegui|{{AUR|winegui}},{{AUR|winegui-bin}}}}
+    {{App|WINEgui|A user-friendly WINE graphical interface.|https://gitlab.melroy.org/melroy/winegui|{{AUR|winegui}}}}
     ```
 
 ## Configuration

@@ -221,9 +221,6 @@ To enable VA-API in Firefox:
     `{{Pkg|libva-nvidia-driver}}`{=mediawiki} will allow for hardware video decoding on NVIDIA using
     [CUDA](CUDA "wikilink"). See the [GitHub project](https://github.com/elFarto/nvidia-vaapi-driver/#firefox) for
     documentation on necessary environment variables and <about:config> changes.
--   For NVIDIA users in addition to the config changes firefox needs to run with
-    `{{ic|MOZ_DISABLE_RDD_SANDBOX}}`{=mediawiki} environment variable set 1 [nvidia-vaapi-driver
-    github](https://github.com/elFarto/nvidia-vaapi-driver)
 -   Currently, Firefox\'s VA-API implementation can decode H.264/AVC, H.265/HEVC, VP8 & VP9, AV1 encoded video. AV1
     support requires Firefox 98+ [10](https://bugzilla.mozilla.org/show_bug.cgi?id=1745225). H.265/HEVC support requires
     Firefox 137+ [11](https://bugzilla.mozilla.org/show_bug.cgi?id=1894818).

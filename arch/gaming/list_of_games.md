@@ -307,7 +307,7 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
-    {{App|Tetrinet|Multiplayer online Tetris game for up to six people.|https://gtetrinet.sourceforge.net/|{{AUR|gtetrinet}}}}
+    {{App|Tetrinet|Multiplayer online Tetris game for up to six people.|https://gtetrinet.sourceforge.net/|{{AUR|gtetrinet}},{{pkg|tetrinet}}}}
     ```
 
 -   ```{=mediawiki}

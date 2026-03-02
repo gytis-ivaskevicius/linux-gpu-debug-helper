@@ -43,7 +43,7 @@ Each output profile is delimited by brackets. It contains several output directi
 For easier management of multiple setups *(e.g. Internal laptop monitor only, Docked to one monitor at home, Docked to
 two work monitors, \...)* you can define defaults for the outputs used inside profiles and assign them aliases. The
 defaults will apply to all profiles where the respective output is mentioned. For more see
-`{{man|5|kanshi}}`{=mediawiki}).
+`{{man|5|kanshi}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{hc|1=~/.config/kanshi/config|2=

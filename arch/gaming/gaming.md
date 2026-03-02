@@ -127,9 +127,7 @@ available.
 
 ### Drivers
 
--   AMD drivers: see [AMDGPU](AMDGPU "wikilink").
--   Intel drivers: see [Intel graphics](Intel_graphics "wikilink").
--   NVIDIA drivers: see [NVIDIA](NVIDIA "wikilink").
+See [Graphics processing unit](Graphics_processing_unit "wikilink").
 
 ### Dependency for the machine & substitutes {#dependency_for_the_machine_substitutes}
 
@@ -219,11 +217,7 @@ For list of games packaged for Arch in [official repositories](official_reposito
 [AUR](AUR "wikilink") see [List of games](List_of_games "wikilink").
 
 -   ```{=mediawiki}
-    {{App|Athenaeum|A libre replacement to Steam.|https://gitlab.com/librebob/athenaeum|{{AUR|athenaeum-git}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|Bottles|Easily run Windows software on Linux with wine and proton.|https://usebottles.com/|{{AUR|bottles}}}}
+    {{App|Athenaeum|A libre-centric replacement to Steam.|https://gitlab.com/librebob/athenaeum|{{AUR|athenaeum-git}}}}
     ```
 
 -   ```{=mediawiki}
@@ -255,27 +249,11 @@ For list of games packaged for Arch in [official repositories](official_reposito
     ```
 
 -   ```{=mediawiki}
-    {{App|Play.it|Automates the build of native packages. Also supports [[Wine]], [[DOSBox]] and ScummVM games.|https://www.dotslashplay.it/|{{AUR|play.it}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|portproton|Software for playing Microsoft Windows games and launchers|https://linux-gaming.ru/|{{AUR|portproton}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|proton-ge-custom|Compatibility tool for Steam Play based on Wine and additional components, GloriousEggroll's custom build|https://github.com/GloriousEggroll/proton-ge-custom|{{AUR|proton-ge-custom-bin}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|Rare|Another GUI for legendary, based on PyQt5.|https://github.com/Dummerle/Rare|{{AUR|rare}}}}
     ```
 
 -   ```{=mediawiki}
     {{App|[[Steam]]|Digital distribution and communications platform developed by Valve.|https://store.steampowered.com|{{Pkg|steam}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|umu-launcher|This is the Unified Launcher for Windows Games on Linux, to run Proton with fixes outside of Steam|https://github.com/Open-Wine-Components/umu-launcher|{{Pkg|umu-launcher}}}}
     ```
 
 For Wine wrappers, see [Wine#Third-party applications](Wine#Third-party_applications "wikilink").
@@ -285,53 +263,76 @@ For Wine wrappers, see [Wine#Third-party applications](Wine#Third-party_applicat
 Game launchers are important tools for managing and running games on various platforms. Below is a comparison of
 different game launchers available for Linux, particularly focusing on their features and compatibility.
 
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| Package                       | Open Source     | Supports Wine   | DLC Management  | Cross-platform  | ProtonDB Support | Dependencies   |
-+===============================+=================+=================+=================+=================+==================+================+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|athenaeum-git}}         | {{Yes}}         | {{No}}          | {{Yes}}         | {{Yes}}         | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Python 3       |
-| {{AUR|lgogdownloader}}        | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{No}}          | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Qt 5           |
-| {{AUR|heroic-games-launcher}} | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|itch-setup-bin}}        | {{Yes}}         | {{No}}          | {{No}}          | {{Yes}}         | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|legendary}}             | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | Python 3, Wine |
-| {{Pkg|lutris}}                | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|play.it}}               | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|portproton}}            | {{Yes}}         | {{Yes}}         | {{No}}          | {{Yes}}         | {{Yes}}          |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{AUR|rare}}                  | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| [Steam](Steam "wikilink")     | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-|                               | {{No}}          | {{Yes}}         | {{Yes}}         | {{Yes}}         | {{Yes}}          |                |
-|                               | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
-| ```{=mediawiki}               | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki} | ```{=mediawiki}  | None           |
-| {{Pkg|umu-launcher}}          | {{Yes}}         | {{Yes}}         | {{No}}          | {{No}}          | {{No}}           |                |
-| ```                           | ```             | ```             | ```             | ```             | ```              |                |
-+-------------------------------+-----------------+-----------------+-----------------+-----------------+------------------+----------------+
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| Package        | License        | Wine support   | DLC management | Cross-platform | ProtonDB       | Focused on     |
+|                |                |                |                |                | support        |                |
++================+================+================+================+================+================+================+
+| `              | GP             | `              | `              | `              | `              | [              |
+| ``{=mediawiki} | L-3.0-or-later | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | Flatpak](Flatp |
+| {{AUR|a        |                | {{No}}         | {{Yes}}        | {{Yes}}        | {{Yes}}        | ak "wikilink") |
+| thenaeum-git}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | WTFPL          | `              | `              | `              | `              | GOG            |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
+| {{AUR|lg       |                | {{Yes}}        | {{Yes}}        | {{No}}         | {{Yes}}        |                |
+| ogdownloader}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | GPL-3.0-only   | `              | `              | `              | `              | Epic, GOG,     |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | Amazon Prime   |
+| {              |                | {{Yes}}        | {{Yes}}        | {{Yes}}        | {{Yes}}        |                |
+| {AUR|heroic-ga |                | ```            | ```            | ```            | ```            |                |
+| mes-launcher}} |                |                |                |                |                |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | MIT            | `              | `              | `              | `              | itch.io        |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
+| {{AUR|it       |                | {{No}}         | {{No}}         | {{Yes}}        | {{Yes}}        |                |
+| ch-setup-bin}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | GPL-3.0-only   | `              | `              | `              | `              | Epic           |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
+| {{A            |                | {{Yes}}        | {{No}}         | {{No}}         | {{Yes}}        |                |
+| UR|legendary}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | GPL-3.0-only   | `              | `              | `              | `              | [Wide-         |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ranging](https |
+| {{Pkg|lutris}} |                | {{Yes}}        | {{Yes}}        | {{Yes}}        | {{Yes}}        | ://github.com/ |
+| ```            |                | ```            | ```            | ```            | ```            | lutris/lutris/ |
+|                |                |                |                |                |                | tree/master/lu |
+|                |                |                |                |                |                | tris/services) |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | BSD-2-Clause   | `              | `              | `              | `              | Native,        |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | [Wine](Win     |
+| {              |                | {{Yes}}        | {{No}}         | {{No}}         | {{No}}         | e "wikilink"), |
+| {AUR|play.it}} |                | ```            | ```            | ```            | ```            | DOSBox and     |
+| ```            |                |                |                |                |                | ScummVM        |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | MIT            | `              | `              | `              | `              | [Wine](Wi      |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ne "wikilink") |
+| {{AU           |                | {{Yes}}        | {{No}}         | {{Yes}}        | {{Yes}}        |                |
+| R|portproton}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | GPL-3.0-only   | `              | `              | `              | `              | Epic           |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
+| {{AUR|rare}}   |                | {{Yes}}        | {{No}}         | {{No}}         | {{Yes}}        |                |
+| ```            |                | ```            | ```            | ```            | ```            |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| [Steam](Ste    | Proprietary    | `              | `              | `              | `              | [Proton](Prot  |
+| am "wikilink") |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | on "wikilink") |
+|                |                | {{Yes}}        | {{Yes}}        | {{Yes}}        | {{Yes}}        |                |
+|                |                | ```            | ```            | ```            | ```            |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| `              | GPL-3.0-only   | `              | `              | `              | `              | [Proton](Prot  |
+| ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | on "wikilink") |
+| {{Pkg|         |                | {{Yes}}        | {{No}}         | {{No}}         | {{No}}         |                |
+| umu-launcher}} |                | ```            | ```            | ```            | ```            |                |
+| ```            |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 
 ## Configuring games {#configuring_games}
 

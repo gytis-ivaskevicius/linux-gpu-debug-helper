@@ -674,7 +674,7 @@ YUV 4:2:0, the NVIDIA driver has an undocumented X11 option to enforce that:
 
 `Option "ForceYUV420" "True"`
 
-This will allow higher resolutions or refresh rates but have detrimental impact on the image quality.
+This will allow higher resolutions or refresh rates but will have detrimental impact on the image quality.
 
 ## Configure applications to render using GPU {#configure_applications_to_render_using_gpu}
 

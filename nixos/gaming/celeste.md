@@ -15,14 +15,38 @@ Celeste is not free (as in free beer) for downloading. If you own a copy only on
 extract it and run it using `{{nixos:package|steam-run}}`{=mediawiki}, or use the
 `{{nixos:package|celestegame}}`{=mediawiki} package.
 
-For using the `celestegame` package, first download the Linux version of Celeste on
-[itch.io](https://maddymakesgamesinc.itch.io/celeste), and then add it to Nix store by running this command:
+For using the `celestegame` package follow one of the 3 methodes:
+
+### Manual Updates {#manual_updates}
+
+First download the Linux version of Celeste on [itch.io](https://maddymakesgamesinc.itch.io/celeste), and then add it to
+Nix store by running this command:
 
 ``` bash
 nix-store --add-fixed sha256 celeste-linux.zip
 ```
 
 You can then install Celeste by the `celestegame` package on Nixpkgs.
+
+### Automatic Updates {#automatic_updates}
+
+For automatic updates you need to let the nix daemon know of your itch.io API key you can get one on
+[1](https://itch.io/user/settings/api-keys).
+
+On NixOS you can do this by adding an `EnvironmentFile` to the systemd service staring the nix-daemon and adding the API
+key to the `EnvironmentFile` specified you can see an example below.
+
+``` nix
+{
+  systemd.services.nix-daemon.serviceConfig.EnvironmentFile = "/path/to/file/with/env/vars";
+}
+```
+
+``` bash
+NIX_ITCHIO_API_KEY=my_secret_api_key
+```
+
+### None itch.io version {#none_itch.io_version}
 
 You can override the source to use something other than the itch.io version, as long as it is a Zip file containing the
 DRM-free game files of Celeste. The Zip file must not contain only a single top-level directory, but should contain the
