@@ -147,7 +147,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Mangowc]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/DreamMaoMao/mangowc|{{AUR|mangowc}}}}
+    {{App|[[MangoWM]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/mangowm/mango|{{AUR|mangowm}}}}
     ```
 
 -   ```{=mediawiki}
@@ -512,6 +512,16 @@ You can use another [wlroots renderer](https://gitlab.freedesktop.org/wlroots/wl
 vulkan by specifying the `{{ic|WLR_RENDERER}}`{=mediawiki} environment variable for wlroots based compositor. The list
 of available ones is on the [wlroots
 documentation](https://gitlab.freedesktop.org/wlroots/wlroots/-/blob/master/docs/env_vars.md).
+
+### Specifying the primary graphics cards on wlroot based compositor {#specifying_the_primary_graphics_cards_on_wlroot_based_compositor}
+
+If your device has [Hybrid graphics](Hybrid_graphics "wikilink") , then you can use `{{ic|WLR_DRM_DEVICES}}`{=mediawiki}
+environment variable to specifies primary graphics cards according to the [wlroots
+documentation](https://gitlab.freedesktop.org/wlroots/wlroots/-/blob/master/docs/env_vars.md)
+
+Example:
+
+`WLR_DRM_DEVICES='/dev/dri/card1:/dev/dri/card2:/dev/dri/card0'`
 
 ## Troubleshooting
 

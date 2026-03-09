@@ -312,6 +312,50 @@ Note that nixGL is not specific to NVIDIA GPUs, and should work with just about 
 
 See the [CUDA](CUDA "wikilink") wiki page.
 
+### Multi-Process Service (MPS) {#multi_process_service_mps}
+
+[NVIDIA Multi-Process Service (MPS)](https://docs.nvidia.com/deploy/mps/index.html) allows multiple CUDA processes to
+share a single GPU context. NixOS does not provide a dedicated module for MPS, so a custom systemd service is required:
+
+```{=mediawiki}
+{{file|configuration.nix|nix|<nowiki>
+{ config, pkgs, ... }:
+{
+  systemd.services.nvidia-mps = {
+    description = "NVIDIA CUDA Multi-Process Service";
+    after = [ "nvidia-persistenced.service" ];
+    requires = [ "nvidia-persistenced.service" ];
+    wantedBy = [ "multi-user.target" ];
+    path = [ config.hardware.nvidia.package.bin ];
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${config.hardware.nvidia.package.bin}/bin/nvidia-cuda-mps-control -d";
+      ExecStop = "${pkgs.writeShellScript "nvidia-mps-stop" ''
+        echo quit | ${config.hardware.nvidia.package.bin}/bin/nvidia-cuda-mps-control
+      ''}";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
+}
+</nowiki>}}
+```
+```{=mediawiki}
+{{Warning|The <code>path</code> option is required. The MPS control daemon uses <code>execlp</code> to spawn <code>nvidia-cuda-mps-server</code>, which must be in the service's <code>PATH</code>. Without it, the daemon appears to start normally but silently fails to spawn the server process. CUDA clients will receive Error 805 (<code>cudaErrorMpsConnectionFailed</code>).}}
+```
+To use MPS from [Docker](Docker "wikilink") containers, the MPS pipe directory must be mounted and the host IPC
+namespace must be shared:
+
+``` yaml
+services:
+  gpu-worker:
+    ipc: host
+    volumes:
+      - /tmp/nvidia-mps:/tmp/nvidia-mps
+    environment:
+      CUDA_MPS_PIPE_DIRECTORY: /tmp/nvidia-mps
+```
+
 ### Running Specific NVIDIA Driver Versions {#running_specific_nvidia_driver_versions}
 
 To run a specific version of the NVIDIA driver in NixOS, you can customize your configuration by specifying the desired

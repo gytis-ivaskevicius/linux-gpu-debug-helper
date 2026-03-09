@@ -539,9 +539,19 @@ The AMDGPU driver supports user queues, which allow job submission directly to t
 the kernel driver's command submission ioctl. Enabling this can reduce latency and improve efficiency by bypassing some
 kernel driver overhead.
 
+```{=mediawiki}
+{{Note|This feature is currently experimental and requires RDNA 3+ hardware (7000 series and above).}}
+```
 To enable user queues, set the following environment variable:
 
 `export AMD_USERQ=1`
+
+To verify it is active, check the `{{ic|user_queue}}`{=mediawiki} parameter:
+
+`$ cat /sys/module/amdgpu/parameters/user_queue`
+
+It should return `{{ic|1}}`{=mediawiki}. If it returns `{{ic|0}}`{=mediawiki} or `{{ic|-1}}`{=mediawiki}, the hardware
+or driver version is likely incompatible.
 
 ### Dedicated transfer-only Queue using SDMA {#dedicated_transfer_only_queue_using_sdma}
 

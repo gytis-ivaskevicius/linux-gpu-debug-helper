@@ -280,9 +280,11 @@ Then, add the plugin using the hyprland-plugins input:
 
 ## Troubleshooting
 
-### Swaylock
+### Swaylock/Waylock
 
-If swaylock cannot be unlocked with the correct password: `security.pam.services.swaylock = {};`
+If swaylock/waylock cannot be unlocked with the correct password:
+
+`security.pam.services.swaylock = {};`(or `waylock` repsectively)
 
 ### Electron applications defaulting to X11 rather than Wayland {#electron_applications_defaulting_to_x11_rather_than_wayland}
 

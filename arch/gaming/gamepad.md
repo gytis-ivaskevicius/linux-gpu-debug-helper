@@ -50,12 +50,10 @@ exclusive.
 Unless you are using very old joystick that uses [Gameport](Wikipedia:Game_port "wikilink") or a proprietary USB
 protocol, you will need just the generic USB Human Interface Device (HID) modules.
 
-For an extensive overview of all joystick related modules in Linux, you will need access to the Linux kernel sources ---
-specifically the Documentation section. Unfortunately, official kernel packages do not include what we need. If you have
-the kernel sources downloaded, have a look at `{{ic|Documentation/input/joydev/}}`{=mediawiki}. You can browse the
-kernel source tree at [kernel.org](https://kernel.org/) by clicking the \"browse\" (cgit - the git frontend) link for
-the kernel that you are using, then clicking the \"tree\" link near the top. Alternatively, see [documentation from the
-latest kernel](https://docs.kernel.org/input/joydev/joystick.html).
+For an extensive overview of all joystick related modules in Linux, you can browse a local copy in
+`{{ic|/usr/lib/modules/$(uname -r)/build/Documentation/input/joydev/}}`{=mediawiki} if you have installed the
+`{{Pkg|linux-docs}}`{=mediawiki} package. Alternatively, see [documentation from the latest
+kernel](https://docs.kernel.org/input/joydev/joystick.html).
 
 Some joysticks need specific modules, such as the Microsoft Sidewinder controllers (`{{ic|sidewinder}}`{=mediawiki}), or
 the Logitech digital controllers (`{{ic|adi}}`{=mediawiki}). Many older joysticks will work with the simple

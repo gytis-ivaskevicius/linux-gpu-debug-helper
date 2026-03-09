@@ -5,7 +5,8 @@
 ```
 [Steam](https://store.steampowered.com/) is a digital distribution platform for video games, offering a vast library for
 purchase, download, and management. On NixOS, Steam is generally easy to install and use, often working
-\"out-of-the-box\". It supports running many Windows games on Linux through its compatibility layer, Proton.[^1]
+\"out-of-the-box\". It supports running many Windows games on Linux through its compatibility layer,
+[Proton](#Proton "wikilink").[^1]
 
 ```{=html}
 </div>
@@ -31,9 +32,9 @@ tools like steam-tui setup) in a shell environment, you can run:
 ```{=html}
 </div>
 ```
-``` bash
-nix-shell -p steam-run # For FHS environment
-nix-shell -p steamcmd  # For steamcmd
+``` console
+$ nix-shell -p steam-run # For FHS environment
+$ nix-shell -p steamcmd  # For steamcmd
 ```
 
 ```{=html}
@@ -41,7 +42,7 @@ nix-shell -p steamcmd  # For steamcmd
 ```
 This provides the tools in your current shell without adding them to your system configuration. For `steamcmd` to work
 correctly for some tasks (like initializing for steam-tui), you might need to run it once to generate necessary files,
-as shown in the \`steam-tui\` section.
+as shown in the [ steam-tui section](#steam-tui "wikilink").
 
 ```{=html}
 </div>
@@ -57,25 +58,25 @@ as shown in the \`steam-tui\` section.
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-To install the [Steam](Steam "wikilink") package and enable all the system options necessary to allow it to run, add the
-following to your `/etc/nixos/configuration.nix`:
+To install the [Steam](Special:MyLanguage/Steam "wikilink") package and enable all the system options necessary to allow
+it to run, add the following to your system configuration:
 
 ```{=html}
 </div>
 ```
-``` nix
-# Example for /etc/nixos/configuration.nix
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
 # boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
+</nowiki>
+}}
 ```
-
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -85,16 +86,14 @@ programs.steam = {
 </div>
 ```
 ```{=mediawiki}
-{{note|Enabling [[steam]] installs several unfree packages. If you are using <code>allowUnfreePredicate</code> you will need to ensure that your configurations permit all of them.
+{{note|1=<span lang="en" dir="ltr" class="mw-content-ltr">Enabling [[Special:MyLanguage/Steam|Steam]] installs several [[Special:MyLanguage/unfree software|unfree packages]]. If you are using <code>allowUnfreePredicate</code> you will need to ensure that your configurations permit all of them.</span>
+
 <syntaxhighlight lang="nix">
-{
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
   ];
-}
-</syntaxhighlight>
-}}
+</syntaxhighlight>}}
 ```
 `<span id="Configuration">`{=html}`</span>`{=html}
 
@@ -103,35 +102,30 @@ programs.steam = {
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-Basic Steam features can be enabled directly within the `programs.steam` attribute set:
+Basic Steam features can be enabled directly within the `{{nixos:option|programs.steam}}`{=mediawiki} attribute set:
 
 ```{=html}
 </div>
 ```
-``` nix
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
-  remotePlay.openFirewall = true;  # For Steam Remote Play
-  dedicatedServer.openFirewall = true; # For Source Dedicated Server hosting
+  remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
 # Tip: For improved gaming performance, you can also enable GameMode:
 # programs.gamemode.enable = true;
+</nowiki>
+}}
 ```
-
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
+```{=mediawiki}
+{{note|<span lang="en" dir="ltr" class="mw-content-ltr">If you are using a Steam Controller or a Valve Index, Steam hardware support is implicitly enabled by <code>programs.steam.enable {{=}}
 ```
-If you are using a Steam Controller or a Valve Index, ensure Steam hardware support is enabled. This is typically
-handled by `programs.steam.enable = true;` which sets `hardware.steam-hardware.enable = true;` implicitly. You can
-verify or explicitly set it if needed:
-
-```{=html}
-</div>
-```
-``` nix
-hardware.steam-hardware.enable = true;
-```
+true;`</code>`{=html} which sets `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} to
+true.`</span>`{=html}}}
 
 `<span id="Tips_and_tricks">`{=html}`</span>`{=html}
 
@@ -156,28 +150,77 @@ very similar to the Steam Deck hardware console.
 ```
 ``` nix
 # Clean Quiet Boot
-boot.kernelParams = [ "quiet" "splash" "console=/dev/null" ];
-boot.plymouth.enable = true;
-
-programs.gamescope = {
-  enable = true;
-  capSysNice = true;
+boot = {
+  kernelParams = [
+    "quiet"
+    "splash"
+    "console=/dev/null"
+  ];
+  plymouth.enable = true;
 };
-programs.steam.gamescopeSession.enable = true; # Integrates with programs.steam
+
+programs = {
+  gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  steam.gamescopeSession.enable = true;
+};
 
 # Gamescope Auto Boot from TTY (example)
-services.xserver.enable = false; # Assuming no other Xserver needed
-services.getty.autologinUser = "USERNAME_HERE";
-
-services.greetd = {
-  enable = true;
-  settings = {
-    default_session = {
-      command = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
-      user = "USERNAME_HERE";
+services = {
+  xserver.enable = false; # Assuming no other Xserver needed
+  getty.autologinUser = <"USERNAME_HERE">;
+  greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${lib.getExe pkgs.gamescope} -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
+        user = <"USERNAME HERE">;
+      };
     };
   };
 };
+```
+
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+### Gamescope HDR {#gamescope_hdr}
+
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+In order for HDR to work within gamescope, you need to separately install the `gamescope-wsi` package alongside enabling
+the `gamescope` program.
+
+```{=html}
+</div>
+```
+``` nix
+programs.gamescope = {
+  enable = true;
+  capSysNice = false;
+};
+environment.systemPackages = with pkgs; [
+  gamescope-wsi # HDR won't work without this
+];
+```
+
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+Additionally, it may be necessary to force HDR in gamescope with the argument `--hdr-debug-force-output` when
+configuring your game\'s launch options in steam (see the example below).
+
+```{=html}
+</div>
+```
+``` bash
+gamescope -W 3840 -H 2160 -r 120 -f --adaptive-sync --hdr-enabled --hdr-debug-force-output --mangoapp -- %command%
 ```
 
 ### steam-tui {#steam_tui}
@@ -199,7 +242,7 @@ steamcmd +quit # This initializes steamcmd's directory structure
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-Then install and run \`steam-tui\`. You may need to log in within \`steamcmd\` first if \`steam-tui\` has issues:
+Then install and run `steam-tui`. You may need to log in within `steamcmd` first if `steam-tui` has issues:
 
 ```{=html}
 </div>
@@ -355,10 +398,10 @@ Example: Adding Xorg libraries for Gamescope (when used within Steam):
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis
@@ -448,9 +491,26 @@ For all issues: first run `steam -dev -console` through the terminal and read th
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-Run `strace steam -dev -console 2> steam.logs` in the terminal. If `strace` is not installed, temporarily install it
-using `nix-shell -p strace` or `nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` (if using Flakes). After
-that, create a bug report.
+One common issue preventing steam from being able to start, at least on `x86-64` platforms, is not having the following
+options enabled in your `/etc/nixos/hardware-configuration.nix`:
+
+```{=html}
+</div>
+```
+``` nix
+ {
+   hardware.graphics.enable = true;
+   hardware.graphics.enable32Bit = true;
+ }
+```
+
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+If you have those options set (or 32-bit isn\'t applicable to your system/platform) and still can\'t run steam, then run
+`strace steam -dev -console 2> steam.logs` in the terminal. If `strace` is not installed, temporarily install it using
+`nix-shell -p strace` or `nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` (if using Flakes). After that,
+create a bug report.
 
 ```{=html}
 </div>
@@ -466,7 +526,7 @@ that, create a bug report.
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-When you restart [Steam](Steam "wikilink") after an update, it starts the old version.
+When you restart [Steam](Special:MyLanguage/Steam "wikilink") after an update, it starts the old version.
 ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
 `/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
 the terminal or with your file manager. After that, Steam can be set up again by restarting.
@@ -518,7 +578,7 @@ game launch.
 </div>
 ```
 ```{=mediawiki}
-{{note|This is not recommended because radv drivers tend to perform better and are generally more stable than amdvlk.}}
+{{note|<span lang="en" dir="ltr" class="mw-content-ltr">This is not recommended because radv drivers tend to perform better and are generally more stable than amdvlk.</span>}}
 ```
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
@@ -542,9 +602,9 @@ hardware.graphics = {
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-In the presence of both drivers, [Steam](Steam "wikilink") will default to amdvlk. The amdvlk driver can be considered
-more correct regarding Vulkan specification implementation, but less performant than radv. However, this tradeoff
-between correctness and performance can sometimes make or break the gaming experience.
+In the presence of both drivers, [Steam](Special:MyLanguage/Steam "wikilink") will default to amdvlk. The amdvlk driver
+can be considered more correct regarding Vulkan specification implementation, but less performant than radv. However,
+this tradeoff between correctness and performance can sometimes make or break the gaming experience.
 
 ```{=html}
 </div>
@@ -554,8 +614,8 @@ between correctness and performance can sometimes make or break the gaming exper
 ```
 To \"reset\" your driver to radv when both radv and amdvlk are installed, set either `AMD_VULKAN_ICD = "RADV"` or
 `VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` environment variable. For example,
-if you start [Steam](Steam "wikilink") from the shell, you can enable radv for the current session by running
-`AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a game with
+if you start [Steam](Special:MyLanguage/Steam "wikilink") from the shell, you can enable radv for the current session by
+running `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a game with
 [MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show what driver is
 currently in use.
 
@@ -593,10 +653,10 @@ To resolve this override the steam package to add them:
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis
@@ -667,9 +727,10 @@ starting local java binary within `steam-run bash`.
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-Resetting your password through the [Steam](Steam "wikilink") app may fail at the CAPTCHA step repeatedly, with
-[Steam](Steam "wikilink") itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows success.
-Resetting password through the [Steam](Steam "wikilink") website should work around that.
+Resetting your password through the [Steam](Special:MyLanguage/Steam "wikilink") app may fail at the CAPTCHA step
+repeatedly, with [Steam](Special:MyLanguage/Steam "wikilink") itself reporting that the CAPTCHA was not correct, even
+though the CAPTCHA UI shows success. Resetting password through the [Steam](Special:MyLanguage/Steam "wikilink") website
+should work around that.
 
 ```{=html}
 </div>

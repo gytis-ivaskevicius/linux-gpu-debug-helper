@@ -1,15 +1,8 @@
-`<languages/>`{=html}
+`<languages/>`{=html} [Steam](https://store.steampowered.com/)
+是一个数字游戏发行平台，提供庞大的游戏库供用户购买、下载和管理。在 NixOS 系统上，Steam
+通常易于安装和使用，很多时候都能"开箱即用"。它通过兼容层 [Proton](#Proton "wikilink") 支持在 Linux 上运行许多 Windows
+游戏。[^1]
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-[Steam](https://store.steampowered.com/) is a digital distribution platform for video games, offering a vast library for
-purchase, download, and management. On NixOS, Steam is generally easy to install and use, often working
-\"out-of-the-box\". It supports running many Windows games on Linux through its compatibility layer, Proton.[^1]
-
-```{=html}
-</div>
-```
 `<span id="Installation">`{=html}`</span>`{=html}
 
 ## 安装
@@ -19,77 +12,70 @@ purchase, download, and management. On NixOS, Steam is generally easy to install
 要在 shell 环境中临时使用 Steam 相关工具，例如 `steam-run`（用于 FHS 环境）或 `steamcmd`（用于服务器管理或 steam-tui
 设置等工具），可以运行以下命令。
 
-``` bash
-nix-shell -p steam-run # For FHS environment
-nix-shell -p steamcmd  # For steamcmd
+``` console
+$ nix-shell -p steam-run # For FHS environment
+$ nix-shell -p steamcmd  # For steamcmd
 ```
 
 这样就可以在当前 shell 中使用这些工具，而无需将其添加到系统配置中。为了使 `steamcmd` 能够正确执行某些任务（例如初始化
-steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，如 \`steam-tui\` 部分所示。
+steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，如 [ steam-tui](#steam-tui "wikilink") 部分所示。
 
 `<span id="System_setup">`{=html}`</span>`{=html}
 
 #### 系统设置
 
-要安装 [Steam](Steam "wikilink") 软件包并启用所有必要的系统选项以使其运行，请将以下内容添加到您的
-`/etc/nixos/configuration.nix` 中：
+要安装 [Steam](Special:MyLanguage/Steam "wikilink")
+软件包并启用所有必要的系统选项以使其运行，请将以下内容添加到您的系统配置中：
 
-``` nix
-# Example for /etc/nixos/configuration.nix
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
 # boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
+</nowiki>
+}}
 ```
+[关于内核 6.10 问题的轶事](https://news.ycombinator.com/item?id=41549030)
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-[Anecdata on kernel 6.10 issues](https://news.ycombinator.com/item?id=41549030)
-
-```{=html}
-</div>
-```
 ```{=mediawiki}
-{{note|Enabling [[steam]] installs several unfree packages. If you are using <code>allowUnfreePredicate</code> you will need to ensure that your configurations permit all of them.
+{{note|1=启用 [[Special:MyLanguage/Steam|Steam]] 会安装多个[[Special:MyLanguage/unfree software|非自由软件包]]。如果您使用了 <code>allowUnfreePredicate</code>，则需要确保您的配置允许安装所有这些软件包。
+
 <syntaxhighlight lang="nix">
-{
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-unwrapped"
   ];
-}
-</syntaxhighlight>
-}}
+</syntaxhighlight>}}
 ```
 `<span id="Configuration">`{=html}`</span>`{=html}
 
 ## 配置
 
-基本 Steam 功能可以直接在 `programs.steam` 属性集中启用：
+基本 Steam 功能可以直接在 `{{nixos:option|programs.steam}}`{=mediawiki} 属性集中启用：
 
-``` nix
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
-  remotePlay.openFirewall = true;  # For Steam Remote Play
-  dedicatedServer.openFirewall = true; # For Source Dedicated Server hosting
+  remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
 # Tip: For improved gaming performance, you can also enable GameMode:
 # programs.gamemode.enable = true;
+</nowiki>
+}}
 ```
-
-如果您使用的是 Steam 控制器或 Valve Index，请确保已启用 Steam 硬件支持。这通常由 `programs.steam.enable = true;`
-隐式地设置，该设置会同时启用 `hardware.steam-hardware.enable = true;` 。如有需要，您可以验证或显式地进行设置：
-
-``` nix
-hardware.steam-hardware.enable = true;
+```{=mediawiki}
+{{note|如果您使用的是 Steam 控制器或 Valve Index，Steam 硬件支持会通过设置 <code>programs.steam.enable {{=}}
 ```
+true;`</code>`{=html} 将`{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} 选项同步设置为 true 来隐性启用}}
 
 `<span id="Tips_and_tricks">`{=html}`</span>`{=html}
 
@@ -103,28 +89,58 @@ Gamescope 可以作为最小桌面环境运行，这意味着您可以从 TTY �
 
 ``` nix
 # Clean Quiet Boot
-boot.kernelParams = [ "quiet" "splash" "console=/dev/null" ];
-boot.plymouth.enable = true;
-
-programs.gamescope = {
-  enable = true;
-  capSysNice = true;
+boot = {
+  kernelParams = [
+    "quiet"
+    "splash"
+    "console=/dev/null"
+  ];
+  plymouth.enable = true;
 };
-programs.steam.gamescopeSession.enable = true; # Integrates with programs.steam
+
+programs = {
+  gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  steam.gamescopeSession.enable = true;
+};
 
 # Gamescope Auto Boot from TTY (example)
-services.xserver.enable = false; # Assuming no other Xserver needed
-services.getty.autologinUser = "USERNAME_HERE";
-
-services.greetd = {
-  enable = true;
-  settings = {
-    default_session = {
-      command = "${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
-      user = "USERNAME_HERE";
+services = {
+  xserver.enable = false; # Assuming no other Xserver needed
+  getty.autologinUser = <"USERNAME_HERE">;
+  greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${lib.getExe pkgs.gamescope} -W 1920 -H 1080 -f -e --xwayland-count 2 --hdr-enabled --hdr-itm-enabled -- steam -pipewire-dmabuf -gamepadui -steamdeck -steamos3 > /dev/null 2>&1";
+        user = <"USERNAME HERE">;
+      };
     };
   };
 };
+```
+
+### Gamescope HDR {#gamescope_hdr}
+
+要使 HDR 在 gamescope 中工作，您需要在启用 `gamescope` 程序的同时，单独安装 `gamescope-wsi` 软件包。
+
+``` nix
+programs.gamescope = {
+  enable = true;
+  capSysNice = false;
+};
+environment.systemPackages = with pkgs; [
+  gamescope-wsi # HDR won't work without this
+];
+```
+
+此外，在 Steam 中配置游戏启动选项时，可能需要使用参数 `--hdr-debug-force-output` 以在 gamescope 中强制启用
+HDR（参考以下示例）。
+
+``` bash
+gamescope -W 3840 -H 2160 -r 120 -f --adaptive-sync --hdr-enabled --hdr-debug-force-output --mangoapp -- %command%
 ```
 
 ### steam-tui {#steam_tui}
@@ -137,7 +153,7 @@ services.greetd = {
 steamcmd +quit # This initializes steamcmd's directory structure
 ```
 
-然后安装并运行 \`steam-tui\`。如果 \`steam-tui\` 出现问题，您可能需要先在 \`steamcmd\` 中登录：
+然后安装并运行 `steam-tui`。如果 `steamcmd` 出现问题，您可能需要先在 `steam-tui` 中登录：
 
 ``` bash
 # (Inside steamcmd prompt, if needed for full login before steam-tui)
@@ -175,9 +191,12 @@ environment.systemPackages = with pkgs; [
 ### Proton
 
 您应该可以使用 Proton 运行大多数 Windows 游戏。如果某个游戏有原生 Linux 版本，但在 NixOS 上会出现问题，您可以通过在
-Steam 的游戏兼容性设置中选择特定的 Proton 版本来强制使用 Proton。 默认情况下，Steam 还会在
-`~/.steam/root/compatibilitytools.d` 中查找自定义 Proton 版本。可以通过设置环境变量 `STEAM_EXTRA_COMPAT_TOOLS_PATHS`
-来添加其他搜索路径。 自定义 Proton 版本的声明式安装（例如 GE-Proton）：
+Steam 的游戏兼容性设置中选择特定的 Proton 版本来强制使用 Proton。
+
+默认情况下，Steam 还会在 `~/.steam/root/compatibilitytools.d` 中查找自定义 Proton 版本。可以通过设置环境变量
+`STEAM_EXTRA_COMPAT_TOOLS_PATHS` 来添加其他搜索路径。
+
+自定义 Proton 版本的声明式安装（例如 GE-Proton）：
 
 ``` nix
 programs.steam.extraCompatPackages = with pkgs; [
@@ -198,8 +217,9 @@ environment.systemPackages = with pkgs; [
 ### 覆盖 Steam 软件包 {#覆盖_steam_软件包}
 
 在某些情况下，您可能需要覆盖默认的 Steam 程序包以提供缺失的依赖项或修改其构建。为此，请使用 `programs.steam.package`
-选项。NixOS 上的 Steam 会在 FHS 环境下运行许多游戏，但 Steam 客户端本身或某些工具可能需要额外的库。 示例：添加 Bumblebee
-和 Primus（适用于 NVIDIA Optimus）：
+选项。NixOS 上的 Steam 会在 FHS 环境下运行许多游戏，但 Steam 客户端本身或某些工具可能需要额外的库。
+
+示例：添加 Bumblebee 和 Primus（适用于 NVIDIA Optimus）：
 
 ``` nix
 programs.steam.package = pkgs.steam.override {
@@ -215,10 +235,10 @@ programs.steam.package = pkgs.steam.override {
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis
@@ -234,16 +254,9 @@ programs.steam.package = pkgs.steam.override {
 
 ### 修复 GNOME Dock 栏和活动概览中游戏图标缺失的问题 {#修复_gnome_dock_栏和活动概览中游戏图标缺失的问题}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-GNOME uses the window class to determine the icon associated with a window. Steam currently doesn\'t set the required
-key for this in its .desktop files[^2], but you can fix this manually by editing the `StartupWMClass` key for each
-game\'s .desktop file, found under `~/.local/share/applications/`.
+GNOME 使用窗口类来确定与窗口关联的图标。Steam 目前在其 .desktop 文件中没有设置所需的键值[^2]，但您可以通过编辑每个游戏的
+.desktop 文件中的 `StartupWMClass` 键值来手动修复此问题，该文件位于 `~/.local/share/applications/` 目录下。
 
-```{=html}
-</div>
-```
 对于通过 Proton 运行的游戏，该值应为 `steam_app_``<game_id>`{=html} （在哪里`<game_id>`{=html}与 `Exec` 行中
 <steam://rungameid/> 之后的值匹配）。
 
@@ -273,24 +286,29 @@ StartupWMClass=valheim.x86_64
 
 ### Steam 无法启动。我该怎么办？ {#steam_无法启动我该怎么办}
 
-在终端运行 `strace steam -dev -console 2> steam.logs` 命令。如果未安装 `strace` ，请使用 `nix-shell -p strace` 或
+至少在 `x86-64` 平台上，导致 Steam 无法启动的一个常见问题是未在 `/etc/nixos/hardware-configuration.nix`
+文件中启用以下选项：
+
+``` nix
+ {
+   hardware.graphics.enable = true;
+   hardware.graphics.enable32Bit = true;
+ }
+```
+
+如果您已设置这些选项（或者 32 位不适用于您的系统/平台），但仍然无法运行 Steam，请在终端运行
+`strace steam -dev -console 2> steam.logs` 命令。如果未安装 `strace` ，请使用 `nix-shell -p strace` 或
 `nix run nixpkgs#strace -- steam -dev -console 2> steam.logs` （如果使用 Flakes 版本）临时安装。之后，请提交错误报告。
 
 `<span id="Steam_is_not_updated">`{=html}`</span>`{=html}
 
 ### Steam 未更新 {#steam_未更新}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-When you restart [Steam](Steam "wikilink") after an update, it starts the old version.
-([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
-`/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
-the terminal or with your file manager. After that, Steam can be set up again by restarting.
+更新后重启 [Steam](Special:MyLanguage/Steam "wikilink")
+时，它会启动旧版本。([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) 一个解决方法是删除
+`/home/<USER>/.local/share/Steam/userdata` 目录下的用户文件。您可以在终端中使用
+`rm -rf /home/<USER>/.local/share/Steam/userdata` 命令或文件管理器来完成此操作。之后，重启 Steam 即可重新生成配置。
 
-```{=html}
-</div>
-```
 `<span id="Game_fails_to_start">`{=html}`</span>`{=html}
 
 ### 游戏无法启动
@@ -312,7 +330,7 @@ LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...cur
 #### 更改 AMD GPU 的驱动程序 {#更改_amd_gpu_的驱动程序}
 
 ```{=mediawiki}
-{{note|This is not recommended because radv drivers tend to perform better and are generally more stable than amdvlk.}}
+{{note|不建议这样做，因为 radv 驱动程序往往性能更好，而且通常比 amdvlk 驱动程序更稳定。}}
 ```
 有时，更换 AMD GPU 的驱动程序会有帮助。要尝试此方法，首先，安装多个驱动程序，例如 radv 和 amdvlk：
 
@@ -327,38 +345,34 @@ hardware.graphics = {
 };
 ```
 
-如果两个驱动程序都存在，[Steam](Steam "wikilink") 将默认使用 amdvlk。amdvlk 驱动程序在 Vulkan
-规范实现方面更准确，但性能不如 radv。然而，这种在正确性和性能之间的权衡有时会直接影响游戏体验。 如果同时安装了 radv 和
-amdvlk，要将驱动程序"重置"为 radv，请设置环境变量 `AMD_VULKAN_ICD = "RADV"` 或
+如果两个驱动程序都存在，[Steam](Special:MyLanguage/Steam "wikilink") 将默认使用 amdvlk。amdvlk 驱动程序在 Vulkan
+规范实现方面更准确，但性能不如 radv。然而，这种在正确性和性能之间的权衡有时会直接影响游戏体验。
+
+如果同时安装了 radv 和 amdvlk，要将驱动程序"重置"为 radv，请设置环境变量 `AMD_VULKAN_ICD = "RADV"` 或
 `VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` 。例如，如果您从 shell 启动
 Steam，则可以通过运行 `AMD_VULKAN_ICD="RADV" steam` 为当前会话启用
-radv。如果您不确定当前使用的是哪个驱动程序，可以启动一个启用了 MangoHud 的游戏，MangoHud
-可以显示当前正在使用的驱动程序。
+radv。如果您不确定当前使用的是哪个驱动程序，可以启动一个启用了 [MangoHud](https://github.com/flightlessmango/MangoHud)
+的游戏，MangoHud 可以显示当前正在使用的驱动程序。
 
 ### SteamVR
 
 SteamVR 启动时的 setcap 问题可以通过以下方法解决：
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
+
 `<span id="Gamescope_fails_to_launch_when_used_within_Steam">`{=html}`</span>`{=html}
 
 ### 与 Steam 使用时 Gamescope 无法启动 {#与_steam_使用时_gamescope_无法启动}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Gamescope may fail to start due to missing Xorg libraries. ([#214275](https://github.com/NixOS/nixpkgs/issues/214275))
-To resolve this override the steam package to add them:
+Gamescope 可能由于缺少 Xorg 库而无法启动。([#214275](https://github.com/NixOS/nixpkgs/issues/214275))
+要解决此问题，请添加以下内容覆盖 steam 包：
 
-```{=html}
-</div>
-```
 ``` nix
 programs.steam.package = pkgs.steam.override {
   extraPkgs = pkgs': with pkgs'; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libXcursor
+    libXi
+    libXinerama
+    libXScrnSaver
     libpng
     libpulseaudio
     libvorbis
@@ -374,64 +388,32 @@ programs.steam.package = pkgs.steam.override {
 
 ### 额外游戏手柄的 udev 规则 {#额外游戏手柄的_udev_规则}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-In specific scenarios gamepads, might require some additional configuration in order to function properly in the form of
-udev rules. This can be achieved with `services.udev.extraRules`.
+在某些特定情况下，游戏手柄可能需要一些额外的配置才能正常工作，这些配置以 udev 规则的形式表示。这可以通过
+`services.udev.extraRules` 来配置。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-The following example is for the 8bitdo Ultimate Bluetooth controller, different controllers will require knowledge of
-the vendor and product ID for the device:
+以下示例适用于 8bitdo Ultimate 蓝牙控制器，不同的控制器需要知道设备的供应商和产品 ID：
 
-```{=html}
-</div>
-```
 ``` nix
   services.udev.extraRules = ''
     SUBSYSTEM=="input", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="3106", MODE="0660", GROUP="input"
   '';
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To find the vendor and product ID of a device
-[usbutils](https://search.nixos.org/packages?channel=unstable&show=usbutils&from=0&size=50&sort=relevance&type=packages&query=usbutils)
-might be useful
+要查找设备的供应商和产品
+ID，[usbutils](https://search.nixos.org/packages?channel=unstable&show=usbutils&from=0&size=50&sort=relevance&type=packages&query=usbutils)
+可能有用。
 
-```{=html}
-</div>
-```
 `<span id="Known_issues">`{=html}`</span>`{=html}
 
 ### 已知问题
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-\"Project Zomboid\" may report \"couldn\'t determine 32/64 bit of java\". This is not related to java at all, it carries
-its own outdated java binary that refuses to start if path contains non-Latin characters. Check for errors by directly
-starting local java binary within `steam-run bash`.
+"Project
+Zomboid"可能会报告"无法确定Java是32位还是64位"。这与Java本身无关，是由其使用自身过时的Java二进制文件解析路径时，其中包含非拉丁字符导致的。请通过在`steam-run bash`中直接启动本地Java二进制文件来解决错误。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Resetting your password through the [Steam](Steam "wikilink") app may fail at the CAPTCHA step repeatedly, with
-[Steam](Steam "wikilink") itself reporting that the CAPTCHA was not correct, even though the CAPTCHA UI shows success.
-Resetting password through the [Steam](Steam "wikilink") website should work around that.
+通过 [Steam](Special:MyLanguage/Steam "wikilink")
+应用重置密码可能会反复在验证码环节失败，即使验证码界面显示成功，[Steam](Special:MyLanguage/Steam "wikilink")
+本身也会提示验证码错误。通过 [Steam](Special:MyLanguage/Steam "wikilink") 网站重置密码应该可以解决这个问题。
 
-```{=html}
-</div>
-```
 `<span id="References">`{=html}`</span>`{=html}
 
 ## 参考

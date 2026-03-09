@@ -12,25 +12,20 @@
   |github=mozilla/firefox
   |bugTracker=[https://bugzilla.mozilla.org/ Bugzilla]
   |documentation=[https://support.mozilla.org/ Official Support]
-}}`{=mediawiki} `<translate>`{=html} `<strong>`{=html}Firefox`</strong>`{=html}[^1] is a free and open-source web
-browser developed by the Mozilla Foundation. It is known for its focus on privacy, security, and user freedom, offering
-a customizable experience through a rich ecosystem of add-ons and themes.
+}}`{=mediawiki} `<strong>`{=html}Firefox`</strong>`{=html}[^1] is a free and open-source web browser developed by the
+Mozilla Foundation. It is known for its focus on privacy, security, and user freedom, offering a customizable experience
+through a rich ecosystem of add-ons and themes.
 
 ## Installation
 
 #### Shell
 
-`</translate>`{=html}
-
 ```{=mediawiki}
 {{code|lang=bash|line=no|1=$ nix-shell -p firefox}}
 ```
-`<translate>`{=html} The command above makes `firefox` available in your current shell without modifying any
-configuration files.
+The command above makes `firefox` available in your current shell without modifying any configuration files.
 
 #### System setup {#system_setup}
-
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=# Example for /etc/nixos/configuration.nix
@@ -43,13 +38,11 @@ home.packages = [
   pkgs.firefox
 ];}}
 ```
-`<translate>`{=html} After rebuilding with `nixos-rebuild switch`, Firefox will be installed system-wide.
+After rebuilding with `nixos-rebuild switch`, Firefox will be installed system-wide.
 
 ## Configuration
 
 #### Basic
-
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -69,13 +62,12 @@ programs.firefox = {
 };
 }}
 ```
-`<translate>`{=html} The snippet above enables Firefox for all users (or the current Home Manager profile, if placed in
-`home.nix`).
+The snippet above enables Firefox for all users (or the current Home Manager profile, if placed in `home.nix`).
 
 #### Advanced
 
 Home Manager allows for deep customization of Firefox, including extensions, search engines, bookmarks, and themes. The
-example below shows a configuration for adding custom search engines with aliases. `</translate>`{=html}
+example below shows a configuration for adding custom search engines with aliases.
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -231,19 +223,16 @@ programs.firefox = {
 };
 }}
 ```
-`<translate>`{=html} [More options are available on Home Manager\'s
+[More options are available on Home Manager\'s
 site.](https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.enable)
 
 ## Firefox Variants {#firefox_variants}
 
 There are several Firefox variants available. To choose one, set the `programs.firefox.package` option accordingly.
-`</translate>`{=html}
 
 ```{=mediawiki}
-{{Note|<translate><!--T:6--> The packages for the variants listed below are installed ''instead'' of the normal <code>firefox</code> package.</translate>}}
+{{Note|The packages for the variants listed below are installed ''instead'' of the normal <code>firefox</code> package.}}
 ```
-`<translate>`{=html}
-
 ### Variant: Official Binaries {#variant_official_binaries}
 
 Mozilla provides official pre-built Firefox binaries via the `firefox-bin` package, which are downloaded directly from
@@ -261,7 +250,6 @@ Nightly builds are daily builds from the central Mozilla repository.
 #### Method 1: Using nix-community/flake-firefox-nightly {#method_1_using_nix_communityflake_firefox_nightly}
 
 This method is reproducible but may lag behind the upstream version. First, add the input to your flake:
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -271,7 +259,7 @@ inputs = {
 };
 }}
 ```
-`<translate>`{=html} Then, add the package to your system: `</translate>`{=html}
+Then, add the package to your system:
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -281,12 +269,9 @@ environment.systemPackages = [
 ];
 }}
 ```
-`<translate>`{=html}
-
 #### Method 2: Using mozilla/nixpkgs-mozilla {#method_2_using_mozillanixpkgs_mozilla}
 
 This method is not necessarily reproducible without a flake-like system but will always be the latest version.
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -296,51 +281,43 @@ nixpkgs.overlays = [
 programs.firefox.package = pkgs.latest.firefox-nightly-bin;
 }}
 ```
-`<translate>`{=html} Using this method requires the `--impure` flag for Nix commands, for example: `</translate>`{=html}
+Using this method requires the `--impure` flag for Nix commands, for example:
 
 ```{=mediawiki}
 {{code|lang=bash|line=no|1=$ nixos-rebuild switch --impure}}
 ```
-`<translate>`{=html}
-
 ## Tips and Tricks {#tips_and_tricks}
 
 #### Force XWayland (X11) instead of Wayland {#force_xwayland_x11_instead_of_wayland}
 
 Firefox defaults to native Wayland when running under a Wayland compositor. To force it to use XWayland (X11) instead:
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";}}
 ```
-`<translate>`{=html} This is useful when troubleshooting Wayland-specific issues or when certain features work better
-under X11.
+This is useful when troubleshooting Wayland-specific issues or when certain features work better under X11.
 
 #### Touchpad Gestures and Smooth Scrolling {#touchpad_gestures_and_smooth_scrolling}
 
 Enable `xinput2` to improve touchscreen support and enable additional touchpad gestures and smooth scrolling.
-`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
 }}
 ```
-`<translate>`{=html}
-
 #### KDE Plasma Integration {#kde_plasma_integration}
 
-1\. Add the native messaging host package to your configuration: `</translate>`{=html}
+1\. Add the native messaging host package to your configuration:
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=programs.firefox.nativeMessagingHosts.packages = [ pkgs.kdePackages.plasma-browser-integration ];}}
 ```
-`<translate>`{=html} 2. Install the corresponding [browser
-add-on](https://addons.mozilla.org/en-US/firefox/addon/plasma-integration/).
+2\. Install the corresponding [browser add-on](https://addons.mozilla.org/en-US/firefox/addon/plasma-integration/).
 
 #### Use KDE file picker {#use_kde_file_picker}
 
-To use the KDE file picker instead of the GTK one, set the following preference: `</translate>`{=html}
+To use the KDE file picker instead of the GTK one, set the following preference:
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -349,8 +326,6 @@ programs.firefox.preferences = {
 };
 }}
 ```
-`<translate>`{=html}
-
 ## Troubleshooting
 
 #### Native Messaging Hosts Fail to Load {#native_messaging_hosts_fail_to_load}
@@ -361,16 +336,14 @@ Manager configuration.
 
 #### ALSA audio instead of PulseAudio {#alsa_audio_instead_of_pulseaudio}
 
-To force Firefox to use ALSA, you can override it with a wrapper: `</translate>`{=html}
+To force Firefox to use ALSA, you can override it with a wrapper:
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=programs.firefox.package = pkgs.wrapFirefox pkgs.firefox-unwrapped { libpulseaudio = pkgs.libalsa; };}}
 ```
-`<translate>`{=html}
-
 #### Screen Sharing under Wayland {#screen_sharing_under_wayland}
 
-Screen sharing on Wayland requires enabling PipeWire and the appropriate XDG Desktop Portals. `</translate>`{=html}
+Screen sharing on Wayland requires enabling PipeWire and the appropriate XDG Desktop Portals.
 
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
@@ -386,8 +359,6 @@ xdg.portal = {
 };
 }}
 ```
-`<translate>`{=html}
-
 ## See also {#see_also}
 
 -   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
@@ -395,8 +366,6 @@ xdg.portal = {
 -   [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
 
 ## References
-
-`</translate>`{=html}
 
 [Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
 

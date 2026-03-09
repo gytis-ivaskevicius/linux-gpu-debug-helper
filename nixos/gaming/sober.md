@@ -14,12 +14,14 @@ application in a compatibility layer. [^1]
 ```
 ## Installation
 
-There is no Nix package for Sober, the only way to install it is through flatpak:
+There is no Nix package for Sober as for now, the only way to install it is through flatpak:
 
 1.  Setup [Flatpak](Flatpak "wikilink") and Flathub, instructions for both can be found on the relevant pages.
 2.  Install the Sober flatpak by running: `flatpak install flathub org.vinegarhq.Sober`
 
-And done!
+If you wish to edit the FFLags, You can go to the sober fflags directory
+`~/.var/app/org.vinegarhq.Sober/config/sober/config.json` and edit it via there, Using your preferred editor like nano
+or vim edit the file.
 
 ```{=html}
 <references />

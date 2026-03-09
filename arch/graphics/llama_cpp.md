@@ -118,6 +118,14 @@ This, combined with a lower context size, can significantly reduce memory usage.
 
 See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink").
 
+## Troubleshooting
+
+### MCP requests denied by CORS policy {#mcp_requests_denied_by_cors_policy}
+
+To use the WebUI with an MCP service hosted online, enable MCP CORS proxy:
+
+`$ llama-server `*`--webui-mcp-proxy`*` -m `*`model.gguf`*
+
 ## See also {#see_also}
 
 -   [Upstream GitHub repository](https://github.com/ggml-org/llama.cpp)

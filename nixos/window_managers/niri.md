@@ -19,7 +19,7 @@ compositor.
 
 ## Installation
 
-Simply enable `{{nixos:option|programs.niri}}`{=mediawiki}:
+Simply enable `{{nixos:option|programs.niri}}`{=mediawiki}: `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -27,22 +27,24 @@ programs.niri.enable = true;
 }}
 ```
 ```{=mediawiki}
-{{Note|Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.}}
+{{Note|<translate>Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.</translate>}}
 ```
 ```{=mediawiki}
-{{Warning|Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit Niri and proceed to one of them.}}
+{{Warning|<translate>Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit Niri and proceed to one of them.</translate>}}
 ```
+`<translate>`{=html}
+
 ## Configuration
 
 The configuration path for Niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
-Manager](Home_Manager "wikilink") can be used for configuration:
+Manager](Home_Manager "wikilink") can be used for configuration: `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
 }}
 ```
-You might want to start from [the default configuration
+`<translate>`{=html} You might want to start from [the default configuration
 file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl) described at
 [1](https://github.com/YaLTeR/niri/wiki/Getting-Started#main-default-hotkeys).
 
@@ -55,7 +57,7 @@ might want to set up some additional services including [Swayidle](Swayidle "wik
 [Swaylock](Swaylock "wikilink"), [Waybar](Waybar "wikilink"), [Polkit](Polkit "wikilink") and [Secret
 Service](Secret_Service "wikilink") as follows to complement the functionality of a regular window manager. Some of the
 these settings are also required to enable all the features of [the default configuration
-file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl).
+file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl). `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|3=
@@ -80,25 +82,28 @@ home.packages = with pkgs; [
 ];
 |name=~/.config/home-manager/home.nix|lang=nix}}`{=mediawiki}
 
+`<translate>`{=html}
+
 ## Troubleshooting
 
 ### IME not working on Electron apps {#ime_not_working_on_electron_apps}
 
 There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as described in
-[Wayland#Electron_and_Chromium](Wayland#Electron_and_Chromium "wikilink"):
+[Wayland#Electron_and_Chromium](Wayland#Electron_and_Chromium "wikilink"): `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }}
 ```
-However, since Niri does not support text-input-v1, sometimes enabling text-input-v3 by manually adding
-`{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} flag is necessary for IME to work:
+`<translate>`{=html} However, since Niri does not support text-input-v1, sometimes enabling text-input-v3 by manually
+adding `{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} flag is necessary for IME to work:
+`</translate>`{=html}
 
 ```{=mediawiki}
 {{code|<nowiki>slack --wayland-text-input-version=3</nowiki>}}
 ```
-`wrapProgram` may be used to add the flag automatically:
+`<translate>`{=html} `wrapProgram` may be used to add the flag automatically: `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -111,25 +116,27 @@ environment.systemPackages = [
   };)
 ];}}
 ```
+`<translate>`{=html}
+
 ### XWayland apps not working {#xwayland_apps_not_working}
 
 There is a optional dependency for Niri which is highly recommended to install (you can read
-[this](https://github.com/YaLTeR/niri/wiki/Xwayland) article to learn more about this)
+[this](https://github.com/YaLTeR/niri/wiki/Xwayland) article to learn more about this) `</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=environment.systemPackages = with pkgs; [ 
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-Or using [Home Manager](Home_Manager "wikilink")
+`<translate>`{=html} Or using [Home Manager](Home_Manager "wikilink") `</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
   xwayland-satellite # xwayland support
 ];|name=~/.config/home-manager/home.nix|lang=nix}}
 ```
-After you installed `{{ic|xwayland-satellite}}`{=mediawiki} Niri will integrate it out of the box and all of your
-XWayland apps will function properly.
+`<translate>`{=html} After you installed `{{ic|xwayland-satellite}}`{=mediawiki} Niri will integrate it out of the box
+and all of your XWayland apps will function properly.
 
 ### File picker not working {#file_picker_not_working}
 
@@ -137,9 +144,14 @@ If you are using `xdg-desktop-portal-gnome`, it will attempt to use Nautilus as 
 Nautilus is not installed.
 
 To work around this problem, you can force usage of the gtk or kde portals for file picker instead:
-`{{File|3=xdg.portal.config.niri = {
+`</translate>`{=html}
+
+```{=mediawiki}
+{{File|3=xdg.portal.config.niri = {
   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
-};|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
+};|name=/etc/nixos/configuration.nix|lang=nix}}
+```
+`<translate>`{=html}
 
 ## See Also {#see_also}
 
