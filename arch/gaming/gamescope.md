@@ -236,8 +236,8 @@ composite the final image. This requires one of two setups:
 
 #### Steam Deck kernel {#steam_deck_kernel}
 
--   The Steam Deck Linux kernel `{{AUR|linux-neptune-65}}`{=mediawiki} or a kernel built with the [Steam Deck color
-    management
+-   The Steam Deck Linux kernel `{{AUR|linux-neptune-65}}`{=mediawiki},
+    `{{AUR|linux-cachyos-deckify-native}}`{=mediawiki}, or a kernel built with the [Steam Deck color management
     patch](https://gitlab.com/evlaV/linux-integration/-/commit/90e3a855c922d0b8c4b18c886c5cf73223d69475.patch)
 
 -   ```{=mediawiki}

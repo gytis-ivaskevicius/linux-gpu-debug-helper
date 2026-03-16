@@ -203,7 +203,7 @@ For integration into [Plasma](Plasma "wikilink"), you can:
     browser (see [KDE Plasma Browser Integration](https://community.kde.org/Plasma/Browser_Integration) for more
     details)
 -   install `{{Pkg|kdialog}}`{=mediawiki} to allow Chromium to use native KDE open/save dialogs
--   [configure Chromium to use KWallet](KDE_Wallet#KDE_Wallet_for_Chrome_and_Chromium "wikilink")
+-   [configure Chromium to use KWallet](KDE_Wallet#KDE_Wallet_for_Chromium_and_VSCode "wikilink")
 
 ### PDF viewer plugin {#pdf_viewer_plugin}
 
@@ -1026,6 +1026,28 @@ For WirePlumber users, [resetting WirePlumber state](WirePlumber#Delete_corrupt_
 ### File picker does not open when trying to save or download {#file_picker_does_not_open_when_trying_to_save_or_download}
 
 This is a problem with [XDG Desktop Portal](XDG_Desktop_Portal "wikilink"), restarting the user unit may help.
+
+### Forcing a specific GPU has no effect on Wayland {#forcing_a_specific_gpu_has_no_effect_on_wayland}
+
+Sometimes, [#Forcing specific GPU](#Forcing_specific_GPU "wikilink") may not work on [Wayland](Wayland "wikilink"), with
+an error message like so:
+`{{hc|head=$ chromium --render-node-override="/dev/dri/by-path/pci-0000:01:00.0-render"|output=[46318:46318:0310/131714.847139:ERROR:ui/events/platform/wayland/wayland_event_watcher.cc:47] libwayland: [destroyed object]: error 7: importing the supplied dmabufs failed
+
+# The output below may or may not appear
+[0310/133129.221806:ERROR:third_party/crashpad/crashpad/snapshot/elf/elf_dynamic_array_reader.h:64] tag not found
+[0310/133129.222571:ERROR:third_party/crashpad/crashpad/util/process/process_memory_range.cc:75] read out of range}}`{=mediawiki}
+
+As of March 10th 2026, the only workaround that works is disabling the unwanted GPU in the firmware (which is not ideal,
+and even impossible on some systems). It might be possible to achieve the same result by [blacklisting the appropriate
+kernel modules](Kernel_module#Blacklisting "wikilink"), but users might still find this approach undesirable.
+
+Another possibility would be to go back to [Xorg](Xorg "wikilink") or use [Xwayland](Xwayland "wikilink")
+[14](https://issues.chromium.org/issues/40766635#comment19).
+
+More information can be read in
+[15](https://forum.vivaldi.net/topic/99688/vivaldi-crashes-at-startup-when-using-wayland),
+[16](https://bbs.archlinux.org/viewtopic.php?pid=2269237#p2269237) and
+[17](https://issues.chromium.org/issues/40766635).
 
 ## See also {#see_also}
 

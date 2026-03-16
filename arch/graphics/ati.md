@@ -21,13 +21,10 @@ Radeon HD4330) to chip names (e.g. R700).
 acceleration and VA-API/VDPAU drivers for [accelerated video decoding](Hardware_video_acceleration#AMD/ATI "wikilink").
 Or `{{Pkg|mesa-amber}}`{=mediawiki} for very old GPUs ([R200](Wikipedia:Radeon_R200_series "wikilink") and prior).
 
-```{=mediawiki}
-{{Accuracy|The modesetting driver may not work in all cases, this section should be worded more carefully. See the related note in [[Intel graphics#Installation]].}}
-```
 -   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki}
     (`{{Pkg|lib32-mesa-amber}}`{=mediawiki}) package from the [multilib](multilib "wikilink") repository.
--   For the DDX driver (which provides 2D acceleration in [Xorg](Xorg "wikilink")), you can install the
-    `{{Pkg|xf86-video-ati}}`{=mediawiki} package. However, it is not required since default modesetting driver exists.
+-   The old `{{Pkg|xf86-video-ati}}`{=mediawiki} package is not required anymore since the [default
+    Xorg](https://www.x.org/wiki/radeon/) modesetting driver exists running on top of the kernel DRM driver.
 
 ## Loading
 

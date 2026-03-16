@@ -253,7 +253,7 @@ selected by default on Wayland.
 ```{=mediawiki}
 {{Note|This requires a Vulkan WSI with HDR support, see [[#Vulkan HDR WSI]]}}
 ```
-`$ mpv --target-colorspace-hint "path/to/video"`
+`$ mpv "path/to/video"`
 
 Other ways of enabling [Wayland HDR
 support](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-12619072) include using the
@@ -263,7 +263,7 @@ support](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-1
 
 -   From the tty terminal, one could do (`{{ic|--gpu-context{{=}}`{=mediawiki}drm}} is selected by default)
 
-`$ mpv --target-colorspace-hint "path/to/video"`
+`$ mpv "path/to/video"`
 
 ### Firefox
 

@@ -250,10 +250,10 @@ in {
 ```
 ```{=mediawiki}
 {{file|/etc/nixos/bwrap.patch|diff|3=diff --git a/bubblewrap.c b/bubblewrap.c
-index 8322ea0..4e20262 100644
+index 69d319b..02e117d 100644
 --- a/bubblewrap.c
 +++ b/bubblewrap.c
-@@ -868,13 +868,6 @@ acquire_privs (void)
+@@ -876,13 +876,6 @@ acquire_privs (void)
        /* Keep only the required capabilities for setup */
        set_required_caps ();
      }

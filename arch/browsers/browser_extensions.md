@@ -19,6 +19,9 @@ repositories](https://archlinux.org/groups/any/firefox-addons/) and some more in
 To simplify maintenance, this article does not link store pages or [AUR](AUR "wikilink") packages of extensions. Readers
 are advised to obtain extensions through the linked official websites if no package is available.
 
+```{=mediawiki}
+{{Note|Users should be aware that, in Chromium-based browsers, some extensions listed here aren't supported/functional anymore, after [https://developer.chrome.com/docs/extensions/develop/migrate/mv2-deprecation-timeline the deprecation of Manifest v2]. In such cases, you must either seek alternative extensions or switch to a different browser.}}
+```
 ## Privacy
 
 See also [Firefox/Privacy](Firefox/Privacy "wikilink") and [Chromium/Tips and
@@ -33,6 +36,9 @@ tricks#Security](Chromium/Tips_and_tricks#Security "wikilink").
     {{App|[[Wikipedia:uBlock Origin|uBlock Origin]]|A lightweight, efficient blocker which is easy on [https://github.com/gorhill/uBlock#performance memory and CPU]. It comes with several filter lists ready to use out-of-the-box (including EasyList, Peter Lowe's, several malware filter lists). The lead developer of uBlock forked the project and created uBlock Origin. As of July 2015, most of the development is being done on uBlock Origin and the codebases are deviating substantially.|https://github.com/gorhill/uBlock/|{{Pkg|firefox-ublock-origin}}, [[Chromium]]}}
     ```
 
+```{=mediawiki}
+{{Note|The lead developer created a sister project, [https://github.com/uBlockOrigin/uBOL-home uBlock Origin Lite], which is Mv3-compatible}}
+```
 -   ```{=mediawiki}
     {{App|[[Wikipedia:Adblock Plus|Adblock Plus]]|Was a popular extension to block ads. Now that it is not blocking some ads on purpose [https://adblockplus.org/acceptable-ads], it may be a better idea to use a different blocker like uBlock Origin.|https://adblockplus.org/|{{Pkg|firefox-adblock-plus}}, [[Chromium]]}}
     ```

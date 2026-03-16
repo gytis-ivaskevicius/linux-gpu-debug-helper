@@ -281,6 +281,12 @@ A workaround is to install `{{Pkg|lib32-libnm}}`{=mediawiki}.
 
 ## Graphical issues {#graphical_issues}
 
+### Black main screen on Intel iGPUs {#black_main_screen_on_intel_igpus}
+
+On some systems that use Intel integrated graphics running Steam on [Wayland](Wayland "wikilink") will make only the
+webviews not render, with functional dropdowns and other menus. Going to *Steam -\> Settings -\> Interface*, then
+disabling *Enable GPU accelerated rendering in web views* might fix the problem.
+
 ### Blurry text and graphics with Xwayland and HiDPI {#blurry_text_and_graphics_with_xwayland_and_hidpi}
 
 When Steam runs as an [Xwayland](Xwayland "wikilink") client under a compositor that uses [HiDPI](HiDPI "wikilink")

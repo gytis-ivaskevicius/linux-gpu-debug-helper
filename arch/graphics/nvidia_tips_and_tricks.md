@@ -433,7 +433,7 @@ To make it possible to adjust the fanspeed of more than one graphics card, run:
 ### Simple overclocking script using NVML {#simple_overclocking_script_using_nvml}
 
 The Nvidia Management Library (NVML) provides an API that can manage the GPU\'s core and memory clock offsets and power
-limit. To utilise this, you can install `{{AUR|python-nvidia-ml-py}}`{=mediawiki} and then use the following Python
+limit. To utilise this, you can install `{{Pkg|python-nvidia-ml-py}}`{=mediawiki} and then use the following Python
 script with your desired settings. This script needs to be run as root after every restart to re-apply the overclock.
 
 ```{=mediawiki}
@@ -468,7 +468,7 @@ loss or even a slight gain. This might be specially desirable for laptop users.
 
 Moreover, undervolting, like overclocking, should be done in small incremental steps, while [[Stress testing|testing the system's stability]] in between.}}
 ```
-[Install](Install "wikilink") `{{AUR|python-nvidia-ml-py}}`{=mediawiki}, [create](create "wikilink") the following
+[Install](Install "wikilink") `{{Pkg|python-nvidia-ml-py}}`{=mediawiki}, [create](create "wikilink") the following
 script and make it [executable](executable "wikilink"):
 
 ```{=mediawiki}

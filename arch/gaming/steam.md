@@ -8,7 +8,7 @@
 [Steam](https://store.steampowered.com/about/) is a popular game distribution platform by Valve.
 
 ```{=mediawiki}
-{{Note|Steam for Linux only supports the latest Ubuntu or Ubuntu LTS.[https://help.steampowered.com/en/faqs/view/1114-3F74-0B8A-B784][https://github.com/ValveSoftware/steam-for-linux] Thus, do not turn to Valve for support for issues with Steam on Arch Linux.}}
+{{Note|1=Steam for Linux only supports the latest Ubuntu or Ubuntu LTS.[https://help.steampowered.com/en/faqs/view/1114-3F74-0B8A-B784][https://github.com/ValveSoftware/steam-for-linux?tab=readme-ov-file#hardware-and-software-requirements] Thus, do not turn to Valve for support for issues with Steam on Arch Linux.}}
 ```
 ## Installation
 
