@@ -299,6 +299,9 @@ disables PRIME sync and instead enables offload mode:
 After rebuilding and rebooting, you\'ll see in your boot menu under each Generation an \"on-the-go\" option, which will
 let you boot into the on-to-go specialisation for that generation.
 
+See also the [nixos-hardware](https://github.com/NixOS/nixos-hardware/blob/master/common/gpu/nvidia/prime.nix)
+implementation of a similar idea.
+
 ### Using GPUs on non-NixOS {#using_gpus_on_non_nixos}
 
 If you\'re using Nix-packaged software on a non-NixOS system, you\'ll need a workaround to get everything

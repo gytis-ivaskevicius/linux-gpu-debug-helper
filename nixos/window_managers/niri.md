@@ -1,6 +1,9 @@
 ```{=mediawiki}
+{{DISPLAYTITLE:niri}}
+```
+```{=mediawiki}
 {{infobox application
-| name = Niri
+| name = niri
 | type = Wayland compositor
 | initialRelease = 2023-11-26
 | status = Active
@@ -30,13 +33,13 @@ programs.niri.enable = true;
 {{Note|<translate>Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.</translate>}}
 ```
 ```{=mediawiki}
-{{Warning|<translate>Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit Niri and proceed to one of them.</translate>}}
+{{Warning|<translate>Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit niri and proceed to one of them.</translate>}}
 ```
 `<translate>`{=html}
 
 ## Configuration
 
-The configuration path for Niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
+The configuration path for niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
 Manager](Home_Manager "wikilink") can be used for configuration: `</translate>`{=html}
 
 ```{=mediawiki}
@@ -48,11 +51,11 @@ xdg.configFile."niri/config.kdl".source = ./config.kdl;
 file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl) described at
 [1](https://github.com/YaLTeR/niri/wiki/Getting-Started#main-default-hotkeys).
 
-See [the wiki](https://yalter.github.io/niri/) for configuration options for Niri.
+See [the wiki](https://yalter.github.io/niri/) for configuration options for niri.
 
 ## Additional Setup {#additional_setup}
 
-As described in [Example systemd Setup (Niri wiki)](https://github.com/YaLTeR/niri/wiki/Example-systemd-Setup), you
+As described in [Example systemd Setup (niri wiki)](https://github.com/YaLTeR/niri/wiki/Example-systemd-Setup), you
 might want to set up some additional services including [Swayidle](Swayidle "wikilink"),
 [Swaylock](Swaylock "wikilink"), [Waybar](Waybar "wikilink"), [Polkit](Polkit "wikilink") and [Secret
 Service](Secret_Service "wikilink") as follows to complement the functionality of a regular window manager. Some of the
@@ -96,7 +99,7 @@ There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as desc
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }}
 ```
-`<translate>`{=html} However, since Niri does not support text-input-v1, sometimes enabling text-input-v3 by manually
+`<translate>`{=html} However, since niri does not support text-input-v1, sometimes enabling text-input-v3 by manually
 adding `{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} flag is necessary for IME to work:
 `</translate>`{=html}
 
@@ -120,7 +123,7 @@ environment.systemPackages = [
 
 ### XWayland apps not working {#xwayland_apps_not_working}
 
-There is a optional dependency for Niri which is highly recommended to install (you can read
+There is a optional dependency for niri which is highly recommended to install (you can read
 [this](https://github.com/YaLTeR/niri/wiki/Xwayland) article to learn more about this) `</translate>`{=html}
 
 ```{=mediawiki}
@@ -135,7 +138,7 @@ There is a optional dependency for Niri which is highly recommended to install (
   xwayland-satellite # xwayland support
 ];|name=~/.config/home-manager/home.nix|lang=nix}}
 ```
-`<translate>`{=html} After you installed `{{ic|xwayland-satellite}}`{=mediawiki} Niri will integrate it out of the box
+`<translate>`{=html} After you installed `{{ic|xwayland-satellite}}`{=mediawiki} niri will integrate it out of the box
 and all of your XWayland apps will function properly.
 
 ### File picker not working {#file_picker_not_working}
@@ -151,6 +154,14 @@ To work around this problem, you can force usage of the gtk or kde portals for f
   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
 };|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
+### Waybar launches twice {#waybar_launches_twice}
+
+When using a configuration option like programs.waybar.enable, waybar may launch twice on Niri. This is because the
+[default Niri config file launches waybar on
+launch](https://github.com/niri-wm/niri/blob/b07bde3ee82dd73115e6b949e4f3f63695da35ea/resources/default-config.kdl#L271).
+Remove the spawn-at-startup \"waybar\" from the config file, or add waybar to your systems packages without using the
+home-manager option.
+
 `<translate>`{=html}
 
 ## See Also {#see_also}

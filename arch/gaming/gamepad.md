@@ -358,9 +358,8 @@ physically reconnect your device after running this command.
 ``\
 `These controllers are supported since kernel version 5.16. The Switch Online NES, SNES and N64 controllers are also supported since kernel version 6.12.`\
 ``\
-`For earlier kernel versions, it is possible to install the [[DKMS]] module {{AUR|hid-nintendo-nso-dkms}}.`\
+`==== Userspace daemon ====`\
 ``\
-`==== Userspace Daemon ====`\
 `{{AUR|joycond-git}} is a userspace daemon that provides better integration for Nintendo Switch Controllers. When the daemon is active, Switch controllers placed in a pairing mode (LEDs flashing) can have both their triggers pressed to be paired, and then ready to be used by apps. See [https://github.com/DanielOgorchock/joycond?tab=readme-ov-file#usage].`\
 ``\
 `==== Use Joy-Cons as one device ====`\

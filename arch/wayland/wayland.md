@@ -121,7 +121,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[niri]]|A scrollable-tiling Wayland compositor.|https://github.com/YaLTeR/niri/|{{Pkg|niri}}}}
+    {{App|[[niri]]|A scrollable-tiling Wayland compositor.|https://github.com/niri-wm/niri|{{Pkg|niri}}}}
     ```
 
 -   ```{=mediawiki}
@@ -163,7 +163,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[river]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
+    {{App|[[River Classic]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
     ```
 
 -   ```{=mediawiki}
@@ -186,6 +186,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 
 -   ```{=mediawiki}
     {{App|Wayback|X11 compatibility layer which allows for running full X11 desktop environments using Wayland components. It is experimental, in the early stage of development.|https://wayback.freedesktop.org/|{{AUR|wayback-x11}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[River]]| A non-monolithic Wayland compositor. Unlike other Wayland compositors, it does not combine the compositor and window manager into one program. Instead, users can choose any window manager implementing the river-window-management-v1 protocol.|https://isaacfreund.com/software/river/|{{Pkg|river}}}}
     ```
 
 Some of the above may support [display managers](display_manager "wikilink"). Check
@@ -428,7 +432,8 @@ This takes lower priority than the command line flags.
 
 The open source implementation of the [Java](Java "wikilink") platform OpenJDK, does not yet have native support for
 Wayland. Until [Wakefield](https://openjdk.java.net/projects/wakefield/), the project that aims to implement Wayland in
-OpenJDK, is available, Xwayland can be used.
+OpenJDK, is available, Xwayland can be used but, may lead to nothing displaying with certain applications such as
+`{{pkg|netbeans}}`{=mediawiki} and `{{AUR|oracle-datamodeler}}`{=mediawiki}.
 
 See [Debian:Wayland#Java Programs (supported since OpenJDK
 16?)](Debian:Wayland#Java_Programs_(supported_since_OpenJDK_16?) "wikilink"):

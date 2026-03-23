@@ -115,11 +115,11 @@ Entries marked with \"Yes\" but without store links can be sideloaded from their
 |                       |                             |                             | ail/1/7494362493653958711)) |
 +-----------------------+-----------------------------+-----------------------------+-----------------------------+
 | Pico Neo 3            | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
-|                       | {{No}}                      | {{Yes}}                     | {{Yes}}                     |
+|                       | {{Yes}}                     | {{Yes}}                     | {{Yes}}                     |
 |                       | ```                         | ```                         | ```                         |
-|                       | ([broken                    |                             | ([Pico                      |
-|                       | SDK](https://github.c       |                             | Store](https://store-g      |
-|                       | om/WiVRn/WiVRn/issues/123)) |                             | lobal.picoxr.com/global/det |
+|                       |                             |                             | ([Pico                      |
+|                       |                             |                             | Store](https://store-g      |
+|                       |                             |                             | lobal.picoxr.com/global/det |
 |                       |                             |                             | ail/1/7494362493653958711)) |
 +-----------------------+-----------------------------+-----------------------------+-----------------------------+
 | HTC Vive Focus 3      | ```{=mediawiki}             | ```{=mediawiki}             | ```{=mediawiki}             |
@@ -158,51 +158,50 @@ Entries marked with \"Yes\" but without store links can be sideloaded from their
 
 ### Tracking devices {#tracking_devices}
 
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Device                | SteamVR              | Monado                          | WiVRn                           |
-+=======================+======================+=================================+=================================+
-| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
-|                       | ```                  | ```                             | ```                             |
-|                       | (native or spacecal) | (native or motoc)               | (motoc)                         |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{Yes}}              | {{Y|OSC only}}                  | {{Y|OSC only}}                  |
-|                       | ```                  | ```                             | ```                             |
-|                       |                      | ([merge                         | ([merge                         |
-|                       |                      | request](https:                 | request](https:                 |
-|                       |                      | //gitlab.freedesktop.org/monado | //gitlab.freedesktop.org/monado |
-|                       |                      | /monado/-/merge_requests/2253)) | /monado/-/merge_requests/2253)) |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
-|                       | ```                  | ```                             | ```                             |
-|                       | (oscavmgr)           | (oscavmgr)                      | (oscavmgr)                      |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{Yes}}              | {{Yes}}                         | {{Yes}}                         |
-|                       | ```                  | ```                             | ```                             |
-|                       | (oscavmgr)           | (oscavmgr)                      | (oscavmgr)                      |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{No}}               | {{Yes}}                         | {{No}}                          |
-|                       | ```                  | ```                             | ```                             |
-|                       |                      | (survive driver only)           |                                 |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{C|?}}              | {{Yes}}                         | {{No}}                          |
-|                       | ```                  | ```                             | ```                             |
-|                       |                      | (survive driver only)           |                                 |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{Yes}}              | {{Yes}}                         | {{Y|WIP}}                       |
-|                       | ```                  | ```                             | ```                             |
-|                       |                      | (experimental)                  |                                 |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
-| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}                 | ```{=mediawiki}                 |
-|                       | {{No}}               | {{No}}                          | {{No}}                          |
-|                       | ```                  | ```                             | ```                             |
-+-----------------------+----------------------+---------------------------------+---------------------------------+
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Device                | SteamVR              | Monado                                           | WiVRn           |
++=======================+======================+==================================================+=================+
+| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
+|                       | ```                  | ```                                              | ```             |
+|                       | (native or spacecal) | (native or motoc)                                | (motoc)         |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Y|OSC only}}                                   | {{Yes}}         |
+|                       | ```                  | ```                                              | ```             |
+|                       |                      | ([merge                                          |                 |
+|                       |                      | request](https://gitlab.freed                    |                 |
+|                       |                      | esktop.org/monado/monado/-/merge_requests/2253)) |                 |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
+|                       | ```                  | ```                                              | ```             |
+|                       | (oscavmgr)           | (oscavmgr)                                       | (oscavmgr)      |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
+|                       | ```                  | ```                                              | ```             |
+|                       | (oscavmgr)           | (oscavmgr)                                       | (oscavmgr)      |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{No}}               | {{Yes}}                                          | {{No}}          |
+|                       | ```                  | ```                                              | ```             |
+|                       |                      | (survive driver only)                            |                 |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{C|?}}              | {{Yes}}                                          | {{No}}          |
+|                       | ```                  | ```                                              | ```             |
+|                       |                      | (survive driver only)                            |                 |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}                                          | {{Y|WIP}}       |
+|                       | ```                  | ```                                              | ```             |
+|                       |                      | (experimental)                                   |                 |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
+| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
+|                       | {{No}}               | {{No}}                                           | {{No}}          |
+|                       | ```                  | ```                                              | ```             |
++-----------------------+----------------------+--------------------------------------------------+-----------------+
 
 ## Supported runtimes and toolkits {#supported_runtimes_and_toolkits}
 
@@ -223,21 +222,22 @@ Install using `{{AUR|monado}}`{=mediawiki}.
 #### Envision
 
 [Envision](https://gitlab.com/gabmus/envision) is a graphical app that acts as an orchestrator to get a full
-[Monado](https://lvra.gitlab.io/docs/fossvr/monado/) or [WiVRn](https://lvra.gitlab.io/docs/fossvr/wivrn/) setup up and
-running with a few clicks. Envision attempts to construct a working runtime with both a native OpenXR and an OpenVR API,
-provided by [OpenComposite](https://lvra.gitlab.io/docs/fossvr/opencomposite/) or
-[XRizer](https://github.com/Supreeeme/xrizer), for client aplications to utilize.
+[Monado](https://lvra.gitlab.io/docs/fossvr/monado/) setup up and running with a few clicks. Envision attempts to
+construct a working runtime with both a native OpenXR and an OpenVR API, provided by
+[XRizer](https://github.com/Supreeeme/xrizer) or [OpenComposite](https://lvra.gitlab.io/docs/fossvr/opencomposite/), for
+client applications to utilize.
 
 #### WiVRn
 
-[WiVRn](https://github.com/WiVRn/WiVRn/) is a Monado fork/wrapper capable of streaming to standalone headsets. It
+[WiVRn](https://github.com/WiVRn/WiVRn/) is a runtime based on Monado, capable of streaming to standalone headsets. It
 currently supports most available Android based HMDs, and also has experimental support for PC to PC streaming.
 
-Upstream recommends to install it with its [flatpak package](https://flathub.org/apps/io.github.wivrn.wivrn) but it is
-also possible to install the server using `{{AUR|wivrn-server}}`{=mediawiki} and the (optional) configuration dashboard
-with `{{AUR|wivrn-dashboard}}`{=mediawiki}. You can install the Android client from your devices\' store, download the
-prebuilt Android client from the [GitHub releases](https://github.com/WiVRn/WiVRn/releases) to sideload, or compile it
-yourself according to the [build
+Upstream recommends to install `{{AUR|wivrn-server}}`{=mediawiki}, `{{AUR|xrizer}}`{=mediawiki} or
+`{{AUR|xrizer-git}}`{=mediawiki} (for compatibility with Steam games and OpenVR applications), and optionally
+`{{AUR|wivrn-dashboard}}`{=mediawiki} for the dashboard. It is also available [via
+Flatpak](https://flathub.org/apps/io.github.wivrn.wivrn). You can install the Android client from your devices\' store,
+download the prebuilt Android client from the [GitHub releases](https://github.com/WiVRn/WiVRn/releases) to sideload, or
+compile it yourself according to the [build
 documentation](https://github.com/WiVRn/WiVRn/blob/master/docs/building.md#client-headset).
 
 ### OpenVR / SteamVR {#openvr_steamvr}

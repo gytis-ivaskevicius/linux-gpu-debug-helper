@@ -338,7 +338,7 @@ the space in `{{ic|/etc/fstab}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|/etc/fstab|2=
-tmpfs   /home/''username''/.cache   tmpfs   noatime,nodev,nosuid,size=400M  0   0
+tmpfs   /home/''username''/.cache/chromium  tmpfs   noatime,nodev,nosuid,size=''400M''  0   0
 }}
 ```
 Alternatively create a symbolic link to `{{ic|/tmp}}`{=mediawiki}. Make sure to delete Chromium\'s cache folder before
@@ -348,8 +348,8 @@ you run the command:
 
 ##### Profile in tmpfs {#profile_in_tmpfs}
 
-Relocate the browser profile to a [tmpfs](Wikipedia:Tmpfs "wikilink") filesystem, including `{{ic|/tmp}}`{=mediawiki},
-or `{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire profile is now stored in RAM.
+Relocate the browser profile to a [tmpfs](tmpfs "wikilink") filesystem, including `{{ic|/tmp}}`{=mediawiki}, or
+`{{ic|/dev/shm}}`{=mediawiki} for improvements in application response as the entire profile is now stored in RAM.
 
 Use an active profile management tool such as `{{Pkg|profile-sync-daemon}}`{=mediawiki} for maximal reliability and ease
 of use. It symlinks or bind mounts and syncs the browser profile directories to RAM. For more, see

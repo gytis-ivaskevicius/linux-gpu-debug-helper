@@ -47,41 +47,49 @@ AMD supports the open source driver. A proprietary driver was provided before bu
 See [Hardware video acceleration#Comparison tables](Hardware_video_acceleration#Comparison_tables "wikilink") for
 details on [VA-API](VA-API "wikilink") support per GPU family.
 
-+------------------+------------------+------------------+------------------+------------------+------------------+
-| Documentation    | GPU family       | DRM driver       | OpenGL           | Vulkan           | DDX driver       |
-+==================+==================+==================+==================+==================+==================+
-| [AMDGPU](AM      | GCN 3 and later  | included in      | ```{=mediawiki}  | ```{=mediawiki}  | ```{=mediawiki}  |
-| DGPU "wikilink") | (e.g. RDNA 1-4)  | [Linux](L        | {{Pkg|mesa}}     | {{Pkg            | {{Pkg|xf8        |
-|                  |                  | inux "wikilink") | ```              | |vulkan-radeon}} | 6-video-amdgpu}} |
-|                  |                  |                  |                  | ```              | ```              |
-|                  |                  |                  |                  |                  | ^2^              |
-+------------------+------------------+------------------+------------------+------------------+------------------+
-| [AMDGPU](AMDGP   | GCN 1&2          |                  |                  | Depends on the   |                  |
-| U "wikilink")^1^ |                  |                  |                  | chosen driver    |                  |
-| /                |                  |                  |                  |                  |                  |
-| [ATI]            |                  |                  |                  |                  |                  |
-| (ATI "wikilink") |                  |                  |                  |                  |                  |
-+------------------+------------------+------------------+------------------+------------------+------------------+
-| [ATI]            | R300 through     |                  |                  | None             | ```{=mediawiki}  |
-| (ATI "wikilink") | TeraScale        |                  |                  |                  | {{Pkg|           |
-|                  |                  |                  |                  |                  | xf86-video-ati}} |
-|                  |                  |                  |                  |                  | ```              |
-|                  |                  |                  |                  |                  | ^2^              |
-+------------------+------------------+------------------+------------------+------------------+------------------+
-|                  | R100 & R200      |                  | ```{=mediawiki}  |                  |                  |
-|                  |                  |                  | {{               |                  |                  |
-|                  |                  |                  | Pkg|mesa-amber}} |                  |                  |
-|                  |                  |                  | ```              |                  |                  |
-+------------------+------------------+------------------+------------------+------------------+------------------+
-|                  | Rage 4 and older | not available    |                  |                  |                  |
-|                  |                  | [3](htt          |                  |                  |                  |
-|                  |                  | ps://www.x.org/w |                  |                  |                  |
-|                  |                  | iki/RadeonFeatur |                  |                  |                  |
-|                  |                  | e/)[4](https://w |                  |                  |                  |
-|                  |                  | ww.phoronix.com/ |                  |                  |                  |
-|                  |                  | news/Linux-6.3-D |                  |                  |                  |
-|                  |                  | ropping-Old-DRM) |                  |                  |                  |
-+------------------+------------------+------------------+------------------+------------------+------------------+
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     | VA-API         |
++================+================+================+================+================+================+================+
+| [AMDGPU](AMDG  | GCN 3 and      | Included in    | `              | `              | `              | `              |
+| PU "wikilink") | later (e.g.    | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
+|                | RDNA 1-4)      | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|v        | {{Pkg|xf86-    | {{Pkg|mesa}}   |
+|                |                |                | ```            | ulkan-radeon}} | video-amdgpu}} | ```            |
+|                |                |                |                | ```            | ```            |                |
+|                |                |                |                |                | ^2^            |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| [A             | GCN 1&2        |                |                | Depends on the |                |                |
+| MDGPU](AMDGPU  |                |                |                | chosen driver  |                |                |
+| "wikilink")^1^ |                |                |                |                |                |                |
+| /              |                |                |                |                |                |                |
+| [ATI](A        |                |                |                |                |                |                |
+| TI "wikilink") |                |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+| [ATI](A        | TeraScale 1-3  |                |                | None           | `              |                |
+| TI "wikilink") |                |                |                |                | ``{=mediawiki} |                |
+|                |                |                |                |                | {{Pkg|xf       |                |
+|                |                |                |                |                | 86-video-ati}} |                |
+|                |                |                |                |                | ```            |                |
+|                |                |                |                |                | ^2^            |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|                | R300 through   |                |                |                |                | None           |
+|                | R500           |                |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|                | R100 & R200    |                | `              |                |                |                |
+|                |                |                | ``{=mediawiki} |                |                |                |
+|                |                |                | {{Pk           |                |                |                |
+|                |                |                | g|mesa-amber}} |                |                |                |
+|                |                |                | ```            |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|                | Rage 4 and     | Not available  |                |                |                |                |
+|                | older          | [3](h          |                |                |                |                |
+|                |                | ttps://www.x.o |                |                |                |                |
+|                |                | rg/wiki/Radeon |                |                |                |                |
+|                |                | Feature/)[4](h |                |                |                |                |
+|                |                | ttps://www.pho |                |                |                |                |
+|                |                | ronix.com/news |                |                |                |                |
+|                |                | /Linux-6.3-Dro |                |                |                |                |
+|                |                | pping-Old-DRM) |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 
 1.  Enabled by default since `{{Pkg|linux}}`{=mediawiki}≥6.19, can be manually chosen otherwise
 2.  Using the modesetting driver is reported to work without issues
@@ -100,7 +108,7 @@ details on [VA-API](VA-API "wikilink") support per GPU family, only the packages
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     | VA-API         |
 +================+================+================+================+================+================+================+
-| [Intel         | Gen 12.1 and   | included in    | `              | `              | `              | `              |
+| [Intel         | Gen 12.1 and   | Included in    | `              | `              | `              | `              |
 | graphics       | later          | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
 | ](Intel_graphi |                | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|         | {{Pkg|xf86     | {{pkg|intel-   |
 | cs "wikilink") |                |                | ```            | vulkan-intel}} | -video-intel}} | media-driver}} |
@@ -157,7 +165,7 @@ details per GPU family.
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | License        | Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     |
 +================+================+================+================+================+================+================+
-| Open           | [Nou           | [Kepler        | included in    | `              | `              | `              |
+| Open           | [Nou           | [Kepler        | Included in    | `              | `              | `              |
 |                | veau](Nouveau  | (NVE0/GKXX     | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
 |                | "wikilink")^1^ | X)](https://no | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|vu       | {{Pkg|xf86-v   |
 |                |                | uveau.freedesk |                | ```            | lkan-nouveau}} | ideo-nouveau}} |

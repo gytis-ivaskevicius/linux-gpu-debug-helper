@@ -295,7 +295,7 @@ module option take effect, reboot.
 {{Note|
 * This has been reported to reduce the performance of some OpenGL applications and may produce issues in WebGL. It also drastically increases the time the driver needs to clock down after load ([https://forums.developer.nvidia.com/t/if-you-have-gpu-clock-boost-problems-please-try-gl-experimentalperfstrategy-1/71762 NVIDIA Support Thread]).
 * {{ic|ForceFullCompositionPipeline}} is known [https://github.com/ValveSoftware/Proton/issues/6869 to break some games] using Vulkan under Proton with NVIDIA driver 535.
-* This might cause some fullscreen applications to immediately freeze, making the system unresponsive until tabbing out. One workaround is to run the program in [[Gamescope]] as a borderless window ({{ic|-b}}) and leaving at least one other thing on the screen (which may be the taskbar or any graphical application). If you experience system freezes while running fullscreen graphical applications that seem to run normally while not in focus, try disabling {{ic|ForceFullCompositionPipeline}} (or follow the advice above).
+* {{ic|ForceCompositionPipeline}} is known to cause some fullscreen applications to immediately freeze, making the system unresponsive until tabbing out. One workaround is to run the program in [[Gamescope]] as a borderless window ({{ic|-b}}) and leaving at least one other thing on the screen (which may be the taskbar or any graphical application).
 }}
 ```
 The NVIDIA driver conditionally applies a [composition
@@ -476,9 +476,13 @@ Then [enable](enable "wikilink")/[start](start "wikilink") `{{ic|nvidia-clocks.s
 
 ### Flickering with compositor under X11 (nvidia-open) {#flickering_with_compositor_under_x11_nvidia_open}
 
-Versions of `{{Pkg|nvidia-open}}`{=mediawiki} including 590.x introduced a regression in the GLX vblank path that causes
-window flickering when a compositor is active under X11. This affects xfwm4, and potentially other compositors relying
-on GLX for vertical sync.
+Versions of `{{Pkg|nvidia-open}}`{=mediawiki} tracking the 590.x version introduced a regression in the GLX vblank path
+that causes window flickering when a compositor is active under X11. This affects xfwm4, and potentially other
+compositors relying on GLX for vertical sync.
+
+Users can use the `{{AUR|nvidia-580xx-utils}}`{=mediawiki} package which tracks the production versioned driver which is
+not affected by this bug or continue using the repo packages (which track the new features versioned drivers)
+implementing the below work-around until upstream fixes the issue.
 
 The default `{{ic|vblank_mode}}`{=mediawiki} in xfwm4 is `{{ic|auto}}`{=mediawiki}, which resolves to
 `{{ic|glx}}`{=mediawiki} on NVIDIA hardware and triggers the bug.

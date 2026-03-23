@@ -120,23 +120,19 @@ be limited to whole integers, for example:
 
 ##### GTK+ vs Gnome Shell elements on Xorg {#gtk_vs_gnome_shell_elements_on_xorg}
 
-```{=mediawiki}
-{{Out of date|Needs a partial rewrite regarding the Gnome Shell Toolkit, since it looks unmaintained since [https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/shell-toolkit 2009].}}
-```
 Adjusting the text scaling as per the above only affects GTK+ elements of the GNOME desktop. This should cover
 everything on Wayland. However, those on an Xorg session may find that they need to make further adjustments on HiDPI
 environments, since the GNOME Shell UI (including the top bar, dock, application menus, etc.) relies separately on the
-[St](https://developer.gnome.org/st/stable/)`{{Dead link|2021|11|11|status=404}}`{=mediawiki} toolkit. Note that this is
-a long-standing issue to which a [patch](https://gitlab.gnome.org/GNOME/gnome-shell/merge_requests/486) has been merged
-and available for Gnome Shell 3.35 onward. For older releases, Xorg users can resolve most of the Gnome shell scaling
-problems by manually editing the shell theme that they are currently using. The relevant CSS files are normally located
-at `{{ic|/usr/share/themes/YOUR-THEME/gnome-shell/gnome-shell.css}}`{=mediawiki}. Users should increase all
-\"font-size\" elements in this file in proportion to their display scaling (doubling font sizes for 200% scaling, etc.)
-For example, the top of an edited CSS file for the [Adapta](https://github.com/adapta-project/adapta-gtk-theme) shell
-theme might look like:
+[St](https://gjs.guide/extensions/overview/architecture.html) toolkit. Note that this is a long-standing issue to which
+a [patch](https://gitlab.gnome.org/GNOME/gnome-shell/merge_requests/486) has been merged and available for Gnome Shell
+3.35 onward. For older releases, Xorg users can resolve most of the Gnome shell scaling problems by manually editing the
+shell theme that they are currently using. The relevant CSS files are normally located at
+`{{ic|/usr/share/themes/YOUR-THEME/gnome-shell/gnome-shell.css}}`{=mediawiki}. Users should increase all \"font-size\"
+elements in this file in proportion to their display scaling (doubling font sizes for 200% scaling, etc.) For example,
+the top of an edited CSS file for the `{{pkg|adapta-gtk-theme}}`{=mediawiki} shell theme might look like:
 
 ```{=mediawiki}
-{{hc|usr/share/themes/Adapta/gnome-shell/gnome-shell.css|2=
+{{hc|/usr/share/themes/Adapta/gnome-shell/gnome-shell.css|2=
 stage { font-size: 20pt; font-family: Roboto, Noto Sans, Sans-Serif; color: #263238; }
 }}
 ```
