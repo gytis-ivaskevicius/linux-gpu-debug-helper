@@ -30,26 +30,23 @@ plans](https://gitlab.freedesktop.org/xorg/xserver/-/issues/1037#note_521100) to
 ```{=mediawiki}
 {{ic|VK_EXT_swapchain_colorspace}}
 ```
-and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} extensions are required for HDR support when using the Vulkan API. Users
-with certain GPUs or drivers may need to use `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} to support these extensions.
+and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} extensions are required for HDR support when using the Vulkan API.
 
 -   ```{=mediawiki}
     {{pkg|mesa}}
     ```
-    25.1+ supports these extensions and should not require package installation
+    25.1 and later includes these extensions by default.
 
--   [NVIDIA](NVIDIA "wikilink") users must use `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} for Vulkan HDR support
-    -   NVIDIA drivers since Vulkan beta 580.94.11 support `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} on Wayland
-        [1](https://www.phoronix.com/news/NVIDIA-580.94.11-Linux-Driver)
-        -   Stable NVIDIA drivers do **not** yet include this extension, including the R590 driver series
-    -   NVIDIA drivers still lack support for `{{ic|VK_EXT_swapchain_colorspace}}`{=mediawiki} on Linux
-        [2](https://developer.nvidia.com/vulkan-driver)
+-   ```{=mediawiki}
+    {{pkg|nvidia-open}}
+    ```
+    595.58.03 and later also
+    [includes](https://forums.developer.nvidia.com/t/595-release-feedback-discussion/362561/5?u=ifaigios) these
+    extensions by default.
 
-```{=mediawiki}
-{{ic|ENABLE_HDR_WSI{{=}}
-```
-1}} can be used to enable the Vulkan HDR WSI layer. Enabling this globally is **not** recommended. Set this for
-individual games and applications that will be used with HDR.
+    -   [NVIDIA](NVIDIA "wikilink") users on drivers **before** 595.58.03 must install
+        `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} and set `{{ic|ENABLE_HDR_WSI{{=}}`{=mediawiki}1}} in each game or
+        application that will be used with HDR. Enabling this globally is **not** recommended.
 
 ## Compositor configuration {#compositor_configuration}
 
@@ -182,12 +179,12 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
 -   [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom): install
     `{{aur|proton-ge-custom-bin}}`{=mediawiki} and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and
     `{{ic|PROTON_ENABLE_HDR{{=}}`{=mediawiki}1}}
-    [3](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-1).
+    [1](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-1).
 
 ```{=mediawiki}
 {{Note|{{ic|PROTON_ENABLE_HDR}} sets {{ic|DXVK_HDR{{=}}1}}
 ```
-[4](https://github.com/GloriousEggroll/proton-ge-custom/blob/master/proton#L1718).}}
+[2](https://github.com/GloriousEggroll/proton-ge-custom/blob/master/proton#L1718).}}
 
 -   [wine-tkg](https://github.com/Frogging-Family/wine-tkg-git): install wine-tkg, set
     `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.
@@ -195,7 +192,7 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
     [wine-cachyos](https://github.com/CachyOS/wine-cachyos): install your choice of
     `{{aur|proton-cachyos}}`{=mediawiki}, `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki}
     and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
-    [5](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
+    [3](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
 
 ```{=mediawiki}
 {{Tip|You can also easily install the aforementioned wine builds to Lutris, Bottles, or Steam using {{aur|protonup-qt}}.}}
@@ -246,7 +243,7 @@ For example for Quake II RTX:
 ### mpv
 
 For best image quality mpv maintainers recommend using the `{{ic|gpu-next}}`{=mediawiki}
-[6](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-12629196) video output driver, which is the
+[4](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-12629196) video output driver, which is the
 default. `{{ic|gpu-next}}`{=mediawiki} supports HDR with `{{ic|--gpu-context{{=}}`{=mediawiki}waylandvk}}, which is
 selected by default on Wayland.
 
@@ -273,15 +270,15 @@ support](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-1
 introduces working experimental HDR in 138.0 under the hidden preference `{{ic|gfx.wayland.hdr}}`{=mediawiki}. You can
 enable it at `{{ic|about:config}}`{=mediawiki}.
 
-Stable HDR is still in progress [7](https://bugzilla.mozilla.org/show_bug.cgi?id=hdr)
-[8](https://bugzilla.mozilla.org/show_bug.cgi?id=1642854).
+Stable HDR is still in progress [5](https://bugzilla.mozilla.org/show_bug.cgi?id=hdr)
+[6](https://bugzilla.mozilla.org/show_bug.cgi?id=1642854).
 
 ### Chromium
 
 ```{=mediawiki}
 {{pkg|chromium}}
 ```
-has work-in-progress HDR support [9](https://chromium-review.googlesource.com/c/chromium/src/+/6771393). Support has
+has work-in-progress HDR support [7](https://chromium-review.googlesource.com/c/chromium/src/+/6771393). Support has
 been merged as of version 141.0.7370.0.
 
 ## Troubleshooting
@@ -296,7 +293,7 @@ video players that support HDR such as [#mpv](#mpv "wikilink").
 
 Pipewire attempts to stream what it sees as BGRA, which WebRTC cannot interpret, due to its current lack of capacity to
 interpret it. As such, a \"ParamId:EnumFormat: 0:0 Invalid argument\" exception is thrown and the WebRTC socket crashes
-for that application [10](https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/52).
+for that application [8](https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/52).
 
 ## See also {#see_also}
 

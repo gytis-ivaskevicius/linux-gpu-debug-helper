@@ -696,14 +696,11 @@ before running patched Wine:
 
 ESync is a user-space eventfd-based synchronization.
 
--   Not included in `{{Pkg|wine}}`{=mediawiki}.
--   Included in `{{Pkg|wine-staging}}`{=mediawiki} [up to version
-    10.15](https://gitlab.winehq.org/wine/wine-staging/-/commit/38d4b8ca780f51227661211ead02b1283774be0b), but not
-    enabled by default.
+-   Not included in `{{Pkg|wine}}`{=mediawiki}; you will need a patched version.
 -   Enabled by default in [Proton](Proton "wikilink"), unless FSync is available.
 
 To enable ESync, [export](export "wikilink") the following [environment variable](environment_variable "wikilink")
-before running Wine:
+before running patched Wine:
 
 `WINEESYNC=1`
 
@@ -712,29 +709,27 @@ before running Wine:
 By default, Wine takes over as the default application for a lot of formats. Some (e.g. `{{ic|vbs}}`{=mediawiki} or
 `{{ic|chm}}`{=mediawiki}) are Windows-specific, and opening them with Wine can be a convenience. However, having other
 formats (e.g. `{{ic|gif}}`{=mediawiki}, `{{ic|jpeg}}`{=mediawiki}, `{{ic|txt}}`{=mediawiki}, `{{ic|js}}`{=mediawiki})
-open in Wine\'s bare-bones simulations of Internet Explorer and Notepad can be annoying.
+being opened via Wine may not be desired.
 
 Wine\'s file associations are set in `{{ic|~/.local/share/applications/}}`{=mediawiki} as
 `{{ic|wine-extension-''extension''.desktop}}`{=mediawiki} files. Delete the files corresponding to the extensions you
-want to unregister. Or, to remove all wine extensions:
+want to unregister.
 
-`$ rm -f ~/.local/share/applications/wine-extension*.desktop`\
-`$ rm -f ~/.local/share/icons/hicolor/*/*/application-x-wine-extension*`
+Alternatively, to remove all Wine extensions:
 
-Next, remove the old cache:
-
-`$ rm -f ~/.local/share/applications/mimeinfo.cache`\
 `$ rm -f ~/.local/share/mime/packages/x-wine*`\
+`$ rm -f ~/.local/share/applications/wine-extension*`\
+`$ rm -f ~/.local/share/icons/hicolor/*/*/application-x-wine-extension*`\
 `$ rm -f ~/.local/share/mime/application/x-wine-extension*`
 
-And, update the cache:
+Afterwards, update the cache:
 
-`$ update-desktop-database ~/.local/share/applications`\
+`$ update-desktop-database ~/.local/share/applications/`\
 `$ update-mime-database ~/.local/share/mime/`
 
-Please note Wine will still create new file associations and even recreate the file associations if the application sets
-the file associations again.
-
+```{=mediawiki}
+{{Note|Unless the [https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#how-can-i-prevent-wine-from-changing-the-filetype-associations-on-my-system-or-adding-unwanted-menu-entriesdesktop-links relevant option is disabled], Wine will still create new file associations if the application sets the file associations again.}}
+```
 ### Prevent Wine from creating filetype associations {#prevent_wine_from_creating_filetype_associations}
 
 ```{=mediawiki}

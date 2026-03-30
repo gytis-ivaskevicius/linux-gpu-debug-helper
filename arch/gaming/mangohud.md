@@ -109,6 +109,13 @@ To make [Steam](Steam "wikilink") start a game with MangoHud, right click the ga
 
 `mangohud %command%`
 
+#### Run a single steam game with GameMode enabled too {#run_a_single_steam_game_with_gamemode_enabled_too}
+
+Same as for enabling [Steam](Steam "wikilink") game to run with Mangohud but also with option to use it alongside
+GameMode
+
+`mangoud gamemoderun %command%`
+
 ### Run Steam with MangoHud {#run_steam_with_mangohud}
 
 To avoid having to change launch options for all games, you may launch [Steam](Steam "wikilink") directly with MangoHud:

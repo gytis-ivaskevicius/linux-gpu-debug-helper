@@ -329,7 +329,7 @@ The correct driver name depends on your setup:
 
 -   [Intel graphics](Intel_graphics "wikilink"): Vulkan Video support in `{{Pkg|vulkan-intel}}`{=mediawiki} can be
     enabled with the `{{ic|1=ANV_DEBUG=video-decode,video-encode}}`{=mediawiki} [environment
-    variable](environment_variable "wikilink").
+    variable](environment_variable "wikilink"). [3](https://bbs.archlinux.org/viewtopic.php?id=305668)
 -   [AMD](AMD "wikilink"): Vulkan Video support in `{{Pkg|vulkan-radeon}}`{=mediawiki} is enabled by default for VCN 2,
     3, and 4+ since Mesa 25. To force-enable support on older cards, set the `{{ic|RADV_PERFTEST}}`{=mediawiki}
     [environment variable](environment_variable "wikilink") to `{{ic|video_decode,video_encode}}`{=mediawiki}.
@@ -390,7 +390,7 @@ This error can also occur if you installed the wrong VA-API driver for your hard
 
 When experiencing video decoding corruption or distortion with [AMDGPU](AMDGPU "wikilink") driver, set
 `{{ic|1=allow_rgb10_configs=false}}`{=mediawiki} as an [environment variable](environment_variable "wikilink").
-[3](https://bugs.freedesktop.org/show_bug.cgi?id=106490)
+[4](https://bugs.freedesktop.org/show_bug.cgi?id=106490)
 
 ### vainfo fails when using iHD {#vainfo_fails_when_using_ihd}
 
@@ -411,7 +411,7 @@ vainfo: Supported profile and entrypoints
 ```
 Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of the non-legacy one, which works with
 `{{AUR|intel-compute-runtime-legacy}}`{=mediawiki}.
-[4](https://aur.archlinux.org/packages/intel-compute-runtime-legacy-bin#comment-1024408)
+[5](https://aur.archlinux.org/packages/intel-compute-runtime-legacy-bin#comment-1024408)
 
 ## Comparison tables {#comparison_tables}
 
@@ -421,10 +421,10 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 | Codec                | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |
 |                      | {{pkg|               | {{pkg|               | {{pkg|mesa}}         | {{Pkg|l              |
 |                      | libva-intel-driver}} | intel-media-driver}} | ```                  | ibva-nvidia-driver}} |
-|                      | ```                  | ```                  | [7                   | ```                  |
-|                      | [5](htt              | [6](                 | ](https://www.x.org/ | \                    |
+|                      | ```                  | ```                  | [8                   | ```                  |
+|                      | [6](htt              | [7](                 | ](https://www.x.org/ | \                    |
 |                      | ps://github.com/01or | https://github.com/i | wiki/RadeonFeature/) | (NVDEC adapter)      |
-|                      | g/intel-vaapi-driver | ntel/media-driver/bl | [8](https://nouveau. |                      |
+|                      | g/intel-vaapi-driver | ntel/media-driver/bl | [9](https://nouveau. |                      |
 |                      | /blob/master/README) | ob/master/README.md) | freedesktop.org/wiki |                      |
 |                      |                      |                      | /VideoAcceleration/) |                      |
 +======================+======================+======================+======================+======================+
@@ -537,7 +537,7 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
     variable](environment_variable "wikilink") `{{ic|1=VAAPI_MPEG4_ENABLED=true}}`{=mediawiki} to try to use it anyway.
 2.  Hybrid VP8 encoder and VP9 decoder supported by `{{AUR|intel-hybrid-codec-driver-git}}`{=mediawiki}.
 3.  NVIDIA CUDA adapter codec support is in active development and susceptible to change
-    [9](https://github.com/elFarto/nvidia-vaapi-driver/issues/116).
+    [10](https://github.com/elFarto/nvidia-vaapi-driver/issues/116).
 
 ### VDPAU drivers {#vdpau_drivers}
 
@@ -598,9 +598,9 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 1.  [Except](Wikipedia:Nvidia_PureVideo "wikilink") GeForce 8800 Ultra, 8800 GTX, 8800 GTS (320/640 MB).
 2.  Except GeForce GTX 970 and GTX 980.
 3.  NVIDIA implementation is limited to 8bit streams
-    [10](https://forums.developer.nvidia.com/t/vdpau-expose-hevc-main10-support-where-available-on-die/43163)
-    [11](https://us.download.nvidia.com/XFree86/Linux-x86_64/410.57/README/vdpausupport.html#vdpau-implementation-limits).
-4.  Starting with driver version 510.[12](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-510-Linux-Beta)
+    [11](https://forums.developer.nvidia.com/t/vdpau-expose-hevc-main10-support-where-available-on-die/43163)
+    [12](https://us.download.nvidia.com/XFree86/Linux-x86_64/410.57/README/vdpausupport.html#vdpau-implementation-limits).
+4.  Starting with driver version 510.[13](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-510-Linux-Beta)
 
 ### NVIDIA driver only {#nvidia_driver_only}
 
@@ -608,7 +608,7 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 | Codec             | ```{=mediawiki}                                           |
 |                   | {{Pkg|nvidia-utils}}                                      |
 |                   | ```                                                       |
-|                   | [13](https://developer.nvidia.com/nvidia-video-codec-sdk) |
+|                   | [14](https://developer.nvidia.com/nvidia-video-codec-sdk) |
 +===================+===========================================================+
 | NVDEC             | NVENC                                                     |
 +-------------------+-----------------------------------------------------------+

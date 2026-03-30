@@ -42,7 +42,7 @@ Games can be run by different applications. Some are able to include libraries f
   -------------------------------------------- ------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------
   [Steam](Steam "wikilink")                    Steam                                                                     Windows games work fine. Linux games are often incompatible due to how NixOS works.
   [Lutris](Lutris "wikilink")                  GOG, Humble Bundle, Epic, EA App, Ubisoft Connect, Steam, Flatpak, Wine   
-  [Heroic](Heroic_Games_Launcher "wikilink")   Epic, GOG, Prime Gaming, Wine                                             
+  [Heroic](Heroic_Games_Launcher "wikilink")   Epic, GOG, Prime Gaming, Wine                                             Supports gamepad navigation. Unlike Lutris, uses open-source Legendary for Epic Games Store.
   [Wine](Wine "wikilink")                      Windows applications/games                                                often easier to use Lutris install scripts for wine applications/games
   nixpgs                                       Linux games                                                               There are several games in nixpgs. You can install them directly, e.g. vintagestory, flightgear, lots of racing games.
   [Dosbox](Dosbox "wikilink")                  DOS applications/games                                                    

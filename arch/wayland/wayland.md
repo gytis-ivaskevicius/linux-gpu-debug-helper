@@ -317,14 +317,6 @@ This might be necessary for some proprietary applications that do not use the sy
 `{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
 available.[8](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 
-```{=mediawiki}
-{{Accuracy|This feels wrong or outdated. I do not know about other potential applications, but KeepassXC does not need any of this to minimize to tray properly under Sway}}
-```
-On some compositors, for example [sway](sway "wikilink"), Qt applications running natively might have missing
-functionality. For example, [KeepassXC](https://keepassxc.org) will be unable to minimize to tray. This can be solved by
-installing `{{Pkg|qt5ct}}`{=mediawiki} and setting `{{ic|1=QT_QPA_PLATFORMTHEME=qt5ct}}`{=mediawiki} before running the
-application.
-
 Due to the [Incorrect sizing and bad text rendering with WebEngine using fractional scaling on
 Wayland](https://bugreports.qt.io/browse/QTBUG-113574) Qt WebEngine bug, applications using Qt WebEngine, for example
 [Calibre](https://bugs.launchpad.net/calibre/+bug/2018658), may display jagged fonts. A workaround is launching the

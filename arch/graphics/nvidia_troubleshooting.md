@@ -476,6 +476,9 @@ Then [enable](enable "wikilink")/[start](start "wikilink") `{{ic|nvidia-clocks.s
 
 ### Flickering with compositor under X11 (nvidia-open) {#flickering_with_compositor_under_x11_nvidia_open}
 
+```{=mediawiki}
+{{Remove|The release of [https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/b314b7b3873c7dbe66e2b68fed7773e7f8e58267 nvidia-utils 595.58.3-1] on 24-Mar-2026 fixed this issue.}}
+```
 Versions of `{{Pkg|nvidia-open}}`{=mediawiki} tracking the 590.x version introduced a regression in the GLX vblank path
 that causes window flickering when a compositor is active under X11. This affects xfwm4, and potentially other
 compositors relying on GLX for vertical sync.

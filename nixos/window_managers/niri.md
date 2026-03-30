@@ -53,6 +53,26 @@ file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl) des
 
 See [the wiki](https://yalter.github.io/niri/) for configuration options for niri.
 
+### Greetd
+
+You can start \`niri\` with greetd configuration:
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|3=
+programs.niri.enable = true;
+
+services.greetd = {
+  enable = true;
+  settings = {
+    default_session = {
+      command = "${config.programs.niri.package}/bin/niri-session";
+      user = "myuser";
+    };
+  };
+};
+
+}}
+```
 ## Additional Setup {#additional_setup}
 
 As described in [Example systemd Setup (niri wiki)](https://github.com/YaLTeR/niri/wiki/Example-systemd-Setup), you

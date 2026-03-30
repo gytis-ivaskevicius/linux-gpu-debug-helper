@@ -613,21 +613,22 @@ resume. Quoting NVIDIA:
 
 The \"still experimental\" interface enables saving all video memory (given enough space on disk or RAM).
 
-To save and restore all video memory contents, `{{ic|1=NVreg_PreserveVideoMemoryAllocations=1}}`{=mediawiki} [kernel
-module parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia}}`{=mediawiki} kernel module needs to be set.
-While NVIDIA does not set this by default, Arch Linux does so for the supported drivers, making preserve work out of the
-box.
+To save and restore all video memory contents, `{{ic|1=NVreg_UseKernelSuspendNotifiers=1
+}}`{=mediawiki} [kernel module parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia}}`{=mediawiki} kernel
+module needs to be set. While NVIDIA does not set this by default, Arch Linux does so for the supported drivers, making
+preserve work out of the box.
 
-To verify that `{{ic|NVreg_PreserveVideoMemoryAllocations}}`{=mediawiki} is enabled, execute the following:
+To verify that `{{ic|NVreg_UseKernelSuspendNotifiers}}`{=mediawiki} is enabled, execute the following:
 
 `# sort /proc/driver/nvidia/params`
 
-Which should have a line `{{ic|PreserveVideoMemoryAllocations: 1}}`{=mediawiki}, and also
+Which should have a line `{{ic|UseKernelSuspendNotifiers: 1}}`{=mediawiki}, and also
 `{{ic|TemporaryFilePath: "/var/tmp"}}`{=mediawiki}, which you can read about below.
 
-Necessary services `{{ic|nvidia-suspend.service}}`{=mediawiki}, `{{ic|nvidia-hibernate.service}}`{=mediawiki}, and
-`{{ic|nvidia-resume.service}}`{=mediawiki} are [enabled](enabled "wikilink") by default on supported drivers, as per
-upstream requirements.
+Services `{{ic|nvidia-suspend.service}}`{=mediawiki}, `{{ic|nvidia-hibernate.service}}`{=mediawiki}, and
+`{{ic|nvidia-resume.service}}`{=mediawiki} are [disabled](disabled "wikilink") by default on supported drivers, as per
+upstream requirements. With 595+ open kernel modules, video memory preservation is handled by kernel suspend notifiers,
+making the nvidia suspend/hibernate services unnecessary.
 
 See [NVIDIA\'s documentation](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/powermanagement.html) for
 more details.
@@ -638,7 +639,6 @@ more details.
 * As per [[Kernel module#Using modprobe.d]], you will need to [[regenerate the initramfs]] if using early KMS.
 * The video memory contents are by upstream default saved to {{ic|/tmp}}, which is a [[tmpfs]]. [https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/powermanagement.html#PreserveAllVide719f0 NVIDIA recommends] using an other filesystem to achieve the best performance. This is also required if the size is not sufficient for the amount of memory. Arch Linux thus sets {{ic|1=nvidia.NVreg_TemporaryFilePath=/var/tmp}} by default on supported drivers.
 * The chosen file system containing the file needs to support unnamed temporary files (e.g. ext4 or XFS) and have sufficient capacity for storing the video memory allocations (i.e. at least 5 percent more than the sum of the memory capacities of all NVIDIA GPUs). Use the command {{ic|1=nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits}} to list the memory capacities of all GPUs in the system.
-* While {{ic|nvidia-resume.service}} is marked as required by NVIDIA, it can be optional, as its functionality is also provided by a {{man|8|systemd-sleep}} hook ({{ic|/usr/lib/systemd/system-sleep/nvidia}}) and the latter is invoked automatically. Note that [https://gitlab.gnome.org/GNOME/gdm/-/issues/784 GDM with Wayland] however explicitly requires {{ic|nvidia-resume.service}} to be enabled.
 }}
 ```
 ## Dynamic Boost {#dynamic_boost}

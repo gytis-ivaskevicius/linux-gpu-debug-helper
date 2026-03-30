@@ -46,30 +46,22 @@ NVIDIA\'s raytracing implementation for Linux is pretty much on par with Windows
 hardware and the correct drivers RTX works well on Linux.
 
 -   **GPU** - Any card with the RTX moniker (RTX 2060+, RTX 3050+, RTX 4050+)
--   **Driver** - `{{Pkg|nvidia-open}}`{=mediawiki} with `{{Pkg|nvidia-utils}}`{=mediawiki} and
-    `{{Pkg|nvidia-settings}}`{=mediawiki} (with their lib32 variants)
-
-### Usage {#usage_2}
-
-Some outdated guides still recommend setting the following [environment variables](environment_variables "wikilink")
-manually:
-
-`VKD3D_CONFIG=dxr11,dxr`\
-`PROTON_ENABLE_NVAPI=1`\
-`PROTON_ENABLE_NGX_UPDATER=1`
-
-Starting with Proton 8/9 and vkd3d-proton ≥ 2.11, these flags are no longer required: everything is now enabled by
-default.
-
-To use ray tracing or DLSS in compatible games:
-
--   Use a recent Proton version (8.x, 9.x, or Proton Experimental).
--   Ensure your system has an RTX 20/30/40 series GPU with appropriate NVIDIA drivers (≥ 510.60.02).
--   No additional environment variables are necessary.
+-   **Driver** - *nvidia* or `{{Pkg|nvidia-open}}`{=mediawiki} with `{{Pkg|nvidia-utils}}`{=mediawiki} and
+    `{{Pkg|nvidia-settings}}`{=mediawiki} (with their lib32 variants). Driver version 510.60.02 or newer.
 
 ```{=mediawiki}
-{{Note|This configuration will enable support for both Deep Learning Super Sampling and RTX.}}
+{{Note| Some outdated guides still recommend setting the following [[environment variables]] manually:
+
+ VKD3D_CONFIG{{=}}
 ```
+dxr11,dxr
+
+`PROTON_ENABLE_NVAPI{{=}}1`\
+`PROTON_ENABLE_NGX_UPDATER{{=}}1`
+
+Starting with Proton 8/9 and vkd3d-proton ≥ 2.11, these flags are no longer required: everything is now enabled by
+default.}}
+
 ## Testing
 
 [Install](Install "wikilink") the package `{{aur|raytracinginvulkan-git}}`{=mediawiki} then from a terminal run:

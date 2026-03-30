@@ -99,13 +99,13 @@ configuration](/Tips_and_tricks#Making_flags_persistent "wikilink") if your syst
 * There is no official support from Chromium or Arch Linux for this feature [https://chromium.googlesource.com/chromium/src/+/master/docs/gpu/vaapi.md#vaapi-on-linux]. However, {{Pkg|chromium}} from official repositories is compiled with VA-API support and you may ask for help in [https://bbs.archlinux.org/viewtopic.php?id=244031 the dedicated forum thread].
 * Since Chromium version 122, an extra [[VA-API]] package is no longer needed. VA-API works when using the native Wayland backend with the {{Pkg|chromium}} package from official repositories.
 * Chromium 116 dropped support for Intel iGPUs using {{Pkg|libva-intel-driver}}. To have working h264 acceleration, {{AUR|libva-intel-driver-irql}} is required.
-* On AMD GPU devices, VA-API [https://crbug.com/1445074 does not work out of the box] and requires mesa >= 24.1 as well as [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/26165 enabling Vulkan]. This may cause issues with WebGL under X11/XWayland. Vulkan with [[#Native Wayland support]] works since version 125.0.6422.141-1.
 * When trying to find the correct combination of flags in {{ic|chromium-flags.conf}}, note that this file should contain at most one line starting with {{ic|--enable-features}} and {{ic|--disable-features}}. Multiple features must be concatenated with commas.
 }}
 ```
 If you have confirmed working VA-API support by checking the output of `{{ic|1=vainfo}}`{=mediawiki} (see [Hardware
-video acceleration#Verifying VA-API](Hardware_video_acceleration#Verifying_VA-API "wikilink")), you might first try the
-following flag alone:
+video acceleration#Verifying VA-API](Hardware_video_acceleration#Verifying_VA-API "wikilink")), since Chromium 143
+hardware acceleration via VA-API should work out of box. On older Chromium versions you might first try the following
+flag alone:
 
 ```{=mediawiki}
 {{hc|~/.config/chromium-flags.conf|
@@ -115,7 +115,7 @@ AcceleratedVideoDecodeLinuxGL }}
 
 ```{=mediawiki}
 {{Note|
-* When using EGL/Wayland, using {{ic|--enable-features{{=}}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL}}
+* When using EGL/Wayland and Chromium versions prior to 143, using {{ic|--enable-features{{=}}AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL}}
 ```
 instead of the above flag may improve performance.
 

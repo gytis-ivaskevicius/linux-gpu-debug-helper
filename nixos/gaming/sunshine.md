@@ -32,6 +32,12 @@ Simply press the button that says `Add Host Manually`, from there you will need 
 If this doesn't work you should double check the port in the Sunshine's WebGUI. You can access this from the Host PC in
 a web browser [`https://localhost:47990`](https://localhost:47990)
 
+## Limitations
+
+At the time of writing Sunshine is unable to wake sleeping display[^1] (e.g. when screen is locked), which makes
+impossible to connect to the main session of your host PC. Can be somehow avoided by creating a virtual display and
+running Sunshine through it.
+
 ## Troubleshooting
 
 ### Running Steam Big Picture on Wayland {#running_steam_big_picture_on_wayland}
@@ -40,7 +46,7 @@ While using Wayland on non-wlroots compositors, [you need to
 have](https://docs.lizardbyte.dev/projects/sunshine/latest/md_docs_2getting__started.html) `capSysAdmin = true;` in
 Sunshine config for KMS to capture screen properly. But this parameter breaks any custom applications that should be
 started from your main user, not super-user. To avoid such issues, you need to prepend all needed commands with
-`sudo -u ``<username>`{=html} [^1]:
+`sudo -u ``<username>`{=html} [^2]:
 
 Before:
 
@@ -80,4 +86,6 @@ After:
 
 [Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
 
-[^1]: <https://discourse.nixos.org/t/give-user-cap-sys-admin-p-capabillity/62611/3?u=dmchmk>
+[^1]: <https://github.com/orgs/LizardByte/discussions/439>
+
+[^2]: <https://discourse.nixos.org/t/give-user-cap-sys-admin-p-capabillity/62611/3?u=dmchmk>
