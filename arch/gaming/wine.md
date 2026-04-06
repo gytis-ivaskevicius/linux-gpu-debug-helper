@@ -83,7 +83,7 @@ contain important configurations or data) and use separate prefixes for programs
 use the [#WINEPREFIX](#WINEPREFIX "wikilink") environment variable to control which prefix the verbs act on.
 
 Determining the verbs required by a program needs can require much trial and error. See the [Bottles dependency
-page](https://usebottles.com/database/dependencies/) for some of the more common dependencies, as well as the following
+page](https://usebottles.com/database) for some of the more common dependencies, as well as the following
 program-specific resources:
 
 -   [Wine Application Database](https://appdb.winehq.org/). Official resource, but old and may be less maintained than

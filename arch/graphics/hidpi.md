@@ -244,6 +244,12 @@ Has good support out of the box.
 For E18, go to the E Setting panel. In *Look \> Scaling*, you can control the UI scaling ratios. A ratio of 1.2 seems to
 work well for the native resolution of the MacBook Pro 15\" screen.
 
+### LXDE
+
+In general, the generic [X Server](#X_Server "wikilink") settings apply. To change the size of the mouse cursor, edit
+the file `{{ic|~/.config/lxsession/LXDE/desktop.conf}}`{=mediawiki} and change the value of
+`{{ic|iGtk/CursorThemeSize}}`{=mediawiki}.
+
 ## Wayland compositors {#wayland_compositors}
 
 ### Sway

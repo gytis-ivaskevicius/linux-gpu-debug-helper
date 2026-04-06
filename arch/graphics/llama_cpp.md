@@ -21,9 +21,14 @@ llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
 
 ```{=mediawiki}
-{{Note|Ensure you have the appropriate [[Vulkan]] driver installed.}}
+{{Note|
+* If you are installing {{AUR|llama.cpp-vulkan}}, ensure you have the appropriate [[Vulkan]] driver installed.
+* The package {{AUR|llama.cpp-cuda}} has been flagged out-of-date since 2025-12-22.
+}}
 ```
 ## Usage
 

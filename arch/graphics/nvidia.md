@@ -171,6 +171,9 @@ the [display manager](display_manager "wikilink")), you can add `{{ic|nvidia}}`{
 initramfs. See [Kernel module#Early module loading](Kernel_module#Early_module_loading "wikilink") to learn how to
 configure your initramfs generator.
 
+```{=mediawiki}
+{{Note|Early loading the modules will break hibernation, as [[/Tips and tricks#Preserve video memory after suspend|video memory preservation]] is enabled by default.}}
+```
 ### Hardware accelerated video decoding {#hardware_accelerated_video_decoding}
 
 Accelerated video decoding with VDPAU is supported on GeForce 8 series cards and newer. Accelerated video decoding with

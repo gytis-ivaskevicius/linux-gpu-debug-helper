@@ -8,8 +8,8 @@ overlay for monitoring system performance while inside applications and to recor
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|mangohud}}`{=mediawiki} package. Optionally, install
-`{{Pkg|lib32-mangohud}}`{=mediawiki} if you need 32-bit games support.
+[Install](Install "wikilink") `{{Pkg|mangohud}}`{=mediawiki} and `{{Pkg|lib32-mangohud}}`{=mediawiki} since many old
+games are 32-bit-only.
 
 ## Configuration
 
@@ -51,30 +51,45 @@ A GUI for configuring MangoHud can be installed from `{{Pkg|goverlay}}`{=mediawi
 
 The default keyboard shortcuts include:
 
-+-------------------+-------------------------+
-| Keyboard Shortcut | Description             |
-+===================+=========================+
-| ```{=mediawiki}   | Toggle overlay          |
-| {{ic|RShift+F12}} |                         |
-| ```               |                         |
-+-------------------+-------------------------+
-| ```{=mediawiki}   | Change overlay position |
-| {{ic|RShift+F11}} |                         |
-| ```               |                         |
-+-------------------+-------------------------+
-| ```{=mediawiki}   | Toggle preset           |
-| {{ic|RShift+F10}} |                         |
-| ```               |                         |
-+-------------------+-------------------------+
-| ```{=mediawiki}   | Toggle logging          |
-| {{ic|LShift+F2}}  |                         |
-| ```               |                         |
-+-------------------+-------------------------+
-| ```{=mediawiki}   | Reload config           |
-| {{ic|LShift+F4}}  |                         |
-| ```               |                         |
-+-------------------+-------------------------+
++--------------------+-------------------------------+
+| Keyboard shortcut  | Description                   |
++====================+===============================+
+| ```{=mediawiki}    | Toggle overlay (HUD)          |
+| {{ic|Shift_R+F12}} |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Toggle overlay (HUD) position |
+| {{ic|Shift_R+F11}} |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Toggle preset                 |
+| {{ic|Shift_R+F10}} |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Toggle FPS limit              |
+| {{ic|Shift_L+F1}}  |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Toggle logging                |
+| {{ic|Shift_L+F2}}  |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Reload configuration          |
+| {{ic|Shift_L+F4}}  |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Upload log file               |
+| {{ic|Shift_L+F3}}  |                               |
+| ```                |                               |
++--------------------+-------------------------------+
+| ```{=mediawiki}    | Reset FPS metrics             |
+| {{ic|Shift_R+F9}}  |                               |
+| ```                |                               |
++--------------------+-------------------------------+
 
+```{=mediawiki}
+{{Note|Keyboard shortcut values are transcribed as used in the [https://github.com/flightlessmango/MangoHud/blob/master/data/MangoHud.conf upstream's configuration file].}}
+```
 ### Test configuration {#test_configuration}
 
 Verify if the program has been setup correctly:
@@ -88,12 +103,22 @@ To run a game with MangoHud start it like this:
 
 `$ mangohud `*`game`*
 
-#### Dynamic hooking {#dynamic_hooking}
+#### Dynamic hooking for OpenGL applications {#dynamic_hooking_for_opengl_applications}
 
-Certain applications may require a special type of hooking, which can be specified via the `{{ic|--dlsym}}`{=mediawiki}
-parameter or the `{{ic|MANGOHUD_DLSYM}}`{=mediawiki} [environment variable](environment_variable "wikilink"):
+The `{{ic|dlsym}}`{=mediawiki} hook is enabled by default for OpenGL applications. Set the [environment
+variable](environment_variable "wikilink") `{{ic|MANGOHUD_DLSYM{{=}}`{=mediawiki}0}} to disable it in case of problems,
+like so:
 
-`$ mangohud --dlsym `*`game`*
+`$ MANGOHUD_DLSYM{{=}}0 `*`game`*
+
+```{=mediawiki}
+{{Note|For Steam launch options, use the following instead:
+
+ MANGOHUD_DLSYM{{=}}
+```
+0 %command%
+
+}}
 
 #### Use with GameMode {#use_with_gamemode}
 
@@ -102,19 +127,19 @@ this:
 
 `$ mangohud gamemoderun `*`game`*
 
-### Run a single steam game {#run_a_single_steam_game}
+### Run a single Steam game {#run_a_single_steam_game}
 
 To make [Steam](Steam "wikilink") start a game with MangoHud, right click the game in the *Library*, select
 *Properties\...*, then in the *Launch Options* text box enter:
 
 `mangohud %command%`
 
-#### Run a single steam game with GameMode enabled too {#run_a_single_steam_game_with_gamemode_enabled_too}
+#### Run a single Steam game with GameMode enabled too {#run_a_single_steam_game_with_gamemode_enabled_too}
 
 Same as for enabling [Steam](Steam "wikilink") game to run with Mangohud but also with option to use it alongside
 GameMode
 
-`mangoud gamemoderun %command%`
+`mangohud gamemoderun %command%`
 
 ### Run Steam with MangoHud {#run_steam_with_mangohud}
 
@@ -130,5 +155,14 @@ To make MangoHud automatically launch with all [Vulkan](Vulkan "wikilink") games
 [environment variable](environment_variable "wikilink"):
 
 `MANGOHUD=1`
+
+## Troubleshooting
+
+### MangoHUD does not work with native OpenGL Linux applications {#mangohud_does_not_work_with_native_opengl_linux_applications}
+
+Some Linux native OpenGL applications override `{{ic|LD_PRELOAD}}`{=mediawiki}, preventing MangoHUD from loading.
+Sometimes, it\'s possible to edit the app\'s start script to include the path to MangoHUD\'s files, like so:
+
+`LD_PRELOAD{{=}}/usr/lib/mangohud/`
 
 [Category:Gaming](Category:Gaming "wikilink")

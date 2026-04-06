@@ -332,11 +332,10 @@ using Flakes). After that, create a bug report.
 
 ### Steam is not updated {#steam_is_not_updated}
 
-When you restart `<tvar name=steam>`{=html}[Steam](Special:MyLanguage/Steam "wikilink")`</tvar>`{=html} after an update,
-it starts the old version. ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the
-user files in `/home/<USER>/.local/share/Steam/userdata`. This can be done with
-`rm -rf /home/<USER>/.local/share/Steam/userdata` in the terminal or with your file manager. After that, Steam can be
-set up again by restarting.
+When you restart Steam after an update, it starts the old version.
+([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
+`/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
+the terminal or with your file manager. After that, Steam can be set up again by restarting.
 
 ### Game fails to start {#game_fails_to_start}
 

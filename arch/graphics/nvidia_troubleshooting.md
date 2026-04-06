@@ -711,7 +711,7 @@ Example to set fan speed to fixed 21%:
 Example to set multiple variables at once (overclock GPU by 50MHz, overclock video memory by 50MHz, increase GPU voltage
 by 100mV):
 
-` nvidia-settings -a GPUGraphicsClockOffsetAllPerformanceLevels=50 -a GPUMemoryTransferRateOffsetGPUGraphicsClockOffsetAllPerformanceLevels=50 -a GPUOverVoltageOffset=100`
+` nvidia-settings -a GPUGraphicsClockOffsetAllPerformanceLevels=50 -a GPUMemoryTransferRateOffsetAllPerformanceLevels=50 -a GPUOverVoltageOffset=100`
 
 ### Overclocking not working with Unknown Error {#overclocking_not_working_with_unknown_error}
 

@@ -6,7 +6,7 @@
 | developer = Discord Inc.
 | website = https://discord.com/
 | platform = Cross-platform (Linux, macOS, Windows, Web)
-| github = https://github.com/discord
+| github = discord
 }}
 ```
 Discord is an instant messaging and VoIP application with lots of functionality. It provides a web interface, though

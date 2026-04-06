@@ -7,7 +7,8 @@ request a set of optimisations be temporarily applied to the host OS and/or a ga
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|gamemode}}`{=mediawiki} and `{{Pkg|lib32-gamemode}}`{=mediawiki}.
+[Install](Install "wikilink") `{{Pkg|gamemode}}`{=mediawiki} and `{{Pkg|lib32-gamemode}}`{=mediawiki} since many old
+games are 32-bit-only.
 
 Add yourself to the `{{ic|gamemode}}`{=mediawiki} [user group](user_group "wikilink"). Without it, the GameMode user
 daemon will not have rights to change CPU governor or the niceness of processes.
@@ -124,12 +125,12 @@ when a game is opened.
 ### Renicing fails when set to less than -10 {#renicing_fails_when_set_to_less_than__10}
 
 By default, GameMode provides [PAM](PAM "wikilink") limits that allow changing the scheduling priority up to a maximum
-of -10. If the `{{ic|renice}}`{=mediawiki} setting in the configuration file is set to an unsupported value, renicing of
-the process will fail entirely.
+of `{{ic|-10}}`{=mediawiki}. If the `{{ic|renice}}`{=mediawiki} setting in the configuration file is set to an
+unsupported value, renicing of the process will fail entirely.
 
 You can adjust the requested value or adjust the maximum scheduling priority GameMode can set by editing
-`{{ic|/etc/security/limits.d/10-gamemode.conf}}`{=mediawiki}. The example below configures -19 as the maximum scheduling
-priority GameMode can set:
+`{{ic|/etc/security/limits.d/10-gamemode.conf}}`{=mediawiki}. The example below configures `{{ic|-19}}`{=mediawiki} as
+the maximum scheduling priority GameMode can set:
 
 ```{=mediawiki}
 {{hc|/etc/security/limits.d/10-gamemode.conf|2=
