@@ -938,10 +938,10 @@ info](https://www.bufferbloat.net/projects/bloat/wiki/What_can_I_do_about_Buffer
 [Here](https://www.bufferbloat.net/projects/bloat/wiki/Tests_for_Bufferbloat/) are some easy ways to test for network
 buffer bloat.
 
-### Improve PCI Express Latencies {#improve_pci_express_latencies}
+### Improve PCI Latencies {#improve_pci_latencies}
 
-Change the PCI Express Latencies similar to CachyOS
-[19](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/pci-latency). Reduce the maximum cycles a PCI-E
+Change the PCI Latencies similar to CachyOS
+[19](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/pci-latency). Reduce the maximum cycles a PCI
 Client can occupy the bus, except for sound cards [20](https://maximum-tech.net/what-is-pci-latency-timer/). Note that
 these settings are in conflict with [Professional audio#Optimizing system
 configuration](Professional_audio#Optimizing_system_configuration "wikilink").

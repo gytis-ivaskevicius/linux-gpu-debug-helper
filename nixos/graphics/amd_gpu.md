@@ -99,23 +99,32 @@ Most software has the HIP libraries hard-coded. You can work around it on NixOS 
   ];
 ```
 
-#### Blender
+### Enabling ROCm & HIP For Packages {#enabling_rocm_hip_for_packages}
 
-Hardware accelerated rendering can be achieved by using the package
+Whether or not a package is built with ROCm support is controlled by the `rocmSupport` nixpkgs config variable. As HIP
+is a component of ROCm, anything that needs HIP support (e.g. Blender) gets that enabled through `rocmSupport` too.
 
-``` nix
-blender-hip
-```
-
-.
-
-Currently, you need to [use the latest kernel](Linux_kernel "wikilink") for
+You can set it globally with this line
 
 ``` nix
-blender-hip
+nixpkgs.config.rocmSupport = true;
 ```
 
-to work.
+Or override specific packages
+
+``` nix
+environment.systemPackages = with pkgs; [
+(ffmpeg-full.override {config.rocmSupport=true;})
+pkgsRocm.ffmpeg-full # equivalent to (ffmpeg-full.override {config.rocmSupport=true;}) for packages in ROCm Release attrPaths
+];
+```
+
+While most if not all packages that support ROCm should be in the [ROCm Release
+attrPaths](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/rocm-modules/release-attrPaths.json), and
+therefore built by Hydra and cached in cache.nixos.org with `rocmSupport`, enabling it globally still has a slight
+chance of pointless compiling on your machine.
+
+For Blender-specific information on setting up HIP support, see: [Blender#HIP](Blender#HIP "wikilink").
 
 ### OpenCL
 

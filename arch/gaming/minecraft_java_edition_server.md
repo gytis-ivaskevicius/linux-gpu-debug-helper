@@ -160,52 +160,44 @@ Be sure to read [#Configuration](#Configuration "wikilink") and replace `{{ic|mi
 
 ### Forge
 
-[Forge](https://minecraftforge.net) is a widely used Minecraft modding API. The following server packages are available:
+[Forge](https://minecraftforge.net) is a widely used Minecraft modding API. The server package can be installed via
+`{{AUR|forge-server}}`{=mediawiki}. Alternatively the AUR also provides packages for older versions of Minecraft:
 
 -   ```{=mediawiki}
-    {{AUR|forge-server}}
+    {{AUR|forge-server-1.19.2}}
     ```
-    for the latest Minecraft version (1.19.x)
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.15.2}}
     ```
-    for Minecraft 1.15.2
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.14.4}}
     ```
-    for Minecraft 1.14.4
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.12.2}}
     ```
-    for Minecraft 1.12.2
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.11.2}}
     ```
-    for Minecraft 1.11.2
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.10.2}}
     ```
-    for Minecraft 1.10.2
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.9.4}}
     ```
-    for Minecraft 1.9.4
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.8.9}}
     ```
-    for Minecraft 1.8.9
 
 -   ```{=mediawiki}
     {{AUR|forge-server-1.7.10}}
     ```
-    for Minecraft 1.7.10
 
 Be sure to read [#Configuration](#Configuration "wikilink") and replace `{{ic|minecraftd}}`{=mediawiki} with
 `{{ic|forged}}`{=mediawiki} (`{{ic|forge-x.x.xd}}`{=mediawiki} for legacy versions) wherever you encounter it.
@@ -243,6 +235,15 @@ port differs from `{{ic|25565}}`{=mediawiki} you must specify the port by append
 hostname or address followed by the port which was allocated to your server, for example if you address was
 `{{ic|43.12.122.96}}`{=mediawiki} and port was `{{ic|28543}}`{=mediawiki} you would connect to
 `{{ic|43.12.122.96:28543}}`{=mediawiki}.
+
+## Troubleshooting
+
+### Logs
+
+If *systemctl* fails to start the service, inspect the *screen* logs at
+`{{ic|/tmp/spigot_spigot_command_dump.txt}}`{=mediawiki}.
+
+[Journal](Journal "wikilink") logs are under `{{ic|spigot.service}}`{=mediawiki}.
 
 ## See also {#see_also}
 

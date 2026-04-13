@@ -3,8 +3,17 @@ Laboratory and published by Nintendo.
 
 ## Slippi
 
-You can use the [slippi-nix](https://github.com/lytedev/slippi-nix)flake to declaratively install and configure Slippi
+You can use the [slippi-nix](https://github.com/lytedev/slippi-nix) flake to declaratively install and configure Slippi
 with Nix, or get the AppImage directly from [Slippi\'s website](https://slippi.gg/).
+
+If you are using the AppImage, to run Slippi Online or Slippi Playback you will need `libcurl.so.4` to be in your
+[appimage-run](Appimage#Run "wikilink") packages. This can be easily added through a package like `curlMinimal`.
+
+``` nix
+  programs.appimage.package = pkgs.appimage-run.override { extraPkgs = pkgs: [
+    pkgs.curlMinimal.out
+  ];};
+```
 
 ## B0XX Emulation {#b0xx_emulation}
 

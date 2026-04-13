@@ -195,7 +195,7 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
     [3](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
 
 ```{=mediawiki}
-{{Tip|You can also easily install the aforementioned wine builds to Lutris, Bottles, or Steam using {{aur|protonup-qt}}.}}
+{{Tip|You can also easily install the aforementioned wine builds to Lutris, Bottles, or Steam using {{aur|protonup-qt}} or {{aur|protonplus}}.}}
 ```
 #### With Gamescope {#with_gamescope}
 

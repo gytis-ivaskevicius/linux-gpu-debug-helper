@@ -5,38 +5,35 @@
 creative, developed by Mojang Studios.[^1] [Minecraft](https://www.minecraft.net/about-minecraft) currently has two
 supported variants known as:
 
--   Minecraft: Java Edition is only available on Windows, MacOS and Linux and is known for modding.
--   Minecraft: Bedrock Edition is available on Windows, Xbox One, Xbox Series S and X, PlayStation 4 and 5, Nintendo
-    Switch, Android, iOS. Bedrock is not playable on Linux due to UWP applications not being supported on Linux.[^2][^3]
+-   **Minecraft: Java Edition**, which is only available on Windows, MacOS, and Linux, and is known for modding.
+-   **Minecraft: Bedrock Edition**, which is available on Windows, Xbox One, Xbox Series S and X, PlayStation 4 and 5,
+    Nintendo Switch, Android, and iOS. Bedrock is not playable on Linux due to UWP applications not being supported on
+    Linux.[^2][^3]
 
 ## Launchers
 
-**Offical Minecraft Launcher:** [Website](https://www.minecraft.net/download) ---
-[Package/pkgs.minecraft](https://search.nixos.org/packages?show=minecraft)
-`{{warning|1.19 or higher is not working on NixOS, using alternative clients is strongly recommended.}}`{=mediawiki}
+**Official Minecraft Launcher:** [Website](https://www.minecraft.net/download) ---
+`{{nixos:package|minecraft}}`{=mediawiki}
+`{{warning|1.19 and higher does not work on NixOS, using alternative clients is strongly recommended.}}`{=mediawiki}
 
 **[Prism Launcher](Prism_Launcher "wikilink"):** A free, open source launcher. [Website](https://prismlauncher.org/) ---
-[Package/pkgs.prismlauncher](https://search.nixos.org/packages?show=prismlauncher)
+`{{nixos:package|prismlauncher}}`{=mediawiki}
 
 **ATLauncher:** A simple and easy to use Minecraft launcher which contains many different modpacks for you to choose
-from and play. [Website](https://atlauncher.com/about) ---
-[Package/pkgs.atlauncher](https://search.nixos.org/packages?show=atlauncher)
+from and play. [Website](https://atlauncher.com/about) --- `{{nixos:package|atlauncher}}`{=mediawiki}
 
-**Badlion Client:** A closed source PvP Modpack. [Website](https://www.badlion.net/) ---
-[Package/pkgs.badlion-client](https://search.nixos.org/packages?show=badlion-client)
+**Badlion Client:** A closed source PvP modpack. [Website](https://www.badlion.net/) ---
+`{{nixos:package|badlion-client}}`{=mediawiki}
 
 **Lunar Client:** A free Minecraft client with mods, cosmetics, and performance boost.
-[Website](https://www.lunarclient.com/) ---
-[Package/pkgs.lunar-client](https://search.nixos.org/packages?show=lunar-client)
+[Website](https://www.lunarclient.com/) --- `{{nixos:package|lunar-client}}`{=mediawiki}
 
-**hmcl:** A Minecraft Launcher which is multi-functional, cross-platform and popular.
-[Website](https://hmcl.huangyuhui.net/) --- [Package/pkgs.hmcl](https://search.nixos.org/packages?show=hmcl)
+**[HMCL](HMCL "wikilink"):** A Minecraft Launcher which is multi-functional, cross-platform and popular.
+[Website](https://hmcl.huangyuhui.net/) --- `{{nixos:package|hmcl}}`{=mediawiki}
 
 ## Installation
 
-Your preferred client can be either imperatively installed by typing `nix-env -iA nixos.``<LAUNCHER>`{=html} or
-`nix profile install nixpkgs#``<LAUNCHER>`{=html} if [Flakes](Flakes "wikilink") are enabled. Preferably, install the
-package declaratively and globally by typing
+Your preferred client can be installed by adding the package to your configuration:
 
 ``` nix
 environment.systemPackages = [
@@ -45,7 +42,9 @@ environment.systemPackages = [
 ```
 
 Alternatively, the package can be installed per-user with `users.users.``<USER>`{=html}`.packages` or
-[home-manager](Home_Manager "wikilink"). For nix native, use:
+[home-manager](Home_Manager "wikilink").
+
+For a NixOS configuration, use:
 
 ``` nix
 users.users.<USER>.packages = [
@@ -60,6 +59,9 @@ home.packages = [
   pkgs.<LAUNCHER>
 ];
 ```
+
+Alternatively, it can be imperatively installed by running `nix-env -iA nixos.``<LAUNCHER>`{=html} or
+`nix profile install nixpkgs#``<LAUNCHER>`{=html} if [Flakes](Flakes "wikilink") are enabled.
 
 ## Troubleshooting
 
@@ -102,6 +104,15 @@ Different Minecraft versions need different [Java](Java "wikilink") versions
 It is possible that you are attempting to start a version of Minecraft that is 1.19 or higher. **Unfortunately, this is
 broken on NixOS**. It is strongly recommended to use alternative launchers.\'\'\'
 
+## See Also {#see_also}
+
+-   [Minecraft on Arch Wiki](https://wiki.archlinux.org/title/Minecraft)
+
+## References
+
+```{=mediawiki}
+{{Reflist}}
+```
 [Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")
 
 [^1]: [<https://www.minecraft.net/about-minecraft>](https://www.minecraft.net/en-us/about-minecraft)

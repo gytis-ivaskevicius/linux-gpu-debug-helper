@@ -83,7 +83,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|wayfire|3D compositor inspired by [[Compiz]] and based on wlroots.|https://wayfire.org/|{{AUR|wayfire}}}}
+    {{App|wayfire|3D compositor inspired by [[Compiz]] and based on wlroots.|https://wayfire.org/|{{Pkg|wayfire}}}}
     ```
 
 -   ```{=mediawiki}
@@ -560,8 +560,7 @@ normal.
 -   ```{=mediawiki}
     {{Pkg|waypipe}}
     ```
-    (or `{{AUR|waypipe-git}}`{=mediawiki}) is a transparent proxy for Wayland applications, with a wrapper command to
-    run over [SSH](SSH "wikilink")
+    is a transparent proxy for Wayland applications, with a wrapper command to run over [SSH](SSH "wikilink")
 
     -   Here is an example for launching a remote KDE kcalc under Plasma:
 
@@ -571,7 +570,7 @@ normal.
         {{bc|1=$ waypipe ssh example.local env QT_QPA_PLATFORM=wayland QT_QPA_PLATFORMTHEME=KDE dbus-launch kcalc}}
         ```
 
-### Input grabbing in games, remote desktop and VM windows {#input_grabbing_in_games_remote_desktop_and_vm_windows}
+### Input grabbing in games, remote desktop and virtual machine windows {#input_grabbing_in_games_remote_desktop_and_virtual_machine_windows}
 
 In contrast to Xorg, Wayland does not allow exclusive input device grabbing, also known as active or explicit grab (e.g.
 [keyboard](https://tronche.com/gui/x/xlib/input/XGrabKeyboard.html),

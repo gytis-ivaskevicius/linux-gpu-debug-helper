@@ -612,27 +612,29 @@ resume. Quoting NVIDIA:
     power management cycles.
 
 Introduced as an \"experimental\" interface (originally named `{{ic|NVreg_PreserveVideoMemoryAllocations}}`{=mediawiki}
-in the 430-590 series drivers), it enables saving all video memory (given enough space on disk or RAM).
+in the 430-590 series drivers), it enables saving all video memory (given enough space on disk or RAM). With 595+
+drivers, it has been succeeded by the `{{ic|1=NVreg_UseKernelSuspendNotifiers=1
+}}`{=mediawiki} [kernel module parameter](kernel_module_parameter "wikilink") which needs to be set to save and restore
+all video memory contents.
 
-To save and restore all video memory contents, the `{{ic|1=NVreg_UseKernelSuspendNotifiers=1
-}}`{=mediawiki} [kernel module parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia}}`{=mediawiki} kernel
-module needs to be set. While NVIDIA does not set this by default, Arch Linux does so for the supported drivers, making
-preserve work out of the box.
+While NVIDIA does not set these by default, Arch Linux does so for the supported drivers, making preserve work out of
+the box.
 
 To verify that `{{ic|NVreg_UseKernelSuspendNotifiers}}`{=mediawiki} is enabled, execute the following:
 
 `# sort /proc/driver/nvidia/params`
 
 Which should have a line `{{ic|UseKernelSuspendNotifiers: 1}}`{=mediawiki}, and also
-`{{ic|TemporaryFilePath: "/var/tmp"}}`{=mediawiki}, which you can read about below.
+`{{ic|TemporaryFilePath: "/var/tmp"}}`{=mediawiki}, which you can read about below. Drivers prior 595, should have a
+line `{{ic|PreserveVideoMemoryAllocations: 1}}`{=mediawiki} for the same.
 
-Services `{{ic|nvidia-suspend.service}}`{=mediawiki}, `{{ic|nvidia-hibernate.service}}`{=mediawiki}, and
-`{{ic|nvidia-resume.service}}`{=mediawiki} are [disabled](disabled "wikilink") by default on supported drivers, as per
-upstream requirements. With 595+ open kernel modules, video memory preservation is handled by kernel suspend notifiers,
-making the nvidia suspend/hibernate services unnecessary.
+In the older 430-590 series drivers, the services `{{ic|nvidia-suspend.service}}`{=mediawiki},
+`{{ic|nvidia-hibernate.service}}`{=mediawiki}, and `{{ic|nvidia-resume.service}}`{=mediawiki} are required and
+[enabled](enabled "wikilink") by default, as per upstream requirements.
 
-In the older 430-590 series drivers, these services are [enabled](enabled "wikilink") by default, as per upstream
-requirements.
+The aforementioned services are [disabled](disabled "wikilink") by default on 595+ drivers, as per upstream
+requirements, as video memory preservation is now handled by kernel suspend notifiers, making the nvidia
+suspend/hibernate services unnecessary.
 
 See [NVIDIA\'s documentation](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/powermanagement.html) for
 more details.

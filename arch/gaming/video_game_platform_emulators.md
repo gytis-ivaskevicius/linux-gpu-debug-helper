@@ -17,7 +17,7 @@ platform or system so as to allow applications and games to be run in environmen
 ## Multi-system {#multi_system}
 
 -   ```{=mediawiki}
-    {{App|ares|Multi-system emulator by Near with experimental Nintendo 64 and PlayStation support.|https://ares-emu.net/|{{AUR|ares-emu}}}}
+    {{App|ares|Multi-system emulator by Near with experimental Nintendo 64 and PlayStation support.|https://ares-emu.net/|{{Pkg|ares-emu}}}}
     ```
 
 -   ```{=mediawiki}
@@ -49,7 +49,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|[[RetroArch]]|Frontend to libretro (emulation library, using modified versions of existing emulators as plugins).|https://www.libretro.com/|{{Pkg|retroarch}}}}
+    {{App|[[RetroArch]]|Frontend to libretro (emulation library, using modified versions of existing emulators as plugins).|https://www.retroarch.com/|{{Pkg|retroarch}}}}
     ```
 
 ## Nintendo

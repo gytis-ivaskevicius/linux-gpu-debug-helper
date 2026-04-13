@@ -55,6 +55,9 @@ UI interface for `{{AUR|mcpelauncher-linux}}`{=mediawiki}.
 
 ### Minecraft Education {#minecraft_education}
 
+```{=mediawiki}
+{{Remove|Since version 1.19.50 (released in 2022), Microsoft authentication no longer works in Wine unless proven otherwise.}}
+```
 [Minecraft Education](https://minecraft.wiki/w/Minecraft_Education) can be used as an alternative way of running
 Minecraft with online features stripped out, since the code is mostly based on the Minecraft for Windows 10 edition
 (i.e. a win32 codebase).
@@ -64,9 +67,6 @@ It can be installed manually and runs fine with [Wine](Wine "wikilink") or [Prot
 Additionally, Minecraft Education can be used as a gateway to Minecraft RTX running on Linux using
 `{{Pkg|vkd3d}}`{=mediawiki} (This is exclusive to the Microsoft store, x64 release of Minecraft Education).
 
-```{=mediawiki}
-{{Note|Since version 1.19.50, Microsoft Authentication no longer works on [[Wine]] within Minecraft Education. This is due to changes in the login procedure.}}
-```
 ## Server
 
 ### Java Edition {#java_edition_1}
@@ -155,7 +155,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|Prism Launcher| Power user launcher with features like mod management. Originally forked from MultiMC, now forked from PolyMC.|https://prismlauncher.org/|{{Pkg|prismlauncher}}, {{AUR|prismlauncher-qt5}}}}
+    {{App|Prism Launcher| Power user launcher with features like mod management. Originally forked from MultiMC, now forked from PolyMC.|https://prismlauncher.org/|{{Pkg|prismlauncher}}}}
     ```
 
 -   ```{=mediawiki}
@@ -210,16 +210,6 @@ hrtf=true
 }}
 ```
 ## Troubleshooting
-
-### Logs
-
-```{=mediawiki}
-{{Merge|Minecraft/Java Edition server|Better fit for the page which talks about the server side.}}
-```
-Screen logs are in `{{ic|/tmp/spigot_spigot_command_dump.txt}}`{=mediawiki} file. If *systemctl* fails to start the
-service, inspect the *screen* logs.
-
-[Journal](Journal "wikilink") logs are under `{{ic|spigot.service}}`{=mediawiki}.
 
 ### Client or server does not start {#client_or_server_does_not_start}
 

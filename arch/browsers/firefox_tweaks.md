@@ -652,21 +652,6 @@ To disable audio post processing, change the value of the following preferences 
 Firefox supports the Fido [U2F](U2F "wikilink") authentication protocol. Install `{{pkg|libfido2}}`{=mediawiki} for the
 required udev rules.
 
-### Get ALSA working back {#get_alsa_working_back}
-
-```{=mediawiki}
-{{Remove|If it works by default, why keep this section?}}
-```
-As long as Arch keeps building Firefox with *ac_add_options \--enable-alsa*, then Firefox works fine without pulse on
-the system, without needing any special configurations, and without apulse (unless using pulse on the system and wanting
-Firefox to avoid using it). It used to be one had to allow ioctl syscalls, blocked by default by Firefox sandboxing, and
-required by ALSA setting `{{ic|security.sandbox.content.syscall_whitelist}}`{=mediawiki} in
-`{{ic|about:config}}`{=mediawiki}, to the right ioctl syscall number, which is *16* for x86-64 and *54* for x86-32, but
-not anymore. For reference, see:
-
-[3](https://www.linuxquestions.org/questions/slackware-14/firefox-in-current-alsa-sound-4175622116)
-[4](https://codelab.wordpress.com/2017/12/11/firefox-drops-alsa-apulse-to-the-rescue)
-
 ### Force-enable WebGL {#force_enable_webgl}
 
 On some platforms WebGL may be [disabled](MozillaWiki:Blocklisting/Blocked_Graphics_Drivers "wikilink") even when the
@@ -678,7 +663,7 @@ libGL error: image driver extension not found
 libGL error: failed to load driver: i915
 libGL error: MESA-LOADER: failed to retrieve device information
 ...}}`{=mediawiki} then you can try the solution explained in Firefox bug 1480755
-[5](https://bugzilla.mozilla.org/show_bug.cgi?id=1480755):
+[3](https://bugzilla.mozilla.org/show_bug.cgi?id=1480755):
 
 Set `{{ic|security.sandbox.content.read_path_whitelist}}`{=mediawiki} to `{{ic|/sys/}}`{=mediawiki}
 
