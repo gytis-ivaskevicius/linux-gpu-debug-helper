@@ -156,12 +156,20 @@ nixpkgs.overlays = [
       })
 ];
 services.xserver.videoDrivers = [ "displaylink" ];
+# only for NixOS 25.05 and earlier
 systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 ```
 
-Note as of [2024-10-30](https://github.com/NixOS/nixpkgs/pull/351752) nixos-unstable sway uses `wlroots_0_18`. The patch
-above applies correctly but you will need to invoke sway with the `--unsupported-gpu` flag.
+Note as of [2024-10-30](https://github.com/NixOS/nixpkgs/pull/351752) nixos-unstable sway uses `wlroots_0_18` and as of
+NixOS 25.11 sway uses `wlroots_0_19`. The patch above applies correctly but you will need to invoke sway with the
+`--unsupported-gpu` flag.
 
+For NixOS 25.11 and later you also will not have to add a dependency on the dlm service but instead use
+`displaylink-server` like KDE Plasma.
+
+You can also test if your setup is working without this service (you will still require the patch for wlroots and sway
+with the `--unsupported-gpu` flag) by invoking the DisplayLinkManager executable (provided by the displaylink package)
+as root. If the setup is working, sway should at this point recognize the new display(s).
 [Source](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1823#note_2146862)
 
 ## Troubleshooting

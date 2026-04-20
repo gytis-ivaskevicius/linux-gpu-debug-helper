@@ -224,9 +224,7 @@ Display managers listed below support launching Wayland compositors.
 | [LightDM](LightDM "wikilink") | Xorg[6](https://g                       | Cross-desktop display manager.          |
 |                               | ithub.com/canonical/lightdm/issues/267) |                                         |
 +-------------------------------+-----------------------------------------+-----------------------------------------+
-| ```{=mediawiki}               | tty                                     | TUI display manager written in Zig      |
-| {{Pkg|ly}}                    |                                         |                                         |
-| ```                           |                                         |                                         |
+| [ly](ly "wikilink")           | tty                                     | TUI display manager written in Zig      |
 +-------------------------------+-----------------------------------------+-----------------------------------------+
 | [SDDM](SDDM "wikilink")       | Wayland/Xorg                            | QML-based display manager.              |
 +-------------------------------+-----------------------------------------+-----------------------------------------+
@@ -251,6 +249,8 @@ package.
 
 Xwayland is started via a compositor, so you should check the documentation for your chosen compositor for Xwayland
 compatibility and instructions on how to start Xwayland.
+
+By default, Xwayland runs its X server in [rootless](Xorg#Rootless_Xorg "wikilink") mode.
 
 ```{=mediawiki}
 {{Note|

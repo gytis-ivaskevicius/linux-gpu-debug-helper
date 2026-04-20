@@ -550,15 +550,6 @@ permanent, for Chromium, you can add it to `{{ic|~/.config/chromium-flags.conf}}
 ```
 To make this work for Chrome, add the same option to `{{ic|~/.config/chrome-flags.conf}}`{=mediawiki} instead.
 
-If you are using Wayland and the setting the above flag doesn\'t seem to work on Chrome (not Chromium), you might need
-to explicitly set the following \'experimental\' settings via accessing the url from the address bar:
-`{{ic|1=chrome://flags/}}`{=mediawiki} ([What are Chrome
-flags?](https://developer.chrome.com/docs/web-platform/chrome-flags)):
-
--   \"Preferred Ozone platform\": \"Wayland\"
--   \"Wayland per-window scaling\": \"Enabled\"
--   \"Wayland UI scaling\": \"Enabled\"
-
 If you use a HiDPI monitor such as Retina display together with another monitor, you can use the
 [reszoom](https://chrome.google.com/webstore/detail/resolution-zoom/enjjhajnmggdgofagbokhmifgnaophmh) extension in order
 to automatically adjust the zoom level for the active screen.

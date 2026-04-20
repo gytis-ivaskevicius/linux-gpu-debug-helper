@@ -212,7 +212,7 @@ different setups.
 ## Separate screens {#separate_screens}
 
 ```{=mediawiki}
-{{Expansion|There's no information on how to set up X server to behave the way described.}}
+{{Expansion|There is no information on how to set up X server to behave the way described.}}
 ```
 This is the original way of configuring multiple monitors with X, and it has been around for decades. Each physical
 monitor is assigned as an X screen, and while you can move the mouse between them, they are more or less independent.

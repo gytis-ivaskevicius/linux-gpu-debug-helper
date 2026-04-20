@@ -294,7 +294,7 @@ different game launchers available for Linux, particularly focusing on their fea
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | `              | GPL-3.0-only   | `              | `              | `              | `              | Epic           |
 | ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
-| {{A            |                | {{Yes}}        | {{No}}         | {{No}}         | {{Yes}}        |                |
+| {{A            |                | {{Yes}}        | {{Yes}}        | {{No}}         | {{Yes}}        |                |
 | UR|legendary}} |                | ```            | ```            | ```            | ```            |                |
 | ```            |                |                |                |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
@@ -319,7 +319,7 @@ different game launchers available for Linux, particularly focusing on their fea
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | `              | GPL-3.0-only   | `              | `              | `              | `              | Epic           |
 | ``{=mediawiki} |                | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |                |
-| {{AUR|rare}}   |                | {{Yes}}        | {{No}}         | {{No}}         | {{Yes}}        |                |
+| {{AUR|rare}}   |                | {{Yes}}        | {{Yes}}        | {{No}}         | {{Yes}}        |                |
 | ```            |                | ```            | ```            | ```            | ```            |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | [Steam](Ste    | Proprietary    | `              | `              | `              | `              | [Proton](Prot  |

@@ -81,7 +81,7 @@ package that automatically issues the correct ACPI calls to disable the discrete
 at boot.
 
 ```{=mediawiki}
-{{Note|bbswitch does not work with the PCI-E port power management method since kernel 4.8. See [[Bumblebee#Broken power management with kernel 4.8]] for details.}}
+{{Note|bbswitch does not work with the PCIe port power management method since kernel 4.8. See [[Bumblebee#Broken power management with kernel 4.8]] for details.}}
 ```
 #### Using acpi_call {#using_acpi_call}
 

@@ -1005,7 +1005,8 @@ If you do not have root access, then:
 
 ### USB debugging {#usb_debugging}
 
-You will probably not need to know this, but this USB ID (057e:2009) was discovered by USB debugging:
+You will probably not need to know this, but this USB ID (`{{ic|057e:2009}}`{=mediawiki}) was discovered by USB
+debugging:
 
 `# Allow debugging of the kernel:`\
 `sudo ls /sys/kernel/debug/usb >/dev/null 2>&1 || sudo mount -t debugfs none_debugfs /sys/kernel/debug`\
@@ -1020,14 +1021,14 @@ where `{{ic|99999}}`{=mediawiki} must be replaced with the USB Bus number that y
 
 If nothing helped and your gamepad still works in full capacity only in Windows, you can catch USB messages while in
 Windows, and then replay them while in Linux. See [usbrply](https://github.com/JohnDMcMaster/usbrply). For this, Windows
-must not be in VM because Linux kernel\'s `{{ic|usbcore}}`{=mediawiki} initializes a USB device before passing it to a
-VM. This could be avoided by buying a PCI-E USB controller and passing it through (External USB hubs cannot be passed
-through). Or you can pass-through your motherboard\'s own USB controller if it is in a IOMMU group without devices
-important for you:
+must not be in a virtual machine because Linux kernel\'s `{{ic|usbcore}}`{=mediawiki} initializes a USB device before
+passing it to a virtual machine. This could be avoided by buying a PCIe USB controller and passing it through (External
+USB hubs cannot be passed through). Or you can pass-through your motherboard\'s own USB controller if it is in a IOMMU
+group without devices important for you:
 
 +-------------------------------------------------------------------------------+
-| `<strong>`{=html}Script which lists IOMMU groups`</strong>`{=html}            |
-+-------------------------------------------------------------------------------+
+| Script which lists IOMMU groups                                               |
++===============================================================================+
 | ```{=mediawiki}                                                               |
 | {{hc|list-iommu-groups.sh|<nowiki>                                            |
 | #!/bin/bash                                                                   |

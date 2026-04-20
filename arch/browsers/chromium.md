@@ -474,13 +474,6 @@ The procedure is pretty much the same. You need to go to `{{ic|chrome://settings
 this time, in the **From** drop-down menu, select **Bookmarks HTML File** and click the **Choose File** button and
 upload the desired bookmark file.
 
-#### Enabling native notifications {#enabling_native_notifications}
-
-```{=mediawiki}
-{{Remove|In newer versions of Chromium, the flag is removed, and this behavior is the default.}}
-```
-Go to `{{ic|chrome://flags#enable-system-notifications}}`{=mediawiki} and select *Enabled*.
-
 #### Enabling autoscroll with middle mouse button {#enabling_autoscroll_with_middle_mouse_button}
 
 The autoscroll is still an experimental feature [9](https://niek.github.io/chrome-features/). It is intended to be
@@ -808,10 +801,12 @@ reset the GPU information by deleting `{{ic|~/.config/chromium/Local\ State}}`{=
 
 ### Incorrect HiDPI rendering {#incorrect_hidpi_rendering}
 
-Chromium will automatically scale for a [HiDPI](HiDPI "wikilink") display, however, this may cause an incorrect rendered
-GUI.
+Chromium will automatically scale for a [HiDPI](HiDPI "wikilink") display, however, this may cause an incorrectly
+rendered GUI.
 
 The flag `{{ic|1=--force-device-scale-factor=1}}`{=mediawiki} may be used to overrule the automatic scaling factor.
+
+### Incorrect window size and mouse position on Wayland fractional scaling {#incorrect_window_size_and_mouse_position_on_wayland_fractional_scaling}
 
 When [native Wayland support](#Native_Wayland_support "wikilink") is enabled, Chromium will automatically scale based on
 the configured scale of each monitor.
@@ -820,6 +815,9 @@ There is a longstanding bug in chromium, which affects electron apps as well, wi
 desktop scale is less than 100% on some compositors (e.g. KDE). Windows will shrink themselves on every interaction and
 mouse positioning is scaled by the desktop scale percentage. The flag
 `{{ic|1=--disable-features=WaylandPerSurfaceScale}}`{=mediawiki} can be used to disable this behavior.
+
+The flag `{{ic|1=--disable-features=WaylandPerSurfaceScale}}`{=mediawiki} was removed in Chromium v146, but the flag
+`{{ic|1=--disable-features=WaylandFractionalScaleV1}}`{=mediawiki} disables the broken behavior.
 
 ### Password prompt on every start with GNOME Keyring {#password_prompt_on_every_start_with_gnome_keyring}
 

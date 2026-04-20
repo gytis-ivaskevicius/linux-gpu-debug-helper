@@ -226,7 +226,6 @@ REGEDIT4
 "FontSmoothingOrientation"=dword:00000001
 "FontSmoothingType"=dword:00000002
 "FontSmoothingGamma"=dword:00000578
-EOF
 }}
 ```
 `$ WINE=${WINE:-wine} WINEPREFIX=${WINEPREFIX:-$HOME/.wine} $WINE regedit /tmp/fontsmoothing.reg 2> /dev/null`

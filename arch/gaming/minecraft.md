@@ -53,20 +53,6 @@ See also:
 The unofficial Bedrock Minecraft client can be installed by `{{AUR|mcpelauncher-ui}}`{=mediawiki} package, which is the
 UI interface for `{{AUR|mcpelauncher-linux}}`{=mediawiki}.
 
-### Minecraft Education {#minecraft_education}
-
-```{=mediawiki}
-{{Remove|Since version 1.19.50 (released in 2022), Microsoft authentication no longer works in Wine unless proven otherwise.}}
-```
-[Minecraft Education](https://minecraft.wiki/w/Minecraft_Education) can be used as an alternative way of running
-Minecraft with online features stripped out, since the code is mostly based on the Minecraft for Windows 10 edition
-(i.e. a win32 codebase).
-
-It can be installed manually and runs fine with [Wine](Wine "wikilink") or [Proton](Proton "wikilink").
-
-Additionally, Minecraft Education can be used as a gateway to Minecraft RTX running on Linux using
-`{{Pkg|vkd3d}}`{=mediawiki} (This is exclusive to the Microsoft store, x64 release of Minecraft Education).
-
 ## Server
 
 ### Java Edition {#java_edition_1}
@@ -151,7 +137,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|portablemc|Cross-platform command-line Minecraft launcher and API for developers. Supports mod loaders such as Fabric, Forge, NeoForge and Quilt.|https://github.com/mindstorm38/portablemc|{{AUR|portablemc}}}}
+    {{App|portablemc|Cross platform command line utility for launching Minecraft quickly and reliably with included support for Mojang versions and popular mod loaders such as Fabric, Forge, NeoForge and derived. |https://github.com/theorzr/portablemc|{{AUR|portablemc}}}}
     ```
 
 -   ```{=mediawiki}

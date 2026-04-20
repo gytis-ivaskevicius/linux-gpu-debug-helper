@@ -145,7 +145,7 @@ GameMode
 
 To avoid having to change launch options for all games, you may launch [Steam](Steam "wikilink") directly with MangoHud:
 
-`$ mangohud steam-runtime`
+`$ mangohud steam`
 
 MangoHud will detect Steam and will avoid loading itself until a game is launched.
 

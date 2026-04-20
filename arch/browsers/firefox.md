@@ -145,8 +145,7 @@ of `{{ic|user.js}}`{=mediawiki}.
 
 Firefox uses [FFmpeg](FFmpeg "wikilink") for playing multimedia inside HTML5 `{{ic|<audio>}}`{=mediawiki} and
 `{{ic|<video>}}`{=mediawiki} elements. Use <https://cconcolato.github.io/media-mime-support/> to test video or
-<https://hpr.dogphilosophy.net/test/>`{{Dead link|2025|11|16|status=SSL error}}`{=mediawiki} to test audio, to determine
-which formats are actually supported.
+<https://hpr.dogphilosophy.net/test/> to test audio, to determine which formats are actually supported.
 
 Firefox uses [PulseAudio](PulseAudio "wikilink") for audio playback and capture. If PulseAudio is not installed, Firefox
 uses [ALSA](ALSA "wikilink") instead. Note that by default, Firefox blocks all media with sound from playing

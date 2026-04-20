@@ -13,8 +13,7 @@ server](Wikipedia:Windowing_system#Display_server "wikilink"), and it is the mos
 users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in massive adoption
 from most distributions.
 
-For the 2025 fork, see [Xlibre](Xlibre "wikilink"). For the alternative and successor, see
-[Wayland](Wayland "wikilink").
+For the alternative and successor, see [Wayland](Wayland "wikilink").
 
 ## Installation
 

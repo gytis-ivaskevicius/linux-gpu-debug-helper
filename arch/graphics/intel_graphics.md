@@ -336,8 +336,8 @@ performance data to drivers. The drivers and hardware registers refer to this in
 Architecture* (internally \"OA\") [7](https://www.phoronix.com/scan.php?page=news_item&px=Intel-HSW-Observation-Arch),
 but Intel\'s documentation also more generally refers to this functionality as providing *Observability Performance
 Counters*
-[8](https://01.org/sites/default/files/documentation/observability_performance_counters_haswell.pdf)`{{Dead link|2023|09|16|status=404}}`{=mediawiki}
-[9](https://01.org/sites/default/files/documentation/intel-gfx-prm-osrc-skl-vol14-observability.pdf)`{{Dead link|2023|09|16|status=404}}`{=mediawiki}.
+[8](https://web.archive.org/web/20230321005155/https://01.org/sites/default/files/documentation/observability_performance_counters_haswell.pdf)
+[9](https://web.archive.org/web/20230321005143/https://01.org/sites/default/files/documentation/intel-gfx-prm-osrc-skl-vol14-observability.pdf).
 
 By default, only programs running with the [CAP_SYS_ADMIN](https://lwn.net/Articles/486306/) (equivalent to root) or
 [CAP_PERFMON](https://lwn.net/Articles/812719/) [capabilities](capabilities "wikilink") can utilize the observation

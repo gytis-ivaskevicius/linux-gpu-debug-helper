@@ -37,8 +37,7 @@ Try changing the value of this key to 2 and 1 and test if Oolite runs normally (
 ### Feedback
 
 For the value of shader-mode that works, please post `{{ic|~/.Oolite/Logs/Latest.log}}`{=mediawiki} on the [Oolite
-forum](http://aegidian.org/bb/index.php)`{{Dead link|2024|03|03|status=404}}`{=mediawiki}, along with the highest
-shader-mode value that works for you.
+forum](https://bb.oolite.space), along with the highest shader-mode value that works for you.
 
 This info will be used to determine the correct default shader setting for Oolite for your card/driver combination. This
 will then become part of the Oolite graphics configuration data in a later version.
