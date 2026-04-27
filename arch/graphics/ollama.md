@@ -119,6 +119,5 @@ You can manually remove the model files. They are stored in `{{ic|/var/lib/ollam
 
 -   [Ollama Blog](https://ollama.com/blog)
 -   [Ollama Docs](https://docs.ollama.com)
--   [What is rocBLAS](https://rocm.docs.amd.com/projects/rocBLAS/en/latest/how-to/what-is-rocblas.html)
 
 [Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")

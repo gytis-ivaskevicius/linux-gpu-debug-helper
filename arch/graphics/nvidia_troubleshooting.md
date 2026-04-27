@@ -474,39 +474,6 @@ be aware that setting them to low will cause the issue to occur again.
 
 Then [enable](enable "wikilink")/[start](start "wikilink") `{{ic|nvidia-clocks.service}}`{=mediawiki}.
 
-### Flickering with compositor under X11 (nvidia-open) {#flickering_with_compositor_under_x11_nvidia_open}
-
-```{=mediawiki}
-{{Remove|The release of [https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/b314b7b3873c7dbe66e2b68fed7773e7f8e58267 nvidia-utils 595.58.3-1] on 24-Mar-2026 fixed this issue.}}
-```
-Versions of `{{Pkg|nvidia-open}}`{=mediawiki} tracking the 590.x version introduced a regression in the GLX vblank path
-that causes window flickering when a compositor is active under X11. This affects xfwm4, and potentially other
-compositors relying on GLX for vertical sync.
-
-Users can use the `{{AUR|nvidia-580xx-utils}}`{=mediawiki} package which tracks the production versioned driver which is
-not affected by this bug or continue using the repo packages (which track the new features versioned drivers)
-implementing the below work-around until upstream fixes the issue.
-
-The default `{{ic|vblank_mode}}`{=mediawiki} in xfwm4 is `{{ic|auto}}`{=mediawiki}, which resolves to
-`{{ic|glx}}`{=mediawiki} on NVIDIA hardware and triggers the bug.
-
-A good work-around is to change the vblank_mode to a setting of either **xpresent** or to **off**
-
-For xfwm4, apply the setting persistently with:
-
-`$ xfconf-query -c xfwm4 -p /general/vblank_mode -s off`
-
-Then restart the X session. Alternatively, `{{ic|xpresent}}`{=mediawiki} can be used to retain vblank sync at the cost
-of slightly higher GPU usage:
-
-`$ xfconf-query -c xfwm4 -p /general/vblank_mode -s xpresent`
-
-```{=mediawiki}
-{{Note|Tearing may be visible with {{ic|off}}. If this is unacceptable, prefer {{ic|xpresent}}. See [[#ForceCompositionPipeline]] to address tearing at the Xorg level alongside either setting.}}
-```
-See also: [Flickering XFCE (X11 with compositor) and
-nvidia-open-dkms](https://bbs.archlinux.org/viewtopic.php?id=311088) (Arch Linux Forums)
-
 ## Performance issues {#performance_issues}
 
 ### Bad performance after installing a new driver version {#bad_performance_after_installing_a_new_driver_version}

@@ -20,9 +20,7 @@ LLM inference in C/C++.
 llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
--   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU Vulkan inference.
--   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for GPU CUDA inference.
--   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for GPU HIP inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
 
 ```{=mediawiki}
 {{Note|Ensure you have the appropriate [[Vulkan]] driver installed.}}

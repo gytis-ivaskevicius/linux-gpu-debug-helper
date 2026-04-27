@@ -115,7 +115,7 @@ To make [Steam](Steam "wikilink") start a game with GameMode, set its [launch co
 To avoid having to change launch options for all Steam games, you may launch [Steam](Steam "wikilink") directly with
 GameMode:
 
-`$ gamemoderun steam-runtime`
+`$ gamemoderun steam`
 
 The downside of this approach is that GameMode will be running for as long as the Steam process is open, instead of only
 when a game is opened.

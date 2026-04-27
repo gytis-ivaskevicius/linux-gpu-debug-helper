@@ -98,20 +98,20 @@ launch command as an argument to another command you can use the `{{ic|%command%
 
 ## Tips and tricks {#tips_and_tricks}
 
-### Start Minimized {#start_minimized}
+### Start minimized {#start_minimized}
 
 It is possible to have Steam start minimized to the system tray, rather than taking focus. Add
 `{{ic|-silent}}`{=mediawiki} to the list of command line arguments; see [Desktop entries#Modify desktop
 files](Desktop_entries#Modify_desktop_files "wikilink") for doing this by default.
 
-### Small Mode {#small_mode}
+### Small mode {#small_mode}
 
 Steam supports an alternative, minimal UI with just your game list - the store, community and cover collection views are
 hidden. You can switch to it with *View* \> *Small Mode*. To go back to the standard UI, select *View* \> *Large Mode*.
 
-You can also launch steam with this argument:`{{ic|+open steam://open/minigameslist}}`{=mediawiki}
+You can also launch Steam with this argument:`{{ic|+open steam://open/minigameslist}}`{=mediawiki}
 
-### Proton Steam-Play {#proton_steam_play}
+### Proton Steam Play {#proton_steam_play}
 
 Valve developed a compatibility tool for Steam Play based on Wine and additional components named
 [Proton](w:Proton_(software) "wikilink"). It allows you to launch many Windows games (see [compatibility
@@ -137,9 +137,40 @@ can also be used to force games that have a Linux port to use the Windows versio
 
 #### Use Proton outside of Steam {#use_proton_outside_of_steam}
 
-You can [install](install "wikilink") `{{AUR|proton-cachyos}}`{=mediawiki}, but extra setup is required to work with
-Steam. See the [Proton GitHub](https://github.com/ValveSoftware/Proton?#install-proton-locally) for details on how Steam
-recognizes Proton installs.
+To use Proton outside of Steam, the best way to do so is through `{{pkg|umu-launcher}}`{=mediawiki}.
+
+Take a look at the [upstream repository](https://github.com/Open-Wine-Components/umu-launcher) for more information,
+including its [documentation](https://github.com/Open-Wine-Components/umu-launcher/tree/main/docs).
+
+```{=mediawiki}
+{{Tip|Some game launchers have integrated support for {{ic|umu-launcher}}. Check [[Gaming#Getting games]] for a list of launchers. As of April 2026, Heroic Games Launcher[https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/tag/v2.16.0#:~:text{{=}}
+```
+%F0%9F%8E%AE%20umu%20as%20Default%20on%20Linux%2FSteam%20Deck%3A%20Unified%20Launcher%20%28umu%29%20is%20now%20standard%20for%20Proton%20games%2E%20%28by%20%40arielj%29\]
+and
+Lutris\[<https://github.com/lutris/lutris/releases/tag/v0.5.20#>:\~:text{{=}}Proton%2DGE%20launched%20via%20umu%20is%20now%20the%20default%2E%20Umu%20takes%20care%20of%20keeping%20Proton%2DGE%20up%20to%20date\]
+are two that support it.}}
+`{{Note|{{ic|umu-launcher}} is the backend to use Proton outside of Steam. It is not intended to be user-facing, as it does not have a friendly user interface, and requires terminal usage. It can still be used directly via terminal, if desired, and will provide the same results as using it via a graphical user interface.}}`{=mediawiki}
+
+#### Compatibility layers other than Proton {#compatibility_layers_other_than_proton}
+
+There are compatibility tools other than Proton/Wine.
+
+-   ```{=mediawiki}
+    {{App|Luxtorpeda|Run games using native Linux engines.|https://luxtorpeda-dev.github.io/|{{AUR|luxtorpeda-git}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Boxtron|Run DOS games using native Linux DOSBox|https://github.com/dreamer/boxtron|{{AUR|boxtron}}}}
+    ```
+
+You can also use `{{AUR|protonup-qt}}`{=mediawiki} to manage them:
+
+1.  Close Steam
+2.  [Install](Install "wikilink") `{{AUR|protonup-qt}}`{=mediawiki}
+3.  Open protonup-qt and install desired tools
+4.  Start Steam
+5.  In the *game properties* window, select *Force the use of a specific Steam Play compatibility tool* and select the
+    desired tool.
 
 ### Steam Input {#steam_input}
 
@@ -237,7 +268,7 @@ To summarize what this all means for usage:
 
 #### Disabling Steam Input {#disabling_steam_input}
 
-If you wish to completely disable Steam Input, launch steam with the *-nojoy* argument, and also disable Steam Input for
+If you wish to completely disable Steam Input, launch Steam with the *-nojoy* argument, and also disable Steam Input for
 each game individually, as there is no global option for doing so.
 
 ### HiDPI
@@ -249,7 +280,7 @@ See [HiDPI#Steam](HiDPI#Steam "wikilink").
 To start Steam in Big Picture Mode from a [display manager](display_manager "wikilink") with
 [Gamescope](Gamescope "wikilink") as its [compositor](Wayland#Compositors "wikilink"):
 
--   [Install](Install "wikilink") `{{Pkg|gamescope}}`{=mediawiki}
+-   [Install](Install "wikilink") `{{Pkg|gamescope}}`{=mediawiki}.
 -   Create the following [desktop entry](desktop_entry "wikilink") with the following contents:
 
 ```{=mediawiki}
@@ -278,68 +309,6 @@ Then instruct your display manager to launch gamescope.
 ** Be warned that {{ic|-steamos3}} might have other unintended effects.
 * Create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
 ```
-### Steam skins {#steam_skins}
-
-```{=mediawiki}
-{{Note|A new Steam UI was released in June 2023. Skins not updated for this new UI will have no effect.}}
-```
-The Steam interface can be customized using skins. Follow [this Steam
-guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3003438937) for more information.
-
-Some skins updated for the 2023 UI are:
-
--   [Adwaita for Steam](https://github.com/tkashkin/Adwaita-for-Steam)
--   [Shiina\'s Steam Skins](https://github.com/AikoMidori/SteamSkins)
--   [Zehn](https://github.com/yurisuika/Zehn)
--   More skins are available in the guide linked above.
-
-### Changing the Steam notification position {#changing_the_steam_notification_position}
-
-The default Steam notification position is bottom right.
-
-You can change the Steam notification position by altering `{{ic|Notifications.PanelPosition}}`{=mediawiki} in
-
--   ```{=mediawiki}
-    {{ic|resource/styles/steam.styles}}
-    ```
-    for desktop notifications, and
-
--   ```{=mediawiki}
-    {{ic|resource/styles/gameoverlay.styles}}
-    ```
-    for in-game notifications
-
-Both files are overwritten by Steam on startup and `{{ic|steam.styles}}`{=mediawiki} is only read on startup.
-
-```{=mediawiki}
-{{Note|Some games do not respect the setting in {{ic|gameoverlay.styles}} e.g. XCOM: Enemy Unknown.}}
-```
-#### Use a skin {#use_a_skin}
-
-You can create a skin to change the notification position to your liking. For example to change the position to top
-right:
-
-`$ cd ~/.steam/root/skins`\
-`$ mkdir -p Top-Right/resource`\
-`$ cp -r ~/.steam/root/resource/styles Top-Right/resource`\
-`$ sed -i '/Notifications.PanelPosition/ s/"[A-Za-z]*"/"TopRight"/' Top-Right/resource/styles/*`
-
-#### Live patching {#live_patching}
-
-```{=mediawiki}
-{{ic|gameoverlay.styles}}
-```
-can be overwritten while Steam is running, allowing you to have game-specific notification positions.
-
-```{=mediawiki}
-{{hc|~/.steam/notifpos.sh|
-sed -i "/Notifications.PanelPosition/ s/\"[A-Za-z]*\"/\"$1\"/" ~/.steam/root/resource/styles/gameoverlay.styles
-}}
-```
-And the [#Launch options](#Launch_options "wikilink") should be something like:
-
-`~/.steam/notifpos.sh TopLeft && %command%`
-
 ### Steam Remote Play {#steam_remote_play}
 
 ```{=mediawiki}
@@ -364,9 +333,9 @@ There are four file systems, that can be read/write by both Windows and Linux.
 #### NTFS
 
 ```{=mediawiki}
-{{Warning|Valve discourages the usage of NTFS to store a steam library as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
+{{Warning|Valve discourages the usage of NTFS to store a Steam library as it may lead to unexpected errors, specially for cases where a library is shared between multiple OSs.
 
-You WILL run into problems where games don't start. You WILL run into problems where games crash unexpectedly.}}
+You WILL run into problems where games do not start. You WILL run into problems where games crash unexpectedly.}}
 ```
 See [Using a NTFS disk with Linux and
 Windows](https://github.com/ValveSoftware/Proton/wiki/Using-a-NTFS-disk-with-Linux-and-Windows) for more information on
@@ -457,27 +426,6 @@ example to use 8 cores:
 unShaderBackgroundProcessingThreads 8
 }}
 ```
-### Compatibility layers other than Proton {#compatibility_layers_other_than_proton}
-
-There are compatibility tools other than Proton/Wine.
-
--   ```{=mediawiki}
-    {{App|Luxtorpeda|Run games using native Linux engines.|https://luxtorpeda-dev.github.io/|{{AUR|luxtorpeda-git}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|Boxtron|Run DOS games using native Linux DOSBox|https://github.com/dreamer/boxtron|{{AUR|boxtron}}}}
-    ```
-
-You can also use `{{AUR|protonup-qt}}`{=mediawiki} to manage them:
-
-1.  Close Steam
-2.  [Install](Install "wikilink") `{{AUR|protonup-qt}}`{=mediawiki}
-3.  Open protonup-qt and install desired tools
-4.  Start Steam
-5.  In the *game properties* window, select *Force the use of a specific Steam Play compatibility tool* and select the
-    desired tool.
-
 ### Disable HTTP2 for faster downloads {#disable_http2_for_faster_downloads}
 
 Some systems and configurations seem to have issues with HTTP2. Disabling HTTP2 will probably yield faster downloads on

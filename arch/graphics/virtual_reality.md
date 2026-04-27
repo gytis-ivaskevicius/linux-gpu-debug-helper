@@ -158,50 +158,47 @@ Entries marked with \"Yes\" but without store links can be sideloaded from their
 
 ### Tracking devices {#tracking_devices}
 
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Device                | SteamVR              | Monado                                           | WiVRn           |
-+=======================+======================+==================================================+=================+
-| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
-|                       | ```                  | ```                                              | ```             |
-|                       | (native or spacecal) | (native or motoc)                                | (motoc)         |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Y|OSC only}}                                   | {{Yes}}         |
-|                       | ```                  | ```                                              | ```             |
-|                       |                      | ([merge                                          |                 |
-|                       |                      | request](https://gitlab.freed                    |                 |
-|                       |                      | esktop.org/monado/monado/-/merge_requests/2253)) |                 |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
-|                       | ```                  | ```                                              | ```             |
-|                       | (oscavmgr)           | (oscavmgr)                                       | (oscavmgr)      |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}                                          | {{Yes}}         |
-|                       | ```                  | ```                                              | ```             |
-|                       | (oscavmgr)           | (oscavmgr)                                       | (oscavmgr)      |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{No}}               | {{Yes}}                                          | {{No}}          |
-|                       | ```                  | ```                                              | ```             |
-|                       |                      | (survive driver only)                            |                 |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{C|?}}              | {{Yes}}                                          | {{No}}          |
-|                       | ```                  | ```                                              | ```             |
-|                       |                      | (survive driver only)                            |                 |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}                                          | {{Y|WIP}}       |
-|                       | ```                  | ```                                              | ```             |
-|                       |                      | (experimental)                                   |                 |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
-| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}                                  | ```{=mediawiki} |
-|                       | {{No}}               | {{No}}                                           | {{No}}          |
-|                       | ```                  | ```                                              | ```             |
-+-----------------------+----------------------+--------------------------------------------------+-----------------+
++-----------------------+----------------------+-----------------------+-----------------+
+| Device                | SteamVR              | Monado                | WiVRn           |
++=======================+======================+=======================+=================+
+| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
+|                       | ```                  | ```                   | ```             |
+|                       | (native or spacecal) | (native or motoc)     | (motoc)         |
++-----------------------+----------------------+-----------------------+-----------------+
+| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
+|                       | ```                  | ```                   | ```             |
++-----------------------+----------------------+-----------------------+-----------------+
+| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
+|                       | ```                  | ```                   | ```             |
+|                       | (oscavmgr)           | (oscavmgr)            | (oscavmgr)      |
++-----------------------+----------------------+-----------------------+-----------------+
+| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
+|                       | ```                  | ```                   | ```             |
+|                       | (oscavmgr)           | (oscavmgr)            | (oscavmgr)      |
++-----------------------+----------------------+-----------------------+-----------------+
+| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{No}}               | {{Yes}}               | {{No}}          |
+|                       | ```                  | ```                   | ```             |
+|                       |                      | (survive driver only) |                 |
++-----------------------+----------------------+-----------------------+-----------------+
+| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{C|?}}              | {{Yes}}               | {{No}}          |
+|                       | ```                  | ```                   | ```             |
+|                       |                      | (survive driver only) |                 |
++-----------------------+----------------------+-----------------------+-----------------+
+| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}              | {{Yes}}               | {{Y|WIP}}       |
+|                       | ```                  | ```                   | ```             |
+|                       |                      | (experimental)        |                 |
++-----------------------+----------------------+-----------------------+-----------------+
+| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{No}}               | {{No}}                | {{No}}          |
+|                       | ```                  | ```                   | ```             |
++-----------------------+----------------------+-----------------------+-----------------+
 
 ## Supported runtimes and toolkits {#supported_runtimes_and_toolkits}
 
@@ -347,12 +344,12 @@ compatibilty chart to see if your headset is compatible.
 
 ### Games/Programs
 
-Most XR applications run without major issues through [Proton](Proton "wikilink"). Proton-GE (can be installed with
-`{{AUR|protonup-qt}}`{=mediawiki} or `{{AUR|protonup-rs}}`{=mediawiki}) or
-[Proton-GE-RTSP](https://github.com/SpookySkeletons/proton-ge-rtsp) might be required for some games or specific
-functionality. If a game has issues running through Proton, please refer to the game\'s Linux/Wine compatibility
-information, [ProtonDB](https://www.protondb.com/) and documentation for the XR runtimes and compatibility layers in use
-for possible fixes.
+Most XR applications run without major issues through [Proton](Proton "wikilink") or Proton GE.
+[Proton-GE-RTSP](https://github.com/SpookySkeletons/proton-ge-rtsp), which provides targeted fixes for VRChat and other
+social VR platforms, can be installed using `{{AUR|protonup-qt}}`{=mediawiki} or `{{AUR|protonup-rs}}`{=mediawiki}. If a
+game has issues running through Proton, please refer to the game\'s Linux/Wine compatibility information,
+[ProtonDB](https://www.protondb.com/) and documentation for the XR runtimes and compatibility layers in use for possible
+fixes.
 
 ### Other Issues {#other_issues}
 
