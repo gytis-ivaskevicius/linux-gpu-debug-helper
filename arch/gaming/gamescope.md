@@ -70,7 +70,7 @@ You can also use Gamescope from [Flatpak](Flatpak "wikilink") versions of Wine m
 the same way as you would from a package install. It does however require that you first install Gamescope from Flathub
 with the following command:
 
-`$ flatpak install gamescope`
+`$ flatpak install flathub org.freedesktop.Platform.VulkanLayer.gamescope`
 
 ### Upscaling
 

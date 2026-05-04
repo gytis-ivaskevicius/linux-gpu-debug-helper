@@ -11,10 +11,10 @@
 | os = Linux, FreeBSD
 | programmingLanguage = Rust, GLSL
 | github = niri-wm/niri
-| documentation = [https://yalter.github.io/niri/ Official wiki], [https://github.com/sodiboo/niri-flake/blob/main/docs.md niri-flake]
+| documentation = [https://niri-wm.github.io/niri/ Official wiki], [https://github.com/sodiboo/niri-flake/blob/main/docs.md niri-flake]
 | image = Niri-icon.svg
 | bugTracker = https://github.com/niri-wm/niri/issues
-| latestRelease = 25.11; 29 Nov 2025
+| latestRelease = 26.04; 25 Apr 2026
 }}
 ```
 `<translate>`{=html} [Niri](https://github.com/YaLTeR/niri) is a scrollable-tiling [Wayland](Wayland "wikilink")
@@ -71,7 +71,12 @@ services.greetd = {
   };
 };
 
-}}
+# NixOS otherwise injects a stripped PATH via Environment= on the niri.service
+# unit which shadows the imported user-manager PATH. Disabling the default
+# lets niri inherit the full PATH set up by niri-session.
+systemd.user.services.niri.enableDefaultPath = false;
+
+|name=|lang=}}
 ```
 ## Additional Setup {#additional_setup}
 

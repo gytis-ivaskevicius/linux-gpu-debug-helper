@@ -446,7 +446,10 @@ specific games.
 ### Flatpak
 
 ```{=mediawiki}
-{{Remove|Flatpak is not supported. For precedent for removal, see [[Special:Diff/806019]]. It could also suffice to move to a new application section of [[Flatpak]].}}
+{{Merge|Flatpak/Application-specific troubleshooting|Flatpak is not supported.|talk=ArchWiki talk:Requests#Contain Flatpak application troubleshooting to a subpage}}
+```
+```{=mediawiki}
+{{Warning|The Flatpak version of Steam is not verified and not vetted by Valve Corporation. The Arch Linux developers also have no say in it, and do not give technical support to it. Use it at your own risk. To use Steam on Arch, the recommended way is via the {{pkg|steam}} package.}}
 ```
 ```{=mediawiki}
 {{Note|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}

@@ -21,6 +21,10 @@ Since the profile(s), browser cache, etc. are relocated into [tmpfs](tmpfs "wiki
 associated with using the browser is also redirected from the physical drive to RAM, thus reducing wear to the physical
 drive and also greatly improving browser speed and responsiveness.
 
+Starting with psd version 7, `{{pkg|fuse-overlayfs}}`{=mediawiki} is used to reduce the memory footprint of psd\'s tmpfs
+space and to speed up sync and unsync operations. The magic is in how the overlay mount only writes out data that has
+changed rather than the entire profile.
+
 ```{=mediawiki}
 {{Note|
 * Some browsers such as Chrome/Chromium or Firefox (since v21) actually keep their cache directories '''separately''' from their profile directory. It is not within the scope of profile-sync-daemon to modify this behavior; users are encouraged to refer to the [[Chromium tweaks#Cache in tmpfs]] section for Chromium and to the [[Firefox on RAM]] article for several workarounds.
@@ -40,10 +44,6 @@ before using `{{ic|psd.service}}`{=mediawiki} to create this file without starti
 ```{=mediawiki}
 {{Note|Any edits made to this file while psd is active will be applied only after {{ic|psd.service}} has been [[restart]]ed.}}
 ```
--   Optionally enable the use of overlayfs to improve sync speed and to use a smaller memory footprint. Do this in the
-    `{{ic|USE_OVERLAYFS}}`{=mediawiki} variable. The user will require sudo rights to
-    `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} to use this option and the kernel must support overlayfs version 22
-    or higher. See [#Overlayfs mode](#Overlayfs_mode "wikilink") for additional details.
 -   Optionally define which browsers are to be managed in the `{{ic|BROWSERS}}`{=mediawiki} array. If none are defined,
     the default is all detected browsers.
 -   Optionally disable the use of crash-recovery snapshots (not recommended). Do this in the
@@ -56,8 +56,8 @@ tmpfs since the user keeps Firefox as a backup browser and it is seldom used:
 
 `BROWSERS=(chromium opera)`
 
-Beginning with version 5.54 of psd, native support for [overlayfs](#Overlayfs_mode "wikilink") is included. This feature
-requires at least a Linux kernel version of 3.18.0 or greater.
+Beginning with version 7 of psd, support for `{{pkg|fuse-overlayfs}}`{=mediawiki} is required. This feature requires at
+least a Linux kernel version of 4.18 or greater.
 
 ### Supported browsers {#supported_browsers}
 
@@ -153,39 +153,6 @@ OnUnitActiveSec=10min
 }}
 ```
 See `{{man|5|systemd.timer}}`{=mediawiki} for additional options.
-
-### Overlayfs mode {#overlayfs_mode}
-
-```{=mediawiki}
-{{Note|There are several versions of overlayfs available to the Linux kernel in production in various distributions. Versions 22 and lower have a module called 'overlayfs' while newer versions (23 and higher) have a module called 'overlay' -- note the lack of the 'fs' in the newer version. Psd will automatically detect the overlayfs available to your kernel if it is configured to use one of them.}}
-```
-Overlayfs is a simple union file-system mainlined in the Linux kernel version 3.18.0. Starting with psd version 5.54,
-overlayfs can be used to reduce the memory footprint of psd\'s tmpfs space and to speed up sync and unsync operations.
-The magic is in how the overlay mount only writes out data that has changed rather than the entire profile. The same
-recovery features psd uses in its default mode are also active when running in overlayfs mode. Overlayfs mode is enabled
-by uncommenting the `{{ic|1=USE_OVERLAYFS="yes"}}`{=mediawiki} line in
-`{{ic|$XDG_CONFIG_HOME/psd/psd.conf}}`{=mediawiki} followed by a [restart](restart "wikilink") of the daemon.
-
-Since version 6.05 of psd, users wanting to take advantage of this mode MUST have [sudo](sudo "wikilink") rights
-(without password prompt) to `{{ic|/usr/bin/psd-overlay-helper}}`{=mediawiki} or global sudo rights. Create the
-following drop-in file using the `{{ic|visudo}}`{=mediawiki} command as root.:
-
-```{=mediawiki}
-{{hc|/etc/sudoers.d/90-profile-sync-daemon|2=
-''user'' ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
-}}
-```
-See the example in the PREVIEW MODE section above which shows a system using overlayfs to illustrate the memory savings
-that can be achieved. Note the \"overlayfs size\" report compared to the total \"profile size\" report for each profile.
-Be aware that these numbers will change depending on how much data is written to the profile, but in common use cases
-the overlayfs size will always be less than the profile size.
-
-```{=mediawiki}
-{{Warning|Usage of psd in overlayfs mode (in particular, ''psd-overlay-helper'') may lead to privilege escalation. [https://github.com/graysky2/profile-sync-daemon/issues/235][https://github.com/graysky2/profile-sync-daemon/issues/286]}}
-```
-The way overlayfs works is to mount a read-only base copy (browser-back-ovfs) of the profile, and manage the new data on
-top of that. In order to avoid resyncing to the read-only file system, a copy is used instead. So using overlayfs is a
-trade off: faster initial sync times and less memory usage vs. disk space in the home dir.
 
 ### Allocate more memory to accommodate profiles in /run/user/xxxx {#allocate_more_memory_to_accommodate_profiles_in_runuserxxxx}
 

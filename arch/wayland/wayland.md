@@ -59,10 +59,6 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 ### Stacking
 
 -   ```{=mediawiki}
-    {{App|[[COSMIC]] Compositor|Compositor for the COSMIC desktop environment.|https://github.com/pop-os/cosmic-comp|{{Pkg|cosmic-comp}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|http://hikari.acmelabs.space/|{{AUR|hikari}}}}
     ```
 
@@ -143,6 +139,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 ### Dynamic
 
 -   ```{=mediawiki}
+    {{App|[[COSMIC]] Compositor|Compositor for the COSMIC desktop environment.|https://github.com/pop-os/cosmic-comp|{{Pkg|cosmic-comp}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[cwc]]|[[awesome]]-like Wayland compositor based on wlroots.|https://cudiph.github.io/cwc/apidoc/| {{AUR|cwc}}}}
     ```
 
@@ -199,44 +199,48 @@ Some of the above may support [display managers](display_manager "wikilink"). Ch
 
 Display managers listed below support launching Wayland compositors.
 
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| Name                          | Runs on                                 | Description                             |
-+===============================+=========================================+=========================================+
-| ```{=mediawiki}               | tty                                     | Simple CLI Display Manager on TTY.      |
-| {{Pkg|emptty}}                |                                         |                                         |
-| ```                           |                                         |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [GDM](GDM "wikilink")         | Wayland                                 | [GNOME](GNOME "wikilink") display       |
-|                               |                                         | manager.                                |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [greetd](greetd "wikilink")   | Wayland/Xorg/tty See                    | Minimal and flexible login daemon.      |
-|                               | [Greetd                                 |                                         |
-|                               | #Greeters](Greetd#Greeters "wikilink"). |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| ```{=mediawiki}               | tty                                     | TUI display manager written in Rust.    |
-| {{Pkg|lemurs}}                |                                         |                                         |
-| ```                           |                                         |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| ```{=mediawiki}               | tty                                     | A fully colorful customizable TUI       |
-| {{AUR|lidm}}                  |                                         | display manager made in C.              |
-| ```                           |                                         |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [LightDM](LightDM "wikilink") | Xorg[6](https://g                       | Cross-desktop display manager.          |
-|                               | ithub.com/canonical/lightdm/issues/267) |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [ly](ly "wikilink")           | tty                                     | TUI display manager written in Zig      |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [SDDM](SDDM "wikilink")       | Wayland/Xorg                            | QML-based display manager.              |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| ```{=mediawiki}               | tty                                     | Simple CLI session launcher written in  |
-| {{AUR|tbsm}}                  |                                         | pure bash.                              |
-| ```                           |                                         |                                         |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
-| [uwsm](uwsm "wikilink")       | tty                                     | Session and XDG autostart manager for   |
-|                               |                                         | standalone compositors. Provides a TUI  |
-|                               |                                         | menu, but can also be used with other   |
-|                               |                                         | display managers.                       |
-+-------------------------------+-----------------------------------------+-----------------------------------------+
++--------------------------------------+--------------------------------------+--------------------------------------+
+| Name                                 | Runs on                              | Description                          |
++======================================+======================================+======================================+
+| ```{=mediawiki}                      | tty                                  | Simple CLI Display Manager on TTY.   |
+| {{Pkg|emptty}}                       |                                      |                                      |
+| ```                                  |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [GDM](GDM "wikilink")                | Wayland                              | [GNOME](GNOME "wikilink") display    |
+|                                      |                                      | manager.                             |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [greetd](greetd "wikilink")          | Wayland/Xorg/tty See                 | Minimal and flexible login daemon.   |
+|                                      | [Greetd#Gr                           |                                      |
+|                                      | eeters](Greetd#Greeters "wikilink"). |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| ```{=mediawiki}                      | tty                                  | TUI display manager written in Rust. |
+| {{Pkg|lemurs}}                       |                                      |                                      |
+| ```                                  |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| ```{=mediawiki}                      | tty                                  | A fully colorful customizable TUI    |
+| {{AUR|lidm}}                         |                                      | display manager made in C.           |
+| ```                                  |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [LightDM](LightDM "wikilink")        | Xorg[6](https://gith                 | Cross-desktop display manager.       |
+|                                      | ub.com/canonical/lightdm/issues/267) |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [ly](ly "wikilink")                  | tty                                  | TUI display manager written in Zig   |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [Plasma Login                        | Wayland                              | [KDE](KDE "wikilink") display        |
+| Manag                                |                                      | manager.                             |
+| er](Plasma_Login_Manager "wikilink") |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [SDDM](SDDM "wikilink")              | Wayland/Xorg                         | QML-based display manager.           |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| ```{=mediawiki}                      | tty                                  | Simple CLI session launcher written  |
+| {{AUR|tbsm}}                         |                                      | in pure bash.                        |
+| ```                                  |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
+| [uwsm](uwsm "wikilink")              | tty                                  | Session and XDG autostart manager    |
+|                                      |                                      | for standalone compositors. Provides |
+|                                      |                                      | a TUI menu, but can also be used     |
+|                                      |                                      | with other display managers.         |
++--------------------------------------+--------------------------------------+--------------------------------------+
 
 ## Xwayland
 
@@ -276,8 +280,8 @@ display manager (e.g. [GDM](GDM#Wayland_and_the_proprietary_NVIDIA_driver "wikil
 
 ### Detect Xwayland applications {#detect_xwayland_applications}
 
-To determine whether an application is running via Xwayland, you can use `{{pkg|xorg-xeyes}}`{=mediawiki} and see if the
-eyes are moving, when moving the mouse pointer over an application window.
+To determine whether an application is running via Xwayland, you can use *xeyes* from `{{pkg|xorg-xeyes}}`{=mediawiki}:
+the eyes are moving, when moving the mouse pointer over an application window.
 
 Another option is to run *xwininfo* (from `{{Pkg|xorg-xwininfo}}`{=mediawiki}) in a terminal window: when hovering over
 an Xwayland window the mouse pointer will turn into a + sign. If you click the window it will display some information
@@ -422,24 +426,34 @@ This takes lower priority than the command line flags.
 
 ### Java
 
-The open source implementation of the [Java](Java "wikilink") platform OpenJDK, does not yet have native support for
-Wayland. Until [Wakefield](https://openjdk.java.net/projects/wakefield/), the project that aims to implement Wayland in
-OpenJDK, is available, Xwayland can be used but, may lead to nothing displaying with certain applications such as
-`{{pkg|netbeans}}`{=mediawiki} and `{{AUR|oracle-datamodeler}}`{=mediawiki}.
+The open source implementation of the [Java](Java "wikilink") platform OpenJDK does not yet have native support for
+Wayland. The [Wakefield](https://openjdk.java.net/projects/wakefield/) project is working on a component named
+[WLToolkit](https://wiki.openjdk.org/display/wakefield/Pure+Wayland+toolkit+prototype) to add Wayland support to
+OpenJDK.
 
-See [Debian:Wayland#Java Programs (supported since OpenJDK
-16?)](Debian:Wayland#Java_Programs_(supported_since_OpenJDK_16?) "wikilink"):
+Until WLToolkit lands in stable OpenJDK, you have several options:
 
-:   Starting with OpenJDK 16, the JRE can dynamically load GTK3 (which has Wayland support), it appears this might be
-    supported according to this [discussion](https://stackoverflow.com/questions/39197208/java-gui-support-on-wayland).
-:   The `{{ic|_JAVA_AWT_WM_NONREPARENTING}}`{=mediawiki} [environment variable](environment_variable "wikilink") can be
-    set to \"1\" to fix misbehavior where the application starts with a blank screen.
+-   Use XWayland. However, XWayland does not have full feature parity with Wayland, and it may lead to nothing
+    displaying with certain applications such as `{{pkg|netbeans}}`{=mediawiki} and
+    `{{AUR|oracle-datamodeler}}`{=mediawiki}.
+-   See [Debian:Wayland#Java Programs (supported since OpenJDK
+    16?)](Debian:Wayland#Java_Programs_(supported_since_OpenJDK_16?) "wikilink"):
 
-Since XWayland does not have full feature parity with Wayland,
-[WLToolkit](https://wiki.openjdk.org/display/wakefield/Pure+Wayland+toolkit+prototype) can be used to fill the gaps
-while Wakefield is not ready. It can be activated with `{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}}. Some
-programs such as the [JetBrains IDEs support
-it](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/).
+:   
+
+    :   Starting with OpenJDK 16, the JRE can dynamically load GTK3 (which has Wayland support), it appears this might
+        be supported according to this
+        [discussion](https://stackoverflow.com/questions/39197208/java-gui-support-on-wayland).
+    :   The `{{ic|_JAVA_AWT_WM_NONREPARENTING}}`{=mediawiki} [environment variable](environment_variable "wikilink") can
+        be set to \"1\" to fix misbehavior where the application starts with a blank screen.
+
+-   Use Wakefield's `{{ic|jdk25-wayland}}`{=mediawiki} work-in-progress branch. Some programs such as the [JetBrains
+    IDEs](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/) do just that so they support
+    Wayland out of the box.\
+    For other Java programs, you need you bring your own Wakefield build, e.g.
+    `{{AUR|jdk-openjdk-wakefield}}`{=mediawiki}. To use it, point `{{ic|JAVA_HOME}}`{=mediawiki} to
+    `{{ic|/usr/lib/jvm/java-25-openjdk-wakefield}}`{=mediawiki} and run your program with the
+    `{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}} option.
 
 ## Tips and tricks {#tips_and_tricks}
 

@@ -84,4 +84,9 @@ select the action you want. Adjust the activator if you want the action to trigg
 
 Button Chord, Mode Shift and Action Layers essentially do the same thing but in different scopes.
 
+## See also {#see_also}
+
+-   [Valve\'s blog post on how to use the
+    configurator](https://steamcommunity.com/groups/steam_hardware/announcements/detail/508485755865138099)
+
 [Category:Gaming](Category:Gaming "wikilink")

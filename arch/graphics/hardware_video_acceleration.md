@@ -417,126 +417,119 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 
 ### VA-API drivers {#va_api_drivers}
 
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| Codec                | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |
-|                      | {{pkg|               | {{pkg|               | {{pkg|mesa}}         | {{Pkg|l              |
-|                      | libva-intel-driver}} | intel-media-driver}} | ```                  | ibva-nvidia-driver}} |
-|                      | ```                  | ```                  | [8                   | ```                  |
-|                      | [6](htt              | [7](                 | ](https://www.x.org/ | \                    |
-|                      | ps://github.com/01or | https://github.com/i | wiki/RadeonFeature/) | (NVDEC adapter)      |
-|                      | g/intel-vaapi-driver | ntel/media-driver/bl | [9](https://nouveau. |                      |
-|                      | /blob/master/README) | ob/master/README.md) | freedesktop.org/wiki |                      |
-|                      |                      |                      | /VideoAcceleration/) |                      |
-+======================+======================+======================+======================+======================+
-| Decoding             |                      |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| MPEG-2               | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | See [#NVIDIA driver  |
-|                      | {{G|GM               | {{G|B                | {                    | only](#NVIDIA_dri    |
-|                      | A 4500 to Ice Lake}} | roadwell and newer}} | {G|Radeon HD 6000 -  | ver_only "wikilink") |
-|                      | ```                  | ```                  | Radeon RX 6000<br>Ge |                      |
-|                      |                      |                      | Force 8 to GTX 750}} |                      |
-|                      |                      |                      | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.263/MPEG-4         | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-| Visual^1^            | {{No}}               | {{No}}               | {{G|Radeon HD 600    |                      |
-|                      | ```                  | ```                  | 0 - Radeon RX 6000}} |                      |
-|                      |                      |                      | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VC-1                 | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
-|                      | {{G|Sandy            | `{{G|Broadwell and   | {{G|                 |                      |
-|                      | Bridge to Ice Lake}} | newer}}`{=mediawiki} | Radeon HD 2000 - Rad |                      |
-|                      | ```                  |                      | eon RX 6000<br>GeFor |                      |
-|                      |                      |                      | ce 9300 to GTX 750}} |                      |
-|                      |                      |                      | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.264/MPEG-4 AVC     | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
-|                      | {{G|Ir               | {{G|Radeon HD        |                      |                      |
-|                      | onlake to Ice Lake}} | 2000 and newer<br>Ge |                      |                      |
-|                      | ```                  | Force 8 to GTX 750}} |                      |                      |
-|                      |                      | ```                  |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.265/HEVC 8bit      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|Cherryview/Br    | {{G                  | {{G|Radeon           |                      |
-|                      | aswell to Ice Lake}} | |Skylake and newer}} |  R9 Fury and newer}} |                      |
-|                      | ```                  | ```                  | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.265/HEVC 10bit     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|B                | {{G|Broxton/Apo      | {{G|Ra               |                      |
-|                      | roxton to Ice Lake}} | llo Lake and newer}} | deon 400 and newer}} |                      |
-|                      | ```                  | ```                  | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP8                  | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|Bro              | {{G|B                | {{No}}               |                      |
-|                      | adwell to Ice Lake}} | roadwell and newer}} | ```                  |                      |
-|                      | ```                  | ```                  |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP9 8bit             | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=2            |                      |
-|                      | {{G|Broxton to Ic    | {{G|Broxton/Apo      | `{{G|Raven Ridge +   |                      |
-|                      | e Lake <br> Hybrid:  | llo Lake and newer}} | Radeon RX 5000 and n |                      |
-|                      | Haswell refresh to S | ```                  | ewer }}`{=mediawiki} |                      |
-|                      | kylake<sup>2</sup>}} |                      |                      |                      |
-|                      | ```                  |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP9 10bit & 12bit    | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
-|                      | {{G|Kab              | {{G|K                |                      |                      |
-|                      | y Lake to Ice Lake}} | aby Lake and newer}} |                      |                      |
-|                      | ```                  | ```                  |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| AV1 8bit & 10bit     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{No}}               | {{G|Ti               | {{G|Radeon RX 6600   |                      |
-|                      | ```                  | ger Lake and newer}} |  and higher/newer }} |                      |
-|                      |                      | ```                  | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| Encoding             |                      |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| MPEG-2               | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=8            |
-|                      | {{G|Ivy              | {{G|Broadwell a      | {{No}}               | `{{                  |
-|                      | Bridge to Ice Lake}} | nd newer<br>except B | ```                  | No}}`{=mediawiki}^3^ |
-|                      | ```                  | roxton/Apollo Lake}} |                      |                      |
-|                      |                      | ```                  |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.264/MPEG-4 AVC     | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|Sandy            | {{G|B                | {{G|Radeon           |                      |
-|                      | Bridge to Ice Lake}} | roadwell and newer}} |  HD 7000 and newer}} |                      |
-|                      | ```                  | ```                  | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.265/HEVC 8bit      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
-|                      | {{G|S                | {{G                  | {{G|Ra               |                      |
-|                      | kylake to Ice Lake}} | |Skylake and newer}} | deon 400 and newer}} |                      |
-|                      | ```                  | ```                  | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| H.265/HEVC 10bit     | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
-|                      | {{G|Kab              | `{{G|Kaby Lake and   | {{G|                 |                      |
-|                      | y Lake to Ice Lake}} | newer}}`{=mediawiki} | Raven Ridge + Radeon |                      |
-|                      | ```                  |                      |  RX 5000 and newer}} |                      |
-|                      |                      |                      | ```                  |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP8                  | ```{=mediawiki}      | rowspan=3            |                      |                      |
-|                      | {                    | `{{No}}`{=mediawiki} |                      |                      |
-|                      | {G|Cherryview/Braswe |                      |                      |                      |
-|                      | ll to Ice Lake <br>  |                      |                      |                      |
-|                      | Hybrid: Haswell to S |                      |                      |                      |
-|                      | kylake<sup>2</sup>}} |                      |                      |                      |
-|                      | ```                  |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP9 8bit             | ```{=mediawiki}      | rowspan=2            |                      |                      |
-|                      | {{G|Kab              | `{{G|Ice Lake and    |                      |                      |
-|                      | y Lake to Ice Lake}} | newer}}`{=mediawiki} |                      |                      |
-|                      | ```                  |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| VP9 10bit & 12bit    | rowspan=2            |                      |                      |                      |
-|                      | `{{No}}`{=mediawiki} |                      |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
-| AV1 8bit & 10bit     | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
-|                      | {{G|A                | {{G|Radeon RX 790    |                      |                      |
-|                      | lchemist and newer}} | 0 and higher/newer}} |                      |                      |
-|                      | ```                  | ```                  |                      |                      |
-+----------------------+----------------------+----------------------+----------------------+----------------------+
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| Codec             | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |
+|                   | {{pkg|               | {{pkg|               | {{pkg|mesa}}         | {{Pkg|l              |
+|                   | libva-intel-driver}} | intel-media-driver}} | ```                  | ibva-nvidia-driver}} |
+|                   | ```                  | ```                  | [8                   | ```                  |
+|                   | [6](htt              | [7](                 | ](https://www.x.org/ | \                    |
+|                   | ps://github.com/01or | https://github.com/i | wiki/RadeonFeature/) | (NVDEC adapter)      |
+|                   | g/intel-vaapi-driver | ntel/media-driver/bl | [9](https://nouveau. |                      |
+|                   | /blob/master/README) | ob/master/README.md) | freedesktop.org/wiki |                      |
+|                   |                      |                      | /VideoAcceleration/) |                      |
++===================+======================+======================+======================+======================+
+| Decoding          |                      |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| MPEG-2            | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | See [#NVIDIA driver  |
+|                   | {{G|GM               | {{G|B                | {                    | only](#NVIDIA_dri    |
+|                   | A 4500 to Ice Lake}} | roadwell and newer}} | {G|Radeon HD 6000 -  | ver_only "wikilink") |
+|                   | ```                  | ```                  | Radeon RX 6000<br>Ge |                      |
+|                   |                      |                      | Force 8 to GTX 750}} |                      |
+|                   |                      |                      | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VC-1              | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
+|                   | {{G|Sandy            | `{{G|Broadwell and   | {{G|                 |                      |
+|                   | Bridge to Ice Lake}} | newer}}`{=mediawiki} | Radeon HD 2000 - Rad |                      |
+|                   | ```                  |                      | eon RX 6000<br>GeFor |                      |
+|                   |                      |                      | ce 9300 to GTX 750}} |                      |
+|                   |                      |                      | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.264/MPEG-4 AVC  | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
+|                   | {{G|Ir               | {{G|Radeon HD        |                      |                      |
+|                   | onlake to Ice Lake}} | 2000 and newer<br>Ge |                      |                      |
+|                   | ```                  | Force 8 to GTX 750}} |                      |                      |
+|                   |                      | ```                  |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.265/HEVC 8bit   | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{G|Cherryview/Br    | {{G                  | {{G|Radeon           |                      |
+|                   | aswell to Ice Lake}} | |Skylake and newer}} |  R9 Fury and newer}} |                      |
+|                   | ```                  | ```                  | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.265/HEVC 10bit  | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{G|B                | {{G|Broxton/Apo      | {{G|Ra               |                      |
+|                   | roxton to Ice Lake}} | llo Lake and newer}} | deon 400 and newer}} |                      |
+|                   | ```                  | ```                  | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP8               | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{G|Bro              | {{G|B                | {{No}}               |                      |
+|                   | adwell to Ice Lake}} | roadwell and newer}} | ```                  |                      |
+|                   | ```                  | ```                  |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP9 8bit          | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=2            |                      |
+|                   | {{G|Broxton to Ic    | {{G|Broxton/Apo      | `{{G|Raven Ridge +   |                      |
+|                   | e Lake <br> Hybrid:  | llo Lake and newer}} | Radeon RX 5000 and n |                      |
+|                   | Haswell refresh to S | ```                  | ewer }}`{=mediawiki} |                      |
+|                   | kylake<sup>1</sup>}} |                      |                      |                      |
+|                   | ```                  |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP9 10bit & 12bit | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
+|                   | {{G|Kab              | {{G|K                |                      |                      |
+|                   | y Lake to Ice Lake}} | aby Lake and newer}} |                      |                      |
+|                   | ```                  | ```                  |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| AV1 8bit & 10bit  | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{No}}               | {{G|Ti               | {{G|Radeon RX 6600   |                      |
+|                   | ```                  | ger Lake and newer}} |  and higher/newer }} |                      |
+|                   |                      | ```                  | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| Encoding          |                      |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| MPEG-2            | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      | rowspan=8            |
+|                   | {{G|Ivy              | {{G|Broadwell a      | {{No}}               | `{{                  |
+|                   | Bridge to Ice Lake}} | nd newer<br>except B | ```                  | No}}`{=mediawiki}^2^ |
+|                   | ```                  | roxton/Apollo Lake}} |                      |                      |
+|                   |                      | ```                  |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.264/MPEG-4 AVC  | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{G|Sandy            | {{G|B                | {{G|Radeon           |                      |
+|                   | Bridge to Ice Lake}} | roadwell and newer}} |  HD 7000 and newer}} |                      |
+|                   | ```                  | ```                  | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.265/HEVC 8bit   | ```{=mediawiki}      | ```{=mediawiki}      | ```{=mediawiki}      |                      |
+|                   | {{G|S                | {{G                  | {{G|Ra               |                      |
+|                   | kylake to Ice Lake}} | |Skylake and newer}} | deon 400 and newer}} |                      |
+|                   | ```                  | ```                  | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| H.265/HEVC 10bit  | ```{=mediawiki}      | rowspan=2            | ```{=mediawiki}      |                      |
+|                   | {{G|Kab              | `{{G|Kaby Lake and   | {{G|                 |                      |
+|                   | y Lake to Ice Lake}} | newer}}`{=mediawiki} | Raven Ridge + Radeon |                      |
+|                   | ```                  |                      |  RX 5000 and newer}} |                      |
+|                   |                      |                      | ```                  |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP8               | ```{=mediawiki}      | rowspan=3            |                      |                      |
+|                   | {                    | `{{No}}`{=mediawiki} |                      |                      |
+|                   | {G|Cherryview/Braswe |                      |                      |                      |
+|                   | ll to Ice Lake <br>  |                      |                      |                      |
+|                   | Hybrid: Haswell to S |                      |                      |                      |
+|                   | kylake<sup>1</sup>}} |                      |                      |                      |
+|                   | ```                  |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP9 8bit          | ```{=mediawiki}      | rowspan=2            |                      |                      |
+|                   | {{G|Kab              | `{{G|Ice Lake and    |                      |                      |
+|                   | y Lake to Ice Lake}} | newer}}`{=mediawiki} |                      |                      |
+|                   | ```                  |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| VP9 10bit & 12bit | rowspan=2            |                      |                      |                      |
+|                   | `{{No}}`{=mediawiki} |                      |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
+| AV1 8bit & 10bit  | ```{=mediawiki}      | ```{=mediawiki}      |                      |                      |
+|                   | {{G|A                | {{G|Radeon RX 790    |                      |                      |
+|                   | lchemist and newer}} | 0 and higher/newer}} |                      |                      |
+|                   | ```                  | ```                  |                      |                      |
++-------------------+----------------------+----------------------+----------------------+----------------------+
 
-1.  MPEG-4 Part 2 is disabled by default due to VAAPI limitations. Set the [environment
-    variable](environment_variable "wikilink") `{{ic|1=VAAPI_MPEG4_ENABLED=true}}`{=mediawiki} to try to use it anyway.
-2.  Hybrid VP8 encoder and VP9 decoder supported by `{{AUR|intel-hybrid-codec-driver-git}}`{=mediawiki}.
-3.  NVIDIA CUDA adapter codec support is in active development and susceptible to change
+1.  Hybrid VP8 encoder and VP9 decoder supported by `{{AUR|intel-hybrid-codec-driver-git}}`{=mediawiki}.
+2.  NVIDIA CUDA adapter codec support is in active development and susceptible to change
     [10](https://github.com/elFarto/nvidia-vaapi-driver/issues/116).
 
 ### VDPAU drivers {#vdpau_drivers}

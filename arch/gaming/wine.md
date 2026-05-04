@@ -901,14 +901,20 @@ A way to work around this undesirable behavior is by using this [environment var
 
 ### WineASIO
 
-If you need professional audio support under wine you can use `{{Aur|wineasio}}`{=mediawiki} which provides an ASIO
-interface for wine that you can then use with [JACK](JACK "wikilink").
+If you need [professional audio](professional_audio "wikilink") support under Wine you can use
+`{{AUR|wineasio}}`{=mediawiki} which provides an [Audio Stream
+Input/Output](Wikipedia:Audio_Stream_Input/Output "wikilink") (ASIO) interface for Wine that you can then use with
+[JACK](JACK "wikilink").
 
-In order to use wineasio you must add yourself to the `{{ic|realtime}}`{=mediawiki} [user group](user_group "wikilink").
+In order to use WineASIO you must [install](install "wikilink") the `{{Pkg|realtime-privileges}}`{=mediawiki} package
+and add yourself to the `{{ic|realtime}}`{=mediawiki} [user group](user_group "wikilink").
 
-Next you need to register wineasio in your desired wine prefix. Register the 32-bit and/or 64-bit version as needed:
+Next you need to register WineASIO in your desired [Wine prefix](#WINEPREFIX "wikilink"). Register the 32-bit:
 
-`$ regsvr32 /usr/lib32/wine/i386-windows/wineasio32.dll`\
+`$ regsvr32 /usr/lib32/wine/i386-windows/wineasio32.dll`
+
+and/or 64-bit version:
+
 `$ wine64 regsvr32 /usr/lib/wine/x86_64-windows/wineasio64.dll`
 
 ### Disable starting explorer.exe {#disable_starting_explorer.exe}
@@ -1048,6 +1054,5 @@ with the same key prefixed with
     and AppDB
 -   [Gentoo:Wine](Gentoo:Wine "wikilink")
 -   [Darling](https://www.darlinghq.org/) - a similar project for MacOS software
--   [WineASIO](https://github.com/wineasio/wineasio) - GitHub page of the WineASIO project with further information
 
 [Category:Emulation](Category:Emulation "wikilink") [Category:Gaming](Category:Gaming "wikilink")

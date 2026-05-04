@@ -12,9 +12,6 @@ To enable them, add `"nvidia"` to the list of enabled video drivers defined by t
 option.
 
 ```{=mediawiki}
-{{Note|<code>hardware.graphics.enable</code> was named <code>hardware.opengl.enable</code> '''until NixOS 24.11'''.}}
-```
-```{=mediawiki}
 {{Note|Since driver version 560, you also will need to decide whether to use the open-source or proprietary modules by setting the <code>hardware.nvidia.open</code> option to either <code>true</code> or <code>false</code> respectively.<br><br>Open-source kernel modules are preferred over and planned to steadily replace proprietary modules<ref>https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/</ref>, although they only support GPUs of the Turing architecture or newer (from GeForce RTX 20 series and GeForce GTX 16 series onwards). Data center GPUs starting from Grace Hopper or Blackwell must use open-source modules — proprietary modules are no longer supported.<br><br>Make sure to allow [[Unfree software|unfree software]] even when using the open module as the user space part of the driver is still proprietary. Other unfree NVIDIA packages include <code>nvidia-x11</code>, <code>nvidia-settings</code>, and <code>nvidia-persistenced</code>.
 }}
 ```

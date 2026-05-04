@@ -22,7 +22,7 @@ different levels via the GUI *Settings \> Privacy & Security*, or by setting `{{
     `{{ic|true}}`{=mediawiki}
 
 Apart from privacy benefits, enabling [tracking
-protection](https://venturebeat.com/2015/05/24/firefoxs-optional-tracking-protection-reduces-load-time-for-top-news-sites-by-44/)`{{Dead link|2025|11|16|status=404}}`{=mediawiki}
+protection](https://web.archive.org/web/20250714225348/https://venturebeat.com/security/firefoxs-optional-tracking-protection-reduces-load-time-for-top-news-sites-by-44/)
 may also reduce load time by 44%.
 
 Note that this is not a replacement for ad blocking extensions such as [uBlock
@@ -335,9 +335,8 @@ Benefits of using Invidious include:
     from YouTube. Therefore it may help limit the profile-building capabilities of YouTube into the future (see note).
 
 Bookmark as many *functioning* invidious instances from the following lists as possible
-([here](https://github.com/iv-org/documentation/blob/master/docs/instances.md), [here](https://invidio.us/),
-[here](https://solmu.org/pub/misc/invidio.html)`{{Dead link|2024|01|13|status=404}}`{=mediawiki}). Note that some of
-these instances may be hosted by Cloudflare.
+([here](https://github.com/iv-org/documentation/blob/master/docs/instances.md), [here](https://invidio.us/)). Note that
+some of these instances may be hosted by Cloudflare.
 
 You can change any YouTube video URL to an Invidious one by simply replacing the `{{ic|youtube.com}}`{=mediawiki} part
 with the domain of the instance you want to use.

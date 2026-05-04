@@ -21,9 +21,14 @@ llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
 
 ```{=mediawiki}
-{{Note|Ensure you have the appropriate [[Vulkan]] driver installed.}}
+{{Note|
+* If you are installing {{AUR|llama.cpp-vulkan}}, ensure you have the appropriate [[Vulkan]] driver installed.  
+* The package {{AUR|llama.cpp-cuda}} has been flagged out-of-date since 2025-12-22.
+}}
 ```
 ## Usage
 
@@ -80,7 +85,8 @@ reduce quality compared to higher numbers (e.g. **Q8**).
 Knowledge distillation compresses a larger model into a smaller model by training the smaller model to follow the
 behaviors of the larger model.
 
-GGUF models indicate knowledge distillation using the `{{ic|student-teacher-distill}}`{=mediawiki} denotation, where:
+Typically, GGUF models indicate knowledge distillation using the `{{ic|student-teacher-distill}}`{=mediawiki}
+denotation, where:
 
 -   ```{=mediawiki}
     {{ic|student}}
@@ -114,6 +120,30 @@ This, combined with a lower context size, can significantly reduce memory usage.
 * Aggressive quantization on '''values''' is usually better tolerated, but still risks degradation.
 }}
 ```
+### Agent system {#agent_system}
+
+While llama-server runs a WebUI, the same endpoint also operates as an OpenAI-compatible server. It can be configured to
+use with coding agents like `{{Pkg|opencode}}`{=mediawiki} and `{{Pkg|qwen-code}}`{=mediawiki}.
+
+Also, recent updates have introduced built-in agent capabilities.
+
+#### Built-in tools {#built_in_tools}
+
+To enable built-in tools for filesystem operations and shell access, start llama-server with:
+
+`$ llama-server --tools all -m `*`model.gguf`*
+
+This, combined with a reasonably strong reasoning model, can be considered as a minimal coding agent running in browser.
+
+```{=mediawiki}
+{{Warning|
+Be very aware, that all interactions are submitted to the operating system on the behalf of whoever is running llama-server. '''At no time''' should llama-server be exposed to the network and/or running as root with built-in tools enabled!
+}}
+```
+#### Model Context Protocol servers {#model_context_protocol_servers}
+
+Other tools (e.g. search, fetch) can be added to the WebUI, given that the tools are served as MCP endpoints.
+
 ### Monitoring GPU utilization {#monitoring_gpu_utilization}
 
 See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink").
@@ -122,7 +152,7 @@ See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "w
 
 ### MCP requests denied by CORS policy {#mcp_requests_denied_by_cors_policy}
 
-To use the WebUI with an MCP service hosted online, enable MCP CORS proxy:
+To use the WebUI with an MCP endpoint hosted online, enable MCP CORS proxy:
 
 `$ llama-server `*`--webui-mcp-proxy`*` -m `*`model.gguf`*
 

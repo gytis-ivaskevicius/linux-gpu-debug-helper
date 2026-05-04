@@ -221,6 +221,27 @@ If experiencing black screen issues and logs containing:
 You need to enable the NVIDIA suspend, hibernate and sleep services as explained in [NVIDIA/Tips and tricks#Preserve
 video memory after suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "wikilink").
 
+### One or more monitors not working in multi-monitor setup in Xorg {#one_or_more_monitors_not_working_in_multi_monitor_setup_in_xorg}
+
+If one or more of your monitors is not outputting anything in Xorg and is showing up as \"Disabled\" in the
+`{{ic|nvidia-settings}}`{=mediawiki} control panel, then your current Xorg configuration may be incompatible. The
+proprietary NVIDIA driver should not require a X configuration to simply function. See [NVIDIA#Xorg
+configuration](NVIDIA#Xorg_configuration "wikilink").
+
+Simply move or rename the `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} file and any configuration files in
+`{{ic|xorg.conf.d}}`{=mediawiki} pertaining to the NVIDIA driver. Only files ending in `{{ic|.conf}}`{=mediawiki} will
+be read by Xorg.
+
+`$ mv /etc/X11/xorg.conf /etc/X11/xorg.conf.old`
+
+After disabling the old NVIDIA Xorg configuration you may want to use `{{ic|nvidia-xconfig}}`{=mediawiki} to generate a
+new NVIDIA Xorg configuration suited to your hardware. This shouldn\'t however be necessary to get the driver to work.
+
+`$ nvidia-xconfig`
+
+```{=mediawiki}
+{{Note|{{ic|nvidia-xconfig}} does create a backup file as {{ic|/etc/X11/xorg.conf.backup}}, but this file may be overwritten by running {{ic|nvidia-xconfig}} multiple times.}}
+```
 ## Crashes and hangs {#crashes_and_hangs}
 
 ### Crashing in general {#crashing_in_general}
