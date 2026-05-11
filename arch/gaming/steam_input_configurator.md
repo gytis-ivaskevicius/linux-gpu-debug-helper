@@ -66,7 +66,7 @@ It is common to use a trackpad or a joystick to do major movements while using g
 simplest is setting a trackpad *As Mouse* or a joystick with the *Joystick* setting and then setting gyro activation to
 trackpad or joystick touch. *Flick Stick* is a more advanced method where the direction of the joystick determines the
 facing direction, allowing for instant turns but limiting y-axis turning to gyro. When using Flick Stick, it is
-reasonable to adjust the Vertical/Horizontal ratio to 35% and then increasing the sensitivity until it feels
+reasonable to adjust the gyro\'s Vertical/Horizontal ratio to 35% and then increasing the sensitivity until it feels
 comfortable.
 
 ## Action Sets and Layers {#action_sets_and_layers}

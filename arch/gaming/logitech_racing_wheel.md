@@ -32,9 +32,9 @@ B: MSC=10
 B: FF=1 40000 0 0
 }}
 ```
-If you do not see your Logitech listed as an input device, you need to install usb_modeswitch package. Please memorize
-the **Handlers**, here **event15** and **js0**, as these will be necessary to call the tools for testing and configuring
-the wheel.
+If you do not see your Logitech listed as an input device, you need to install `{{Pkg|usb_modeswitch}}`{=mediawiki}
+package. Please memorize the **Handlers**, here **event15** and **js0**, as these will be necessary to call the tools
+for testing and configuring the wheel.
 
 ### Testing
 

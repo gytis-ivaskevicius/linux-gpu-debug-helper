@@ -229,8 +229,9 @@ For list of games packaged for Arch in [official repositories](official_reposito
     ```
 
 -   ```{=mediawiki}
-    {{App|Heroic Games Launcher|A GUI for GOG and legendary, an open-source alternative for the Epic Games Launcher.|https://heroicgameslauncher.com/|{{AUR|heroic-games-launcher}}}}
+    {{App|Heroic Games Launcher|A GUI for GOG and legendary, an open-source alternative for the Epic Games Launcher. Supports out-of-the-box integration with {{Pkg|umu-launcher}}.[https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/tag/v2.16.0#:~:text{{=}}
     ```
+    %F0%9F%8E%AE%20umu%20as%20Default%20on%20Linux%2FSteam%20Deck%3A%20Unified%20Launcher%20%28umu%29%20is%20now%20standard%20for%20Proton%20games%2E%20%28by%20%40arielj%29\]\|<https://heroicgameslauncher.com/>\|`{{AUR|heroic-games-launcher}}`{=mediawiki}}}
 
 -   ```{=mediawiki}
     {{App|[[Wikipedia:itch.io|itch.io]]|Indie game store.|https://itch.io|{{AUR|itch-setup-bin}}}}
@@ -241,8 +242,9 @@ For list of games packaged for Arch in [official repositories](official_reposito
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Wikipedia:Lutris|Lutris]]|Open gaming platform for Linux. Gets games from GOG, Steam, Battle.net, Origin, Uplay and many other sources. Lutris utilizes various [https://lutris.net/games game runners] to launch the games with fully customizable configuration options.|https://lutris.net|{{Pkg|lutris}}}}
+    {{App|[[Wikipedia:Lutris|Lutris]]|Open gaming platform for Linux. Gets games from GOG, Steam, Battle.net, Origin, Uplay and many other sources. Lutris utilizes various [https://lutris.net/games game runners] to launch the games with fully customizable configuration options. Supports out-of-the-box integration with {{Pkg|umu-launcher}}.[https://github.com/lutris/lutris/releases/tag/v0.5.20#:~:text{{=}}
     ```
+    Proton%2DGE%20launched%20via%20umu%20is%20now%20the%20default%2E%20Umu%20takes%20care%20of%20keeping%20Proton%2DGE%20up%20to%20date\]\|<https://lutris.net>\|`{{Pkg|lutris}}`{=mediawiki}}}
 
 -   ```{=mediawiki}
     {{App|Modrinth App|An unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.|https://modrinth.com/app|{{AUR|modrinth-app-appimage}}}}
@@ -258,6 +260,9 @@ For list of games packaged for Arch in [official repositories](official_reposito
 
 For Wine wrappers, see [Wine#Third-party applications](Wine#Third-party_applications "wikilink").
 
+```{=mediawiki}
+{{Note|For launchers that support {{ic|umu-launcher}}, please note that it is the backend to use Proton outside of Steam. It is not intended to be user-facing, as it does not have a friendly user interface, and requires terminal usage. It can still be used directly via terminal, if desired, and will provide the same results as using it via a graphical user interface.}}
+```
 ## Game launchers {#game_launchers}
 
 Game launchers are important tools for managing and running games on various platforms. Below is a comparison of
@@ -562,16 +567,16 @@ services that do not normally support this.
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 | [           | Runs under  | ```{        | ```{        | {{-}}       | ```{        | ```{        | Play PS4,   |
 | PlayStation | [           | =mediawiki} | =mediawiki} |             | =mediawiki} | =mediawiki} | PS3 and PS2 |
-| Now](https  | Wine](Wine  | {{No}}      | {{No}}      |             | {{No}}      | {{Yes}}     | games on    |
-| ://www.play | "wikilink") | ```         | ```         |             | ```         | ```         | PC.         |
-| station.com | or          |             |             |             |             |             | Alt         |
-| /en-gb/ps-n | [Steam      |             |             |             |             |             | ernatively, |
-| ow/ps-now-o | ](Steam "wi |             |             |             |             |             | you can use |
-| n-pc/)`{{De | kilink")\'s |             |             |             |             |             | [emulators  |
-| ad link|202 | proton      |             |             |             |             |             | ](Video_gam |
-| 4|07|30|sta |             |             |             |             |             |             | e_platform_ |
-| tus=404}}`{ |             |             |             |             |             |             | emulators " |
-| =mediawiki} |             |             |             |             |             |             | wikilink"). |
+| Plus](ht    | Wine](Wine  | {{No}}      | {{No}}      |             | {{No}}      | {{Yes}}     | games on    |
+| tps://www.p | "wikilink") | ```         | ```         |             | ```         | ```         | PC.         |
+| laystation. | or          |             |             |             |             |             | Alt         |
+| com/en-us/s | [Steam      |             |             |             |             |             | ernatively, |
+| upport/subs | ](Steam "wi |             |             |             |             |             | you can use |
+| criptions/p | kilink")\'s |             |             |             |             |             | [emulators  |
+| s-plus-pc/) | proton      |             |             |             |             |             | ](Video_gam |
+|             |             |             |             |             |             |             | e_platform_ |
+|             |             |             |             |             |             |             | emulators " |
+|             |             |             |             |             |             |             | wikilink"). |
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 | [           | ```{        | ```{        | ```{        | {{-}}       | ```{        | ```{        | Play games  |
 | PlayStation | =mediawiki} | =mediawiki} | =mediawiki} |             | =mediawiki} | =mediawiki} | from your   |
@@ -581,17 +586,6 @@ services that do not normally support this.
 | aystation.c |             |             |             |             |             |             |             |
 | om/en-us/re |             |             |             |             |             |             |             |
 | mote-play/) |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| [Rainway    | Web Browser | ```{        | ```{        | ```{        | ```{        | ?           | {{-}}       |
-| ](https://w | based       | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} |             |             |
-| ww.rainway. |             | {{Yes}}     | {{Y|Win     | {{No}}      | {{Yes}}     |             |             |
-| cloud/)`{{D |             | ```         | dows-only}} | ```         | ```         |             |             |
-| ead link|20 |             |             | ```         |             |             |             |             |
-| 25|03|15|st |             |             |             |             |             |             |             |
-| atus=domain |             |             |             |             |             |             |             |
-|  name not r |             |             |             |             |             |             |             |
-| esolved}}`{ |             |             |             |             |             |             |             |
-| =mediawiki} |             |             |             |             |             |             |             |
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 | [Shadow]    | ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | Controller  |
 | (https://sh | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | support is  |
@@ -609,14 +603,6 @@ services that do not normally support this.
 | eam#Steam_R | =mediawiki} | ```         | ```         | ```         | ```         | ```         |             |
 | emote_Play  |             |             |             |             |             |             |             |
 | "wikilink") |             |             |             |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-| [Vortex](ht | {{-}}       | ```{        | ```{        | {{-}}       | ```{        | ?           | {{-}}       |
-| tps://vorte |             | =mediawiki} | =mediawiki} |             | =mediawiki} |             |             |
-| x.gg/)`{{De |             | {{Yes}}     | {{No}}      |             | {{No}}      |             |             |
-| ad link|202 |             | ```         | ```         |             | ```         |             |             |
-| 4|01|29|sta |             |             |             |             |             |             |             |
-| tus=404}}`{ |             |             |             |             |             |             |             |
-| =mediawiki} |             |             |             |             |             |             |             |
 +-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 | [VNC](VNC   | ```{        | ```{        | ```{        | ```{        | ```{        | ```{        | General     |
 | "wikilink") | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | =mediawiki} | purpose     |

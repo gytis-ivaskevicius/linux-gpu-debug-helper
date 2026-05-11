@@ -171,7 +171,7 @@ does not advertise support for one. Though one can start hyprland directly from 
 `uwsm start select`, some display managers packaged in NixOS are compatible including but may not be limited to:
 
 -   [SDDM](SDDM "wikilink")
--   [GDM](GDM "wikilink") (works but crashes Hyprland on first launch)
+-   [GDM](GDM "wikilink")
 -   [Greetd](Greetd "wikilink") (especially with ReGreet)
 -   [Ly](Ly "wikilink") (not recommended but works)
 

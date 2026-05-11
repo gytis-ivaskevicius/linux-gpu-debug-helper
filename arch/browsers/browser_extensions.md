@@ -143,6 +143,10 @@ There are various extensions providing [vi](vi "wikilink")-style keyboard shortc
     ```
 
 -   ```{=mediawiki}
+    {{App|Vimium C|A fork of Vimium with more customization and advanced features.|https://github.com/gdh1995/vimium-c|[[Firefox]], [[Chromium]]}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Vim-Vixen|Vim-based browsing experience for Firefox.|https://github.com/ueokande/vim-vixen|[[Firefox]]}}
     ```
 

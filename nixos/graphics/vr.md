@@ -245,12 +245,12 @@ in {
 ```
 ```{=mediawiki}
 {{file|/etc/nixos/bwrap.patch|diff|3=diff --git a/bubblewrap.c b/bubblewrap.c
-index 69d319b..02e117d 100644
+index e05f697..504512a 100644
 --- a/bubblewrap.c
 +++ b/bubblewrap.c
-@@ -876,13 +876,6 @@ acquire_privs (void)
-       /* Keep only the required capabilities for setup */
-       set_required_caps ();
+@@ -791,13 +791,6 @@ acquire_privs (void)
+       /* Historically we supported this, but now we only do user namespaces */
+       die ("setuid use of bubblewrap is not supported");
      }
 -  else if (real_uid != 0 && has_caps ())
 -    {
@@ -262,7 +262,7 @@ index 69d319b..02e117d 100644
    else if (real_uid == 0)
      {
        /* If our uid is 0, default to inheriting all caps; the caller
-}}
+|name=|lang=}}
 ```
 `<translate>`{=html} as an additional change, you may also need to replace Steam\'s own bwrap binary with a symbolic
 link to this modified bwrap binary, found at

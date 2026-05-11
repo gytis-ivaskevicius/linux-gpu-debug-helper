@@ -20,16 +20,10 @@ LLM inference in C/C++.
 llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
--   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for GPU inference.
+-   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
 
-```{=mediawiki}
-{{Note|
-* If you are installing {{AUR|llama.cpp-vulkan}}, ensure you have the appropriate [[Vulkan]] driver installed.  
-* The package {{AUR|llama.cpp-cuda}} has been flagged out-of-date since 2025-12-22.
-}}
-```
 ## Usage
 
 Primary executors are `{{ic|llama-cli}}`{=mediawiki} and `{{ic|llama-server}}`{=mediawiki}.
@@ -142,7 +136,7 @@ Be very aware, that all interactions are submitted to the operating system on th
 ```
 #### Model Context Protocol servers {#model_context_protocol_servers}
 
-Other tools (e.g. search, fetch) can be added to the WebUI, given that the tools are served as MCP endpoints.
+Other tools (e.g. web_search, fetch) can be integrated to the WebUI, given that the tools are served as MCP endpoints.
 
 ### Monitoring GPU utilization {#monitoring_gpu_utilization}
 

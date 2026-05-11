@@ -534,19 +534,6 @@ Example:
 
 `WLR_DRM_DEVICES='/dev/dri/card1:/dev/dri/card2:/dev/dri/card0'`
 
-## Troubleshooting
-
-### Color correction {#color_correction}
-
-See [Backlight#Color correction](Backlight#Color_correction "wikilink").
-
-### Slow motion, graphical glitches, and crashes {#slow_motion_graphical_glitches_and_crashes}
-
-Gnome-shell users may experience display issues when they switch to Wayland from X. One of the root cause might be the
-`{{ic|1=CLUTTER_PAINT=disable-clipped-redraws:disable-culling}}`{=mediawiki} set by yourself for Xorg-based gnome-shell.
-Just try to remove it from `{{ic|/etc/environment}}`{=mediawiki} or other rc files to see if everything goes back to
-normal.
-
 ### Remote display {#remote_display}
 
 -   ```{=mediawiki}
@@ -583,6 +570,51 @@ normal.
     :   ```{=mediawiki}
         {{bc|1=$ waypipe ssh example.local env QT_QPA_PLATFORM=wayland QT_QPA_PLATFORMTHEME=KDE dbus-launch kcalc}}
         ```
+
+## Troubleshooting
+
+First, make sure that your current session is running under Wayland instead of [X11](X11 "wikilink") (many compositors
+support both). This can be done by examining the `{{ic|WAYLAND_DISPLAY}}`{=mediawiki} [environment
+variable](environment_variable "wikilink") (it should begin with `{{ic|wayland-}}`{=mediawiki}), and/or checking that
+`{{ic|XDG_SESSION_TYPE}}`{=mediawiki} is `{{ic|wayland}}`{=mediawiki}.
+
+For (possibly) application-related issues, consider also checking whether the application [is running under
+XWayland](#Detect_XWayland_applications "wikilink").
+
+### Useful tools {#useful_tools}
+
+-   ```{=mediawiki}
+    {{ic|wayland-info}}
+    ```
+    from `{{Pkg|wayland-utils}}`{=mediawiki}: displays information about the current compositor.
+
+-   ```{=mediawiki}
+    {{Pkg|wev}}
+    ```
+    : for debugging Wayland events on a Wayland window, analagous to the X11 tool [xev](xev "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|wlopm}}
+    ```
+    : Wayland output power management for compositors that support the [wlr output power management
+    protocol](https://wayland.app/protocols/wlr-output-power-management-unstable-v1).
+
+-   ```{=mediawiki}
+    {{Pkg|wlr-randr}}
+    ```
+    : Manages outputs of Wayland compositors that support the [wlr output management
+    protocol](https://wayland.app/protocols/wlr-output-management-unstable-v1).
+
+### Color correction {#color_correction}
+
+See [Backlight#Color correction](Backlight#Color_correction "wikilink").
+
+### GNOME: Slow motion, graphical glitches, and crashes {#gnome_slow_motion_graphical_glitches_and_crashes}
+
+Gnome-shell users may experience display issues when they switch to Wayland from X. One of the root cause might be the
+`{{ic|1=CLUTTER_PAINT=disable-clipped-redraws:disable-culling}}`{=mediawiki} set by yourself for Xorg-based gnome-shell.
+Just try to remove it from `{{ic|/etc/environment}}`{=mediawiki} or other rc files to see if everything goes back to
+normal.
 
 ### Input grabbing in games, remote desktop and virtual machine windows {#input_grabbing_in_games_remote_desktop_and_virtual_machine_windows}
 

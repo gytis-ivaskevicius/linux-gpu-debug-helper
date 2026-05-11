@@ -149,14 +149,26 @@ Hyprland supports variable refresh rate. To enable it, you need to add either {{
     vrr = 1
  }
 
+Alternatively you can define {{ic|vrr}} as an extra argument for the monitor(s)[https://wiki.hypr.land/0.48.0/Configuring/Monitors/#vrr] variable:
+
+ # Example monitor configuration
+ monitor=DP-1,2560x1440@240,0x0,1,vrr,1
+ monitor=DP-2,2560x1440@165,-1440x-600,1,transform,1,vrr,1
+
 {{ic|vrr {{=}} 1}} always enables variable refresh rate, while {{ic|vrr {{=}} 2}} only enables it for fullscreen applications.
 
 You can verify that your display supports adaptive sync with hyprctl:
 
 {{hc|$ hyprctl monitors |
- Monitor DP-2 (ID 0):
-         ...
-	 vrr: 1
+Monitor DP-1 (ID 0):
+	...
+	vrr: true
+	...
+     
+Monitor DP-2 (ID 1):
+	...
+	vrr: true
+	...
 }}
 
 === niri ===

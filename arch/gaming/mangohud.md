@@ -8,8 +8,8 @@ overlay for monitoring system performance while inside applications and to recor
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|mangohud}}`{=mediawiki} and `{{Pkg|lib32-mangohud}}`{=mediawiki} since many old
-games are 32-bit-only.
+[Install](Install "wikilink") the `{{Pkg|mangohud}}`{=mediawiki} package. Since many old games are 32-bit-only, enable
+the [multilib](multilib "wikilink") repository and install the `{{Pkg|lib32-mangohud}}`{=mediawiki} package as well.
 
 ## Configuration
 
@@ -39,9 +39,9 @@ MangoHud is configured via the following files, which are read in the following 
     (via [environment variables](environment_variables "wikilink"))
 
 ```{=mediawiki}
-{{Tip|An example configuration file with comments can be found [https://raw.githubusercontent.com/flightlessmango/MangoHud/master/data/MangoHud.conf in the project's repository].}}
+{{Tip|The project's GitHub repository contains an [https://github.com/flightlessmango/MangoHud/blob/master/data/MangoHud.conf example configuration file].}}
 ```
-### GUI for configuration {#gui_for_configuration}
+### Graphical user interface for configuration {#graphical_user_interface_for_configuration}
 
 A GUI for configuring MangoHud can be installed from `{{Pkg|goverlay}}`{=mediawiki} or `{{Aur|mangojuice}}`{=mediawiki}.
 
@@ -88,7 +88,7 @@ The default keyboard shortcuts include:
 +--------------------+-------------------------------+
 
 ```{=mediawiki}
-{{Note|Keyboard shortcut values are transcribed as used in the [https://github.com/flightlessmango/MangoHud/blob/master/data/MangoHud.conf upstream's configuration file].}}
+{{Note|Keyboard shortcut values have been transcribed from the [https://github.com/flightlessmango/MangoHud/blob/789882518d8397733451926951bd14214f5f06f3/data/MangoHud.conf#L390-L400 upstream's configuration file].}}
 ```
 ### Test configuration {#test_configuration}
 
@@ -151,8 +151,8 @@ MangoHud will detect Steam and will avoid loading itself until a game is launche
 
 ### Enable for all Vulkan games {#enable_for_all_vulkan_games}
 
-To make MangoHud automatically launch with all [Vulkan](Vulkan "wikilink") games, it is possible to set the following
-[environment variable](environment_variable "wikilink"):
+To make MangoHud automatically launch with all [Vulkan](Vulkan "wikilink") games, set the following [environment
+variable](environment_variable "wikilink"):
 
 `MANGOHUD=1`
 

@@ -7,8 +7,8 @@ request a set of optimisations be temporarily applied to the host OS and/or a ga
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|gamemode}}`{=mediawiki} and `{{Pkg|lib32-gamemode}}`{=mediawiki} since many old
-games are 32-bit-only.
+[Install](Install "wikilink") the `{{Pkg|gamemode}}`{=mediawiki} package. Since many old games are 32-bit-only, enable
+the [multilib](multilib "wikilink") repository and install the `{{Pkg|lib32-gamemode}}`{=mediawiki} package as well.
 
 Add yourself to the `{{ic|gamemode}}`{=mediawiki} [user group](user_group "wikilink"). Without it, the GameMode user
 daemon will not have rights to change CPU governor or the niceness of processes.
@@ -33,10 +33,14 @@ GameMode is configured via the following files, which are read and then merged i
     for directory-local configuration.
 
 ```{=mediawiki}
-{{Tip|An example configuration file with comments can be found [https://github.com/FeralInteractive/gamemode/blob/master/example/gamemode.ini on FeralInteractive's GitHub].}}
+{{Tip|FeralInteractive's GitHub repository contains an [https://github.com/FeralInteractive/gamemode/blob/master/example/gamemode.ini example configuration file].}}
 ```
 ```{=mediawiki}
-{{Note|{{ic|/usr/share/gamemode/gamemode.ini}} should not be created by users, as it's reserved for manual configuration by package maintainers. See {{man|7|file-hierarchy}} for more details.}}
+{{Note|
+{{ic|/usr/share/gamemode/gamemode.ini}} should not be created by users, as it is reserved for manual configuration by package maintainers. See {{man|7|file-hierarchy}} for more details.
+
+The Arch Linux official packages do not include such file[https://github.com/FeralInteractive/gamemode/blob/c54d6d4243b0dd0afcb49f2c9836d432da171a2b/meson.build#L197-L200][https://gitlab.archlinux.org/archlinux/packaging/packages/gamemode/-/blob/4d3e60ac2bfd06fa58373c4e061f689ff5e981f6/PKGBUILD#L42][https://gitlab.archlinux.org/archlinux/packaging/packages/lib32-gamemode/-/blob/2ac9dc463fc3ebca36fb1cae39d7828e65137394/PKGBUILD#L41]; the defaults are sourced from the software's code defaults[https://github.com/FeralInteractive/gamemode/blob/c54d6d4243b0dd0afcb49f2c9836d432da171a2b/daemon/gamemode-config.c#L373-L385], which have the same values as the [https://github.com/FeralInteractive/gamemode/blob/master/example/gamemode.ini example configuration file].
+}}
 ```
 ### Renicing
 

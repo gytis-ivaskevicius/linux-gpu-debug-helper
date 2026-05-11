@@ -47,35 +47,31 @@ And add `{{ic|keymap f COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"}}`{=mediawiki}
 ```{=mediawiki}
 {{Note|While qutebrowser supports a variety of keys to select hints, in w3m you can only select links using the number keys.}}
 ```
-### Using kittens image protocol {#using_kittens_image_protocol}
+### Using kitty image protocol {#using_kitty_image_protocol}
 
 Users of the [kitty](kitty "wikilink") terminal emulator may chose to use its own [graphics
 protocol](https://sw.kovidgoyal.net/kitty/graphics-protocol/).
 
-To do so simply change the following lines in `{{ic|~/.w3m/config}}`{=mediawiki}:
+To do so simply change the following line in `{{ic|~/.w3m/config}}`{=mediawiki}:
 
-`inline_img_protocol 0`\
-`imgdisplay w3mimgdisplay`
+`inline_img_protocol 0`
 
 to:
 
-`inline_img_protocol 4`\
-`imgdisplay kitty`
+`inline_img_protocol 4`
 
 ### Using Iterm2 image protocol {#using_iterm2_image_protocol}
 
 Users of the [wezterm](wezterm "wikilink") terminal emulator may chose to use the [Iterm2 graphics
 protocol](https://web.archive.org/web/20240113173736/https://wezfurlong.org/wezterm/imgcat.html) which WezTerm supports.
 
-To do so simply change the following lines in `{{ic|~/.w3m/config}}`{=mediawiki}:
+To do so simply change the following line in `{{ic|~/.w3m/config}}`{=mediawiki}:
 
-`inline_img_protocol 0`\
-`imgdisplay w3mimgdisplay`
+`inline_img_protocol 0`
 
 to:
 
-`inline_img_protocol 3`\
-`imgdisplay iterm2`
+`inline_img_protocol 3`
 
 ### Searching
 

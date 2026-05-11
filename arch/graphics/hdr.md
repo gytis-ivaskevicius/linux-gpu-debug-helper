@@ -174,7 +174,7 @@ by the game.
 To use HDR without gamescope run a build of Wine which includes the Wayland driver.
 
 ```{=mediawiki}
-{{Note|Wines native [[Wayland]] driver is experimental and may perform better or worse than Xwayland depending on the game.}}
+{{Note|Wine's native [[Wayland]] driver is experimental and may perform better or worse than Xwayland depending on the game.}}
 ```
 -   [proton-ge-custom](https://github.com/GloriousEggroll/proton-ge-custom): install
     `{{aur|proton-ge-custom-bin}}`{=mediawiki} and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and

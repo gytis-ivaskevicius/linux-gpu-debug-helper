@@ -9,15 +9,18 @@ Add `{{nixos:package|chromium}}`{=mediawiki} to
 
 ## Updating browser policies {#updating_browser_policies}
 
-In Chromium the policy settings, which can be accessed by using `{{Ic|chrome://policy}}`{=mediawiki}, allow the user to
-change a lot of settings that dont exist anywhere else such as
+In Chromium, policy settings are accessible via `{{Ic|chrome://policy}}`{=mediawiki}. They allow the user to change
+enterprise policies affecting things like
 
 -   Creating webapps when the browser is installed
 -   Finding and downloading browser extensions automatically
 -   Enabling or disabling the dinosaur game when the device is offline
 -   Disable screenshots to be taken with browser extensions
 -   Block all downloads from the browser (if you want to do that for some reason)
--   and hundreds more settings
+-   and more!
+
+A full list of policies can be found at [Chrome Enterprise Policy List &
+Management](https://chromeenterprise.google/policies/).
 
 ### Natively Supported Policies {#natively_supported_policies}
 
@@ -78,22 +81,17 @@ these are implemented
 
 ### Non-natively Supported Policies {#non_natively_supported_policies}
 
-As stated beforehand, there are hundreds of policies that are in chromium based browsers and not all of them can be
-supported directly and so the `{{Ic|extraOpts}}`{=mediawiki} option allows for the declaration of all the other policies
+There are hundreds of policies in Chromium based browsers, and not all have direct methods to set them. The
+`{{Ic|extraOpts}}`{=mediawiki} option allows for the declaration of all the other policies.
 
-There is no one place to find all the policies and some places you can find a \"list\" are given below:
+There is no single place to find all Chromium policies, but these are some places to look;
 
--   A good number of commonly used policies are present and explained within `{{Ic|man configuration.nix}}`{=mediawiki}
-    under `{{Ic|programs.chromium}}`{=mediawiki}
--   If you require a more comprehensive list then you can go to `{{Ic|chrome://policy}}`{=mediawiki} and click on the
-    checkbox at the top of the page that says \"Show policies with no value set\", from there you can click on any of
-    the policies to go to the documentation page for that policy to get details on how to use it
--   If you just want to see the list of all policies supported by chromium then you cant really do that, unfortunately
-    google does not provide documentation on every single policy in the chromium browser base and if you wish to see the
-    list of every single policy then you can do so by going directly to the source code and figuring out how a policy
-    works
--   To see the most up-to-date file on all policies you can go
-    [here](https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h)
+-   Commonly used policies are present and documented within `{{Ic|man configuration.nix}}`{=mediawiki} under
+    `{{Ic|programs.chromium}}`{=mediawiki}.
+-   You can navigate to `{{Ic|chrome://policy}}`{=mediawiki} and enable \"Show policies with no value set\" to see all
+    available keys. Clicking a policy name opens its specific definition and usage details.
+-   The most up to date policies for Chromium are available in the [source
+    code.](https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h)
 
 ## Accelerated video playback {#accelerated_video_playback}
 
@@ -101,7 +99,7 @@ Make sure [Accelerated Video Playback](Special:MyLanguage/Accelerated_Video_Play
 properly. Check `{{ic|chrome://gpu}}`{=mediawiki} to see if Chromium has enabled hardware acceleration.
 
 If accelerated video playback is not working, check relevant flags at `{{ic|chrome://flags}}`{=mediawiki}, or enable
-them using the cli:
+them using the CLI:
 
 `</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
@@ -118,7 +116,7 @@ them using the cli:
 </nowiki>}}`{=mediawiki} `<translate>`{=html}
 
 In some cases, `{{ic|chrome://gpu}}`{=mediawiki} will show Video Decode as enabled, but Video Acceleration Information
-as blank, with `{{ic|chrome://media-internals}}`{=mediawiki} using FFmpeg Video Decoder (software decoding). If this
+as blank, with `{{ic|chrome://media-internals}}`{=mediawiki} using the FFmpeg Video Decoder (software decoding). If this
 happens, try to enable the following features:
 
 `</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
@@ -139,27 +137,13 @@ happens, try to enable the following features:
 
 ## Enabling native Wayland support {#enabling_native_wayland_support}
 
-You can turn on native Wayland support in all chrome and most electron apps by setting an environment variable:
-`environment.sessionVariables.NIXOS_OZONE_WL = "1"`.
-
-## Enabling ManifestV2 support {#enabling_manifestv2_support}
-
-To enable manifest v2 support `ExtensionManifestV2Availability` can be set to `2`.[^1]
-
-`</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
-{
-  programs.chromium = {
-    extraOpts = {
-    "ExtensionManifestV2Availability" = 2;
-    };
-  };
-}
-</nowiki>}}`{=mediawiki} `<translate>`{=html}
+You can enable native Wayland support in all Chromium based and most Electron apps by setting the \`NIXOS_OZONE_WL\`
+environment variable to \`1\`.
 
 ## Enabling DRM (Widevine support) {#enabling_drm_widevine_support}
 
 By default, `{{nixos:package|chromium}}`{=mediawiki} does not support playing DRM protected media. However, there is a
-build time flag to include the unfree Widevine blob from nixpkgs:
+build time flag to include the proprietary Widevine blob from Nixpkgs:
 
 `</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
@@ -216,5 +200,3 @@ programs.firejail = {
 
 [Category:Applications](Category:Applications "wikilink") [Category:Web
 Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "wikilink")
-
-[^1]: <https://chromeenterprise.google/policies/#ExtensionManifestV2Availability>

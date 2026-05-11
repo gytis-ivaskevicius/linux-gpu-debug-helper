@@ -11,8 +11,10 @@ See [this page](https://chromium.googlesource.com/chromium/src/+/master/docs/chr
 an explanation of the differences between Chromium and Google Chrome.
 
 ```{=mediawiki}
-{{Note|Sync can be temporarily restored by [https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 using Chrome's OAuth2 credentials] or [https://www.chromium.org/developers/how-tos/api-keys getting your own], but pay attention to the disclaimers and do not consider this to be a long-term solution.
-Consider switching to [https://www.xbrowsersync.org xbrowsersync] for bookmarks syncing as long term solution.
+{{Tip|
+On {{Pkg|chromium}}, Chrome Sync can be temporarily restored by [https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 using Chrome's OAuth2 credentials] or [https://www.chromium.org/developers/how-tos/api-keys getting your own], but pay attention to the disclaimers and do not consider this to be a long-term solution.
+
+Consider switching to [https://www.xbrowsersync.org/ xBrowserSync] for bookmark synchronization as a long-term solution.
 }}
 ```
 See [List of applications/Internet#Blink-based](List_of_applications/Internet#Blink-based "wikilink") for other browsers
@@ -24,7 +26,7 @@ based on Chromium.
 `{{AUR|google-chrome}}`{=mediawiki} releases.
 
 ```{=mediawiki}
-{{Note|From the [https://www.chromium.org/Home/chromium-privacy Chromium privacy page]: "Features that communicate with Google made available through the compilation of code in Chromium are subject to the [https://www.google.com/policies/privacy/ Google Privacy Policy]." For those who want to avoid all integration with Google services, there are some [[List of applications/Internet#Privacy-focused chromium spin-offs|privacy-focused spin-offs]].}}
+{{Note|From the [https://www.chromium.org/Home/chromium-privacy Chromium privacy page]: "Features that communicate with Google made available through the compilation of code in Chromium are subject to the [https://www.google.com/policies/privacy/ Google Privacy Policy]." For those who want to avoid all integration with Google services, there are some [[List of applications/Internet#Privacy-focused Chromium spin-offs|privacy-focused spin-offs]].}}
 ```
 ## Configuration
 
@@ -175,7 +177,7 @@ codecs are supported, but Chromium will only support VP9 and h264):
 -   In the newly opened Media tab, look at the hardware decoder state of the video decoder
 
 Test on a large enough video. Starting with version 86, Chromium on desktop [will only accelerate videos larger than
-720p](https://bugs.chromium.org/p/chromium/issues/detail?id=684792).
+720p](https://issues.chromium.org/issues/40503293).
 
 To reduce CPU usage while watching YouTube where VP8/VP9 hardware decoding is not available use the
 [h264ify](https://chrome.google.com/webstore/detail/h264ify/aleakchihdccplidncghkekgioiakgal),
@@ -239,8 +241,8 @@ between X11 and Wayland often.
 ```{=mediawiki}
 {{Note|When changing the "ozone-platform-hint" in browser flags menu, the browser will provide you a relaunch button. Do not use it, because the browser will still be relaunched in a platform it was before changing the flag. You need to close the browser, then open it.}}
 ```
-Additionally, if you are having [trouble with input
-methods](https://bugs.chromium.org/p/chromium/issues/detail?id=1422087) you may also want to force newer GTK:
+Additionally, if you are having [trouble with input methods](https://issues.chromium.org/issues/40259478) you may also
+want to force newer GTK:
 
 `--gtk-version=4`
 
@@ -290,8 +292,8 @@ A number of tweaks can be accessed via Chrome URLs. See **<chrome://chrome-urls>
 -   **<chrome://version>** - display version and switches used to invoke the active
     `{{ic|/usr/bin/chromium}}`{=mediawiki}.
 
-An automatically updated, complete listing of Chromium switches (command line parameters) is available
-[here](https://peter.sh/experiments/chromium-command-line-switches/).
+An automatically updated, complete listing of Chromium switches (command line parameters) is available at
+<https://peter.sh/experiments/chromium-command-line-switches/>.
 
 #### Chromium task manager {#chromium_task_manager}
 
@@ -507,9 +509,9 @@ You can make Chromium use your current GTK theme for browser menus and controls.
 #### Dark mode {#dark_mode}
 
 Since Chromium 114, [XDG Desktop Portal](XDG_Desktop_Portal "wikilink") is used to automatically determine the user\'s
-preferred appearance ([issue](https://bugs.chromium.org/p/chromium/issues/detail?id=998903)), thereby dissociating dark
-mode enablement from the user\'s GTK theme. This preference will be applied to *prefers-color-scheme* in CSS,
-JavaScript, Settings and Dev-Tools.
+preferred appearance ([issue](https://issues.chromium.org/issues/40642550)), thereby dissociating dark mode enablement
+from the user\'s GTK theme. This preference will be applied to *prefers-color-scheme* in CSS, JavaScript, Settings and
+Dev-Tools.
 
 The way to change the preferred appearance depends on your XDG Desktop Portal backend. For instance, many desktop
 environments have a switch in their appearance settings. Or when using e.g.
@@ -575,7 +577,7 @@ desktop, there are extensions available to disable local IP address leak, one is
 One can test WebRTC via <https://browserleaks.com/webrtc>.
 
 ```{=mediawiki}
-{{Warning|Even though IP leak can be prevented, Chromium still sends your unique hash, and there is no way to prevent this. Read more on https://www.browserleaks.com/webrtc#webrtc-disable}}
+{{Warning|Even though IP leak can be prevented, Chromium still sends your unique hash, and there is no way to prevent this. More information is available at https://browserleaks.com/webrtc#howto-disable-webrtc.}}
 ```
 #### SSL certificates {#ssl_certificates}
 
@@ -879,9 +881,8 @@ you cannot log in to your Google account. Temporarily disable this flag to login
 
 ### Chromium rendering at 60 FPS despite using a display with a higher refresh rate {#chromium_rendering_at_60_fps_despite_using_a_display_with_a_higher_refresh_rate}
 
-Upstream bug report about the general issue which may contain some additional workarounds can be found
-[here](https://bugs.chromium.org/p/chromium/issues/detail?id=1200167), and a sister issue about mixed refresh rates
-[here](https://bugs.chromium.org/p/chromium/issues/detail?id=1138080).
+See [the general issue](https://issues.chromium.org/issues/40761642) which may contain some additional workarounds and
+[a sister issue about mixed refresh rates](https://issues.chromium.org/issues/40725152).
 
 #### Mixed refresh rates {#mixed_refresh_rates}
 
@@ -1049,15 +1050,11 @@ More information can be read in
 
 ## See also {#see_also}
 
--   [Chromium homepage](https://www.chromium.org/)
+-   [Chromium homepage](https://www.chromium.org/Home/)
 -   [Google Chrome release notes](https://chromereleases.googleblog.com/)
 -   [Chrome web store](https://chrome.google.com/webstore/)
--   [Differences between Chromium and Google
-    Chrome](Wikipedia:Chromium_(web_browser)#Differences_from_Google_Chrome "wikilink")
--   [List of Chromium command-line switches](https://peter.sh/experiments/chromium-command-line-switches/)
--   [Profile-sync-daemon](Profile-sync-daemon "wikilink") - Systemd service that saves Chromium profile in tmpfs and
-    syncs to disk
 -   [Tmpfs](Tmpfs "wikilink") - Tmpfs Filesystem in `{{ic|/etc/fstab}}`{=mediawiki}
 -   [Official tmpfs kernel Documentation](https://docs.kernel.org/filesystems/tmpfs.html)
+-   [RKNF404\'s chromium-hardening-guide on GitHub](https://github.com/RKNF404/chromium-hardening-guide)
 
 [Category:Web browser](Category:Web_browser "wikilink") [Category:Google](Category:Google "wikilink")

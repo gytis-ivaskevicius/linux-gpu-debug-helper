@@ -13,8 +13,10 @@
 ## Installation
 
 Enable the [multilib](multilib "wikilink") repository and [install](install "wikilink") the `{{Pkg|steam}}`{=mediawiki}
-package (recommended) or alternatively the `{{AUR|steam-native-runtime}}`{=mediawiki} package for running Steam with
-native system libraries. See [/Troubleshooting#Steam runtime](/Troubleshooting#Steam_runtime "wikilink").
+package (recommended).
+
+Alternatively, install the `{{AUR|steam-native-runtime}}`{=mediawiki} package for running Steam with native system
+libraries; see [/Troubleshooting#Steam runtime](/Troubleshooting#Steam_runtime "wikilink").
 
 ```{=mediawiki}
 {{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues like being unable to use Vulkan at all when you install it by accident for different GPU vendor.}}
@@ -40,7 +42,7 @@ In order to run Steam:
 -   ```{=mediawiki}
     {{ic|vm.max_map_count}}
     ```
-    must be increased in order to run some games without crashing, see [Gaming#Increase
+    must be increased in order to run some games without crashing; see [Gaming#Increase
     vm.max_map_count](Gaming#Increase_vm.max_map_count "wikilink").
 
 ### SteamCMD
