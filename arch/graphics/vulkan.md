@@ -1,5 +1,5 @@
-[es:Vulkan](es:Vulkan "wikilink") [hu:Vulkan](hu:Vulkan "wikilink") [ja:Vulkan](ja:Vulkan "wikilink")
-[pt:Vulkan](pt:Vulkan "wikilink") [ru:Vulkan](ru:Vulkan "wikilink") [zh-hans:Vulkan](zh-hans:Vulkan "wikilink") From
+[es:Vulkan](es:Vulkan "wikilink") [ja:Vulkan](ja:Vulkan "wikilink") [pt:Vulkan](pt:Vulkan "wikilink")
+[ru:Vulkan](ru:Vulkan "wikilink") [zh-hans:Vulkan](zh-hans:Vulkan "wikilink") From
 [Wikipedia](Wikipedia:Vulkan_(API) "wikilink"):
 
 :   Vulkan is a low-overhead, cross-platform 3D graphics and compute API. First released in 2016, it is a successor to

@@ -272,7 +272,7 @@ This, however, will disable the Steam Overlay and any additional Steam features;
 Depending on the game, you may be able to restore Steam functionality by bypassing `{{ic|LD_PRELOAD}}`{=mediawiki}
 running on gamescope, and passing it instead as an env directly to the desired command. For example:
 
-`$ gamescope -- env LD_PRELOAD="$LD_PRELOAD" %command%`
+`$ env -u LD_PRELOAD gamescope -- env LD_PRELOAD="$LD_PRELOAD" %command%`
 
 The above seems to work well for games that do not contain a secondary launcher (Rockstar, EA, etc.)
 

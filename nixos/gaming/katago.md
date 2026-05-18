@@ -1,5 +1,5 @@
 [Katago](https://github.com/lightvector/katago) is a very strong go engine. It has no GUI and has to be used with
-[KaTrain](https://github.com/sanderland/katrain), [Lizzie](https://github.com/featurecat/lizzie),
+[KaTrain](KaTrain "wikilink"), [Lizzie](https://github.com/featurecat/lizzie),
 [Ogatak](https://github.com/rooklift/ogatak), [q5Go](https://github.com/bernds/q5Go) or other tools like
 [Sabaki](https://sabaki.yichuanshen.de/).
 

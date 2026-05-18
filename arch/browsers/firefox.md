@@ -2,10 +2,11 @@
 [ru:Firefox](ru:Firefox "wikilink") [zh-hans:Firefox](zh-hans:Firefox "wikilink")
 [zh-hant:Firefox](zh-hant:Firefox "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|/Privacy}}`{=mediawiki} `{{Related|/Profile on RAM}}`{=mediawiki} `{{Related|/Tweaks}}`{=mediawiki}
-`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|List of applications/Internet#Graphical}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
 
-[Firefox](https://www.mozilla.org/firefox) is a popular open source graphical web browser from
-[Mozilla](https://www.mozilla.org).
+[Firefox](https://www.firefox.com/en-US/) is a popular open-source graphical web browser developed by
+[Mozilla](https://www.mozilla.org/en-US/).
 
 ## Installation
 

@@ -202,6 +202,10 @@ Display managers listed below support launching Wayland compositors.
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | Name                                 | Runs on                              | Description                          |
 +======================================+======================================+======================================+
+| ```{=mediawiki}                      | Wayland                              | Display manager with first-class     |
+| {{AUR|atrium}}                       |                                      | multiseat support.                   |
+| ```                                  |                                      |                                      |
++--------------------------------------+--------------------------------------+--------------------------------------+
 | ```{=mediawiki}                      | tty                                  | Simple CLI Display Manager on TTY.   |
 | {{Pkg|emptty}}                       |                                      |                                      |
 | ```                                  |                                      |                                      |
@@ -520,8 +524,8 @@ WantedBy=graphical.target
 ### Use another renderer for wlroots based compositor {#use_another_renderer_for_wlroots_based_compositor}
 
 You can use another [wlroots renderer](https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/render) such as
-vulkan by specifying the `{{ic|WLR_RENDERER}}`{=mediawiki} environment variable for wlroots based compositor. The list
-of available ones is on the [wlroots
+[Vulkan](Vulkan "wikilink") by specifying the `{{ic|WLR_RENDERER}}`{=mediawiki} environment variable for wlroots based
+compositor. The list of available ones is on the [wlroots
 documentation](https://gitlab.freedesktop.org/wlroots/wlroots/-/blob/master/docs/env_vars.md).
 
 ### Specifying the primary graphics cards on wlroot based compositor {#specifying_the_primary_graphics_cards_on_wlroot_based_compositor}

@@ -1,5 +1,5 @@
-[hu:OpenGL](hu:OpenGL "wikilink") [ja:OpenGL](ja:OpenGL "wikilink") [ru:OpenGL](ru:OpenGL "wikilink")
-[zh-hans:OpenGL](zh-hans:OpenGL "wikilink") From [Wikipedia:OpenGL](Wikipedia:OpenGL "wikilink"):
+[ja:OpenGL](ja:OpenGL "wikilink") [ru:OpenGL](ru:OpenGL "wikilink") [zh-hans:OpenGL](zh-hans:OpenGL "wikilink") From
+[Wikipedia:OpenGL](Wikipedia:OpenGL "wikilink"):
 
 :   OpenGL (Open Graphics Library) is a cross-language, cross-platform application programming interface (API) for
     rendering 2D and 3D vector graphics.

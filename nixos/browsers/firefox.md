@@ -4,12 +4,12 @@
   |type=Web Browser
   |developer=Mozilla Foundation & Community
   |firstRelease=November 9, 2004
-  |latestRelease=Firefox 140.0 (June 24, 2025)
+  |latestRelease=Firefox 150.0 (April 21, 2026)
   |status=Active
   |license=[https://www.mozilla.org/MPL/2.0/ Mozilla Public License 2.0]
   |os=Cross-platform (Linux, macOS, Windows, *BSD)
   |website=[https://www.mozilla.org/firefox mozilla.org/firefox]
-  |github=mozilla/firefox
+  |github=mozilla-firefox/firefox
   |bugTracker=[https://bugzilla.mozilla.org/ Bugzilla]
   |documentation=[https://support.mozilla.org/ Official Support]
 }}`{=mediawiki} `<translate>`{=html} `<strong>`{=html}Firefox`</strong>`{=html}[^1] is a free and open-source web

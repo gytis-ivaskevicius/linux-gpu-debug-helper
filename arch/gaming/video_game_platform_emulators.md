@@ -133,9 +133,8 @@ platform or system so as to allow applications and games to be run in environmen
     {{App|NooDS|A (hopefully!) speedy NDS emulator.|https://github.com/Hydr8gon/NooDS/|{{AUR|noods-git}} }}
     ```
 
--   ```{=mediawiki}
-    {{App|puNES|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music Player.|https://github.com/punesemu/puNES|{{Aur|punes}} (Note: Fails to run on Wayland as of 0.109. Use {{AUR|punes-git}} for working version.)}}
-    ```
+-   {{App\|puNES\|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music
+    Player.\|<https://github.com/punesemu/puNES>\|`{{Aur|punes}}`{=mediawiki}
 
 -   ```{=mediawiki}
     {{App|SameBoy|An accuracy-focused Game Boy/Game Boy Color emulator.|https://github.com/LIJI32/SameBoy|{{AUR|sameboy}}}}

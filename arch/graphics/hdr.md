@@ -56,34 +56,25 @@ See [KDE#HDR](KDE#HDR "wikilink").
 
 ### Hyprland
 
-#### Monitor v1 {#monitor_v1}
-
-Append `{{ic|, bitdepth, 10, cm, hdr}}`{=mediawiki} to the monitor\'s config line in your Hyprland config file.
-
-```{=mediawiki}
-{{Note| Monitorv2s are declared as such, whereas monitorv1s are declared simply as "monitor"}}
-```
-#### Monitor v2 {#monitor_v2}
-
-Add a new line to the monitor\'s config and add
+Hyprland \>= 0.55 will automatically switch to HDR mode in its default configuration, when the monitor and fullscreen
+content support it. To use HDR on the desktop you must set `{{ic|cm {{=}}`{=mediawiki} \"hdr\"}} and
+`{{ic|bitdepth {{=}}`{=mediawiki} 10}} in your monitor configuration like so:
 
 ```{=mediawiki}
 {{bc|
-monitorv2 {
-   # ...
-   bitdepth {{=}}
+hl.monitor({
+    -- ...
+    bitdepth {{=}}
 ```
-10
+10,
 
-`  cm {{=}} hdr`
+`   cm {{=}} "hdr",`
 
-} }}
+}) }}
 
-Additional settings can be found on the [Hyprland wiki](https://wiki.hypr.land/Configuring/Monitors/#monitor-v2).
-
-More information can be found in the [Hyprland experimental
-docs](https://wiki.hyprland.org/Configuring/Variables/#experimental) and the [Hyprland monitor
-docs](https://wiki.hypr.land/Configuring/Monitors/#color-management-presets).
+Additional settings can be found on the Hyprland wiki: [monitor color
+management](https://wiki.hypr.land/Configuring/Basics/Monitors/#color-management-presets), [render
+variables](https://wiki.hypr.land/Configuring/Basics/Variables/#render).
 
 ### GNOME
 

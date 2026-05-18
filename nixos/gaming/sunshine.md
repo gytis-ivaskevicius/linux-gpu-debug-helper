@@ -21,8 +21,7 @@ To permit sunshine to emulate input devices, for example to create a virtual mou
   extraGroups = [ "uinput" ];
 };|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
-Currently, you need to also enable and create the `uinput` kernel module and user group (until
-[this](https://github.com/NixOS/nixpkgs/pull/493109) pull request gets merged).
+For \<26.05 stable branch system versions, you need to also enable and create the `uinput` kernel module and user group.
 `{{File|3=hardware.uinput.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
 ## Connecting to the host {#connecting_to_the_host}

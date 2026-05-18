@@ -374,7 +374,7 @@ physically reconnect your device after running this command.
 ``\
 `Starting from SDL3, mapping is always positional.[https://github.com/slouken/SDL/blob/main/docs/README-migration.md] Note that {{Pkg|sdl2-compat}} preserves the old behavior.[https://github.com/libsdl-org/sdl2-compat/blob/ed7e8bd5b169f379d7b1ba57b242657bc3455ebb/src/sdl2_compat.c#L2020-L2024]`\
 ``\
-`=== Steam Controller ===`\
+`=== Steam Controller (2015) ===`\
 ``\
 `{{Note|Kernel 4.18 [https://lore.kernel.org/lkml/20180416122703.22306-1-rodrigorivascosta@gmail.com/ provides a kernel driver] for wired/wireless use of the steam controller as a controller input device without [[Steam]].}}`\
 ``\
@@ -385,6 +385,107 @@ physically reconnect your device after running this command.
 `If you cannot get the Steam Controller to work, see [[#Steam Controller not pairing or recognized in games (including USB)]].`\
 ``\
 `{{Note|If you do not use the [[Steam runtime]], you might actually need to disable the overlay for the controller to work in certain games (Rocket Wars, Rocket League, Binding of Isaac, etc.). Right click on a game in your library, select "Properties", and uncheck "Enable Steam Overlay".}}`\
+``\
+`==== Builtin functions ====`\
+``\
+``\
+`{| class="wikitable"`\
+`|+ Startup functions`\
+`|-`\
+`! Key combination !! Function`\
+`|-`\
+`| {{ic|Y+Home}} || Enter Bluetooth pairing mode`\
+`|-`\
+`| {{ic|B+Home}} || Connect to the last remembered Bluetooth pairing`\
+`|-`\
+`| {{ic|Menu+Home}} || Cycle between two saved Bluetooth pairings`\
+`|-`\
+`| {{ic|X+Home}} || Enter dongle pairing mode`\
+`|-`\
+`| {{ic|A+Home}} || Connect to the last remembered dongle pairing`\
+`|-`\
+`| {{ic|View+Home}} || Cycle between two saved dongle pairings`\
+`|-`\
+`| {{ic|Right trigger}} + Plug the USB in || Open the controller as an USB storage device for editing the firmware`\
+`|-`\
+`| Hold {{ic|Home}} || Force the controller to turn off`\
+`|}`\
+``\
+`{| class="wikitable"`\
+`|+ Lizard Mode`\
+`|-`\
+`! Input !! Function`\
+`|-`\
+`| {{ic|Right trackpad}} || {{ic|Mouse}}`\
+`|-`\
+`| {{ic|Left Trigger}} || {{ic|Right Click}}`\
+`|-`\
+`| {{ic|Right Trigger}} || {{ic|Left Click}}`\
+`|-`\
+`| {{ic|Joystick}}, {{ic|Left trackpad}} || {{ic|Arrow keys}}`\
+`|-`\
+`| {{ic|A}} || {{ic|Enter}}`\
+`|-`\
+`| {{ic|B}}, {{ic|Menu}} || {{ic|Escape}}`\
+`|-`\
+`| {{ic|View}} || {{ic|Tab}}`\
+`|-`\
+`| {{ic|Left Bumper}} || {{ic|Space}}`\
+`|-`\
+`| {{ic|Joystick click}} || {{ic|F4}}`\
+`|-`\
+`| {{ic|Left Grip}} || {{ic|F7}}`\
+`|-`\
+`| {{ic|Right Bumper}}, {{ic|Right Grip}} || {{ic|F9}}`\
+`|}`\
+``\
+`=== Steam Controller (2026) ===`\
+``\
+`==== Builtin functions ====`\
+``\
+`{| class="wikitable"`\
+`|+ Startup functions`\
+`|-`\
+`! Key combination !! Function`\
+`|-`\
+`| Hold {{ic|L4+L5+R4+R5+Home}} || Enter or exit backpack mode`\
+`|-`\
+`| {{ic|B+L1+Home}} || Pair Bluetooth to slot 1`\
+`|-`\
+`| {{ic|B+R1+Home}} || Pair Bluetooth to slot 2`\
+`|-`\
+`| {{ic|A+L1+Home}} || Pair puck to slot 1`\
+`|-`\
+`| {{ic|A+R1+Home}} || Pair puck to slot 2`\
+`|}`\
+``\
+`{| class="wikitable"`\
+`|+ Lizard Mode`\
+`|-`\
+`! Input !! Function`\
+`|-`\
+`| {{ic|Right trackpad}} || {{ic|Mouse}}`\
+`|-`\
+`| {{ic|Left Trigger}} || {{ic|Right Click}}`\
+`|-`\
+`| {{ic|Right Trigger}}, {{ic|Right trackpad click}} || {{ic|Left Click}}`\
+`|-`\
+`| {{ic|Left dpad}} || {{ic|Arrow keys}}`\
+`|-`\
+`| {{ic|Left trackpad}} || {{ic|Scroll wheel}}`\
+`|-`\
+`| {{ic|A}} || {{ic|Enter}}`\
+`|-`\
+`| {{ic|B}}, {{ic|Menu}} || {{ic|Escape}}}}`\
+`|-`\
+`| {{ic|View}} || {{ic|Tab}}`\
+`|}`\
+``\
+`==== Basic functionality without Steam ====`\
+``\
+`Install the {{Pkg|steam-devices}} or {{AUR|steam-devices-git}} package to get the required udev rules for this controller.`\
+``\
+`This seems sufficient for the mouse functionality described above to work when not running a game, and for example some SDL-based games (like Stardew Valley) let you play with with the controller. The functionality will be limited compared to what Steam provides.`\
 ``\
 `=== Xbox 360 controller ===`\
 ``\

@@ -1,4 +1,4 @@
-[de:Minecraft](de:Minecraft "wikilink") [hu:Minecraft](hu:Minecraft "wikilink") [ja:Minecraft](ja:Minecraft "wikilink")
+[de:Minecraft](de:Minecraft "wikilink") [ja:Minecraft](ja:Minecraft "wikilink")
 [zh-hans:Minecraft](zh-hans:Minecraft "wikilink") `{{Style|
 * Does not follow the conventional format for most pages, encapsulates a lot of different software, which gets highly confusing whether this is a minecraft install guide or whether this is a package page
 * These guides and troubleshooting should be split off into dedicated pages to be more clear. Compressing them all into a single page is messy and hard to find the information you want.
@@ -125,7 +125,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{AUR|modrinth-app}}}}
+    {{App|Modrinth Launcher|The open-source, lightweight and official Modrinth launcher.|https://modrinth.com/|{{Pkg|modrinth-app}}}}
     ```
 
 -   ```{=mediawiki}

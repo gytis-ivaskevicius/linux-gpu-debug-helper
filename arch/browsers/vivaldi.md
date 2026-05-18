@@ -1,28 +1,38 @@
 [de:Vivaldi](de:Vivaldi "wikilink") [es:Vivaldi](es:Vivaldi "wikilink") [ja:Vivaldi](ja:Vivaldi "wikilink")
 [pl:Vivaldi](pl:Vivaldi "wikilink") [pt:Vivaldi](pt:Vivaldi "wikilink") [ru:Vivaldi](ru:Vivaldi "wikilink")
 [zh-hans:Vivaldi](zh-hans:Vivaldi "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|Chromium}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki}
+`{{Related|List of applications/Internet#Graphical}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "wikilink") founder & team
 members, based on [Chromium](Chromium "wikilink") and focused on personalization aspects.
 
 ## Installation
 
-Vivaldi can be [installed](install "wikilink") with `{{pkg|vivaldi}}`{=mediawiki} or
-`{{AUR|vivaldi-snapshot}}`{=mediawiki}. Prebuilt packages can alternatively be found in the
-[herecura](Unofficial_user_repositories#herecura "wikilink") unofficial repository. For differences between snapshot and
-stable versions, see [this page](https://vivaldi.com/blog/snapshot-vs-stable/).
+Consult [this blog post](https://vivaldi.com/blog/snapshot-vs-stable/) for information on differences between stable and
+snapshot versions; then, [install](install "wikilink") one of the following packages:
 
-To use [Qt](Qt "wikilink") instead of [GTK](GTK "wikilink") dialogs for file selections just install
-`{{Pkg|kdialog}}`{=mediawiki}.
+-   ```{=mediawiki}
+    {{Pkg|vivaldi}}
+    ```
 
+-   ```{=mediawiki}
+    {{AUR|vivaldi-snapshot}}
+    ```
+
+A pre-built package for the snapshot build can be found in the
+[herecura](Unofficial_user_repositories#herecura "wikilink") unofficial repository.
+
+```{=mediawiki}
+{{Tip|To use [[Qt]] instead of [[GTK]] for file selection dialogs, install {{Pkg|kdialog}}.}}
+```
 ## Extensions
 
 Vivaldi is compatible with most of Chrome\'s extensions. These can be installed directly from the [Chrome Web
 Store](https://chrome.google.com/webstore/category/extensions).
 
 ```{=mediawiki}
-{{Tip|Vivaldi supports appending '''proxy server''' parameters to the command line with {{ic|1=--proxy-server="socks5://127.0.0.1:1080"}}. This may help to solve network connectivity problems under certain conditions.}}
+{{Tip|Vivaldi supports appending proxy server parameters to the command line with {{ic|1=--proxy-server="socks5://127.0.0.1:1080"}}. This may help to solve network connectivity problems under certain conditions.}}
 ```
 To see which extensions are installed/enabled, type `{{ic|vivaldi://extensions}}`{=mediawiki} in the address bar.
 

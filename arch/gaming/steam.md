@@ -439,6 +439,9 @@ those configurations. You can either use the console command
 @nClientDownloadEnableHTTP2PlatformLinux 0
 }}
 ```
+```{=mediawiki}
+{{Note|[https://github.com/ValveSoftware/steam-for-linux/issues/10248 The bug] that caused this should be fixed in the current steam client. This should not improve speeds anymore}}
+```
 ### Run games using discrete GPU {#run_games_using_discrete_gpu}
 
 On [hybrid graphics](hybrid_graphics "wikilink") laptops, Steam runs games using the integrated GPU by default. See
