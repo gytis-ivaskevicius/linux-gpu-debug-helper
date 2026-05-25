@@ -1,8 +1,7 @@
 [de:Vivaldi](de:Vivaldi "wikilink") [es:Vivaldi](es:Vivaldi "wikilink") [ja:Vivaldi](ja:Vivaldi "wikilink")
 [pl:Vivaldi](pl:Vivaldi "wikilink") [pt:Vivaldi](pt:Vivaldi "wikilink") [ru:Vivaldi](ru:Vivaldi "wikilink")
 [zh-hans:Vivaldi](zh-hans:Vivaldi "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki}
-`{{Related|List of applications/Internet#Graphical}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "wikilink") founder & team
 members, based on [Chromium](Chromium "wikilink") and focused on personalization aspects.

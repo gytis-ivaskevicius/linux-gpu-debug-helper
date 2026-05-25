@@ -1,7 +1,6 @@
 [de:Chromium](de:Chromium "wikilink") [ja:Chromium](ja:Chromium "wikilink")
 [zh-hans:Chromium](zh-hans:Chromium "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Vivaldi}}`{=mediawiki}
-`{{Related|List of applications/Internet#Graphical}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Vivaldi}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [Chromium](Wikipedia:Chromium_(web_browser) "wikilink") is an open-source graphical web browser based on the
 [Blink](Wikipedia:Blink_(web_engine) "wikilink") rendering engine. It is the basis for the proprietary Google Chrome
@@ -10,6 +9,9 @@ browser.
 See [this page](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md) for
 an explanation of the differences between Chromium and Google Chrome.
 
+```{=mediawiki}
+{{Note|The Arch Linux build of Chromium includes proprietary codecs and the Widevine digital rights management (DRM) plug-in; relevant [[Codecs and containers|codec packages]] need to be installed separately for playback.}}
+```
 ```{=mediawiki}
 {{Tip|
 On {{Pkg|chromium}}, Chrome Sync can be temporarily restored by [https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 using Chrome's OAuth2 credentials] or [https://www.chromium.org/developers/how-tos/api-keys getting your own], but pay attention to the disclaimers and do not consider this to be a long-term solution.
@@ -261,7 +263,8 @@ If you are using Fcitx5 and not work properly when using the above flags, try us
 ```
 #### Touchpad gestures for navigation {#touchpad_gestures_for_navigation}
 
-To enable two finger swipe to go back and forward through your history, use the following flags:
+As of Chromium v148.0.7753.0, two-finger swiping to go through the history is enabled by default. For prior versions,
+use the following flags:
 
 `--ozone-platform-hint=auto --enable-features=TouchpadOverscrollHistoryNavigation`
 

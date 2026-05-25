@@ -1402,6 +1402,14 @@ Open `{{ic|~/.local/share/feral-interactive/Empire/preferences}}`{=mediawiki}, t
 
 Select safe mode when the game starts up.
 
+### Factorio
+
+The game doesn\'t use NVIDIA graphics by default. To enable, add the following to the launch options:
+
+`__GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 %command%`
+
+See this [forum post](https://forums.factorio.com/viewtopic.php?t=116640).
+
 ### Firewatch
 
 If Firewatch starts but does not show anything, try running Steam with
@@ -1886,7 +1894,7 @@ to blindly it the setting.
 #### BattleEye connection issues {#battleeye_connection_issues}
 
 ```{=mediawiki}
-{{Remove|The solution here probably does not work, as the Windows and Proton versions are distinct and according to user reports. Players may get to Online for a few minutes at maximum, whether or not having the environment variable set, which may confuse users to thinking Online mode works. You may try this workaround at your own discretion, however this section should be removed in case it is established Online does not work. It has been clearly established before GTA V only supports the Windows version of BattlEye. GTA V compatibility with Proton is tracked here: https://github.com/ValveSoftware/Proton/issues/37}}
+{{Accuracy|The solution here probably does not work, as the Windows and Proton versions are distinct and according to user reports. Players may get to Online for a few minutes at maximum, whether or not having the environment variable set, which may confuse users to thinking Online mode works. You may try this workaround at your own discretion, however this section should be removed in case it is established Online does not work. It has been clearly established before GTA V only supports the Windows version of BattlEye. GTA V compatibility with Proton is tracked here: https://github.com/ValveSoftware/Proton/issues/37}}
 ```
 See [#BattlEye](#BattlEye "wikilink").
 

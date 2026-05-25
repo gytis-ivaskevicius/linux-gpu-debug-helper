@@ -209,7 +209,7 @@ Terminus font (`{{Pkg|terminus-font}}`{=mediawiki}) is available in many sizes, 
 which is larger.
 
 Alternatively, [disabling modesetting](#Disabling_modesetting "wikilink") might switch to lower resolution and make
-fonts appear larger.
+fonts appear larger. Another option is [KMSCON](KMSCON "wikilink").
 
 ## Forcing modes and EDID {#forcing_modes_and_edid}
 

@@ -8,8 +8,13 @@ For additional details, see `{{NixOS Manual|anchor=#sec-wayland|name=NixOS Manua
 
 ## Checking for Wayland {#checking_for_wayland}
 
-To check if you are using Wayland, run the following command `{{Commands|$ echo $XDG_SESSION_TYPE}}`{=mediawiki} If
-`{{ic|wayland}}`{=mediawiki} is returned, you are running Wayland
+To check if you are using Wayland, run the following command
+
+``` console
+$ echo $XDG_SESSION_TYPE
+```
+
+If `{{ic|wayland}}`{=mediawiki} is returned, you are running Wayland
 
 ## Setup
 
@@ -80,7 +85,7 @@ environment variable.
 Example: to launch `code` *(`{{Nixpkg|pkgs/applications/editors/vscode/vscode.nix|vscode}}`{=mediawiki})*
 
 ``` console
-NIXOS_OZONE_WL=1 code
+$ NIXOS_OZONE_WL=1 code
 ```
 
 ## Virtualization

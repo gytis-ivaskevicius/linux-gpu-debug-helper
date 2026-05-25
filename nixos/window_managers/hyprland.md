@@ -49,21 +49,21 @@ less support than the NixOS module).
 Firstly, enable [flakes](https://wiki.nixos.org/wiki/Flakes#Other_Distros,_without_Home-Manager) in your Nix
 installation. Then install Hyprland through `nix profile`:
 
-``` text
-nix profile install nixpkgs#hyprland
+``` console
+$ nix profile install nixpkgs#hyprland
 ```
 
 In order for Hyprland to find graphics drivers on a non-NixOS system, you will need to install
 [nixGL](nixGL "wikilink"):
 
-``` text
-nix profile install github:nix-community/nixGL --impure
+``` console
+$ nix profile install github:nix-community/nixGL --impure
 ```
 
 Now you can run Hyprland by invoking it with NixGL:
 
-``` text
-nixGL Hyprland
+``` console
+$ nixGL Hyprland
 ```
 
 #### Hypr Ecosystem {#hypr_ecosystem}

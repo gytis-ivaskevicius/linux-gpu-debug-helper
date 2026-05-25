@@ -87,6 +87,8 @@ Button Chord, Mode Shift and Action Layers essentially do the same thing but in 
 ## See also {#see_also}
 
 -   [Valve\'s blog post on how to use the
-    configurator](https://steamcommunity.com/groups/steam_hardware/announcements/detail/508485755865138099)
+    configurator](https://store.steampowered.com/news/group/45479024/view/508485755865138098)
+-   [Valve\'s blog post on virtual menus](https://store.steampowered.com/news/group/45479024/view/702141807556822650)
+-   [Valve\'s blog post on trackpads](https://store.steampowered.com/news/group/45479024/view/702141174212725167)
 
 [Category:Gaming](Category:Gaming "wikilink")

@@ -148,7 +148,7 @@ See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "w
 
 To use the WebUI with an MCP endpoint hosted online, enable MCP CORS proxy:
 
-`$ llama-server `*`--webui-mcp-proxy`*` -m `*`model.gguf`*
+`$ llama-server `*`--ui-mcp-proxy`*` -m `*`model.gguf`*
 
 ## See also {#see_also}
 

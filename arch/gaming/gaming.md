@@ -247,10 +247,6 @@ For list of games packaged for Arch in [official repositories](official_reposito
     Proton%2DGE%20launched%20via%20umu%20is%20now%20the%20default%2E%20Umu%20takes%20care%20of%20keeping%20Proton%2DGE%20up%20to%20date\]\|<https://lutris.net>\|`{{Pkg|lutris}}`{=mediawiki}}}
 
 -   ```{=mediawiki}
-    {{App|Modrinth App|An unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.|https://modrinth.com/app|{{AUR|modrinth-app-appimage}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|Rare|Another GUI for legendary, based on PyQt5.|https://github.com/Dummerle/Rare|{{AUR|rare}}}}
     ```
 

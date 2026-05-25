@@ -219,7 +219,12 @@ snippet: `</translate>`{=html}
 ### Patching bubblewrap to allow capabilities {#patching_bubblewrap_to_allow_capabilities}
 
 By modifying the bubblewrap binary used for running Steam, you can allow processes in that FHS environment to acquire
-capabilities. This removes the need for patching the kernel directly. `</translate>`{=html}
+capabilities. This removes the need for patching the kernel directly. This may become unnecessary if [bubblewrap
+#653](https://github.com/containers/bubblewrap/issues/653) is merged and the flag is added to Steam\'s tooling.
+
+**As of 2026-05, this may no longer be viable:** Steam now aggressively restores its own pressure vessel srt-bwrap on
+startup, however deleting `~/.local/share/Steam/` has been
+[reported](https://discourse.nixos.org/t/steam-fails-to-launch-with-patched-bwrap/75167) to help. `</translate>`{=html}
 
 ```{=mediawiki}
 {{Warning|<translate><!--T:45--> This circumvents an intended security mechanism in bubblewrap, and allows all other software launched by steam, or running via steam-run to acquire these capabilities as well.</translate>}}
@@ -244,13 +249,13 @@ in {
 }}
 ```
 ```{=mediawiki}
-{{file|/etc/nixos/bwrap.patch|diff|3=diff --git a/bubblewrap.c b/bubblewrap.c
-index e05f697..504512a 100644
+{{file|3=diff --git a/bubblewrap.c b/bubblewrap.c
+index f8728c7..42cfe2e 100644
 --- a/bubblewrap.c
 +++ b/bubblewrap.c
-@@ -791,13 +791,6 @@ acquire_privs (void)
-       /* Historically we supported this, but now we only do user namespaces */
-       die ("setuid use of bubblewrap is not supported");
+@@ -876,13 +876,6 @@ acquire_privs (void)
+       /* Keep only the required capabilities for setup */
+       set_required_caps ();
      }
 -  else if (real_uid != 0 && has_caps ())
 -    {
@@ -262,7 +267,7 @@ index e05f697..504512a 100644
    else if (real_uid == 0)
      {
        /* If our uid is 0, default to inheriting all caps; the caller
-|name=|lang=}}
+|name=bwrap.patch|lang=diff}}
 ```
 `<translate>`{=html} as an additional change, you may also need to replace Steam\'s own bwrap binary with a symbolic
 link to this modified bwrap binary, found at

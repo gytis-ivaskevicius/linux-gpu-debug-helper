@@ -83,6 +83,11 @@ programs.steam = {
 true;`</code>`{=html} which sets `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} to
 true.`</translate>`{=html}}}
 
+```{=mediawiki}
+{{note|<translate> If you are using the Steam Controller released in 2026, the Steam client has an additional dependency on hidapi, needed to correctly communicate with the controller. If you are seeing repeated errors about failed firmware updates, this is likely why. You can add the dependency directly to the Steam environment like so: <code>programs.steam.extraPackages {{=}}
+```
+\[pkgs.hidapi\];`</code>`{=html}`</translate>`{=html}}}
+
 `<translate>`{=html}
 
 ## Tips and tricks {#tips_and_tricks}
@@ -140,7 +145,7 @@ programs.gamescope = {
   capSysNice = false;
 };
 environment.systemPackages = with pkgs; [
-  gamescope-wsi # HDR won't work without this
+  gamescope-wsi # HDR might not work without this
 ];
 ```
 
@@ -436,6 +441,20 @@ the vendor and product ID for the device: `</translate>`{=html}
 `<translate>`{=html} To find the vendor and product ID of a device
 `<tvar name=usbutils>`{=html}[usbutils](https://search.nixos.org/packages?channel=unstable&show=usbutils&from=0&size=50&sort=relevance&type=packages&query=usbutils)`</tvar>`{=html}
 might be useful
+
+### Steam controller mouse input issues {#steam_controller_mouse_input_issues}
+
+Mouse input on the controller may fail to take control of the visual cursor. In this instance, the input is still
+registered, but the cursor does not move. A fix for this is to preload Steam with extest. The Steam package already has
+an option for it: `</translate>`{=html}
+
+``` nix
+  programs.steam = {
+    extest.enable = true;
+  };
+```
+
+`<translate>`{=html}
 
 ### Known issues {#known_issues}
 

@@ -393,7 +393,10 @@ unset:
 `$ env -u DISPLAY wine example.exe`
 
 To force Wayland prefix-wide, add a string value with name `{{ic|Graphics}}`{=mediawiki} and data
-`{{ic|wayland}}`{=mediawiki} in `{{ic|HKEY_CURRENT_USER\Software\Wine\Drivers}}`{=mediawiki}
+`{{ic|wayland}}`{=mediawiki} in `{{ic|HKEY_CURRENT_USER\Software\Wine\Drivers}}`{=mediawiki} using the following
+command:
+
+`$ wine reg add 'HKEY_CURRENT_USER\Software\Wine\Drivers' /v Graphics /d 'wayland'`
 
 ### Stop running Wine {#stop_running_wine}
 

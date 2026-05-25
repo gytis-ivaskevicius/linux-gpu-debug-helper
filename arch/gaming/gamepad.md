@@ -374,6 +374,12 @@ physically reconnect your device after running this command.
 ``\
 `Starting from SDL3, mapping is always positional.[https://github.com/slouken/SDL/blob/main/docs/README-migration.md] Note that {{Pkg|sdl2-compat}} preserves the old behavior.[https://github.com/libsdl-org/sdl2-compat/blob/ed7e8bd5b169f379d7b1ba57b242657bc3455ebb/src/sdl2_compat.c#L2020-L2024]`\
 ``\
+`==== Pro Controller disconnects over Bluetooth with rumble enabled ====`\
+``\
+`The Nintendo Pro Controller will randomly disconnect with connected over Bluetooth with rumble enabled. This is caused by a quirk with the device firmware, see [https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2849798054 this post] for details.`\
+``\
+`To workaround this issue, rename the Bluetooth adapter hostname to {{ic|1=Nintendo}} or anything that begins with that substring (e.g. {{ic|1=Nintendo PC}} or {{ic|1=NintendoDeck}}). [https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2855326528]`\
+``\
 `=== Steam Controller (2015) ===`\
 ``\
 `{{Note|Kernel 4.18 [https://lore.kernel.org/lkml/20180416122703.22306-1-rodrigorivascosta@gmail.com/ provides a kernel driver] for wired/wireless use of the steam controller as a controller input device without [[Steam]].}}`\
@@ -450,13 +456,13 @@ physically reconnect your device after running this command.
 `|-`\
 `| Hold {{ic|L4+L5+R4+R5+Home}} || Enter or exit backpack mode`\
 `|-`\
-`| {{ic|B+L1+Home}} || Pair Bluetooth to slot 1`\
+`| {{ic|B+R1+Home}} || Pair Bluetooth to slot 1`\
 `|-`\
-`| {{ic|B+R1+Home}} || Pair Bluetooth to slot 2`\
+`| {{ic|B+L1+Home}} || Pair Bluetooth to slot 2`\
 `|-`\
-`| {{ic|A+L1+Home}} || Pair puck to slot 1`\
+`| {{ic|A+R1+Home}} || Pair puck to slot 1`\
 `|-`\
-`| {{ic|A+R1+Home}} || Pair puck to slot 2`\
+`| {{ic|A+L1+Home}} || Pair puck to slot 2`\
 `|}`\
 ``\
 `{| class="wikitable"`\
@@ -476,7 +482,7 @@ physically reconnect your device after running this command.
 `|-`\
 `| {{ic|A}} || {{ic|Enter}}`\
 `|-`\
-`| {{ic|B}}, {{ic|Menu}} || {{ic|Escape}}}}`\
+`| {{ic|B}}, {{ic|Menu}} || {{ic|Escape}}`\
 `|-`\
 `| {{ic|View}} || {{ic|Tab}}`\
 `|}`\

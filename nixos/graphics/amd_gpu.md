@@ -1,8 +1,7 @@
-[AMDGPU](https://en.wikipedia.org/wiki/AMDgpu_(Linux_kernel_module)) is an open source graphics driver for AMD Radeon
-graphics cards. It supports AMD GPUs based on the [GCN architecture Graphics Core Next
-(GCN)](https://en.wikipedia.org/wiki/Graphics_Core_Next) architecture and later, covering hardware released from
-approximately 2012 onward. This guide is about configuration of NixOS to correctly use AMD GPUs supported by the AMDGPU
-driver.
+[AMDGPU](Wikipedia:AMDgpu_(Linux_kernel_module) "wikilink") is an open source graphics driver for AMD Radeon graphics
+cards. It supports AMD GPUs based on the [Graphics Core Next (GCN)](Wikipedia:Graphics_Core_Next "wikilink")
+architecture and later, covering hardware released from approximately 2012 onward. This guide is about configuration of
+NixOS to correctly use AMD GPUs supported by the AMDGPU driver.
 
 ## Basic Setup {#basic_setup}
 
@@ -66,12 +65,12 @@ This will set the kernel parameters as follows (this is redundant if you set the
 
 ``` nix
 boot.kernelParams = [
-    # For Southern Islands (SI i.e. GCN 1) cards
-    "amdgpu.si_support=1"
-    "radeon.si_support=0"
-    # For Sea Islands (CIK i.e. GCN 2) cards
-    "amdgpu.cik_support=1"
-    "radeon.cik_support=0"
+  # For Southern Islands (SI i.e. GCN 1) cards
+  "amdgpu.si_support=1"
+  "radeon.si_support=0"
+  # For Sea Islands (CIK i.e. GCN 2) cards
+  "amdgpu.cik_support=1"
+  "radeon.cik_support=0"
 ];
 ```
 
@@ -84,7 +83,7 @@ Please note this also removes support for analog video outputs, which is only av
 Most software has the HIP libraries hard-coded. You can work around it on NixOS by using:
 
 ``` nix
-  systemd.tmpfiles.rules = 
+systemd.tmpfiles.rules =
   let
     rocmEnv = pkgs.symlinkJoin {
       name = "rocm-combined";
@@ -94,7 +93,8 @@ Most software has the HIP libraries hard-coded. You can work around it on NixOS 
         clr
       ];
     };
-  in [
+  in
+  [
     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
   ];
 ```
@@ -114,8 +114,8 @@ Or override specific packages
 
 ``` nix
 environment.systemPackages = with pkgs; [
-(ffmpeg-full.override {config.rocmSupport=true;})
-pkgsRocm.ffmpeg-full # equivalent to (ffmpeg-full.override {config.rocmSupport=true;}) for packages in ROCm Release attrPaths
+  (ffmpeg-full.override { config.rocmSupport = true; })
+  pkgsRocm.ffmpeg-full # equivalent to (ffmpeg-full.override {config.rocmSupport=true;}) for packages in ROCm Release attrPaths
 ];
 ```
 
@@ -279,8 +279,8 @@ With the connector names (like \`DP-1\`), the resolution and frame rate adjusted
 
 To figure out the connector names, execute the following command while your monitors are connected:
 
-``` bash
-head /sys/class/drm/*/status
+``` console
+$ head /sys/class/drm/*/status
 ```
 
 ### System Hang with Vega Graphics (and select GPUs) {#system_hang_with_vega_graphics_and_select_gpus}
@@ -347,7 +347,9 @@ optionally decrease maximum GPU clock.
 
 Solution:
 
-`hardware.firmware = [ pkgs.linux-firmware ];`
+``` nix
+hardware.firmware = [ pkgs.linux-firmware ];
+```
 
 ## See Also {#see_also}
 

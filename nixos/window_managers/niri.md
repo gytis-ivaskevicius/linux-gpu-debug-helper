@@ -17,7 +17,7 @@
 | latestRelease = 26.04; 25 Apr 2026
 }}
 ```
-`<translate>`{=html} [Niri](https://github.com/YaLTeR/niri) is a scrollable-tiling [Wayland](Wayland "wikilink")
+`<translate>`{=html} [Niri](https://github.com/niri-wm/niri) is a scrollable-tiling [Wayland](Wayland "wikilink")
 compositor.
 
 ## Installation
@@ -48,14 +48,14 @@ xdg.configFile."niri/config.kdl".source = ./config.kdl;
 }}
 ```
 `<translate>`{=html} You might want to start from [the default configuration
-file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl) described at
-[1](https://github.com/YaLTeR/niri/wiki/Getting-Started#main-default-hotkeys).
+file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl) described at
+[1](https://github.com/niri-wm/niri/wiki/Getting-Started#main-default-hotkeys).
 
-See [the wiki](https://yalter.github.io/niri/) for configuration options for niri.
+See [the wiki](https://niri-wm.github.io/niri/) for configuration options for niri.
 
 ### Greetd
 
-You can start \`niri\` with greetd configuration:
+You can start niri with greetd configuration:
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -76,16 +76,16 @@ services.greetd = {
 # lets niri inherit the full PATH set up by niri-session.
 systemd.user.services.niri.enableDefaultPath = false;
 
-|name=|lang=}}
+}}
 ```
 ## Additional Setup {#additional_setup}
 
-As described in [Example systemd Setup (niri wiki)](https://github.com/YaLTeR/niri/wiki/Example-systemd-Setup), you
+As described in [Example systemd Setup (niri wiki)](https://github.com/niri-wm/niri/wiki/Example-systemd-Setup), you
 might want to set up some additional services including [Swayidle](Swayidle "wikilink"),
 [Swaylock](Swaylock "wikilink"), [Waybar](Waybar "wikilink"), [Polkit](Polkit "wikilink") and [Secret
 Service](Secret_Service "wikilink") as follows to complement the functionality of a regular window manager. Some of the
 these settings are also required to enable all the features of [the default configuration
-file](https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl). `</translate>`{=html}
+file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl). `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|3=
@@ -128,9 +128,10 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
 adding `{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} flag is necessary for IME to work:
 `</translate>`{=html}
 
-```{=mediawiki}
-{{code|<nowiki>slack --wayland-text-input-version=3</nowiki>}}
+``` console
+$ slack --wayland-text-input-version=3
 ```
+
 `<translate>`{=html} `wrapProgram` may be used to add the flag automatically: `</translate>`{=html}
 
 ```{=mediawiki}
@@ -149,7 +150,7 @@ environment.systemPackages = [
 ### XWayland apps not working {#xwayland_apps_not_working}
 
 There is a optional dependency for niri which is highly recommended to install (you can read
-[this](https://github.com/YaLTeR/niri/wiki/Xwayland) article to learn more about this) `</translate>`{=html}
+[this](https://github.com/niri-wm/niri/wiki/Xwayland) article to learn more about this) `</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=environment.systemPackages = with pkgs; [ 

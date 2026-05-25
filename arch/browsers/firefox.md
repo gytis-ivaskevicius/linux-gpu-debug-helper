@@ -2,36 +2,35 @@
 [ru:Firefox](ru:Firefox "wikilink") [zh-hans:Firefox](zh-hans:Firefox "wikilink")
 [zh-hant:Firefox](zh-hant:Firefox "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|/Privacy}}`{=mediawiki} `{{Related|/Profile on RAM}}`{=mediawiki} `{{Related|/Tweaks}}`{=mediawiki}
-`{{Related|Browser extensions}}`{=mediawiki} `{{Related|List of applications/Internet#Graphical}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+`{{Related|Browser extensions}}`{=mediawiki} `{{Related|Tor}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Firefox](https://www.firefox.com/en-US/) is a popular open-source graphical web browser developed by
-[Mozilla](https://www.mozilla.org/en-US/).
+[Firefox](https://www.firefox.com/) is a popular open-source graphical web browser developed by
+[Mozilla](https://www.mozilla.org/).
 
 ## Installation
 
 [Install](Install "wikilink") the `{{Pkg|firefox}}`{=mediawiki} package.
 
-Other alternatives include:
+Alternatively, install one of the following:
 
 -   ```{=mediawiki}
-    {{App|Firefox Beta|cutting-edge version|https://www.mozilla.org/firefox/channel/desktop/#beta|{{AUR|firefox-beta-bin}}}}
+    {{App|Firefox Beta|Cutting-edge version.|https://www.firefox.com/channel/desktop/#beta|{{AUR|firefox-beta-bin}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Firefox Developer Edition|for developers|https://www.mozilla.org/firefox/developer/|{{Pkg|firefox-developer-edition}}}}
+    {{App|Firefox Developer Edition|For developers.|https://www.firefox.com/channel/desktop/developer/|{{Pkg|firefox-developer-edition}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Firefox Extended Support Release|long-term supported version|https://www.mozilla.org/firefox/organizations/|{{AUR|firefox-esr}}}}
+    {{App|Firefox Extended Support Release|Long-term support version.|https://www.firefox.com/browsers/enterprise/|{{AUR|firefox-esr}}}}
     ```
 
 -   ```{=mediawiki}
-    {{App|Firefox Nightly|nightly builds for testing ([https://developer.mozilla.org/Firefox/Experimental_features experimental features])|https://www.mozilla.org/firefox/channel/desktop/#nightly|{{AUR|firefox-nightly}}}}
+    {{App|Firefox Nightly|Nightly builds for testing [https://developer.mozilla.org/Firefox/Experimental_features experimental features].|https://www.firefox.com/en-US/channel/desktop/#nightly|{{AUR|firefox-nightly}}}}
     ```
 
--   On top of the different Mozilla build channels, a number of forks exist with more or less special features---see
-    [List of applications/Internet#Gecko-based](List_of_applications/Internet#Gecko-based "wikilink").
+On top of the different Mozilla build channels, a number of forks exist with more or less special features---see [List
+of applications/Internet#Gecko-based](List_of_applications/Internet#Gecko-based "wikilink").
 
 A number of language packs are available for Firefox, other than the standard English. Language packs are usually named
 as `{{ic|firefox-i18n-''languagecode''}}`{=mediawiki} (where `{{ic|''languagecode''}}`{=mediawiki} can be any language
@@ -42,7 +41,7 @@ code, such as **de**, **ja**, **fr**, etc.). For a list of available language pa
 [firefox-nightly-](https://aur.archlinux.org/packages/?K=firefox-nightly-) for `{{AUR|firefox-nightly}}`{=mediawiki}.
 
 ```{=mediawiki}
-{{Note|1=Language packs are disabled on ''-nightly'' and ''-developer-edition'' due to frequent string changes that may cause crashes. To force a change to the UI language, you may need to set {{ic|intl.locale.requested}} in {{ic|about:config}} [https://www.reddit.com/r/firefox/comments/lx3dp9/how_to_change_interface_language/gpovlsp/?context=8&depth=9]. To display language settings in the setting page, set {{ic|intl.multilingual.enabled}} to {{ic|true}} in {{ic|about:config}}.}}
+{{Note|1=Language packs are disabled on ''-nightly'' and ''-developer-edition'' packages due to frequent string changes that may cause crashes. To force a change to the UI language, you may need to set {{ic|intl.locale.requested}} in {{ic|about:config}} [https://www.reddit.com/r/firefox/comments/lx3dp9/how_to_change_interface_language/gpovlsp/?context=8&depth=9]. To display language settings in the setting page, set {{ic|intl.multilingual.enabled}} to {{ic|true}} in {{ic|about:config}}.}}
 ```
 ## Add-ons {#add_ons}
 

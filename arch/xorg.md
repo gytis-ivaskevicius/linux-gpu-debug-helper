@@ -545,6 +545,13 @@ from a terminal and having to find the process ID or name, `{{Pkg|xorg-xkill}}`{
 application to close its connection to the X server. Many existing applications do indeed abort when their connection to
 the X server is closed, but some can choose to continue.
 
+### Sockets
+
+Xorg supports listening on a TCP socket and an [abstract socket](https://man.archlinux.org/man/unix.7#abstract) that can
+undermine some [sandboxes](Security#Sandboxing_applications "wikilink"). To close this loophole, Xorg should be launched
+with the `{{ic|-nolisten tcp -nolisten local}}`{=mediawiki} command line options. For background and troubleshoot
+information, see [Tianon\'s write-up](https://github.com/tianon/abstract-sockets).
+
 ### Rootless Xorg {#rootless_xorg}
 
 Xorg may run with standard user privileges instead of root (so-called \"rootless\" Xorg). This is a significant security

@@ -480,6 +480,30 @@ Launching Steam with Flatpak might warn you about installing the `{{ic|steam-dev
 package currently does not exist but `{{aur|game-devices-udev}}`{=mediawiki} can be installed instead, see
 [Gamepad#Device permissions](Gamepad#Device_permissions "wikilink").
 
+#### DISPLAY variable not configured {#display_variable_not_configured}
+
+```{=mediawiki}
+{{style|This is uncited and not cross-linked to properly}}
+```
+When the \$DISPLAY variable is improperly configured the following error may arise:
+
+`The unofficial Steam Flatpak app requires a correctly-configured desktop session, which must provide the DISPLAY environment variable to the D-Bus session bus activation environment.`\
+\
+`On systems that use systemd --user, the DISPLAY environment variable must also be present in the systemd --user activation environment.`\
+\
+`This is usually achieved by running:`\
+\
+*`dbus-update-activation-environment DISPLAY`*\
+\
+`during desktop environment startup.`\
+\
+`For more details, please see: `[`https://github.com/ValveSoftware/steam-for-linux/issues/10554`](https://github.com/ValveSoftware/steam-for-linux/issues/10554)
+
+Often times this issue is caused by the \"Fallback to X11 windowing system\" option. Global default environment
+variables for flatpak could also affect steam and cause steamwebhelper crashes. Disable them via Flatseal or the CLI.
+
+For minimal setups using only a compositor, `{{pkg|xwayland-satellite}}`{=mediawiki} may help.
+
 #### Asian Font Problems with Flatpak {#asian_font_problems_with_flatpak}
 
 If you are having problem getting Asian fonts to show in game, it is because org.freedesktop.Platform does not include
