@@ -163,7 +163,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[River Classic]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
+    {{App|[[river-classic]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
     ```
 
 -   ```{=mediawiki}

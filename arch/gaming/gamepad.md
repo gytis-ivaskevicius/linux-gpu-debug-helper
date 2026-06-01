@@ -358,6 +358,20 @@ physically reconnect your device after running this command.
 ``\
 `These controllers are supported since kernel version 5.16. The Switch Online NES, SNES and N64 controllers are also supported since kernel version 6.12.`\
 ``\
+`==== Connect Joy-Cons via Bluetooth ====`\
+``\
+`To connect Joy-Cons via Bluetooth:`\
+``\
+`# Hold the [https://www.nintendo.com/au/support/articles/joy-con-controller-diagram/ SYNC button] until the LEDs start cycling.`\
+`# Scan for the device using your Bluetooth manager; the Joy-Con will appear as {{ic|Joy-Con (L)}} or {{ic|Joy-Con (R)}}.`\
+`# Pair with the device using {{ic|bluetoothctl pair ''Joy-Con_MAC_address''}}. Do not connect directly as this will not work.`\
+`# After pairing succeeds, connect to the device: {{ic|bluetoothctl connect ''Joy-Con_MAC_address''}}`\
+``\
+`{{Note|`\
+`* Joy-Cons are reported to be unable to reconnect automatically after disconnecting. The pairing is considered failed on the Joy-Con side. To reconnect, remove the device manually with {{ic|bluetoothctl remove ''Joy-Con_MAC_address''}} and repeat the steps above. See [https://github.com/norech/joycons-experiments#appair-joycons norech/joycons-experiments] for details.`\
+`* The Joy-Con must be paired before connecting. If connected directly without pairing first, it will leave the Joy-Con stuck in pairing mode.`\
+`}}`\
+``\
 `==== Userspace daemon ====`\
 ``\
 `{{AUR|joycond-git}} is a userspace daemon that provides better integration for Nintendo Switch Controllers. When the daemon is active, Switch controllers placed in a pairing mode (LEDs flashing) can have both their triggers pressed to be paired, and then ready to be used by apps. See [https://github.com/DanielOgorchock/joycond?tab=readme-ov-file#usage].`\
@@ -366,7 +380,7 @@ physically reconnect your device after running this command.
 ``\
 `The {{ic|hid-nintendo}} kernel driver handles two Joy-Cons as two separate devices.`\
 ``\
-`To pair two Joy-Cons together, make sure {{ic|joycond}} is running and both Joy-Cons are in pairing mode. Then, press one trigger on each Joy-Con at the same time.`\
+`To pair two Joy-Cons together, make sure {{ic|joycond}} is running and both Joy-Cons are connected. Then, press one trigger on each Joy-Con at the same time.`\
 ``\
 `==== Use positional layout on SDL2 applications ====`\
 ``\

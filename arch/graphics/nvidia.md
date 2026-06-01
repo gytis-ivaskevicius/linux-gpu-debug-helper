@@ -1,6 +1,6 @@
 [de:Nvidia](de:Nvidia "wikilink") [es:NVIDIA](es:NVIDIA "wikilink") [hu:NVIDIA](hu:NVIDIA "wikilink")
 [ja:NVIDIA](ja:NVIDIA "wikilink") [pt:NVIDIA](pt:NVIDIA "wikilink") [ru:NVIDIA](ru:NVIDIA "wikilink")
-[zh-hans:NVIDIA](zh-hans:NVIDIA "wikilink") `{{Related articles start}}`{=mediawiki}
+[tr:NVIDIA](tr:NVIDIA "wikilink") [zh-hans:NVIDIA](zh-hans:NVIDIA "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|NVIDIA/Tips and tricks}}`{=mediawiki} `{{Related|NVIDIA/Troubleshooting}}`{=mediawiki}
 `{{Related|Nouveau}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
 `{{Related|Bumblebee}}`{=mediawiki} `{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}

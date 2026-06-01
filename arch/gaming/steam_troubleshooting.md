@@ -414,7 +414,7 @@ OpenAL versions default to disallow audio streams from being moved. Try to add t
 ### Cracking Microphone in Steam Voice and Games {#cracking_microphone_in_steam_voice_and_games}
 
 If you experience cracking with your audio input while using Steam Voice or in games, you can try to launch Steam with
-the environmental variable `{{ic|PULSE_LATENCY_MSEC{{=}}`{=mediawiki}30}}
+the environment variable `{{ic|PULSE_LATENCY_MSEC{{=}}`{=mediawiki}30}}
 
 ## Steam client issues {#steam_client_issues}
 

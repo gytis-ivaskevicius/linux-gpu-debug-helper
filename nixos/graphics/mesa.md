@@ -88,7 +88,9 @@ In case you wonder where does `["auto"]` in mesa\'s attributes lead you, this mi
   else throw "Unsupported platform: this derivation only supports Linux/Darwin"
 ```
 
-## Intel Xe Driver Warning Spam {#intel_xe_driver_warning_spam}
+## Known Issues {#known_issues}
+
+### Intel Xe Driver Warning Spam {#intel_xe_driver_warning_spam}
 
 If you\'re using the Intel Xe driver you may end up getting a lot of
 `MESA: warning: Support for this platform is experimental with Xe KMD, bug reports may be ignored.` messages spam in

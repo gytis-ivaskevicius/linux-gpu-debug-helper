@@ -329,28 +329,33 @@ compilers that target other intermediate representations also exist.
 
 ### Implementations
 
--   ```{=mediawiki}
-    {{AUR|trisycl-git}}
-    ```
-    : Open source implementation mainly driven by Xilinx.
+**SYCL 2020**:
 
 -   ```{=mediawiki}
     {{AUR|adaptivecpp}}
     ```
-    : Compiler for multiple programming models (SYCL, C++ standard parallelism, HIP/CUDA) for CPUs and GPUs from all
-    vendors.
+    : Compiler for multiple programming models (SYCL, C++ standard parallelism, PCUDA), supporting CPUs and GPUs from
+    all vendors using OpenMP, HIP, CUDA, OpenCL and Level Zero
 
 -   ```{=mediawiki}
     {{Pkg|intel-oneapi-dpcpp-cpp}}
     ```
-    : Intel\'s Data Parallel C++: the LLVM/oneAPI Implementation of SYCL.
+    : Intel\'s Data Parallel C++: the LLVM/oneAPI Implementation of SYCL, supporting CPUs and GPUs from all vendors
+    using OpenCL, Level Zero, HIP and CUDA (Arch package supports OpenCL only)
+
+**SYCL 1.2.1**:
+
+-   ```{=mediawiki}
+    {{AUR|trisycl-git}}
+    ```
+    : Open-source implementation mainly driven by Xilinx
 
 -   ```{=mediawiki}
     {{AUR|computecpp}}
     ```
-    Codeplay\'s proprietary implementation of SYCL 1.2.1. Can target SPIR, SPIR-V and experimentally PTX (NVIDIA) as
-    device targets (ends of support on 1st september 2023, will get merged into intel llvm implementation
-    [Source](https://codeplay.com/portal/news/2023/07/07/the-future-of-computecpp)).
+    : Codeplay\'s proprietary implementation of SYCL 1.2.1. It can target SPIR, SPIR-V and, experimentally, PTX
+    (NVIDIA). Support ended on 1 September 2023; it will be merged into the Intel LLVM implementation
+    ([Source](https://codeplay.com/portal/news/2023/07/07/the-future-of-computecpp))
 
 #### oneAPI
 

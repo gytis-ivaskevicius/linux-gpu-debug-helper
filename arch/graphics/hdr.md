@@ -146,9 +146,6 @@ config file, and start sway with `{{ic|WLR_RENDERER{{=}}`{=mediawiki}vulkan}} en
 
 Setup a binding to toggle hdr or toggle manually i.e.: `{{ic|swaymsg output DP-1 hdr toggle}}`{=mediawiki}.
 
-```{=mediawiki}
-{{Note| Needs commit [https://github.com/swaywm/sway/commit/94c819cc1f9328223509883e4b62939bdf85b760 94c819cc1f9], so {{aur|sway-git}} is needed (or sway 1.12 released) }}
-```
 ## Application configuration {#application_configuration}
 
 ### Wine/Proton

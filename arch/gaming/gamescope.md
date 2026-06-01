@@ -192,7 +192,7 @@ The following command will fix this:
 
 ```{=mediawiki}
 {{Warning|
-:* Using this command will cause some vulkan environmental variables to be ignored: for example, if you specify the GPU for Gamescope to use by setting {{ic|MESA_VK_DEVICE_SELECT}}. See [https://github.com/ValveSoftware/gamescope/issues/107 here]. You can use {{AUR|ananicy}} or similar to get around this limitation.
+:* Using this command will cause some vulkan environment variables to be ignored: for example, if you specify the GPU for Gamescope to use by setting {{ic|MESA_VK_DEVICE_SELECT}}. See [https://github.com/ValveSoftware/gamescope/issues/107 here]. You can use {{AUR|ananicy}} or similar to get around this limitation.
 :* Using this command is known to stop the Steam In-Game Overlay from working, which can be especially troublesome with games which require the use of it in order to access their multiplayer functionality. }}
 ```
 ### Window does not appear in Flatpak on NVIDIA {#window_does_not_appear_in_flatpak_on_nvidia}

@@ -1,8 +1,4 @@
-```{=mediawiki}
-{{DISPLAYTITLE:niri}}
-```
-```{=mediawiki}
-{{infobox application
+`<languages/>`{=html} `{{DISPLAYTITLE:niri}}`{=mediawiki} `{{infobox application
 | name = niri
 | type = Wayland compositor
 | initialRelease = 2023-11-26
@@ -15,50 +11,50 @@
 | image = Niri-icon.svg
 | bugTracker = https://github.com/niri-wm/niri/issues
 | latestRelease = 26.04; 25 Apr 2026
-}}
-```
-`<translate>`{=html} [Niri](https://github.com/niri-wm/niri) is a scrollable-tiling [Wayland](Wayland "wikilink")
-compositor.
+}}`{=mediawiki} `<translate>`{=html}
+
+\[`<tvar name="1">`{=html}<https://github.com/niri-wm/niri>`</tvar>`{=html} Niri\] is a scrollable-tiling
+[Wayland](<tvar_name="2">Special:MyLanguage/Wayland</tvar> "wikilink") compositor.
 
 ## Installation
 
-Simply enable `{{nixos:option|programs.niri}}`{=mediawiki}: `</translate>`{=html}
+Simply enable `{{nixos:option|programs.niri}}`{=mediawiki}:
+
+`</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|3=
+programs.niri.enable = true;
+}}`{=mediawiki}
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|3=
-programs.niri.enable = true;
-}}
+{{Note|<translate><!--T:4--> Niri can be enabled <strong>without installing a custom flake</strong> such as [<tvar name="1">https://github.com/sodiboo/niri-flake</tvar> niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.</translate>}}
 ```
 ```{=mediawiki}
-{{Note|<translate>Niri can be enabled <strong>without installing a custom flake</strong> such as [https://github.com/sodiboo/niri-flake niri-flake]. {{ic|niri-flake}} is only necessary if you would like to use a very recent version of Niri or if you would want to write configurations in the Nix language, although as of 2025 this repository is listed near the top in search engines.</translate>}}
-```
-```{=mediawiki}
-{{Warning|<translate>Without [[#Configuration]] or [[#Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit niri and proceed to one of them.</translate>}}
+{{Warning|<translate><!--T:5--> Without [[<tvar name="1">#Configuration</tvar>|Configuration]] or [[<tvar name="2">#Additional Setup</tvar>|Additional Setup]], or after a fresh installation, you may be unable to launch apps due to missing expected programs such as Alacritty and fuzzel. Press <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to exit niri and proceed to one of them.</translate>}}
 ```
 `<translate>`{=html}
 
 ## Configuration
 
 The configuration path for niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
-Manager](Home_Manager "wikilink") can be used for configuration: `</translate>`{=html}
+Manager](<tvar_name="1">Special:MyLanguage/Home_Manager</tvar> "wikilink") can be used for configuration:
 
-```{=mediawiki}
-{{file|~/.config/home-manager/home.nix|nix|3=
+`</translate>`{=html} `{{file|~/.config/home-manager/home.nix|nix|3=
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
-}}
-```
-`<translate>`{=html} You might want to start from [the default configuration
-file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl) described at
-[1](https://github.com/niri-wm/niri/wiki/Getting-Started#main-default-hotkeys).
+}}`{=mediawiki} `<translate>`{=html}
 
-See [the wiki](https://niri-wm.github.io/niri/) for configuration options for niri.
+You might want to start from
+\[`<tvar name="1">`{=html}<https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl>`</tvar>`{=html} the
+default configuration file\] described at
+\[`<tvar name="2">`{=html}<https://github.com/niri-wm/niri/wiki/Getting-Started#main-default-hotkeys>`</tvar>`{=html}
+here\].
+
+See \[`<tvar name="1">`{=html}<https://niri-wm.github.io/niri/>`</tvar>`{=html} the wiki\] for configuration options for
+niri.
 
 ### Greetd
 
 You can start niri with greetd configuration:
 
-```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|3=
+`</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|3=
 programs.niri.enable = true;
 
 services.greetd = {
@@ -76,16 +72,22 @@ services.greetd = {
 # lets niri inherit the full PATH set up by niri-session.
 systemd.user.services.niri.enableDefaultPath = false;
 
-}}
-```
+}}`{=mediawiki}
+
+`<translate>`{=html}
+
 ## Additional Setup {#additional_setup}
 
-As described in [Example systemd Setup (niri wiki)](https://github.com/niri-wm/niri/wiki/Example-systemd-Setup), you
-might want to set up some additional services including [Swayidle](Swayidle "wikilink"),
-[Swaylock](Swaylock "wikilink"), [Waybar](Waybar "wikilink"), [Polkit](Polkit "wikilink") and [Secret
-Service](Secret_Service "wikilink") as follows to complement the functionality of a regular window manager. Some of the
-these settings are also required to enable all the features of [the default configuration
-file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl). `</translate>`{=html}
+As described in \[`<tvar name=1>`{=html}<https://github.com/niri-wm/niri/wiki/Example-systemd-Setup>`</tvar>`{=html}
+Example systemd Setup (niri wiki)\], you might want to set up some additional services including
+[Swayidle](<tvar_name=2>Special:MyLanguage/Swayidle</tvar> "wikilink"),
+[Swaylock](<tvar_name=3>Special:MyLanguage/Swaylock</tvar> "wikilink"),
+[Waybar](<tvar_name=4>Special:MyLanguage/Waybar</tvar> "wikilink"),
+[Polkit](<tvar_name=5>Special:MyLanguage/Polkit</tvar> "wikilink") and [Secret
+Service](<tvar_name=6>Special:MyLanguage/Secret_Service</tvar> "wikilink") as follows to complement the functionality of
+a regular window manager. Some of the these settings are also required to enable all the features of
+\[`<tvar name=7>`{=html}<https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl>`</tvar>`{=html} the
+default configuration file\]. `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|3=
@@ -97,7 +99,11 @@ programs.waybar.enable = true; # top bar
 environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ];
 |name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-Or using [Home Manager](Home_Manager "wikilink"):`{{file|~/.config/home-manager/home.nix|nix|3=
+`<translate>`{=html} Or using [Home Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "wikilink"):
+`</translate>`{=html}
+
+```{=mediawiki}
+{{file|~/.config/home-manager/home.nix|nix|3=
 programs.alacritty.enable = true; # Super+T in the default setting (terminal)
 programs.fuzzel.enable = true; # Super+D in the default setting (app launcher)
 programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
@@ -108,8 +114,8 @@ services.polkit-gnome.enable = true; # polkit
 home.packages = with pkgs; [
   swaybg # wallpaper
 ];
-|name=~/.config/home-manager/home.nix|lang=nix}}`{=mediawiki}
-
+|name=~/.config/home-manager/home.nix|lang=nix}}
+```
 `<translate>`{=html}
 
 ## Troubleshooting
@@ -117,7 +123,8 @@ home.packages = with pkgs; [
 ### IME not working on Electron apps {#ime_not_working_on_electron_apps}
 
 There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as described in
-[Wayland#Electron_and_Chromium](Wayland#Electron_and_Chromium "wikilink"): `</translate>`{=html}
+[Wayland#Electron_and_Chromium](<tvar_name=1>Special:MyLanguage/Wayland#Electron_and_Chromium</tvar> "wikilink"):
+`</translate>`{=html}
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -150,14 +157,16 @@ environment.systemPackages = [
 ### XWayland apps not working {#xwayland_apps_not_working}
 
 There is a optional dependency for niri which is highly recommended to install (you can read
-[this](https://github.com/niri-wm/niri/wiki/Xwayland) article to learn more about this) `</translate>`{=html}
+\[`<tvar name=1>`{=html}<https://github.com/niri-wm/niri/wiki/Xwayland>`</tvar>`{=html} this\] article to learn more
+about this) `</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=environment.systemPackages = with pkgs; [ 
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-`<translate>`{=html} Or using [Home Manager](Home_Manager "wikilink") `</translate>`{=html}
+`<translate>`{=html} Or using [Home Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "wikilink")
+`</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
@@ -180,24 +189,23 @@ To work around this problem, you can force usage of the gtk or kde portals for f
   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
 };|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
+`<translate>`{=html}
+
 ### Waybar launches twice {#waybar_launches_twice}
 
 When using a configuration option like programs.waybar.enable, waybar may launch twice on Niri. This is because the
-[default Niri config file launches waybar on
-launch](https://github.com/niri-wm/niri/blob/b07bde3ee82dd73115e6b949e4f3f63695da35ea/resources/default-config.kdl#L271).
-Remove the spawn-at-startup \"waybar\" from the config file, or add waybar to your systems packages without using the
-home-manager option.
-
-`<translate>`{=html}
+\[`<tvar name=1>`{=html}<https://github.com/niri-wm/niri/blob/b07bde3ee82dd73115e6b949e4f3f63695da35ea/resources/default-config.kdl#L271>`</tvar>`{=html}
+default Niri config file launches waybar on launch\]. Remove the spawn-at-startup \"waybar\" from the config file, or
+add waybar to your systems packages without using the home-manager option.
 
 ## See Also {#see_also}
 
--   [Wayland](Wayland "wikilink")
--   [Sway](Sway "wikilink")
--   [Wallpapers for Wayland](Wallpapers_for_Wayland "wikilink")
--   [niri-flake](https://github.com/sodiboo/niri-flake/)
+-   [Wayland](<tvar_name=1>Special:MyLanguage/Wayland</tvar> "wikilink")
+-   [Sway](<tvar_name=2>Special:MyLanguage/Sway</tvar> "wikilink")
+-   [Wallpapers for Wayland](<tvar_name=3>Special:MyLanguage/Wallpapers_for_Wayland</tvar> "wikilink")
+-   \[`<tvar name=4>`{=html}<https://github.com/sodiboo/niri-flake/>`</tvar>`{=html} niri-flake\]
 
 `</translate>`{=html}
 
 [Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "wikilink")

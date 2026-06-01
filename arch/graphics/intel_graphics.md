@@ -354,6 +354,21 @@ To enable performance support without using the capabilities (or root), set the 
 ```{=mediawiki}
 {{Warning|The restrictive defaults of the {{ic|perf_event_paranoid}} family of options exists because there is risk associated with allowing applications to access performance data [https://docs.kernel.org/admin-guide/perf-security.html]. With this being said, {{ic|dev.i915.perf_stream_paranoid}} only influences access to GPU performance counters, which carry less risk than e.g. CPU architectural execution context registers.}}
 ```
+### Panel Self Refresh {#panel_self_refresh}
+
+[Panel Self-Refresh](Wikipedia:DisplayPort#eDP "wikilink") (PSR) and Panel Self Refresh-Selectively Updated (PSR-SU or
+PSR2) are designed to [decrease the power consumption of the GPU](https://hansdegoede.livejournal.com/18653.html). The
+possible values are 0 to force disabling it, 1 enabling up to PSR1 and 2 enabling up to PSR2:
+
+```{=mediawiki}
+{{hc|/etc/modprobe.d/i915.conf|2=
+options i915 enable_psr=2
+}}
+```
+Diverging from the default may cause [screen flickering](#Screen_flickering "wikilink") to total screen freezes, the
+later possibly requiring [chrooting](chroot "wikilink") from a [rescue USB](USB_flash_installation_medium "wikilink") to
+fix.
+
 ## Tips and tricks {#tips_and_tricks}
 
 ### Setting scaling mode {#setting_scaling_mode}
@@ -620,7 +635,7 @@ the mouse cursor). Removing the `{{ic|1=enable_fbc=1}}`{=mediawiki} option fixes
 
 ### Screen flickering {#screen_flickering}
 
-Panel Self Refresh (PSR), a power saving feature used by Intel iGPUs is known to cause flickering in some instances
+*P*anel *S*elf *R*efresh (a power saving feature) is known to cause flickering in some instances
 `{{Bug|49628}}`{=mediawiki} `{{Bug|49371}}`{=mediawiki} `{{Bug|50605}}`{=mediawiki}. A temporary solution is to disable
 this feature using the [kernel parameter](kernel_parameter "wikilink") `{{ic|1=i915.enable_psr=0}}`{=mediawiki} or
 `{{ic|1=xe.enable_psr=0}}`{=mediawiki}.

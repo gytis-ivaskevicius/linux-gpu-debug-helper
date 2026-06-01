@@ -221,7 +221,7 @@ For list of games packaged for Arch in [official repositories](official_reposito
     ```
 
 -   ```{=mediawiki}
-    {{App|Flathub|Central [[Flatpak]] repository, has small but growing game section.|https://flathub.org/apps/category/Game|{{Pkg|flatpak}}, {{Pkg|discover}}, {{Pkg|gnome-software}}}}
+    {{App|Flathub|Central [[Flatpak]] repository, has small but growing game section.|https://flathub.org/apps/category/Game|{{Pkg|flatpak}}, {{Pkg|discover}}, {{Pkg|gnome-software}}, {{Pkg|cosmic-store}}}}
     ```
 
 -   ```{=mediawiki}

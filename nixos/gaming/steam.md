@@ -30,17 +30,15 @@ all the system options necessary to allow it to run, add the following to your s
 `</translate>`{=html}
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true;
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
-# boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
-</nowiki>
-}}
+# boot.kernelPackages = pkgs.linuxPackages; # Example for LTS
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 `<translate>`{=html} \[`<tvar name=link>`{=html}<https://news.ycombinator.com/item?id=41549030>`</tvar>`{=html} Anecdata
 on kernel 6.10 issues\] `</translate>`{=html}
@@ -64,18 +62,14 @@ Basic Steam features can be enabled directly within the
 `</translate>`{=html}
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
   remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
   dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
-# Tip: For improved gaming performance, you can also enable GameMode:
-# programs.gamemode.enable = true;
-</nowiki>
-}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 ```{=mediawiki}
 {{note|<translate><!--T:11--> If you are using a Steam Controller or a Valve Index, Steam hardware support is implicitly enabled by <code>programs.steam.enable {{=}}
@@ -91,6 +85,16 @@ true.`</translate>`{=html}}}
 `<translate>`{=html}
 
 ## Tips and tricks {#tips_and_tricks}
+
+### Improving Performance {#improving_performance}
+
+You can utilize [GameMode](https://github.com/FeralInteractive/gamemode), a combination of a library and daemon for
+Linux that allows games to request a set of optimizations to be temporarily applied to the host operating system and/or
+a game process.
+
+``` nixos
+programs.gamemode.enable = true;
+```
 
 ### Gamescope Compositor / \"Boot to Steam Deck\" {#gamescope_compositor_boot_to_steam_deck}
 

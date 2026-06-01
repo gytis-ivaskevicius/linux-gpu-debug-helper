@@ -61,9 +61,8 @@ Download models from [Hugging Face](https://huggingface.co) using the `{{ic|-hf}
 ```
 ### Manual download {#manual_download}
 
-Manually download models using `{{Pkg|wget}}`{=mediawiki} or `{{Pkg|curl}}`{=mediawiki}:
-
-`$ wget -c `*`model.gguf`*
+Models can be downloaded manually using a full URL and a downloader such as `{{Pkg|wget}}`{=mediawiki} or
+`{{Pkg|curl}}`{=mediawiki}.
 
 ## Tips and tricks {#tips_and_tricks}
 

@@ -55,7 +55,7 @@ The most important one is `LIBGL_DEBUG=verbose` and helps with debugging error l
 
 ### glxinfo
 
-Use `glxinfo` to load 3D acceleration debug information.
+Use `{{nixos:package|glxinfo}}`{=mediawiki} to load 3D acceleration debug information.
 
 If `glxinfo` returns `Error: couldn't find RGB GLX visual or fbconfig`, ensure you have
 `hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];` set.
