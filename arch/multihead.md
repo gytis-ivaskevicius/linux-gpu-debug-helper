@@ -237,6 +237,9 @@ away from you if you are working on another screen - each screen is quite indepe
 
 ## TwinView
 
+```{=mediawiki}
+{{Remove|TwinView, and more generally Xinerama, is [https://www.nvidia.com/en-us/drivers/details/271414 no longer supported] by NVIDIA's open driver starting from version 610.43.02}}
+```
 TwinView is [NVIDIA](NVIDIA "wikilink")\'s extension which makes two monitors attached to a video card appear as a
 single screen. TwinView provides Xinerama extensions so that applications are aware there are two monitors connected,
 and thus it is incompatible with Xinerama. However, if you only have two monitors and they are both connected to the
@@ -258,6 +261,9 @@ See [NVIDIA#TwinView](NVIDIA#TwinView "wikilink") for an example configuration.
 [Xinerama](Wikipedia:Xinerama "wikilink") is the old way of doing genuine multihead X. Xinerama combines all monitors
 into a single screen (`{{ic|:0}}`{=mediawiki}) making it possible to drag windows between screens.
 
+```{=mediawiki}
+{{Warning|Support of Xinerama on NVIDIA GPUs has been [https://www.nvidia.com/en-us/drivers/details/271414 removed] from the open drivers in version 610.43.02.}}
+```
 Xinerama is configured via custom [X configuration files](Xorg#Configuration "wikilink"). There is also a GUI tool named
 [WideGuy](https://openapplibrary.org/project/wideguy) to make toggling Xinerama easier. Note that to use WideGuy you
 still need an Xorg configuration with a ServerLayout section.

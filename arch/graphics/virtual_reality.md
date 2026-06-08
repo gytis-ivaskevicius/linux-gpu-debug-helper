@@ -79,8 +79,16 @@ The following is a non-exhaustive list of currently supported VR/XR devices, and
 |                   | ```                                           | ```                                           |
 |                   | (Monado SteamVR plugin)                       | (6DoF controllers experimental)               |
 +-------------------+-----------------------------------------------+-----------------------------------------------+
+| Varjo HMDs        | ```{=mediawiki}                               | ```{=mediawiki}                               |
+|                   | {{Y|Yes*see notes}}                           | {{Y|Untested}}                                |
+|                   | ```                                           | ```                                           |
++-------------------+-----------------------------------------------+-----------------------------------------------+
 |                   |                                               |                                               |
 +-------------------+-----------------------------------------------+-----------------------------------------------+
+
+Most Varjo HMDs will work out of the box. However on XR/VR series HMDs may not track correctly if you are not using the
+lighthouse tracking mode. On XR series headsets, they will not have all cameras active. This is because a custom driver
+is needed for these to work correctly This also includes LIDAR if your headset supports it. eye tracking WIP.
 
 In addition, there\'s an experimental PC-PC stream client for WiVRn that might work with the above HMDs that are
 supported by Monado.
@@ -158,47 +166,50 @@ Entries marked with \"Yes\" but without store links can be sideloaded from their
 
 ### Tracking devices {#tracking_devices}
 
-+-----------------------+----------------------+-----------------------+-----------------+
-| Device                | SteamVR              | Monado                | WiVRn           |
-+=======================+======================+=======================+=================+
-| Vive/Tundra trackers  | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
-|                       | ```                  | ```                   | ```             |
-|                       | (native or spacecal) | (native or motoc)     | (motoc)         |
-+-----------------------+----------------------+-----------------------+-----------------+
-| SlimeVR trackers      | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
-|                       | ```                  | ```                   | ```             |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Project Babble        | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
-|                       | ```                  | ```                   | ```             |
-|                       | (oscavmgr)           | (oscavmgr)            | (oscavmgr)      |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Eyetrack VR           | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}               | {{Yes}}         |
-|                       | ```                  | ```                   | ```             |
-|                       | (oscavmgr)           | (oscavmgr)            | (oscavmgr)      |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Mercury hand tracking | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{No}}               | {{Yes}}               | {{No}}          |
-|                       | ```                  | ```                   | ```             |
-|                       |                      | (survive driver only) |                 |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Lucid VR gloves       | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{C|?}}              | {{Yes}}               | {{No}}          |
-|                       | ```                  | ```                   | ```             |
-|                       |                      | (survive driver only) |                 |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Kinect based FBT      | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{Yes}}              | {{Yes}}               | {{Y|WIP}}       |
-|                       | ```                  | ```                   | ```             |
-|                       |                      | (experimental)        |                 |
-+-----------------------+----------------------+-----------------------+-----------------+
-| Standable FBT         | ```{=mediawiki}      | ```{=mediawiki}       | ```{=mediawiki} |
-|                       | {{No}}               | {{No}}                | {{No}}          |
-|                       | ```                  | ```                   | ```             |
-+-----------------------+----------------------+-----------------------+-----------------+
++-----------------------+--------------------------+-----------------------+-----------------+
+| Device                | SteamVR                  | Monado                | WiVRn           |
++=======================+==========================+=======================+=================+
+| Vive/Tundra trackers  | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}                  | {{Yes}}               | {{Yes}}         |
+|                       | ```                      | ```                   | ```             |
+|                       | (native or spacecal)     | (native or motoc)     | (motoc)         |
++-----------------------+--------------------------+-----------------------+-----------------+
+| SlimeVR trackers      | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}                  | {{Yes}}               | {{Yes}}         |
+|                       | ```                      | ```                   | ```             |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Project Babble        | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}                  | {{Yes}}               | {{Yes}}         |
+|                       | ```                      | ```                   | ```             |
+|                       | (oscavmgr)               | (oscavmgr)            | (oscavmgr)      |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Eyetrack VR           | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}                  | {{Yes}}               | {{Yes}}         |
+|                       | ```                      | ```                   | ```             |
+|                       | (oscavmgr)               | (oscavmgr)            | (oscavmgr)      |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Mercury hand tracking | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{No}}                   | {{Yes}}               | {{No}}          |
+|                       | ```                      | ```                   | ```             |
+|                       |                          | (survive driver only) |                 |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Lucid VR gloves       | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{C|?}}                  | {{Yes}}               | {{No}}          |
+|                       | ```                      | ```                   | ```             |
+|                       |                          | (survive driver only) |                 |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Kinect based FBT      | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Yes}}                  | {{Yes}}               | {{Y|WIP}}       |
+|                       | ```                      | ```                   | ```             |
+|                       |                          | (experimental)        |                 |
++-----------------------+--------------------------+-----------------------+-----------------+
+| Standable FBT         | ```{=mediawiki}          | ```{=mediawiki}       | ```{=mediawiki} |
+|                       | {{Y|possible* see note}} | {{No}}                | {{No}}          |
+|                       | ```                      | ```                   | ```             |
++-----------------------+--------------------------+-----------------------+-----------------+
+
+Note on Standable FBT: Depending on your SteamVR setup.It may require modifications to SteamVR and/or Proton to allow
+the proper communication.
 
 ## Supported runtimes and toolkits {#supported_runtimes_and_toolkits}
 
@@ -329,6 +340,17 @@ compositor using `{{AUR|stardust-xr-flatland}}`{=mediawiki}, an application laun
 packages](https://aur.archlinux.org/packages?K=stardust-xr). Install the server with
 `{{AUR|stardust-xr-server}}`{=mediawiki}; you can also install `{{AUR|stardust-xr-telescope}}`{=mediawiki} for a premade
 startup script.
+
+### Standable
+
+[Standable: Full Body Estimation](https://store.steampowered.com/app/2370570/Standable_Full_Body_Estimation/) is a paid
+application specifically to help with full body tracking and estimation. In some areas, Standable can be quite useful
+mostly in the terms of tracker calibration. Standable is well known for not being easy to work with on Linux. This is
+because of how SteamVR handles loopback/virtual devices on Linux. Multiple things have to be modified for Standdable
+work correctly. Namely the correct SteamVR directories have to be told to Standable &
+[Proton](https://wiki.archlinux.org/title/Steam#Proton_Steam_Play). It is also notable that **Standable only works on
+SteamVR** due to the fact that it is a SteamVR plugin and requires
+[SteamDRM](https://partner.steamgames.com/doc/features/drm).
 
 ## Troubleshooting
 

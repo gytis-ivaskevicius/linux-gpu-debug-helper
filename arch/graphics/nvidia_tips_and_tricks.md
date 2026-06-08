@@ -575,6 +575,9 @@ Finally, [enable](enable "wikilink") the service so your settings are applied ev
 
 ## Kernel module parameters {#kernel_module_parameters}
 
+```{=mediawiki}
+{{Out of date|NVreg_UsePageAttributeTable has been removed from {{Pkg|nvidia-open}} in version 610.43.02 [https://github.com/NVIDIA/open-gpu-kernel-modules/commit/57130a2702d565be81200ea2e114abcb0455e8bb#diff-7a638a16889be4ff7f812061d5926985b54025f32a7f201d7197d0737eda08fcL260-L289]}}
+```
 Some options can be set as kernel module parameters, a full list can be obtained by running
 `{{ic|modinfo nvidia}}`{=mediawiki} or looking at `{{ic|nv-reg.h}}`{=mediawiki}. See
 [Gentoo:NVidia/nvidia-drivers#Kernel module

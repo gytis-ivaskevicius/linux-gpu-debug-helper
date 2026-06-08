@@ -547,30 +547,28 @@ WantedBy=suspend.target
 ## Others
 
 -   ```{=mediawiki}
-    {{AUR|fan2go-git}}
+    {{App|Control FANs|Simple GUI written in Qt to configure FAN PWM via HWMON interface. You could use it to setup the kernel auto point for every FAN who support it.|https://github.com/amedeos/ControlFANs|{{AUR|controlfans-git}}}}
     ```
-    --- An alternative to Fancontrol independent of device-paths.
 
 -   ```{=mediawiki}
-    {{AUR|mcontrolcenter-bin}}
+    {{App|CoolerControl|A fan control daemon with GUI for ''sysfs'' and {{Pkg|liquidctl}} devices.|https://gitlab.com/coolercontrol/coolercontrol|{{AUR|coolercontrol}}}}
     ```
-    --- Fan control application for MSI laptops.
 
 -   ```{=mediawiki}
-    {{AUR|fw-ectool-git}}
+    {{App|ectool|Fan configuration for [[Framework Laptop]]s.|https://github.com/markusressel/fan2go|{{AUR|fw-ectool-git}}}}
     ```
-    --- Fan configuration for [Framework Laptops](Framework_Laptop "wikilink").
 
 -   ```{=mediawiki}
-    {{AUR|CoolerControl}}
+    {{App|fan2go|Simple daemon providing dynamic fan speed control based on temperature sensors.|https://github.com/markusressel/fan2go|{{AUR|fan2go-git}}}}
     ```
-    --- A fan control daemon with GUI for *sysfs* and `{{Pkg|liquidctl}}`{=mediawiki} devices.
 
 -   ```{=mediawiki}
-    {{AUR|controlfans-git}}
+    {{App|Fan Control|Control your fans with different behaviors.|https://github.com/wiiznokes/fan-control|{{AUR|fan-control}}}}
     ```
-    --- Simple GUI written in Qt to configure FAN PWM via HWMON interface. You could use it to setup the kernel auto
-    point for every FAN who support it.
+
+-   ```{=mediawiki}
+    {{App|MControlCenter|Fan control application for MSI laptops.|https://github.com/dmitry-s93/MControlCenter|{{AUR|mcontrolcenter-bin}}}}
+    ```
 
 ## Troubleshooting
 

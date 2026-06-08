@@ -156,7 +156,7 @@ package. For example:
                 enable = true;
                 windowManager.qtile = {
                   enable = true;
-                  package = qtile-flake.packages.${pkgs.system}.default;
+                  package = qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
                 };
               };
 
@@ -174,8 +174,8 @@ package. For example:
 
 This flake can also be tested with a virtual machine:
 
-``` nix
-sudo nixos-rebuild build-vm --flake .#demo
+``` console
+$ sudo nixos-rebuild build-vm --flake .#demo
 ```
 
 This gives you a script to run that runs Qemu to test your config. For this to work you have to set a user with a

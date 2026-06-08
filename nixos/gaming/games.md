@@ -79,3 +79,4 @@ Adding `libxkbcommon`, `mesa`, and `wayland` is straightforward. The game expect
 exist, so we need to create a symbolic link after the installation of `sndio`.
 
 [Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+[Category:Lists](Category:Lists "wikilink")

@@ -1,19 +1,9 @@
-```{=mediawiki}
-{{Related articles start}}
-```
-```{=mediawiki}
-{{Related|Vulkan}}
-```
-```{=mediawiki}
-{{Related|General-purpose computing on graphics processing units}}
-```
-```{=mediawiki}
-{{Related|Ollama}}
-```
-```{=mediawiki}
-{{Related articles end}}
-```
-LLM inference in C/C++.
+`{{Related articles start}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
+`{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related|Ollama}}`{=mediawiki}
+`{{Related articles end}}`{=mediawiki}
+
+[llama.cpp](Wikipedia:llama.cpp "wikilink") is an [large language model](Wikipedia:Large_language_model "wikilink")
+(LLM) inference in C/C++.
 
 ## Installation
 
@@ -116,7 +106,7 @@ This, combined with a lower context size, can significantly reduce memory usage.
 ### Agent system {#agent_system}
 
 While llama-server runs a WebUI, the same endpoint also operates as an OpenAI-compatible server. It can be configured to
-use with coding agents like `{{Pkg|opencode}}`{=mediawiki} and `{{Pkg|qwen-code}}`{=mediawiki}.
+use with coding agents like `{{Pkg|opencode}}`{=mediawiki}.
 
 Also, recent updates have introduced built-in agent capabilities.
 

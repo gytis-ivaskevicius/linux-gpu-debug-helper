@@ -133,8 +133,13 @@ platform or system so as to allow applications and games to be run in environmen
     {{App|NooDS|A (hopefully!) speedy NDS emulator.|https://github.com/Hydr8gon/NooDS/|{{AUR|noods-git}} }}
     ```
 
--   {{App\|puNES\|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music
-    Player.\|<https://github.com/punesemu/puNES>\|`{{Aur|punes}}`{=mediawiki}
+-   ```{=mediawiki}
+    {{App|puNES|Qt-based Nintendo Entertaiment System emulator and NSF/NSFe Music Player.|https://github.com/punesemu/puNES|{{AUR|punes}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Ryujinx|Open-source Nintendo Switch emulator written in C#.|https://ryujinx.app/|{{AUR|ryujinx}}}}
+    ```
 
 -   ```{=mediawiki}
     {{App|SameBoy|An accuracy-focused Game Boy/Game Boy Color emulator.|https://github.com/LIJI32/SameBoy|{{AUR|sameboy}}}}
@@ -270,6 +275,10 @@ platform or system so as to allow applications and games to be run in environmen
 
 -   ```{=mediawiki}
     {{App|86Box|Emulator of x86-based machines based on PCem.|https://86box.net/|{{AUR|86box}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Amiberry|Optimized Amiga emulator.|https://amiberry.com/|{{AUR|amiberry}}}}
     ```
 
 -   ```{=mediawiki}

@@ -295,6 +295,10 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|Space Cadet Pinball|Reverse engineering of "3D Pinball for Windows - Space Cadet", a game bundled with Windows.|https://github.com/k4zmu2a/SpaceCadetPinball|{{AUR|spacecadetpinball-git}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Streets of Rage Remake|A remake of the classic Streets of Rage 1, 2 and 3 by Sega.|https://sorr.forumotion.net/|{{AUR|streetsofrageremake}}}}
     ```
 
@@ -603,7 +607,7 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
-    {{App|Vintage Story|An in-development indie sandbox game about innovation and exploration.|https://www.vintagestory.at/|{{AUR|vintagestory}}}}
+    {{App|Vintage Story|An in-development proprietary indie sandbox game about innovation and exploration.|https://www.vintagestory.at/|{{AUR|vintagestory}}}}
     ```
 
 -   ```{=mediawiki}
@@ -643,6 +647,10 @@ See also [Minecraft](Minecraft "wikilink").
 
 -   ```{=mediawiki}
     {{App|Project Sushi|A short but challenging 2D platformer game.|https://www.patreon.com/posts/33983587|{{AUR|project-sushi}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:Sonic Robo Blast 2|Sonic Robo Blast 2]]|A 3D Sonic the Hedgehog fangame based on a modified version of Doom Legacy.|https://www.srb2.org/|{{AUR|srb2}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1559,6 +1567,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
+    {{App|Unciv|Open-source reimplementation of [[Wikipedia:Civilization V|Civilization V]], the most famous civilization-building game ever.|https://github.com/yairm210/Unciv/|{{AUR|unciv}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:Unknown Horizons|Unknown Horizons]]|2.5D isometric real-time strategy simulation with an emphasis on economy and city building. Expand your small settlement to a strong and wealthy colony, collect taxes and supply your inhabitants with valuable goods. Increase your power with a well balanced economy and with strategic trade and diplomacy.|http://www.unknown-horizons.org/|{{AUR|unknown-horizons}}}}
     ```
 
@@ -1656,7 +1668,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|VCMI|Attempt to reimplement [[Wikipedia:Heroes of Might and Magic III|Heroes of Might and Magic III]].|https://forum.vcmi.eu/portal.php|{{AUR|vcmi}}}}
+    {{App|VCMI|Attempt to reimplement [[Wikipedia:Heroes of Might and Magic III|Heroes of Might and Magic III]].|https://vcmi.eu/|{{AUR|vcmi}}}}
     ```
 
 ## Tycoon/management games {#tycoonmanagement_games}

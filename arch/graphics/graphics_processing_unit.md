@@ -108,12 +108,12 @@ details on [VA-API](VA-API "wikilink") support per GPU family, only the packages
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     | VA-API         |
 +================+================+================+================+================+================+================+
-| [Intel         | Gen 12.1 and   | Included in    | `              | `              | `              | `              |
-| graphics       | later          | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
-| ](Intel_graphi |                | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|         | {{Pkg|xf86     | {{pkg|intel-   |
-| cs "wikilink") |                |                | ```            | vulkan-intel}} | -video-intel}} | media-driver}} |
-|                |                |                |                | ```            | ```            | ```            |
-|                |                |                |                | ^1^            | ^2^            |                |
+| [Intel         | Gen 12.1 and   | Included in    | `              | `              | *m             | `              |
+| graphics       | later          | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | odesetting*^2^ | ``{=mediawiki} |
+| ](Intel_graphi |                | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|         |                | {{pkg|intel-   |
+| cs "wikilink") |                |                | ```            | vulkan-intel}} |                | media-driver}} |
+|                |                |                |                | ```            |                | ```            |
+|                |                |                |                | ^1^            |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 |                | Gen 8 through  |                |                |                |                | `              |
 |                | 11             |                |                |                |                | ``{=mediawiki} |
@@ -137,16 +137,23 @@ details on [VA-API](VA-API "wikilink") support per GPU family, only the packages
 |                | Gen 3 through  |                |                |                |                | None           |
 |                | 4.5            |                |                |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 2          |                | `              |                |                |                |
-|                |                |                | ``{=mediawiki} |                |                |                |
-|                |                |                | {{Pk           |                |                |                |
-|                |                |                | g|mesa-amber}} |                |                |                |
-|                |                |                | ```            |                |                |                |
+|                | Gen 2          |                | `              |                | `              |                |
+|                |                |                | ``{=mediawiki} |                | ``{=mediawiki} |                |
+|                |                |                | {{Pk           |                | {{Pkg|xf86     |                |
+|                |                |                | g|mesa-amber}} |                | -video-intel}} |                |
+|                |                |                | ```            |                | ```            |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|                | Gen 1          | Not available  |                |                |                |                |
+|                |                | [5](h          |                |                |                |                |
+|                |                | ttps://www.pho |                |                |                |                |
+|                |                | ronix.com/news |                |                |                |                |
+|                |                | /Linux-6.3-Dro |                |                |                |                |
+|                |                | pping-Old-DRM) |                |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 
 1.  Gen 7 and 7.5 have [incomplete
-    support](https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/intel/vulkan_hasvk/anv_device.c#L1600), Gen 8 is
-    limited to Vulkan 1.3.
+    support](https://gitlab.freedesktop.org/mesa/mesa/-/blob/d067d6e16335c5f2697f14f396c9f62fee649fdc/src/intel/vulkan_hasvk/anv_device.c#L1614),
+    Gen 8 is limited to Vulkan 1.3.
 2.  The *modesetting* DDX driver is recommended for Gen 3 hardware and later. See [Intel
     graphics#Installation](Intel_graphics#Installation "wikilink") for details.
 
@@ -173,18 +180,32 @@ details per GPU family.
 |                |                | mes.html#NVE0) |                |                |                | ^2^            |
 |                |                | and newer      |                |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Fahrenheit    |                |                | None           |                |
-|                |                | (NV04/0        |                |                |                |                |
-|                |                | 5)](https://no |                |                |                |                |
+|                |                | [Rankine       |                |                | None           |                |
+|                |                | (NV3           |                |                |                |                |
+|                |                | 0)](https://no |                |                |                |                |
 |                |                | uveau.freedesk |                |                |                |                |
 |                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NV04) |                |                |                |                |
+|                |                | mes.html#NV30) |                |                |                |                |
 |                |                | through [Fermi |                |                |                |                |
 |                |                | (NVC0/GF1X     |                |                |                |                |
 |                |                | X)](https://no |                |                |                |                |
 |                |                | uveau.freedesk |                |                |                |                |
 |                |                | top.org/CodeNa |                |                |                |                |
 |                |                | mes.html#NVC0) |                |                |                |                |
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+|                |                | [Fahrenheit    |                | `              |                |                |
+|                |                | (NV04/0        |                | ``{=mediawiki} |                |                |
+|                |                | 5)](https://no |                | {{Pk           |                |                |
+|                |                | uveau.freedesk |                | g|mesa-amber}} |                |                |
+|                |                | top.org/CodeNa |                | ```            |                |                |
+|                |                | mes.html#NV04) |                |                |                |                |
+|                |                | through        |                |                |                |                |
+|                |                | [Kelvin        |                |                |                |                |
+|                |                | (NV2           |                |                |                |                |
+|                |                | 0)](https://no |                |                |                |                |
+|                |                | uveau.freedesk |                |                |                |                |
+|                |                | top.org/CodeNa |                |                |                |                |
+|                |                | mes.html#NV20) |                |                |                |                |
 +----------------+----------------+----------------+----------------+----------------+----------------+----------------+
 | Open DRM       | [N             | [Turing        | `              | `              |                |                |
 | driver,        | VIDIA](NVIDIA  | (NV160/TUXXX   | ``{=mediawiki} | ``{=mediawiki} |                |                |
@@ -241,9 +262,8 @@ details per GPU family.
 
 1.  For NVIDIA Optimus enabled laptop which uses an integrated video card combined with a dedicated GPU, see [NVIDIA
     Optimus](NVIDIA_Optimus "wikilink").
-2.  The *modesetting* DDX driver is recommended for for [NV50
-    (G80)](https://nouveau.freedesktop.org/CodeNames.html#NV50) and later. See
-    [Nouveau#Installation](Nouveau#Installation "wikilink") for details.
+2.  The *modesetting* DDX driver is recommended for [NV50 (G80)](https://nouveau.freedesktop.org/CodeNames.html#NV50)
+    and newer. See [Nouveau#Installation](Nouveau#Installation "wikilink") for details.
 
 ## Loading
 

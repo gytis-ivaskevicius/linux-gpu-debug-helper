@@ -279,6 +279,12 @@ update](https://bbs.archlinux.org/viewtopic.php?id=287033)
 
 A workaround is to install `{{Pkg|lib32-libnm}}`{=mediawiki}.
 
+### Periodic lag spikes with Proton Steam Play {#periodic_lag_spikes_with_proton_steam_play}
+
+[Low framerate after around 30 minutes of playing](https://github.com/ValveSoftware/steam-for-linux/issues/11446) can be
+worked around by changing the game\'s launch options to `{{ic|1=LD_PRELOAD="" %COMMAND%}}`{=mediawiki} to disable the
+Steam overlay.
+
 ## Graphical issues {#graphical_issues}
 
 ### Black main screen on Intel iGPUs {#black_main_screen_on_intel_igpus}
@@ -358,6 +364,9 @@ If you are using [PipeWire](PipeWire "wikilink"), then instead install `{{Pkg|li
 
 ### No audio or 756 Segmentation fault {#no_audio_or_756_segmentation_fault}
 
+```{=mediawiki}
+{{Out of date|This was fixed in 2016. Is this still relevant today?}}
+```
 First [#Configure PulseAudio](#Configure_PulseAudio "wikilink") and see if that resolves the issue. If you do not have
 audio in the videos which play within the Steam client, it is possible that the ALSA libraries packaged with Steam are
 not working.

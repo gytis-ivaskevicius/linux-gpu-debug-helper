@@ -32,12 +32,13 @@ same buffer API. There are two main APIs: [GBM](Wikipedia:Generic_Buffer_Managem
 [EGLStreams](https://www.phoronix.com/scan.php?page=news_item&px=XDC2016-Device-Memory-API).
 
   Buffer API   GPU driver support                                Wayland compositor support
-  ------------ ------------------------------------------------- ----------------------------
+  ------------ ------------------------------------------------- -------------------------------------
   GBM          All except [NVIDIA](NVIDIA "wikilink") \< 495\*   All
-  EGLStreams   [NVIDIA](NVIDIA "wikilink")                       [GNOME](GNOME "wikilink")
+  EGLStreams   [NVIDIA](NVIDIA "wikilink")                       [GNOME](GNOME "wikilink") \< 51\*\*
 
 :   \* NVIDIA ≥ 495 supports both EGLStreams and
     GBM.[5](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-495.44-Linux-Driver)
+:   \*\* GNOME 51 drops support for EGLStreams.[6](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5079)
 
 Since NVIDIA introduced GBM support, many compositors (including Mutter and KWin) started using it by default for NVIDIA
 ≥ 495. GBM is generally considered better with wider support, and EGLStreams only had support because NVIDIA did not
@@ -59,7 +60,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 ### Stacking
 
 -   ```{=mediawiki}
-    {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|http://hikari.acmelabs.space/|{{AUR|hikari}}}}
+    {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|https://codeberg.org/thomasadam/hikari|{{AUR|hikari}}}}
     ```
 
 -   ```{=mediawiki}
@@ -225,7 +226,7 @@ Display managers listed below support launching Wayland compositors.
 | {{AUR|lidm}}                         |                                      | display manager made in C.           |
 | ```                                  |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
-| [LightDM](LightDM "wikilink")        | Xorg[6](https://gith                 | Cross-desktop display manager.       |
+| [LightDM](LightDM "wikilink")        | Xorg[7](https://gith                 | Cross-desktop display manager.       |
 |                                      | ub.com/canonical/lightdm/issues/267) |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [ly](ly "wikilink")                  | tty                                  | TUI display manager written in Zig   |
@@ -316,14 +317,14 @@ To enable Wayland support in [Qt](Qt "wikilink") 5, install the `{{Pkg|qt5-wayla
 applications will then run under Wayland on a Wayland session.
 
 While it should not be necessary, to explicitly run a Qt application with the Wayland plugin
-[7](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F), use `{{ic|1=-platform wayland}}`{=mediawiki} or
+[8](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F), use `{{ic|1=-platform wayland}}`{=mediawiki} or
 `{{ic|1=QT_QPA_PLATFORM=wayland}}`{=mediawiki} [environment variable](environment_variable "wikilink").
 
 To force the usage of [X11](X11 "wikilink") on a Wayland session, use `{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki}.
 
 This might be necessary for some proprietary applications that do not use the system\'s implementation of Qt.
 `{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
-available.[8](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
+available.[9](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 
 Due to the [Incorrect sizing and bad text rendering with WebEngine using fractional scaling on
 Wayland](https://bugreports.qt.io/browse/QTBUG-113574) Qt WebEngine bug, applications using Qt WebEngine, for example
@@ -342,11 +343,11 @@ To run a Clutter application on Wayland, set `{{ic|1=CLUTTER_BACKEND=wayland}}`{
 
 In [SDL3](SDL "wikilink"), Wayland is used by default if the compositor supports the [fifo-v1
 protocol](https://wayland.app/protocols/fifo-v1).
-[9](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
+[10](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
 Otherwise, X11 and Wayland are tried in order. Either can be forced either using the
 `{{ic|1=SDL_VIDEO_DRIVER=x11}}`{=mediawiki} or `{{ic|1=SDL_VIDEO_DRIVER=wayland}}`{=mediawiki} environment variables
 respectively (or, with a lower precedence, the SDL2 environment variable
-below)[10](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802).
+below)[11](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802).
 
 ```{=mediawiki}
 {{Pkg|sdl2-compat}}
@@ -355,7 +356,7 @@ follows the SDL3 rules above, barring [application-specific
 exceptions](https://github.com/libsdl-org/sdl2-compat/blob/8b85f95bbcc3411c78c1f2cbd62b23b7f96093c2/src/sdl2_compat.c#L504-L538).
 As for SDL2 proper (e.g. `{{AUR|sdl2}}`{=mediawiki}), set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
 `{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
-available.[11](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
+available.[12](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
 enable window decorations (for example, on GNOME).
 
 Refer to the [official documentation](https://wiki.libsdl.org/SDL3/README/wayland) for more details.
@@ -387,7 +388,7 @@ Xwayland by modifying environment variables:
 -   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
 -   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
     `{{ic|1=DISPLAY}}`{=mediawiki} variable.
-    [12](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
+    [13](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
 
 ### Electron
 
@@ -463,15 +464,29 @@ Until WLToolkit lands in stable OpenJDK, you have several options:
 
 ### Automation
 
--   [ydotool](https://github.com/ReimuNotMoe/ydotool) (`{{Pkg|ydotool}}`{=mediawiki}) - Generic command-line automation
-    tool (not limited to wayland). [Enable/start](Enable/start "wikilink") the `{{ic|ydotool.service}}`{=mediawiki}
-    [user unit](user_unit "wikilink"). See `{{man|8|ydotoold}}`{=mediawiki}, `{{man|1|ydotool}}`{=mediawiki}.
--   [wtype](https://github.com/atx/wtype) (`{{Pkg|wtype}}`{=mediawiki}) - xdotool type for wayland. See
-    `{{man|1|wtype}}`{=mediawiki}.
--   [keyboard](https://github.com/boppreh/keyboard) - Python library that works on Windows and Linux with experimental
-    OS X support. Also see the [mouse](https://github.com/boppreh/mouse) library.
--   [wlrctl](https://git.sr.ht/~brocellous/wlrctl) (`{{AUR|wlrctl}}`{=mediawiki}) - A command line utility for
-    miscellaneous wlroots extensions (supports the foreign-toplevel-management, virtual-keyboard, virtual-pointer)
+-   ```{=mediawiki}
+    {{App|{{man|1|ydotool}}|Generic command-line automation tool (not limited to Wayland). [[Enable/start]] the {{ic|ydotool.service}} [[user unit]].|https://github.com/ReimuNotMoe/ydotool|{{Pkg|ydotool}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|{{man|1|wtype}}|xdotool type for Wayland.|https://github.com/atx/wtype|{{Pkg|wtype}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|keyboard|Python library to hook and simulate keyboard events.|https://github.com/boppreh/keyboard|{{AUR|python-keyboard}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|mouse|Python library to hook and simulate mouse events.|https://github.com/boppreh/mouse|{{AUR|python-mouse}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|wlrctl|A command line utility for miscellaneous wlroots extensions (supports the foreign-toplevel-management, virtual-keyboard, virtual-pointer).|https://git.sr.ht/~brocellous/wlrctl|{{AUR|wlrctl}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|CrossMacro|Cross-platform desktop automation app with macro recording, playback, scheduling, text expansion, CLI tools, and Wayland/X11-aware Linux support.|https://github.com/alper-han/CrossMacro|{{AUR|crossmacro}}}}
+    ```
 
 ### Remap keyboard or mouse keys {#remap_keyboard_or_mouse_keys}
 
@@ -545,12 +560,12 @@ Example:
     ```
     and `{{Pkg|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
-    [13](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
+    [14](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 
 -   ```{=mediawiki}
     {{pkg|mutter}}
     ```
-    has now remote desktop enabled at compile time, see [14](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
+    has now remote desktop enabled at compile time, see [15](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
     `{{Pkg|gnome-remote-desktop}}`{=mediawiki} for details.
 
 -   ```{=mediawiki}

@@ -84,18 +84,29 @@ The [NVIDIA](NVIDIA "wikilink") proprietary driver supports (via `{{Pkg|nvidia-u
 
 ### AMD/ATI
 
-[AMD](AMD "wikilink") and [ATI](ATI "wikilink") open-source drivers support VA-API via `{{Pkg|mesa}}`{=mediawiki}:
+[AMD](AMD "wikilink") and [ATI](ATI "wikilink") open-source drivers support VA-API, Vulkan Video, and AMF:
 
--   VA-API on Radeon HD 2000 and newer GPUs.
+-   VA-API on Radeon HD 2000 and newer GPUs via `{{Pkg|mesa}}`{=mediawiki}.
 
-RADV open-source [vulkan](vulkan "wikilink") driver provides Vulkan Video support via
-`{{Pkg|vulkan-radeon}}`{=mediawiki}.
-
-```{=mediawiki}
-{{Out of date|The latest release of the AMD Media Framework no longer requires the proprietary additions to the open driver, but the AUR package has not been revamped, nor a new ''amf'' package relying on the open [[AMDGPU]] driver been uploaded.}}
+```{=html}
+<!-- -->
 ```
--   AMF on [Fiji](Wikipedia:Radeon_Rx_300_series "wikilink") and newer GPUs supported by
-    `{{AUR|amf-amdgpu-pro}}`{=mediawiki}.
+-   Vulkan Video Encode and Decode via the RADV open-source [vulkan](vulkan "wikilink") driver
+    `{{Pkg|vulkan-radeon}}`{=mediawiki}.
+
+```{=html}
+<!-- -->
+```
+-   AMF (Legacy Driver) on [Fiji](Wikipedia:Radeon_Rx_300_series "wikilink") up to [RDNA 2](Wikipedia:RDNA_2 "wikilink")
+    supported by the proprietary `{{AUR|amf-amdgpu-pro}}`{=mediawiki} driver.
+
+```{=html}
+<!-- -->
+```
+-   AMF (Latest Driver) on [RDNA 3](Wikipedia:RDNA_3 "wikilink") and newer GPUs supported via
+    `{{AUR|amf-amdgpu}}`{=mediawiki}, which uses an [\"All
+    Open\"](https://github.com/GPUOpen-LibrariesAndSDKs/AMF/wiki/Driver%20Linux#prerequisites) stack with
+    `{{Pkg|vulkan-radeon}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Note|

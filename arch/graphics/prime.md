@@ -167,10 +167,18 @@ with this command.
 
 `$ cat /proc/driver/nvidia/gpus/0000:01:00.0/power`
 
-If it says `{{ic|Runtime D3 status: Not supported}}`{=mediawiki}, you may need to follow the steps [in this forum
-post](https://bbs.archlinux.org/viewtopic.php?pid=2181317#p2181317) to disable. [One user
-noted](https://bbs.archlinux.org/viewtopic.php?pid=2187680#p2187680) disabling the `{{ic|GpuFirmware}}`{=mediawiki} only
-works on the closed source driver, not on `{{Pkg|nvidia-open}}`{=mediawiki}.
+If this reports `{{ic|Runtime D3 status: Not supported}}`{=mediawiki}:
+
+-   ```{=mediawiki}
+    {{Pkg|nvidia-open}}
+    ```
+    users: upgrade to driver version 610 or later, where runtime D3 power management is [fully supported by
+    default](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-4585176355). (On earlier versions
+    of the open drivers, even the workaround below [has no
+    effect](https://bbs.archlinux.org/viewtopic.php?pid=2187680#p2187680).)
+
+-   Closed-source driver users: you may need to follow the steps [in this forum
+    post](https://bbs.archlinux.org/viewtopic.php?pid=2181317#p2181317) to disable the GSP firmware.
 
 To check what uses the GPU, you can use the following command:
 

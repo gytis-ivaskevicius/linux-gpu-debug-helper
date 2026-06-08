@@ -573,7 +573,7 @@ The duplicated device with `{{ic|Screen}}`{=mediawiki} is how you get X to use t
 #### TwinView
 
 ```{=mediawiki}
-{{Out of date|{{ic|Option "TwinView"}} is removed in 302.07, and TwinView is always enabled.}}
+{{Remove|TwinView, and more generally Xinerama, is [https://www.nvidia.com/en-us/drivers/details/271414 no longer supported] by NVIDIA's open driver starting from version 610.43.02}}
 ```
 You want only one big screen instead of two. Set the `{{ic|TwinView}}`{=mediawiki} argument to `{{ic|1}}`{=mediawiki}.
 This option should be used if you desire compositing. TwinView only works on a per-card basis, when all participating

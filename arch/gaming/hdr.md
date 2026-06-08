@@ -172,7 +172,7 @@ To use HDR without gamescope run a build of Wine which includes the Wayland driv
 ```{=mediawiki}
 {{Note|{{ic|PROTON_ENABLE_HDR}} sets {{ic|DXVK_HDR{{=}}1}}
 ```
-[2](https://github.com/GloriousEggroll/proton-ge-custom/blob/master/proton#L1718).}}
+in proton-ge-custom [2](https://github.com/GloriousEggroll/proton-ge-custom/blob/master/proton#L2088).}}
 
 -   [wine-tkg](https://github.com/Frogging-Family/wine-tkg-git): install wine-tkg, set
     `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.

@@ -231,7 +231,9 @@ For list of games packaged for Arch in [official repositories](official_reposito
 -   ```{=mediawiki}
     {{App|Heroic Games Launcher|A GUI for GOG and legendary, an open-source alternative for the Epic Games Launcher. Supports out-of-the-box integration with {{Pkg|umu-launcher}}.[https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/tag/v2.16.0#:~:text{{=}}
     ```
-    %F0%9F%8E%AE%20umu%20as%20Default%20on%20Linux%2FSteam%20Deck%3A%20Unified%20Launcher%20%28umu%29%20is%20now%20standard%20for%20Proton%20games%2E%20%28by%20%40arielj%29\]\|<https://heroicgameslauncher.com/>\|`{{AUR|heroic-games-launcher}}`{=mediawiki}}}
+    %F0%9F%8E%AE%20umu%20as%20Default%20on%20Linux%2FSteam%20Deck%3A%20Unified%20Launcher%20%28umu%29%20is%20now%20standard%20for%20Proton%20games%2E%20%28by%20%40arielj%29\]
+    Based on the [Electron](Electron "wikilink")
+    platform.\|<https://heroicgameslauncher.com/>\|`{{AUR|heroic-games-launcher}}`{=mediawiki}}}
 
 -   ```{=mediawiki}
     {{App|[[Wikipedia:itch.io|itch.io]]|Indie game store.|https://itch.io|{{AUR|itch-setup-bin}}}}

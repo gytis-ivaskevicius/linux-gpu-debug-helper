@@ -165,4 +165,11 @@ To fix it:
     `{{bc|seta com_hunkMegs 192    // sets the allowed memory for the graphics of the game}}`{=mediawiki}
 3.  Execute the CFG and restart ET.
 
+### Poor performance on Wayland {#poor_performance_on_wayland}
+
+Enemy Territory (or ET: Legacy, at least) may run very slow on Wayland. The SDL2 compatibility layer it uses seems to
+default to Xwayland which impacts on performance. Telling SDL to use Wayland directly should fix the issue:
+
+`$ SDL_VIDEODRIVER=wayland etl.x86_64`
+
 [Category:Gaming](Category:Gaming "wikilink")
