@@ -308,6 +308,19 @@ for the `{{ic|nvidia}}`{=mediawiki} kernel module. This only works with the prop
 Do not forget to [regenerate the initramfs](regenerate_the_initramfs "wikilink") if needed. To have this new kernel
 module option take effect, reboot.
 
+### Crashes related to VRR and TTY-switching {#crashes_related_to_vrr_and_tty_switching}
+
+If the driver crashes while switching between a desktop environment and TTY\'s and the journal contains:
+
+`archlinux kernel: [drm:nv_drm_atomic_commit [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID [...]] Flip event timeout`\
+`archlinux kernel: nvidia-modeset: ERROR: GPU:0: Idling display engine timed out: [...]`
+
+Try disabling the monitor\'s VRR-function via it\'s OSD.
+
+Another workaround is to hide the driver\'s VRR (G-Sync / FreeSync) capability from the display subsystem, preventing
+any application or compositor from enabling VRR: set [Kernel parameters](Kernel_parameters "wikilink") to
+`{{ic|1=nvidia_modeset.conceal_vrr_caps=1}}`{=mediawiki}, which enforces a fixed refresh rate.
+
 ## Visual issues {#visual_issues}
 
 ### Avoid screen tearing on Xorg {#avoid_screen_tearing_on_xorg}

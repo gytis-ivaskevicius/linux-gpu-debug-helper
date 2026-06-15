@@ -181,14 +181,8 @@ There is a optional dependency for niri which is highly recommended to install (
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-Or using [Home Manager](Special:MyLanguage/Home_Manager "wikilink")
+或者使用 [Home Manager](Special:MyLanguage/Home_Manager "wikilink")
 
-```{=html}
-</div>
-```
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
   xwayland-satellite # xwayland support

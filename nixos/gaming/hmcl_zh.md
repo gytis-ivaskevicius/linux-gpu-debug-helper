@@ -7,14 +7,10 @@
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-## Installation
+`<span id="Installation">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+## 安装
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -51,22 +47,14 @@ home.packages = with pkgs; [ hmcl ];
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-## Configuration
+`<span id="Configuration">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-#### Basic
+## 配置
 
-```{=html}
-</div>
-```
+`<span id="Basic">`{=html}`</span>`{=html}
+
+#### 基础
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -76,14 +64,10 @@ currently supported.
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-#### Wayland support {#wayland_support}
+`<span id="Wayland_support">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+#### Wayland 支持 {#wayland_支持}
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -102,14 +86,10 @@ For older Minecraft versions, users who want to use Wayland should enable
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-#### Advanced
+`<span id="Advanced">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+#### 进阶
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -136,14 +116,10 @@ environment.systemPackages = with pkgs; [
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-## References
+`<span id="References">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+## 参考
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```

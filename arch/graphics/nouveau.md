@@ -64,10 +64,6 @@ If you are using a hybrid laptop or a dual GPU system ensure you do not have Nou
 Then [install](install "wikilink") `{{Pkg|vulkan-nouveau}}`{=mediawiki} (and if it is required,
 `{{Pkg|lib32-vulkan-nouveau}}`{=mediawiki}).
 
-Add `{{ic|1=nouveau.config=NvGspRm=1}}`{=mediawiki} as a [kernel parameter](kernel_parameter "wikilink") if required. It
-is enabled by default on Ada Lovelace and newer cards. See note in the
-[documentation](https://nouveau.freedesktop.org/PowerManagement.html).
-
 Finally reboot your system.
 
 To verify everything is working `{{ic|vulkaninfo}}`{=mediawiki} from `{{Pkg|vulkan-tools}}`{=mediawiki} can be used. It

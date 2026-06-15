@@ -166,6 +166,12 @@ normal environment.
 }
 ```
 
+### Crash on start-up {#crash_on_start_up}
+
+Occasionally, Discord\'s code can become corrupted, causing it to crash on start-up. You can force it to re-download the
+latest version by deleting the `~/.config/discord/1.0.138`directory, where `1.0.138` is replaced with Discord\'s current
+version number (the second line of output when running `discord` from a terminal).
+
 ### \"Must be your lucky day\" popup {#must_be_your_lucky_day_popup}
 
 Although Nixpkgs is usually very fast with updates (if you use *nixos-unstable*), you may still run into this issue

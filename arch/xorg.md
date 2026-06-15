@@ -334,7 +334,7 @@ standalone composite manager can be used.
     ```
 
 -   ```{=mediawiki}
-    {{App|fastcompmgr|A lightweight compositor for X11 with a focus on speed.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
+    {{App|fastcompmgr|A very lightweight compositor for X11 with a focus on latency & performance.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
     ```
 
 -   ```{=mediawiki}
@@ -513,7 +513,7 @@ See also [#Killing an application visually](#Killing_an_application_visually "wi
 
 ### Block TTY access {#block_tty_access}
 
-To block tty access when in an X add the following to [xorg.conf](#Configuration "wikilink"):
+To block tty access when in an X session add the following to [xorg.conf](#Configuration "wikilink"):
 
 ```{=mediawiki}
 {{bc|
@@ -523,6 +523,9 @@ EndSection
 }}
 ```
 This can be used to help restrict command line access on a system accessible to non-trusted users.
+
+To block TTY access only while the screen is locked, rather than for the entire X session, see
+`{{AUR|vtlock}}`{=mediawiki}.
 
 ### Prevent a user from killing X {#prevent_a_user_from_killing_x}
 

@@ -255,8 +255,8 @@ support](https://github.com/mpv-player/mpv/discussions/16105#discussioncomment-1
 ```{=mediawiki}
 {{pkg|firefox}}
 ```
-introduces working experimental HDR in 138.0 under the hidden preference `{{ic|gfx.wayland.hdr}}`{=mediawiki}. You can
-enable it at `{{ic|about:config}}`{=mediawiki}.
+introduces working experimental HDR in 138.0 under the hidden preference `{{ic|gfx.color_management.hdr}}`{=mediawiki}.
+You can enable it at `{{ic|about:config}}`{=mediawiki}.
 
 Stable HDR is still in progress [5](https://bugzilla.mozilla.org/show_bug.cgi?id=hdr)
 [6](https://bugzilla.mozilla.org/show_bug.cgi?id=1642854).

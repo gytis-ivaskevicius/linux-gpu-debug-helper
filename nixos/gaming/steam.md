@@ -1,9 +1,8 @@
-`<languages/>`{=html} `<translate>`{=html} [Steam](https://store.steampowered.com/) is a digital distribution platform
+`<languages/>`{=html} `<translate>`{=html}
+`<tvar name=steam>`{=html}[Steam](https://store.steampowered.com/)`</tvar>`{=html} is a digital distribution platform
 for video games, offering a vast library for purchase, download, and management. On NixOS, Steam is generally easy to
 install and use, often working \"out-of-the-box\". It supports running many Windows games on Linux through its
-compatibility layer, [Proton](<tvar_name=1>#Proton</tvar> "wikilink").[^1] `</translate>`{=html}
-
-`<translate>`{=html}
+compatibility layer, `<tvar name=proton>`{=html}[Proton](#Proton "wikilink")`</tvar>`{=html}.[^1]
 
 ## Installation
 
@@ -19,9 +18,7 @@ $ nix-shell -p steamcmd  # For steamcmd
 
 `<translate>`{=html} This provides the tools in your current shell without adding them to your system configuration. For
 `steamcmd` to work correctly for some tasks (like initializing for steam-tui), you might need to run it once to generate
-necessary files, as shown in the [ steam-tui section](<tvar_name=1>#steam-tui</tvar> "wikilink"). `</translate>`{=html}
-
-`<translate>`{=html}
+necessary files, as shown in the [ steam-tui section](<tvar_name=1>#steam-tui</tvar> "wikilink").
 
 #### System setup {#system_setup}
 
@@ -74,11 +71,12 @@ programs.steam = {
 ```{=mediawiki}
 {{note|<translate><!--T:11--> If you are using a Steam Controller or a Valve Index, Steam hardware support is implicitly enabled by <code>programs.steam.enable {{=}}
 ```
-true;`</code>`{=html} which sets `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} to
-true.`</translate>`{=html}}}
+true;`</code>`{=html} which sets
+`<tvar name=steam_hardware_option>`{=html}`{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki}`</tvar>`{=html}
+to true.`</translate>`{=html}}}
 
 ```{=mediawiki}
-{{note|<translate> If you are using the Steam Controller released in 2026, the Steam client has an additional dependency on hidapi, needed to correctly communicate with the controller. If you are seeing repeated errors about failed firmware updates, this is likely why. You can add the dependency directly to the Steam environment like so: <code>programs.steam.extraPackages {{=}}
+{{note|<translate><!--T:67--> If you are using the Steam Controller released in 2026, the Steam client has an additional dependency on hidapi, needed to correctly communicate with the controller. If you are seeing repeated errors about failed firmware updates, this is likely why. You can add the dependency directly to the Steam environment like so: <code>programs.steam.extraPackages {{=}}
 ```
 \[pkgs.hidapi\];`</code>`{=html}`</translate>`{=html}}}
 
@@ -88,13 +86,15 @@ true.`</translate>`{=html}}}
 
 ### Improving Performance {#improving_performance}
 
-You can utilize [GameMode](https://github.com/FeralInteractive/gamemode), a combination of a library and daemon for
-Linux that allows games to request a set of optimizations to be temporarily applied to the host operating system and/or
-a game process.
+You can utilize `<tvar name=gamemode>`{=html}[GameMode](https://github.com/FeralInteractive/gamemode)`</tvar>`{=html}, a
+combination of a library and daemon for Linux that allows games to request a set of optimizations to be temporarily
+applied to the host operating system and/or a game process. `</translate>`{=html}
 
 ``` nixos
 programs.gamemode.enable = true;
 ```
+
+`<translate>`{=html}
 
 ### Gamescope Compositor / \"Boot to Steam Deck\" {#gamescope_compositor_boot_to_steam_deck}
 
@@ -283,8 +283,8 @@ key for this in its .desktop files[^2], but you can fix this manually by editing
 game\'s .desktop file, found under `~/.local/share/applications/`.
 
 For games running through Proton, the value should be `steam_app_``<game_id>`{=html} (where `<game_id>`{=html} matches
-the value after <steam://rungameid/> on the `Exec` line). To automate this with [Home Manager](Home_Manager "wikilink")
-(executed on every rebuild): `</translate>`{=html}
+the value after <steam://rungameid/> on the `Exec` line). To automate this with `<tvar name=hm>`{=html}[Home
+Manager](Special:MyLanguage/Home_Manager "wikilink")`</tvar>`{=html} (executed on every rebuild): `</translate>`{=html}
 
 ``` nix
 home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -340,9 +340,10 @@ using Flakes). After that, create a bug report.
 ### Steam is not updated {#steam_is_not_updated}
 
 When you restart Steam after an update, it starts the old version.
-([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
-`/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
-the terminal or with your file manager. After that, Steam can be set up again by restarting.
+(`<tvar name=issue>`{=html}[#181904](https://github.com/NixOS/nixpkgs/issues/181904)`</tvar>`{=html}) A workaround is to
+remove the user files in `/home/<USER>/.local/share/Steam/userdata`. This can be done with
+`rm -rf /home/<USER>/.local/share/Steam/userdata` in the terminal or with your file manager. After that, Steam can be
+set up again by restarting.
 
 ### Game fails to start {#game_fails_to_start}
 
@@ -363,7 +364,7 @@ LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...cur
 `<translate>`{=html} Note: If a game gets stuck on Installing scripts, check for a DXSETUP.EXE process and run it
 manually, then restart the game launch.
 
-#### Changing the driver on AMD GPUs {#changing_the_driver_on_amd_gpus}
+#### Changing the driver on AMD GPUs `<tvar name=comment>`{=html} `</tvar>`{=html} {#changing_the_driver_on_amd_gpus}
 
 `</translate>`{=html}
 
@@ -403,8 +404,9 @@ The setcap issue at SteamVR start can be fixed with:
 
 ### Gamescope fails to launch when used within Steam {#gamescope_fails_to_launch_when_used_within_steam}
 
-Gamescope may fail to start due to missing Xorg libraries. ([#214275](https://github.com/NixOS/nixpkgs/issues/214275))
-To resolve this override the steam package to add them: `</translate>`{=html}
+Gamescope may fail to start due to missing Xorg libraries.
+(`<tvar name=issue>`{=html}[#214275](https://github.com/NixOS/nixpkgs/issues/214275)`</tvar>`{=html}) To resolve this
+override the steam package to add them: `</translate>`{=html}
 
 ``` nix
 programs.steam.package = pkgs.steam.override {

@@ -113,7 +113,7 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
-    {{App|Labymod Launcher|LabyMod Launcher for launching LabyMod, which is a Minecraft client that adds bunch of useful features|https://www.labymod.net/|{{AUR|labymodlauncher-appimage}} and {{aur|labymodlauncher}}}}
+    {{App|LabyMod Launcher|LabyMod Launcher for launching LabyMod, which is a Minecraft client that adds bunch of useful features|https://www.labymod.net/|{{AUR|labymodlauncher-bin}}}}
     ```
 
 -   ```{=mediawiki}

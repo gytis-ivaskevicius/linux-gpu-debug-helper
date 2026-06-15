@@ -382,6 +382,8 @@ physically reconnect your device after running this command.
 ``\
 `To pair two Joy-Cons together, make sure {{ic|joycond}} is running and both Joy-Cons are connected. Then, press one trigger on each Joy-Con at the same time.`\
 ``\
+`{{Note|Steam Input includes native support for combining a pair of Joy-Cons into a single virtual controller, making {{ic|joycond}} unnecessary. To enable this feature, go to ''Settings > Controller > Show Advanced Settings'' and enable ''Combine Joy-Con Pairs''. Ensure that Steam Input is enabled for the specific game.}}`\
+``\
 `==== Use positional layout on SDL2 applications ====`\
 ``\
 `By default, SDL2 maps buttons on Nintendo controllers according to the gamepad's label instead of the button's position. This causes the mapping of the buttons A/B and X/Y to be swapped compared to other controllers. If this is undesirable, set the [[environment variable]] {{ic|1=SDL_GAMECONTROLLER_USE_BUTTON_LABELS=0}}.`\

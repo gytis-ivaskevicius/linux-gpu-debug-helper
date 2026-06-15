@@ -188,6 +188,10 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
+    {{App|Play!|Experimental Playstation 2 emulator.|https://purei.org/|{{AUR|play-emu}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|PPSSPP|PlayStation Portable emulator.|https://ppsspp.org/|{{Pkg|ppsspp}}}}
     ```
 

@@ -28,17 +28,15 @@ steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，�
 软件包并启用所有必要的系统选项以使其运行，请将以下内容添加到您的系统配置中：
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true;
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
-# boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
-</nowiki>
-}}
+# boot.kernelPackages = pkgs.linuxPackages; # Example for LTS
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 [关于内核 6.10 问题的轶事](https://news.ycombinator.com/item?id=41549030)
 
@@ -59,27 +57,39 @@ programs.steam = {
 基本 Steam 功能可以直接在 `{{nixos:option|programs.steam}}`{=mediawiki} 属性集中启用：
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
   remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
   dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
-# Tip: For improved gaming performance, you can also enable GameMode:
-# programs.gamemode.enable = true;
-</nowiki>
-}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 ```{=mediawiki}
 {{note|如果您使用的是 Steam 控制器或 Valve Index，Steam 硬件支持会通过设置 <code>programs.steam.enable {{=}}
 ```
-true;`</code>`{=html} 将`{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} 选项同步设置为 true 来隐性启用}}
+true;`</code>`{=html} 将 `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} 选项同步设置为 true 来隐性启用}}
+
+```{=mediawiki}
+{{note|如果您使用的是 2026 年发布的 Steam 控制器，Steam 客户端需要额外依赖 hidapi 才能与控制器正确通信。如果您反复遇到固件更新失败的错误，这很可能是原因所在。您可以像这样直接将依赖项添加到 Steam 环境中：<code>programs.steam.extraPackages {{=}}
+```
+\[pkgs.hidapi\];`</code>`{=html}}}
 
 `<span id="Tips_and_tricks">`{=html}`</span>`{=html}
 
 ## 提示和技巧
+
+`<span id="Improving_Performance">`{=html}`</span>`{=html}
+
+### 提升性能
+
+您可以使用 [GameMode](https://github.com/FeralInteractive/gamemode)，这是一个针对 Linux
+的库和守护程序组合，它允许游戏请求将一组优化指令以临时应用于主机操作系统和/或游戏进程。
+
+``` nixos
+programs.gamemode.enable = true;
+```
 
 `<span id="Gamescope_Compositor_/_&quot;Boot_to_Steam_Deck&quot;">`{=html}`</span>`{=html}
 
@@ -124,16 +134,14 @@ services = {
 
 ### Gamescope HDR {#gamescope_hdr}
 
-要使 HDR 在 gamescope 中工作，您需要在启用 `gamescope` 程序的同时，单独安装 `gamescope-wsi` 软件包。
+要使 HDR 在 gamescope 中工作，您可能需要单独启用 `enableWsi` 选项。
 
 ``` nix
 programs.gamescope = {
   enable = true;
+  enableWsi = true;
   capSysNice = false;
 };
-environment.systemPackages = with pkgs; [
-  gamescope-wsi # HDR won't work without this
-];
 ```
 
 此外，在 Steam 中配置游戏启动选项时，可能需要使用参数 `--hdr-debug-force-output` 以在 gamescope 中强制启用
@@ -257,8 +265,21 @@ programs.steam.package = pkgs.steam.override {
 GNOME 使用窗口类来确定与窗口关联的图标。Steam 目前在其 .desktop 文件中没有设置所需的键值[^2]，但您可以通过编辑每个游戏的
 .desktop 文件中的 `StartupWMClass` 键值来手动修复此问题，该文件位于 `~/.local/share/applications/` 目录下。
 
-对于通过 Proton 运行的游戏，该值应为 `steam_app_``<game_id>`{=html} （在哪里`<game_id>`{=html}与 `Exec` 行中
-<steam://rungameid/> 之后的值匹配）。
+对于通过 Proton 运行的游戏，该值应为 `steam_app_``<game_id>`{=html} （`<game_id>`{=html}与 `Exec` 行中
+<steam://rungameid/> 之后的值匹配）。使用 [Home
+Manager](Special:MyLanguage/Home_Manager "wikilink")（每次重建时执行）自动执行此操作：
+
+``` nix
+home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  for f in ~/.local/share/applications/*.desktop; do
+    id=$(grep -Eo 'steam://rungameid/[0-9]+' "$f" | sed 's#.*/##') || true
+    [ -n "$id" ] || continue
+    last=$(tail -n1 "$f" || true)
+    want="StartupWMClass=steam_app_$id"
+    [ "$last" = "$want" ] || echo "$want" >> "$f"
+  done
+'';
+```
 
 对于原生运行的游戏，该值应与游戏的主可执行文件匹配。
 
@@ -304,8 +325,7 @@ StartupWMClass=valheim.x86_64
 
 ### Steam 未更新 {#steam_未更新}
 
-更新后重启 [Steam](Special:MyLanguage/Steam "wikilink")
-时，它会启动旧版本。([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) 一个解决方法是删除
+更新后重启 Steam 时，它会启动旧版本。([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) 一个解决方法是删除
 `/home/<USER>/.local/share/Steam/userdata` 目录下的用户文件。您可以在终端中使用
 `rm -rf /home/<USER>/.local/share/Steam/userdata` 命令或文件管理器来完成此操作。之后，重启 Steam 即可重新生成配置。
 
@@ -325,7 +345,7 @@ LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...cur
 
 注意：如果游戏卡在"正在安装脚本"界面，请检查是否存在 DXSETUP.EXE 进程并手动运行它，然后重新启动游戏。
 
-`<span id="Changing_the_driver_on_AMD_GPUs">`{=html}`</span>`{=html}
+`<span id="Changing_the_driver_on_AMD_GPUs_<!-- this is not recommended due radv drivers performing better and generally more stable than amdvlk. My suggestion remove this section. source: https://forums.guru3d.com/threads/the-mesa-radv-amdvlk-thread.449774/ -->">`{=html}`</span>`{=html}
 
 #### 更改 AMD GPU 的驱动程序 {#更改_amd_gpu_的驱动程序}
 
@@ -386,7 +406,7 @@ programs.steam.package = pkgs.steam.override {
 
 `<span id="Udev_rules_for_additional_Gamepads">`{=html}`</span>`{=html}
 
-### 额外游戏手柄的 udev 规则 {#额外游戏手柄的_udev_规则}
+### 用于额外支持游戏手柄的 udev 规则 {#用于额外支持游戏手柄的_udev_规则}
 
 在某些特定情况下，游戏手柄可能需要一些额外的配置才能正常工作，这些配置以 udev 规则的形式表示。这可以通过
 `services.udev.extraRules` 来配置。
@@ -402,6 +422,19 @@ programs.steam.package = pkgs.steam.override {
 要查找设备的供应商和产品
 ID，[usbutils](https://search.nixos.org/packages?channel=unstable&show=usbutils&from=0&size=50&sort=relevance&type=packages&query=usbutils)
 可能有用。
+
+`<span id="Steam_controller_mouse_input_issues">`{=html}`</span>`{=html}
+
+### Steam 控制器的鼠标输入问题 {#steam_控制器的鼠标输入问题}
+
+使用控制器进行鼠标输入时，可能无法控制视觉光标。在这种情况下，输入仍然会被识别，但光标不会移动。解决方法是使用 extest
+预加载 Steam。Steam 安装包中已经提供了相应的选项：
+
+``` nix
+  programs.steam = {
+    extest.enable = true;
+  };
+```
 
 `<span id="Known_issues">`{=html}`</span>`{=html}
 

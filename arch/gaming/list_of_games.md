@@ -319,6 +319,10 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|TuxPuck|Air hockey game, clone of the Amiga/Atari ST game [[Wikipedia:Shufflepuck Café|Shufflepuck Café]].|https://wiki.debian.org/Games/TuxPuck|{{AUR|tuxpuck}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|vpinball|An open source pinball table editor and simulator|https://github.com/vpinball/vpinball|{{AUR|vpinball}}}}
     ```
 
@@ -389,6 +393,10 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|PySol Fan Club Edition|A collection of more than 1200 Solitaire games, using various deck types including international standard, hex-a-deck, mahjongg, and hanafuda.|https://pysolfc.sourceforge.io/|{{Pkg|pysolfc}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|QCheckers|Qt-based checkers boardgame.|https://github.com/portnov/qcheckers|{{AUR|qcheckers}}}}
     ```
 
@@ -435,10 +443,18 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|SCID|Shane's Chess Information Database is a chess database application that allows users to store, organize, and search through large collections of chess games. It also includes chess engines for playing against the computer and analyzing positions.|https://scid.sourceforge.net/|{{AUR|scid}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Scidb|Chess database browser: includes engines for chess, chess960, etc; import from PGN, Scid, Chessbase, etc; CQL++ searching.|https://sourceforge.net/projects/scidb/|{{AUR|scidb-svn}}}}
     ```
 
 ## Digital collectible card game (DCCG) {#digital_collectible_card_game_dccg}
+
+-   ```{=mediawiki}
+    {{App|Cockatrice|Virtual tabletop for multiplayer card games.|https://cockatrice.github.io/|{{AUR|cockatrice-client-stable}}}}
+    ```
 
 -   ```{=mediawiki}
     {{App|Duelyst|is a digital collectible card game and turn-based strategy hybrid, developed by Counterplay Games.|https://github.com/open-duelyst/duelyst|{{AUR|open-duelyst-bin}}}}
@@ -708,6 +724,10 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
+    {{App|Crosswords|[[Wikipedia:Crossword|Crossword]] player and editor for GNOME.|https://gitlab.gnome.org/jrb/crosswords|{{AUR|crosswords}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:Fish Fillets|Fish Fillets]]|Port of the wonderful puzzle game Fish Fillets.|http://fillets.sf.net/|{{Pkg|fillets-ng}}}}
     ```
 
@@ -864,6 +884,10 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
+    {{App|Numpty Physics|A crayon-drawing based physics puzzle game.|https://gitlab.com/thp/numptyphysics|{{AUR|numptyphysics}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Palapeli|Jigsaw puzzle game. Part of {{Grp|kde-games}}.|https://apps.kde.org/palapeli/|{{Pkg|palapeli}}}}
     ```
 
@@ -896,6 +920,10 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
+    {{App|Sudoku|A modern [[wikipedia:Sudoku|Sudoku]] app built with Python, GTK4 and libadwaita.|https://apps.gnome.org/Sudoku/|{{AUR|sudoku-gtk4}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Swell Foop|Clear the screen by removing groups of colored and shaped tiles. Also known as [[wikipedia:SameGame|SameGame]]. Part of {{Grp|gnome-extra}}.|https://wiki.gnome.org/Apps/Swell(20)Foop|{{Pkg|swell-foop}}}}
     ```
 
@@ -922,6 +950,10 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
+    {{App|Dr. Robotnik's Ring Racers|Kart racing video game originally based on the 3D Sonic the Hedgehog fangame Sonic Robo Blast 2.|https://www.kartkrew.org/|{{AUR|ringracers}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Extreme Tux Racer|3D game where you guide Tux the penguin down a course of snow and ice collecting herring.|https://sourceforge.net/projects/extremetuxracer|{{AUR|extremetuxracer}}}}
     ```
 
@@ -943,6 +975,10 @@ See also [Minecraft](Minecraft "wikilink").
 
 -   ```{=mediawiki}
     {{App|RVGL|Rewrite of Re-Volt, popular 3D RC car racing game from 1999 with an active online community.|https://rvgl.re-volt.io/|4={{AUR|rvgl-bin}}, [https://aur.archlinux.org/packages/?O=0&K=rvgl- all content packs in AUR]}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Sonic Robo Blast 2 Kart|Kart racing mod based on the 3D Sonic the Hedgehog fangame Sonic Robo Blast 2.|https://wiki.srb2.org/wiki/SRB2Kart|{{AUR|srb2kart}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1048,7 +1084,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Wikipedia:Dwarf Fortress|Dwarf Fortress]]|Single-player fantasy game. You control a dwarven outpost or an adventurer in a randomly generated persistent world.|https://www.bay12games.com/dwarves/|{{Pkg|dwarffortress}}}}
+    {{App|[[Dwarf Fortress]]|Single-player fantasy game. You control a dwarven outpost or an adventurer in a randomly generated persistent world.|https://www.bay12games.com/dwarves/|{{Pkg|dwarffortress}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1374,6 +1410,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 
 :\* `{{App|ECWolf|Advanced source port.|:https://maniacsvault.net/ecwolf/|{{AUR|ecwolf}}}}`{=mediawiki}
 
+-   ```{=mediawiki}
+    {{App|Wolfenstein: Blade of Agony|Story-driven FPS inspired by WWII shooters from the 90's and early 2000's.|https://gitlab.com/linuxbombay/wolfboa|{{AUR|wolfboa}}}}
+    ```
+
 -   [Wolfenstein: Enemy Territory](Wolfenstein:_Enemy_Territory "wikilink")
 
 :\* Completely free, standalone, team-based, multiplayer FPS -- `{{AUR|enemy-territory}}`{=mediawiki}
@@ -1657,6 +1697,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 
 -   ```{=mediawiki}
     {{App|Signus|''Signus: The Artefact Wars'' classic turn-based strategy war game similar to the old ''Battle Isle'' series.|https://github.com/signus-game/signus/|{{AUR|signus}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Slingshot|Two dimensional, turn based simulation-strategy game set in the gravity fields of several planets.|https://github.com/ryanakca/slingshot|{{AUR|slingshot-python3}}}}
     ```
 
 -   ```{=mediawiki}

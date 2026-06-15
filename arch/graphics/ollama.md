@@ -11,10 +11,9 @@ CPU inference.
 
 For GPU inference:
 
+-   Install `{{Pkg|ollama-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
 -   Install `{{Pkg|ollama-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 -   Install `{{Pkg|ollama-rocm}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
--   Install `{{Pkg|ollama-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink")
-    ([experimental](https://docs.ollama.com/gpu#vulkan-gpu-support)).
 
 Next, [enable/start](enable/start "wikilink") `{{ic|ollama.service}}`{=mediawiki}. Then, verify Ollama\'s status:
 

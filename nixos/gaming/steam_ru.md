@@ -65,17 +65,15 @@ it to run, add the following to your system configuration:
 </div>
 ```
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true;
 };
 
 # Optional: If you encounter amdgpu issues with newer kernels (e.g., 6.10+ reported issues),
 # you might consider using the LTS kernel or a known stable version.
-# boot.kernelPackages = pkgs.linuxPackages_lts; # Example for LTS
-</nowiki>
-}}
+# boot.kernelPackages = pkgs.linuxPackages; # Example for LTS
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
@@ -108,18 +106,14 @@ Basic Steam features can be enabled directly within the `{{nixos:option|programs
 </div>
 ```
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|
-<nowiki>
+{{file|3=<nowiki>
 programs.steam = {
   enable = true; # Master switch, already covered in installation
   remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play
   dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server hosting
   # Other general flags if available can be set here.
 };
-# Tip: For improved gaming performance, you can also enable GameMode:
-# programs.gamemode.enable = true;
-</nowiki>
-}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 ```{=mediawiki}
 {{note|<span lang="en" dir="ltr" class="mw-content-ltr">If you are using a Steam Controller or a Valve Index, Steam hardware support is implicitly enabled by <code>programs.steam.enable {{=}}
@@ -127,9 +121,40 @@ programs.steam = {
 true;`</code>`{=html} which sets `{{nixos:option|hardware.steam-hardware.enable}}`{=mediawiki} to
 true.`</span>`{=html}}}
 
-`<span id="Tips_and_tricks">`{=html}`</span>`{=html}
+```{=mediawiki}
+{{note|<span lang="en" dir="ltr" class="mw-content-ltr">If you are using the Steam Controller released in 2026, the Steam client has an additional dependency on hidapi, needed to correctly communicate with the controller. If you are seeing repeated errors about failed firmware updates, this is likely why. You can add the dependency directly to the Steam environment like so: <code>programs.steam.extraPackages {{=}}
+```
+\[pkgs.hidapi\];`</code>`{=html}`</span>`{=html}}}
 
-## Советы и рекомендации {#советы_и_рекомендации}
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+## Tips and tricks {#tips_and_tricks}
+
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+### Improving Performance {#improving_performance}
+
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+You can utilize [GameMode](https://github.com/FeralInteractive/gamemode), a combination of a library and daemon for
+Linux that allows games to request a set of optimizations to be temporarily applied to the host operating system and/or
+a game process.
+
+```{=html}
+</div>
+```
+``` nixos
+programs.gamemode.enable = true;
+```
 
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
@@ -194,8 +219,7 @@ services = {
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-In order for HDR to work within gamescope, you need to separately install the `gamescope-wsi` package alongside enabling
-the `gamescope` program.
+In order for HDR to work within gamescope, you might need to separately enable the `enableWsi` option
 
 ```{=html}
 </div>
@@ -203,11 +227,9 @@ the `gamescope` program.
 ``` nix
 programs.gamescope = {
   enable = true;
+  enableWsi = true;
   capSysNice = false;
 };
-environment.systemPackages = with pkgs; [
-  gamescope-wsi # HDR won't work without this
-];
 ```
 
 ```{=html}
@@ -435,11 +457,24 @@ game\'s .desktop file, found under `~/.local/share/applications/`.
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
 For games running through Proton, the value should be `steam_app_``<game_id>`{=html} (where `<game_id>`{=html} matches
-the value after <steam://rungameid/> on the `Exec` line).
+the value after <steam://rungameid/> on the `Exec` line). To automate this with [Home
+Manager](Special:MyLanguage/Home_Manager "wikilink") (executed on every rebuild):
 
 ```{=html}
 </div>
 ```
+``` nix
+home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  for f in ~/.local/share/applications/*.desktop; do
+    id=$(grep -Eo 'steam://rungameid/[0-9]+' "$f" | sed 's#.*/##') || true
+    [ -n "$id" ] || continue
+    last=$(tail -n1 "$f" || true)
+    want="StartupWMClass=steam_app_$id"
+    [ "$last" = "$want" ] || echo "$want" >> "$f"
+  done
+'';
+```
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -526,7 +561,7 @@ create a bug report.
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
-When you restart [Steam](Special:MyLanguage/Steam "wikilink") after an update, it starts the old version.
+When you restart Steam after an update, it starts the old version.
 ([#181904](https://github.com/NixOS/nixpkgs/issues/181904)) A workaround is to remove the user files in
 `/home/<USER>/.local/share/Steam/userdata`. This can be done with `rm -rf /home/<USER>/.local/share/Steam/userdata` in
 the terminal or with your file manager. After that, Steam can be set up again by restarting.
@@ -710,6 +745,30 @@ might be useful
 ```{=html}
 </div>
 ```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+### Steam controller mouse input issues {#steam_controller_mouse_input_issues}
+
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+Mouse input on the controller may fail to take control of the visual cursor. In this instance, the input is still
+registered, but the cursor does not move. A fix for this is to preload Steam with extest. The Steam package already has
+an option for it:
+
+```{=html}
+</div>
+```
+``` nix
+  programs.steam = {
+    extest.enable = true;
+  };
+```
+
 `<span id="Known_issues">`{=html}`</span>`{=html}
 
 ## Известные проблемы {#известные_проблемы}

@@ -39,30 +39,32 @@ Then, install the appropriate driver for your card:
 |                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
 |                                      | for any kernel(s)                    |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
-| [Turing                              | Supported both by:                   |                                      |
-| (NV160/TUXXX)](https://nouveau.f     |                                      |                                      |
-| reedesktop.org/CodeNames.html#NV160) | -   ```{=mediawiki}                  |                                      |
-| through\                             |     {{Pkg|nvidia-open}}              |                                      |
-| [Ada Lovelace                        |     ```                              |                                      |
-| (NV190/ADXXX)](https://nouveau.f     |     with no [RTD3 Power              |                                      |
-| reedesktop.org/CodeNames.html#NV190) |     Mana                             |                                      |
-|                                      | gement](PRIME#PCI-Express_Runtime_D3 |                                      |
-|                                      | _(RTD3)_Power_Management "wikilink") |                                      |
-|                                      |     on Turing^2^,\                   |                                      |
-|                                      |     possible crashes on              |                                      |
-|                                      |     Ampere-equiped laptops^2^        |                                      |
-|                                      |                                      |                                      |
-|                                      | -   ```{=mediawiki}                  |                                      |
-|                                      |     {{AUR|nvidia-580xx-dkms}}        |                                      |
-|                                      |     ```                              |                                      |
+| [Ada Lovelace                        | ```{=mediawiki}                      | Supported                            |
+| (NV190/ADXXX)](https://nouveau.fr    | {{Pkg|nvidia-open}}                  |                                      |
+| eedesktop.org/CodeNames.html#NV190)\ | ```                                  |                                      |
+| [Ampere                              | for `{{Pkg|linux}}`{=mediawiki}      |                                      |
+| (NV170/GAXXX)](https://nouveau.fr    | (possible crashes on Ampere-equipped |                                      |
+| eedesktop.org/CodeNames.html#NV170)\ | laptops^2^)\                         |                                      |
+| [Turing                              | `                                    |                                      |
+| (NV160/TUXXX)](https://nouveau.f     | {{Pkg|nvidia-open-lts}}`{=mediawiki} |                                      |
+| reedesktop.org/CodeNames.html#NV160) | for `{{Pkg|linux-lts}}`{=mediawiki}\ |                                      |
+|                                      | `{                                   |                                      |
+|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
+|                                      | for any kernel(s)\                   |                                      |
+|                                      | *or*\                                |                                      |
+|                                      | `{{                                  |                                      |
+|                                      | AUR|nvidia-580xx-dkms}}`{=mediawiki} |                                      |
+|                                      | (proprietary)                        |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
-| [Maxwell                             | ```{=mediawiki}                      | Legacy, supported                    |
-| (NV110/GMXXX)](https://nouveau.f     | {{AUR|nvidia-580xx-dkms}}            |                                      |
-| reedesktop.org/CodeNames.html#NV110) | ```                                  |                                      |
-| through\                             |                                      |                                      |
-| [Volta                               |                                      |                                      |
-| (NV140/GV100)](https://nouveau.f     |                                      |                                      |
-| reedesktop.org/CodeNames.html#NV140) |                                      |                                      |
+| [Volta                               | ```{=mediawiki}                      | Legacy, supported                    |
+| (NV140/GV100)](https://nouveau.fr    | {{AUR|nvidia-580xx-dkms}}            |                                      |
+| eedesktop.org/CodeNames.html#NV140)\ | ```                                  |                                      |
+| [Pascal                              |                                      |                                      |
+| (NV130/GPXXX)](https://nouveau.fr    |                                      |                                      |
+| eedesktop.org/CodeNames.html#NV130)\ |                                      |                                      |
+| [Maxwell                             |                                      |                                      |
+| (NV110/GMXXX)](https://nouveau.f     |                                      |                                      |
+| reedesktop.org/CodeNames.html#NV110) |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [Kepler                              | ```{=mediawiki}                      | Legacy, unsupported^3,4^             |
 | (NVE0/GKXXX)](https://nouveau.       | {{AUR|nvidia-470xx-dkms}}            |                                      |
@@ -86,11 +88,10 @@ Then, install the appropriate driver for your card:
 1.  If these packages do not work (usually due to new hardware releases) `{{AUR|nvidia-open-beta}}`{=mediawiki} may have
     a newer version that offers support.
 2.  NVIDIA\'s [GSP firmware](https://download.nvidia.com/XFree86/Linux-x86_64/580.119.02/README/gsp.html) is known to
-    cause issues, from [suboptimal power management of Turing
-    GPUs](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-2188114679) to [complete failure on
-    some laptops containing Ampere GPUs](https://bbs.archlinux.org/viewtopic.php?pid=2217692#p2217692). If affected, use
-    the proprietary driver (e.g. `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with the [module
-    parameter](module_parameter "wikilink") `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead.
+    cause issues, including [complete failure on some laptops containing Ampere
+    GPUs](https://bbs.archlinux.org/viewtopic.php?pid=2217692#p2217692). If affected, use the proprietary driver (e.g.
+    `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with the [module parameter](module_parameter "wikilink")
+    `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead.
 3.  May not function correctly on Linux 5.18 (or later) on systems with Intel CPUs [11th Gen and
     newer](https://web.archive.org/web/20250209200337/https://www.intel.com/content/www/us/en/newsroom/opinion/intel-cet-answers-call-protect-common-malware-threats.html)
     due an incompatibility with [Indirect Branch

@@ -2,8 +2,7 @@
 `{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related|Ollama}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-[llama.cpp](Wikipedia:llama.cpp "wikilink") is an [large language model](Wikipedia:Large_language_model "wikilink")
-(LLM) inference in C/C++.
+[Large language model](Wikipedia:Large_language_model "wikilink") (LLM) inference in C/C++.
 
 ## Installation
 
@@ -14,27 +13,38 @@ llama.cpp is available in the [AUR](AUR "wikilink"):
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
 
+Alternatively, follow the instructions on [llama.app](https://llama.app).
+
 ## Usage
 
-Primary executors are `{{ic|llama-cli}}`{=mediawiki} and `{{ic|llama-server}}`{=mediawiki}.
+The primary executor is `{{ic|llama}}`{=mediawiki}.
 
-### llama-cli {#llama_cli}
+### llama cli {#llama_cli}
 
 ```{=mediawiki}
-{{ic|llama-cli}}
+{{ic|llama cli}}
 ```
-is the command-line executor:
+returns an interactive prompt in command-line:
 
-`$ llama-cli -m `*`model.gguf`*
+`$ llama cli -m `*`model.gguf`*
 
-### llama-server {#llama_server}
+### llama serve {#llama_serve}
 
 ```{=mediawiki}
-{{ic|llama-server}}
+{{ic|llama serve}}
 ```
 launches an API server with a built-in WebUI:
 
-`$ llama-server --host `*`address`*` --port `*`port`*` -m `*`model.gguf`*
+`$ llama serve --host `*`address`*` --port `*`port`*` -m `*`model.gguf`*
+
+### llama help {#llama_help}
+
+```{=mediawiki}
+{{ic|llama help}}
+```
+returns a list available commands:
+
+`$ llama help`
 
 ## Obtaining models {#obtaining_models}
 
@@ -44,7 +54,7 @@ llama.cpp uses models in the GGUF format.
 
 Download models from [Hugging Face](https://huggingface.co) using the `{{ic|-hf}}`{=mediawiki} flag:
 
-`$ llama-cli -hf `*`org/model`*
+`$ llama cli -hf `*`org/model`*
 
 ```{=mediawiki}
 {{Warning|This may overwrite an existing model file without prompting.}}
@@ -87,13 +97,13 @@ llama.cpp loads the context size from the model by default, and it allocates mem
 
 Specify a lower context size in case you run out of memory.
 
-`$ llama-cli -c `*`32000`*` -m `*`model.gguf`*
+`$ llama cli -c `*`32000`*` -m `*`model.gguf`*
 
 ### Key-value cache quantization {#key_value_cache_quantization}
 
 For further memory efficiency, you can quantize the key-value cache.
 
-`$ llama-cli -ctk `*`q8_0`*` -ctv `*`q8_0`*` -m `*`model.gguf`*
+`$ llama cli -ctk `*`q8_0`*` -ctv `*`q8_0`*` -m `*`model.gguf`*
 
 This, combined with a lower context size, can significantly reduce memory usage.
 
@@ -105,22 +115,23 @@ This, combined with a lower context size, can significantly reduce memory usage.
 ```
 ### Agent system {#agent_system}
 
-While llama-server runs a WebUI, the same endpoint also operates as an OpenAI-compatible server. It can be configured to
-use with coding agents like `{{Pkg|opencode}}`{=mediawiki}.
+While the API server runs a WebUI, the same endpoint also operates as an OpenAI-compatible server. It can be configured
+to use with a coding agent like `{{Pkg|opencode}}`{=mediawiki}.
 
-Also, recent updates have introduced built-in agent capabilities.
+Alternatively, the WebUI has introduced built-in agent capabilities.
 
 #### Built-in tools {#built_in_tools}
 
 To enable built-in tools for filesystem operations and shell access, start llama-server with:
 
-`$ llama-server --tools all -m `*`model.gguf`*
+`$ llama serve --tools all -m `*`model.gguf`*
 
-This, combined with a reasonably strong reasoning model, can be considered as a minimal coding agent running in browser.
+This, combined with a reasonably strong reasoning model, can be considered as a minimal coding agent running in web
+browser.
 
 ```{=mediawiki}
 {{Warning|
-Be very aware, that all interactions are submitted to the operating system on the behalf of whoever is running llama-server. '''At no time''' should llama-server be exposed to the network and/or running as root with built-in tools enabled!
+Be very aware, that all interactions are submitted to the operating system on the behalf of whoever is running llama-server. '''At no time''' should the API server be exposed to the network and/or running as root with built-in tools enabled!
 }}
 ```
 #### Model Context Protocol servers {#model_context_protocol_servers}
@@ -137,7 +148,7 @@ See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "w
 
 To use the WebUI with an MCP endpoint hosted online, enable MCP CORS proxy:
 
-`$ llama-server `*`--ui-mcp-proxy`*` -m `*`model.gguf`*
+`$ llama serve --ui-mcp-proxy -m `*`model.gguf`*
 
 ## See also {#see_also}
 
