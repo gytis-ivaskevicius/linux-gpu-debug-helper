@@ -6,7 +6,12 @@
 
 ## Installation
 
-llama.cpp is available in the [AUR](AUR "wikilink"):
+llama.cpp binaries are packaged in the extra repository:
+
+-   [Install](Install "wikilink") `{{Pkg|llama-cpp-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
+-   [Install](Install "wikilink") `{{Pkg|llama-cpp-rocm}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
+
+llama.cpp is also available in the [AUR](AUR "wikilink"), which requires compiling:
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").

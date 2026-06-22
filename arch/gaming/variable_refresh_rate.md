@@ -192,9 +192,9 @@ You can check whether an output supports VRR:
 
 == Testing ==
 
-[https://github.com/Nixola/VRRTest VRRTest] is a simple testing tool which should work for FreeSync and G-Sync. Install {{AUR|vrrtest-git}} or, manually install {{Pkg|love}} package, clone repository, then run
+[https://github.com/Nixola/VRRTest VRRTest] is a simple testing tool which should work for FreeSync and G-Sync. Install {{AUR|vrrtest}}, or manually install the {{Pkg|love}} package, clone the repository, then run
 
- $ love /path/to/cloned/repository
+ $ love ''/path/to/cloned/repository''/src
 
 With VRR off, if the application's FPS is less than the monitor's native refresh rate then the bars will stutter a lot since frames are being skipped. With VRR active, the bars will always move smoothly across the screen since the screen's refresh rate will match the application's refresh rate. Even with VRR functional you may experience tearing in which case you can also enable the [[AMDGPU#Tear free rendering|TearFree]] option for AMDGPU; with both enabled there should be neither stuttering nor tearing (what is the nvidia equivalent?).
 

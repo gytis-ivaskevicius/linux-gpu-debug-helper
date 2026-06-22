@@ -1,6 +1,6 @@
 [ja:Valheim](ja:Valheim "wikilink") [Valheim](https://www.valheimgame.com/) is a survival and sandbox game made by
 Swedish developers at [Iron Gate Studio](https://irongatestudio.se/). It is currently in early access since 2nd February
-2021 with no full release date announced so far.
+2021 with version 1.0 set to release on September 9th 2026.
 
 This guide is related to the [Steam](https://store.steampowered.com/app/892970/Valheim/) version of the game, which has
 a native Linux build since it is built with [Unity3D](Unity3D "wikilink") engine.

@@ -315,7 +315,7 @@ If the driver crashes while switching between a desktop environment and TTY\'s a
 `archlinux kernel: [drm:nv_drm_atomic_commit [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID [...]] Flip event timeout`\
 `archlinux kernel: nvidia-modeset: ERROR: GPU:0: Idling display engine timed out: [...]`
 
-Try disabling the monitor\'s VRR-function via it\'s OSD.
+Try disabling the monitor\'s [variable refresh rate](variable_refresh_rate "wikilink") (VRR) function via it\'s OSD.
 
 Another workaround is to hide the driver\'s VRR (G-Sync / FreeSync) capability from the display subsystem, preventing
 any application or compositor from enabling VRR: set [Kernel parameters](Kernel_parameters "wikilink") to

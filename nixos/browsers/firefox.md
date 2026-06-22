@@ -151,8 +151,8 @@ programs.firefox = {
           cloudStorageEnabled = mkForce false;
 
           importedLists = [
-            "https:#filters.adtidy.org/extension/ublock/filters/3.txt"
-            "https:#github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+            "https://filters.adtidy.org/extension/ublock/filters/3.txt"
+            "https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
           ];
 
           externalLists = lib.concatStringsSep "\n" importedLists;
@@ -166,7 +166,7 @@ programs.firefox = {
           "adguard-spyware-url"
           "easylist"
           "easyprivacy"
-          "https:#github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+          "https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
           "plowe-0"
           "ublock-abuse"
           "ublock-badware"
@@ -233,6 +233,9 @@ programs.firefox = {
 ```
 `<translate>`{=html} [More options are available on Home Manager\'s
 site.](https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.enable)
+
+To reload uBlock Origin settings from `policies.json`, open the uBlock Origin dashboard and choose *Reset to default
+settings*.
 
 ## Firefox Variants {#firefox_variants}
 
@@ -392,7 +395,6 @@ xdg.portal = {
 
 -   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
 -   [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
--   [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
 
 ## References
 

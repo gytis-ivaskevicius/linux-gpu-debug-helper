@@ -401,6 +401,10 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
+    {{App|Solitaire|Features simple interface to play a variety of patience games, also known as solitaire games.|https://gitlab.gnome.org/wwarner/Solitaire|{{AUR|solitaire}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|Tali|Beat the odds in a poker-style dice game. Part of {{Grp|gnome-extra}}.|https://wiki.gnome.org/Apps/Tali|{{Pkg|tali}}}}
     ```
 
@@ -444,6 +448,10 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
 
 -   ```{=mediawiki}
     {{App|SCID|Shane's Chess Information Database is a chess database application that allows users to store, organize, and search through large collections of chess games. It also includes chess engines for playing against the computer and analyzing positions.|https://scid.sourceforge.net/|{{AUR|scid}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|scidCommunity|Powerful chess analysis and database program. Originally derived from SCID. It allows you to store, organize, and search through large collections of chess games with support for any compatible UCI chess engine.|https://github.com/whelanh/scidCommunity|{{AUR|scidcommunity}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1637,6 +1645,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
+    {{App|Atlantik|KDE client for playing [[Wikipedia:Monopoly (game)|Monopoly]]-like network board games using the monopd server.|https://apps.kde.org/atlantik/|{{AUR|atlantik-git}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:C-evo|C-evo]]|A civilization style game, of the Civ II era.|http://www.c-evo.org|{{AUR|c-evo-dh}}}}
     ```
 
@@ -1709,6 +1721,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 
 -   ```{=mediawiki}
     {{App|TripleA|An online multiplayer turn based strategy game and board game engine.|https://triplea-game.org/|{{AUR|triplea}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Ultimate Tic Tac Toe|Play [[Wikipedia:Ultimate tic-tac-toe|Ultimate tic-tac-toe]] with your friends or against the algorithm.|https://github.com/Nokse22/ultimate-tic-tac-toe|{{AUR|ultimate-tic-tac-toe}}}}
     ```
 
 -   ```{=mediawiki}

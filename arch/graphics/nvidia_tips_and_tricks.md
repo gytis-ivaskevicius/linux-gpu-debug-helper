@@ -472,7 +472,7 @@ Moreover, undervolting, like overclocking, should be done in small incremental s
 script and make it [executable](executable "wikilink"):
 
 ```{=mediawiki}
-{{hc|/usr/local/sbin/nvidia-undervolt.py|2=
+{{hc|/usr/local/bin/nvidia-undervolt.py|2=
 #!/bin/env python
 
 from pynvml import *
@@ -563,7 +563,7 @@ Description=Undervolt the NVIDIA GPU
 
 [Service]
 Type=oneshot
-ExecStart=/bin/python ''/usr/local/sbin/''nvidia-undervolt.py
+ExecStart=/usr/local/bin/nvidia-undervolt.py
 StandardOutput=journal
 StandardError=journal
 

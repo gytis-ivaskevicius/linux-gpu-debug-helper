@@ -110,7 +110,7 @@ Enable it by issuing:
 
 `$ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"`
 
-#### Text Scaling {#text_scaling}
+#### Text scaling {#text_scaling}
 
 Alternatively, or in addition to changing the display scaling, you can separately scale text. This can be done by
 navigating to *Fonts \> Scaling Factor* in Gnome Tweaks, or using gsettings. Note that the text scaling factor need not
@@ -410,7 +410,7 @@ beginning with \"Exec=\". For example:
 
 ```{=mediawiki}
 {{hc|~/.local/share/applications/slack.desktop|2=
-Exec=env LD_PRELOAD=/usr/lib/libcurl.so.3 /usr/bin/slack --force-device-scale-factor=1.5 %U
+Exec=/usr/bin/slack --force-device-scale-factor=1.5 %U
 }}
 ```
 ### Elementary (EFL) {#elementary_efl}
@@ -477,8 +477,11 @@ Convert the font to a format that GRUB can utilize:
 Edit `{{ic|/etc/default/grub}}`{=mediawiki} to set the new font as shown in [GRUB/Tips and tricks#Background image and
 bitmap fonts](GRUB/Tips_and_tricks#Background_image_and_bitmap_fonts "wikilink"):
 
-`GRUB_FONT="/boot/grubfont.pf2"`
-
+```{=mediawiki}
+{{hc|/etc/default/grub|2=
+GRUB_FONT="/boot/grubfont.pf2"
+}}
+```
 ```{=mediawiki}
 {{Note|{{ic|GRUB_THEME}} overrides {{ic|GRUB_FONT}} if it is used.}}
 ```
@@ -578,8 +581,8 @@ Java applications using the *AWT/Swing* framework can be scaled by defining the 
 VM property when invoking `{{ic|java}}`{=mediawiki}. The value can be an integer percentage value, or a float value. For
 example,
 
-`java -Dsun.java2d.uiScale=2 -jar `*`some_swing_application`*`.jar`\
-`java -Dsun.java2d.uiScale=300% -jar `*`some_swing_application`*`.jar`
+`$ java -Dsun.java2d.uiScale=2 -jar `*`some_swing_application`*`.jar`\
+`$ java -Dsun.java2d.uiScale=300% -jar `*`some_swing_application`*`.jar`
 
 Since Java 9 the `{{ic|GDK_SCALE}}`{=mediawiki} environment variable is used to scale Swing applications accordingly.
 
@@ -594,9 +597,9 @@ invoking `{{ic|java}}`{=mediawiki}. The value can be an integer percentage value
 `{{ic|96dpi}}`{=mediawiki} represents a scale factor of `{{ic|100%}}`{=mediawiki}, and for example
 `{{ic|192dpi}}`{=mediawiki} represents a scale factor of `{{ic|200%}}`{=mediawiki}), or a float value. For example,
 
-`java -Dglass.gtk.uiScale=200% -jar `*`some_jfx_application`*`.jar`\
-`java -Dglass.gtk.uiScale=192dpi -jar `*`some_jfx_application`*`.jar`\
-`java -Dglass.gtk.uiScale=2.0 -jar `*`some_jfx_application`*`.jar`
+`$ java -Dglass.gtk.uiScale=200% -jar `*`some_jfx_application`*`.jar`\
+`$ java -Dglass.gtk.uiScale=192dpi -jar `*`some_jfx_application`*`.jar`\
+`$ java -Dglass.gtk.uiScale=2.0 -jar `*`some_jfx_application`*`.jar`
 
 *JavaFX* perfectly well supports fractions. Using values like `{{ic|1=-Dglass.gtk.uiScale=250%}}`{=mediawiki} or
 `{{ic|1=-Dglass.gtk.uiScale=2.5}}`{=mediawiki} will deliver the expected result.
@@ -657,9 +660,7 @@ installation directory to `{{ic|''maple-directory''/bin/maple}}`{=mediawiki} to 
 
 ```{=mediawiki}
 {{hc|''maple-directory''/bin/maple|2=
-...
 JVM_OPTIONS="-Dsun.java2d.uiScale=2 ..."
-...
 }}
 ```
 Alternatively, the `{{ic|GDK_SCALE}}`{=mediawiki} environment variable can be used to start the application scaled:
@@ -738,9 +739,7 @@ Rofi defaults to 96 DPI and relies on its own configuration only
 ```{=mediawiki}
 {{hc|~/.config/rofi/config.rasi|2=
 configuration {
-    …
     dpi: 150;
-    …
 }
 }}
 ```

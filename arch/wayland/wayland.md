@@ -327,10 +327,10 @@ This might be necessary for some proprietary applications that do not use the sy
 available.[9](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 
 Due to the [Incorrect sizing and bad text rendering with WebEngine using fractional scaling on
-Wayland](https://bugreports.qt.io/browse/QTBUG-113574) Qt WebEngine bug, applications using Qt WebEngine, for example
-[Calibre](https://bugs.launchpad.net/calibre/+bug/2018658), may display jagged fonts. A workaround is launching the
-application with `{{ic|1=QT_SCALE_FACTOR_ROUNDING_POLICY=RoundPreferFloor}}`{=mediawiki}. This prevents the application
-window being fractional scaled.
+Wayland](https://bugreports.qt.io/browse/QTBUG-113574) Qt WebEngine bug, applications using Qt WebEngine before 6.8.0,
+for example [Calibre](https://bugs.launchpad.net/calibre/+bug/2018658), may display jagged fonts. A workaround is
+launching the application with `{{ic|1=QT_SCALE_FACTOR_ROUNDING_POLICY=RoundPreferFloor}}`{=mediawiki}. This prevents
+the application window being fractional scaled.
 
 ### Clutter
 
