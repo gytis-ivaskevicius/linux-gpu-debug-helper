@@ -80,7 +80,7 @@ Enable the experimental fractional scaling feature:
 
 then open *Settings \> Devices \> Displays* (the new options may only appear after a restart).
 
-To enable the option for all users, create the following three files with the corresponding content
+To enable the option for all users, create the following three files with the corresponding content:
 
 ```{=mediawiki}
 {{hc|/etc/dconf/profile/user|
@@ -99,7 +99,11 @@ experimental-features=['scale-monitor-framebuffer']
 /org/gnome/mutter/experimental-features
 }}
 ```
-Then run `{{ic|dconf update}}`{=mediawiki} and restart the machine. This will permanently lock the option.
+Then run
+
+`# dconf update`
+
+and restart the machine. This will permanently lock the option.
 
 ###### Xwayland
 
@@ -417,7 +421,7 @@ Exec=/usr/bin/slack --force-device-scale-factor=1.5 %U
 
 To scale UI elements by a factor of 1.5:
 
-`export ELM_SCALE=1.5`
+`$ export ELM_SCALE=1.5`
 
 For more details see
 <https://phab.enlightenment.org/w/elementary/>`{{Dead link|2024|10|12|status=domain name not resolved}}`{=mediawiki}
@@ -452,7 +456,7 @@ can be used to scale. To undo scaling, fractional scale can be used:
 `$ export AVALONIA_GLOBAL_SCALE_FACTOR=0.5`
 
 For per monitor configuring see [avalonia
-wiki](https://github.com/AvaloniaUI/Avalonia/wiki/Configuring-X11-per-monitor-DPI)\].
+wiki](https://github.com/AvaloniaUI/Avalonia/wiki/Configuring-X11-per-monitor-DPI).
 
 ## Boot managers {#boot_managers}
 
@@ -547,12 +551,13 @@ Using this option, a scaling factor of 1 would be normal scaling. Floating point
 permanent, for Chromium, you can add it to `{{ic|~/.config/chromium-flags.conf}}`{=mediawiki}:
 
 ```{=mediawiki}
+{{Note|To make this work for Chrome, add the same option to {{ic|~/.config/chrome-flags.conf}} instead.}}
+```
+```{=mediawiki}
 {{hc|~/.config/chromium-flags.conf|2=
 --force-device-scale-factor=2
 }}
 ```
-To make this work for Chrome, add the same option to `{{ic|~/.config/chrome-flags.conf}}`{=mediawiki} instead.
-
 If you use a HiDPI monitor such as Retina display together with another monitor, you can use the
 [reszoom](https://chrome.google.com/webstore/detail/resolution-zoom/enjjhajnmggdgofagbokhmifgnaophmh) extension in order
 to automatically adjust the zoom level for the active screen.
@@ -913,12 +918,15 @@ example goes as:
 Note 1: You can make it look nicer. Create a dedicated `{{ic|weston.ini}}`{=mediawiki} and use it with
 `{{ic|weston --config}}`{=mediawiki}:
 
-`[core]`\
-`idle-time=0`\
-`[shell]`\
-`panel-position=none`\
-`locking=false`
-
+```{=mediawiki}
+{{hc|weston.ini|2=
+[core]
+idle-time=0
+[shell]
+panel-position=none
+locking=false
+}}
+```
 Note 2: Adjust your `{{ic|DISPLAY}}`{=mediawiki} according to your system, `{{ic|:1}}`{=mediawiki} is simply the default
 that comes after the main `{{ic|:0}}`{=mediawiki}. Check files created in `{{ic|/tmp/.X11-unix}}`{=mediawiki} to do
 that.

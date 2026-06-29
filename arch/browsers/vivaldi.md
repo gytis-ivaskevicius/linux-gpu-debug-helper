@@ -158,6 +158,14 @@ net.ipv4.tcp_mtu_probing = 1
 [Restart](Restart "wikilink") `{{ic|systemd-sysctl.service}}`{=mediawiki}, then restart Vivaldi if you already had it
 open.
 
+### Middle click paste does not work on Sway (Wayland) {#middle_click_paste_does_not_work_on_sway_wayland}
+
+Make sure that the following GTK setting is enabled:
+
+`gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true`
+
+Source: Extrapolated from [here](https://github.com/ghostty-org/ghostty/discussions/12181#discussioncomment-16518658).
+
 ## See also {#see_also}
 
 -   [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "wikilink")

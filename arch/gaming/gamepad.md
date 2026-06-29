@@ -847,13 +847,6 @@ at all otherwise.
 
 For a workaround, see [#Mimic Xbox 360 controller](#Mimic_Xbox_360_controller "wikilink").
 
-### Nintendo Switch Pro Controller disconnects when using Bluetooth {#nintendo_switch_pro_controller_disconnects_when_using_bluetooth}
-
-The Nintendo Switch Pro Controller and variants may disconnect when receiving rumble inputs.
-
-This can be worked around by changing the name of the Bluetooth adapter to
-\"Nintendo\".[3](https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2790843365)
-
 ### Steam Controller {#steam_controller}
 
 #### Steam Controller not pairing or recognized in games (including USB) {#steam_controller_not_pairing_or_recognized_in_games_including_usb}

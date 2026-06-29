@@ -41,9 +41,11 @@ The following are software rasterizers, so that you can use it on devices that d
 -   **Lavapipe**: `{{Pkg|vulkan-swrast}}`{=mediawiki} (or `{{Pkg|lib32-vulkan-swrast}}`{=mediawiki})
 -   **SwiftShader**: `{{AUR|swiftshader-git}}`{=mediawiki}
 
-For Vulkan application development, [install](install "wikilink") `{{Pkg|vulkan-headers}}`{=mediawiki}, and optionally
-`{{Pkg|vulkan-validation-layers}}`{=mediawiki}, `{{AUR|vulkan-man-pages}}`{=mediawiki} and
-`{{Pkg|vulkan-tools}}`{=mediawiki} (you can find the vulkaninfo, and vkcube tools in there).
+For Vulkan application development, you may [install](install "wikilink") the `{{Grp|vulkan-devel}}`{=mediawiki}
+[package group](package_group "wikilink"). Alternatively, you can individually [install](install "wikilink")
+`{{Pkg|vulkan-headers}}`{=mediawiki}, optionally any of `{{Pkg|vulkan-validation-layers}}`{=mediawiki},
+`{{AUR|vulkan-man-pages}}`{=mediawiki} and `{{Pkg|vulkan-tools}}`{=mediawiki} (you can find the vulkaninfo, and vkcube
+tools in there).
 
 ## Verification
 

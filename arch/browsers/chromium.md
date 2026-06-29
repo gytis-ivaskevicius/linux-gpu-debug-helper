@@ -849,6 +849,8 @@ The flag `{{ic|1=--disable-features=WaylandPerSurfaceScale}}`{=mediawiki} was re
 
 See [GNOME/Keyring#Passwords are not remembered](GNOME/Keyring#Passwords_are_not_remembered "wikilink").
 
+The flag `{{ic|1=--password-store=basic}}`{=mediawiki} disables the GNOME keyring.
+
 ### Everything is syncing except for password {#everything_is_syncing_except_for_password}
 
 If synchronization is not working for password only (you can check it on `{{ic|chrome://sync-internals/}}`{=mediawiki})

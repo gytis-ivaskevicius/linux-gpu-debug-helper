@@ -178,8 +178,9 @@ in proton-ge-custom [2](https://github.com/GloriousEggroll/proton-ge-custom/blob
     `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.
 -   [proton-cachyos](https://github.com/cachyos/proton-cachyos) or
     [wine-cachyos](https://github.com/CachyOS/wine-cachyos): install your choice of
-    `{{aur|proton-cachyos}}`{=mediawiki}, `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki}
-    and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
+    `{{aur|proton-cachyos}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki},
+    `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki} and set
+    `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
     [3](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
 
 ```{=mediawiki}

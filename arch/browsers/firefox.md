@@ -341,7 +341,7 @@ The settings are:
 :   
 
     :   ```{=mediawiki}
-        {{Tip|To prevent duplicate entries in the Media Player widget or tray icon, set {{ic|media.hardwaremediakeys.enabled}} to {{ic|false}}. This disables the media entry from Firefox and only uses the one from the Plasma integration add-on.}}
+        {{Tip|To prevent duplicate entries in the Media Player widget or tray icon, set {{ic|media.hardwaremediakeys.enabled}} to {{ic|false}} in {{ic|about:config}}. This disables the media entry from Firefox and only uses the one from the Plasma integration add-on.}}
         ```
 
 ### GNOME integration {#gnome_integration}

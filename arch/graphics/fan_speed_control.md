@@ -440,7 +440,7 @@ Mode\", 2 is most likely \"Silent
 Mode\".[1](https://lore.kernel.org/lkml/72b3e0aa-d53a-8a82-1505-f4f00aa2bb46@gmail.com/) It is also possible to write
 these values into the `{{ic|fan_boost_mode}}`{=mediawiki} file as root and have the desired effect.
 
-This was tested on the ASUS TUF FX504GE and ASUS TUF FX504GD models and found to be working.
+This was tested on the ASUS TUF FX504GE, ASUS TUF FX504GD, and ASUS TUF FX504GM models and found to be working.
 
 You can use `{{AUR|tuf-fan-boost-notification-git}}`{=mediawiki} to get notifications every time the FanSpeed mode gets
 changed.
