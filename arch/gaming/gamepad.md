@@ -396,7 +396,7 @@ physically reconnect your device after running this command.
 ``\
 `To workaround this issue, rename the Bluetooth adapter hostname to {{ic|1=Nintendo}} or anything that begins with that substring (e.g. {{ic|1=Nintendo PC}} or {{ic|1=NintendoDeck}}). [https://github.com/DanielOgorchock/linux/issues/33#issuecomment-2855326528]`\
 ``\
-`=== Steam Controller (2015) ===`\
+`=== Steam Controller ===`\
 ``\
 `{{Note|Kernel 4.18 [https://lore.kernel.org/lkml/20180416122703.22306-1-rodrigorivascosta@gmail.com/ provides a kernel driver] for wired/wireless use of the steam controller as a controller input device without [[Steam]].}}`\
 ``\
@@ -408,7 +408,13 @@ physically reconnect your device after running this command.
 ``\
 `{{Note|If you do not use the [[Steam runtime]], you might actually need to disable the overlay for the controller to work in certain games (Rocket Wars, Rocket League, Binding of Isaac, etc.). Right click on a game in your library, select "Properties", and uncheck "Enable Steam Overlay".}}`\
 ``\
-`==== Builtin functions ====`\
+`==== Basic functionality without Steam ====`\
+``\
+`Install the {{Pkg|steam-devices}} or {{AUR|steam-devices-git}} package to get the required udev rules for this controller.`\
+``\
+`This seems sufficient for the mouse functionality described above to work when not running a game, and for example some SDL-based games (like Stardew Valley) let you play with with the controller. The functionality will be limited compared to what Steam provides.`\
+``\
+`==== Steam Controller (2015) builtin functions ====`\
 ``\
 ``\
 `{| class="wikitable"`\
@@ -461,9 +467,9 @@ physically reconnect your device after running this command.
 `| {{ic|Right Bumper}}, {{ic|Right Grip}} || {{ic|F9}}`\
 `|}`\
 ``\
-`=== Steam Controller (2026) ===`\
 ``\
-`==== Builtin functions ====`\
+``\
+`==== Steam Controller (2026) builtin functions ====`\
 ``\
 `{| class="wikitable"`\
 `|+ Startup functions`\
@@ -502,12 +508,6 @@ physically reconnect your device after running this command.
 `|-`\
 `| {{ic|View}} || {{ic|Tab}}`\
 `|}`\
-``\
-`==== Basic functionality without Steam ====`\
-``\
-`Install the {{Pkg|steam-devices}} or {{AUR|steam-devices-git}} package to get the required udev rules for this controller.`\
-``\
-`This seems sufficient for the mouse functionality described above to work when not running a game, and for example some SDL-based games (like Stardew Valley) let you play with with the controller. The functionality will be limited compared to what Steam provides.`\
 ``\
 `=== Xbox 360 controller ===`\
 ``\

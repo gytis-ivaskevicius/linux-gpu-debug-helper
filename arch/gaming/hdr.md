@@ -178,9 +178,9 @@ in proton-ge-custom [2](https://github.com/GloriousEggroll/proton-ge-custom/blob
     `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}, and unset `{{ic|DISPLAY}}`{=mediawiki}.
 -   [proton-cachyos](https://github.com/cachyos/proton-cachyos) or
     [wine-cachyos](https://github.com/CachyOS/wine-cachyos): install your choice of
-    `{{aur|proton-cachyos}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki},
-    `{{aur|wine-cachyos-opt}}`{=mediawiki}, or `{{aur|wine-cachyos}}`{=mediawiki} and set
-    `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
+    `{{aur|proton-cachyos-native}}`{=mediawiki}, `{{aur|wine-cachyos-opt}}`{=mediawiki}, or
+    `{{aur|wine-cachyos}}`{=mediawiki} and set `{{ic|PROTON_ENABLE_WAYLAND{{=}}`{=mediawiki}1}} and
+    `{{ic|DXVK_HDR{{=}}`{=mediawiki}1}}
     [3](https://www.reddit.com/r/linux_gaming/comments/1km81f4/proton_cachy_10_released_native_wayland_gaming/).
 
 ```{=mediawiki}
@@ -283,6 +283,15 @@ video players that support HDR such as [#mpv](#mpv "wikilink").
 Pipewire attempts to stream what it sees as BGRA, which WebRTC cannot interpret, due to its current lack of capacity to
 interpret it. As such, a \"ParamId:EnumFormat: 0:0 Invalid argument\" exception is thrown and the WebRTC socket crashes
 for that application [8](https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/52).
+
+### HDR option missing in games when using multiple AMD GPUs {#hdr_option_missing_in_games_when_using_multiple_amd_gpus}
+
+Using multiple AMD GPUs can cause some games (e.g. RDR2) to hide the option to enable HDR in their graphics settings.
+This issue can be resolved by setting the `{{ic|DRI_PRIME}}`{=mediawiki} environment variable to the desired card and
+excluding others (by appending a `{{ic|!}}`{=mediawiki}) as explained in [PRIME#For open source
+drivers---PRIME](PRIME#For_open_source_drivers—PRIME "wikilink"):
+
+`DRI_PRIME=pci-0000_2d_00_0!`
 
 ## See also {#see_also}
 

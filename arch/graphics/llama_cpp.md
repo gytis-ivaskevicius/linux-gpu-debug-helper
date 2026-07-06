@@ -14,9 +14,13 @@ llama.cpp is available in the [official repositories](official_repositories "wik
 Also, llama.cpp is available in the [AUR](AUR "wikilink"):
 
 -   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
--   [Install](Install "wikilink") `{{AUR|llama.cpp-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
+-   [Install](Install "wikilink")
+    `{{AUR|llama.cpp-vulkan}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} for inference with
+    [Vulkan](Vulkan "wikilink").
 -   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
--   [Install](Install "wikilink") `{{AUR|llama.cpp-hip}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
+-   [Install](Install "wikilink")
+    `{{AUR|llama.cpp-hip}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} for inference with
+    [ROCm](ROCm "wikilink").
 
 Alternatively, follow the instructions on [llama.app](https://llama.app).
 

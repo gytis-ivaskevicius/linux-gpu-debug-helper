@@ -8,13 +8,13 @@ For additional details, see `{{NixOS Manual|anchor=#sec-wayland|name=NixOS Manua
 
 ## Checking for Wayland {#checking_for_wayland}
 
-To check if you are using Wayland, run the following command
+To check if you are using Wayland, run the following command:
 
 ``` console
 $ echo $XDG_SESSION_TYPE
 ```
 
-If `{{ic|wayland}}`{=mediawiki} is returned, you are running Wayland
+If `{{ic|wayland}}`{=mediawiki} is returned, you are running Wayland.
 
 ## Setup
 
@@ -25,7 +25,7 @@ Two things are required for running Wayland: a compatible Display Manager, and a
 
 Display Managers are responsible for handling user login.
 
-The following Display Managers support using both X and Wayland protocols
+The following Display Managers support using both X and Wayland protocols:
 
 #### Graphical
 
@@ -43,31 +43,32 @@ The following Display Managers support using both X and Wayland protocols
 ## Compositors
 
 For the purposes of this basic overview, a compositor can be thought of as equivalent to an X Desktop Environment.
-`{{Note|It is important to remember that this is not actually the case as there are [https://en.wikipedia.org/wiki/Wayland_(protocol)#Differences_between_Wayland_and_X multiple differences] between how X and Wayland work internally}}`{=mediawiki}
+`{{Note|It is important to remember that this is not actually the case as there are [https://en.wikipedia.org/wiki/Wayland_(protocol)#Differences_between_Wayland_and_X multiple differences] between how X and Wayland work internally.}}`{=mediawiki}
 
 ### Wayland Native {#wayland_native}
 
--   [Sway](Sway "wikilink") is a i3-like compositor.
+-   [Sway](Sway "wikilink") is an i3-like compositor.
 -   [Hyprland](Hyprland "wikilink") the dynamic tiling Wayland compositor that doesn\'t sacrifice on its looks.
+-   [Niri](Niri "wikilink") is a scrollable tiling compositor.
 
 ### X and Wayland support {#x_and_wayland_support}
 
 -   [Mutter](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/gnome/core/mutter/default.nix) is the
-    default compositor for [GNOME](GNOME "wikilink") Desktop Environment.
+    default compositor for the [GNOME](GNOME "wikilink") Desktop Environment.
 -   [KWin](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/plasma-5/kwin/default.nix) is the default
-    compositor for [KDE](KDE "wikilink") Desktop Environment.
+    compositor for the [KDE](KDE "wikilink") Desktop Environment.
 
 ## Applications
 
 Not all apps support running natively on Wayland. To work around this, Xwayland should be enabled.
-`{{Note|Enabling XWayland varies slightly from Compositor to Compositor, and may already be enabled. Consult your Compositor's documentation and/or nix file for how to enable}}`{=mediawiki}
+`{{Note|Enabling XWayland varies slightly from Compositor to Compositor, and may already be enabled. Consult your Compositor's documentation and/or nix file for how to enable.}}`{=mediawiki}
 
 ### Electron and Chromium {#electron_and_chromium}
 
 Ozone Wayland (which uses Wayland native instead of Xwayland) support in [Chromium](Chromium "wikilink") and
 [Electron](Electron "wikilink") based applications can be enabled by setting the environment variable
 \"`NIXOS_OZONE_WL`\" with `NIXOS_OZONE_WL=1` *(also see
-[commit](https://github.com/NixOS/nixpkgs/commit/b2eb5f62a7fd94ab58acafec9f64e54f97c508a6))*
+[commit](https://github.com/NixOS/nixpkgs/commit/b2eb5f62a7fd94ab58acafec9f64e54f97c508a6))*.
 
 As of NixOS 25.05 (\"Warbler\"), if `XDG_SESSION_TYPE` is unset or set to \"wayland\", [chromium and electron apps will
 default to wayland native](https://issues.chromium.org/issues/40083534#comment599). This ignores the `DISPLAY`

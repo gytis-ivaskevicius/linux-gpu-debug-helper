@@ -45,8 +45,9 @@ grep \"OpenGL renderer\"\|2= OpenGL renderer string: Gallium 0.4 on AMD TURKS }}
 }}
 ```
 Other applications will still use the less power-hungry integrated card. These settings are lost once the X server
-restarts, you may want to make a script and auto-run it at the startup of your desktop environment (alternatively, put
-it in `{{ic|/etc/X11/xinit/xinitrc.d/}}`{=mediawiki}). This may reduce your battery life and increase heat though.
+restarts, you may want [set the environment variable
+permanently](Environment_variables#Graphical_environment "wikilink"). This may reduce your battery life and increase
+heat though.
 
 See [Gentoo:AMDGPU#Identifying which graphics card is in
 use](Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use "wikilink") for more information.

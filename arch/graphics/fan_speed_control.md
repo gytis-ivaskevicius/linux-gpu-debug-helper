@@ -404,6 +404,9 @@ If the above methods do not work for you, an alternative method is to directly w
 embedded controller (EC). Using the [EC-Probe tool](https://github.com/hirschmann/nbfc/wiki/EC-probing-tool), you can
 set the fan mode to one of the three fan speed modes, provided your model offers such feature in Windows.
 
+```{=mediawiki}
+{{Warning|Writing incorrect values to EC registers can have unintended side-effects and may require a reboot to recover.}}
+```
 In ASUS FX504GD model setting the fan speed to one of the three modes uses these register values:
 
 `# ec_probe write 0x5e 0x80 # silent mode`\

@@ -188,13 +188,13 @@ there are a few useful commands:
 -   `qtile-run-tests-x11`: Run all X11 tests.
 
 ```{=mediawiki}
-{{Note|1=For a detailed walkthrough on setting up Qtile with flakes—from basic installation to package overrides, see [https://gurjaka.codeberg.page/blog.html?post=qtile-flake Gurjaka's Qtile Flake Guide].}}
+{{Note|1=For a detailed walkthrough on setting up Qtile with flakes—from basic installation to package overrides, see [https://gurjaka.dev/blog.html?post=qtile-flake Gurjaka's Qtile Flake Guide].}}
 ```
 ## Credits
 
 -   Based on the official [Qtile Documentation](https://docs.qtile.org/en/latest/manual/install/nixos.html#).
 -   Wayland details from [Gist by Jwijenbergh](https://gist.github.com/jwijenbergh/48da1a8f4c4a56d122407c4d009bc81f).
--   Flake config details from [Gurjaka\'s Qtile Flake Guide](https://gurjaka.codeberg.page/blog.html?post=qtile-flake).
+-   Flake config details from [Gurjaka\'s Qtile Flake Guide](https://gurjaka.dev/blog.html?post=qtile-flake).
 -   NixOS implementation details maintained by the community.
 
 [Category:Window managers](Category:Window_managers "wikilink")

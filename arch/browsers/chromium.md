@@ -6,8 +6,8 @@
 [Blink](Wikipedia:Blink_(web_engine) "wikilink") rendering engine. It is the basis for the proprietary Google Chrome
 browser.
 
-See [this page](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md) for
-an explanation of the differences between Chromium and Google Chrome.
+See an explanation about the [differences between Chromium and Google
+Chrome](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md).
 
 ```{=mediawiki}
 {{Note|The Arch Linux build of Chromium includes proprietary codecs and the Widevine digital rights management (DRM) plug-in; relevant [[Codecs and containers|codec packages]] need to be installed separately for playback.}}

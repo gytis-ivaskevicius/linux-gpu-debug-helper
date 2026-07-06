@@ -21,22 +21,34 @@ Windows, applications may suffer behavioral, compatibility, or performance penal
 ```
 ## Installation
 
-Wine can be installed either through the `{{Pkg|wine}}`{=mediawiki} (development), `{{AUR|wine-stable}}`{=mediawiki}
-(stable) or `{{Pkg|wine-staging}}`{=mediawiki} (testing) package. [Wine
-Staging](https://gitlab.winehq.org/wine/wine-staging/-/wikis/home) is a patched version of
-[Wine](https://www.winehq.org/), which contains bug fixes and features that have not been integrated into the stable or
-development branch yet.
+Consult the [Wine User Guide](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User%27s-Guide#versions-of-wine) for an
+explanation about the differences between the Wine branches.
+
+Then, install Wine via one of the following packages:
+
+-   ```{=mediawiki}
+    {{Pkg|wine}}
+    ```
+    --- Development (main) branch. **This is the recommended option if you are unsure.**
+
+-   ```{=mediawiki}
+    {{Pkg|wine-staging}}
+    ```
+    --- Experimental branch.
+
+-   ```{=mediawiki}
+    {{AUR|wine-stable}}
+    ```
+    --- Stable releases (as designated by the upstream developers); for this branch, see [#Using 32-bit Wine
+    builds](#Using_32-bit_Wine_builds "wikilink") for additional requirements.
 
 ```{=mediawiki}
-{{Tip|Consider installing {{pkg|wine-gecko}} and {{pkg|wine-mono}} for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed. However, you should [[System maintenance#Use the package manager to install software|manage them with pacman]].}}
+{{Tip|Consider installing {{Pkg|wine-gecko}} and {{Pkg|wine-mono}} (preferably with the install reason [[Pacman#Installation reason|as dependencies]]) for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed; however, it is highly recommended to [[System maintenance#Use the package manager to install software|manage them with Pacman]].}}
 ```
-If using `{{AUR|wine-stable}}`{=mediawiki}, see [#Using 32-bit Wine builds](#Using_32-bit_Wine_builds "wikilink") for
-additional requirements.
-
 ### Optional dependencies {#optional_dependencies}
 
 Wine has numerous [optional dependencies](Optional_dependency "wikilink"), which may not be required for basic
-applications, but should be installed to provide functionality such as sounds, 3D graphics, video playback, etc.
+applications, but should be installed to provide functionality such as sounds, 3D graphics, video playback etc.
 
 #### Sound
 

@@ -1706,6 +1706,9 @@ Dependencies:
 -   ```{=mediawiki}
     {{Pkg|lib32-sdl2_image}}
     ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
+    ```
 
 ### The Inner World {#the_inner_world}
 
@@ -3263,6 +3266,9 @@ Dependencies:
 
 -   ```{=mediawiki}
     {{Pkg|lib32-sdl2_image}}
+    ```
+    ```{=mediawiki}
+    {{Broken package link|package not found}}
     ```
 
 -   ```{=mediawiki}
