@@ -318,6 +318,19 @@ to the hyprland.conf file to prevent Xwayland from scaling any applications. Not
 Xwayland will stop scaling, and so on HiDPI displays, text and other elements in those applications may become too small
 to be comfortably viewed.
 
+Newer versions of Steam read their scale from the [Xorg](Xorg "wikilink") *Xft.dpi* resource directly rather than
+querying the compositor, so their UI will stay tiny even with *force_zero_scaling* enabled. To fix this, set *Xft.dpi*
+explicitly with `{{Pkg|xorg-xrdb}}`{=mediawiki}, for example to get 2x scaling:
+
+`$ echo "Xft.dpi: 192" | xrdb -merge -`
+
+This should run before starting Steam (e.g. as part of hyprland\'s autostart) so it takes effect for the whole Xwayland
+session.
+
+` Xft.dpi: 96 → scale 1.0 (default/unscaled)`\
+` Xft.dpi: 144 → scale 1.5 (144/96)`\
+` Xft.dpi: 192 → scale 2.0 (192/96)`
+
 ### Steam flicker/blink with black screen not loading Store/Library or other pages {#steam_flickerblink_with_black_screen_not_loading_storelibrary_or_other_pages}
 
 When Steam is started on Wayland (not confirmed X11) with dual graphics in some cases Steam client is unstable display

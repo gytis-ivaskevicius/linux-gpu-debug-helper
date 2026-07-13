@@ -6,21 +6,32 @@
 
 ## Installation
 
-llama.cpp is available in the [official repositories](official_repositories "wikilink"):
+[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki} and one of the following backends:
 
--   [Install](Install "wikilink") `{{Pkg|llama-cpp-vulkan}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
--   [Install](Install "wikilink") `{{Pkg|llama-cpp-rocm}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
+-   ```{=mediawiki}
+    {{Pkg|ggml-vulkan}}
+    ```
+    for inference with [Vulkan](Vulkan "wikilink").
 
-Also, llama.cpp is available in the [AUR](AUR "wikilink"):
+-   ```{=mediawiki}
+    {{Pkg|ggml}}
+    ```
+    and `{{Pkg|cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 
--   [Install](Install "wikilink") `{{AUR|llama.cpp}}`{=mediawiki} for CPU inference.
--   [Install](Install "wikilink")
-    `{{AUR|llama.cpp-vulkan}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} for inference with
-    [Vulkan](Vulkan "wikilink").
--   [Install](Install "wikilink") `{{AUR|llama.cpp-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
--   [Install](Install "wikilink")
-    `{{AUR|llama.cpp-hip}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} for inference with
-    [ROCm](ROCm "wikilink").
+-   ```{=mediawiki}
+    {{Pkg|ggml-rocm}}
+    ```
+    for inference with [ROCm](ROCm "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|ggml-sycl}}
+    ```
+    for inference with [SYCL](SYCL "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|ggml-cpu}}
+    ```
+    for inference without acceleration.
 
 Alternatively, follow the instructions on [llama.app](https://llama.app).
 

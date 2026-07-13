@@ -1,6 +1,6 @@
 [ja:バーチャルリアリティ](ja:バーチャルリアリティ "wikilink") [zh-hans:Virtual
 reality](zh-hans:Virtual_reality "wikilink")
-`{{Expansion|Rewrite in progress: many things in this article are outdated}}`{=mediawiki}
+`{{Expansion|Rewrite in progress: many things in this article are outdated|section=A rewrite or A complete Rewrite of the virtual reality page}}`{=mediawiki}
 
 [Virtual reality](Wikipedia:Virtual_reality "wikilink") is the process of simulating an environment for a user, using a
 variety of peripherals, head mounted displays or [CAVEs](Wikipedia:Cave_automatic_virtual_environment "wikilink"), and

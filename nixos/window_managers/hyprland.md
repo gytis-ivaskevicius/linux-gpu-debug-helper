@@ -1,5 +1,5 @@
 `<translate>`{=html}
-`{{outdated|date=may 2026|reason=[https://hypr.land/news/update55/ v0.55] introduced and recommends [[Lua]] for configuration. The [https://wiki.hypr.land upstream wiki] has already migrated and support for {{ic|hyprland.conf}} will be removed in a future release. Home manager support is [https://github.com/nix-community/home-manager/pull/9307 in progress.]|Talk:Hyprland#Lua}}`{=mediawiki}
+`{{outdated|date=may 2026|reason=[https://hypr.land/news/update55/ v0.55] introduced and recommends [[Lua]] for configuration. The [https://wiki.hypr.land upstream wiki] has already migrated and support for {{ic|hyprland.conf}} will be removed in a future release. Home manager supports lua config since the [https://nix-community.github.io/home-manager/release-notes/rl-2605.html#state-version-changes <code>26.05</code> release].|talk=Talk:Hyprland#Update to Hyprland 0.55}}`{=mediawiki}
 
 [Hyprland](https://hypr.land/) is an independent, extensible, bleeding-edge [Wayland](Wayland "wikilink") compositor
 written in modern C++ with an emphasis on looks. In addition, Hyprland also offers a number of first-party tools as well

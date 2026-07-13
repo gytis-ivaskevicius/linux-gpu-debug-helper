@@ -341,13 +341,13 @@ The correct driver name depends on your setup:
 -   [Intel graphics](Intel_graphics "wikilink"): Vulkan Video support in `{{Pkg|vulkan-intel}}`{=mediawiki} can be
     enabled with the `{{ic|1=ANV_DEBUG=video-decode,video-encode}}`{=mediawiki} [environment
     variable](environment_variable "wikilink"). [3](https://bbs.archlinux.org/viewtopic.php?id=305668)
--   [AMD](AMD "wikilink"): Vulkan Video support in `{{Pkg|vulkan-radeon}}`{=mediawiki} is enabled by default for VCN 2,
-    3, and 4+ since Mesa 25. To force-enable support on older cards, set the `{{ic|RADV_PERFTEST}}`{=mediawiki}
+-   [AMD](AMD "wikilink"): Vulkan Video support in `{{Pkg|vulkan-radeon}}`{=mediawiki} is enabled by default for VCN 2+
+    since Mesa 25. To force-enable experimental support on older cards, set the `{{ic|RADV_EXPERIMENTAL}}`{=mediawiki}
     [environment variable](environment_variable "wikilink") to `{{ic|video_decode,video_encode}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Warning|
-Note that some older GPU models do not have Vulkan Video support in [[Mesa]]. Force-enabling Vulkan Video support on such GPUs may result in crashes with some applications (for example, [https://gitlab.archlinux.org/archlinux/packaging/packages/mpv/-/issues/20#note_340586 mpv]).
+Note that some older GPU models do not have Vulkan Video support in [[Mesa]]. Force-enabling experimental Vulkan Video support on such GPUs may result in crashes with some applications (for example, [https://gitlab.archlinux.org/archlinux/packaging/packages/mpv/-/issues/20#note_340586 mpv]).
 }}
 ```
 ### Configuring applications {#configuring_applications}

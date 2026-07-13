@@ -5,9 +5,12 @@ works pretty well. To play most of its games a recent wine-staging version is re
 
 Tested on nixos-unstable with wine-staging 5.22 and found to be working with World of Warcraft 9.0.2:
 
+```{=mediawiki}
+{{Note|This override seems not to be prebuilt by [[Hydra]] for official [[Channel branches|channels]], therefore this will probably be built on your systems. And compiling Wine locally may take a long time (over 1 hour on my system).}}
+```
 ``` nix
 users.users.youruser.packages = with pkgs; [
-  (wineWowPackages.full.override {
+  (wineWow64Packages.full.override {
     wineRelease = "staging";
     mingwSupport = true;
   })

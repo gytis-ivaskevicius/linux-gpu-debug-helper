@@ -15,6 +15,9 @@ For GPU inference:
 -   Install `{{Pkg|ollama-cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 -   Install `{{Pkg|ollama-rocm}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
 
+```{=mediawiki}
+{{Tip|On AMD GPUs from RDNA 3 onward, {{Pkg|ollama-vulkan}} is usually faster and uses less power than {{Pkg|ollama-rocm}} and avoids ROCm's unsupported-GPU issues (see [[#ROCm is not utilizing my AMD GPU]]). Integrated GPUs are skipped automatically; set {{ic|1=OLLAMA_IGPU_ENABLE=1}} to allow them.}}
+```
 Next, [enable/start](enable/start "wikilink") `{{ic|ollama.service}}`{=mediawiki}. Then, verify Ollama\'s status:
 
 `$ ollama --version`
@@ -55,6 +58,128 @@ To remove a model:
 To view locally available models:
 
 `$ ollama list`
+
+## Configuration
+
+Ollama is configured through environment variables. Set them for the service in a [drop-in
+file](drop-in_file "wikilink"), then [restart](restart "wikilink") `{{ic|ollama.service}}`{=mediawiki}:
+
+```{=mediawiki}
+{{hc|/etc/systemd/system/ollama.service.d/environment.conf|2=
+[Service]
+Environment="VARIABLE=value"
+}}
+```
+Commonly tuned variables:
+
+-   ```{=mediawiki}
+    {{ic|1=OLLAMA_FLASH_ATTENTION=1}}
+    ```
+    \- faster prompt processing and smaller KV cache; prerequisite for KV-cache quantization.
+
+-   ```{=mediawiki}
+    {{ic|OLLAMA_KV_CACHE_TYPE}}
+    ```
+    \- KV-cache quantization: `{{ic|f16}}`{=mediawiki} (default), `{{ic|q8_0}}`{=mediawiki} (half the VRAM of f16,
+    negligible quality loss) or `{{ic|q4_0}}`{=mediawiki}. Requires flash attention.
+
+-   ```{=mediawiki}
+    {{ic|OLLAMA_CONTEXT_LENGTH}}
+    ```
+    \- default context length per request, e.g. `{{ic|8192}}`{=mediawiki}; unset, it scales with available VRAM
+    (4k/32k/256k). Models can override it (see below).
+
+-   ```{=mediawiki}
+    {{ic|OLLAMA_NUM_PARALLEL}}
+    ```
+    \- concurrent requests per model; each slot multiplies the KV-cache allocation.
+
+-   ```{=mediawiki}
+    {{ic|OLLAMA_MAX_LOADED_MODELS}}
+    ```
+    \- number of models kept loaded per GPU.
+
+-   ```{=mediawiki}
+    {{ic|OLLAMA_KEEP_ALIVE}}
+    ```
+    \- how long a model stays in memory after the last request (default `{{ic|5m}}`{=mediawiki}; `{{ic|0}}`{=mediawiki}
+    unloads immediately, `{{ic|-1}}`{=mediawiki} keeps it loaded forever).
+
+-   ```{=mediawiki}
+    {{ic|1=GGML_VK_VISIBLE_DEVICES=0}}
+    ```
+    \- on systems with multiple GPUs (e.g. discrete + integrated), pin inference to one Vulkan device (0 = first in the
+    startup log).
+
+-   ```{=mediawiki}
+    {{ic|1=OLLAMA_HOST=0.0.0.0:11434}}
+    ```
+    \- listen on all interfaces instead of loopback only; required for containers (e.g. podman/Docker reaching the host
+    via `{{ic|host.containers.internal}}`{=mediawiki}) and other LAN hosts.
+
+See `{{ic|ollama serve --help}}`{=mediawiki} and the [upstream FAQ](https://docs.ollama.com/faq) for the remaining
+variables.
+
+Vulkan support is enabled by default when `{{Pkg|ollama-vulkan}}`{=mediawiki} is installed;
+`{{ic|1=OLLAMA_VULKAN=1}}`{=mediawiki} is not required.
+
+```{=mediawiki}
+{{Warning|The Ollama API has no authentication. With {{ic|1=OLLAMA_HOST=0.0.0.0}} anyone on the network can use the models - restrict access with a [[firewall]] if the network is not trusted.}}
+```
+### Per-model parameters {#per_model_parameters}
+
+To run a model with custom settings, bake them into a new model with a Modelfile:
+
+```{=mediawiki}
+{{hc|Modelfile|2=
+FROM gemma4:26b
+PARAMETER num_gpu 29
+PARAMETER num_ctx 32768
+}}
+```
+`$ ollama create gemma4-tuned -f Modelfile`
+
+-   ```{=mediawiki}
+    {{ic|FROM}}
+    ```
+    \- an already pulled model, as listed by `{{ic|ollama list}}`{=mediawiki}.
+
+-   ```{=mediawiki}
+    {{ic|num_gpu}}
+    ```
+    \- number of model layers offloaded to the GPU. Speed rises with each extra layer until VRAM fills. One layer too
+    many spills into GTT (system RAM over PCIe) and speed collapses, even though the model still reports \"100% GPU\".
+    Benchmark a few values - the optimum is the most layers that fit just under *free* VRAM. For example, on a 16 GiB RX
+    9070 XT running `{{ic|gemma4:26b}}`{=mediawiki} (Q4_K_M) at 32k context, 29 of 31 layers hit \~88 tok/s with most of
+    the VRAM available; 30 layers dropped to \~75 tok/s (spill) and the auto-offload default gave \~37. With a browser
+    holding \~5 GiB of VRAM the optimum fell to \~24 layers. On an 8 GiB GPU only \~13 layers of this model fit and
+    generation is mostly CPU-bound - there, prefer a model that fits in VRAM entirely (a 7-9B model at Q4_K_M takes
+    \~4-5 GiB) at 8-16k context.
+
+-   ```{=mediawiki}
+    {{ic|num_ctx}}
+    ```
+    \- context length: the maximum number of tokens the model sees at once (prompt + response). The KV cache shares VRAM
+    with the layers: the larger the context, the fewer layers fit - retune `{{ic|num_gpu}}`{=mediawiki} after changing
+    it.
+
+```{=mediawiki}
+{{ic|ollama create}}
+```
+does not copy weights - the store is content-addressed, so a tuned variant only adds a small manifest. The same
+parameters can also be passed per request in the API `{{ic|options}}`{=mediawiki} field, which overrides Modelfile
+values.
+
+Ollama does not keep the source Modelfile; the parameters are stored as layers in the model store
+(`{{ic|/var/lib/ollama}}`{=mediawiki}, manifest under
+`{{ic|manifests/registry.ollama.ai/library/''name''/''tag''}}`{=mediawiki}). To change a created model, reconstruct its
+Modelfile, edit it and run `{{ic|ollama create}}`{=mediawiki} again with the same name (only the small manifest is
+rewritten):
+
+`$ ollama show --modelfile gemma4-tuned > Modelfile`\
+`$ ollama create gemma4-tuned -f Modelfile`
+
+See the [Modelfile reference](https://docs.ollama.com/modelfile) for the remaining instructions and parameters.
 
 ## Troubleshooting
 

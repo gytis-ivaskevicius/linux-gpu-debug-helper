@@ -101,7 +101,7 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
-    {{App|kobodeluxe|An enhanced version of Akira Higuchi's game XKobo, an addictive space shoot'em up.|https://www.olofson.net/kobodl/|{{AUR|kobodeluxe}}}}
+    {{App|Kobo Deluxe|An enhanced version of Akira Higuchi's game XKobo, an addictive space shoot'em up.|https://www.olofson.net/kobodl/|{{AUR|kobodeluxe}}}}
     ```
 
 -   ```{=mediawiki}
@@ -341,7 +341,7 @@ keyword](https://aur.archlinux.org/packages/?SeB=k&K=game).
     ```
 
 -   ```{=mediawiki}
-    {{App|Atanks|A multi-platform Scorched Earth clone similar to the Worms series of games.|https://atanks.sourceforge.net/|{{AUR|atanks}}}}
+    {{App|Atomic Tanks|A multi-platform Scorched Earth clone similar to the Worms series of games.|https://atanks.sourceforge.net/|{{AUR|atanks}}}}
     ```
 
 -   ```{=mediawiki}
@@ -697,6 +697,10 @@ See also [Minecraft](Minecraft "wikilink").
     {{App|Toppler|Reimplementation of the classic jump & run game "Nebulus".|https://gitlab.com/roever/toppler/|{{AUR|toppler}}}}
     ```
 
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:X-Moto|XMoto]]|Challenging 2D motocross platform game, where physics play an important role.|https://xmoto.tuxfamily.org/|{{AUR|xmoto}}}}
+    ```
+
 ## Puzzle
 
 -   ```{=mediawiki}
@@ -1015,10 +1019,6 @@ See also [Minecraft](Minecraft "wikilink").
 
 -   ```{=mediawiki}
     {{App|VDrift|Open source driving simulation made with drift racing in mind.|https://vdrift.net/|{{AUR|vdrift}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|[[Wikipedia:X-Moto|XMoto]]|Challenging 2D motocross platform game, where physics play an important role.|https://xmoto.tuxfamily.org/|{{AUR|xmoto}}}}
     ```
 
 ## Rhythm

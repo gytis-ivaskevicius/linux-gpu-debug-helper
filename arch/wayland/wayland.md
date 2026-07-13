@@ -303,63 +303,24 @@ application. If the red mouse moves, the application is running via Xwayland.
 ```
 ## GUI libraries {#gui_libraries}
 
-### GTK
+### EFL
 
-The `{{Pkg|gtk3}}`{=mediawiki} and `{{Pkg|gtk4}}`{=mediawiki} packages have the Wayland backend enabled. GTK will
-default to the Wayland backend, but it is possible to override it to Xwayland by modifying an environment variable:
-`{{ic|1=GDK_BACKEND=x11}}`{=mediawiki}.
+Enlightenment has [Wayland support](https://www.enlightenment.org/about-wayland). To run an EFL-based application on
+Wayland, set the environment variable `{{ic|1=ELM_DISPLAY=wl}}`{=mediawiki}.
 
-For theming issues, see [GTK#Wayland backend](GTK#Wayland_backend "wikilink").
+### Electron
 
-### Qt
+Since [Electron](Electron "wikilink") 38.2, Wayland is used by default.
+[8](https://www.electronjs.org/blog/tech-talk-wayland) For earlier versions, Wayland support can be activated using the
+`{{ic|1=--ozone-platform=auto}}`{=mediawiki} or `{{ic|1=--ozone-platform=wayland}}`{=mediawiki} command line flags, or
+by setting the [environment variable](environment_variable "wikilink") `{{ic|ELECTRON_OZONE_PLATFORM_HINT}}`{=mediawiki}
+to `{{ic|auto}}`{=mediawiki} or `{{ic|wayland}}`{=mediawiki}.
 
-To enable Wayland support in [Qt](Qt "wikilink") 5, install the `{{Pkg|qt5-wayland}}`{=mediawiki} package. Qt 5
-applications will then run under Wayland on a Wayland session.
+### FLTK
 
-While it should not be necessary, to explicitly run a Qt application with the Wayland plugin
-[8](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F), use `{{ic|1=-platform wayland}}`{=mediawiki} or
-`{{ic|1=QT_QPA_PLATFORM=wayland}}`{=mediawiki} [environment variable](environment_variable "wikilink").
-
-To force the usage of [X11](X11 "wikilink") on a Wayland session, use `{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki}.
-
-This might be necessary for some proprietary applications that do not use the system\'s implementation of Qt.
-`{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
-available.[9](https://www.qt.io/blog/2018/05/29/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
-
-Due to the [Incorrect sizing and bad text rendering with WebEngine using fractional scaling on
-Wayland](https://bugreports.qt.io/browse/QTBUG-113574) Qt WebEngine bug, applications using Qt WebEngine before 6.8.0,
-for example [Calibre](https://bugs.launchpad.net/calibre/+bug/2018658), may display jagged fonts. A workaround is
-launching the application with `{{ic|1=QT_SCALE_FACTOR_ROUNDING_POLICY=RoundPreferFloor}}`{=mediawiki}. This prevents
-the application window being fractional scaled.
-
-### Clutter
-
-The Clutter toolkit has a Wayland backend that allows it to run as a Wayland client. The backend is enabled in the
-`{{AUR|clutter}}`{=mediawiki} package.
-
-To run a Clutter application on Wayland, set `{{ic|1=CLUTTER_BACKEND=wayland}}`{=mediawiki}.
-
-### SDL
-
-In [SDL3](SDL "wikilink"), Wayland is used by default if the compositor supports the [fifo-v1
-protocol](https://wayland.app/protocols/fifo-v1).
-[10](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
-Otherwise, X11 and Wayland are tried in order. Either can be forced either using the
-`{{ic|1=SDL_VIDEO_DRIVER=x11}}`{=mediawiki} or `{{ic|1=SDL_VIDEO_DRIVER=wayland}}`{=mediawiki} environment variables
-respectively (or, with a lower precedence, the SDL2 environment variable
-below)[11](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802).
-
-```{=mediawiki}
-{{Pkg|sdl2-compat}}
-```
-follows the SDL3 rules above, barring [application-specific
-exceptions](https://github.com/libsdl-org/sdl2-compat/blob/8b85f95bbcc3411c78c1f2cbd62b23b7f96093c2/src/sdl2_compat.c#L504-L538).
-As for SDL2 proper (e.g. `{{AUR|sdl2}}`{=mediawiki}), set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
-`{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
-available.[12](https://wiki.libsdl.org/SDL2/FAQUsingSDL). You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to
-enable window decorations (for example, on GNOME).
-
-Refer to the [official documentation](https://wiki.libsdl.org/SDL3/README/wayland) for more details.
+Wayland is supported since `{{Pkg|fltk}}`{=mediawiki} 1.4, and it uses the Wayland backend by default. It is possible to
+override it to use Xwayland in a Wayland session by modifying an environment variable:
+`{{ic|1=FLTK_BACKEND=x11}}`{=mediawiki}. [9](https://github.com/fltk/fltk/blob/master/README.Wayland.txt).
 
 ### GLFW
 
@@ -369,65 +330,13 @@ variable](environment_variable "wikilink") `{{ic|1=XDG_SESSION_TYPE}}`{=mediawik
 
 See the [source code](https://github.com/glfw/glfw/blob/3.4/src/platform.c#L87-L99) for more information.
 
-### GLEW
+### GTK
 
-If the `{{AUR|glew-wayland-git}}`{=mediawiki} package does not work with the needed GLEW-based applications, the option
-is to use `{{Pkg|glew}}`{=mediawiki} with Xwayland. See `{{Bug|62713}}`{=mediawiki}.
+The `{{Pkg|gtk3}}`{=mediawiki} and `{{Pkg|gtk4}}`{=mediawiki} packages have the Wayland backend enabled. GTK will
+default to the Wayland backend, but it is possible to override it to use Xwayland in a Wayland session by modifying an
+environment variable: `{{ic|1=GDK_BACKEND=x11}}`{=mediawiki}.
 
-### EFL
-
-Enlightenment has [complete Wayland support](https://www.enlightenment.org/about-wayland).
-
-To run an EFL-based application on Wayland, set `{{ic|1=ELM_DISPLAY=wl}}`{=mediawiki}.
-
-### winit
-
-Winit is a window handling library in Rust. It will default to the Wayland backend, but it is possible to override it to
-Xwayland by modifying environment variables:
-
--   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
--   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
-    `{{ic|1=DISPLAY}}`{=mediawiki} variable.
-    [13](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
-
-### Electron
-
-```{=mediawiki}
-{{Note|In [[KDE|Plasma]], some Electron applications can use the wrong icon (default Wayland one) for the window, while using the correct icon for the taskbar. To fix that, you can create a special application/window rule, forcing the desktop file name on such applications.}}
-```
-Wayland support can be activated using command line flags, or an environment variable.
-
-#### Command line flags {#command_line_flags}
-
-```{=mediawiki}
-{{Note|Some packages do not forward flags to Electron, and thus will need the application developer to implement a solution.}}
-```
-See [Chromium#Native Wayland support](Chromium#Native_Wayland_support "wikilink") to command-line flags needed to work
-on Wayland. Note that the command-line flag `{{ic|1=--ozone-platform-hint=auto}}`{=mediawiki} does not work since
-Electron 38.
-
-You can pass these flags manually, persist them in an [Electron configuration
-file](Electron#Configuration_files "wikilink"), or [override the .desktop file at
-\~/.local/share/applications](Desktop_entries#Modify_desktop_files "wikilink") of an application by adding the flags to
-the end of the `{{ic|1=Exec=}}`{=mediawiki} line.
-
-```{=mediawiki}
-{{Accuracy|Old version of Electron needs {{ic|1=--enable-features=WebRTCPipeWireCapturer}} But what version is it enable by default? Also default behavior of Electron vendored by non-free software would be wrong.}}
-```
-Electron enable WebRTC screen capture over PipeWire by default. The capture is based on
-`{{Pkg|xdg-desktop-portal}}`{=mediawiki}.
-
-A case of missing top bars can be solved by using: `{{ic|1=--enable-features=WaylandWindowDecorations}}`{=mediawiki}.
-This will typically be necessary under [GNOME](GNOME "wikilink") (supported since
-[electron17](https://github.com/electron/electron/pull/29618)).
-
-#### Environment variable {#environment_variable}
-
-Applications using Electron between versions 28 and 37 can use the [environment
-variable](environment_variable "wikilink") `{{ic|ELECTRON_OZONE_PLATFORM_HINT}}`{=mediawiki} set to
-`{{ic|auto}}`{=mediawiki} or `{{ic|wayland}}`{=mediawiki}.
-
-This takes lower priority than the command line flags.
+For theming issues, see [GTK#Wayland backend](GTK#Wayland_backend "wikilink").
 
 ### Java
 
@@ -436,29 +345,60 @@ Wayland. The [Wakefield](https://openjdk.java.net/projects/wakefield/) project i
 [WLToolkit](https://wiki.openjdk.org/display/wakefield/Pure+Wayland+toolkit+prototype) to add Wayland support to
 OpenJDK.
 
-Until WLToolkit lands in stable OpenJDK, you have several options:
+It is possible to use Wakefield's `{{ic|jdk25-wayland}}`{=mediawiki}
+[10](https://github.com/openjdk/wakefield/tree/jdk25-wayland) work-in-progress branch. Some programs such as the
+[JetBrains IDEs](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/) do just that so they
+support Wayland out of the box. For other Java programs, you need you bring your own Wakefield build, e.g.
+`{{AUR|jdk-openjdk-wakefield}}`{=mediawiki}. To use it, point `{{ic|JAVA_HOME}}`{=mediawiki} to
+`{{ic|/usr/lib/jvm/java-25-openjdk-wakefield}}`{=mediawiki} and run your program with the
+`{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}} option.
 
--   Use XWayland. However, XWayland does not have full feature parity with Wayland, and it may lead to nothing
-    displaying with certain applications such as `{{pkg|netbeans}}`{=mediawiki} and
-    `{{AUR|oracle-datamodeler}}`{=mediawiki}.
--   See [Debian:Wayland#Java Programs (supported since OpenJDK
-    16?)](Debian:Wayland#Java_Programs_(supported_since_OpenJDK_16?) "wikilink"):
+### Qt
 
-:   
+[Qt](Qt "wikilink") 6 supports Wayland and uses it by default in a Wayland session.
 
-    :   Starting with OpenJDK 16, the JRE can dynamically load GTK3 (which has Wayland support), it appears this might
-        be supported according to this
-        [discussion](https://stackoverflow.com/questions/39197208/java-gui-support-on-wayland).
-    :   The `{{ic|_JAVA_AWT_WM_NONREPARENTING}}`{=mediawiki} [environment variable](environment_variable "wikilink") can
-        be set to \"1\" to fix misbehavior where the application starts with a blank screen.
+To enable Wayland support in [Qt](Qt "wikilink") 5, install the `{{Pkg|qt5-wayland}}`{=mediawiki} package, and use
+`{{ic|1=-platform wayland}}`{=mediawiki} command line parameter or `{{ic|1=QT_QPA_PLATFORM=wayland}}`{=mediawiki}
+[environment variable](environment_variable "wikilink"). [11](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F).
+`{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
+available.
 
--   Use Wakefield's `{{ic|jdk25-wayland}}`{=mediawiki} work-in-progress branch. Some programs such as the [JetBrains
-    IDEs](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/) do just that so they support
-    Wayland out of the box.\
-    For other Java programs, you need you bring your own Wakefield build, e.g.
-    `{{AUR|jdk-openjdk-wakefield}}`{=mediawiki}. To use it, point `{{ic|JAVA_HOME}}`{=mediawiki} to
-    `{{ic|/usr/lib/jvm/java-25-openjdk-wakefield}}`{=mediawiki} and run your program with the
-    `{{ic|-Dawt.toolkit.name{{=}}`{=mediawiki}WLToolkit}} option.
+To force the usage of Xwayland in a Wayland session, use `{{ic|1=-platform xcb}}`{=mediawiki} command line parameter or
+`{{ic|1=QT_QPA_PLATFORM=xcb}}`{=mediawiki}.
+
+### SDL
+
+In [SDL3](SDL "wikilink"), Wayland is used by default if the compositor supports the [fifo-v1
+protocol](https://wayland.app/protocols/fifo-v1).
+[12](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
+Otherwise, X11 and Wayland are tried in order. Either can be forced either using the
+`{{ic|1=SDL_VIDEO_DRIVER=x11}}`{=mediawiki} or `{{ic|1=SDL_VIDEO_DRIVER=wayland}}`{=mediawiki} environment variables
+respectively (or, with a lower precedence, the SDL2 environment variable below).
+[13](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802)
+
+```{=mediawiki}
+{{Pkg|sdl2-compat}}
+```
+follows the SDL3 rules above, barring [application-specific
+exceptions](https://github.com/libsdl-org/sdl2-compat/blob/8b85f95bbcc3411c78c1f2cbd62b23b7f96093c2/src/sdl2_compat.c#L504-L538).
+As for SDL2 proper (e.g. `{{AUR|sdl2}}`{=mediawiki}), set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
+`{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
+available. [14](https://wiki.libsdl.org/SDL2/FAQUsingSDL)
+
+You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to enable client-side window decorations (for example, on
+GNOME).
+
+Refer to the [official documentation](https://wiki.libsdl.org/SDL3/README-wayland) for more details.
+
+### winit
+
+Winit is a window handling library in Rust. It will default to the Wayland backend, but it is possible to override it to
+use Xwayland by modifying environment variables:
+
+-   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
+-   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
+    `{{ic|1=DISPLAY}}`{=mediawiki} variable.
+    [15](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
 
 ## Tips and tricks {#tips_and_tricks}
 
@@ -560,12 +500,12 @@ Example:
     ```
     and `{{Pkg|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
-    [14](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
+    [16](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 
 -   ```{=mediawiki}
     {{pkg|mutter}}
     ```
-    has now remote desktop enabled at compile time, see [15](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
+    has now remote desktop enabled at compile time, see [17](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
     `{{Pkg|gnome-remote-desktop}}`{=mediawiki} for details.
 
 -   ```{=mediawiki}

@@ -599,6 +599,11 @@ managed[4](https://bugs.freedesktop.org/show_bug.cgi?id=96868)[5](https://gitlab
 A workaround [6](https://bugs.freedesktop.org/show_bug.cgi?id=96868#c13) is to set the `{{ic|high}}`{=mediawiki} or
 `{{ic|low}}`{=mediawiki} performance level as described in [#Performance levels](#Performance_levels "wikilink").
 
+You can also use this script
+[7](https://gist.github.com/Filip62/c0f2d9426d5a817f1be608ca98f599cb?permalink_comment_id=6246299#gistcomment-6246299)
+which automates the workaround above and also avoids potential lower performance cap caused by manually setting a
+performance level.
+
 Changing the kernel version can also help eliminate this issue. For example, it appears to be fixed in 6.12.9.
 
 #### Artifacts in Chromium {#artifacts_in_chromium}
@@ -609,7 +614,7 @@ If you see artifacts in [Chromium](Chromium "wikilink"), forcing the vulkan-base
 
 ### R9 390 series poor performance and/or instability {#r9_390_series_poor_performance_andor_instability}
 
-If you experience issues [7](https://gitlab.freedesktop.org/mesa/mesa/-/issues/1222) with a AMD R9 390 series graphics
+If you experience issues [8](https://gitlab.freedesktop.org/mesa/mesa/-/issues/1222) with a AMD R9 390 series graphics
 card, set
 `{{ic|1=radeon.cik_support=0 radeon.si_support=0 amdgpu.cik_support=1 amdgpu.si_support=1 amdgpu.dc=1}}`{=mediawiki} as
 [kernel parameters](kernel_parameters "wikilink") to force the use of amdgpu driver instead of radeon.
@@ -621,10 +626,10 @@ parameters](kernel_parameters "wikilink").
 ### Freezes with \"\[drm\] IP block:gmc_v8_0 is hung!\" kernel error {#freezes_with_drm_ip_blockgmc_v8_0_is_hung_kernel_error}
 
 If you experience freezes and kernel crashes during a GPU intensive task with the kernel error \" \[drm\] IP
-block:gmc_v8_0 is hung!\" [8](https://gitlab.freedesktop.org/drm/amd/issues/226), a workaround is to set
+block:gmc_v8_0 is hung!\" [9](https://gitlab.freedesktop.org/drm/amd/issues/226), a workaround is to set
 `{{ic|1=amdgpu.vm_update_mode=3}}`{=mediawiki} as [kernel parameters](kernel_parameters "wikilink") to force the GPUVM
 page tables update to be done using the CPU. Downsides are listed here
-[9](https://gitlab.freedesktop.org/drm/amd/-/issues/226#note_308665).
+[10](https://gitlab.freedesktop.org/drm/amd/-/issues/226#note_308665).
 
 ### Screen flickering white/gray {#screen_flickering_whitegray}
 
@@ -634,7 +639,7 @@ When you change resolution or connect to an external monitor, if the screen flic
 ### System freeze or crash when gaming on Vega cards {#system_freeze_or_crash_when_gaming_on_vega_cards}
 
 [Dynamic power management](ATI#Dynamic_power_management "wikilink") may cause a complete system freeze whilst gaming due
-to issues in the way GPU clock speeds are managed. [10](https://gitlab.freedesktop.org/drm/amd/-/issues/716) A
+to issues in the way GPU clock speeds are managed. [11](https://gitlab.freedesktop.org/drm/amd/-/issues/716) A
 workaround is to set the `{{ic|high}}`{=mediawiki} performance level as described in [#Performance
 levels](#Performance_levels "wikilink").
 
@@ -653,18 +658,18 @@ based TVs, this means setting this to \"Standard\" instead of \"Optimal\".
 ### Issues with power management / dynamic re-activation of a discrete amdgpu graphics card {#issues_with_power_management_dynamic_re_activation_of_a_discrete_amdgpu_graphics_card}
 
 If you encounter issues where the kernel driver is loaded, but the discrete graphics card still is not available for
-games or becomes disabled during use (similar to [11](https://gitlab.freedesktop.org/drm/amd/-/issues/1820)), you can
+games or becomes disabled during use (similar to [12](https://gitlab.freedesktop.org/drm/amd/-/issues/1820)), you can
 workaround the issue by setting the [kernel parameter](kernel_parameter "wikilink")
 `{{ic|1=amdgpu.runpm=0}}`{=mediawiki}, which prevents the dGPU from being powered down dynamically at runtime.
 
 ### Frozen or unresponsive display (flip_done timed out) {#frozen_or_unresponsive_display_flip_done_timed_out}
 
 A bug in the amdgpu driver may stop the display from updating
-[12](https://gitlab.freedesktop.org/drm/amd/-/issues/4141). It is suggested to append the
+[13](https://gitlab.freedesktop.org/drm/amd/-/issues/4141). It is suggested to append the
 `{{ic|1=amdgpu.dcdebugmask=0x10}}`{=mediawiki} (which disables Panel self refresh v1 and \"Panel Self
 Refresh-Selectively Updated\") or `{{ic|1=amdgpu.dcdebugmask=0x12}}`{=mediawiki} (which disables Panel self refresh and
 memory stutter mode) [kernel parameter](kernel_parameter "wikilink") as a
-workaround[13](https://github.com/torvalds/linux/blob/9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe/drivers/gpu/drm/amd/include/amd_shared.h#L259).
+workaround[14](https://github.com/torvalds/linux/blob/9b2ffa6148b1e4468d08f7e0e7e371c43cac9ffe/drivers/gpu/drm/amd/include/amd_shared.h#L259).
 
 ### kfd fails to initialize {#kfd_fails_to_initialize}
 
@@ -682,12 +687,12 @@ In the system journal or the kernel message keyring a critical level error messa
 by looking up your GPU or by using a GPU diagnostic utility such as `{{pkg|amdgpu_top}}`{=mediawiki})
 
 This means that your GPU is not supported in kfd and will not work with
-ROCm.[14](https://github.com/RadeonOpenCompute/ROCm/issues/1148#issuecomment-747849592)[15](https://www.reddit.com/r/linuxquestions/comments/yhbbiz/kfd_kfd_amdgpu_topaz_not_supported_in_kfd/)
+ROCm.[15](https://github.com/RadeonOpenCompute/ROCm/issues/1148#issuecomment-747849592)[16](https://www.reddit.com/r/linuxquestions/comments/yhbbiz/kfd_kfd_amdgpu_topaz_not_supported_in_kfd/)
 
 #### \"PCI rejects atomics\" {#pci_rejects_atomics}
 
 On GCN 4 GPUs, your CPU must support PCIe atomics and the slot that the GPU is in supports at least PCIe
-3.0.[16](https://github.com/ROCm/ROCm/issues/2224#issuecomment-2299689450) If these requirements are not met, you will
+3.0.[17](https://github.com/ROCm/ROCm/issues/2224#issuecomment-2299689450) If these requirements are not met, you will
 encounter this message: `{{hc|# dmesg {{!}}`{=mediawiki} grep kfd\| kfd kfd: amdgpu: skipped device 1002:67e3, PCI
 rejects atomics 730\<0 }}
 
@@ -701,14 +706,14 @@ have lanes coming from the chipset and not the CPU.
 ### MCLK (pp_dpm_mclk) being locked at MAX (875Mhz or 1000Mhz) or MIN (96Mhz) {#mclk_pp_dpm_mclk_being_locked_at_max_875mhz_or_1000mhz_or_min_96mhz}
 
 On high resolutions and refresh rates, the MCLK (VRAM / memory clock) values may be locked at the highest clock rate
-(875Mhz or 1000Mhz) [17](https://gitlab.freedesktop.org/drm/amd/-/issues/1403)
-[18](https://gitlab.freedesktop.org/drm/amd/-/issues/2646), causing higher GPU idle power draw.
+(875Mhz or 1000Mhz) [18](https://gitlab.freedesktop.org/drm/amd/-/issues/1403)
+[19](https://gitlab.freedesktop.org/drm/amd/-/issues/2646), causing higher GPU idle power draw.
 
 In some cases, MCLK values may be locked at the lowest clock rate (96MHz), causing low performance in games
-[19](https://gitlab.freedesktop.org/drm/amd/-/issues/2657) [20](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
+[20](https://gitlab.freedesktop.org/drm/amd/-/issues/2657) [21](https://gitlab.freedesktop.org/drm/amd/-/issues/2611).
 
 When using [variable refresh rate](variable_refresh_rate "wikilink") technology (such as FreeSync), the problem may also
-manifest, particularly being locked at the lowest clock rate. [21](https://gitlab.freedesktop.org/drm/amd/-/issues/4707)
+manifest, particularly being locked at the lowest clock rate. [22](https://gitlab.freedesktop.org/drm/amd/-/issues/4707)
 
 Those problems are likely due to a monitor not using Coordinated Video Timings (CVT) with a low V-Blank value for the
 affected resolutions and refresh rates. See [this gist](https://gist.github.com/Rend0e/3bddac4285dc1f4fbe303f326f36f6cc)
@@ -758,9 +763,9 @@ There is a bug in the amdgpu module, due to which the video core frequencies can
 manufacturer, which can cause system instability during the game, when exiting sleep, when rebooting.
 
 The problem has been noticed on RDNA 3 GPUs (7XXX Models)
-[22](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
-[23](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
-[24](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
+[23](https://www.reddit.com/r/linux_gaming/comments/1dyhizb/fyi_for_amd_card_owners_the_linux_kernel_is/)
+[24](https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes)
+[25](https://gitlab.freedesktop.org/drm/amd/-/issues/3131).
 
 In dmesg you can see logs like theese:
 
@@ -820,7 +825,7 @@ It can be done by setting the following [kernel parameter](kernel_parameter "wik
 ### System freezes or reboots when idle {#system_freezes_or_reboots_when_idle}
 
 Issues with some PowerPlay features, such as [GFXOFF](https://www.phoronix.com/news/AMDGPU-GFXOFF-Patches) can cause
-frequent, unrecoverable driver crashes[25](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
+frequent, unrecoverable driver crashes[26](https://forum.endeavouros.com/t/random-crashes-amdgpu/70453). They coincide
 with idle GPU usage on a multi-monitor setup, and especially waking up from sleep mode.
 
 A well-known solution is appending a kernel parameter (as described in [#Boot parameter](#Boot_parameter "wikilink"))

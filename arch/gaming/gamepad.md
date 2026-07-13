@@ -957,9 +957,21 @@ gyroscope, and accelerometer; doesn\'t support *xboxdrv* without `{{ic|--evdev}}
 e.g. \"SHANWAN Android Gamepad\" which is not liked by some games (though for SDL2 apps you can set a name in
 `{{ic|SDL_GAMECONTROLLERCONFIG}}`{=mediawiki}).
 
-When you connect the gamepad, it first tries to be a \"Switch Pro Controller\", but for some reason the Linux kernel
-considers the descriptors (sent by the gamepad) invalid, and therefore disconnects the gamepad. This causes the gamepad
-to reconnect in the aforementioned fallback mode.
+Different ShanWan hardware revisions expose different initial USB IDs. Some identify themselves as a Nintendo Switch Pro
+Controller (`{{ic|057e:2009}}`{=mediawiki}), while others identify as an Xbox 360 Controller
+(`{{ic|045e:028e}}`{=mediawiki}). The appropriate `{{ic|usbcore.quirks}}`{=mediawiki} entry depends on the revision.
+
+During USB enumeration, Linux first successfully reads the device descriptor. It then requests the configuration
+descriptor in two stages: first the 9-byte descriptor header to determine `{{ic|wTotalLength}}`{=mediawiki}, and then
+the complete configuration descriptor.
+
+Some ShanWan firmware incorrectly responds to the initial 9-byte request by sending the entire descriptor instead. This
+violates the USB specification and causes the host controller to report a protocol error (typically
+`{{ic|-71}}`{=mediawiki}/`{{ic|EPROTO}}`{=mediawiki}, sometimes `{{ic|-32}}`{=mediawiki} depending on the host
+controller).
+
+After the enumeration fails and the port is reset, the controller firmware automatically reconnects in its fallback
+Android HID mode, which lacks Xbox-compatible functionality such as force feedback and has a lower polling rate.
 
 In `{{ic|dmesg}}`{=mediawiki} this looks like:
 
@@ -989,6 +1001,10 @@ Switch controller\'s USB ID:
 `# Optionally constant polling mode:`\
 `sudo modprobe -r usbhid ; sleep 4 ; sudo modprobe -v usbhid "quirks=0x057e:0x2009:0x400"`
 
+Some ShanWan Xbox-compatible variants instead require:
+
+`echo -n "045e:028e:`**`gi`**`" | sudo tee /sys/module/usbcore/parameters/quirks`
+
 ```{=mediawiki}
 {{ic|ik}}
 ```
@@ -1012,9 +1028,9 @@ a Windows VM would not help; `{{ic|usbcore}}`{=mediawiki} inits USB devices befo
 ```{=html}
 <hr/>
 ```
-Now reconnect the gamepad, it should be finally listed now as
-`{{ic|ID 057e:2009 Nintendo Co., Ltd Switch Pro Controller}}`{=mediawiki} when you run `{{ic|lsusb}}`{=mediawiki}. If
-that\'s true, then you can make this quirk permanent by add this option to GRUB:
+After reconnecting, verify that the controller remains in its initial mode instead of falling back to Android mode. For
+the Switch variant, lsusb should report `{{ic|057e:2009}}`{=mediawiki}. For the Xbox variant, it should report
+`{{ic|045e:028e}}`{=mediawiki}. If that\'s true, then you can make this quirk permanent by add this option to GRUB:
 
 ```{=mediawiki}
 {{ic|1=usbcore.quirks="057e:2009:ik"}}
@@ -1022,6 +1038,11 @@ that\'s true, then you can make this quirk permanent by add this option to GRUB:
 along with (optionally) `{{ic|1=usbhid.quirks="0x057e:0x2009:0x400"}}`{=mediawiki} which stops the pointless blinking of
 LEDs when the gamepad is unused.
 
+For ShanWan variants that initially enumerate as an Xbox 360 Controller instead, use:
+
+```{=mediawiki}
+{{ic|1=usbcore.quirks="045e:028e:gi"}}
+```
 Now that your gamepad is in Switch mode, you will run into a problem of SDL2 deciding to become a user-space driver (for
 this it uses `{{Pkg|libusb}}`{=mediawiki}, just like *xboxdrv*), which causes any SDL2 game to claim the whole gamepad
 (that is: `{{ic|/dev/input/*}}`{=mediawiki} and `{{ic|/dev/hidraw*}}`{=mediawiki} disappear, yet it is still possible to

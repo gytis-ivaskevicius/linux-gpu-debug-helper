@@ -232,7 +232,7 @@ without a port specified.
 
 Most Minecraft server providers will charge a premium for a server with the default minecraft port, therefore if your
 port differs from `{{ic|25565}}`{=mediawiki} you must specify the port by appending a colon (**:**) to the end of the
-hostname or address followed by the port which was allocated to your server, for example if you address was
+hostname or address followed by the port which was allocated to your server, for example if your address was
 `{{ic|43.12.122.96}}`{=mediawiki} and port was `{{ic|28543}}`{=mediawiki} you would connect to
 `{{ic|43.12.122.96:28543}}`{=mediawiki}.
 

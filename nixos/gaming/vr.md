@@ -276,6 +276,23 @@ link to this modified bwrap binary, found at
 Steam will periodically replace this modification with its own binary when steam-runtime updates, so you may need to
 re-apply this change if it breaks.
 
+### Setting SteamVR as default OpenXR runtime {#setting_steamvr_as_default_openxr_runtime}
+
+To set SteamVR as the default OpenXR runtime, you have to add the following snippet to your Home Manager config:
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|3=xdg.configFile."openxr/1/active_runtime.json".text = ''
+  {
+     "file_format_version": "1.0.0",
+      "runtime": {
+      "VALVE_runtime_is_steamvr": true,
+      "library_path": "${config.home.homeDirectory}/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrclient.so",
+      "name": "SteamVR"
+      }
+  }
+  '';
+}}
+```
 ## wlx-overlay-s {#wlx_overlay_s}
 
 [wlx-overlay-s](https://github.com/galister/wlx-overlay-s) is a lightweight OpenXR/OpenVR overlay for Wayland and X11

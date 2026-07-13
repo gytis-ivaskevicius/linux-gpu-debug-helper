@@ -39,6 +39,19 @@ Manager](<tvar_name="1">Special:MyLanguage/Home_Manager</tvar> "wikilink") can b
 
 `</translate>`{=html} `{{file|~/.config/home-manager/home.nix|nix|3=
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
+}}`{=mediawiki} `<translate>`{=html} If you want to validate your configuration as part of the build process you can use
+`{{ic|pkgs.runCommand}}`{=mediawiki} like this:
+
+`</translate>`{=html} `{{file|~/.config/home-manager/home.nix|nix|3=
+xdg.configFile."niri/config.kdl".source =
+  pkgs.runCommand "niri-config-checked"
+    {
+      nativeBuildInputs = [ pkgs.niri ];
+    }
+    ''
+      niri validate --config ${./config.kdl}
+      cp ${./config.kdl} $out
+    '';
 }}`{=mediawiki} `<translate>`{=html}
 
 You might want to start from
