@@ -6,12 +6,15 @@
 
 ## Installation
 
+```{=mediawiki}
+{{Expansion|If the user should install multiple backends, how are they to determine which one to use?}}
+```
 [Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki} and one of the following backends:
 
 -   ```{=mediawiki}
-    {{Pkg|ggml-vulkan}}
+    {{Pkg|ggml}}
     ```
-    for inference with [Vulkan](Vulkan "wikilink").
+    and `{{Pkg|vulkan-icd-loader}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
 
 -   ```{=mediawiki}
     {{Pkg|ggml}}
@@ -19,22 +22,23 @@
     and `{{Pkg|cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
 
 -   ```{=mediawiki}
-    {{Pkg|ggml-rocm}}
+    {{Pkg|ggml}}
     ```
-    for inference with [ROCm](ROCm "wikilink").
+    and `{{Pkg|hipblas}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|ggml}}
+    ```
+    and `{{Pkg|openblas}}`{=mediawiki} for inference with [OpenBLAS](Wikipedia:OpenBLAS "wikilink").
 
 -   ```{=mediawiki}
     {{Pkg|ggml-sycl}}
     ```
     for inference with [SYCL](SYCL "wikilink").
 
--   ```{=mediawiki}
-    {{Pkg|ggml-cpu}}
-    ```
-    for inference without acceleration.
-
-Alternatively, follow the instructions on [llama.app](https://llama.app).
-
+```{=mediawiki}
+{{Note|For inference with [[Vulkan]], ensure you also have the appropriate Vulkan driver installed.}}
+```
 ## Usage
 
 Primary executables are `{{ic|llama-cli}}`{=mediawiki} and `{{ic|llama-server}}`{=mediawiki}.

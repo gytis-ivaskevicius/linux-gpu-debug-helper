@@ -196,7 +196,8 @@ interface located at `{{ic|/sys/kernel/debug/dri/*/pstate}}`{=mediawiki}.
 ```{=mediawiki}
 {{Note|As [https://gitlab.freedesktop.org/mesa/mesa/-/issues/10933#note_2357592 upstream explained], this debugfs interface is not available on Turing and later cards, but only for Kepler and earlier.}}
 ```
-For example, to check the available power states and the current setting for the first card in your system, run:
+For example, to check the available power states and the current setting (shown as the last line) for the first card in
+your system, run:
 
 `# cat /sys/kernel/debug/dri/0/pstate`
 

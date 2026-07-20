@@ -153,16 +153,24 @@ driver, and are not compatible with new-lg4ff.
 
 ## Wheel specific configuration {#wheel_specific_configuration}
 
-### Logitech G923 Xbox Edition {#logitech_g923_xbox_edition}
+### Logitech G923 {#logitech_g923}
 
 This racing wheel requires signals to be sent to change its usb mode every time it is plugged in. To accomplish this:
 
 -   Install `{{Pkg|usb_modeswitch}}`{=mediawiki}
--   When the wheel is plugged in run:
+-   Install udev rules:
 
-`# usb_modeswitch -v 046d -p c26d -M 0f00010142 -C 0x03 -m 01 -r 81`
+```{=mediawiki}
+{{hc|# /etc/udev/rules.d/90-logitech.rules|<nowiki>
+# Logitech G923 Xbox/PC edition 
+ATTR{idVendor}=="046d", ATTR{idProduct}=="c26d", RUN+="/usr/sbin/usb_modeswitch -v 046d -p c26d -M 0f00010142 -m 01 -r 81"
 
-The wheel will then reset itself to the centered position and be available as a racing wheel in games.
+# Logitech G923 PS/PC edition
+ATTR{idVendor}=="046d", ATTR{idProduct}=="c267", RUN+="/usr/sbin/usb_modeswitch -v 046d -p c267 -M 30f8090701010000 -m 03 -r 03"
+</nowiki>}}
+```
+After [reloading udev rules](udev#Loading_new_rules "wikilink") the wheel will then reset itself to the centered
+position and be available as a racing wheel in games.
 
 ## Games
 

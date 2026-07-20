@@ -22,9 +22,10 @@ a customizable experience through a rich ecosystem of add-ons and themes.
 
 `</translate>`{=html}
 
-```{=mediawiki}
-{{code|lang=bash|line=no|1=$ nix-shell -p firefox}}
+``` console
+$ nix-shell -p firefox
 ```
+
 `<translate>`{=html} The command above makes `firefox` available in your current shell without modifying any
 configuration files.
 
@@ -301,9 +302,10 @@ programs.firefox.package = pkgs.latest.firefox-nightly-bin;
 ```
 `<translate>`{=html} Using this method requires the `--impure` flag for Nix commands, for example: `</translate>`{=html}
 
-```{=mediawiki}
-{{code|lang=bash|line=no|1=$ nixos-rebuild switch --impure}}
+``` console
+$ nixos-rebuild switch --impure
 ```
+
 `<translate>`{=html}
 
 ## Tips and Tricks {#tips_and_tricks}

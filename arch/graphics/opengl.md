@@ -22,8 +22,9 @@ hardware (either GPUs or CPUs).
 ```{=mediawiki}
 {{Note|
 * Intel's Gen''N'' hardware does not refer to the generation of the CPU, it refers to the [[Wikipedia:List of Intel graphics processing units|generation of the GPU]], which is different from the generation of the CPU.
-* To find the family of an AMD (and ATI) GPU, check [[Wikipedia:List of AMD graphics processing units#Features overview]]
-* To find the code-name of an NVIDIA GPU, check the [https://nouveau.freedesktop.org/CodeNames.html code-name list from the Nouveau project]}}
+* To find the family of an AMD (and ATI) GPU, check [[Wikipedia:List of AMD graphics processing units#Features overview]].
+* To find the code-name of an NVIDIA GPU, check the [https://nouveau.freedesktop.org/CodeNames.html code-name list from the Nouveau project].
+* Unlike the community repositories of ''Fedora Linux'', ''Arch Linux'' does not distribute "freeworld" variants for video and audio [[Codecs and containers|codecs]] protected by patents; the standard packages are compiled with all relevant codecs, like the "freeworld" ones from ''Fedora''.}}
 ```
 [Mesa](https://mesa3d.org/) is an open-source OpenGL implementation, continually updated to support the latest OpenGL
 specification. It has a collection of open-source drivers for [Intel graphics](Intel_graphics "wikilink"),

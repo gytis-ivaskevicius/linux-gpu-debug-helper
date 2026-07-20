@@ -33,7 +33,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|higan|Multisystem emulator focusing on accuracy, supporting SNES, NES, GB, GBC, GBA.|https://higan-emu.com/{{Dead link|2025|08|16|status=domain name not resolved}}|{{AUR|higan-git}}}}
+    {{App|higan|Multisystem emulator focusing on accuracy, supporting SNES, NES, GB, GBC, GBA.|https://github.com/higan-emu/higan|{{AUR|higan-git}}}}
     ```
 
 -   ```{=mediawiki}

@@ -1,8 +1,9 @@
-[ja:画像処理装置](ja:画像処理装置 "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA}}`{=mediawiki}
-`{{Related|AMDGPU}}`{=mediawiki} `{{Related|Intel}}`{=mediawiki} `{{Related|Wayland}}`{=mediawiki}
-`{{Related|Xorg}}`{=mediawiki} `{{Related|OpenGL}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
-`{{Related|Hardware video acceleration}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[ja:画像処理装置](ja:画像処理装置 "wikilink") [zh-hans:Graphics processing
+unit](zh-hans:Graphics_processing_unit "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|NVIDIA}}`{=mediawiki} `{{Related|AMDGPU}}`{=mediawiki} `{{Related|Intel}}`{=mediawiki}
+`{{Related|Wayland}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|OpenGL}}`{=mediawiki}
+`{{Related|Vulkan}}`{=mediawiki} `{{Related|Hardware video acceleration}}`{=mediawiki}
+`{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 A [graphics processing unit](Wikipedia:Graphics_processing_unit "wikilink") (GPU) is the hardware in your computer that
 generates the video feed that appears on your display. They are present in two device types: [Integrated Graphics
@@ -47,52 +48,42 @@ AMD supports the open source driver. A proprietary driver was provided before bu
 See [Hardware video acceleration#Comparison tables](Hardware_video_acceleration#Comparison_tables "wikilink") for
 details on [VA-API](VA-API "wikilink") support per GPU family.
 
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     | VA-API         |
-+================+================+================+================+================+================+================+
-| [AMDGPU](AMDG  | GCN 3 and      | Included in    | `              | `              | `              | `              |
-| PU "wikilink") | later (e.g.    | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
-|                | RDNA 1-4)      | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|v        | {{Pkg|xf86-    | {{Pkg|mesa}}   |
-|                |                |                | ```            | ulkan-radeon}} | video-amdgpu}} | ```            |
-|                |                |                |                | ```            | ```            |                |
-|                |                |                |                |                | ^2^            |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| [A             | GCN 1&2        |                |                | Depends on the |                |                |
-| MDGPU](AMDGPU  |                |                |                | chosen driver  |                |                |
-| "wikilink")^1^ |                |                |                |                |                |                |
-| /              |                |                |                |                |                |                |
-| [ATI](A        |                |                |                |                |                |                |
-| TI "wikilink") |                |                |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| [ATI](A        | TeraScale 1-3  |                |                | None           | `              |                |
-| TI "wikilink") |                |                |                |                | ``{=mediawiki} |                |
-|                |                |                |                |                | {{Pkg|xf       |                |
-|                |                |                |                |                | 86-video-ati}} |                |
-|                |                |                |                |                | ```            |                |
-|                |                |                |                |                | ^2^            |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | R300 through   |                |                |                |                | None           |
-|                | R500           |                |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | R100 & R200    |                | `              |                |                |                |
-|                |                |                | ``{=mediawiki} |                |                |                |
-|                |                |                | {{Pk           |                |                |                |
-|                |                |                | g|mesa-amber}} |                |                |                |
-|                |                |                | ```            |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Rage 4 and     | Not available  |                |                |                |                |
-|                | older          | [3](h          |                |                |                |                |
-|                |                | ttps://www.x.o |                |                |                |                |
-|                |                | rg/wiki/Radeon |                |                |                |                |
-|                |                | Feature/)[4](h |                |                |                |                |
-|                |                | ttps://www.pho |                |                |                |                |
-|                |                | ronix.com/news |                |                |                |                |
-|                |                | /Linux-6.3-Dro |                |                |                |                |
-|                |                | pping-Old-DRM) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
++------------------+------------------+------------------+------------------+------------------+-----------------+
+| Documentation    | GPU family       | DRM driver       | OpenGL           | Vulkan           | VA-API          |
++==================+==================+==================+==================+==================+=================+
+| [AMDGPU](AM      | GCN 3 and later  | Included in      | ```{=mediawiki}  | ```{=mediawiki}  | ```{=mediawiki} |
+| DGPU "wikilink") | (e.g. RDNA 1-4)  | [Linux](L        | {{Pkg|mesa}}     | {{Pkg            | {{Pkg|mesa}}    |
+|                  |                  | inux "wikilink") | ```              | |vulkan-radeon}} | ```             |
+|                  |                  |                  |                  | ```              |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
+| [AMDGPU](AMDGP   | GCN 1&2          |                  |                  | Depends on the   |                 |
+| U "wikilink")^1^ |                  |                  |                  | chosen driver    |                 |
+| /                |                  |                  |                  |                  |                 |
+| [ATI]            |                  |                  |                  |                  |                 |
+| (ATI "wikilink") |                  |                  |                  |                  |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
+| [ATI]            | TeraScale 1-3    |                  |                  | None             |                 |
+| (ATI "wikilink") |                  |                  |                  |                  |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
+|                  | R300 through     |                  |                  |                  | None            |
+|                  | R500             |                  |                  |                  |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
+|                  | R100 & R200      |                  | ```{=mediawiki}  |                  |                 |
+|                  |                  |                  | {{               |                  |                 |
+|                  |                  |                  | Pkg|mesa-amber}} |                  |                 |
+|                  |                  |                  | ```              |                  |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
+|                  | Rage 4 and older | Not available    |                  |                  |                 |
+|                  |                  | [3](htt          |                  |                  |                 |
+|                  |                  | ps://www.x.org/w |                  |                  |                 |
+|                  |                  | iki/RadeonFeatur |                  |                  |                 |
+|                  |                  | e/)[4](https://w |                  |                  |                 |
+|                  |                  | ww.phoronix.com/ |                  |                  |                 |
+|                  |                  | news/Linux-6.3-D |                  |                  |                 |
+|                  |                  | ropping-Old-DRM) |                  |                  |                 |
++------------------+------------------+------------------+------------------+------------------+-----------------+
 
-1.  Enabled by default since `{{Pkg|linux}}`{=mediawiki}≥6.19, can be manually chosen otherwise
-2.  Using the modesetting driver is reported to work without issues
+1.  Enabled by default since `{{Pkg|linux}}`{=mediawiki}≥6.19, can be manually chosen otherwise.
 
 ### Intel
 
@@ -105,57 +96,50 @@ supported.
 See [Hardware video acceleration#Comparison tables](Hardware_video_acceleration#Comparison_tables "wikilink") for more
 details on [VA-API](VA-API "wikilink") support per GPU family, only the packages are listed below.
 
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     | VA-API         |
-+================+================+================+================+================+================+================+
-| [Intel         | Gen 12.1 and   | Included in    | `              | `              | *m             | `              |
-| graphics       | later          | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | odesetting*^2^ | ``{=mediawiki} |
-| ](Intel_graphi |                | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|         |                | {{pkg|intel-   |
-| cs "wikilink") |                |                | ```            | vulkan-intel}} |                | media-driver}} |
-|                |                |                |                | ```            |                | ```            |
-|                |                |                |                | ^1^            |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 8 through  |                |                |                |                | `              |
-|                | 11             |                |                |                |                | ``{=mediawiki} |
-|                |                |                |                |                |                | {{pkg|intel-   |
-|                |                |                |                |                |                | media-driver}} |
-|                |                |                |                |                |                | ```            |
-|                |                |                |                |                |                | \              |
-|                |                |                |                |                |                | or legacy      |
-|                |                |                |                |                |                | `{{pkg|libva   |
-|                |                |                |                |                |                | -intel-driver} |
-|                |                |                |                |                |                | }`{=mediawiki} |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 7 & 7.5    |                |                |                |                | `              |
-|                |                |                |                |                |                | ``{=mediawiki} |
-|                |                |                |                |                |                | {{pkg|libva-   |
-|                |                |                |                |                |                | intel-driver}} |
-|                |                |                |                |                |                | ```            |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 5 & 6      |                |                | None           |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 3 through  |                |                |                |                | None           |
-|                | 4.5            |                |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 2          |                | `              |                | `              |                |
-|                |                |                | ``{=mediawiki} |                | ``{=mediawiki} |                |
-|                |                |                | {{Pk           |                | {{Pkg|xf86     |                |
-|                |                |                | g|mesa-amber}} |                | -video-intel}} |                |
-|                |                |                | ```            |                | ```            |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                | Gen 1          | Not available  |                |                |                |                |
-|                |                | [5](h          |                |                |                |                |
-|                |                | ttps://www.pho |                |                |                |                |
-|                |                | ronix.com/news |                |                |                |                |
-|                |                | /Linux-6.3-Dro |                |                |                |                |
-|                |                | pping-Old-DRM) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
++------------------+------------------+------------------+------------------+------------------+------------------+
+| Documentation    | GPU family       | DRM driver       | OpenGL           | Vulkan           | VA-API           |
++==================+==================+==================+==================+==================+==================+
+| [Intel           | Gen 12.1 and     | Included in      | ```{=mediawiki}  | ```{=mediawiki}  | ```{=mediawiki}  |
+| grap             | later            | [Linux](L        | {{Pkg|mesa}}     | {{Pk             | {{pkg|inte       |
+| hics](Intel_grap |                  | inux "wikilink") | ```              | g|vulkan-intel}} | l-media-driver}} |
+| hics "wikilink") |                  |                  |                  | ```              | ```              |
+|                  |                  |                  |                  | ^1^              |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 8 through 11 |                  |                  |                  | ```{=mediawiki}  |
+|                  |                  |                  |                  |                  | {{pkg|inte       |
+|                  |                  |                  |                  |                  | l-media-driver}} |
+|                  |                  |                  |                  |                  | ```              |
+|                  |                  |                  |                  |                  | \                |
+|                  |                  |                  |                  |                  | or legacy        |
+|                  |                  |                  |                  |                  | `{{pkg|l         |
+|                  |                  |                  |                  |                  | ibva-intel-drive |
+|                  |                  |                  |                  |                  | r}}`{=mediawiki} |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 7 & 7.5      |                  |                  |                  | ```{=mediawiki}  |
+|                  |                  |                  |                  |                  | {{pkg|libv       |
+|                  |                  |                  |                  |                  | a-intel-driver}} |
+|                  |                  |                  |                  |                  | ```              |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 5 & 6        |                  |                  | None             |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 3 through    |                  |                  |                  | None             |
+|                  | 4.5              |                  |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 2            |                  | ```{=mediawiki}  |                  |                  |
+|                  |                  |                  | {{               |                  |                  |
+|                  |                  |                  | Pkg|mesa-amber}} |                  |                  |
+|                  |                  |                  | ```              |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  | Gen 1            | Not available    |                  |                  |                  |
+|                  |                  | [5](https://w    |                  |                  |                  |
+|                  |                  | ww.phoronix.com/ |                  |                  |                  |
+|                  |                  | news/Linux-6.3-D |                  |                  |                  |
+|                  |                  | ropping-Old-DRM) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
 
 1.  Gen 7 and 7.5 have [incomplete
     support](https://gitlab.freedesktop.org/mesa/mesa/-/blob/d067d6e16335c5f2697f14f396c9f62fee649fdc/src/intel/vulkan_hasvk/anv_device.c#L1614),
     Gen 8 is limited to Vulkan 1.3.
-2.  The *modesetting* DDX driver is recommended for Gen 3 hardware and later. See [Intel
-    graphics#Installation](Intel_graphics#Installation "wikilink") for details.
 
 ### NVIDIA
 
@@ -169,101 +153,93 @@ See [Hardware video acceleration#NVIDIA](Hardware_video_acceleration#NVIDIA "wik
 supported, and [Hardware video acceleration#VDPAU drivers](Hardware_video_acceleration#VDPAU_drivers "wikilink") for
 details per GPU family.
 
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| License        | Documentation  | GPU family     | DRM driver     | OpenGL         | Vulkan         | DDX driver     |
-+================+================+================+================+================+================+================+
-| Open           | [Nou           | [Kepler        | Included in    | `              | `              | `              |
-|                | veau](Nouveau  | (NVE0/GKXX     | [Linux](Lin    | ``{=mediawiki} | ``{=mediawiki} | ``{=mediawiki} |
-|                | "wikilink")^1^ | X)](https://no | ux "wikilink") | {{Pkg|mesa}}   | {{Pkg|vu       | {{Pkg|xf86-v   |
-|                |                | uveau.freedesk |                | ```            | lkan-nouveau}} | ideo-nouveau}} |
-|                |                | top.org/CodeNa |                |                | ```            | ```            |
-|                |                | mes.html#NVE0) |                |                |                | ^2^            |
-|                |                | and newer      |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Rankine       |                |                | None           |                |
-|                |                | (NV3           |                |                |                |                |
-|                |                | 0)](https://no |                |                |                |                |
-|                |                | uveau.freedesk |                |                |                |                |
-|                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NV30) |                |                |                |                |
-|                |                | through [Fermi |                |                |                |                |
-|                |                | (NVC0/GF1X     |                |                |                |                |
-|                |                | X)](https://no |                |                |                |                |
-|                |                | uveau.freedesk |                |                |                |                |
-|                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NVC0) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Fahrenheit    |                | `              |                |                |
-|                |                | (NV04/0        |                | ``{=mediawiki} |                |                |
-|                |                | 5)](https://no |                | {{Pk           |                |                |
-|                |                | uveau.freedesk |                | g|mesa-amber}} |                |                |
-|                |                | top.org/CodeNa |                | ```            |                |                |
-|                |                | mes.html#NV04) |                |                |                |                |
-|                |                | through        |                |                |                |                |
-|                |                | [Kelvin        |                |                |                |                |
-|                |                | (NV2           |                |                |                |                |
-|                |                | 0)](https://no |                |                |                |                |
-|                |                | uveau.freedesk |                |                |                |                |
-|                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NV20) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| Open DRM       | [N             | [Turing        | `              | `              |                |                |
-| driver,        | VIDIA](NVIDIA  | (NV160/TUXXX   | ``{=mediawiki} | ``{=mediawiki} |                |                |
-| proprietary    | "wikilink")^1^ | )](https://nou | {{Pkg          | {{Pkg|         |                |                |
-| userland       |                | veau.freedeskt | |nvidia-open}} | nvidia-utils}} |                |                |
-|                |                | op.org/CodeNam | ```            | ```            |                |                |
-|                |                | es.html#NV160) |                |                |                |                |
-|                |                | and newer      |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-| Proprietary    |                | [Maxwell       | `              | `              |                |                |
-|                |                | (NV110/GMXXX   | ``{=mediawiki} | ``{=mediawiki} |                |                |
-|                |                | )](https://nou | {{AUR|nvidi    | {{AUR|nvidia   |                |                |
-|                |                | veau.freedeskt | a-580xx-dkms}} | -580xx-utils}} |                |                |
-|                |                | op.org/CodeNam | ```            | ```            |                |                |
-|                |                | es.html#NV110) |                |                |                |                |
-|                |                | through\       |                |                |                |                |
-|                |                | [Ada Lovelace  |                |                |                |                |
-|                |                | (NV190/ADXXX   |                |                |                |                |
-|                |                | )](https://nou |                |                |                |                |
-|                |                | veau.freedeskt |                |                |                |                |
-|                |                | op.org/CodeNam |                |                |                |                |
-|                |                | es.html#NV190) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Kepler        | `              | `              |                |                |
-|                |                | (NVE0/GKXX     | ``{=mediawiki} | ``{=mediawiki} |                |                |
-|                |                | X)](https://no | {{AUR|nvidi    | {{AUR|nvidia   |                |                |
-|                |                | uveau.freedesk | a-470xx-dkms}} | -470xx-utils}} |                |                |
-|                |                | top.org/CodeNa | ```            | ```            |                |                |
-|                |                | mes.html#NVE0) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Fermi         | `              | `              | None           | `              |
-|                |                | (NVC0/GF1X     | ``{=mediawiki} | ``{=mediawiki} |                | ``{=mediawiki} |
-|                |                | X)](https://no | {{AUR|nvidi    | {{AUR|nvidia   |                | {{AUR|nvidia   |
-|                |                | uveau.freedesk | a-390xx-dkms}} | -390xx-utils}} |                | -390xx-utils}} |
-|                |                | top.org/CodeNa | ```            | ```            |                | ```            |
-|                |                | mes.html#NVC0) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Tesla         | `              | `              |                | `              |
-|                |                | (NV            | ``{=mediawiki} | ``{=mediawiki} |                | ``{=mediawiki} |
-|                |                | 50/G80-90-GT2X | {{AUR|nvidi    | {{AUR|nvidia   |                | {{AUR|nvidia   |
-|                |                | X)](https://no | a-340xx-dkms}} | -340xx-utils}} |                | -340xx-utils}} |
-|                |                | uveau.freedesk | ```            | ```            |                | ```            |
-|                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NV50) |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
-|                |                | [Curie         | No longer      |                |                |                |
-|                |                | (NV40/G7       | packaged       |                |                |                |
-|                |                | 0)](https://no |                |                |                |                |
-|                |                | uveau.freedesk |                |                |                |                |
-|                |                | top.org/CodeNa |                |                |                |                |
-|                |                | mes.html#NV40) |                |                |                |                |
-|                |                | and older      |                |                |                |                |
-+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
++------------------+------------------+------------------+------------------+------------------+------------------+
+| License          | Documentation    | GPU family       | DRM driver       | OpenGL           | Vulkan           |
++==================+==================+==================+==================+==================+==================+
+| Open             | [Nouveau](Nouvea | [Kepler          | Included in      | ```{=mediawiki}  | ```{=mediawiki}  |
+|                  | u "wikilink")^1^ | (N               | [Linux](L        | {{Pkg|mesa}}     | {{Pkg|           |
+|                  |                  | VE0/GKXXX)](http | inux "wikilink") | ```              | vulkan-nouveau}} |
+|                  |                  | s://nouveau.free |                  |                  | ```              |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NVE0) |                  |                  |                  |
+|                  |                  | and newer        |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Rankine         |                  |                  | None             |
+|                  |                  | (NV30)](http     |                  |                  |                  |
+|                  |                  | s://nouveau.free |                  |                  |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NV30) |                  |                  |                  |
+|                  |                  | through [Fermi   |                  |                  |                  |
+|                  |                  | (N               |                  |                  |                  |
+|                  |                  | VC0/GF1XX)](http |                  |                  |                  |
+|                  |                  | s://nouveau.free |                  |                  |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NVC0) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Fahrenheit      |                  | ```{=mediawiki}  |                  |
+|                  |                  | (NV04/05)](http  |                  | {{               |                  |
+|                  |                  | s://nouveau.free |                  | Pkg|mesa-amber}} |                  |
+|                  |                  | desktop.org/Code |                  | ```              |                  |
+|                  |                  | Names.html#NV04) |                  |                  |                  |
+|                  |                  | through [Kelvin  |                  |                  |                  |
+|                  |                  | (NV20)](http     |                  |                  |                  |
+|                  |                  | s://nouveau.free |                  |                  |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NV20) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+| Open DRM driver, | [NVIDIA](NVIDI   | [Turing          | ```{=mediawiki}  | ```{=mediawiki}  |                  |
+| proprietary      | A "wikilink")^1^ | (NV1             | {{P              | {{Pk             |                  |
+| userland         |                  | 60/TUXXX)](https | kg|nvidia-open}} | g|nvidia-utils}} |                  |
+|                  |                  | ://nouveau.freed | ```              | ```              |                  |
+|                  |                  | esktop.org/CodeN |                  |                  |                  |
+|                  |                  | ames.html#NV160) |                  |                  |                  |
+|                  |                  | and newer        |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+| Proprietary      |                  | [Maxwell         | ```{=mediawiki}  | ```{=mediawiki}  |                  |
+|                  |                  | (NV1             | {{AUR|nvi        | {{AUR|nvid       |                  |
+|                  |                  | 10/GMXXX)](https | dia-580xx-dkms}} | ia-580xx-utils}} |                  |
+|                  |                  | ://nouveau.freed | ```              | ```              |                  |
+|                  |                  | esktop.org/CodeN |                  |                  |                  |
+|                  |                  | ames.html#NV110) |                  |                  |                  |
+|                  |                  | through\         |                  |                  |                  |
+|                  |                  | [Ada Lovelace    |                  |                  |                  |
+|                  |                  | (NV1             |                  |                  |                  |
+|                  |                  | 90/ADXXX)](https |                  |                  |                  |
+|                  |                  | ://nouveau.freed |                  |                  |                  |
+|                  |                  | esktop.org/CodeN |                  |                  |                  |
+|                  |                  | ames.html#NV190) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Kepler          | ```{=mediawiki}  | ```{=mediawiki}  |                  |
+|                  |                  | (N               | {{AUR|nvi        | {{AUR|nvid       |                  |
+|                  |                  | VE0/GKXXX)](http | dia-470xx-dkms}} | ia-470xx-utils}} |                  |
+|                  |                  | s://nouveau.free | ```              | ```              |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NVE0) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Fermi           | ```{=mediawiki}  | ```{=mediawiki}  | None             |
+|                  |                  | (N               | {{AUR|nvi        | {{AUR|nvid       |                  |
+|                  |                  | VC0/GF1XX)](http | dia-390xx-dkms}} | ia-390xx-utils}} |                  |
+|                  |                  | s://nouveau.free | ```              | ```              |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NVC0) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Tesla           | ```{=mediawiki}  | ```{=mediawiki}  |                  |
+|                  |                  | (NV50/G80        | {{AUR|nvi        | {{AUR|nvid       |                  |
+|                  |                  | -90-GT2XX)](http | dia-340xx-dkms}} | ia-340xx-utils}} |                  |
+|                  |                  | s://nouveau.free | ```              | ```              |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NV50) |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
+|                  |                  | [Curie           | No longer        |                  |                  |
+|                  |                  | (NV40/G70)](http | packaged         |                  |                  |
+|                  |                  | s://nouveau.free |                  |                  |                  |
+|                  |                  | desktop.org/Code |                  |                  |                  |
+|                  |                  | Names.html#NV40) |                  |                  |                  |
+|                  |                  | and older        |                  |                  |                  |
++------------------+------------------+------------------+------------------+------------------+------------------+
 
 1.  For NVIDIA Optimus enabled laptop which uses an integrated video card combined with a dedicated GPU, see [NVIDIA
     Optimus](NVIDIA_Optimus "wikilink").
-2.  The *modesetting* DDX driver is recommended for [NV50 (G80)](https://nouveau.freedesktop.org/CodeNames.html#NV50)
-    and newer. See [Nouveau#Installation](Nouveau#Installation "wikilink") for details.
 
 ## Loading
 

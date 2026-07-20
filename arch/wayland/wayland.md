@@ -21,6 +21,9 @@ which provides an X Server in Wayland.
 
 ## Requirements
 
+```{=mediawiki}
+{{Expansion|GNOME 51 should release around mid-September, this section should be reworked as EGLStreams won't be relevant any more: simply stating that for NVIDIA users if their hardware is not supported they have to pick between Wayland/nouveau or Xorg/nvidia.}}
+```
 Wayland is just the protocol, unlike [Xorg](Xorg "wikilink") it does not have a common \"display server\" to install. To
 use it, you only need a compatible display driver (this section) and a compositor (next section) or [desktop
 environment](desktop_environment "wikilink") (e.g. [GNOME](GNOME "wikilink") or [Plasma](Plasma "wikilink")) that
@@ -80,7 +83,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|wayfire|3D compositor inspired by [[Compiz]] and based on wlroots.|https://wayfire.org/|{{Pkg|wayfire}}}}
+    {{App|[[wayfire]]|3D compositor inspired by [[Compiz]] and based on wlroots.|https://wayfire.org/|{{Pkg|wayfire}}}}
     ```
 
 -   ```{=mediawiki}

@@ -231,5 +231,79 @@ Adding Brave Browser support to Profile Sync daemon can be automated with an ove
 }
 ```
 
+## Getting fonts to work in containers {#getting_fonts_to_work_in_containers}
+
+When building a container using
+`{{Nixpkgs Manual|name=dockerTools.streamLayeredImage|anchor=#ssec-pkgs-dockerTools-streamLayeredImage}}`{=mediawiki} or
+`{{Nixpkgs Manual|name=dockerTools.buildLayeredImage|anchor=#ssec-pkgs-dockerTools-buildLayeredImage}}`{=mediawiki}, the
+image won\'t include any fonts, and so Chrome won\'t be able to render any text. To handle this, you must add
+`{{nixos:package|fontconfig}}`{=mediawiki} to the image, along with the fonts you want included.
+
+Adding fonts to your image will only add them at `{{ic|/share/fonts}}`{=mediawiki}, but fontconfig expects them at
+`{{ic|/usr/share/fonts}}`{=mediawiki}, so you just link the fonts to that directory:
+
+``` nix
+{
+  dockerTools,
+  chromium,
+  fontconfig,
+  maple-mono,
+  bashNonInteractive,
+  ...
+}:
+
+dockerTools.streamLayeredImage {
+  name = "chromium";
+  tag = "latest";
+  contents = [
+    chromium
+    fontconfig.out # The default .bin output only contains binaries
+    
+    # Fontconfig already contains a minimal set of DejaVu fonts, adding extra
+    # fonts is optional
+    maple-mono.NF
+  ];
+  # This part is only necessary if you're adding extra fonts
+  fakeRootCommands = ''
+    #!${bashNonInteractive}
+    mkdir -p usr/share
+    ln -s /share/fonts usr/share/fonts
+  '';
+} 
+```
+
+Chrome will then be able to discover the DejaVu and Maple Mono NF fonts through fontconfig.
+
+If you instead want to use fonts from the `{{nixos:package|texlivePackages}}`{=mediawiki} package set, you\'ll need to
+symlink the `{{ic|/fonts}}`{=mediawiki} directory instead of `{{ic|/share/fonts}}`{=mediawiki} as the texlive packages
+have a different structure:
+
+``` nix
+{
+  dockerTools,
+  chromium,
+  fontconfig,
+  texlivePackages,
+  bashNonInteractive,
+  ...
+}:
+
+dockerTools.streamLayeredImage {
+  name = "chromium";
+  tag = "latest";
+  contents = [
+    chromium
+    fontconfig.out
+
+    texlivePackages.opensans
+  ];
+  fakeRootCommands = ''
+    #!${bashNonInteractive}
+    mkdir -p usr/share
+    ln -s /fonts usr/share/fonts
+  '';
+} 
+```
+
 [Category:Applications](Category:Applications "wikilink") [Category:Web
 Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "wikilink")

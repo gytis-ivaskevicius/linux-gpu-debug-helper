@@ -22,9 +22,7 @@ most users would prefer to use a client for interoperability with their system.
 Nixpkgs provides all three of Discord\'s release channels, accessible as `pkgs.discord`, `pkgs.discord-ptb`, and
 `pkgs.discord-canary` respectively. Add any of the previous derivations to your package\'s configuration. For
 [NixOS](NixOS "wikilink") this will be in `environment.systemPackages` or `users.users.``<name>`{=html}`.packages`.
-
-``` nixos
-# configuration.nix
+`{{file|configuration.nix|nix|3=
 { config, lib, pkgs, ... }: {
   # This will install Discord PTB for all users of the system
   environment.systemPackages = with pkgs; [
@@ -36,7 +34,7 @@ Nixpkgs provides all three of Discord\'s release channels, accessible as `pkgs.d
     discord-ptb
   ];
 }
-```
+}}`{=mediawiki}
 
 ### Unofficial Clients {#unofficial_clients}
 
@@ -62,7 +60,7 @@ Lightweight, alternative desktop client with built-in modding extensibility. Nix
 Enhances Discord desktop app with new features. Nixpkgs provides the installer via `pkgs.betterdiscordctl`. This can be
 added to your configuration, though users may prefer to instead run it one-off via the [Nix](Nix "wikilink") cli.
 
-``` bash
+``` console
 $ nix-shell -p betterdiscordctl --command 'betterdiscordctl install' # nix-legacy
 $ nix run nixpkgs#betterdiscordctl -- install # nix3
 
@@ -235,7 +233,9 @@ in
 ```
 After adding this to your Nix configuration and rebuilding, make sure Discord is completely closed, and then run:
 
-    $ krisp-patcher ~/.config/discord/0.0.76/modules/discord_krisp/discord_krisp.node
+``` console
+$ krisp-patcher ~/.config/discord/0.0.76/modules/discord_krisp/discord_krisp.node
+```
 
 Once you restart Discord and join a VC, you should see a sound wave icon to the left of the hangup icon.
 
@@ -268,11 +268,11 @@ Add the following to your Home Manager configuration
 
 ``` nixos
 {pkgs, ...}:{
-    services.arrpc = {
-        enable = true;
-        package = pkgs.arrpc; #Default
-        systemdTarget = "graphical-session.target"; #Default
-    };
+  services.arrpc = {
+    enable = true;
+    package = pkgs.arrpc; # Default
+    systemdTarget = "graphical-session.target"; # Default
+  };
 }
 ```
 
@@ -280,11 +280,11 @@ Add the following to your Home Manager configuration
 
 [^1]: <https://github.com/Legcord/Legcord>
 
-[^2]: <https://betterdiscord.app/>
+[^2]: <https://github.com/BetterDiscord/BetterDiscord>
 
 [^3]: <https://github.com/GooseMod/OpenAsar>
 
-[^4]: <https://vencord.dev/>
+[^4]: <https://github.com/Vendicated/Vencord>
 
 [^5]: <https://github.com/Vencord/Vesktop>
 

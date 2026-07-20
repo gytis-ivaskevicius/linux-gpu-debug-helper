@@ -35,8 +35,8 @@ support](Gentoo:Intel#Feature_support "wikilink").
         This driver might have better performance or stability for Gen 7 and older hardware, but is unmaintained.
 -   For 32-bit application support, also install the `{{Pkg|lib32-mesa}}`{=mediawiki} or
     `{{Pkg|lib32-mesa-amber}}`{=mediawiki} package from the [multilib](multilib "wikilink") repository.
--   For the [DDX](wikipedia:X.Org_Server#DDX "wikilink") driver which provides 2D acceleration in [X11](X11 "wikilink")
-    [servers](Display_server "wikilink"), use one of the following drivers:
+-   For the [DDX](wikipedia:X.Org_Server#DDX "wikilink") driver which provides 2D acceleration in
+    [Xorg](Xorg "wikilink"), use one of the following drivers:
     -   The *modesetting* driver included in the `{{Pkg|xorg-server}}`{=mediawiki} package is the recommended choice for
         Gen 3 hardware and later. It uses the DRI driver for acceleration via *glamor*.
     -   The `{{Pkg|xf86-video-intel}}`{=mediawiki} package provides the legacy intel DDX driver from Gen 2 to Gen 9
@@ -53,7 +53,6 @@ Also see [Hardware video acceleration](Hardware_video_acceleration "wikilink").
 * Some ([https://www.phoronix.com/scan.php?page=news_item&px=Ubuntu-Debian-Abandon-Intel-DDX Debian & Ubuntu], [https://www.phoronix.com/scan.php?page=news_item&px=Fedora-Xorg-Intel-DDX-Switch Fedora], [https://community.kde.org/Plasma/5.9_Errata#Intel_GPUs KDE], [https://bugzilla.mozilla.org/show_bug.cgi?id=1710400 Mozilla]) recommend not installing the {{Pkg|xf86-video-intel}} driver, and instead falling back on the modesetting driver. See [https://web.archive.org/web/20160714232204/https://www.reddit.com/r/archlinux/comments/4cojj9/it_is_probably_time_to_ditch_xf86videointel/], [https://www.phoronix.com/scan.php?page=article&item=intel-modesetting-2017&num=1], [[Xorg#Installation]], and {{man|4|modesetting}}. However, the modesetting driver can cause problems such as [https://gitlab.freedesktop.org/xorg/xserver/-/issues/1364 screen tearing and mouse jittering on XFCE], [https://bugs.chromium.org/p/chromium/issues/detail?id=370022 artifacts when switching virtual desktops in Chromium], and [https://gitlab.freedesktop.org/xorg/xserver/-/issues/928 vsync jitter/video stutter in mpv].
 * The {{Pkg|xf86-video-intel}} driver does not have proper support for Gen 11 and newer hardware, causing lack of acceleration and rendering issues that make Plasma Desktop almost unusable. See [https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel/-/commit/7181c5a41c3f00eaf996caa156523c708a18081e].
 * There have been a couple of reports [https://bbs.archlinux.org/viewtopic.php?id=263323] [https://github.com/qutebrowser/qutebrowser/issues/4641] where the whole graphics stack hard freezes when {{Pkg|xf86-video-intel}} is installed, not even switching to a different virtual console works (by pressing {{ic|Ctrl+Alt+F''n''}}), only killing the user processes with [[SysRq]] works.
-* XLibre ships its own set of DDX and input drivers. Always use the {{ic|xlibre-}} packages to match the XLibre ABI. 
 }}
 ```
 ## Loading
@@ -422,16 +421,16 @@ See [Hardware video acceleration#Verification](Hardware_video_acceleration#Verif
 
 See [Backlight](Backlight "wikilink").
 
-### Using the Xe driver on first generation Intel Arc GPUs {#using_the_xe_driver_on_first_generation_intel_arc_gpus}
-
-First generation Intel Arc GPUs (Alchemist A series discrete GPUs, Tiger/Rocket/Alder Lake integrated GPUs) are
-officially supported through the i915 driver, but can be run with the newer [Xe
-driver](https://docs.kernel.org/gpu/xe/index.html).
+### Using the Xe driver on first-generation Xe graphics platforms {#using_the_xe_driver_on_first_generation_xe_graphics_platforms}
 
 ```{=mediawiki}
-{{Warning|1=The Xe driver is considered ''experimental'' for these GPUs. There is no guaranteed stability or feature parity. Make sure you have an alternative solution to boot in order to revert if necessary.}}
+{{Warning|1=The {{ic|xe}} driver is considered ''experimental'' for these GPUs. There is no guaranteed stability or feature parity. Make sure you have an alternative solution to boot in order to revert if necessary.}}
 ```
-To switch to the Xe driver note your PCI device ID with:
+First-generation Intel Arc GPUs (Alchemist Arc A-series discrete GPUs) and Xe-based integrated GPUs in Tiger Lake,
+Rocket Lake, and Alder Lake processors are officially supported by the `{{ic|i915}}`{=mediawiki} driver, but can also be
+run with the newer experimental [Xe driver](https://docs.kernel.org/gpu/xe/index.html).
+
+To switch to the `{{ic|xe}}`{=mediawiki} driver note your PCI device ID with:
 
 ```{=mediawiki}
 {{hc|$ lspci -nnd ::03xx|
@@ -442,6 +441,14 @@ Then add the following to your [kernel parameters](kernel_parameter "wikilink") 
 
 `i915.force_probe=!`**`9a49`**` xe.force_probe=`**`9a49`**
 
+or set in
+
+```{=mediawiki}
+{{hc|/etc/modprobe.d/intel_xe.conf|2=
+options i915 force_probe=!'''9a49'''
+options xe   force_probe='''9a49'''
+}}
+```
 ## Troubleshooting
 
 ### Tearing

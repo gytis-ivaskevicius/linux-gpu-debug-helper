@@ -76,6 +76,8 @@ variables](https://monado.freedesktop.org/getting-started.html#environment-varia
 
 ## OpenComposite
 
+Note: OpenComposite is unmaintained. We recommend using [xrizer](https://github.com/Supreeeme/xrizer) instead.
+
 [OpenComposite](https://gitlab.com/znixian/OpenOVR) is a compatibility layer for running OpenVR applications on an
 OpenXR runtime like Monado. It is comparable to tools like DXVK or vkd3d, but for translating OpenVR calls to OpenXR.
 

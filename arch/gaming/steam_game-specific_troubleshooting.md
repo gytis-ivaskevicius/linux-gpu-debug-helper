@@ -1021,9 +1021,7 @@ KERNEL=="card0", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_forc
 ```
 This disables the lowest memory clock state \"0\".
 
-Activate immediately with:
-
-`# udevadm control --reload && udevadm trigger`
+Activate immediately by [reloading udev rules](udev#Loading_new_rules "wikilink").
 
 ### Creeper World 3: Arc Eternal {#creeper_world_3_arc_eternal}
 

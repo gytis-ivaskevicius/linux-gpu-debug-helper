@@ -13,7 +13,8 @@ server](Wikipedia:Windowing_system#Display_server "wikilink"), and it is the mos
 users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in massive adoption
 from most distributions.
 
-For the alternative and successor, see [Wayland](Wayland "wikilink").
+For the 2025 fork, see [Xlibre](Xlibre "wikilink"). For the alternative and successor, see
+[Wayland](Wayland "wikilink").
 
 ## Installation
 
@@ -38,13 +39,45 @@ for 2D acceleration, which requires [OpenGL](OpenGL "wikilink").
 
 If you want to install another DDX driver, note that Xorg searches for installed DDX drivers automatically:
 
--   If it cannot find the specific driver installed for the hardware (listed in [Graphics processing
-    unit#Installation](Graphics_processing_unit#Installation "wikilink")), it first searches for *fbdev*
+-   If it cannot find the [hardware-specific driver](#Legacy_DDX_Drivers "wikilink"), it first searches for *fbdev*
     (`{{pkg|xf86-video-fbdev}}`{=mediawiki}), which does not include any 2D or 3D acceleration.
 -   If that is not found, it searches for *vesa* (`{{pkg|xf86-video-vesa}}`{=mediawiki}), the generic driver, which
     handles a large number of chipsets but does not include any 2D or 3D acceleration.
 -   If *vesa* is not found, Xorg will fall back to `{{man|4|modesetting}}`{=mediawiki} DDX driver.
 
+#### Legacy DDX drivers {#legacy_ddx_drivers}
+
+The `{{man|4|modesetting}}`{=mediawiki} DDX driver is usually recommended. However, if the modesetting DDX driver is not
+suitable for your hardware, you can [install](install "wikilink") one of the following legacy DDX drivers:
+
+-   ```{=mediawiki}
+    {{pkg|xf86-video-amdgpu}}
+    ```
+    for [AMDGPU](AMDGPU "wikilink")
+
+-   ```{=mediawiki}
+    {{pkg|xf86-video-ati}}
+    ```
+    for [ATI](ATI "wikilink")
+
+-   ```{=mediawiki}
+    {{pkg|xf86-video-intel}}
+    ```
+    for Intel Gen 2 through Gen 9 hardware
+
+-   ```{=mediawiki}
+    {{pkg|xf86-video-nouveau}}
+    ```
+    for [Nouveau](Nouveau "wikilink")
+
+-   ```{=mediawiki}
+    {{pkg|nvidia-utils}}
+    ```
+    for [NVIDIA](NVIDIA "wikilink") proprietary driver
+
+```{=mediawiki}
+{{note|Because there is a {{ic|/usr/lib/xorg/modules/drivers/nvidia_drv.so}} DDX driver included in {{pkg|nvidia-utils}}, users of the NVIDIA proprietary driver cannot avoid installing it.}}
+```
 ## Running
 
 The `{{man|1|Xorg}}`{=mediawiki} command is usually not run directly. Instead, the X server is started with either a
@@ -581,8 +614,8 @@ To configure rootless Xorg using [xinitrc](xinitrc "wikilink"):
     `{{ic|/etc/X11/Xwrapper.config}}`{=mediawiki}.
 
 Note that executing `{{ic|startx}}`{=mediawiki} directly without `{{ic|exec }}`{=mediawiki} leaves the shell open in the
-case of a xorg crash. Since some lock screens are executed inside xorg, this can lead to full access to the executing
-user.
+case of a xorg crash. Since some lock screens are executed inside xorg, this may allow anyone with physical access to
+gain full access to the user account.
 
 #### Using GDM {#using_gdm}
 

@@ -145,11 +145,19 @@ gameplay and add [mods](https://minecraft.wiki/Mods).
     ```
 
 -   ```{=mediawiki}
+    {{App|Rust Minecraft Launcher|A lightweight terminal-based Minecraft launcher written in Rust, featuring a TUI interface with support for Minecraft version management, mod management, and instance management.|https://github.com/objz/rmcl|{{AUR|rmcl}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|SKlauncher|A free Minecraft Launcher supporting skins and capes.|https://skmedix.pl|{{AUR|sklauncher-bin}}}}
     ```
 
 -   ```{=mediawiki}
     {{App|Technic Launcher|Modpack installer with a focus on mod discovery via popularity rankings.|https://www.technicpack.net/|{{AUR|minecraft-technic-launcher}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|Untitled Minecraft Launcher|A command-line Minecraft launcher for Linux, written in Rust, supporting instance management, Fabric mod loading, and importing .mrpack and PrismLauncher instances.|https://uml.rs|{{AUR|untitled-minecraft-launcher-bin}}}}
     ```
 
 ## Other programs and editors {#other_programs_and_editors}

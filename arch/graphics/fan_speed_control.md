@@ -3,8 +3,8 @@
 `{{Related|lm_sensors}}`{=mediawiki} `{{Related|Undervolting CPU}}`{=mediawiki}
 `{{Related|CPU frequency scaling}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-Fan control can bring various benefits to your system, such as quieter working system and power saving by completely
-stopping fans on low CPU load.
+Fan control can bring various benefits to your system, such as quieter operation and power savings by completely
+stopping the fans on low CPU load.
 
 ```{=mediawiki}
 {{Note|Laptop users should be aware about how cooling system works in their hardware. Some laptops have single fan for both CPU and GPU and cools both at the same time. Some laptops have two fans for CPU and GPU, but the first fan cools down CPU and GPU at the same time, while the other one cools CPU only. In some cases, you will not be able to use the [[#Fancontrol (lm-sensors)|Fancontrol]] script due to incompatible cooling architecture (e.g. one fan for both GPU and CPU). See [https://github.com/daringer/asus-fan/issues/47#issue-232063547] for some more information about this topic.}}

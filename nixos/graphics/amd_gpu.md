@@ -24,30 +24,24 @@ support, overdrive/overclocking and loading during initrd.
 The following configurations are only required if you have a specific reason for needing them. They are not expected to
 be necessary for a typical desktop / gaming setup.
 
-### AMD iGPU with high amount of RAM (usecase: large language models) {#amd_igpu_with_high_amount_of_ram_usecase_large_language_models}
+### AMD iGPU with high amount of RAM {#amd_igpu_with_high_amount_of_ram}
 
-The iGPU uses system RAM and has no dedicated VRAM. It can use up to the full available system RAM for example for large
-LLM models. On many systems its possible to set the amount of VRAM in BIOS: „Auto" or the lowest amount is enough. The
-driver knows, to expand with GTT.
-
-Documentation:
-
--   [amdgpu gttsize](https://docs.kernel.org/gpu/amdgpu/module-parameters.html)
--   [ttm pages_limit and ttm
-    pages_pool](https://www.kernel.org/doc/html/v4.14/gpu/drm-mm.html#the-translation-table-manager-ttm)
-
-Example for 128GB system RAM, in this example the LLM can use 120 GB „VRAM/GTT":
+The iGPU uses system RAM and has no dedicated VRAM. On many systems its possible to set the amount of VRAM in BIOS:
+\"Auto\" or the lowest amount is enough. To set the maximum RAM that the iGPU use, you can add `ttm pages_limit` and
+`ttm page_pool_size` in `boot.extraModprobeConfig` option.
 
 ``` nix
-boot.kernelParams = [
-  # The kernel module parameter gttsize is a is deprecated and will be removed in the future.
-  options amdgpu gttsize=120000
-
-  # specified as 4KiB pages: 120 GB GTT
+# Sets a high amount of GTT size for LLM usage.
+boot.extraModprobeConfig = ''
+  # Specified as 4KiB pages: 120 GB GTT.
   options ttm pages_limit=31457280
-  # specified as 4KiB pages: 60 GB pre-allocated
+
+  # Specified as 4KiB pages: 60 GB pre-allocated.
   options ttm page_pool_size=15728640
-];
+
+  # `amdgpu gttsize' is deprecated and should not be used.
+  # options amdgpu gttsize=120000
+'';
 ```
 
 ### Enable Southern Islands (SI) and Sea Islands (CIK) support (eg. HD 7000/8000) {#enable_southern_islands_si_and_sea_islands_cik_support_eg._hd_70008000}

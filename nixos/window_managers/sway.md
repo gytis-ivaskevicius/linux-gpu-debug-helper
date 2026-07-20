@@ -62,19 +62,21 @@ security.polkit.enable = true;
 Then you may enable Sway in your Home Manager configuration. Here is a minimal example:
 
 ```{=mediawiki}
-{{File|3=wayland.windowManager.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
-    config = rec {
-      modifier = "Mod4";
-      # Use kitty as default terminal
-      terminal = "kitty"; 
-      startup = [
-        # Launch Firefox on start
-        {command = "firefox";}
-      ];
-    };
-  };|name=/etc/nixos/home.nix|lang=nix}}
+{{File|3=
+wayland.windowManager.sway = {
+  enable = true;
+  wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+  config = rec {
+    modifier = "Mod4";
+    # Use kitty as default terminal
+    terminal = "kitty";
+    startup = [
+      # Launch Firefox on start
+      { command = "firefox"; }
+    ];
+  };
+};
+|name=/etc/nixos/home.nix|lang=nix}}
 ```
 See [Home Manager\'s Options for
 Sway](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.enable) for a complete
@@ -89,18 +91,18 @@ Kanshi is an output configuration daemon. As explained above, we don\'t run Sway
 auxiliary daemons that we do want to run as systemd services, for example Kanshi
 [4](https://gitlab.freedesktop.org/emersion/kanshi), which implements monitor hot swapping. It would be enabled as
 follows: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
-  # kanshi systemd service
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    environment = {
-      WAYLAND_DISPLAY="wayland-1";
-      DISPLAY = ":0";
-    }; 
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
-    };
+# kanshi systemd service
+systemd.user.services.kanshi = {
+  description = "kanshi daemon";
+  environment = {
+    WAYLAND_DISPLAY="wayland-1";
+    DISPLAY = ":0";
+  }; 
+  serviceConfig = {
+    Type = "simple";
+    ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
   };
+};
 </nowiki>}}`{=mediawiki}
 
 ```{=mediawiki}
@@ -157,7 +159,7 @@ environment.loginShellInit = ''
 When launched directly from the TTY, Sway will not inherit the user environment. This may cause issues with systemd user
 services such as application launchers or [Swayidle](Swayidle "wikilink"). To fix this, add the following to your Home
 Manager configuration:`{{file|home.nix|nix|<nowiki>
- wayland.windowManager.sway.systemd.variables = ["--all"];
+wayland.windowManager.sway.systemd.variables = ["--all"];
 </nowiki>}}`{=mediawiki}
 
 ### Secret Service {#secret_service}
@@ -186,9 +188,7 @@ location is `/etc/sway/config`, and custom user configuration in `~/.config/sway
 
 Changing layout for all keyboards to German (de):
 
-``` console
-input * xkb_layout "de"
-```
+    input * xkb_layout "de"
 
 The same thing accomplished in Home Manager:
 
@@ -200,9 +200,7 @@ wayland.windowManager.sway.input."*".xkb_layout = "de";
 
 Changing scale for all screens to factor 1.5:
 
-``` console
-output * scale 1.5
-```
+    output * scale 1.5
 
 ### Brightness and volume {#brightness_and_volume}
 
@@ -248,20 +246,21 @@ Or alternatively in Home Manager: `{{File|3=wayland.windowManager.sway = {
 
 #### Touchpad
 
-See the [sway-input man page](https://www.mankier.com/5/sway-input) for options. `{{File|3=wayland.windowManager.sway = 
-  {
-    enable = true;
-    config.input = {
-      "type:touchpad" = {
-        # Enables or disables tap for specified input device.
-        tap = "enabled";
-        # Enables or disables natural (inverted) scrolling for the specified input device.
-        natural_scroll = "enabled";
-        # Enables or disables disable-while-typing for the specified input device.
-        dwt = "enabled";
-      };
+See the [sway-input man page](https://www.mankier.com/5/sway-input) for options. `{{File|3=
+wayland.windowManager.sway = {
+  enable = true;
+  config.input = {
+    "type:touchpad" = {
+      # Enables or disables tap for specified input device.
+      tap = "enabled";
+      # Enables or disables natural (inverted) scrolling for the specified input device.
+      natural_scroll = "enabled";
+      # Enables or disables disable-while-typing for the specified input device.
+      dwt = "enabled";
     };
-  };|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}
+  };
+};
+|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}
 
 ## Troubleshooting
 
@@ -295,16 +294,15 @@ the correct environment variables, which sway will then use.
 
 ```{=mediawiki}
 {{File|3=home.pointerCursor = {
-    name = "Adwaita";
-    package = pkgs.adwaita-icon-theme;
-    size = 24;
-    x11 = {
-      enable = true;
-      defaultCursor = "Adwaita";
-    };
+  name = "Adwaita";
+  package = pkgs.adwaita-icon-theme;
+  size = 24;
+  x11 = {
+    enable = true;
+    defaultCursor = "Adwaita";
+  };
 
-  sway.enable = true;
-
+sway.enable = true;
 };|name=/etc/nixos/home.nix|lang=nix}}
 ```
 ### Missing fonts in Xorg applications {#missing_fonts_in_xorg_applications}
@@ -312,23 +310,23 @@ the correct environment variables, which sway will then use.
 If fonts for certain languages are missing in Xorg applications (e.g. Japanese fonts don\'t appear in Discord) even
 though they\'re in the system, you can set them as default fonts in your configuration file.
 
-\<syntaxhighlight lang=\"nix\>
+\<syntaxhighlight lang=\"nix\> fonts = {
 
-` fonts = {`\
-`   packages = with pkgs; [`\
-`     noto-fonts`\
-`     noto-fonts-cjk`\
-`     noto-fonts-emoji`\
-`     font-awesome`\
-`     source-han-sans`\
-`     source-han-sans-japanese`\
-`     source-han-serif-japanese`\
-`   ];`\
-`   fontconfig.defaultFonts = {`\
-`     serif = [ "Noto Serif" "Source Han Serif" ];`\
-`     sansSerif = [ "Noto Sans" "Source Han Sans" ];`\
-`   };`\
+` packages = with pkgs; [`\
+`   noto-fonts`\
+`   noto-fonts-cjk`\
+`   noto-fonts-emoji`\
+`   font-awesome`\
+`   source-han-sans`\
+`   source-han-sans-japanese`\
+`   source-han-serif-japanese`\
+` ];`\
+` fontconfig.defaultFonts = {`\
+`   serif = [ "Noto Serif" "Source Han Serif" ];`\
+`   sansSerif = [ "Noto Sans" "Source Han Sans" ];`\
 ` };`
+
+};
 
 ```{=html}
 </syntaxhighlight>
@@ -337,9 +335,7 @@ though they\'re in the system, you can set them as default fonts in your configu
 
 Add the following to your NixOS configuration.
 
-\<syntaxhighlight lang=\"nix\>
-
-` security.pam.services.swaylock = {};`
+\<syntaxhighlight lang=\"nix\> security.pam.services.swaylock = {};
 
 ```{=html}
 </syntaxhighlight>
@@ -383,19 +379,19 @@ See this [GitHub issue for Sway](https://github.com/swaywm/sway/issues/6590#issu
 Using [Home Manager](Home_Manager "wikilink") add the following to your Sway configuration:
 
 ``` nix
-   wayland.windowManager.sway = {
-     [...]
-     config = {
-       [...]
-       input = {
-         [...]
-         "type:touch" = {
-           # Replace touchscreen_output_identifier with the identifier of your touchscreen.
-           map_to_output = touchscreen_output_identifier;
-         };
-       };
-     };
-   };
+wayland.windowManager.sway = {
+  [...]
+  config = {
+    [...]
+    input = {
+      [...]
+      "type:touch" = {
+        # Replace touchscreen_output_identifier with the identifier of your touchscreen.
+        map_to_output = touchscreen_output_identifier;
+      };
+    };
+  };
+};
 ```
 
 ### GTK apps take an exceptionally long time to start {#gtk_apps_take_an_exceptionally_long_time_to_start}
@@ -548,12 +544,11 @@ details. `{{File|3=wayland.windowManager.sway = {
     blur_radius 7
     blur_passes 2
   '';
-
 };|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}
 
 ### Screen dimming with wl-gammarelay-rs {#screen_dimming_with_wl_gammarelay_rs}
 
-Add `wl-gammarelay-rs` to programs.sway.extraPackages, then add the following to sway config:
+Add `wl-gammarelay-rs` to `programs.sway.extraPackages`, then add the following to sway config:
 
     # start daemon
     exec wl-gammarelay-rs

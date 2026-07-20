@@ -20,10 +20,10 @@ The installation alternatives offer different features to make a choice on, and 
 ```
 ### Jagex Launcher {#jagex_launcher}
 
-The Jagex Launcher offers installation and shortcuts to each game client [Executable](Wikipedia:Executable "wikilink")
-and does not Linux support on release.
+Jagex currently supports a beta version of the [Jagex Launcher](https://osrs.runescape.com/download) for Linux which
+offers installation and shortcuts to each game client [Executable](Wikipedia:Executable "wikilink").
 
-#### Unofficial client {#unofficial_client}
+#### Unofficial clients {#unofficial_clients}
 
 [jagex-launcher-linux](https://github.com/TormStorm/jagex-launcher-linux) is a repository that \"contains community
 projects to install the Jagex Launcher and use Jagex Accounts in Linux\" as recommended by [Jagex
@@ -32,6 +32,9 @@ Support](https://help.jagex.com/hc/en-gb/articles/13413514881937-Downloading-the
 [Bolt](https://codeberg.org/Adamcake/Bolt) is a third-party launcher. [Install](Install "wikilink") with the
 `{{AUR|bolt-launcher}}`{=mediawiki} package or with [Flatpak](Flatpak "wikilink") as
 `{{ic|com.adamcake.Bolt}}`{=mediawiki} from [Flathub](https://flathub.org/).
+
+[rlshim](https://github.com/RdrSeraphim/rlshim) is a lightweight, native launcher for RuneLite using Jagex Accounts.
+Install with the `{{AUR|rlshim}}`{=mediawiki} package.
 
 ### RuneScape
 
@@ -89,5 +92,7 @@ This error may be due to Java\'s new TLSv1.3 implementation. Try adding
 
 -   [The RuneScape Wiki](https://runescape.wiki/w/Linux)
 -   [Jagex Support](https://support.runescape.com/hc/en-gb/articles/206659489-Linux-native-clients)
+-   [Jagex Launcher for Linux Beta OUT
+    NOW!](https://secure.runescape.com/m=news/jagex-launcher-for-linux-beta-out-now?oldschool=1)
 
 [Category:Gaming](Category:Gaming "wikilink")

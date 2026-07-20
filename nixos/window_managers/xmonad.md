@@ -16,10 +16,10 @@ following to your NixOS configuration. You probably also want to activate the `e
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|
 <nowiki>
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-  };
+services.xserver.windowManager.xmonad = {
+  enable = true;
+  enableContribAndExtras = true;
+};
 </nowiki>
 }}
 ```
@@ -33,13 +33,13 @@ To add additional Haskell modules beyond xmonad-contrib and xmonad-extras, use t
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|
 <nowiki>
+...
+services.xserver.windowManager.xmonad = {
   ...
-  services.xserver.windowManager.xmonad = {
-    ...
-    extraPackages = haskellPackages: [ 
-      haskellPackages.monad-logger
-    ];
-  };
+  extraPackages = haskellPackages: [ 
+    haskellPackages.monad-logger
+  ];
+};
 </nowiki>
 }}
 ```
@@ -144,12 +144,12 @@ We\'ll configure the XServers screensaver-settings to pick up inactivity:
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>
-  services.xserver.displayManager.sessionCommands = ''
-    xset -dpms  # Disable Energy Star, as we are going to suspend anyway and it may hide "success" on that
-    xset s blank # `noblank` may be useful for debugging 
-    xset s 300 # seconds
-    ${pkgs.lightlocker}/bin/light-locker --idle-hint &
-  '';
+services.xserver.displayManager.sessionCommands = ''
+  xset -dpms  # Disable Energy Star, as we are going to suspend anyway and it may hide "success" on that
+  xset s blank # `noblank` may be useful for debugging 
+  xset s 300 # seconds
+  ${pkgs.lightlocker}/bin/light-locker --idle-hint &
+'';
 </nowiki>}}
 ```
 You\'ll have to re-login for the settings above to be applied.
@@ -161,11 +161,11 @@ take](https://www.freedesktop.org/software/systemd/man/logind.conf.d.html#IdleAc
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>
-  systemd.targets.hybrid-sleep.enable = true;
-  services.logind.extraConfig = ''
-    IdleAction=hybrid-sleep
-    IdleActionSec=20s
-  '';
+systemd.targets.hybrid-sleep.enable = true;
+services.logind.extraConfig = ''
+  IdleAction=hybrid-sleep
+  IdleActionSec=20s
+'';
 </nowiki>}}
 ```
 The configuration above will let the system go to \"hybrid-sleep\" \`20s\` after the screen-saver triggered.
@@ -216,8 +216,8 @@ More information can be found [here](https://discourse.nixos.org/t/haskell-langu
 
 #### Create a project around `xmonad.hs` {#create_a_project_around_xmonad.hs}
 
-``` bash
-echo "xmonad" >> $HIE_BIOS_OUTPUT 
+``` console
+$ echo "xmonad" >> $HIE_BIOS_OUTPUT 
 ```
 
 ```{=mediawiki}

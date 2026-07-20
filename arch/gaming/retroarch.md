@@ -140,12 +140,10 @@ You may encounter problems if running on a CLI or a display server other than [X
 adding your user to the `{{ic|input}}`{=mediawiki} [user group](user_group "wikilink") then logging in again.
 
 Alternatively, manually add a rule in `{{ic|/etc/udev/rules.d/99-evdev.rules}}`{=mediawiki}, with
-`{{ic|1=KERNEL=="event*", NAME="input/%k", MODE="666"}}`{=mediawiki} as its contents. Reload [udev
-rules](udev_rules "wikilink") by running:
+`{{ic|1=KERNEL=="event*", NAME="input/%k", MODE="666"}}`{=mediawiki} as its contents and [reload udev
+rules](udev#Loading_new_rules "wikilink").
 
-`# udevadm control --reload-rules`
-
-If rebooting the system or replugging the devices are not options, permissions may be forced using:
+If rebooting the system or re-plugging the devices are not options, permissions may be forced using:
 
 `# chmod 666 /dev/input/event*`
 
