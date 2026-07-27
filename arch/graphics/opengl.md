@@ -1,5 +1,5 @@
-[ja:OpenGL](ja:OpenGL "wikilink") [ru:OpenGL](ru:OpenGL "wikilink") [zh-hans:OpenGL](zh-hans:OpenGL "wikilink") From
-[Wikipedia:OpenGL](Wikipedia:OpenGL "wikilink"):
+[ja:OpenGL](ja:OpenGL "wikilink") [pt:OpenGL](pt:OpenGL "wikilink") [ru:OpenGL](ru:OpenGL "wikilink")
+[zh-hans:OpenGL](zh-hans:OpenGL "wikilink") From [Wikipedia:OpenGL](Wikipedia:OpenGL "wikilink"):
 
 :   OpenGL (Open Graphics Library) is a cross-language, cross-platform application programming interface (API) for
     rendering 2D and 3D vector graphics.
@@ -202,7 +202,7 @@ OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.20
 ```
 On X11 platform, `{{ic|glxinfo}}`{=mediawiki} works as well.
 
-From the same package, you can also use `{{ic|eglgears_x11}}`{=mediawiki} or `{{ic|glxgears}}`{=mediawiki} (on X11) or
+From the same package, you can also use `{{ic|glxgears}}`{=mediawiki} or `{{ic|eglgears_x11}}`{=mediawiki} (on X11) or
 `{{ic|eglgears_wayland}}`{=mediawiki} (on Wayland) as a basic OpenGL test. You should see 3 rotating gears when running
 the program.
 

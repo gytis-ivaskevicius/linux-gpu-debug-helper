@@ -127,10 +127,14 @@ This should show two seats, with `{{ic|seat1}}`{=mediawiki} having the assigned 
 ### Display manager {#display_manager}
 
 Few display managers handle multiseat reliably. If you run into trouble with your current display manager, it is worth
-trying a different one. See [Display manager#Graphical](Display_manager#Graphical "wikilink") for a list of available
-options.
+trying a different one.
 
-To enable a new display manager, first disable the current one, then enable the new one (replace
+-   [LightDM](LightDM "wikilink") has multiseat support.
+-   [Atrium](Atrium "wikilink") is built specifically for multiseat on Wayland.
+
+See [Display manager#Graphical](Display_manager#Graphical "wikilink") for a full list of available options.
+
+To enable a new display manager after installing, first disable the current one, then enable the new one (replace
 `{{ic|lightdm}}`{=mediawiki} with your choice):
 
 ```{=mediawiki}

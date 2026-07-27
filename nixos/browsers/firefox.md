@@ -183,8 +183,8 @@ programs.firefox = {
 
   profiles.default.search = {
     force           = true;
-    default         = "DuckDuckGo";
-    privateDefault  = "DuckDuckGo";
+    default         = "ddg";
+    privateDefault  = "ddg";
 
     engines = {
       "Nix Packages" = {

@@ -1,36 +1,42 @@
 [es:Hybrid graphics](es:Hybrid_graphics "wikilink")
-[ja:ハイブリッドグラフィックス](ja:ハイブリッドグラフィックス "wikilink") [ru:Hybrid
-graphics](ru:Hybrid_graphics "wikilink") [zh-hans:混合图形技术](zh-hans:混合图形技术 "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
-`{{Related|Xorg}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:ハイブリッドグラフィックス](ja:ハイブリッドグラフィックス "wikilink") [pt:Hybrid
+graphics](pt:Hybrid_graphics "wikilink") [ru:Hybrid graphics](ru:Hybrid_graphics "wikilink")
+[zh-hans:混合图形技术](zh-hans:混合图形技术 "wikilink") `{{Related articles start}}`{=mediawiki}
+`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
+`{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-Hybrid-graphics is a concept involving two graphics cards on same computer. Laptop manufacturers have developed
-technologies involving two graphics cards with different abilities and power consumption on a single computer.
-Hybrid-graphics has been developed to support both high performance and power saving use cases by keeping the
-Dedicated/Discrete Graphics Processor inactive unless its 3D rendering performance is needed over the Integrated
-Graphics Processor.
+**Hybrid-graphics** is a concept that involves two graphics cards on same computer. Devices with two different GPUs,
+most often laptops, will usually have:
 
-There are a variety of technologies and each manufacturer developed its own solution to this problem. This technology is
-well supported on Windows but it is still rough around the edges with Linux distributions. This article will try to
-explain a little about each approach and describe some community solutions to the lack of GNU/Linux systems support by
-vendors.
+-   a Dedicated/Discrete Graphics Processor, that offers higher raw performance but increases the device\'s power
+    consumption;
+-   an Integrated Graphics Processor, that in general requires significantly less energy, but only offers enough
+    performance for rendering non-graphics-intensive applications, e.g. browsers and the desktop environment.
+
+Thus, the need for a technology that optimises both use cases naturally emerges. With that in mind, laptop manufacturers
+have each developed their own hybrid-graphics technologies that allow keeping the dedicated GPU inactive until its 3D
+rendering performance is needed over the integrated GPU.
+
+There are a variety of implementations that solve this problem. The hybrid-graphics technology is well supported on
+Windows but is still rough around the edges with Linux distributions. This article will try to explain a little about
+each approach and describe some community solutions to the lack of GNU/Linux systems support by vendors.
 
 ```{=mediawiki}
-{{Note|Unless your setup is from before 2010, it likely is using a dynamic switching model. Previous hybrid graphics solutions involved either a reboot for the crudest or a full graphical stack restart which needed a re-log for taking effect.}}
+{{Note|Unless your setup is from before 2010, it is likely using a dynamic switching model. Previous hybrid graphics solutions involved either a reboot for the crudest or a full graphical stack restart, which needed a re-log for taking effect.}}
 ```
 ## Dynamic switching {#dynamic_switching}
 
-Most of the new Hybrid-graphics technologies involve two graphics cards: the dedicated and integrated cards are plugged
+Most of the new Hybrid-graphics technologies involve two graphics cards. The dedicated and integrated cards are plugged
 to a framebuffer and there is no hardware multiplexer. The integrated card is always on and the dedicated card is
-switched on/off when there is a need in power-save or performance-rendering. In most cases there is no way to use *only*
-the dedicated card and all the switching and rendering is controlled by software. At startup, the Linux kernel starts
-using a video mode and setting up low-level graphic drivers which will be used by the applications. Most of the Linux
-distributions then use X.org to create a graphical environment. Finally, a few other softwares are launched, first a
-login manager and then a window manager, and so on. This hierarchical system has been designed to be used in most of
-cases on a single graphics card.
+switched on/off according to a need in performance-rendering or power-saving, respectively. In most cases there is no
+way to use *only* the dedicated card and all the switching and rendering is controlled by software. At startup, the
+Linux kernel starts using a video mode and setting up low-level graphic drivers, which will be used by the applications.
+Most Linux distributions then use X.org to create a graphical environment. Finally, a few other programs are launched;
+first a login manager, then a window manager, and so on. In most cases, this hierarchical system has been designed to be
+used on a single graphics card.
 
 ```{=mediawiki}
-{{Note|Read [[NVIDIA Optimus]] and [[Bumblebee]] for details about NVIDIA using hybrid graphics with NVIDIA’s proprietary driver. Read [[PRIME]] for basically everything else (like AMD or NVIDIA GPUs with the [[nouveau]] driver).}}
+{{Note|Read [[NVIDIA Optimus]] and [[Bumblebee]] for details about using hybrid graphics with NVIDIA’s proprietary driver. Read [[PRIME]] for basically everything else (like AMD or NVIDIA GPUs with the [[nouveau]] driver).}}
 ```
 ### Fully power down discrete GPU {#fully_power_down_discrete_gpu}
 
@@ -71,7 +77,7 @@ ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]
 ```
 Reboot and run `{{ic|lspci}}`{=mediawiki} to see if your NVIDIA GPU is still listed.
 
-Check power usage to ensure your GPU is not drawing power, if it does [#Using acpi_call](#Using_acpi_call "wikilink")
+Check power usage to ensure your GPU is not drawing power. If it does, [#Using acpi_call](#Using_acpi_call "wikilink")
 may be another option to fully power it down.
 
 #### Using bbswitch {#using_bbswitch}
@@ -85,13 +91,13 @@ at boot.
 ```
 #### Using acpi_call {#using_acpi_call}
 
-Otherwise, and for GPUs not supported by bbswitch, the same can be done manually installing the
+Otherwise, and for GPUs not supported by bbswitch, the same can be done by manually installing the
 `{{pkg|acpi_call}}`{=mediawiki} package.
 
 ```{=mediawiki}
 {{Tip|For kernels not in the [[official repositories]], the {{Pkg|acpi_call-dkms}} is an alternative. See also [[DKMS]].}}
 ```
-Once installed load the kernel module:
+Once installed, load the kernel module:
 
 `# modprobe acpi_call`
 
@@ -158,18 +164,18 @@ w /proc/acpi/call - - - - ''\\_SB.PCI0.PEG0.PEGP._OFF''}}
 ```
 The configuration above will be loaded at boot by systemd. What it does is write the specific OFF signal to the
 `{{ic|/proc/acpi/call}}`{=mediawiki} file. Obviously, replace the `{{ic|\_SB.PCI0.PEG0.PEGP._OFF}}`{=mediawiki} with the
-one which works on your system (please note that you need to escape the backslash).
+data bus that works on your system (please note that you need to escape the backslash).
 
 ###### After X server initialization {#after_x_server_initialization}
 
 On some systems, turning off the discrete GPU before the X server is initialized may hang the system. In such cases, it
 may be better to disable the GPU after X server initialization, which is possible with some display managers. In
 [LightDM](LightDM "wikilink"), for instance, the *display-setup-script* seat configuration parameter could be used to
-execute a script as root that disables the GPU. If you use [SDDM](SDDM "wikilink") then you can add the line
+execute a script as root that disables the GPU. If you use [SDDM](SDDM "wikilink"), then you can add the line
 `{{ic|echo "\_SB.PCI0.PEG0.PEGP._OFF" > /proc/acpi/call}}`{=mediawiki} to either
 `{{ic|/usr/share/sddm/scripts/wayland-session}}`{=mediawiki} or `{{ic|/usr/share/sddm/scripts/Xsession}}`{=mediawiki}
-depending if you use [Wayland](Wayland "wikilink") or [Xorg](Xorg "wikilink"), replacing
-`{{ic|\_SB.PCI0.PEG0.PEGP._OFF}}`{=mediawiki} with the one which works on your system.
+depending if you use [Wayland](Wayland "wikilink") or [Xorg](Xorg "wikilink"). Remember to replace
+`{{ic|\_SB.PCI0.PEG0.PEGP._OFF}}`{=mediawiki} with the one that works on your system!
 
 ### System76
 
@@ -205,9 +211,9 @@ mitigate this timeout, you can override the location of the ICD JSON file using 
 ### High power draw even after disabling NVIDIA discrete GPU {#high_power_draw_even_after_disabling_nvidia_discrete_gpu}
 
 If after disabling the dedicated GPU bus [#Using acpi_call](#Using_acpi_call "wikilink") the power draw is still high,
-check if the [nouveau](nouveau "wikilink") kernel module is loaded with `{{ic|lsmod}}`{=mediawiki}. If it is not then
+check if the [nouveau](nouveau "wikilink") kernel module is loaded with `{{ic|lsmod}}`{=mediawiki}. If it\'s not, then
 make sure it is installed, that any entries in .conf files that blacklist Nouveau in
-`{{ic|/etc/modprobe.d/}}`{=mediawiki} are removed and that the Nouveau kernel module is [automatically
+`{{ic|/etc/modprobe.d/}}`{=mediawiki} are removed, and that the Nouveau kernel module is [automatically
 loaded](Kernel_module#Automatic_module_loading "wikilink") at boot. After rebooting the power draw should be lower.
 
 ```{=mediawiki}

@@ -122,7 +122,7 @@ Commonly tuned variables:
 | {{ic|1=OLLAMA_HOST=''host'':''port''}} | (e.g. Podman/Docker reaching the host via *host.containers.internal*) and  |
 | ```                                    | other LAN hosts.                                                           |
 +----------------------------------------+----------------------------------------------------------------------------+
-| ```{=mediawiki}                        | Use the integrated GPU for inference. Bu default they are ignored.         |
+| ```{=mediawiki}                        | Use the integrated GPU for inference. By default they are ignored.         |
 | {{ic|1=OLLAMA_IGPU_ENABLE=true}}       |                                                                            |
 | ```                                    |                                                                            |
 +----------------------------------------+----------------------------------------------------------------------------+

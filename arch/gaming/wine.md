@@ -667,28 +667,39 @@ improve performance, but you should use only one of them at a time.
 [NTSync](https://www.youtube.com/watch?v=NjU4nyWyhU8) is an in-kernel implementation of synchronization primitives.
 
 Compared to ESync and FSync, NTSync more closely translates the behavior of the Microsoft Windows NT kernel
-implementation, with performance on par with FSync or smoother. NTSync is more accurate than ESync or FSync without
+implementation, with performance on par with FSync or even smoother. NTSync is more accurate than ESync or FSync without
 performance degradation.
 
 -   Available if you use a kernel version [starting from
-    6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games).
--   NTSync [was implemented in Wine 10.16](https://gitlab.winehq.org/wine/wine/-/merge_requests/9091), but not included
-    in [Proton](Proton "wikilink"), because Proton\'s latest version is based on Wine 10.0 stable, which did not yet
-    include NTSync.
--   [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) (`{{AUR|proton-ge-custom-bin}}`{=mediawiki}) can be
-    used if you want a Proton version with NTSync. Alternatively,
-    [Proton-TKG](https://github.com/Frogging-Family/wine-tkg-git) can be used.
+    6.14](https://kernelnewbies.org/Linux_6.14#NT_synchronization_primitive_driver_for_faster_games). All [officially
+    supported kernels](Kernel#Officially_supported_kernels "wikilink") ship with the NTSync module ready to be used
+    (disabled by default).
+-   Starting from package version 11.14-2
+    [7](https://gitlab.archlinux.org/archlinux/packaging/packages/wine/-/commit/51a9d147f9a414219656c76f1930a2950b37cb53)[8](https://gitlab.archlinux.org/archlinux/packaging/packages/wine-staging/-/commit/71b686ca74e453c7599daf538b967342df7ac1b3),
+    NTSync support is mandatory on all Wine packages from the official *Arch Linux* repositories
+    (`{{Pkg|wine}}`{=mediawiki} and `{{Pkg|wine-staging}}`{=mediawiki}).
+-   All the following support and use NTSync by default (if the kernel module is loaded) starting from the relevant
+    versions:
+    -   Official Valve Proton: [version
+        11.0-1](https://github.com/ValveSoftware/Proton/commit/9abd0b105d803aa4254f67a0b8c65b61bbdfee64)
+    -   Proton-CachyOS:
+        \[<https://github.com/CachyOS/proton-cachyos/releases/tag/cachyos-10.0-20260312-slr#>:\~:text=ntsync%20has%20been%20enabled%20by%20default.%20It%20can%20still%20be%20disabled%20when%20required%20with%20PROTON_USE_NTSYNC%3D0.
+        version 10.0-20260312\]
+    -   Proton-EM:
+        \[<https://github.com/Etaash-mathamsetty/Proton/releases/tag/EM-10.0-27#>:\~:text=Enabled%20NTSync%20by%20default
+        version 10.0-27\]
+    -   Proton-GE:
+        \[<https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-10#>:\~:text=ntsync%20now%20enabled%20by%20default%2C%20will%20be%20used%20if%20kernel%20supports%20it
+        version GE-Proton10-10\]
 
-NTSync does not require setting an environment variable; instead, it will automatically be used if the
-`{{ic|ntsync}}`{=mediawiki} [kernel module](kernel_module "wikilink") is loaded. `{{Pkg|wine}}`{=mediawiki},
-`{{Pkg|wine-staging}}`{=mediawiki} and `{{AUR|proton-ge-custom-bin}}`{=mediawiki} ship with a file to [load the module
-at boot](load_the_module_at_boot "wikilink"). If you are using a custom version of Wine or Proton, you can manually
-create the following file:
+The package `{{Pkg|ntsync-autoload}}`{=mediawiki} (a hard dependency of both `{{Pkg|wine}}`{=mediawiki} and
+`{{Pkg|wine-staging}}`{=mediawiki}) can be installed to load NTSync automatically at boot.
 
 ```{=mediawiki}
-{{hc|/etc/modules-load.d/ntsync.conf|
-ntsync
-}}
+{{Tip|NTSync does not require setting additional configuration after the module has been loaded. To check if it is working, use {{ic|lsof /dev/ntsync}} in a terminal while an application is running.}}
+```
+```{=mediawiki}
+{{Note|Custom variants of Wine and Proton may not engage with NTSync automatically. Check your fork's information about NTSync to be sure.}}
 ```
 ##### FSync
 
@@ -718,76 +729,18 @@ before running patched Wine:
 
 `WINEESYNC=1`
 
-### Unregister existing Wine file associations {#unregister_existing_wine_file_associations}
+### Stop Wine from creating file associations {#stop_wine_from_creating_file_associations}
 
-By default, Wine takes over as the default application for a lot of formats. Some (e.g. `{{ic|vbs}}`{=mediawiki} or
-`{{ic|chm}}`{=mediawiki}) are Windows-specific, and opening them with Wine can be a convenience. However, having other
-formats (e.g. `{{ic|gif}}`{=mediawiki}, `{{ic|jpeg}}`{=mediawiki}, `{{ic|txt}}`{=mediawiki}, `{{ic|js}}`{=mediawiki})
-being opened via Wine may not be desired.
+Every time Wine creates or updates a prefix it might set some app as the default app for your system (such as a text
+editor or a web browser).
 
-Wine\'s file associations are set in `{{ic|~/.local/share/applications/}}`{=mediawiki} as
-`{{ic|wine-extension-''extension''.desktop}}`{=mediawiki} files. Delete the files corresponding to the extensions you
-want to unregister.
+To disable this behavior, [follow upstream\'s
+advice](https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#how-can-i-prevent-wine-from-changing-the-filetype-associations-on-my-system-or-adding-unwanted-menu-entriesdesktop-links).
 
-Alternatively, to remove all Wine extensions:
+#### Unregister existing Wine file associations {#unregister_existing_wine_file_associations}
 
-`$ rm -f ~/.local/share/mime/packages/x-wine*`\
-`$ rm -f ~/.local/share/applications/wine-extension*`\
-`$ rm -f ~/.local/share/icons/hicolor/*/*/application-x-wine-extension*`\
-`$ rm -f ~/.local/share/mime/application/x-wine-extension*`
-
-Afterwards, update the cache:
-
-`$ update-desktop-database ~/.local/share/applications/`\
-`$ update-mime-database ~/.local/share/mime/`
-
-```{=mediawiki}
-{{Note|Unless the [https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#how-can-i-prevent-wine-from-changing-the-filetype-associations-on-my-system-or-adding-unwanted-menu-entriesdesktop-links relevant option is disabled], Wine will still create new file associations if the application sets the file associations again.}}
-```
-### Prevent Wine from creating filetype associations {#prevent_wine_from_creating_filetype_associations}
-
-```{=mediawiki}
-{{Note|This has to be done for each Wine prefix which should not update file associations unless you opt to change {{ic|/usr/share/wine/wine.inf}}.}}
-```
-This method prevents the creation of filetype associations but retains the creation of XDG .desktop files (that you
-might see e.g. in menus).
-
-If you want to stop wine from creating filetype associations via winecfg you have to uncheck the \"Manage File
-Associations\" checkbox under the Desktop Integration tab. See [Wine
-FAQ](https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#how-can-i-prevent-wine-from-changing-the-filetype-associations-on-my-system-or-adding-unwanted-menu-entriesdesktop-links)
-
-To make the same change via registry add the string `{{ic|Enable}}`{=mediawiki} with value `{{ic|N}}`{=mediawiki} under:
-
-`HKEY_CURRENT_USER\Software\Wine\FileOpenAssociations`
-
-*You might have to create the key `{{ic|FileOpenAssociations}}`{=mediawiki} first!*
-
-To make this change via the command-line, run the following command:
-
-`$ wine reg add "HKEY_CURRENT_USER\Software\Wine\FileOpenAssociations" /v Enable /d N`
-
-If you want to apply this by default for new Wine prefixes, edit `{{ic|/usr/share/wine/wine.inf}}`{=mediawiki} and add
-this line for example under the `{{ic|[Services]}}`{=mediawiki} section:
-
-`HKCU,"Software\Wine\FileOpenAssociations","Enable",2,"N"`
-
-To prevent a package upgrade from overriding the modified file, create a pacman hook to make the change automatically:
-
-```{=mediawiki}
-{{hc|/etc/pacman.d/hooks/stop-wine-associations.hook|2=
-[Trigger]
-Operation = Install
-Operation = Upgrade
-Type = Path
-Target = usr/share/wine/wine.inf
-
-[Action]
-Description = Stopping Wine from hijacking file associations...
-When = PostTransaction
-<nowiki>Exec = /bin/sh -c '/usr/bin/grep -q "HKCU,\"Software\\\Wine\\\FileOpenAssociations\",\"Enable\",2,\"N\"" /usr/share/wine/wine.inf || /usr/bin/sed -i "s/\[Services\]/\[Services\]\nHKCU,\"Software\\\Wine\\\FileOpenAssociations\",\"Enable\",2,\"N\"/g" /usr/share/wine/wine.inf'</nowiki>
-}}
-```
-See [Pacman#Hooks](Pacman#Hooks "wikilink") for more information.
+[Follow upstream\'s advice](https://gitlab.winehq.org/wine/wine/-/wikis/FAQ#how-do-i-clean-the-open-with-list) to
+unregister all current file associations created by Wine.
 
 ### Execute Windows binaries with Wine implicitly {#execute_windows_binaries_with_wine_implicitly}
 
@@ -904,15 +857,6 @@ want to do this, you may add the following [NoExtract](NoExtract "wikilink") lin
 
 `NoExtract = usr/lib/binfmt.d/wine.conf`\
 `NoExtract = usr/share/applications/wine.desktop`
-
-### Wine is setting its own applications as defaults {#wine_is_setting_its_own_applications_as_defaults}
-
-Every time Wine creates (or updates) a prefix it will set its own bundled apps like Notepad and Winebrowser as the
-default text editor and web browser accordingly.
-
-A way to work around this undesirable behavior is by using this [environment variable](environment_variable "wikilink"):
-
-`$ WINEDLLOVERRIDES=winemenubuilder.exe=d ...`
 
 ### WineASIO
 
@@ -1054,10 +998,10 @@ yet\").
 This is an issue with the application itself, not Wine. The only way to work around this issue is to unset the large
 environment variables in your system so that the total size doesn\'t exceed the threshold. Note that Wine intentionally
 does not import some environment variables, which alleviates the
-issue.[7](https://gitlab.winehq.org/wine/wine/-/blob/a99dc1a779c392980aed0ff12149a2b33966693e/dlls/ntdll/unix/env.c#L343-359)
+issue.[9](https://gitlab.winehq.org/wine/wine/-/blob/a99dc1a779c392980aed0ff12149a2b33966693e/dlls/ntdll/unix/env.c#L343-359)
 It is also possible to prevent specific environment variables from being imported by setting an environment variable
 with the same key prefixed with
-`{{ic|WINE_HOST_}}`{=mediawiki}.[8](https://gitlab.winehq.org/wine/wine/-/blob/baeb97c3572bfcc41b0c13c8e93aa09ae15b7c35/dlls/ntdll/unix/env.c#L884)
+`{{ic|WINE_HOST_}}`{=mediawiki}.[10](https://gitlab.winehq.org/wine/wine/-/blob/baeb97c3572bfcc41b0c13c8e93aa09ae15b7c35/dlls/ntdll/unix/env.c#L884)
 
 ## See also {#see_also}
 

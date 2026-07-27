@@ -345,6 +345,25 @@ Solution:
 hardware.firmware = [ pkgs.linux-firmware ];
 ```
 
+### PyTorch does not show the the GPU model and prints `(null): No such file or directory` {#pytorch_does_not_show_the_the_gpu_model_and_prints_null_no_such_file_or_directory}
+
+``` shell
+$ python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+(null): No such file or directory
+(null): No such file or directory
+True AMD Radeon Graphics
+```
+
+It happens because torch cannot find `amdgpu.ids`
+
+``` nix
+systemd.tmpfiles.rules = [
+  "L+    /opt/amdgpu/share/libdrm/amdgpu.ids   -    -    -     -    ${pkgs.libdrm}/share/libdrm/amdgpu.ids"
+];
+```
+
+`True AMD Radeon RX 9060 XT`
+
 ## See Also {#see_also}
 
 -   <https://wiki.archlinux.org/title/AMDGPU>

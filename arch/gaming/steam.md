@@ -25,26 +25,19 @@ In order to run Steam:
 
 -   You must install the 32-bit version of the [OpenGL graphics driver](OpenGL_graphics_driver "wikilink") appropriate
     for your system.
-
 -   If not already done [during installation](Installation_guide#Localization "wikilink"), you must [generate the
     en_US.UTF-8 locale](Locale#Generating_locales "wikilink") to prevent invalid pointer errors.
-
 -   If you need to add library folders or add non-Steam games to your Steam library, install [XDG Desktop
     Portal](XDG_Desktop_Portal "wikilink") with a backend providing a file chooser.
-
 -   If using [systemd-resolved](systemd-resolved "wikilink") for DNS, follow [the
     steps](systemd-resolved#DNS "wikilink") to fix `{{ic|/etc/resolv.conf}}`{=mediawiki} in order for Steam to be able
     to resolve hostnames.
-
 -   If using the Big Picture Mode (Steam Deck UI), [NetworkManager](NetworkManager "wikilink") may be required for the
     network-related panels to work correctly.
 
--   ```{=mediawiki}
-    {{ic|vm.max_map_count}}
-    ```
-    must be increased in order to run some games without crashing; see [Gaming#Increase
-    vm.max_map_count](Gaming#Increase_vm.max_map_count "wikilink").
-
+```{=mediawiki}
+{{Tip|It is strongly recommended to install the optional dependency {{Pkg|ntsync-autoload}} (preferably [[Pacman#Installation reason|as a dependency]]) to get better performance and compatibility with Windows games; see [[Wine#Synchronization primitives]] for more information.}}
+```
 ### SteamCMD
 
 [Install](Install "wikilink") `{{AUR|steamcmd}}`{=mediawiki} for [the command-line version of

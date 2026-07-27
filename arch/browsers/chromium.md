@@ -724,13 +724,6 @@ When using a password store of another desktop environment you probably also wan
 [GNOME/Keyring#Using the keyring](GNOME/Keyring#Using_the_keyring "wikilink") and [KDE Wallet#Unlock KDE Wallet
 automatically on login](KDE_Wallet#Unlock_KDE_Wallet_automatically_on_login "wikilink").
 
-#### Enable hybrid post-quantum key exchange {#enable_hybrid_post_quantum_key_exchange}
-
-Chromium supports the hybrid post-quantum key exchange
-[X25519Kyber768](https://www.ietf.org/archive/id/draft-tls-westerbaan-xyber768d00-02.html) for TLS 1.3 since version 155
-[13](https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html). This feature is disabled by default,
-but can be enabled using the `{{Ic|chrome://flags/#enable-tls13-kyber}}`{=mediawiki} flag.
-
 ### Open any website as a native application {#open_any_website_as_a_native_application}
 
 You can open any website in a tabless window intended for [Progressive Web
@@ -1067,12 +1060,21 @@ and even impossible on some systems). It might be possible to achieve the same r
 kernel modules](Kernel_module#Blacklisting "wikilink"), but users might still find this approach undesirable.
 
 Another possibility would be to go back to [Xorg](Xorg "wikilink") or use [Xwayland](Xwayland "wikilink")
-[14](https://issues.chromium.org/issues/40766635#comment19).
+[13](https://issues.chromium.org/issues/40766635#comment19).
 
 More information can be read in
-[15](https://forum.vivaldi.net/topic/99688/vivaldi-crashes-at-startup-when-using-wayland),
-[16](https://bbs.archlinux.org/viewtopic.php?pid=2269237#p2269237) and
-[17](https://issues.chromium.org/issues/40766635).
+[14](https://forum.vivaldi.net/topic/99688/vivaldi-crashes-at-startup-when-using-wayland),
+[15](https://bbs.archlinux.org/viewtopic.php?pid=2269237#p2269237) and
+[16](https://issues.chromium.org/issues/40766635).
+
+### Wrong colors on some Wayland compositors {#wrong_colors_on_some_wayland_compositors}
+
+```{=mediawiki}
+{{Accuracy|Flag is maybe outdated (July 2026). When using it, it won't show up in chrome://flags . Also it is not listed here: https://peter.sh/experiments/chromium-command-line-switches/ (flags defined in Chromium as of July 25, 2026.) }}
+```
+Under [KWin](KWin "wikilink") with [Wayland](Wayland "wikilink") colors appears to be washed up compared to
+[Firefox](Firefox "wikilink"). The workaround is to run chromium with flag
+`{{ic|1=--disable-features=WaylandWpColorManagerV1}}`{=mediawiki}.
 
 ## See also {#see_also}
 
