@@ -76,25 +76,6 @@ configuration file:
 {{Note| Install {{Pkg|libretro-core-info}} to ensure the core downloader works correctly.  Without this package it will not fetch the core list to choose from.
 }}
 ```
-### Enabling \"SaveRAM Autosave Interval\" {#enabling_saveram_autosave_interval}
-
-```{=mediawiki}
-{{Remove|RetroArch has had ''10 seconds'' as the default since [https://github.com/libretro/RetroArch/commit/687fe77cd741aa1d5eb7ffeb2a81e42acd5b8945 v1.7.6 in early 2019], rendering this section obsolete. The default interval may seem ''low'' compared to the example of the wiki, but RetroArch only writes '''changes''' in SRAM to disk, so only cart-based games that abused the battery-backed SRAM as extra RAM would affect storage devices negatively, and only for a few kilobytes at a time (see [https://github.com/libretro/RetroArch/issues/4901#issuecomment-300944953] and [https://github.com/libretro/RetroArch/issues/4901#issuecomment-444738448]). Additionally, it might be worth considering that a ''crash'' happening in the lapse of time from saving a game to the trigger of the autosave interval would mean that the '''save data would be regressed or lost''', so a high interval would be unnecessarily ''risky'' for most other games.}}
-```
-By default, RetroArch only writes SRAM onto disk when it exits without error, which means that there is a risk of losing
-save data when using crash-prone cores. To change this behavior, open
-`{{ic|~/.config/retroarch/retroarch.cfg}}`{=mediawiki} and set `{{ic|autosave_interval}}`{=mediawiki} to *n*.
-
-```{=mediawiki}
-{{hc|~/.config/retroarch/retroarch.cfg|2=
-autosave_interval = "600"
-}}
-```
-With the example above, RetroArch will write SRAM changes onto disk every 600 seconds.
-
-```{=mediawiki}
-{{Warning|Setting this value too low will cause all sorts of issue, most notably hardware degradation. See [https://github.com/libretro/RetroArch/issues/4901#issuecomment-300888019]}}
-```
 ### Filters and shaders {#filters_and_shaders}
 
 RetroArch can load [CG shaders](https://github.com/libretro/common-shaders), which are considered old and deprecated, as

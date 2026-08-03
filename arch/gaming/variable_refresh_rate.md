@@ -143,17 +143,33 @@ Output DP-1 'Display Name'
 
 === Hyprland ===
 
-Hyprland supports variable refresh rate. To enable it, you need to add either {{ic|vrr {{=}} 1}} or {{ic|vrr {{=}} 2}}[https://wiki.hyprland.org/Configuring/Variables/#misc] in your misc section of your {{ic|hyprland.conf}} :
+Hyprland supports variable refresh rate. To enable it, you need to add either {{ic|vrr {{=}} 1}} or {{ic|vrr {{=}} 2}}[https://wiki.hypr.land/Configuring/Basics/Variables/#misc] in the misc section of your {{ic|hyprland.lua}} :
 
- misc {
-    vrr = 1
- }
+ hl.config({
+     misc = {
+         vrr = 1,
+     },
+ })
 
-Alternatively you can define {{ic|vrr}} as an extra argument for the monitor(s)[https://wiki.hypr.land/0.48.0/Configuring/Monitors/#vrr] variable:
+Alternatively you can define {{ic|vrr}} as an extra argument for the monitor(s)[https://wiki.hypr.land/Configuring/Basics/Monitors/#vrr] variable:
 
- # Example monitor configuration
- monitor=DP-1,2560x1440@240,0x0,1,vrr,1
- monitor=DP-2,2560x1440@165,-1440x-600,1,transform,1,vrr,1
+ -- Example monitor configuration
+ hl.monitor({
+     output   = "DP-1",
+     mode     = "2560x1440@240",
+     position = "0x0",
+     scale    = 1,
+     vrr      = 1,
+ })
+ 
+ hl.monitor({
+     output    = "DP-2",
+     mode      = "2560x1440@165",
+     position  = "-1440x-600",
+     scale     = 1,
+     transform = 1,
+     vrr       = 1,
+ })
 
 {{ic|vrr {{=}} 1}} always enables variable refresh rate, while {{ic|vrr {{=}} 2}} only enables it for fullscreen applications.
 

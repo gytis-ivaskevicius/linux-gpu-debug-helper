@@ -23,7 +23,7 @@ page](https://nouveau.freedesktop.org/CodeNames.html) corresponding to its model
 
 `$ lspci -k -d ::03xx`
 
-Then, install the appropriate driver for your card:
+Then, [install](install "wikilink") the appropriate driver for your card:
 
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | GPU family                           | Driver                               | Status                               |
@@ -85,8 +85,8 @@ Then, install the appropriate driver for your card:
 | and older                            |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 
-1.  If these packages do not work (usually due to new hardware releases) `{{AUR|nvidia-open-beta}}`{=mediawiki} may have
-    a newer version that offers support.
+1.  If these packages do not work (usually due to new hardware releases), `{{AUR|nvidia-open-beta}}`{=mediawiki} may
+    have a newer version that offers support.
 2.  NVIDIA\'s [GSP firmware](https://download.nvidia.com/XFree86/Linux-x86_64/580.119.02/README/gsp.html) is known to
     cause issues, including [complete failure on some laptops containing Ampere
     GPUs](https://bbs.archlinux.org/viewtopic.php?pid=2217692#p2217692). If affected, use the proprietary driver (e.g.
@@ -123,13 +123,13 @@ during early boot.
 ```{=mediawiki}
 {{Note|
 * Wayland users should not restart before following [[#DRM kernel mode setting]] or they may end up with a black screen. They can then continue to [[#Wayland configuration]].
-* Xorg users can continue to [[#Xorg configuration]]
+* Xorg users can continue to [[#Xorg configuration]].
 }}
 ```
 ### Custom kernel {#custom_kernel}
 
 Ensure your kernel has `{{ic|1=CONFIG_DRM_SIMPLEDRM=y}}`{=mediawiki}, and if using
-`{{ic|CONFIG_DEBUG_INFO_BTF}}`{=mediawiki} then this is needed in the PKGBUILD (since kernel 5.16):
+`{{ic|CONFIG_DEBUG_INFO_BTF}}`{=mediawiki}, then the following line is needed in the PKGBUILD (since kernel 5.16):
 
 `install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids`
 
@@ -141,9 +141,10 @@ If you have installed a different version of the driver, you may need to [blackl
 
 ### DRM kernel mode setting {#drm_kernel_mode_setting}
 
-[Kernel mode setting](Kernel_mode_setting "wikilink") is required to make Wayland compositors function properly. KMS is
-also required for native Wayland rendering on NVIDIA dedicated GPUs for dual-GPU setups. NVIDIA does not support
-[automatic KMS late loading](Kernel_mode_setting#Late_KMS_start "wikilink") without enabling DRM ([Direct Rendering
+[Kernel mode setting](Kernel_mode_setting "wikilink") (KMS) is required to make Wayland compositors function properly.
+KMS is also required for native Wayland rendering on NVIDIA dedicated GPUs for [hybrid
+graphics](hybrid_graphics "wikilink") setups. NVIDIA does not support [automatic KMS late
+loading](Kernel_mode_setting#Late_KMS_start "wikilink") without enabling DRM ([Direct Rendering
 Manager](Wikipedia:Direct_Rendering_Manager "wikilink")). Starting from `{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5,
 DRM is [enabled by
 default](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22).
@@ -251,10 +252,10 @@ driver](GDM#Wayland_and_the_proprietary_NVIDIA_driver "wikilink").
 
 ### nvidia-application-profiles-rc.d {#nvidia_application_profiles_rc.d}
 
-Some wayland compositors will consume a large quantity of VRAM by default if the
+Some Wayland compositors will consume a large quantity of VRAM by default if the
 [GLVidHeapReuseRatio](https://www.nvidia.com/en-us/drivers/details/237587/) application profile key is not [applied
 against their process name](https://github.com/NVIDIA/egl-wayland/issues/126#issuecomment-2379945259). For example,
-[niri](niri "wikilink") users can free up to \~2.5GiB of idle vram consumption with the following:
+[niri](niri "wikilink") users can free up to \~2.5GiB of idle VRAM consumption with the following:
 
 ```{=mediawiki}
 {{hc|/etc/nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json|2=

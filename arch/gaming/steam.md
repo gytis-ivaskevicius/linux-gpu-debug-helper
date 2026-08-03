@@ -19,7 +19,7 @@ Alternatively, install the `{{AUR|steam-native-runtime}}`{=mediawiki} package fo
 libraries; see [/Troubleshooting#Steam runtime](/Troubleshooting#Steam_runtime "wikilink").
 
 ```{=mediawiki}
-{{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues like being unable to use Vulkan at all when you install it by accident for different GPU vendor.}}
+{{Note|If you are installing for the first time, you may be prompted for the 32-bit [[Vulkan]] driver package. By default, [[pacman]] alphabetically chooses {{Pkg|lib32-nvidia-utils}}, which can introduce issues such as being unable to use Vulkan at all due to the driver not corresponding to your GPU vendor.}}
 ```
 In order to run Steam:
 

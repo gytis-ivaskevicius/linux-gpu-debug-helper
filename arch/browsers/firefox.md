@@ -183,6 +183,11 @@ The same procedure can be used to associate video downloaders such as *youtube-d
 
 #### Hardware video acceleration {#hardware_video_acceleration}
 
+```{=mediawiki}
+{{Tip|To allow hardware decoding in YouTube, the video codec used must be supported by the hardware. The profiles supported by your GPU can be checked with [[Hardware video acceleration#Verifying VA-API]] and the YouTube codecs used can ''sometimes'' (if offered by YouTube!) be controlled with the [https://addons.mozilla.org/firefox/addon/h264ify/ h264ify], [https://addons.mozilla.org/firefox/addon/enhanced-h264ify/ enhanced-h264ify], or [https://addons.mozilla.org/firefox/addon/refined-h264ify/ refined-h264ify] extensions.}}
+```
+##### VA-API {#va_api}
+
 [Hardware video acceleration](Hardware_video_acceleration "wikilink") via VA-API is available under
 [Wayland](Wayland "wikilink")
 [2](https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/) and
@@ -209,6 +214,12 @@ To enable VA-API in Firefox:
     more video codecs supported by a IGP/GPU: run Firefox with `{{ic|MOZ_DRM_DEVICE}}`{=mediawiki} environment variable
     set to the preferred rendering device. (Available devices can be listed with `{{ic|stat /dev/dri/*}}`{=mediawiki}).
 
+VA-API usage can be verified by checking Firefox\'s VA-API logs. Run Firefox with the
+`{{ic|1=MOZ_LOG="FFmpegVideo:5"}}`{=mediawiki} environment variable and check in the log output that VA-API is enabled
+and used (search for the \"VA-API\" string) when playing a video for example. Pay attention to these logs as they might
+indicate that only one of the two possible compositors described before (WebRender or OpenGL) works with VA-API on your
+particular setup.
+
 ```{=mediawiki}
 {{Note|1=<nowiki/>
 * If hardware video acceleration is blocked with error code {{ic|FEATURE_HARDWARE_VIDEO_DECODING_DISABLE}} or {{ic|FEATURE_FAILURE_VIDEO_DECODING_TEST_FAILED}} in {{ic|about:support}}, you can override it with {{ic|media.hardware-video-decoding.force-enabled{{=}}true}}
@@ -220,9 +231,6 @@ To enable VA-API in Firefox:
     `{{Pkg|libva-nvidia-driver}}`{=mediawiki} will allow for hardware video decoding on NVIDIA using
     [CUDA](CUDA "wikilink"). See the [GitHub project](https://github.com/elFarto/nvidia-vaapi-driver/#firefox) for
     documentation on necessary environment variables and <about:config> changes.
--   Currently, Firefox\'s VA-API implementation can decode H.264/AVC, H.265/HEVC, VP8 & VP9, AV1 encoded video. AV1
-    support requires Firefox 98+ [10](https://bugzilla.mozilla.org/show_bug.cgi?id=1745225). H.265/HEVC support requires
-    Firefox 137+ [11](https://bugzilla.mozilla.org/show_bug.cgi?id=1894818).
 -   Multi-GPU systems should automatically choose a suitable GPU for VA-API according to this [solved
     issue](https://bugzilla.mozilla.org/show_bug.cgi?id=1588904#c36).
 -   [AMDGPU](AMDGPU "wikilink") users under `{{Pkg|linux-hardened}}`{=mediawiki} may need to rebuild *linux-hardened*
@@ -236,15 +244,50 @@ To enable VA-API in Firefox:
 
 }}
 
-VA-API usage can be verified by checking Firefox\'s VA-API logs. Run Firefox with the
-`{{ic|1=MOZ_LOG="FFmpegVideo:5"}}`{=mediawiki} environment variable and check in the log output that VA-API is enabled
-and used (search for the \"VA-API\" string) when playing a video for example. Pay attention to these logs as they might
-indicate that only one of the two possible compositors described before (WebRender or OpenGL) works with VA-API on your
-particular setup.
+##### Vulkan
+
+Firefox 153 introduced support for Vulkan hardware video decoding.
 
 ```{=mediawiki}
-{{Tip|To allow hardware decoding in YouTube, the video codec used must be supported by the hardware. The profiles supported by your GPU can be checked with [[Hardware video acceleration#Verifying VA-API]] and the YouTube codecs used can ''sometimes'' (if offered by YouTube!) be controlled with the [https://addons.mozilla.org/firefox/addon/h264ify/ h264ify], [https://addons.mozilla.org/firefox/addon/enhanced-h264ify/ enhanced-h264ify], or [https://addons.mozilla.org/firefox/addon/refined-h264ify/ refined-h264ify] extensions.}}
+{{Note|Vulkan hardware video decoding is still highly experimental and has issues.}}
 ```
+To enable Vulkan hardware video decoding:
+
+1.  Set `{{ic|media.hardware-video-decoding-vulkan.enabled}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} in
+    `{{ic|about:config}}`{=mediawiki} to enable the copy path.
+2.  Optionally, set `{{ic|media.hardware-video-decoding-vulkan.direct-export.enabled}}`{=mediawiki} to
+    `{{ic|true}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} to enable direct export.
+
++-----------------------------+------------------+-------------------------------------------------------------------+
+| Vendor                      | Status           | Notes                                                             |
++=============================+==================+===================================================================+
+| [NVIDIA](NVIDIA "wikilink") | Partial          | -   Copy path: works on Turing and newer.                         |
+|                             |                  | -   Direct export: works with a recent FFmpeg build containing    |
+|                             |                  |     commit                                                        |
+|                             |                  |                                                                   |
+|                             |                  |    `{{ic|25e187f8494966377a4b9d077260ce7b501a911c}}`{=mediawiki}. |
+|                             |                  | -   Direct export is broken on the 580.xx driver series due to    |
+|                             |                  |     driver bugs.                                                  |
+|                             |                  | -   Copy path is broken on pre-Turing (1000 series and earlier)   |
+|                             |                  |     in Firefox 153.x due to injecting incorrect DRM Modifiers see |
+|                             |                  |     [https://bugzilla.mozilla.org/show_bug.cgi?id=2056939 Bug     |
+|                             |                  |     2056939](https://bugz                                         |
+|                             |                  | illa.mozilla.org/show_bug.cgi?id=2056939_Bug_2056939 "wikilink"). |
+|                             |                  | -   Compared to `{{Pkg|libva-nvidia-driver}}`{=mediawiki}, Vulkan |
+|                             |                  |     Video does not require disabling the RDD sandbox and requires |
+|                             |                  |     less additional configuration.                                |
++-----------------------------+------------------+-------------------------------------------------------------------+
+| [AMD](AMD "wikilink")       | Reported working | -   Copy path: works on all supported GPUs.                       |
+|                             |                  | -   Direct export: does not work.                                 |
++-----------------------------+------------------+-------------------------------------------------------------------+
+| [Intel](Intel "wikilink")   | Unknown          | No user reports observed                                          |
++-----------------------------+------------------+-------------------------------------------------------------------+
+
+: Vulkan Video support in Firefox 153
+
+See [Hardware video acceleration#Configuring Vulkan
+Video](Hardware_video_acceleration#Configuring_Vulkan_Video "wikilink") for more info on hardware support.
+
 ### Spell checking {#spell_checking}
 
 Firefox can use system-wide installed [Hunspell](Hunspell "wikilink") dictionaries as well as dictionaries installed
@@ -429,7 +472,7 @@ of GNOME\'s settings or KDE system settings). If the latter does not work, make 
 Starting with Firefox 68, you can make all the Firefox interfaces and even other websites respect dark themes,
 irrespective of the system GTK theme and Firefox theme. To do this, set `{{ic|ui.systemUsesDarkTheme}}`{=mediawiki} to
 `{{ic|1}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}
-[12](https://bugzilla.mozilla.org/show_bug.cgi?id=1488384#c23).
+[10](https://bugzilla.mozilla.org/show_bug.cgi?id=1488384#c23).
 
 As of Firefox 100, further control of the dark theme of web pages that opt-in (using the CSS media query
 [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)) and Firefox\'s own
@@ -454,7 +497,7 @@ To prevent pages from abusing memory (and possible [OOM](Wikipedia:Out_of_memory
 ### New tabs position {#new_tabs_position}
 
 To control where new tabs appears (relative or absolute), use `{{ic|browser.tabs.insertAfterCurrent}}`{=mediawiki} and
-`{{ic|browser.tabs.insertRelatedAfterCurrent}}`{=mediawiki}. See [13](https://support.mozilla.org/en/questions/1229062)
+`{{ic|browser.tabs.insertRelatedAfterCurrent}}`{=mediawiki}. See [11](https://support.mozilla.org/en/questions/1229062)
 for more information.
 
 ### Screenshot of webpage {#screenshot_of_webpage}
@@ -574,7 +617,7 @@ If you need printing, you can prevent Firefox from showing paper size configurat
 ### Compact mode {#compact_mode}
 
 Starting with Firefox version 89, the compact mode density option was removed from the Customize panel
-[14](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox), but you can still use compact density. To do
+[12](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox), but you can still use compact density. To do
 this, set `{{ic|browser.uidensity}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
 
 The UI can be scaled down even further, see [Firefox/Tweaks#Configure the DPI
@@ -618,7 +661,7 @@ a PQ-safe key exchange.
 
 By default, Firefox enables cursor blinking. To stop the cursor from blinking, set
 `{{ic|ui.caretBlinkTime}}`{=mediawiki} to `{{ic|0}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}
-[15](https://support.mozilla.org/en-US/questions/943469).
+[13](https://support.mozilla.org/en-US/questions/943469).
 
 ### Share NSS DB with Chromium {#share_nss_db_with_chromium}
 
@@ -626,7 +669,7 @@ By default, Chromium reads the NSS Shared DB at `{{ic|~/.pki/nssdb}}`{=mediawiki
 profile directory, `{{ic|cert9.db}}`{=mediawiki} and `{{ic|key4.db}}`{=mediawiki}.
 
 To make Firefox use the NSS Shared DB, add `{{ic|libnsssysinit.so}}`{=mediawiki}, `{{ic|moduleDBOnly,}}`{=mediawiki},
-and change `{{ic|configdir{{=}}`{=mediawiki}}} [16](https://blog.xelnor.net/firefox-systemcerts/). For example, **bold**
+and change `{{ic|configdir{{=}}`{=mediawiki}}} [14](https://blog.xelnor.net/firefox-systemcerts/). For example, **bold**
 below indicates the changes. You should leave the surrounding options intact if they differ from the below example.
 `{{hc|~/.mozilla/''YOUR_PROFILE_DIRECTORY''/pkcs11.txt|<nowiki>
 library=</nowiki>'''libnsssysinit.so'''<nowiki>
@@ -888,9 +931,9 @@ pages* in `{{ic|about:preferences#general}}`{=mediawiki} to make the spell check
 dictionary.
 
 Related questions on the **StackExchange** platform:
-[17](https://stackoverflow.com/questions/26936792/change-firefox-spell-check-default-language/29446115),
-[18](https://stackoverflow.com/questions/21542515/change-default-language-on-firefox/29446353),
-[19](https://askubuntu.com/questions/184300/how-can-i-change-firefoxs-default-dictionary/576877)
+[15](https://stackoverflow.com/questions/26936792/change-firefox-spell-check-default-language/29446115),
+[16](https://stackoverflow.com/questions/21542515/change-default-language-on-firefox/29446353),
+[17](https://askubuntu.com/questions/184300/how-can-i-change-firefoxs-default-dictionary/576877)
 
 Related bug reports: [Bugzilla 776028](https://bugzilla.mozilla.org/show_bug.cgi?id=776028), [Ubuntu bug
 1026869](https://bugs.launchpad.net/ubuntu/+source/firefox/+bug/1026869)
@@ -903,13 +946,13 @@ Hunspell dictionaries: `{{ic|/usr/share/hunspell}}`{=mediawiki}.
 ### Some MathML symbols are missing {#some_mathml_symbols_are_missing}
 
 You need some Math fonts, namely Latin Modern Math and STIX (see this MDN page:
-[20](https://developer.mozilla.org/en-US/docs/Mozilla/MathML_Project/Fonts#Linux)), to display MathML correctly.
+[18](https://developer.mozilla.org/en-US/docs/Mozilla/MathML_Project/Fonts#Linux)), to display MathML correctly.
 
 In Arch Linux, these fonts are provided by `{{Pkg|texlive-fontsextra}}`{=mediawiki}, but they are not available to
 fontconfig by default. See [TeX Live#Making fonts available to
 Fontconfig](TeX_Live#Making_fonts_available_to_Fontconfig "wikilink") for details. You can also try other [Math
 fonts](Fonts#Math "wikilink"). In case you encounter this bug
-[21](https://bugzilla.mozilla.org/show_bug.cgi?id=1208776), installing `{{Pkg|otf-latinmodern-math}}`{=mediawiki} can
+[19](https://bugzilla.mozilla.org/show_bug.cgi?id=1208776), installing `{{Pkg|otf-latinmodern-math}}`{=mediawiki} can
 help.
 
 ### Videos load but do not play {#videos_load_but_do_not_play}
@@ -1017,7 +1060,7 @@ This problem has been observed in [i3](i3 "wikilink"), [bspwm](bspwm "wikilink")
 To fix it, navigate to `{{ic|about:config}}`{=mediawiki} and change `{{ic|ui.context_menus.after_mouseup}}`{=mediawiki}
 to `{{ic|true}}`{=mediawiki}.
 
-See [22](https://www.reddit.com/r/i3wm/comments/88k0yt/right_mouse_btn_instantly_clicks_first_option_in/)
+See [20](https://www.reddit.com/r/i3wm/comments/88k0yt/right_mouse_btn_instantly_clicks_first_option_in/)
 
 ### Firefox window does not repaint after disabling or enabling compositing {#firefox_window_does_not_repaint_after_disabling_or_enabling_compositing}
 

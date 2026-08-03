@@ -1,4 +1,5 @@
 `{{Related articles start}}`{=mediawiki} `{{Related|Hyprland}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[zh-hans:Hyprlock](zh-hans:Hyprlock "wikilink")
 
 [Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/) is [Hyprland](Hyprland "wikilink")\'s screen locker. It is
 highly customizable.

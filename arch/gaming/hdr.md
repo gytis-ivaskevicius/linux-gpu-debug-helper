@@ -293,6 +293,54 @@ drivers---PRIME](PRIME#For_open_source_drivers—PRIME "wikilink"):
 
 `DRI_PRIME=pci-0000_2d_00_0!`
 
+### HDR option missing although the display supports it {#hdr_option_missing_although_the_display_supports_it}
+
+```{=mediawiki}
+{{Remove|Once {{Pkg|libdisplay-info}} 0.4.0 hits the repositories, this can be removed after a few months.}}
+```
+Some panels, including Samsung ATNA-series laptop OLEDs, put the HDR Static Metadata Data Block inside a DisplayID 2.0
+extension block (tag `{{ic|0x70}}`{=mediawiki}) instead of a CTA-861 extension block (tag `{{ic|0x02}}`{=mediawiki}).
+[libdisplay-info](https://gitlab.freedesktop.org/emersion/libdisplay-info) only learned to read that location in 0.4.0.
+With older versions, compositors relying on it see no HDR support and offer no HDR toggle, in any desktop environment.
+
+To confirm the panel is affected, compare `{{ic|edid-decode}}`{=mediawiki} from `{{Pkg|v4l-utils}}`{=mediawiki} with
+`{{ic|di-edid-decode}}`{=mediawiki}:
+
+`$ edid-decode /sys/class/drm/card0-eDP-1/edid | grep -A3 'HDR Static Metadata'`\
+`$ di-edid-decode /sys/class/drm/card0-eDP-1/edid | grep -i hdr`
+
+Only the first printing anything means the installed libdisplay-info cannot reach the metadata.
+
+Until the package is updated, the EDID can be rewritten so the same data blocks also appear in an appended CTA-861
+extension block. Place the result in `{{ic|/usr/lib/firmware/edid/}}`{=mediawiki} and load it with [kernel
+parameters](kernel_parameters "wikilink"):
+
+`drm.edid_firmware=eDP-1:edid/hdr-patched-edid.bin`
+
+```{=mediawiki}
+{{Warning|The DRM driver is loaded from the initramfs, so the firmware must be included there too. With [[mkinitcpio]], add the path to {{ic|FILES}} and regenerate.}}
+```
+```{=mediawiki}
+{{Tip|[https://github.com/Boogie61/hdr-edid-fix hdr-edid-fix] rewrites the EDID for any affected panel. Remove it once libdisplay-info is updated.}}
+```
+### Colors washed out in GNOME with HDR enabled {#colors_washed_out_in_gnome_with_hdr_enabled}
+
+With the `{{ic|bt2100}}`{=mediawiki} color mode enabled, mutter sets the EOTF in
+`{{ic|HDR_OUTPUT_METADATA}}`{=mediawiki} but leaves the mastering display primaries, white point, luminance range,
+MaxCLL and MaxFALL at zero. Displays that tone map on their own fall back to a default curve. KWin fills these fields
+in, so the same panel looks correct under [KDE](KDE "wikilink").
+
+Check with `{{ic|modetest}}`{=mediawiki} from `{{Pkg|libdrm}}`{=mediawiki} while HDR is enabled:
+
+`$ modetest -c | grep -A6 HDR_OUTPUT_METADATA`
+
+Many sinks are unaffected, but `{{ic|00000000 02 00}}`{=mediawiki} followed by zeros is what causes it on the ones that
+are. See [mutter issue 4937](https://gitlab.gnome.org/GNOME/mutter/-/issues/4937) and [merge request
+5199](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5199).
+
+```{=mediawiki}
+{{Note|Separately, an unmanaged SDR desktop oversaturates sRGB content on a wide gamut panel. Any color managed mode, HDR included, looks duller by comparison; that is not this bug.}}
+```
 ## See also {#see_also}
 
 -   [X.Org Developers\' Conference 2022 \| Harry Wentland: \"Is HDR

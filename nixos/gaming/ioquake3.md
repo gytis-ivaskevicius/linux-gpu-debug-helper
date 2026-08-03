@@ -1,6 +1,29 @@
 [ioquake3](https://ioquake3.org/) is an open-source, community-maintained engine port of Quake III Arena, compatible
 with the original game data.
 
+### Client setup {#client_setup}
+
+```{=mediawiki}
+{{Warning|The ioquake3 module is not yet upstream and will be available in the upcoming NixOS 26.11 release.}}
+```
+The game can be installed and configured using the dedicated `programs.ioquake3` option.
+
+``` nix
+programs.ioquake3 = {
+  enable = true;
+  settings = {
+    name = "onny";
+    com_maxfps = 125;
+    cg_frawFPS = true;
+    cg_fov = 115;
+    r_mode = "-1";
+    r_customheight = 1080;
+    r_customwidth = 1920;
+    model = "sarge/default";
+  };
+};
+```
+
 ### Dedicated server setup {#dedicated_server_setup}
 
 Following snippet will enable a Quake 3 Arena dedicated server. The map `q3tourney3` (Hell\'s Gate) will be loaded.

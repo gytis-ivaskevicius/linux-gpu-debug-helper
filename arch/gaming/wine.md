@@ -24,7 +24,7 @@ Windows, applications may suffer behavioral, compatibility, or performance penal
 Consult the [Wine User Guide](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User%27s-Guide#versions-of-wine) for an
 explanation about the differences between the Wine branches.
 
-Then, install Wine via one of the following packages:
+Then, [install](install "wikilink") Wine via one of the following packages:
 
 -   ```{=mediawiki}
     {{Pkg|wine}}
@@ -70,11 +70,11 @@ Bottles.
 Some applications may require additional packages
 [1](https://gitlab.winehq.org/wine/wine/-/wikis/Building-Wine#satisfying-build-dependencies).
 
--   For encryption support install `{{Pkg|gnutls}}`{=mediawiki}
--   For joystick and gamepad support install `{{Pkg|sdl2-compat}}`{=mediawiki}
--   For media playback programs install `{{Pkg|gst-plugins-base}}`{=mediawiki}, `{{Pkg|gst-plugins-good}}`{=mediawiki},
-    `{{Pkg|gst-plugins-bad}}`{=mediawiki}, `{{Pkg|gst-plugins-ugly}}`{=mediawiki} and `{{Pkg|ffmpeg}}`{=mediawiki}
--   For [NTLM](Wikipedia:NTLM "wikilink") authentication install `{{Pkg|samba}}`{=mediawiki}
+-   For encryption support, install `{{Pkg|gnutls}}`{=mediawiki}.
+-   For joystick and gamepad support, install `{{Pkg|sdl2-compat}}`{=mediawiki}.
+-   For media playback programs, install `{{Pkg|ffmpeg}}`{=mediawiki} and the packages in
+    [GStreamer#Installation](GStreamer#Installation "wikilink").
+-   For [NTLM](Wikipedia:NTLM "wikilink") authentication, install `{{Pkg|samba}}`{=mediawiki}.
 
 ### In-prefix dependencies {#in_prefix_dependencies}
 
@@ -544,6 +544,43 @@ system registry of the `{{ic|~/.wine}}`{=mediawiki} prefix and returns `{{ic|1=#
 
 ## Tips and tricks {#tips_and_tricks}
 
+### Winetricks
+
+[Winetricks](https://gitlab.winehq.org/wine/wine/-/wikis/Winetricks) is a collection of helper scripts to allow easier
+management of Wine prefixes. It provides easy ways to install additional components (such as DirectX, proprietary
+Microsoft fonts and Visual C++ Redistributables), configure Windows settings (such as the Windows version seen by apps
+and font smoothing settings), as well as easy access to `{{ic|winecfg}}`{=mediawiki}, the \"Add/Remove Programs\" dialog
+and many more.
+
+[Install](Install "wikilink") the `{{Pkg|winetricks}}`{=mediawiki} package (or alternatively
+`{{AUR|winetricks-git}}`{=mediawiki}). Then run it with:
+
+`$ winetricks`
+
+If Winetricks is ran without additional arguments, it will try to use a graphical user interface (GUI) by default.
+Install either `{{Pkg|zenity}}`{=mediawiki} for a GTK-based GUI or `{{Pkg|kdialog}}`{=mediawiki} for a Qt-based GUI.
+
+```{=mediawiki}
+{{Note|
+As of July 2026, the Qt-based GUI in Winetricks is quite poor (lacks some features / visual indicators that are only present in the GTK-based GUI). It is therefore recommended to use the GTK-based GUI even in desktop environments such as KDE Plasma.
+
+To override the GUI used by Winetricks, run it with {{ic|winetricks --gui{{=}}zenity}}
+```
+. }}
+
+#### Protontricks
+
+For games on Steam (via the Proton compatibility layer), [Protontricks](https://github.com/Matoking/protontricks) is
+also available, featuring automatic detection of Steam games and their Proton prefixes.
+
+[Install](Install "wikilink") the `{{Pkg|protontricks}}`{=mediawiki} package (or alternatively
+`{{AUR|protontricks-git}}`{=mediawiki}). Then run it with:
+
+`$ protontricks`
+
+```{=mediawiki}
+{{Tip|It is recommended to install the optional dependency {{Pkg|yad}} (preferably [[Pacman#Installation reason|as a dependency]]) to show game icons in the game selection dialog when using Protontricks.}}
+```
 ### Wineconsole
 
 Often you may need to run *.exe*\'s to patch game files, for example a widescreen mod for an old game, and running the
@@ -553,20 +590,6 @@ command:
 `$ wineconsole cmd`
 
 Then navigate to the directory and run the *.exe* file from there.
-
-### Winetricks
-
-[Winetricks](https://gitlab.winehq.org/wine/wine/-/wikis/Winetricks) is a script to allow one to install base
-requirements needed to run Windows programs. Installable components include DirectX 9.x, MSXML (required by Microsoft
-Office 2007 and Internet Explorer), Visual Runtime libraries and many more.
-
-[Install](Install "wikilink") the `{{pkg|winetricks}}`{=mediawiki} package (or alternatively
-`{{AUR|winetricks-git}}`{=mediawiki}). Then run it with:
-
-`$ winetricks`
-
-For using GUI you can [install](install "wikilink") either `{{pkg|zenity}}`{=mediawiki}(GTK) or
-`{{pkg|kdialog}}`{=mediawiki}(Qt).
 
 ### Performance
 
@@ -676,8 +699,8 @@ performance degradation.
     (disabled by default).
 -   Starting from package version 11.14-2
     [7](https://gitlab.archlinux.org/archlinux/packaging/packages/wine/-/commit/51a9d147f9a414219656c76f1930a2950b37cb53)[8](https://gitlab.archlinux.org/archlinux/packaging/packages/wine-staging/-/commit/71b686ca74e453c7599daf538b967342df7ac1b3),
-    NTSync support is mandatory on all Wine packages from the official *Arch Linux* repositories
-    (`{{Pkg|wine}}`{=mediawiki} and `{{Pkg|wine-staging}}`{=mediawiki}).
+    in official *Arch Linux* Wine packages (`{{Pkg|wine}}`{=mediawiki} and `{{Pkg|wine-staging}}`{=mediawiki}), the
+    NTSync kernel module will be automatically loaded if supported by the running kernel.
 -   All the following support and use NTSync by default (if the kernel module is loaded) starting from the relevant
     versions:
     -   Official Valve Proton: [version
@@ -692,8 +715,8 @@ performance degradation.
         \[<https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton10-10#>:\~:text=ntsync%20now%20enabled%20by%20default%2C%20will%20be%20used%20if%20kernel%20supports%20it
         version GE-Proton10-10\]
 
-The package `{{Pkg|ntsync-autoload}}`{=mediawiki} (a hard dependency of both `{{Pkg|wine}}`{=mediawiki} and
-`{{Pkg|wine-staging}}`{=mediawiki}) can be installed to load NTSync automatically at boot.
+If not pulled as a dependency already, the package `{{Pkg|ntsync-autoload}}`{=mediawiki} can be manually installed to
+load NTSync automatically at boot.
 
 ```{=mediawiki}
 {{Tip|NTSync does not require setting additional configuration after the module has been loaded. To check if it is working, use {{ic|lsof /dev/ntsync}} in a terminal while an application is running.}}
