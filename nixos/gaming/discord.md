@@ -2,7 +2,7 @@
 {{Infobox application
 | name = Discord
 | type = instant messaging and VoIP social platform
-| image = Discord-Symbol-Blurple.svg
+| image = Discord.svg
 | developer = Discord Inc.
 | website = https://discord.com/
 | platform = Cross-platform (Linux, macOS, Windows, Web)

@@ -261,6 +261,9 @@ not want to configure this for all applications.
 
 ### Minecraft does not start on native Wayland {#minecraft_does_not_start_on_native_wayland}
 
+```{=mediawiki}
+{{Out of date|Since [https://minecraft.wiki/w/Java_Edition_26.3_Snapshot_4 Minecraft 26.3 Snapshot 4], Minecraft now uses [[SDL]]3 instead of GLFW, and Wayland support is also available.}}
+```
 You may see an error like
 `{{ic|GLFW error 65548: Wayland: The platform does not support setting the window icon}}`{=mediawiki}.
 

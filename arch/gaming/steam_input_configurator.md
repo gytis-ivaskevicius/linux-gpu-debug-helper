@@ -90,5 +90,6 @@ Button Chord, Mode Shift and Action Layers essentially do the same thing but in 
     configurator](https://store.steampowered.com/news/group/45479024/view/508485755865138098)
 -   [Valve\'s blog post on virtual menus](https://store.steampowered.com/news/group/45479024/view/702141807556822650)
 -   [Valve\'s blog post on trackpads](https://store.steampowered.com/news/group/45479024/view/702141174212725167)
+-   [Valve\'s blog post on gyro](https://store.steampowered.com/news/group/45479024/view/685257114654870228)
 
 [Category:Gaming](Category:Gaming "wikilink")

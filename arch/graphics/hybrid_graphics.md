@@ -194,19 +194,8 @@ each boot.
 
 ### The startup time for certain applications is delayed by 30 seconds {#the_startup_time_for_certain_applications_is_delayed_by_30_seconds}
 
-```{=mediawiki}
-{{Merge|Vulkan|This seems very similar to [[Vulkan#AMDGPU - Vulkan applications launch slowly]], except it completely unsets the variable instead of passing it the proper value depending on the iGPU used.}}
-```
-When invoked, [Vulkan](Vulkan "wikilink") attempts to initialize the Installable Client Driver (ICD) specified in
-`{{ic|/usr/share/vulkan/icd.d/nvidia_icd.json}}`{=mediawiki}. The package `{{Pkg|nvidia-utils}}`{=mediawiki} configures
-this file to reference the `{{ic|libGLX_nvidia}}`{=mediawiki} driver, providing Vulkan with information about the GPU
-driver\'s path. However, if the GPU is disabled, initialization of this driver will fail, causing certain applications
-(e.g., those based on [Chromium](Chromium "wikilink")/[Electron](Electron "wikilink")) to undergo delayed startup until
-a 30-second timeout is reached. To prevent Vulkan from attempting to load the driver in the first place and thus
-mitigate this timeout, you can override the location of the ICD JSON file using the `{{ic|VK_DRIVER_FILES}}`{=mediawiki}
-[environment variable](environment_variable "wikilink"). To unset it, use:
-
-`$ export VK_DRIVER_FILES=`
+See [Vulkan#Vulkan applications launch slowly (30 second
+delay)](Vulkan#Vulkan_applications_launch_slowly_(30_second_delay) "wikilink").
 
 ### High power draw even after disabling NVIDIA discrete GPU {#high_power_draw_even_after_disabling_nvidia_discrete_gpu}
 

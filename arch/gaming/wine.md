@@ -43,7 +43,7 @@ Then, [install](install "wikilink") Wine via one of the following packages:
     builds](#Using_32-bit_Wine_builds "wikilink") for additional requirements.
 
 ```{=mediawiki}
-{{Tip|Consider installing {{Pkg|wine-gecko}} and {{Pkg|wine-mono}} (preferably with the install reason [[Pacman#Installation reason|as dependencies]]) for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed; however, it is highly recommended to [[System maintenance#Use the package manager to install software|manage them with Pacman]].}}
+{{Tip|Consider installing {{Pkg|wine-gecko}} and {{Pkg|wine-mono}} (preferably with the install reason [[Pacman#Installation reason|as dependencies]]) for applications that depend on Internet Explorer and .NET, respectively. These packages are not strictly required as Wine will download the relevant files as needed; however, it is highly recommended to [[System maintenance#Use the package manager to install software|manage them with pacman]].}}
 ```
 ### Optional dependencies {#optional_dependencies}
 

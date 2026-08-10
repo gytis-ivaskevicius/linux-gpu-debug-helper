@@ -162,11 +162,22 @@ command check kernel driver of your gpu. It should be `{{ic|amdgpu}}`{=mediawiki
 Some forum threads about this problem: [1](https://bbs.archlinux.org/viewtopic.php?id=254015)
 [2](https://bbs.archlinux.org/viewtopic.php?id=253843)
 
-### AMDGPU - Vulkan applications launch slowly {#amdgpu___vulkan_applications_launch_slowly}
+### Vulkan applications launch slowly (30 second delay) {#vulkan_applications_launch_slowly_30_second_delay}
 
-If you install `{{Pkg|cuda}}`{=mediawiki}, you might find Vulkan applications, for example, Chromium, launch slowly.
-It\'s because `{{Pkg|nvidia-utils}}`{=mediawiki} provides an Vulkan driver and Vulkan would try nvidia drivers before
-radeon drivers. To solve it, set the [environment variable](environment_variable "wikilink")
-`{{ic|VK_DRIVER_FILES}}`{=mediawiki} to `{{ic|/usr/share/vulkan/icd.d/radeon_icd.json}}`{=mediawiki}.
+When invoked, Vulkan attempts to initialize the Installable Client Driver (ICD) specified by the
+`{{ic|VK_DRIVER_FILES}}`{=mediawiki} [environment variable](environment_variable "wikilink"), which points to a file
+(such as `{{ic|/usr/share/vulkan/icd.d/nvidia_icd.json}}`{=mediawiki} for NVIDIA) that provides Vulkan with information
+about the GPU driver\'s path. If the variable is set to the incorrect ICD JSON file, this causes some applications (e.g.
+[Chromium](Chromium "wikilink")/[Electron](Electron "wikilink")-based apps) to undergo delayed startup until a 30-second
+timeout is reached.
+
+As Vulkan tries to load NVIDIA drivers before Radeon drivers when the `{{ic|nvidia_icd.json}}`{=mediawiki} file is
+present, it may be required to manually set the
+`{{ic|VK_DRIVER_FILES{{=}}`{=mediawiki}/usr/share/vulkan/icd.d/radeon_icd.json}} variable in Radeon GPU setups that have
+the `{{pkg|nvidia-utils}}`{=mediawiki} package installed (such as when using `{{pkg|cuda}}`{=mediawiki}).
+
+In [hybrid graphics](hybrid_graphics "wikilink") setups, Vulkan may still be trying to load the NVIDIA driver even after
+turning off the dGPU. In that case, set `{{ic|VK_DRIVER_FILES}}`{=mediawiki} to your iGPU driver\'s ICD file. You may
+also unset the variable completely, which seems to work, but is undefined behaviour and not recommended.
 
 [Category:Graphics](Category:Graphics "wikilink") [Category:Development](Category:Development "wikilink")

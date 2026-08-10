@@ -744,27 +744,6 @@ from Chromium.
 
 Chromium has `{{ic|--enable-parallel-downloading}}`{=mediawiki} flag for parallel downloading without extensions.
 
-### Re-enable Manifest V2 (MV2) extension compatibility {#re_enable_manifest_v2_mv2_extension_compatibility}
-
-```{=mediawiki}
-{{Warning|
-Manifest V2 extensions are deprecated for '''security reasons''' and Google recommends against using them.
-
-See [https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3 What is Manifest V3] and [https://developer.chrome.com/docs/extensions/develop/migrate/mv2-deprecation-timeline Manifest V2 support timeline] for more information.}}
-```
-As of Chromium version 148, manifest V2 support can be re-enabled to use popular extensions such as the original
-(non-Lite) [uBlock Origin](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
-extension.
-
-To do so, launch Chromium with the following flags:
-
-`$ chromium --enable-features=AllowLegacyMV2Extensions --disable-features=ExtensionsManifestV3Only,ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled`
-
-See also [#Making flags persistent](#Making_flags_persistent "wikilink").
-
-```{=mediawiki}
-{{Note|The enterprise policy [https://chromeenterprise.google/intl/en_us/policies/#ExtensionManifestV2Availability ExtensionManifestV2Availability] was removed in Chromium version 139 and is no longer available.}}
-```
 ## Troubleshooting
 
 ### Fonts

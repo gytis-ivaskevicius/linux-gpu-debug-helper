@@ -1,14 +1,15 @@
-[ja:Uzbl](ja:Uzbl "wikilink") [Uzbl](http://www.uzbl.org/) is a lightweight browser based on **uzbl-core**. **Uzbl**
-adheres to the UNIX philosophy of \"Write programs that do one thing and do it well\". The uzbl-browser package includes
-uzbl-core, uzbl-browser and uzbl-event-manager. Most users will want to use **uzbl-browser** or **uzbl-tabbed** as they
-provide the fullest set of tools for browsing. Uzbl-browser allows for a single page per window (with as many windows as
-you want), while uzbl-tabbed provides a wrapper for uzbl-browser and implements basic tabs with multiple pages per
-window.
+[ja:Uzbl](ja:Uzbl "wikilink") `{{Archive|No longer packaged, inactive upstream.}}`{=mediawiki}
+[Uzbl](http://www.uzbl.org/) is a lightweight browser based on **uzbl-core**. **Uzbl** adheres to the UNIX philosophy of
+\"Write programs that do one thing and do it well\". The uzbl-browser package includes uzbl-core, uzbl-browser and
+uzbl-event-manager. Most users will want to use **uzbl-browser** or **uzbl-tabbed** as they provide the fullest set of
+tools for browsing. Uzbl-browser allows for a single page per window (with as many windows as you want), while
+uzbl-tabbed provides a wrapper for uzbl-browser and implements basic tabs with multiple pages per window.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{AUR|uzbl-browser-next-git}}`{=mediawiki} or
-`{{AUR|uzbl-tabbed-next-git}}`{=mediawiki} package.
+[Install](Install "wikilink") the
+`{{AUR|uzbl-browser-next-git}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} or
+`{{AUR|uzbl-tabbed-next-git}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} package.
 
 Thanks to `{{AUR|webkitgtk}}`{=mediawiki}, uzbl can make use of NPAPI plugins: installing
 `{{AUR|flashplugin}}`{=mediawiki} or `{{Pkg|icedtea-web}}`{=mediawiki} will enable their use in uzbl-browser and

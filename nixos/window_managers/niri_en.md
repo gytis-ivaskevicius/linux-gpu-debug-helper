@@ -41,6 +41,22 @@ Manager](Special:MyLanguage/Home_Manager "wikilink") can be used for configurati
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
 }}
 ```
+If you want to validate your configuration as part of the build process you can use `{{ic|pkgs.runCommand}}`{=mediawiki}
+like this:
+
+```{=mediawiki}
+{{file|~/.config/home-manager/home.nix|nix|3=
+xdg.configFile."niri/config.kdl".source =
+  pkgs.runCommand "niri-config-checked"
+    {
+      nativeBuildInputs = [ pkgs.niri ];
+    }
+    ''
+      niri validate --config ${./config.kdl}
+      cp ${./config.kdl} $out
+    '';
+}}
+```
 You might want to start from [the default configuration
 file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl) described at
 [here](https://github.com/niri-wm/niri/wiki/Getting-Started#main-default-hotkeys).

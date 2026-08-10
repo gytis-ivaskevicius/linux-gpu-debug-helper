@@ -14,7 +14,7 @@ A configuration file is not required but is useful for saving custom configurati
 in case of issues with the automatic location provider. An example configuration can be found in
 [gammastep.conf.sample](https://gitlab.com/chinstrap/gammastep/-/blob/master/gammastep.conf.sample).
 
-The configuration file should be saved in `{{ic|${XDG_CONFIG_HOME}/gammastep/config.ini}}`{=mediawiki}. If
+The configuration file should be saved in `{{ic|$XDG_CONFIG_HOME/gammastep/config.ini}}`{=mediawiki}. If
 `{{ic|XDG_CONFIG_HOME}}`{=mediawiki} is unset, the default of `{{ic|~/.config}}`{=mediawiki} is used.
 
 ## Usage

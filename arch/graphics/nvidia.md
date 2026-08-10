@@ -298,13 +298,13 @@ number of settings that can bypass Xorg\'s auto-discovered or pre-configured opt
 ```
 ### Automatic configuration {#automatic_configuration}
 
-The NVIDIA package includes an automatic configuration tool to create an Xorg server configuration file
-(`{{ic|xorg.conf}}`{=mediawiki}) and can be run by:
+The `{{pkg|nvidia-utils}}`{=mediawiki} package includes an automatic configuration tool to create a Xorg server
+configuration file (`{{ic|xorg.conf}}`{=mediawiki}) and can be run with:
 
 `# nvidia-xconfig`
 
-This command will auto-detect and create (or edit, if already present) the `{{ic|/etc/X11/xorg.conf}}`{=mediawiki}
-configuration according to present hardware.
+It will auto-detect and create (or edit, if already present) the `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} configuration
+according to present hardware; see `{{man|1|nvidia-xconfig}}`{=mediawiki}.
 
 Double-check your `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to make sure your default depth, horizontal sync, vertical
 refresh, and resolutions are acceptable.
@@ -312,7 +312,7 @@ refresh, and resolutions are acceptable.
 ### nvidia-settings {#nvidia_settings}
 
 The `{{Pkg|nvidia-settings}}`{=mediawiki} tool lets you configure many options using either CLI or GUI. Running
-`{{ic|nvidia-settings}}`{=mediawiki} without any options launches the GUI, for CLI options see
+`{{ic|nvidia-settings}}`{=mediawiki} without any options launches the GUI. For CLI options, see
 `{{man|1|nvidia-settings}}`{=mediawiki}.
 
 You can run the CLI/GUI as a non-root user and save the settings to `{{ic|~/.nvidia-settings-rc}}`{=mediawiki} by using

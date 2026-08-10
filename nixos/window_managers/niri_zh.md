@@ -44,6 +44,21 @@ Manager](Special:MyLanguage/Home_Manager "wikilink") 进行配置：
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
 }}
 ```
+如果您希望在构建过程中对配置进行验证，可以使用 `{{ic|pkgs.runCommand}}`{=mediawiki}，用法如下：
+
+```{=mediawiki}
+{{file|~/.config/home-manager/home.nix|nix|3=
+xdg.configFile."niri/config.kdl".source =
+  pkgs.runCommand "niri-config-checked"
+    {
+      nativeBuildInputs = [ pkgs.niri ];
+    }
+    ''
+      niri validate --config ${./config.kdl}
+      cp ${./config.kdl} $out
+    '';
+}}
+```
 您可能想从[默认配置文件](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl)开始，如[这里](https://github.com/niri-wm/niri/wiki/Getting-Started#main-default-hotkeys)所述。
 
 有关 niri 的配置选项，请参阅 [此 wiki](https://niri-wm.github.io/niri/)。
@@ -117,41 +132,22 @@ home.packages = with pkgs; [
 
 ### IME 在 Electron 应用中无法正常工作 {#ime_在_electron_应用中无法正常工作}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as described in
-[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "wikilink"):
+有一种通用的解决方法，即按照[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "wikilink")中的说明设置`{{ic|NIXOS_OZONE_WL}}`{=mediawiki}：
 
-```{=html}
-</div>
-```
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }}
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-However, since niri does not support text-input-v1, sometimes enabling text-input-v3 by manually adding
-`{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} flag is necessary for IME to work:
+然而，由于 niri 不支持 text-input-v1，有时需要通过手动添加
+`{{ic|<nowiki>--wayland-text-input-version=3</nowiki>}}`{=mediawiki} 标志来启用 text-input-v3，IME 才能正常工作：
 
-```{=html}
-</div>
-```
 ``` console
 $ slack --wayland-text-input-version=3
 ```
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-`wrapProgram` may be used to add the flag automatically:
+`wrapProgram` 可用于自动添加该标志：
 
-```{=html}
-</div>
-```
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
 environment.systemPackages = [
@@ -167,15 +163,9 @@ environment.systemPackages = [
 
 ### XWayland 应用无法正常工作 {#xwayland_应用无法正常工作}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-There is a optional dependency for niri which is highly recommended to install (you can read
-[this](https://github.com/niri-wm/niri/wiki/Xwayland) article to learn more about this)
+Niri 有一个可选依赖，强烈建议安装（您可阅读 [这篇文章](https://github.com/niri-wm/niri/wiki/Xwayland)
+以了解更多相关信息）。
 
-```{=html}
-</div>
-```
 ```{=mediawiki}
 {{File|3=environment.systemPackages = with pkgs; [ 
     xwayland-satellite # xwayland support
@@ -188,36 +178,16 @@ There is a optional dependency for niri which is highly recommended to install (
   xwayland-satellite # xwayland support
 ];|name=~/.config/home-manager/home.nix|lang=nix}}
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-After you installed `{{ic|xwayland-satellite}}`{=mediawiki} niri will integrate it out of the box and all of your
-XWayland apps will function properly.
+安装 `{{ic|xwayland-satellite}}`{=mediawiki} 后，niri 将会将其无缝集成，您的所有 XWayland 应用都将正常运行。
 
-```{=html}
-</div>
-```
 `<span id="File_picker_not_working">`{=html}`</span>`{=html}
 
 ### 文件选择器无法正常工作
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-If you are using `xdg-desktop-portal-gnome`, it will attempt to use Nautilus as the file picker, which will fail if
-Nautilus is not installed.
+如果您正在使用 `xdg-desktop-portal-gnome`，它会尝试将 Nautilus 用作文件选择器，但如果未安装 Nautilus，则会失败。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-To work around this problem, you can force usage of the gtk or kde portals for file picker instead:
+为解决此问题，您可以改为强制使用 GTK 或 KDE 的文件选择器门户：
 
-```{=html}
-</div>
-```
 ```{=mediawiki}
 {{File|3=xdg.portal.config.niri = {
   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
@@ -227,18 +197,11 @@ To work around this problem, you can force usage of the gtk or kde portals for f
 
 ### Waybar 启动两次 {#waybar_启动两次}
 
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-When using a configuration option like programs.waybar.enable, waybar may launch twice on Niri. This is because the
-[default Niri config file launches waybar on
-launch](https://github.com/niri-wm/niri/blob/b07bde3ee82dd73115e6b949e4f3f63695da35ea/resources/default-config.kdl#L271).
-Remove the spawn-at-startup \"waybar\" from the config file, or add waybar to your systems packages without using the
-home-manager option.
+在使用诸如 programs.waybar.enable 这样的配置选项时，waybar 在 Niri 上可能会启动两次。这是因为[默认的 Niri
+配置文件会在系统启动时自动启动
+waybar](https://github.com/niri-wm/niri/blob/b07bde3ee82dd73115e6b949e4f3f63695da35ea/resources/default-config.kdl#L271)。请从该配置文件中移除
+spawn-at-startup \"waybar\" 的设置，或者在不使用 home-manager 选项的情况下，将 waybar 添加到系统的软件包列表中。
 
-```{=html}
-</div>
-```
 `<span id="See_Also">`{=html}`</span>`{=html}
 
 ## 另见

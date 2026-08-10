@@ -1,4 +1,5 @@
-[ja:NVIDIA/ヒントとテクニック](ja:NVIDIA/ヒントとテクニック "wikilink") [ru:NVIDIA (Русский)/Tips and
+[ja:NVIDIA/ヒントとテクニック](ja:NVIDIA/ヒントとテクニック "wikilink") [pt:NVIDIA (Português)/Tips and
+tricks](pt:NVIDIA_(Português)/Tips_and_tricks "wikilink") [ru:NVIDIA (Русский)/Tips and
 tricks](ru:NVIDIA_(Русский)/Tips_and_tricks "wikilink")
 [zh-hans:NVIDIA/提示和技巧](zh-hans:NVIDIA/提示和技巧 "wikilink")
 

@@ -296,6 +296,9 @@ Then instruct your display manager to launch gamescope.
 {{Note|[[Install]] {{Pkg|pipewire-pulse}} if the audio settings do not show any audio devices.}}
 ```
 ```{=mediawiki}
+{{Note|For the performance overlay to work, you have to [[Install]] {{Pkg|mangohud}} and add {{ic|--mangoapp}} to the {{ic|gamescope}} arguments.}}
+```
+```{=mediawiki}
 {{Warning|{{Pkg|polkit}} needs to be installed to be able to use the "Suspend System", "Turn Off System" and "Restart System" options of the Power menu.}}
 ```
 ```{=mediawiki}
@@ -576,6 +579,53 @@ When creating the group, be sure to create a system group:
 `# groupadd --system steam`
 
 Then add the users, you want to be able to use \"Steam Input\", to this group.
+
+### Excluding steam from mullvad vpn {#excluding_steam_from_mullvad_vpn}
+
+Steam may cut you off from game coordinator servers when using `{{Pkg|mullvad-vpn}}`{=mediawiki}, making online play
+impossible in some games. To avoid disconnecting your VPN, you might want to only exclude Steam from the service. This
+will unmask your ip through steam.
+
+To achieve this, either launch Steam with:
+
+`mullvad-exclude steam [ -options ] [ `[`steam://`](steam://)` URL ]`
+
+or modify the Steam [desktop entry](desktop_entry "wikilink"), replacing every instance of
+`{{hc|/usr/share/applications/steam.desktop|
+...
+Exec{{=}}`{=mediawiki}/usr/bin/steam \... \... }} with
+
+`...`\
+`Exec=/usr/bin/mullvad-exclude /usr/bin/steam ...`\
+`...`
+
+This can be done with sed:
+
+`# sed -i 's+Exec=/usr/bin/steam+Exec=/usr/bin/mullvad-exclude /usr/bin/steam+' /usr/share/applications/steam.desktop`
+
+Additionally, if you want to avoid redoing it manually after every Steam update, you can use [pacman
+hooks](pacman_hooks "wikilink"):
+
+```{=mediawiki}
+{{hc|/etc/pacman.d/hooks/30-mullvad-exclude-steam.hook|
+[Trigger]
+Type {{=}}
+```
+Package Operation {{=}} Install Operation {{=}} Upgrade Target {{=}} steam
+
+\[Trigger\] Type {{=}} Package Operation {{=}} Install Target {{=}} mullvad-vpn-daemon
+
+\[Action\] Description {{=}} Excluding steam from mullvad-vpn\... When {{=}} PostTransaction Exec {{=}} /usr/bin/sed
+\--in-place \'s+Exec{{=}}/usr/bin/steam+Exec{{=}}/usr/bin/mullvad-exclude /usr/bin/steam+\'
+/usr/share/applications/steam.desktop Depends {{=}} mullvad-vpn-daemon Depends {{=}} steam }}
+
+In the event Mullvad is uninstalled: `{{hc|/etc/pacman.d/hooks/30-mullvad-revert-steam.hook|
+[Trigger]
+Type {{=}}`{=mediawiki} Package Operation {{=}} Remove Target {{=}} mullvad-vpn-daemon
+
+\[Action\] Description {{=}} Restoring steam\... When {{=}} PostTransaction Exec {{=}} /usr/bin/sed \--in-place
+\'s+Exec{{=}}/usr/bin/mullvad-exclude /usr/bin/steam+Exec{{=}}/usr/bin/steam+\' /usr/share/applications/steam.desktop
+Depends {{=}} steam }}
 
 ## Troubleshooting
 

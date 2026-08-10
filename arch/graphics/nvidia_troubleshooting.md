@@ -1,4 +1,5 @@
-[ja:NVIDIA/トラブルシューティング](ja:NVIDIA/トラブルシューティング "wikilink") [ru:NVIDIA
+[ja:NVIDIA/トラブルシューティング](ja:NVIDIA/トラブルシューティング "wikilink") [pt:NVIDIA
+(Português)/Troubleshooting](pt:NVIDIA_(Português)/Troubleshooting "wikilink") [ru:NVIDIA
 (Русский)/Troubleshooting](ru:NVIDIA_(Русский)/Troubleshooting "wikilink")
 [zh-hans:NVIDIA/Troubleshooting](zh-hans:NVIDIA/Troubleshooting "wikilink")
 
