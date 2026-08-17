@@ -8,6 +8,11 @@
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
+  pkgs,
+  ...
+}:
+
+{
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -15,7 +20,9 @@
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  }; # Optionally, set the environment variable
 }
 </nowiki>}}
 ```
@@ -23,20 +30,29 @@ Note, `intel-vaapi-driver` still performs better for browsers (gecko/chromium ba
 processors.[^1]
 
 For 32-bit support, use `{{nixos:option|hardware.graphics.extraPackages32}}`{=mediawiki}:
-`{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{
+  pkgs,
+  ...
+}:
 {
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
 }
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 ### AMD
 
-AMD configuration (at least for Ryzen 5 iGPUs) works out of the box: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+AMD configuration (at least for Ryzen 5 iGPUs) works out of the box:
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
   hardware.graphics.enable = true;
 }
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 ### NVIDIA
 
 NVIDIA do not officially support accelerated video playback on Linux. A third-party implementation exists, but does not
@@ -49,36 +65,46 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
 `hardware.graphics.extraPackages` by default, but it requires some additional setup to be useful[^4]:
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|<nowiki>
-{ config, lib, ...}: {
-  environment.variables.LIBVA_DRIVER_NAME = "nvidia"
+{{file|3=<nowiki>
+{
+  config,
+  lib,
+  ...
+}:
+
+{
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 
   # If used with Firefox
   environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
 
-  programs.firefox.preferences = let
-    ffVersion = config.programs.firefox.package.version;
-  in {
-    "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
-    "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
-    "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
+  programs.firefox.preferences =
+    let
+      ffVersion = config.programs.firefox.package.version;
+    in
+    {
+      "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
+      "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
+      "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
 
-    "gfx.x11-egl.force-enabled" = true;
-    "widget.dmabuf.force-enabled" = true;
+      "gfx.x11-egl.force-enabled" = true;
+      "widget.dmabuf.force-enabled" = true;
 
-    # Set this to true if your GPU supports AV1.
-    #
-    # This can be determined by reading the output of the
-    # `vainfo` command, after the driver is enabled with
-    # the environment variable.
-    "media.av1.enabled" = false;
-  };
+      # Set this to true if your GPU supports AV1.
+      #
+      # This can be determined by reading the output of the
+      # `vainfo` command, after the driver is enabled with
+      # the environment variable.
+      "media.av1.enabled" = false;
+    };
 }
-</nowiki>}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 ## Testing your configuration {#testing_your_configuration}
 
-You can test your configuration by running: `nix-shell -p libva-utils --run vainfo` See [Arch Linux wiki#Hardware video
+You can test your configuration by running: `nix-shell -p libva-utils --run vainfo`
+
+See [Arch Linux wiki#Hardware video
 acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration#Verification) for more information.
 
 ## Applications
@@ -104,6 +130,7 @@ See [Arch Linux wiki#mpv](https://wiki.archlinux.org/title/mpv#Hardware_video_ac
 ## Also see {#also_see}
 
 -   [Arch Linux wiki#Hardware video acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration).
+-   [Gentoo Wiki#VAAPI.](https://wiki.gentoo.org/wiki/VAAPI)
 -   [nixos-hardware](https://github.com/NixOS/nixos-hardware) has example configurations for various types of hardware.
 
 [Category:Video](Category:Video "wikilink")

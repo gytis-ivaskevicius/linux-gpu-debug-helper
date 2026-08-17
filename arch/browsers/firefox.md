@@ -270,9 +270,9 @@ To enable Vulkan hardware video decoding:
 |                             |                  |     driver bugs.                                                  |
 |                             |                  | -   Copy path is broken on pre-Turing (1000 series and earlier)   |
 |                             |                  |     in Firefox 153.x due to injecting incorrect DRM Modifiers see |
-|                             |                  |     [https://bugzilla.mozilla.org/show_bug.cgi?id=2056939 Bug     |
-|                             |                  |     2056939](https://bugz                                         |
-|                             |                  | illa.mozilla.org/show_bug.cgi?id=2056939_Bug_2056939 "wikilink"). |
+|                             |                  |     [Bug                                                          |
+|                             |                  |                                                                   |
+|                             |                  |   2056939](https://bugzilla.mozilla.org/show_bug.cgi?id=2056939). |
 |                             |                  | -   Compared to `{{Pkg|libva-nvidia-driver}}`{=mediawiki}, Vulkan |
 |                             |                  |     Video does not require disabling the RDD sandbox and requires |
 |                             |                  |     less additional configuration.                                |
@@ -372,7 +372,7 @@ The settings are:
 ### KDE integration {#kde_integration}
 
 -   To apply KDE styles to GTK applications, including Firefox, see [KDE#GTK application
-    appearance](KDE#GTK_application_appearance "wikilink").
+    appearance](KDE#GTK_application_appearance "wikilink"). This also restores the minimize and maximize buttons.
 -   To use the KDE file picker in Firefox 64 or newer, install `{{Pkg|xdg-desktop-portal}}`{=mediawiki} and
     `{{Pkg|xdg-desktop-portal-kde}}`{=mediawiki}, then set
     `{{ic|widget.use-xdg-desktop-portal.file-picker}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} in
@@ -720,7 +720,7 @@ be found on the [Firefox support page](https://support.mozilla.org/en-US/kb/refr
 
 If you are having issues with hardware video acceleration in Firefox, e.g. in case of freezes or graphical corruption,
 start Firefox in [Troubleshoot Mode](#Troubleshoot_Mode "wikilink") for testing purposes to confirm that this is the
-issue. If this step resolves the issue, merely set `{{ic|media.ffmpeg.vaapi.enabled}}`{=mediawiki} to
+issue. If this step resolves the issue, merely set `{{ic|media.hardware-video-decoding.enabled}}`{=mediawiki} to
 `{{ic|false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} to disable hardware video acceleration, and restart
 Firefox.
 
@@ -824,7 +824,7 @@ in-browser viewer, set `{{ic|browser.download.open_pdf_attachments_inline}}`{=me
 
 #### Locate and change Firefox Cache storage location {#locate_and_change_firefox_cache_storage_location}
 
-Create `{{ic|browser.cache.disk.parent_directory}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} and set it\'s
+Create `{{ic|browser.cache.disk.parent_directory}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} and set its
 *string* value to the desired location, for example to `{{ic|/tmp/}}`{=mediawiki} or `{{ic|/dev/shm/}}`{=mediawiki}
 
 ### Changes to userChrome.css and userContent.css are ignored {#changes_to_userchrome.css_and_usercontent.css_are_ignored}

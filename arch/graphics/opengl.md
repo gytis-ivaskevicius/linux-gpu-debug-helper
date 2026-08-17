@@ -15,16 +15,14 @@ To run applications that use OpenGL, you will need to [install](install "wikilin
 hardware (either GPUs or CPUs).
 
 ```{=mediawiki}
-{{Tip|
-* For AMD (and ATI) it is recommended to use the open-source drivers unless you have a strong reason to use the proprietary ones.
-* For NVIDIA, the proprietary driver is recommended for cards newer than the [https://nouveau.freedesktop.org/CodeNames.html#NVE0 Kepler (NVE0/GK''XXX'')] series, and for better performance in general.}}
+{{Tip|For NVIDIA, the proprietary driver is recommended for cards newer than the [https://nouveau.freedesktop.org/CodeNames.html#NVE0 Kepler (NVE0/GK''XXX'')] series, and for better performance in general.}}
 ```
 ```{=mediawiki}
 {{Note|
 * Intel's Gen''N'' hardware does not refer to the generation of the CPU, it refers to the [[Wikipedia:List of Intel graphics processing units|generation of the GPU]], which is different from the generation of the CPU.
 * To find the family of an AMD (and ATI) GPU, check [[Wikipedia:List of AMD graphics processing units#Features overview]].
 * To find the code-name of an NVIDIA GPU, check the [https://nouveau.freedesktop.org/CodeNames.html code-name list from the Nouveau project].
-* Unlike the community repositories of ''Fedora Linux'', ''Arch Linux'' does not distribute "freeworld" variants for video and audio [[Codecs and containers|codecs]] protected by patents; the standard packages are compiled with all relevant codecs, like the "freeworld" ones from ''Fedora''.}}
+* Unlike the community repositories of ''Fedora Linux'', ''Arch Linux'' does not distribute "freeworld" package variants for video and audio [[Codecs and containers|codecs]] protected by patents; the standard Mesa packages are compiled with all relevant codecs, like the "freeworld" ones from ''Fedora''.}}
 ```
 [Mesa](https://mesa3d.org/) is an open-source OpenGL implementation, continually updated to support the latest OpenGL
 specification. It has a collection of open-source drivers for [Intel graphics](Intel_graphics "wikilink"),

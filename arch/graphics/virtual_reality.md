@@ -347,10 +347,9 @@ startup script.
 application specifically to help with full body tracking and estimation. In some areas, Standable can be quite useful
 mostly in the terms of tracker calibration. Standable is well known for not being easy to work with on Linux. This is
 because of how SteamVR handles loopback/virtual devices on Linux. Multiple things have to be modified for Standdable
-work correctly. Namely the correct SteamVR directories have to be told to Standable &
-[Proton](https://wiki.archlinux.org/title/Steam#Proton_Steam_Play). It is also notable that **Standable only works on
-SteamVR** due to the fact that it is a SteamVR plugin and requires
-[SteamDRM](https://partner.steamgames.com/doc/features/drm).
+work correctly. Namely the correct SteamVR directories have to be told to Standable & [Proton
+](Steam#Proton_Steam_Play "wikilink"). It is also notable that **Standable only works on SteamVR** due to the fact that
+it is a SteamVR plugin and requires [SteamDRM](https://partner.steamgames.com/doc/features/drm).
 
 ## Troubleshooting
 

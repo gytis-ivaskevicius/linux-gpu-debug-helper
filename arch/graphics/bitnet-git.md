@@ -1,6 +1,6 @@
-[bitnet-git](https://aur.archlinux.org/packages/bitnet-git) provides the official inference framework for 1-bit Large
-Language Models (LLMs), based on [Microsoft\'s bitnet.cpp](https://github.com/microsoft/BitNet). It is optimized for
-fast and energy-efficient inference on CPUs and GPUs using 1.58-bit quantization.
+`{{AUR|bitnet-git}}`{=mediawiki} provides the official inference framework for 1-bit Large Language Models (LLMs), based
+on [Microsoft\'s bitnet.cpp](https://github.com/microsoft/BitNet). It is optimized for fast and energy-efficient
+inference on CPUs and GPUs using 1.58-bit quantization.
 
 ## Installation
 
@@ -83,8 +83,8 @@ Then you can access it via <http://localhost:8080>.
 
 ## Troubleshooting
 
-**Build Failures:** Ensure you have [base-devel](https://archlinux.org/packages/core/any/base-devel/),
-[cmake](CMake_package_guidelines "wikilink"), and [clang](Clang "wikilink") installed.
+**Build Failures:** Ensure you have `{{Pkg|base-devel}}`{=mediawiki}, [cmake](CMake_package_guidelines "wikilink"), and
+[clang](Clang "wikilink") installed.
 
 **Model Errors:** Verify the model file is a valid GGUF and resides in your **\$BITNET_MODELS_DIR**.
 

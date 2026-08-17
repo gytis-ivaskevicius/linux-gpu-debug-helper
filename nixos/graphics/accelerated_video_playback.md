@@ -5,11 +5,17 @@ packages to `{{nixos:option|hardware.graphics.extraPackages}}`{=mediawiki}. `</t
 
 ## Installation
 
-`</translate>`{=html} `<translate>`{=html}
-
 ### Intel
 
-`</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+`</translate>`{=html}
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{
+  pkgs,
+  ...
+}:
+
 {
   hardware.graphics = {
     enable = true;
@@ -18,27 +24,41 @@ packages to `{{nixos:option|hardware.graphics.extraPackages}}`{=mediawiki}. `</t
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  }; # Optionally, set the environment variable
 }
-</nowiki>}}`{=mediawiki} `<translate>`{=html} Note, `intel-vaapi-driver` still performs better for browsers
-(gecko/chromium based) on newer Skylake (2015) processors.[^1] `</translate>`{=html}
+</nowiki>}}
+```
+`<translate>`{=html} Note, `intel-vaapi-driver` still performs better for browsers (gecko/chromium based) on newer
+Skylake (2015) processors.[^1]
 
-`<translate>`{=html} For 32-bit support, use `</translate>`{=html}
-`{{nixos:option|hardware.graphics.extraPackages32}}`{=mediawiki}: `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+For 32-bit support, use `</translate>`{=html} `{{nixos:option|hardware.graphics.extraPackages32}}`{=mediawiki}:
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{
+  pkgs,
+  ...
+}:
 {
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
 }
-</nowiki>}}`{=mediawiki} `<translate>`{=html}
+</nowiki>}}
+```
+`<translate>`{=html}
 
 ### AMD
 
 AMD configuration (at least for Ryzen 5 iGPUs) works out of the box: `</translate>`{=html}
-`{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
   hardware.graphics.enable = true;
 }
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 `<translate>`{=html}
 
 ### NVIDIA
@@ -55,29 +75,37 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
 
 ```{=mediawiki}
 {{file|3=<nowiki>
-{ config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}:
+
+{
   environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 
   # If used with Firefox
   environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
 
-  programs.firefox.preferences = let
-    ffVersion = config.programs.firefox.package.version;
-  in {
-    "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
-    "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
-    "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
+  programs.firefox.preferences =
+    let
+      ffVersion = config.programs.firefox.package.version;
+    in
+    {
+      "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
+      "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
+      "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
 
-    "gfx.x11-egl.force-enabled" = true;
-    "widget.dmabuf.force-enabled" = true;
+      "gfx.x11-egl.force-enabled" = true;
+      "widget.dmabuf.force-enabled" = true;
 
-    # Set this to true if your GPU supports AV1.
-    #
-    # This can be determined by reading the output of the
-    # `vainfo` command, after the driver is enabled with
-    # the environment variable.
-    "media.av1.enabled" = false;
-  };
+      # Set this to true if your GPU supports AV1.
+      #
+      # This can be determined by reading the output of the
+      # `vainfo` command, after the driver is enabled with
+      # the environment variable.
+      "media.av1.enabled" = false;
+    };
 }
 </nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
@@ -85,36 +113,30 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
 
 ## Testing your configuration {#testing_your_configuration}
 
-You can test your configuration by running: `nix-shell -p libva-utils --run vainfo` `</translate>`{=html}
-`<translate>`{=html} See [Arch Linux wiki#Hardware video
+You can test your configuration by running: `nix-shell -p libva-utils --run vainfo`
+
+See [Arch Linux wiki#Hardware video
 acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration#Verification) for more information.
-`</translate>`{=html} `<translate>`{=html}
 
 ## Applications
 
-`</translate>`{=html} `<translate>`{=html}
-
 ### Chromium
 
-See [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink"). `</translate>`{=html}
-`<translate>`{=html}
+See [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink").
 
 ### Firefox
 
 See [Arch Linux wiki#Firefox](https://wiki.archlinux.org/index.php/Firefox#Hardware_video_acceleration).
-`</translate>`{=html} `<translate>`{=html}
 
 ### MPV
 
-`</translate>`{=html} `<translate>`{=html} You can place the following configuration in
-`{{ic|~/.config/mpv/mpv.conf}}`{=mediawiki}: `</translate>`{=html}
+You can place the following configuration in `{{ic|~/.config/mpv/mpv.conf}}`{=mediawiki}: `</translate>`{=html}
 
 ``` ini
 hwdec=auto
 ```
 
 `<translate>`{=html} See [Arch Linux wiki#mpv](https://wiki.archlinux.org/title/mpv#Hardware_video_acceleration).
-`</translate>`{=html} `<translate>`{=html}
 
 ## Also see {#also_see}
 

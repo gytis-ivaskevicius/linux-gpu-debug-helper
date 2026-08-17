@@ -134,14 +134,10 @@ true.`</span>`{=html}}}
 ```{=html}
 </div>
 ```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-### Improving Performance {#improving_performance}
+`<span id="Improving_Performance">`{=html}`</span>`{=html}
 
-```{=html}
-</div>
-```
+### Повышение производительности {#повышение_производительности}
+
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```

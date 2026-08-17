@@ -1096,7 +1096,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|glHack|An OpenGL-based clone of NetHack.|https://glhack.sourceforge.net/|{{Pkg|glhack}}}}
+    {{App|glHack|An OpenGL-based clone of NetHack.|https://glhack.sourceforge.net/|{{AUR|glhack}}}}
     ```
 
 -   ```{=mediawiki}

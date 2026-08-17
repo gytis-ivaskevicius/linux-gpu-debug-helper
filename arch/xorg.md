@@ -435,8 +435,13 @@ raising).
 |             | {                 | ](https://github. | {{Yes}}           | {{Yes}}         | powerful macro    |
 |             | {AUR|autokey-qt}} | com/autokey/autok | ```               | ```             | and scripting     |
 |             | ```               | ey#documentation) |                   |                 | utility, with     |
-|             | `{{AUR|autokey-g  |                   |                   |                 | both Qt and Gtk   |
-|             | tk}}`{=mediawiki} |                   |                   |                 | front-ends.       |
+|             | ```{=mediawiki}   |                   |                   |                 | both Qt and Gtk   |
+|             | {{Broke           |                   |                   |                 | front-ends.       |
+|             | n package link|pa |                   |                   |                 |                   |
+|             | ckage not found}} |                   |                   |                 |                   |
+|             | ```               |                   |                   |                 |                   |
+|             | `{{AUR|autokey-g  |                   |                   |                 |                   |
+|             | tk}}`{=mediawiki} |                   |                   |                 |                   |
 +-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
 
 See also [Clipboard#Tools](Clipboard#Tools "wikilink") and [an overview of X automation

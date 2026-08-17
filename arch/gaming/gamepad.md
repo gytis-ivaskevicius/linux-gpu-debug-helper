@@ -476,15 +476,17 @@ physically reconnect your device after running this command.
 `|-`\
 `! Key combination !! Function`\
 `|-`\
-`| Hold {{ic|L4+L5+R4+R5+Home}} || Enter or exit backpack mode`\
+`| {{ic|L4+L5+R4+R5+Home}} || Enter or exit backpack mode`\
 `|-`\
-`| {{ic|B+R1+Home}} || Pair Bluetooth to slot 1`\
+`| {{ic|View+Menu+A+Home}} || Enter bootloader mode`\
 `|-`\
-`| {{ic|B+L1+Home}} || Pair Bluetooth to slot 2`\
+`| {{ic|B+R1+Home}} || Enter Bluetooth mode`\
 `|-`\
-`| {{ic|A+R1+Home}} || Pair puck to slot 1`\
+`| Keep holding<br> {{ic|B+R1+Home}} || Enter Bluetooth pairing mode`\
 `|-`\
-`| {{ic|A+L1+Home}} || Pair puck to slot 2`\
+`| {{ic|A+R1+Home}} || Connect to puck on slot 1`\
+`|-`\
+`| {{ic|A+L1+Home}} || Connect to puck on slot 2`\
 `|}`\
 ``\
 `{| class="wikitable"`\

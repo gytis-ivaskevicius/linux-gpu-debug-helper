@@ -749,34 +749,50 @@ mode. It can be enabled from within the nvidia-settings GUI or from the command 
 
 `# nvidia-xconfig --sli=Mosaic --metamodes="GPU-0.DFP-0: 1920x1024+0+0, GPU-0.DFP-1: 1920x1024+1920+0, GPU-1.DFP-0: 1920x1024+0+1024, GPU-1.DFP-1: 1920x1024+1920+1024"`
 
-## NVswitch
+## NVSwitch
 
 ```{=mediawiki}
-{{Style|Multiple little fixes needed, the instructions about fabric manager should be made into an AUR package.}}
+{{Expansion|The install instructions should be made into an AUR package. The instructions also don't talk about the OFED/MOFED drivers mentioned [https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#other-nvidia-software-packages here].}}
 ```
-For systems with NVswitch, like H100x8 on AWS, the following is need.
+```{=mediawiki}
+{{Accuracy|It is not clear why the AUR beta packages are needed over the ones available on the official repositories.}}
+```
+From the [NVIDIA
+page](https://docs.nvidia.com/ai-enterprise/release-8/latest/infra-software/vgpu/features/nvswitch.html):
 
--   install nvidia-fabricmanager
--   install matching kernel module needed by the fabric manager
+:   NVIDIA NVSwitch is a high-bandwidth, low-latency fabric that connects multiple GPUs in one system. \[\...\] The
+    switch behaves as a crossbar so GPUs can reach each other at NVLink rates, which matters for multi-GPU workloads
+    that exchange data in memory on a single node.
 
-With the fabricmanager, pytorch would report no GPU is found.
+For system support of such hardware, e.g. the [DGX
+H100](https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html) devices, NVIDIA\'s Fabric Manager
+(FM) must be installed, as well as a kernel module matching the Fabric Manager version. Without the FM, programs like
+*pytorch* (from `{{Pkg|python-pytorch}}`{=mediawiki}) would be unable to find the GPUs.
 
-To install the fabric manager:
+```{=mediawiki}
+{{Note|
+* NVIDIA does not officially support the Fabric Manager on Arch Linux. Only on [https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#os-environment certain Ubuntu and CentOS versions].
+* The Fabric Manager is not currently available as a package on neither the official repositories or the AUR.
+}}
+```
+The FM
+[requires](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#other-nvidia-software-packages)
+the libraries `{{ic|libibumad3}}`{=mediawiki} and `{{ic|infiniband-diags}}`{=mediawiki} to be installed on the target
+system. You can get these libraries on Arch by [installing](install "wikilink") the `{{Pkg|rdma-core}}`{=mediawiki}
+package.
 
-1.  download the tarball from nvidia.
-    [here](https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/)
-2.  version 555.42.02 works well
-3.  modify the install script in sbin/fm_run_package_installer.sh to fix the installed file path
+As for the FM itself, first download the
+[tarball](https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/) from NVIDIA. Then, in
+the install script `{{ic|sbin/fm_run_package_installer.sh}}`{=mediawiki}, set `{{ic|LIB_LOC}}`{=mediawiki} to
+`{{ic|/usr/lib}}`{=mediawiki} (after the `{{ic|if ... fi}}`{=mediawiki} block). Otherwise, the libraries would be
+installed to architecture-dependent sub-directories (e.g. `{{ic|/usr/lib/x86_64-linux-gnu}}`{=mediawiki}) which are not
+supported on Arch Linux.
 
-To get the matching kernel driver:
+For the kernel module, install the `{{AUR|nvidia-beta-dkms}}`{=mediawiki} and `{{AUR|nvidia-utils-beta}}`{=mediawiki}
+packages. Make sure the installed module\'s and the FM\'s versions match. Finally, reboot the system.
 
-1.  git clone the AUR for nvidia-beta-dkms and nvidia-utils-beta
-2.  change the PKGBUILD to use version 555.42.02
-3.  build and install them
-4.  reboot
-
-finally, `{{ic|systemctl enable nvidia-fabricmanager}}`{=mediawiki} and
-`{{ic|systemctl start nvidia-fabricmanager}}`{=mediawiki}, then pytorch should work.
+The `{{ic|nvidia-fabricmanager}}`{=mediawiki} service should have been automatically [enabled](enabled "wikilink") by
+the install script, and thus started after a reboot.
 
 ## Tips and tricks {#tips_and_tricks}
 

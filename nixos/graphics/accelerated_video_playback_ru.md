@@ -18,6 +18,11 @@
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
+  pkgs,
+  ...
+}:
+
+{
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -25,7 +30,9 @@
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  }; # Optionally, set the environment variable
 }
 </nowiki>}}
 ```
@@ -39,21 +46,29 @@ processors.[^1]
 </div>
 ```
 Для поддержки 32-битной версии используйте `{{nixos:option|hardware.graphics.extraPackages32}}`{=mediawiki}:
-`{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{
+  pkgs,
+  ...
+}:
 {
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
 }
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 ### AMD
 
 Конфигурация AMD (по крайней мере, для iGPU Ryzen 5) работает из коробки:
-`{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+
+```{=mediawiki}
+{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 {
   hardware.graphics.enable = true;
 }
-</nowiki>}}`{=mediawiki}
-
+</nowiki>}}
+```
 ```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
 ```
@@ -90,32 +105,40 @@ Users with only an NVIDIA GPU can attempt to use the third party implementation;
 </div>
 ```
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|<nowiki>
-{ config, lib, ...}: {
-  environment.variables.LIBVA_DRIVER_NAME = "nvidia"
+{{file|3=<nowiki>
+{
+  config,
+  lib,
+  ...
+}:
+
+{
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
 
   # If used with Firefox
   environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
 
-  programs.firefox.preferences = let
-    ffVersion = config.programs.firefox.package.version;
-  in {
-    "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
-    "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
-    "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
+  programs.firefox.preferences =
+    let
+      ffVersion = config.programs.firefox.package.version;
+    in
+    {
+      "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
+      "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
+      "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
 
-    "gfx.x11-egl.force-enabled" = true;
-    "widget.dmabuf.force-enabled" = true;
+      "gfx.x11-egl.force-enabled" = true;
+      "widget.dmabuf.force-enabled" = true;
 
-    # Set this to true if your GPU supports AV1.
-    #
-    # This can be determined by reading the output of the
-    # `vainfo` command, after the driver is enabled with
-    # the environment variable.
-    "media.av1.enabled" = false;
-  };
+      # Set this to true if your GPU supports AV1.
+      #
+      # This can be determined by reading the output of the
+      # `vainfo` command, after the driver is enabled with
+      # the environment variable.
+      "media.av1.enabled" = false;
+    };
 }
-</nowiki>}}
+</nowiki>|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 `<span id="Testing_your_configuration">`{=html}`</span>`{=html}
 
@@ -136,10 +159,26 @@ acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration#V
 
 ## Приложения
 
+`<span id="Chromium">`{=html}`</span>`{=html}
+
+```{=html}
+<div class="mw-translate-fuzzy">
+```
 ### Chromium
 
 См. [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink").
 
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
+See [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink").
+
+```{=html}
+</div>
+```
 ### Firefox
 
 ```{=html}
@@ -171,7 +210,14 @@ See [Arch Linux wiki#mpv](https://wiki.archlinux.org/title/mpv#Hardware_video_ac
 ```
 ## Also see {#also_see}
 
+```{=html}
+</div>
+```
+```{=html}
+<div lang="en" dir="ltr" class="mw-content-ltr">
+```
 -   [Arch Linux wiki#Hardware video acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration).
+-   [Gentoo Wiki#VAAPI.](https://wiki.gentoo.org/wiki/VAAPI)
 -   [nixos-hardware](https://github.com/NixOS/nixos-hardware) has example configurations for various types of hardware.
 
 ```{=html}

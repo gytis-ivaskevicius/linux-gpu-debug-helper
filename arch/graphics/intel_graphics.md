@@ -767,7 +767,7 @@ resolutions](#Adding_undetected_resolutions "wikilink") does not solve this. In 
 #!/bin/bash
 
 build() {
-    add_file /lib/firmware/edid/edid.bin
+    add_file /usr/lib/firmware/edid/edid.bin
 }
 
 help() {
@@ -835,11 +835,11 @@ duplicate device handle to `{{ic|00 00}}`{=mediawiki}:
 ``  000001d0  00 00 00 00 00 00 00 00  00 20 00 04 00 d2 60 00  |......... ....`.| ``\
 ` 000001e0  10 10 00 23 21 10 00 00  00 00 00 07 00 00 02 00  |...#!...........|`
 
-The modified VBT can then be loaded by copying it to `{{ic|/lib/firmware/i915/modified_vbt}}`{=mediawiki} and including
-the file in the initramfs. For [mkinitcpio](mkinitcpio "wikilink"), the `{{ic|FILES}}`{=mediawiki} field in
+The modified VBT can then be loaded by copying it to `{{ic|/usr/lib/firmware/i915/modified_vbt}}`{=mediawiki} and
+including the file in the initramfs. For [mkinitcpio](mkinitcpio "wikilink"), the `{{ic|FILES}}`{=mediawiki} field in
 `{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} can be used:
 
-`FILES=(/lib/firmware/i195/modified_vbt)`
+`FILES=(/usr/lib/firmware/i195/modified_vbt)`
 
 [regenerate the initramfs](regenerate_the_initramfs "wikilink"), and pass the new table to the i915 as a kernel
 parameter: `{{ic|i915.vbt_firmware{{=}}`{=mediawiki}i915/modified_vbt}}.

@@ -9,32 +9,41 @@
 ```{=mediawiki}
 {{Expansion|If the user should install multiple backends, how are they to determine which one to use?}}
 ```
-[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki} and one of the following backends:
+[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki} and `{{Pkg|ggml-cpu}}`{=mediawiki}, plus one of the
+following backends:
+
+```{=mediawiki}
+{{Warning|{{Pkg|ggml-cpu}} is required regardless whether you use GPU or not, otherwise you get {{ic|no CPU backend found}}.}}
+```
+-   ```{=mediawiki}
+    {{Pkg|ggml-vulkan}}
+    ```
+    for inference with [Vulkan](Vulkan "wikilink").
 
 -   ```{=mediawiki}
-    {{Pkg|ggml}}
+    {{Pkg|ggml-cuda}}
     ```
-    and `{{Pkg|vulkan-icd-loader}}`{=mediawiki} for inference with [Vulkan](Vulkan "wikilink").
+    for inference with [CUDA](CUDA "wikilink").
 
 -   ```{=mediawiki}
-    {{Pkg|ggml}}
+    {{Pkg|ggml-hip}}
     ```
-    and `{{Pkg|cuda}}`{=mediawiki} for inference with [CUDA](CUDA "wikilink").
-
--   ```{=mediawiki}
-    {{Pkg|ggml}}
-    ```
-    and `{{Pkg|hipblas}}`{=mediawiki} for inference with [ROCm](ROCm "wikilink").
-
--   ```{=mediawiki}
-    {{Pkg|ggml}}
-    ```
-    and `{{Pkg|openblas}}`{=mediawiki} for inference with [OpenBLAS](Wikipedia:OpenBLAS "wikilink").
+    for inference with [ROCm](ROCm "wikilink").
 
 -   ```{=mediawiki}
     {{Pkg|ggml-sycl}}
     ```
     for inference with [SYCL](SYCL "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|ggml-blas}}
+    ```
+    for inference with [OpenBLAS](Wikipedia:OpenBLAS "wikilink").
+
+-   ```{=mediawiki}
+    {{Pkg|ggml-openvino}}
+    ```
+    for inference with [OpenVINO](Wikipedia:OpenVINO "wikilink").
 
 ```{=mediawiki}
 {{Note|For inference with [[Vulkan]], ensure you also have the appropriate Vulkan driver installed.}}
