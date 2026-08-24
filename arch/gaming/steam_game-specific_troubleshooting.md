@@ -222,7 +222,7 @@ Dependencies: [6](https://steamcommunity.com/app/221410/discussions/0/8649571831
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-sdl_ttf}}
+    {{AUR|lib32-sdl_ttf}}
     ```
 
 #### Gamepad not working {#gamepad_not_working}
@@ -644,7 +644,7 @@ with both mods disabled, install `{{Pkg|mono}}`{=mediawiki}.
 Run the game with
 `{{ic|1=LD_PRELOAD=/usr/lib32/libopenal.so.1 %command% }}`{=mediawiki}.[7](https://steamcommunity.com/app/8930/discussions/0/1621726179576099775/)
 If `{{ic|libopenal.so.1}}`{=mediawiki} is not in `{{ic|/usr/lib32}}`{=mediawiki}, you may need to install
-`{{Pkg|lib32-openal}}`{=mediawiki} after making sure [multilib](multilib "wikilink") is enabled.
+`{{AUR|lib32-openal}}`{=mediawiki} after making sure [multilib](multilib "wikilink") is enabled.
 
 For old versions of PulseAudio (\<12.0), use
 `{{ic|1=LD_PRELOAD='./libcxxrt.so:/usr/$LIB/libstdc++.so.6:/usr/lib32/libopenal.so.1' %command% }}`{=mediawiki}.[8](https://github.com/ValveSoftware/steam-for-linux/issues/4379)
@@ -712,7 +712,7 @@ If you are getting an instant crash/close upon launch, make sure you have the fo
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-openal}}
+    {{AUR|lib32-openal}}
     ```
 
 You also need an older version of lib32-tbb which provides libtbb.so.2. To get this:
@@ -1624,7 +1624,7 @@ Dependencies:
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-openal}}
+    {{AUR|lib32-openal}}
     ```
 
 #### Compatibility {#compatibility_1}
@@ -1797,7 +1797,7 @@ Uncheck fullscreen in the options menu, and press `{{ic|Ctrl+g}}`{=mediawiki} to
 
 KillingFloor comes with its own OpenAL library `{{ic|''GAME''/System/openal.so}}`{=mediawiki}.
 
-Back it up, [install](install "wikilink") `{{Pkg|openal}}`{=mediawiki} or `{{Pkg|lib32-openal}}`{=mediawiki} (if using a
+Back it up, [install](install "wikilink") `{{Pkg|openal}}`{=mediawiki} or `{{AUR|lib32-openal}}`{=mediawiki} (if using a
 64bit system).
 
 Then symlink the installed system library (`{{ic|/usr/lib32/libopenal.so.1}}`{=mediawiki} or
@@ -1990,7 +1990,7 @@ Install `{{Pkg|lib32-libpulse}}`{=mediawiki}. Remove file \"Move or Die/Love/lin
 
 ### Multiwinia
 
-Requires `{{Pkg|lib32-openal}}`{=mediawiki}.
+Requires `{{AUR|lib32-openal}}`{=mediawiki}.
 
 #### Crash on startup {#crash_on_startup_1}
 
@@ -2112,15 +2112,15 @@ Dependencies:
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-openal}}
+    {{AUR|lib32-openal}}
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-sdl_image}}
+    {{AUR|lib32-sdl_image}}
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-sdl_ttf}}
+    {{AUR|lib32-sdl_ttf}}
     ```
 
 #### Windowed mode {#windowed_mode_1}
@@ -2256,7 +2256,7 @@ found](#Missing_libcurl.so.4_or_version_CURL_OPENSSL_3_not_found "wikilink").
 
 ### Rock Boshers DX: Directors Cut {#rock_boshers_dx_directors_cut}
 
-Requires `{{Pkg|lib32-libcaca}}`{=mediawiki}.
+Requires `{{AUR|lib32-libcaca}}`{=mediawiki}.
 
 ### Saints Row: The Third {#saints_row_the_third}
 
@@ -2364,7 +2364,7 @@ Install `{{Pkg|glfw}}`{=mediawiki} and run the game with `{{ic|1=LD_PRELOAD=/usr
 
 ### Space Pirates and Zombies {#space_pirates_and_zombies}
 
-Requires `{{Pkg|lib32-openal}}`{=mediawiki}.
+Requires `{{AUR|lib32-openal}}`{=mediawiki}.
 
 #### No audio {#no_audio_2}
 
@@ -2391,11 +2391,11 @@ mmap = true
 Dependencies:
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-sdl_mixer}}
+    {{AUR|lib32-sdl_mixer}}
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-sdl_image}}
+    {{AUR|lib32-sdl_image}}
     ```
 
 -   ```{=mediawiki}

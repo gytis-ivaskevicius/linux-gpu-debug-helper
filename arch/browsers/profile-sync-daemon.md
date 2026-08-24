@@ -117,10 +117,6 @@ Currently, the following browsers are auto-detected and managed:
     {{Pkg|vivaldi}}
     ```
 
--   ```{=mediawiki}
-    {{AUR|zen-browser}}
-    ```
-
 ## Usage
 
 [Start/enable](Start/enable "wikilink") the `{{ic|psd.service}}`{=mediawiki} [user unit](user_unit "wikilink").

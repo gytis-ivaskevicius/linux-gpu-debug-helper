@@ -512,7 +512,7 @@ Install the correct packages for the audio driver you want to use:
         {{Pkg|pipewire-alsa}}
         ```
         , `{{Pkg|lib32-alsa-lib}}`{=mediawiki}, and `{{Pkg|lib32-alsa-plugins}}`{=mediawiki} to use ALSA as a frontend.
--   For [OSS](OSS "wikilink") install `{{Pkg|lib32-alsa-oss}}`{=mediawiki}
+-   For [OSS](OSS "wikilink") install `{{AUR|lib32-alsa-oss}}`{=mediawiki}
 
 If *winecfg* still fails to detect the audio driver (*Selected driver: (none)*), [configure it via the
 registry](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#using-regedit). For example, to provide full

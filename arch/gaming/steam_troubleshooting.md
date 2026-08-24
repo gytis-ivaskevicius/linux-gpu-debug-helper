@@ -677,7 +677,7 @@ See [Steam#Steam Remote Play](Steam#Steam_Remote_Play "wikilink").
 
 ### Remote Play does not work from Arch Linux host to Arch Linux guest {#remote_play_does_not_work_from_arch_linux_host_to_arch_linux_guest}
 
-Chances are you are missing `{{Pkg|lib32-libcanberra}}`{=mediawiki}. Once you [install](install "wikilink") that, it
+Chances are you are missing `{{AUR|lib32-libcanberra}}`{=mediawiki}. Once you [install](install "wikilink") that, it
 should work as expected.
 
 With that, Steam should no longer crash when trying to launch a game through Remote Play.
@@ -747,6 +747,10 @@ You may be wasting some space on your otherwise important Linux drive, however.
 `$ mv `*`SteamLibrary`*`/steamapps/compatdata /home/`*`user`*`/dir/`\
 `$ ln -s /home/`*`user`*`/dir/Proton\ `*`x`*`.`*`y`*`/ `*`SteamLibrary`*`/steamapps/common/Proton\ `*`x`*`.`*`y`*\
 `$ ln -s /home/`*`user`*`/dir/compatdata/ `*`SteamLibrary`*`/steamapps/compatdata`
+
+You could also tell Proton to use a custom location for the prefix via the `{{ic|STEAM_COMPAT_DATA_PATH}}`{=mediawiki}
+environment variable which you could set via the game launch options. Before you start the game make sure the directory
+exists.
 
 ### Wrong ELF class {#wrong_elf_class}
 

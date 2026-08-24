@@ -558,7 +558,7 @@ WantedBy=suspend.target
     ```
 
 -   ```{=mediawiki}
-    {{App|ectool|Fan configuration for [[Framework Laptop]]s.|https://github.com/markusressel/fan2go|{{AUR|fw-ectool-git}}}}
+    {{App|ectool|Fan configuration for [[Framework Laptop]]s.|https://github.com/DHowett/ectool|{{AUR|fw-ectool-git}}}}
     ```
 
 -   ```{=mediawiki}

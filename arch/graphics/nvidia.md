@@ -752,10 +752,10 @@ mode. It can be enabled from within the nvidia-settings GUI or from the command 
 ## NVSwitch
 
 ```{=mediawiki}
-{{Expansion|The install instructions should be made into an AUR package. The instructions also don't talk about the OFED/MOFED drivers mentioned [https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#other-nvidia-software-packages here].}}
+{{Expansion|The install instructions should be made into an AUR package. There are also no installation instructions of the OFED/MOFED drivers on Arch.}}
 ```
 ```{=mediawiki}
-{{Accuracy|It is not clear why the AUR beta packages are needed over the ones available on the official repositories.}}
+{{Accuracy|The following instructions haven't been thoroughly tested on the hardware systems in question.}}
 ```
 From the [NVIDIA
 page](https://docs.nvidia.com/ai-enterprise/release-8/latest/infra-software/vgpu/features/nvswitch.html):
@@ -775,6 +775,8 @@ H100](https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.htm
 * The Fabric Manager is not currently available as a package on neither the official repositories or the AUR.
 }}
 ```
+### Installing Fabric Manager {#installing_fabric_manager}
+
 The FM
 [requires](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#other-nvidia-software-packages)
 the libraries `{{ic|libibumad3}}`{=mediawiki} and `{{ic|infiniband-diags}}`{=mediawiki} to be installed on the target
@@ -788,8 +790,14 @@ the install script `{{ic|sbin/fm_run_package_installer.sh}}`{=mediawiki}, set `{
 installed to architecture-dependent sub-directories (e.g. `{{ic|/usr/lib/x86_64-linux-gnu}}`{=mediawiki}) which are not
 supported on Arch Linux.
 
-For the kernel module, install the `{{AUR|nvidia-beta-dkms}}`{=mediawiki} and `{{AUR|nvidia-utils-beta}}`{=mediawiki}
-packages. Make sure the installed module\'s and the FM\'s versions match. Finally, reboot the system.
+### Kernel driver for Fabric Manager {#kernel_driver_for_fabric_manager}
+
+On DGX B200/B300, NVIDIA HGX B200/B300, and NVIDIA HGX B100 systems, an [OFED or a MOFED
+driver](https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/) is required, which are not officially
+distributed for Arch systems.
+
+For other hardware systems, follow [#Installation](#Installation "wikilink"). Make sure the installed module\'s and the
+FM\'s versions match, and reboot the system.
 
 The `{{ic|nvidia-fabricmanager}}`{=mediawiki} service should have been automatically [enabled](enabled "wikilink") by
 the install script, and thus started after a reboot.

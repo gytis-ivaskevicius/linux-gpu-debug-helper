@@ -499,9 +499,9 @@ Example:
 ### Remote display {#remote_display}
 
 -   ```{=mediawiki}
-    {{Pkg|wlroots0.18}}
+    {{AUR|wlroots0.18}}
     ```
-    and `{{Pkg|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
+    and `{{AUR|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
     [16](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 

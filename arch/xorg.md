@@ -432,16 +432,11 @@ raising).
 |             |                   |                   |                   |                 | characters.       |
 +-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
 | AutoKey     | ```{=mediawiki}   | [documentation    | ```{=mediawiki}   | ```{=mediawiki} | Higher-level,     |
-|             | {                 | ](https://github. | {{Yes}}           | {{Yes}}         | powerful macro    |
-|             | {AUR|autokey-qt}} | com/autokey/autok | ```               | ```             | and scripting     |
+|             | {{                | ](https://github. | {{Yes}}           | {{Yes}}         | powerful macro    |
+|             | AUR|autokey-gtk}} | com/autokey/autok | ```               | ```             | and scripting     |
 |             | ```               | ey#documentation) |                   |                 | utility, with     |
-|             | ```{=mediawiki}   |                   |                   |                 | both Qt and Gtk   |
-|             | {{Broke           |                   |                   |                 | front-ends.       |
-|             | n package link|pa |                   |                   |                 |                   |
-|             | ckage not found}} |                   |                   |                 |                   |
-|             | ```               |                   |                   |                 |                   |
-|             | `{{AUR|autokey-g  |                   |                   |                 |                   |
-|             | tk}}`{=mediawiki} |                   |                   |                 |                   |
+|             |                   |                   |                   |                 | both Qt and Gtk   |
+|             |                   |                   |                   |                 | front-ends.       |
 +-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
 
 See also [Clipboard#Tools](Clipboard#Tools "wikilink") and [an overview of X automation
