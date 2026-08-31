@@ -27,7 +27,7 @@ matrix](https://nouveau.freedesktop.org/wiki/FeatureMatrix/) for supported featu
 ```
 See also [Hardware video acceleration](Hardware_video_acceleration "wikilink").
 
-### Using the Mesa NVK Vulkan Driver {#using_the_mesa_nvk_vulkan_driver}
+### Using the Mesa NVK Vulkan driver {#using_the_mesa_nvk_vulkan_driver}
 
 ```{=mediawiki}
 {{Warning|This driver is still a work in progress and as such, regressions should be expected. Some stuff (mostly games) that worked on the open-source and proprietary drivers will probably not work as well (or even at all) using NVK. If playing games is an important workload then you should probably avoid using NVK until it matures a little.}}

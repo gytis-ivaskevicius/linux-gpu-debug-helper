@@ -424,6 +424,17 @@ Try installing the `{{AUR|intel-media-driver-legacy}}`{=mediawiki} instead of th
 `{{AUR|intel-compute-runtime-legacy}}`{=mediawiki}.
 [5](https://aur.archlinux.org/packages/intel-compute-runtime-legacy-bin#comment-1024408)
 
+### vainfo fails when using a secondary GPU {#vainfo_fails_when_using_a_secondary_gpu}
+
+If you get an error message like:
+
+`DRM_IOCTL_VERSION, unsupported drm device by media driver`
+
+especially when setting the driver via `{{ic|LIBVA_DRIVER_NAME}}`{=mediawiki}, you will likely need to use
+`{{ic|--display drm}}`{=mediawiki}.
+
+This also allows you to check the info of GPUs without a display attached.
+
 ## Comparison tables {#comparison_tables}
 
 ### VA-API drivers {#va_api_drivers}

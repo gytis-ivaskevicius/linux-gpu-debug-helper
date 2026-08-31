@@ -233,7 +233,8 @@ programs.firefox = {
 }}
 ```
 `<translate>`{=html} [More options are available on Home Manager\'s
-site.](https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.enable)
+site.](https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.enable) [More options for
+policies can be found on Mozilla\'s site.](https://firefox-admin-docs.mozilla.org/reference/policies/)
 
 To reload uBlock Origin settings from `policies.json`, open the uBlock Origin dashboard and choose *Reset to default
 settings*.
@@ -364,6 +365,12 @@ Native messaging hosts (used for extensions like Plasma Integration) do not work
 with Firefox installed imperatively via `nix-env`. You must use a variant built from source via your NixOS or Home
 Manager configuration.
 
+#### Policies Failed to Load when using Home Manager {#policies_failed_to_load_when_using_home_manager}
+
+If the policies are not configured when using Home Manager, ensure that the package is installed via your Home Manager
+configuration rather than your NixOS configuration. Additionally, some options are only available when using the
+`firefox-esr` variant of the package.
+
 #### ALSA audio instead of PulseAudio {#alsa_audio_instead_of_pulseaudio}
 
 To force Firefox to use ALSA, you can override it with a wrapper: `</translate>`{=html}
@@ -397,6 +404,7 @@ xdg.portal = {
 
 -   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
 -   [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
+-   [Policy template options for Firefox](https://firefox-admin-docs.mozilla.org/reference/policies/)
 
 ## References
 

@@ -11,6 +11,16 @@ environment.systemPackages = with pkgs; [
 ];
 ```
 
+You will get a warning that bottles is only supported in sandboxed environments at first start of bottles. To get rid of
+this warning, use the code below instead. For reasoning and explanation see [this GitHub
+issue](https://github.com/NixOS/nixpkgs/issues/384555).
+
+``` nix
+environment.systemPackages = with pkgs; [
+  (bottles.override { removeWarningPopup = true; })
+];
+```
+
 ### Home Manager {#home_manager}
 
 Add the package to your

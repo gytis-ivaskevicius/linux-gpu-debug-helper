@@ -1587,7 +1587,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|NetPanzer|An online multiplayer tactical warfare game designed for fast action combat.|https://github.com/netpanzer/netpanzer|{{AUR|netpanzer-appimage}}{{Broken package link|package not found}}}}
+    {{App|NetPanzer|An online multiplayer tactical warfare game designed for fast action combat.|https://github.com/netpanzer/netpanzer|{{AUR|netpanzer}}}}
     ```
 
 -   ```{=mediawiki}

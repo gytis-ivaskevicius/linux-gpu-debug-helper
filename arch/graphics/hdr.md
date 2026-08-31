@@ -95,21 +95,24 @@ allow you to try out Valve\'s Steam client running through the HDR capable games
 {{Tip|An [[AMDGPU]] is recommended for use with gamescope - [[NVIDIA]] is known to have critical issues.}}
 ```
 -   Install `{{Pkg|gamescope}}`{=mediawiki} and `{{AUR|gamescope-session-steam-git}}`{=mediawiki}
--   You may create the optional config file `{{ic|~/.config/environment.d/gamescope-session.conf}}`{=mediawiki} with the
-    following content: `{{bc|<nowiki>
-    if [ "$XDG_SESSION_DESKTOP" = "gamescope" ] ; then
-        SCREEN_WIDTH=1920
-        SCREEN_HEIGHT=1080
-        CONNECTOR=*,eDP-1
-        CLIENTCMD="steam -gamepadui -pipewire-dmabuf"
-        GAMESCOPECMD="/usr/bin/gamescope --hdr-enabled --hdr-itm-enable \
-        --hide-cursor-delay 3000 --fade-out-duration 200 --xwayland-count 2 \
-        -W $SCREEN_WIDTH -H $SCREEN_HEIGHT -O $CONNECTOR"
-    fi
-    </nowiki>}}`{=mediawiki}
-    -   Update the resolution values above to the correct ones. You can list your displays by running
-        `{{ic|xrandr --query}}`{=mediawiki}.
-    -   You may need to set the Display `{{ic|CONNECTOR}}`{=mediawiki} if it does not pick the right one by default.
+-   You may create the following optional configuration file with the following content:
+
+```{=mediawiki}
+{{hc|~/.config/environment.d/gamescope-session.conf|2=
+if [ "$XDG_SESSION_DESKTOP" = "gamescope" ] ; then
+    SCREEN_WIDTH=1920
+    SCREEN_HEIGHT=1080
+    CONNECTOR=*,eDP-1
+    CLIENTCMD="steam -gamepadui -pipewire-dmabuf"
+    GAMESCOPECMD="/usr/bin/gamescope --hdr-enabled --hdr-itm-enable \
+    --hide-cursor-delay 3000 --fade-out-duration 200 --xwayland-count 2 \
+    -W $SCREEN_WIDTH -H $SCREEN_HEIGHT -O $CONNECTOR"
+fi
+}}
+```
+-   Update the resolution values above to the correct ones. You can list your displays by running
+    `{{ic|xrandr --query}}`{=mediawiki}.
+-   You may need to set the Display `{{ic|CONNECTOR}}`{=mediawiki} if it does not pick the right one by default.
 
 You can now start `{{ic|gamescope}}`{=mediawiki} from your login manager or a terminal using one of the following steps:
 

@@ -553,10 +553,9 @@ OpenMP is better-known for its use in CPU multiprocessing, but it also supports 
 GPGPUs. OpenACC is in a similar position: both are based on inserting pragmas into ordinary C/C++/Fortran code and
 having the compiler split out the marked part for offloading or multiprocessing.
 
--   AMD provides an implementation of OpenMP for ROCm-capable AMD GPUs. The
-    `{{AUR|openmp-extras}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} package provides
-    [AOMP](https://github.com/ROCm-Developer-Tools/aomp) - an open source Clang/LLVM based compiler with added support
-    for the OpenMP API on AMD GPUs.
+-   AMD provides an implementation of OpenMP for ROCm-capable AMD GPUs. The `{{Pkg|rocm-openmp}}`{=mediawiki} package
+    provides [AOMP](https://github.com/ROCm-Developer-Tools/aomp) - an open source Clang/LLVM based compiler with added
+    support for the OpenMP API on AMD GPUs.
 -   Nvidia\'s `{{Pkg|nvhpc}}`{=mediawiki} provides OpenMP implementation with GPU offloading on their GPUs.
     [1](https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html#using-openmp)
 -   GCC can generate Nvidia (nvptx) and AMD (gfx9, gfx10, gfx11) code for offloading OpenMP and OpenACC

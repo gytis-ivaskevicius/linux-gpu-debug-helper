@@ -508,7 +508,7 @@ Attribute 'CurrentMetaMode' (hostnmae:0.0): id=50, switchable=no, source=nv-cont
 ```
 Save everything after the `{{ic|::}}`{=mediawiki} to the end of the attribute (in this case:
 `{{ic|1=DPY-1: 2880x1620 @2880x1620 +0+0 {ViewPortIn=2880x1620, ViewPortOut=2880x1620+0+0}<nowiki/>}}`{=mediawiki}) and
-use to reconfigure your displays with
+use it to reconfigure your displays with
 `{{ic|1=nvidia-settings --assign "CurrentMetaMode=''your_meta_mode''"}}`{=mediawiki}.
 
 ```{=mediawiki}
@@ -732,10 +732,10 @@ Even if using Base mode without SLI, the GPUs must still be SLI capable/compatib
 
 ##### Base Mosaic {#base_mosaic}
 
-Base Mosaic mode works on any set of Geforce 8000 series or higher GPUs. It cannot be enabled from within the
+Base Mosaic mode works on any set of GeForce 8000 series or higher GPUs. It cannot be enabled from within the
 nvidia-setting GUI. You must either use the *nvidia-xconfig* command line program or edit `{{ic|xorg.conf}}`{=mediawiki}
 by hand. Metamodes must be specified. The following is an example for four DFPs in a 2x2 configuration, each running at
-1920x1024, with two DFPs connected to two cards:
+1920x1024, with two DFPs connected to each of two cards:
 
 `# nvidia-xconfig --base-mosaic --metamodes="GPU-0.DFP-0: 1920x1024+0+0, GPU-0.DFP-1: 1920x1024+1920+0, GPU-1.DFP-0: 1920x1024+0+1024, GPU-1.DFP-1: 1920x1024+1920+1024"`
 

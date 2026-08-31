@@ -9,12 +9,8 @@
 ```{=mediawiki}
 {{Expansion|If the user should install multiple backends, how are they to determine which one to use?}}
 ```
-[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki} and `{{Pkg|ggml-cpu}}`{=mediawiki}, plus one of the
-following backends:
+[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki}, plus one of the following backends:
 
-```{=mediawiki}
-{{Warning|{{Pkg|ggml-cpu}} is required regardless whether you use GPU or not, otherwise you get {{ic|no CPU backend found}}.}}
-```
 -   ```{=mediawiki}
     {{Pkg|ggml-vulkan}}
     ```

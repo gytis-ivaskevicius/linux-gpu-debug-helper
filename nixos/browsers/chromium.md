@@ -142,8 +142,8 @@ Video Decoder (software decoding). If this happens, try to enable the following 
 
 ## Enabling native Wayland support {#enabling_native_wayland_support}
 
-You can enable native Wayland support in all Chromium based and most Electron apps by setting the \`NIXOS_OZONE_WL\`
-environment variable to \`1\`.
+You can enable native Wayland support in all Chromium based and most Electron apps by setting the
+`{{ic|NIXOS_OZONE_WL}}`{=mediawiki} environment variable to 1.
 
 ## Enabling DRM (Widevine support) {#enabling_drm_widevine_support}
 

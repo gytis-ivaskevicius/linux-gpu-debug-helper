@@ -275,7 +275,7 @@ See [HiDPI#Steam](HiDPI#Steam "wikilink").
 To start Steam in Big Picture Mode from a [display manager](display_manager "wikilink") with
 [Gamescope](Gamescope "wikilink") as its [compositor](Wayland#Compositors "wikilink"):
 
--   [Install](Install "wikilink") `{{Pkg|gamescope}}`{=mediawiki}.
+-   [Install Gamescope](Gamescope#Installation "wikilink").
 -   Create the following [desktop entry](desktop_entry "wikilink") with the following contents:
 
 ```{=mediawiki}
@@ -292,20 +292,16 @@ Type=Application
 ```
 Then instruct your display manager to launch gamescope.
 
+For the performance overlay to work, you have to [install MangoHud](MangoHud#Installation "wikilink") and add
+`{{ic|--mangoapp}}`{=mediawiki} to the `{{ic|gamescope}}`{=mediawiki} arguments. `{{Pkg|polkit}}`{=mediawiki} needs to
+be installed to be able to use the \"Suspend System\", \"Turn Off System\" and \"Restart System\" options of the Power
+menu.
+
 ```{=mediawiki}
 {{Note|[[Install]] {{Pkg|pipewire-pulse}} if the audio settings do not show any audio devices.}}
 ```
 ```{=mediawiki}
-{{Note|For the performance overlay to work, you have to [[Install]] {{Pkg|mangohud}} and add {{ic|--mangoapp}} to the {{ic|gamescope}} arguments.}}
-```
-```{=mediawiki}
-{{Warning|{{Pkg|polkit}} needs to be installed to be able to use the "Suspend System", "Turn Off System" and "Restart System" options of the Power menu.}}
-```
-```{=mediawiki}
-{{Warning|The "Switch to desktop" menu entry softlocks the session. To exit to the display manager you need to run {{ic|steam -shutdown}}. To do this from Steam, you can either:
-* Add {{ic|-steamos3}} to the Steam command-line arguments, which makes in the menu entry execute {{ic|steamos-session-select}} when selected. You can then add a script with this name in your [[PATH]] to customize the behavior; see [https://gist.github.com/Rishikant181/e26fb23d4c57db74bddaa0a57b26cd26#5-creating-a-script-to-switch-back-to-desktop-mode-close-steam this guide] for an example (note that {{ic|~/.local/bin}} is not part of Arch's default {{ic|PATH}}).
-** Be warned that {{ic|-steamos3}} might have other unintended effects.
-* Create a script with this command and add it as a non-Steam game. This creates a "shortcut" to exit back to the display manager.}}
+{{Warning|To list networks and connect to them from inside Steam, you need to add {{ic|-steamdeck}} option to the Steam command-line arguments. This however might have unintended effects, like the new "Switch to desktop" menu entry possibly softlocking the session. To exit to the display manager you need to run {{ic|steam -shutdown}} or save it as a script and add it as a non-steam game. See this [https://gist.github.com/Rishikant181/e26fb23d4c57db74bddaa0a57b26cd26#5-creating-a-script-to-switch-back-to-desktop-mode-close-steam guide] for  running Steam in Big Picture Mode with steamdeck/steamos mode running gamescope as the sole compositor in its own TTY.}}
 ```
 ### Steam Remote Play {#steam_remote_play}
 

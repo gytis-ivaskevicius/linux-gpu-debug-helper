@@ -310,6 +310,14 @@ A fork of vr-video-player for OpenXR and wayland that uses pipewire to capture a
 
 Available as `{{AUR|xr-video-player-git}}`{=mediawiki}.
 
+#### Bino
+
+A video player with a focus on 3D and Virtual Reality. Bino can play stereoscopic 3D and 360°/180° videos, and display
+them on 3D displays and in Virtual Reality environments including SteamVR and CAVEs.
+
+Available as `{{AUR|bino}}`{=mediawiki}, `{{AUR|bino-git}}`{=mediawiki} or
+[Flatpak](https://flathub.org/en/apps/org.bino3d.bino).
+
 ### SideQuest
 
 SideQuest can be used to install [APK files](Wikipedia:APK_file "wikilink") to your Oculus Quest. It is available as
