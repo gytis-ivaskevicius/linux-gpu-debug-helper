@@ -295,10 +295,10 @@ To set SteamVR as the default OpenXR runtime, you have to add the following snip
   '';
 }}
 ```
-## wlx-overlay-s {#wlx_overlay_s}
+## WayVR
 
-[wlx-overlay-s](https://github.com/galister/wlx-overlay-s) is a lightweight OpenXR/OpenVR overlay for Wayland and X11
-desktops. It works with SteamVR as well as Monado/WiVRn natively.
+[WayVR](https://github.com/wayvr-org/wayvr) is a lightweight OpenXR/OpenVR overlay for Wayland and X11 desktops. It
+works with SteamVR as well as Monado/WiVRn natively. It was formerly named wlx-overlay-s.
 
 #### SteamVR autostart {#steamvr_autostart}
 
@@ -309,10 +309,24 @@ NixOS/Nix profile. A workaround is to regularly run the following command to upd
 
 ```{=mediawiki}
 {{Commands|
-# <translate><!--T:48--> Run wlx-overlay-s and replace any running instance</translate>
-$ wlx-overlay-s --replace}}
+# <translate><!--T:48--> Run WayVR and replace any running instance</translate>
+$ wayvr --replace}}
 ```
-`<translate>`{=html}
+`<translate>`{=html} You might also consider using a systemd user service to automatically do this when you log in to
+your account: `</translate>`{=html} `{{file|/etc/nixos/configuration.nix|nix|
+<nowiki>
+systemd.user.services.wayvr = {
+  description = "WayVR desktop overlay for OpenXR/OpenVR";
+  partOf = [ "graphical-session.target" ];
+  after = [ "graphical-session.target" ];
+  wantedBy = [ "graphical-session.target" ];
+  serviceConfig = {
+    ExecStart = "${pkgs.wayvr}/bin/wayvr --replace";
+    Restart = "on-failure";
+  };
+};
+</nowiki>
+}}`{=mediawiki} `<translate>`{=html}
 
 ## See also {#see_also}
 

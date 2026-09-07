@@ -839,7 +839,7 @@ The modified VBT can then be loaded by copying it to `{{ic|/usr/lib/firmware/i91
 including the file in the initramfs. For [mkinitcpio](mkinitcpio "wikilink"), the `{{ic|FILES}}`{=mediawiki} field in
 `{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} can be used:
 
-`FILES=(/usr/lib/firmware/i195/modified_vbt)`
+`FILES=(/usr/lib/firmware/i915/modified_vbt)`
 
 [regenerate the initramfs](regenerate_the_initramfs "wikilink"), and pass the new table to the i915 as a kernel
 parameter: `{{ic|i915.vbt_firmware{{=}}`{=mediawiki}i915/modified_vbt}}.

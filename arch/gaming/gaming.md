@@ -182,32 +182,55 @@ just as many (or more) games than on Windows:
 
 ### Increase vm.max_map_count {#increase_vm.max_map_count}
 
-Having the `{{ic|vm.max_map_count}}`{=mediawiki} set to a low value can affect the stability and performance of some
-games. It can therefore be desirable to increase the size permanently by creating the following
-[sysctl](sysctl "wikilink") config file.
+Having the `{{ic|vm.max_map_count}}`{=mediawiki} kernel parameter set to a low value can affect the stability and
+performance of some games.
+
+Arch Linux uses the value **1048576** by
+default[1](https://archlinux.org/news/increasing-the-default-vmmax_map_count-value/), which Fedora Linux considers a
+safe value[2](https://www.phoronix.com/news/Fedora-39-Max-Map-Count-Approve). This default value is likely to be
+sufficient for current games, as increasing the value was mostly important when Arch used the kernel default of
+`{{ic|65530}}`{=mediawiki} [3](https://www.phoronix.com/news/Fedora-39-VM-Max-Map-Count). A value of **2147483642**
+(MAX_INT - 5) is the default in SteamOS.
+
+Valve Software\'s Proton compatibility tool considers `{{ic|1048576}}`{=mediawiki} to be a sufficient
+value.[4](https://github.com/ValveSoftware/Proton/blob/5b89db940e0ebe3a137a6009a3589232fe084c09/proton#L1977-L1978)
+
+If desired, the value can be increased even further (such as to match SteamOS\' configuration). To achieve this, create
+the following [sysctl](sysctl "wikilink") configuration file:
 
 ```{=mediawiki}
 {{hc|/etc/sysctl.d/80-gamecompatibility.conf|2=
 vm.max_map_count = 2147483642
 }}
 ```
-```{=mediawiki}
-{{Note|The default value is set by {{ic|/usr/lib/sysctl.d/10-arch.conf}}, if you use a different file make sure it has higher priority. See {{man|8|sysctl|SYSTEM FILE PRECEDENCE}}.}}
-```
-Arch Linux uses the value **1048576** by default
-[1](https://archlinux.org/news/increasing-the-default-vmmax_map_count-value/), which Fedora considers a safe value
-[2](https://www.phoronix.com/news/Fedora-39-Max-Map-Count-Approve). This default value is likely to be sufficient for
-current games, as increasing the value was mostly important when Arch used the kernel default of 65530
-[3](https://www.phoronix.com/news/Fedora-39-VM-Max-Map-Count). A value of **2147483642** (MAX_INT - 5) is the default in
-SteamOS.
-
-Apply the changes without reboot by running:
+Then, verify and apply the change without rebooting by running:
 
 `# sysctl --system`
 
 ```{=mediawiki}
-{{Note|This can lead to incompatibility with older programs trying to read core dump files [https://github.com/torvalds/linux/blob/v5.18/include/linux/mm.h#L178].}}
+{{Note|A higher value (such as Arch's default) can lead to incompatibility with legacy applications trying to read core dump files[https://github.com/torvalds/linux/blob/v5.18/include/linux/mm.h#L178].}}
 ```
+### Disable kernel split-lock mitigation {#disable_kernel_split_lock_mitigation}
+
+Some proprietary games running via Wine/Proton do not behave well in regards to the split-lock detection mechanism
+introduced by the Linux kernel version 5.7, potentially degrading performance significantly for the affected
+games[5](https://www.phoronix.com/news/Linux-Splitlock-Hurts-Gaming). The split-lock mechanism is controlled by the
+kernel parameter `{{ic|kernel.split_lock_mitigate}}`{=mediawiki}.
+
+It can therefore be desired to disable the mitigation to improve game performance, in case there is noticeable lower
+performance.
+
+To achieve this, create the following [sysctl](sysctl "wikilink") configuration file:
+
+```{=mediawiki}
+{{hc|/etc/sysctl.d/75-kernelsplitlock.conf|2=
+kernel.split_lock_mitigate = 0
+}}
+```
+Then, verify and apply the change without rebooting by running:
+
+`# sysctl --system`
+
 ## Getting games {#getting_games}
 
 Just because games are available for Linux does not mean that they are native; they might be pre-packaged with
@@ -770,7 +793,7 @@ You can see all currently available timers by running
 `# cat /sys/devices/system/clocksource/clocksource*/available_clocksource`
 
 and change between them by echoing one into current_clocksource. On a Zen 3 system benchmarking with
-[4](https://gist.github.com/weirddan455/eb807fa48915652abeca3b6421970ab4) shows a \~50 times higher throughput of
+[6](https://gist.github.com/weirddan455/eb807fa48915652abeca3b6421970ab4) shows a \~50 times higher throughput of
 `{{ic|tsc}}`{=mediawiki} compared to `{{ic|hpet}}`{=mediawiki} or `{{ic|acpi_pm}}`{=mediawiki}.
 
 ```{=mediawiki}
@@ -797,14 +820,14 @@ After a memory fragmentation event this helps to better keep the application dat
 `# echo 1 > /proc/sys/vm/watermark_boost_factor`
 
 If you have enough free RAM increase the number of minimum free Kilobytes to avoid stalls on memory allocations:
-[5](https://highscalability.com/blog/2015/4/8/the-black-magic-of-systematically-reducing-linux-os-jitter.html)[6](https://docs.kernel.org/admin-guide/sysctl/vm.html).
+[7](https://highscalability.com/blog/2015/4/8/the-black-magic-of-systematically-reducing-linux-os-jitter.html)[8](https://docs.kernel.org/admin-guide/sysctl/vm.html).
 Do not set this below 1024 KB or above 5% of your systems memory. Reserving 1GB:
 
 `# echo 1048576 > /proc/sys/vm/min_free_kbytes`
 
 If you have enough free RAM increase the watermark scale factor to further reduce the likelihood of allocation stalls
 (explanations
-[7](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs)[8](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs-2)).
+[9](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs)[10](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs-2)).
 Setting watermark distances to 5% of RAM:
 
 `# echo 500 > /proc/sys/vm/watermark_scale_factor`
@@ -818,7 +841,7 @@ swapping related stutter. If you do not have a swap partition, you can [use zram
 of zswap.
 
 Enable Multi-Gen Least Recently Used (MGLRU) but reduce the likelihood of lock contention at a minor performance cost
-[9](https://docs.kernel.org/admin-guide/mm/multigen_lru.html):
+[11](https://docs.kernel.org/admin-guide/mm/multigen_lru.html):
 
 `# echo 5 > /sys/kernel/mm/lru_gen/enabled`
 
@@ -826,23 +849,23 @@ Disable zone reclaim (locking and moving memory pages that introduces latency sp
 
 `# echo 0 > /proc/sys/vm/zone_reclaim_mode`
 
-Disable Transparent Hugepages (THP) at a performance cost. Even if defragmentation is disabled, THPs might introduce
-latency spikes
-[10](https://docs.kernel.org/admin-guide/mm/transhuge.html)[11](https://rigtorp.se/virtual-memory/)[12](https://alexandrnikitin.github.io/blog/transparent-hugepages-measuring-the-performance-impact/).
-Enable only when the application specifically requests it by using madvise and advise:
+Disable Transparent Hugepages (THP) at a performance cost. Even if defragmentation is disabled, THPs introduce latency
+spikes due to TLB (translation lookaside buffer) shootdowns and allocation stalls (remedied a bit by proactive
+compaction but enabling it also causes jitter)
+[12](https://docs.kernel.org/admin-guide/mm/transhuge.html)[13](https://rigtorp.se/virtual-memory/)[14](https://alexandrnikitin.github.io/blog/transparent-hugepages-measuring-the-performance-impact/).
 
 ```{=mediawiki}
 {{bc|
-# echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
-# echo advise > /sys/kernel/mm/transparent_hugepage/shmem_enabled
+# echo never > /sys/kernel/mm/transparent_hugepage/enabled
+# echo never > /sys/kernel/mm/transparent_hugepage/shmem_enabled
 # echo never > /sys/kernel/mm/transparent_hugepage/defrag
 }}
 ```
-Note that if your game uses TCMalloc (e.g., Dota 2 and CS:GO) then it is not recommended to disable THP as it comes with
-a large performance cost [13](https://github.com/google/tcmalloc/blob/master/docs/tuning.md#system-level-optimizations).
+Note that if your game uses TCMalloc (e.g., Dota 2 and CS:GO) or mimalloc then disabling THP entirely comes with a large
+performance cost [15](https://github.com/google/tcmalloc/blob/master/docs/tuning.md#system-level-optimizations).
 
 Reduce the maximum page lock acquisition latency while retaining adequate throughput
-[14](https://www.phoronix.com/review/linux-59-unfairness)[15](https://openbenchmarking.org/result/2009154-FI-LINUX58CO57&sro)[16](https://www.phoronix.com/review/linux-59-fairness):
+[16](https://www.phoronix.com/review/linux-59-unfairness)[17](https://openbenchmarking.org/result/2009154-FI-LINUX58CO57&sro)[18](https://www.phoronix.com/review/linux-59-fairness):
 
 `# echo 1 > /proc/sys/vm/page_lock_unfairness`
 
@@ -850,7 +873,7 @@ Tweak the scheduler settings. The following scheduler settings are in conflict w
 so for each setting choose only one provider. By default the linux kernel scheduler is optimized for throughput and not
 latency. The following hand-made settings change that and are tested with different games to be a noticeable
 improvement. They might not be optimal for your use case; consider modifying them as necessary
-[17](https://access.redhat.com/solutions/177953)[18](https://doc.opensuse.org/documentation/leap/tuning/html/book-tuning/cha-tuning-taskscheduler.html):
+[19](https://access.redhat.com/solutions/177953)[20](https://doc.opensuse.org/documentation/leap/tuning/html/book-tuning/cha-tuning-taskscheduler.html):
 
 ```{=mediawiki}
 {{bc|
@@ -888,8 +911,8 @@ w /proc/sys/vm/watermark_scale_factor - - - - 500
 w /proc/sys/vm/swappiness - - - - 10
 w /sys/kernel/mm/lru_gen/enabled - - - - 5
 w /proc/sys/vm/zone_reclaim_mode - - - - 0
-w /sys/kernel/mm/transparent_hugepage/enabled - - - - madvise
-w /sys/kernel/mm/transparent_hugepage/shmem_enabled - - - - advise
+w /sys/kernel/mm/transparent_hugepage/enabled - - - - never
+w /sys/kernel/mm/transparent_hugepage/shmem_enabled - - - - never
 w /sys/kernel/mm/transparent_hugepage/defrag - - - - never
 w /proc/sys/vm/page_lock_unfairness - - - - 1
 w /proc/sys/kernel/sched_child_runs_first - - - - 0
@@ -930,8 +953,8 @@ buffer bloat.
 ### Improve PCI Latencies {#improve_pci_latencies}
 
 Change the PCI Latencies similar to CachyOS
-[19](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/pci-latency). Reduce the maximum cycles a PCI
-Client can occupy the bus, except for sound cards [20](https://maximum-tech.net/what-is-pci-latency-timer/). Note that
+[21](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/pci-latency). Reduce the maximum cycles a PCI
+Client can occupy the bus, except for sound cards [22](https://maximum-tech.net/what-is-pci-latency-timer/). Note that
 these settings are in conflict with [Professional audio#Optimizing system
 configuration](Professional_audio#Optimizing_system_configuration "wikilink").
 
@@ -970,7 +993,7 @@ Advantages of disabling SMT:
 
 If you disable SMT, do so in the BIOS/UEFI to improve single-core performance. (Example of SMT sharing CPU internal
 resources:
-[21](https://www.amd.com/content/dam/amd/en/documents/epyc-business-docs/white-papers/amd-epyc-smt-technology-brief.pdf))
+[23](https://www.amd.com/content/dam/amd/en/documents/epyc-business-docs/white-papers/amd-epyc-smt-technology-brief.pdf))
 
 ### Load shared objects immediately for better first time latency {#load_shared_objects_immediately_for_better_first_time_latency}
 
@@ -983,15 +1006,15 @@ delay the first time a function is called. Do not set this for *startplasma-x11*
 libraries that do not actually exist on the system anymore and are never called by the program. If this is the case, the
 program fails on startup trying to link a nonexistent shared object, making this issue easily identifiable. Most games
 should start fine with this setting enabled. Since packages inside the official repository are built with RELRO
-[22](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) by default, only packages
+[24](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) by default, only packages
 from other sources should be affected in terms of first time latency, bugs in linking might still be triggered.
 
 ### Utilities
 
 #### GameMode
 
-[GameMode](GameMode "wikilink") is daemon and library combo that allows games to request a set of optimisations be
-temporarily applied to the host OS. This can improve game performance.
+[GameMode](GameMode "wikilink") is a daemon and library combo for Linux that allows games to request a set of
+optimisations be temporarily applied to the host OS and/or a game process. This can improve game performance.
 
 #### Gamescope
 
@@ -1116,7 +1139,7 @@ Alternatively `{{Pkg|solaar}}`{=mediawiki} for logitech devices.
 ### LEDs
 
 You can change and manipulate various RGBs with `{{Pkg|openrgb}}`{=mediawiki}, for a list of currently supported devices
-see [23](https://openrgb.org/devices_0.9.html)
+see [25](https://openrgb.org/devices_0.9.html)
 
 ## See also {#see_also}
 

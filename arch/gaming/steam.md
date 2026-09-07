@@ -71,7 +71,7 @@ determines the game directory name.
 `steam [ -options ] [ `[`steam://`](steam://)` URL ]`
 
 For the available command-line options see the [Command Line Options article on the Valve Developer
-Wiki](https://developer.valvesoftware.com/wiki/Command_Line_Options#Steam_.28Windows.29).
+Wiki](https://developer.valvesoftware.com/wiki/Command_line_options_(Steam)).
 
 Steam also accepts an optional Steam URL, see the [Steam browser
 procotol](https://developer.valvesoftware.com/wiki/Steam_browser_protocol).
@@ -301,8 +301,16 @@ menu.
 {{Note|[[Install]] {{Pkg|pipewire-pulse}} if the audio settings do not show any audio devices.}}
 ```
 ```{=mediawiki}
-{{Warning|To list networks and connect to them from inside Steam, you need to add {{ic|-steamdeck}} option to the Steam command-line arguments. This however might have unintended effects, like the new "Switch to desktop" menu entry possibly softlocking the session. To exit to the display manager you need to run {{ic|steam -shutdown}} or save it as a script and add it as a non-steam game. See this [https://gist.github.com/Rishikant181/e26fb23d4c57db74bddaa0a57b26cd26#5-creating-a-script-to-switch-back-to-desktop-mode-close-steam guide] for  running Steam in Big Picture Mode with steamdeck/steamos mode running gamescope as the sole compositor in its own TTY.}}
+{{Expansion|Does the new {{ic|-steamos}} have the same caveats?}}
 ```
+To list networks and connect to them from inside Steam, you need to add `{{ic|-steamdeck}}`{=mediawiki} option to the
+Steam command-line arguments. This however might have unintended effects, like the new \"Switch to desktop\" menu entry
+possibly softlocking the session. To exit to the display manager you need to run `{{ic|steam -shutdown}}`{=mediawiki} or
+save it as a script and add it as a non-steam game. See this
+[guide](https://gist.github.com/Rishikant181/e26fb23d4c57db74bddaa0a57b26cd26#5-creating-a-script-to-switch-back-to-desktop-mode-close-steam)
+for running Steam in Big Picture Mode with steamdeck/steamos mode running gamescope as the sole compositor in its own
+TTY.
+
 ### Steam Remote Play {#steam_remote_play}
 
 ```{=mediawiki}
@@ -317,12 +325,16 @@ headless streaming server on Linux.
 
 If you use Proton (Steam Play) for launching your games, and still keep a Windows installation for some reason (for
 example, if some game has problems with anti cheat or if you want to make a comparison tests with Windows), you may want
-to store your games in a common partition instead of keeping two copies of game one per OS.
+to store your games in a common partition instead of keeping two copies of each game, one per OS.
 
 To add another folder for library, click on *Steam \> Settings \> Downloads \> STEAM LIBRARY FOLDERS*, then on the *⊕
 (Plus)* button.
 
-There are four file systems, that can be read/write by both Windows and Linux.
+There are four file systems, that can be read/write by both Windows and Linux. However, for some data, you may encounter
+issues where Steam wishes to use symlinks or other features that are not supported by the target filesystem. It is still
+possible to use these filesystems for the game install, and bind mount the problematic directories to a capable
+filesystem. See [Steam#compatdata and shadercache issues when using a common
+partition](Steam#compatdata_and_shadercache_issues_when_using_a_common_partition "wikilink") discussion below.
 
 #### NTFS
 
@@ -409,6 +421,19 @@ Where:
 
 Alternatively, graphical tools like `{{pkg|gparted}}`{=mediawiki} can be used to handle formatting. They correctly
 manage UDF revision selection to ensure compatibility.
+
+#### compatdata and shadercache issues when using a common partition {#compatdata_and_shadercache_issues_when_using_a_common_partition}
+
+While using exFAT, say, the game install itself will succeed, but the \"compatdata\" and \"shadercache\" directories
+that are used for save games and compiled shaders, respectively, may fail on game launch due to lack of symlink support,
+etc. Given these files are relatively small in size relative to a typical game install, a viable solution is to instead
+store just these files on a capable filesystem, in your home directory. Steam does not have an option to do this, but it
+can be achieved with bind mounts.
+
+Run the following *before* starting Steam (substitute your home directory and common partition steam library paths):
+
+`# mount --bind /home/youruser/.local/share/Steam/steamapps/compatdata /mnt/commonpartition/SteamLibrary/steamapps/compatdata`\
+`# mount --bind /home/youruser/.local/share/Steam/steamapps/shadercache /mnt/commonpartition/SteamLibrary/steamapps/shadercache`
 
 ### Faster shader pre-compilation {#faster_shader_pre_compilation}
 

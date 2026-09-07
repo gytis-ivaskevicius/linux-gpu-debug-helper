@@ -28,16 +28,16 @@ causes a machine poweroff, try the below workarounds:
 
 ### Screen(s) found, but none have a usable configuration {#screens_found_but_none_have_a_usable_configuration}
 
-Sometimes NVIDIA and X have trouble finding the active screen. If your graphics card has multiple outputs try plugging
-your monitor into the other ones. On a laptop it may be because your graphics card has VGA/TV out. Xorg.0.log will
-provide more info.
+Sometimes the NVIDIA driver and X have trouble finding the active screen. If your graphics card has multiple outputs try
+plugging your monitor into the other ones. On a laptop it may be because your graphics card has VGA/TV out.
+`{{ic|Xorg.0.log}}`{=mediawiki} will provide more info.
 
 Another thing to try is adding an invalid `{{ic|Option "ConnectedMonitor"}}`{=mediawiki} to
 `{{ic|Section "Device"}}`{=mediawiki} to force Xorg throw an error and show you how to correct it. See [the
 documentation](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/xconfigoptions.html#ConnectedMonitor) for
 more information about the ConnectedMonitor setting.
 
-After re-run X see Xorg.0.log to get valid CRT-x,DFP-x,TV-x values.
+After re-running X, see `{{ic|Xorg.0.log}}`{=mediawiki} to get valid CRT-x,DFP-x,TV-x values.
 
 ```{=mediawiki}
 {{ic|nvidia-xconfig --query-gpu-info}}
@@ -46,23 +46,21 @@ could be helpful.
 
 ### X fails with \"Failing initialization of X screen\" {#x_fails_with_failing_initialization_of_x_screen}
 
-If `{{ic|/var/log/Xorg.0.log}}`{=mediawiki} says X server fails to initialize screen
+If `{{ic|/var/log/Xorg.0.log}}`{=mediawiki} says the X server failed to initialize screen:
 
 `(EE) NVIDIA(G0): GPU screens are not yet supported by the NVIDIA driver`\
 `(EE) NVIDIA(G0): Failing initialization of X screen`
 
-and *nvidia-smi* says `{{ic|No running processes found}}`{=mediawiki}
-
-The solution is at first reinstall latest `{{Pkg|nvidia-utils}}`{=mediawiki}, and then copy
-`{{ic|/usr/share/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} to
-`{{ic|/etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki}, and then edit
-`{{ic|/etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf}}`{=mediawiki} and add the line
-`{{ic|Option "PrimaryGPU" "yes"}}`{=mediawiki}. Restart the computer. The problem will be fixed.
+and *nvidia-smi* says `{{ic|No running processes found}}`{=mediawiki}, then the solution is to first update to the
+latest `{{Pkg|nvidia-utils}}`{=mediawiki}, and then copy the file `{{ic|10-nvidia-drm-outputclass.conf}}`{=mediawiki}
+(located in `{{ic|/usr/share/X11/xorg.conf.d/}}`{=mediawiki}) to `{{ic|/etc/X11/xorg.conf.d/}}`{=mediawiki}. Afterwards,
+edit the copied file and add the line `{{ic|Option "PrimaryGPU" "yes"}}`{=mediawiki}. Finally, restart the computer. The
+problem should now be gone.
 
 ### Xorg fails during boot, but otherwise starts fine {#xorg_fails_during_boot_but_otherwise_starts_fine}
 
-On very fast booting systems, systemd may attempt to start the display manager before the NVIDIA driver has fully
-initialized. You will see a message like the following in your logs only when Xorg runs during boot.
+On very fast booting systems, [systemd](systemd "wikilink") may attempt to start the display manager before the NVIDIA
+driver has fully initialized. You will see a message like the following in your logs only when Xorg runs during boot:
 
 ```{=mediawiki}
 {{hc|/var/log/Xorg.0.log|output=
@@ -73,14 +71,14 @@ initialized. You will see a message like the following in your logs only when Xo
 }}
 ```
 In this case you will need to establish an ordering dependency from the display manager to the DRI device. First create
-device units for DRI devices by creating a new udev rules file.
+device units for DRI devices by creating a new udev rules file:
 
 ```{=mediawiki}
 {{hc|/etc/udev/rules.d/99-systemd-dri-devices.rules|output=
 ACTION=="add", KERNEL=="card*", SUBSYSTEM=="drm", TAG+="systemd"
 }}
 ```
-Then create dependencies from the display manager to the device(s).
+Then create dependencies from the display manager to the device(s):
 
 ```{=mediawiki}
 {{hc|/etc/systemd/system/display-manager.service.d/10-wait-for-dri-devices.conf|output=
@@ -108,7 +106,7 @@ install radeon /usr/bin/false
 install amdgpu /usr/bin/false
 }}
 ```
-### X fails with \"no screens found\" when using Multiple GPUs {#x_fails_with_no_screens_found_when_using_multiple_gpus}
+### X fails with \"no screens found\" when using multiple GPUs {#x_fails_with_no_screens_found_when_using_multiple_gpus}
 
 In situations where you might have multiple GPUs on a system and X fails to start with:
 
@@ -126,7 +124,8 @@ and an integrated GPU or if you have more than one NVIDIA card connected. Find y
 08:00.0 3D controller: NVIDIA Corporation GM108GLM [Quadro K620M / Quadro M500M] (rev a2)
 }}
 ```
-Then you fix it by adding it to the card\'s Device section in your X configuration. In my case:
+Then you fix it by adding it to the card\'s Device section in your X configuration. The following illustrates how the
+section should look (replace the values with your own configuration):
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/10-nvidia.conf|
@@ -141,12 +140,11 @@ EndSection
 ```{=mediawiki}
 {{Note|BusID formatting is important!}}
 ```
-In the example above `{{ic|01:00.0}}`{=mediawiki} is stripped to be written as `{{ic|1:0:0}}`{=mediawiki}, however some
+In the example above `{{ic|01:00.0}}`{=mediawiki} is stripped to be written as `{{ic|1:0:0}}`{=mediawiki}. However, some
 conversions can be more complicated. `{{ic|lspci}}`{=mediawiki} output is in hex format, but in configuration files the
 BusID\'s are in decimal format! This means that in cases where the BusID is greater than 9 you will need to convert it
-to decimal!
-
-ie: `{{ic|5e:00.0}}`{=mediawiki} from lspci becomes `{{ic|PCI:94:0:0}}`{=mediawiki}.
+to decimal! For instance: `{{ic|5e:00.0}}`{=mediawiki} from `{{ic|lspci}}`{=mediawiki} becomes
+`{{ic|PCI:94:0:0}}`{=mediawiki}.
 
 === Modprobe Error: \"Could not insert \'nvidia\': No such device\" on linux \>=4.8 ===
 
@@ -321,6 +319,36 @@ Try disabling the monitor\'s [variable refresh rate](variable_refresh_rate "wiki
 Another workaround is to hide the driver\'s VRR (G-Sync / FreeSync) capability from the display subsystem, preventing
 any application or compositor from enabling VRR: set [Kernel parameters](Kernel_parameters "wikilink") to
 `{{ic|1=nvidia_modeset.conceal_vrr_caps=1}}`{=mediawiki}, which enforces a fixed refresh rate.
+
+### Xid 79, GPU has fallen off the bus {#xid_79_gpu_has_fallen_off_the_bus}
+
+If you find this crash in the [journal](journal "wikilink"), it may be due to different reasons, including a bad power
+supply, cables or PCI connection problems.
+
+However, it is also reported as an [NVIDIA driver issue](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1151),
+which mentions a [work-around](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1151#issuecomment-5502412431) of
+limiting the memory clock.
+
+First, get the available memory clocks by executing:
+
+```{=mediawiki}
+{{hc|$ nvidia-smi -q -d SUPPORTED_CLOCKS {{!}}
+```
+grep Memory\|
+
+`       Memory                                         : 9501 MHz`\
+`       Memory                                         : 9251 MHz`\
+`       Memory                                         : 5001 MHz`\
+`       Memory                                         : 810 MHz`\
+`       Memory                                         : 405 MHz`
+
+}}
+
+Then, set the maximum clock one below the maximum value:
+
+`# nvidia-smi -lmc 405,9251`
+
+Setting the clock to the maximum value also works, but increases power draw even when card is not used.
 
 ## Visual issues {#visual_issues}
 

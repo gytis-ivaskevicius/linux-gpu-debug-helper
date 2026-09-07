@@ -28,16 +28,19 @@ See also [Firefox/Privacy](Firefox/Privacy "wikilink") and [Chromium/Tips and
 tricks#Security](Chromium/Tips_and_tricks#Security "wikilink").
 
 ```{=mediawiki}
-{{Tip|It is not recommended to install all the privacy extensions. It can be counterproductive as they conflict with each other, and neither does it increase security whatsoever.}}
+{{Note|It is not recommended to install all the privacy extensions. It can be counterproductive as they conflict with each other, and neither does it increase security whatsoever.}}
 ```
 ### Content blockers {#content_blockers}
 
+```{=mediawiki}
+{{Note|Installing an adblocker is strongly recommended because of [[Wikipedia:Malvertising|Malvertising]]. Blocking ads will often also dramatically reduce website loading times.}}
+```
 -   ```{=mediawiki}
-    {{App|[[Wikipedia:uBlock Origin|uBlock Origin]]|A lightweight, efficient blocker which is easy on [https://github.com/gorhill/uBlock#performance memory and CPU]. It comes with several filter lists ready to use out-of-the-box (including EasyList, Peter Lowe's, several malware filter lists). The lead developer of uBlock forked the project and created uBlock Origin. As of July 2015, most of the development is being done on uBlock Origin and the codebases are deviating substantially.|https://github.com/gorhill/uBlock/|{{Pkg|firefox-ublock-origin}}, [[Chromium]]}}
+    {{App|[[Wikipedia:uBlock Origin|uBlock Origin]]|A lightweight, efficient blocker which is easy on [https://github.com/gorhill/uBlock#performance memory and CPU]. It comes with several filter lists ready to use out-of-the-box (including EasyList, Peter Lowe's, several malware filter lists). Chromium and other Manifest V3 browsers need [https://github.com/uBlockOrigin/uBOL-home uBlock Lite].|https://github.com/gorhill/uBlock/|{{Pkg|firefox-ublock-origin}}}}
     ```
 
-```{=mediawiki}
-{{Note|The lead developer created a sister project, [https://github.com/uBlockOrigin/uBOL-home uBlock Origin Lite], which is Mv3-compatible}}
+```{=html}
+<!-- -->
 ```
 -   ```{=mediawiki}
     {{App|[[Wikipedia:Adblock Plus|Adblock Plus]]|Was a popular extension to block ads. Now that it is not blocking some ads on purpose [https://adblockplus.org/acceptable-ads], it may be a better idea to use a different blocker like uBlock Origin.|https://adblockplus.org/|{{Pkg|firefox-adblock-plus}}, [[Chromium]]}}

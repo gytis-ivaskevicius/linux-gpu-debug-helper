@@ -1,9 +1,10 @@
 [fr:Bottles](fr:Bottles "wikilink") [hu:Bottles](hu:Bottles "wikilink") [ja:Bottles](ja:Bottles "wikilink")
 [ru:Bottles](ru:Bottles "wikilink") [zh-hans:Bottles](zh-hans:Bottles "wikilink")
 `{{Related articles start}}`{=mediawiki} `{{Related|Wine}}`{=mediawiki} `{{Related|Proton}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki} Bottles is a graphical [Wine](Wine "wikilink") prefix manager written in Python
-using the GTK framework. It can be used to easily create and manage Wine prefixes as well as automatically handling the
-installation of various Wine runners and Windows dependencies.
+`{{Related articles end}}`{=mediawiki} `{{Merge|Wine|Not enough content for a standalone article.}}`{=mediawiki} Bottles
+is a graphical [Wine](Wine "wikilink") prefix manager written in Python using the GTK framework. It can be used to
+easily create and manage Wine prefixes as well as automatically handling the installation of various Wine runners and
+Windows dependencies.
 
 ## Installation
 

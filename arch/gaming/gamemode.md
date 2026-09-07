@@ -5,6 +5,9 @@
 [GameMode](https://github.com/FeralInteractive/gamemode) is a daemon and library combo for Linux that allows games to
 request a set of optimisations be temporarily applied to the host OS and/or a game process.
 
+```{=mediawiki}
+{{Tip|[[Improving performance#Ananicy_Cpp|Ananicy Cpp]] can also provide some of the benefits of GameMode, acting as a partial replacement (or full, depending on use-case).}}
+```
 ## Installation
 
 [Install](Install "wikilink") the `{{Pkg|gamemode}}`{=mediawiki} package. Since many old games are 32-bit-only, enable
