@@ -29,7 +29,7 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|FinalBurn Neo|Emulator for Arcade Games & Select Consoles. Based on FinalBurn and MAME.|https://neo-source.com/|{{AUR|fbneo-git}}}}
+    {{App|FinalBurn Neo|Emulator for Arcade Games & Select Consoles. Based on FinalBurn and MAME.|https://neo-source.com/|{{AUR|fbneo-git}}{{Broken package link|package not found}}}}
     ```
 
 -   ```{=mediawiki}

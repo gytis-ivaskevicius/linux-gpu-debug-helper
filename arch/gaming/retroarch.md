@@ -18,64 +18,45 @@ uncommon technical features such as multi-pass shader support, real-time rewindi
 ```
 ## Usage
 
-RetroArch relies on separate libraries, called \"cores\", for most of its functionality. These can be downloaded
-per-user within RetroArch itself (via the [libretro Buildbot](https://buildbot.libretro.com/)) or you can
-[install](install "wikilink") them system-wide with `{{Grp|libretro}}`{=mediawiki} or
-[AUR](https://aur.archlinux.org/packages/?O=0&K=libretro).
+RetroArch relies on separate libraries, called \"cores\", for most of its functionality. You can
+[install](install "wikilink") the most popular cores by installing the `{{Grp|libretro}}`{=mediawiki} group. Additional
+cores can be found on the [AUR](https://aur.archlinux.org/packages/?O=0&K=libretro-). Alternatively you can download the
+cores on a per-user basis within RetroArch itself (via the [libretro Buildbot](https://buildbot.libretro.com/)).
 
-By default RetroArch is configured to load the per-user cores that it downloads. Change your
-[#Configuration](#Configuration "wikilink") if you install them elsewhere.
+```{=mediawiki}
+{{Note|By default RetroArch is configured to load the cores installed by [[pacman]]. Edit your [[#Configuration]] if you want to use the per-user Online Updater instead.}}
+```
+To boot directly into a game you can use the command
 
-The command to run a particular core is
-
-`$ retroarch --libretro `*`/path/to/some_core_libretro.so`*` `*`/path/to/rom`*
+`$ retroarch -L `*`/path/to/some_core_libretro.so`*` `*`/path/to/rom`*
 
 ## Configuration
 
 When you first run RetroArch it will create the user configuration file
 `{{ic|~/.config/retroarch/retroarch.cfg}}`{=mediawiki}.
 
-If you install RetroArch components in your home-directory, you should specify local paths in the global configuration
-file for downloading cores. For example,
+If you prefer to install cores with the built-in Online Updater instead of pacman, you need to enable it and update the
+path in your configuration file. `{{hc|
+~/.config/retroarch/retroarch.cfg|
+2=libretro_directory = "~/.config/retroarch/cores"
+menu_show_core_updater = "true"
+}}`{=mediawiki}
 
 ```{=mediawiki}
-{{hc|~/.config/retroarch/retroarch.cfg|2=libretro_directory = "~/.config/retroarch/cores"
+{{Note| Install {{Pkg|libretro-core-info}} to ensure the core downloader works correctly.  Without this package it will not fetch the core list to choose from.
+Alternatively, you can edit your config file to use the core info from the Online Updater.
+{{hc|~/.config/retroarch/retroarch.cfg|2=
 libretro_info_path = "~/.config/retroarch/cores/info"}}
-```
-If you install any RetroArch components system-wide with [pacman](pacman "wikilink"), you should specify these in the
-global configuration file and include them in your user file. For example,
-
-```{=mediawiki}
-{{hc|/etc/retroarch.cfg|2=# for retroarch-assets-xmb
-assets_directory = "/usr/share/retroarch/assets"
-# for libretro-core-info
-libretro_info_path = "/usr/share/libretro/info"
-# for libretro cores
-libretro_directory = "/usr/lib/libretro"}}
+}}
 ```
 ```{=mediawiki}
-{{hc|~/.config/retroarch/retroarch.cfg|2=#include "/etc/retroarch.cfg"}}
-```
-```{=mediawiki}
-{{Note|RetroArch does not support multiple search paths for these components. For example, if you install cores with [[pacman]] '''and''' download cores using RetroArch's GUI, you cannot configure RetroArch to show all of them at once since they are installed in different directories.}}
+{{Note|RetroArch does not support multiple search paths for these components. For example, if you install cores with [[pacman]] '''and''' download cores using RetroArch's GUI, you cannot configure RetroArch to show all of them at once since they are installed in different directories. It is recommended to choose one method of installing cores and not mix both.}}
 ```
 If you want to override your configuration (for example when running certain cores) you can use the
 `{{ic|--appendconfig ''/path/to/config''}}`{=mediawiki} command line option.
 
 ## Tips and tricks {#tips_and_tricks}
 
-### Enabling the \"Online Updater\" {#enabling_the_online_updater}
-
-If you prefer to install all RetroArch components with the built in updater instead of pacman, you can enable it with a
-configuration file:
-
-```{=mediawiki}
-{{hc|~/.config/retroarch/retroarch.cfg|2=menu_show_core_updater = "true"}}
-```
-```{=mediawiki}
-{{Note| Install {{Pkg|libretro-core-info}} to ensure the core downloader works correctly.  Without this package it will not fetch the core list to choose from.
-}}
-```
 ### Filters and shaders {#filters_and_shaders}
 
 RetroArch can load [CG shaders](https://github.com/libretro/common-shaders), which are considered old and deprecated, as
@@ -95,6 +76,9 @@ To remove a button from a keybind, highlight the keybind and press `{{ic|Y}}`{=m
 
 ### No cores found {#no_cores_found}
 
+```{=mediawiki}
+{{Remove|This was only an issue because this wiki page was providing out of date information. This issue can't happen if you follow the updated wiki instructions.}}
+```
 By default RetroArch searches for cores in `{{ic|~/.config/retroarch/cores}}`{=mediawiki}, which is where the Online
 Updater installs them. Cores installed with [pacman](pacman "wikilink") are placed in
 `{{ic|/usr/lib/libretro}}`{=mediawiki} and thus will not appear in RetroArch\'s GUI. You should choose one method of
@@ -141,27 +125,19 @@ problem, as it makes perfect V-Sync impossible, and slightly increases latency.
 When using [ALSA](ALSA "wikilink") the `{{ic|audio_out_rate}}`{=mediawiki} must match the system\'s default output rate,
 usually `{{ic|48000}}`{=mediawiki}.
 
-### Save data is lost whenever RetroArch crashes {#save_data_is_lost_whenever_retroarch_crashes}
-
-See [#Enabling \"SaveRAM Autosave Interval\"](#Enabling_"SaveRAM_Autosave_Interval" "wikilink").
-
 ### Start game from playlist but reports \'No Items\' {#start_game_from_playlist_but_reports_no_items}
 
+```{=mediawiki}
+{{Remove|This seems to not be relevant anymore. I'm only finding very few people mentioning this error and all of them are from 7-8 year ago. I'm also not finding this error inside the RetroArch source code.}}
+```
 If RetroArch reports `{{ic|libretro core requires contents, but nothing provided}}`{=mediawiki}, try to load game by
 manually choosing the path of the ROM from *Main Menu \> Load Content*. It seems unreliable to start game from
 *playlist*.
 
-It is necessary to force launch RetroArch in Xwayland.
-
-`$ WAYLAND_DISPLAY="" retroarch`
-
-You can check the log with `{{ic|--verbose}}`{=mediawiki} option, there should be
-`{{ic|Found vulkan context: "vk_x"}}`{=mediawiki} instead `{{ic|"vk_wayland"}}`{=mediawiki}
-
 ### BIOS files are missing or not accepted {#bios_files_are_missing_or_not_accepted}
 
-Retroarchs cores are looking for BIOS files at the location set with the `{{ic|system_directory}}`{=mediawiki} option in
-`{{ic|retroarch.cfg}}`{=mediawiki}.
+RetroArch\'s cores are looking for BIOS files at the location set with the `{{ic|system_directory}}`{=mediawiki} option
+in `{{ic|retroarch.cfg}}`{=mediawiki}.
 
 The GUI menu *Settings \> Directory \> System/BIOS* shows the directory as well.
 
@@ -180,7 +156,7 @@ Further in depth info on BIOS files for many of the supported cores can be found
 ## See also {#see_also}
 
 -   [Official Website](https://www.retroarch.com/)
--   [RetroArch wiki on GitHub](https://github.com/libretro/RetroArch/wiki)
--   [Documentation for developers](https://github.com/libretro/libretro.github.com/wiki/Documentation-devs)
+-   [RetroArch wiki](https://docs.libretro.com/)
+-   [Documentation for developers](https://docs.libretro.com/development/libretro-overview/)
 
 [Category:Gaming](Category:Gaming "wikilink") [Category:Emulation](Category:Emulation "wikilink")

@@ -254,7 +254,7 @@ Dependencies:
     ```
 
 -   ```{=mediawiki}
-    {{Pkg|lib32-libtheora}}
+    {{AUR|lib32-libtheora}}
     ```
 
 -   ```{=mediawiki}
@@ -861,7 +861,7 @@ you need to bypass the launcher which is buggy through proton. To skip the launc
 
 ### The Clockwork Man {#the_clockwork_man}
 
-Requires `{{Pkg|lib32-libidn}}`{=mediawiki} (pulled in by `{{AUR|steam-native-runtime}}`{=mediawiki}).
+Requires `{{AUR|lib32-libidn}}`{=mediawiki} (pulled in by `{{AUR|steam-native-runtime}}`{=mediawiki}).
 
 ### Company of Heroes 2 {#company_of_heroes_2}
 
@@ -1562,7 +1562,7 @@ Prepend `{{ic|/usr/lib}}`{=mediawiki} to `{{ic|LD_LIBRARY_PATH}}`{=mediawiki}.
 
 ### Hacker Evolution {#hacker_evolution}
 
-Requires `{{Pkg|lib32-sdl2_mixer}}`{=mediawiki}.
+Requires `{{AUR|lib32-sdl2_mixer}}`{=mediawiki}.
 
 ### Half-Life {#half_life}
 

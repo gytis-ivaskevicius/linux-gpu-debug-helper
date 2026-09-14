@@ -111,22 +111,33 @@ If you have an unvalidated G-SYNC Compatible monitor, you can override NVIDIA's 
 {{Note|If a monitor did fail NVIDIA's certification to be G-SYNC compatible, there may be issues with the experience such as poor image quality, flickering, or lack of VRR activation due to limited refresh rate range. [https://www.nvidia.com/en-us/geforce/news/g-sync-compatible-validation/]}}
 
 == Wayland configuration ==
-
-=== NVIDIA ===
-
-VRR Wayland using the proprietary driver [https://forums.developer.nvidia.com/t/wayland-information-for-r545-beta-release/214275 requires a Volta GPU architecture or newer].
+{{Note|
+For NVIDIA graphics cards, VRR Wayland using the proprietary driver [https://forums.developer.nvidia.com/t/wayland-information-for-r545-beta-release/214275 requires a Volta GPU architecture or newer].
 
 NVIDIA has shipped VRR Wayland support starting with driver version 525. Until 545, there are forced VSync issues. Past that, there are still remaining issues which are covered by the [https://forums.developer.nvidia.com/t/feature-g-sync-freesync-under-wayland-session/220822/5 VRR Wayland thread] on NVIDIA forums.
+}}
 
-=== GNOME ===
+=== Desktop environments ===
 
-[[GNOME]] supports VRR as an experimental feature starting with version 46. Run {{ic|gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"}} to enable the experimental feature, then restart the session by logging out and back in. VRR can then be enabled for each supported monitor in the ''Display'' Settings under ''Refresh Rate''. When running on a supported and enabled monitor, GNOME automatically enables VRR for all full screen applications.
+==== GNOME ====
 
-=== KDE Plasma ===
+Since GNOME [https://release.gnome.org/50/#:~:text=Improved%20Variable%20Refresh,in%20GNOME%2050. version 50], the variable refresh rate functionality is enabled by default and can be activated for capable monitors in the GNOME settings app, under the ''Display'' section.
 
-Plasma's Wayland session uses the kwin compositor, which should automatically enable VRR for full screen applications [https://www.reddit.com/r/kde/comments/nwxxgy/how_does_the_automatic_vrr_mode_on_wayland_work/h1bvfuo].
+When enabled, GNOME automatically enables VRR for all fullscreen applications.
 
-=== Sway ===
+==== KDE Plasma ====
+
+The default Plasma session has {{ic|Adaptive sync}} set to {{ic|Never}}.[https://invent.kde.org/plasma/kwin/-/commit/701f1cec07753b3b27d11b9a71e95fab929d3a8a]
+
+To enable it, go to ''System Settings > Display & Monitor > Display Configuration > Adaptive sync''. [https://www.reddit.com/r/kde/comments/vm5nt8/comment/idzt81l/ Three options] are available:
+
+* '''Never''': ignore VRR and always run at the highest configured refresh rate.
+* '''Automatic''': enabled only for opaque fullscreen windows.
+* '''Always''': always enabled regardless of window state.
+
+=== Window managers ===
+
+==== Sway ====
 
 Sway supports variable refresh rate. To enable it for all of your outputs you can add the following to the sway configuration, or apply the setting to on a per output basis:
 
@@ -141,7 +152,7 @@ Output DP-1 'Display Name'
 
 {{Note|VRR may not work if an application is full screen in sway. Direct scanout must be disabled by launching sway with {{ic|-D noscanout}}. https://github.com/swaywm/sway/issues/7370#issuecomment-1380986291}}
 
-=== Hyprland ===
+==== Hyprland ====
 
 Hyprland supports variable refresh rate. To enable it, you need to add either {{ic|vrr {{=}} 1}} or {{ic|vrr {{=}} 2}}[https://wiki.hypr.land/Configuring/Basics/Variables/#misc] in the misc section of your {{ic|hyprland.lua}} :
 
@@ -187,7 +198,7 @@ Monitor DP-2 (ID 1):
 	...
 }}
 
-=== niri ===
+==== niri ====
 
 Niri supports variable refresh rate. 
 To enable it, you need to add either  {{ic|variable-refresh-rate}} or {{ic|variable-refresh-rate on-demand{{=}}true}}[https://yalter.github.io/niri/Configuration%3A-Outputs.html] in your output section of your {{ic|config.kdl}} :
@@ -207,6 +218,8 @@ You can check whether an output supports VRR:
 }}
 
 == Testing ==
+
+{{Accuracy|This section lists both vrrtest and love packages, but also tells the user to clone the repository manually (which one?). It is confusing. Ideally, vrrtest should be removed and love should be the only one recommended, as it is officially packaged.}}
 
 [https://github.com/Nixola/VRRTest VRRTest] is a simple testing tool which should work for FreeSync and G-Sync. Install {{AUR|vrrtest}}, or manually install the {{Pkg|love}} package, clone the repository, then run
 

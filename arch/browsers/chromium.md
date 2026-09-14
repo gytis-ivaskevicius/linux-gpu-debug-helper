@@ -1048,9 +1048,6 @@ More information can be read in
 
 ### Wrong colors on some Wayland compositors {#wrong_colors_on_some_wayland_compositors}
 
-```{=mediawiki}
-{{Accuracy|Flag is maybe outdated (July 2026). When using it, it won't show up in chrome://flags . Also it is not listed here: https://peter.sh/experiments/chromium-command-line-switches/ (flags defined in Chromium as of July 25, 2026.) }}
-```
 Under [KWin](KWin "wikilink") with [Wayland](Wayland "wikilink") colors appears to be washed up compared to
 [Firefox](Firefox "wikilink"). The workaround is to run chromium with flag
 `{{ic|1=--disable-features=WaylandWpColorManagerV1}}`{=mediawiki}.

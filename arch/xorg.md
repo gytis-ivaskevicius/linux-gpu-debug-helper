@@ -367,7 +367,7 @@ standalone composite manager can be used.
     ```
 
 -   ```{=mediawiki}
-    {{App|fastcompmgr|A very lightweight compositor for X11 with a focus on latency & performance.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
+    {{App|fastcompmgr|A very lightweight compositor for X11 with a focus on latency and performance.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
     ```
 
 -   ```{=mediawiki}

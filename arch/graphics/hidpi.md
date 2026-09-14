@@ -110,9 +110,10 @@ and restart the machine. This will permanently lock the option.
 [As of Mutter 47.0](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/3567) it is possible to enable native
 fractional scaling as an experimental feature.
 
-Enable it by issuing:
+Enable it by issuing: [6](https://bbs.archlinux.org/viewtopic.php?pid=2296906#p2296906)
 
-`$ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"`
+`$ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'xwayland-native-scaling']"`\
+`$ gsettings set org.gnome.mutter.wayland xwayland-scaling-factor 1`
 
 #### Text scaling {#text_scaling}
 
@@ -396,9 +397,9 @@ by setting the environment variable:
 `$ export SDL_VIDEO_WAYLAND_SCALE_TO_DISPLAY=1.`
 
 By default, `{{Pkg|sdl2-compat}}`{=mediawiki} forces 1:1 scaling (non-DPI-aware) using this
-hint,[6](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L1381-L1385)
+hint,[7](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L1381-L1385)
 with some per-application
-exceptions.[7](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L492-L504)
+exceptions.[8](https://github.com/libsdl-org/sdl2-compat/blob/1c8ece4de9db96d01f99296c26a87a4cabb72f54/src/sdl2_compat.c#L492-L504)
 
 ### Electron
 
@@ -537,7 +538,7 @@ To view the internal UI scaling settings of Firefox, open the advanced preferenc
 If you use a HiDPI monitor such as Retina display together with another monitor, you can use the
 [ffreszoom](https://addons.mozilla.org/firefox/addon/ffreszoom/) add-on, which will adjust the page zoom if it detects
 you are using a large monitor (zoom level and threshold are configurable). Modifying the internal CSS DPI setting from
-an extension is currently unsupported.[8](https://bugzilla.mozilla.org/show_bug.cgi?id=1373607).
+an extension is currently unsupported.[9](https://bugzilla.mozilla.org/show_bug.cgi?id=1373607).
 
 #### Chromium / Google Chrome {#chromium_google_chrome}
 
@@ -576,7 +577,7 @@ Newer versions of opera will auto detect the DPI using the font DPI setting (in 
 ### Inkscape
 
 To scale the icons to a \"usable\" size go to *Preferences \> Interface* and set the icon size to Large or
-Larger[9](https://web.archive.org/web/20171118050743/http://www.inkscapeforum.com/viewtopic.php?t=18684)[10](https://wiki.inkscape.org/wiki/index.php/HiDPI).
+Larger[10](https://web.archive.org/web/20171118050743/http://www.inkscapeforum.com/viewtopic.php?t=18684)[11](https://wiki.inkscape.org/wiki/index.php/HiDPI).
 
 ### Java applications {#java_applications}
 
@@ -675,7 +676,7 @@ Alternatively, the `{{ic|GDK_SCALE}}`{=mediawiki} environment variable can be us
 ### MATLAB
 
 Recent versions (since R2017b) of [MATLAB](MATLAB "wikilink") allow to set the scale
-factor[11](https://www.mathworks.com/matlabcentral/answers/406956-does-matlab-support-high-dpi-screens-on-linux):
+factor[12](https://www.mathworks.com/matlabcentral/answers/406956-does-matlab-support-high-dpi-screens-on-linux):
 
 #### Version R2024b and earlier {#version_r2024b_and_earlier}
 
@@ -712,7 +713,7 @@ parameter enables varying the scale factor in real-time, with no need for restar
 ### Mono applications {#mono_applications}
 
 According to
-[12](https://bugzilla.xamarin.com/35/35870/bug.html)`{{Dead link|2023|04|23|status=domain name not resolved}}`{=mediawiki},
+[13](https://bugzilla.xamarin.com/35/35870/bug.html)`{{Dead link|2023|04|23|status=domain name not resolved}}`{=mediawiki},
 Mono applications should be scalable like [GTK 3](#GDK_3_(GTK_3) "wikilink") applications. The precise method depends on
 the GUI library: GtkSharp obviouslys points back to Gtk, while the usual Windows Forms (libgdiplus) simply detects Xft
 settings.
@@ -722,7 +723,7 @@ settings.
 NetBeans allows the font size of its interface to be controlled using the `{{ic|1=--fontsize}}`{=mediawiki} parameter
 during startup. To make this change permanent edit the `{{ic|1=/usr/share/netbeans/etc/netbeans.conf}}`{=mediawiki} file
 and append the `{{ic|1=--fontsize}}`{=mediawiki} parameter to the `{{ic|1=netbeans_default_options}}`{=mediawiki}
-property.[13](https://web.archive.org/web/20210117211145/http://wiki.netbeans.org/FaqFontSize)
+property.[14](https://web.archive.org/web/20210117211145/http://wiki.netbeans.org/FaqFontSize)
 
 The editor fontsize can be controlled from *Tools \> Option \> Fonts & Colors*.
 
@@ -778,7 +779,7 @@ Also Spotify can be launched with a custom scaling factor which will be multipli
 -   If it is not automatically detected, use `{{ic|1=GDK_SCALE=2}}`{=mediawiki} to set the desired scale factor.
 -   If the above fails, use `{{ic|1=steam -forcedesktopscaling 2}}`{=mediawiki} or set
     `{{ic|1=STEAM_FORCE_DESKTOPUI_SCALING=2.0}}`{=mediawiki}.
-    [14](https://github.com/ValveSoftware/steam-for-linux/issues/9209#issuecomment-1594505259) As of the June 2023 UI
+    [15](https://github.com/ValveSoftware/steam-for-linux/issues/9209#issuecomment-1594505259) As of the June 2023 UI
     overhaul, this parameter also supports non-integer scale factors, such as `{{ic|1.25}}`{=mediawiki}.
 -   You can also adjust the interface scale in *Steam \> Settings \> Accessibility*, though the slider does not display
     a number value.
@@ -810,7 +811,7 @@ See [#Firefox](#Firefox "wikilink"). To access `{{ic|about:config}}`{=mediawiki}
 {{Note|This only applies to KDE with scaling enabled.}}
 ```
 VirtualBox also applies the system-wide scaling to the virtual monitor, which reduces the maximum resolution inside VMs
-by your scaling factor (see [15](https://www.virtualbox.org/ticket/16604)).
+by your scaling factor (see [16](https://www.virtualbox.org/ticket/16604)).
 
 This can be worked around by calculating the inverse of your scaling factor and manually setting this new scaling factor
 for the VirtualBox execution, e.g.
@@ -852,7 +853,7 @@ UI text scaling is specified via [configuration file](https://pwmt.org/projects/
 Set the `{{ic|scaleFactor}}`{=mediawiki} variable in `{{ic|~/.config/zoomus.conf}}`{=mediawiki}.
 
 For the Flatpak version, set the environment variable `{{ic|QT_SCALE_FACTOR}}`{=mediawiki} (e.g. to 0.5
-[16](https://old.reddit.com/r/Zoom/comments/hat5af/linux_client_ui_elements_too_large_after_update/)). This can be
+[17](https://old.reddit.com/r/Zoom/comments/hat5af/linux_client_ui_elements_too_large_after_update/)). This can be
 easily done with [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal), if using a GUI tool is
 preferred.
 
@@ -1015,9 +1016,9 @@ There are several tools which automate the commands described above.
 
 The [Linux console](Linux_console "wikilink") changes the font to `{{ic|TER16x32}}`{=mediawiki} (based on
 `{{ic|ter-i32b}}`{=mediawiki} from
-`{{Pkg|terminus-font}}`{=mediawiki}[17](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac8b6f148fc97e9e10b48bd337ef571b1d1136aa))
+`{{Pkg|terminus-font}}`{=mediawiki}[18](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac8b6f148fc97e9e10b48bd337ef571b1d1136aa))
 based on the vertical and horizontal pixel count of the
-display[18](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dfd19a5004eff03755967086aa04254c3d91b8ec)
+display[19](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dfd19a5004eff03755967086aa04254c3d91b8ec)
 regardless of its physical size. If your monitor is not recognised as HiDPI, the default font can be changed. In that
 case, specify `{{ic|1=fbcon=font:TER16x32}}`{=mediawiki} in the [kernel command line](kernel_command_line "wikilink").
 

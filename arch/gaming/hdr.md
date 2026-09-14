@@ -27,26 +27,18 @@ plans](https://gitlab.freedesktop.org/xorg/xserver/-/issues/1037#note_521100) to
 
 ### Vulkan HDR WSI {#vulkan_hdr_wsi}
 
+[NVIDIA](NVIDIA "wikilink") users with drivers **before** version 595.58.03 must install
+`{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} and set `{{ic|ENABLE_HDR_WSI{{=}}`{=mediawiki}1}} in each game or
+application that will be used with HDR. Enabling this globally is **not** recommended. This provides the required
+`{{ic|VK_EXT_swapchain_colorspace}}`{=mediawiki} and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} extensions for HDR support
+when using the Vulkan API.
+
 ```{=mediawiki}
-{{ic|VK_EXT_swapchain_colorspace}}
+{{pkg|mesa}}
 ```
-and `{{ic|VK_EXT_hdr_metadata}}`{=mediawiki} extensions are required for HDR support when using the Vulkan API.
-
--   ```{=mediawiki}
-    {{pkg|mesa}}
-    ```
-    25.1 and later includes these extensions by default.
-
--   ```{=mediawiki}
-    {{pkg|nvidia-open}}
-    ```
-    595.58.03 and later also
-    [includes](https://forums.developer.nvidia.com/t/595-release-feedback-discussion/362561/5?u=ifaigios) these
-    extensions by default.
-
-    -   [NVIDIA](NVIDIA "wikilink") users on drivers **before** 595.58.03 must install
-        `{{aur|vk-hdr-layer-kwin6-git}}`{=mediawiki} and set `{{ic|ENABLE_HDR_WSI{{=}}`{=mediawiki}1}} in each game or
-        application that will be used with HDR. Enabling this globally is **not** recommended.
+25.1 and later as well as `{{pkg|nvidia-open}}`{=mediawiki} 595.58.03 and later
+[include](https://forums.developer.nvidia.com/t/595-release-feedback-discussion/362561/5?u=ifaigios) these extensions by
+default.
 
 ## Compositor configuration {#compositor_configuration}
 

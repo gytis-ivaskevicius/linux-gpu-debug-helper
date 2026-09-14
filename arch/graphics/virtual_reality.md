@@ -259,7 +259,7 @@ default implementation (SteamVR) is not. SteamVR also provides an OpenXR runtime
 [NVIDIA](NVIDIA "wikilink") drivers, you may need to set the
 [VK_DRIVER_FILES](Vulkan#NVIDIA_-_vulkan_is_not_working_and_can_not_initialize "wikilink") environment variable.
 Required dependencies for 32-bit packages are: `{{AUR|lib32-gtk2}}`{=mediawiki}, `{{Pkg|lib32-libva}}`{=mediawiki},
-`{{Pkg|lib32-libvdpau}}`{=mediawiki}.
+`{{AUR|lib32-libvdpau}}`{=mediawiki}.
 
 From Steam, install SteamVR from the tools menu.
 

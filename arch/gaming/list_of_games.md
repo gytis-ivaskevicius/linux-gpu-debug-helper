@@ -575,6 +575,10 @@ games](Wikipedia:Comparison_of_massively_multiplayer_online_role-playing_games "
     ```
 
 -   ```{=mediawiki}
+    {{App|PokeMMO|MMO based on the Pokémon Universe.|https://pokemmo.com|{{AUR|pokemmo}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|[[Wikipedia:PlaneShift (video game)|Planeshift]]|Role Playing Game immersed into a 3D virtual fantasy world which is FULLY FREE to play. Fully free means you will have no surprises of premium content which will limit your gameplay or unbalance the game. There are no limitations in skills, ranks, abilities, items you can gain with your free account.|https://www.planeshift.it|{{AUR|planeshift-legacy}}}}
     ```
 
@@ -639,7 +643,7 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
-    {{App|VoxeLibre|Minecraft clone game for Luanti.|https://git.minetest.land/VoxeLibre/VoxeLibre|{{AUR|luanti-voxelibre}}}}
+    {{App|VoxeLibre|Minecraft clone game for Luanti.|https://git.minetest.land/VoxeLibre/VoxeLibre|{{AUR|luanti-voxelibre}}{{Broken package link|package not found}}}}
     ```
 
 -   ```{=mediawiki}
@@ -1116,7 +1120,7 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
     ```
 
 -   ```{=mediawiki}
-    {{App|[[Wikipedia:NetHack|Nethack]]|Single player dungeon exploration game.|https://www.nethack.org|{{Pkg|nethack}}}}
+    {{App|[[NetHack]]|Single player dungeon exploration game.|https://www.nethack.org|{{Pkg|nethack}}}}
     ```
 
 -   ```{=mediawiki}

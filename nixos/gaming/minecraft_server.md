@@ -109,8 +109,15 @@ services.minecraft-server.package = pkgs.papermc;
 
 #### Other versions {#other_versions}
 
-[Nix-minecraft](https://github.com/Infinidoge/nix-minecraft) is based on [Nix flakes](Flakes "wikilink") and supports a
-couple different modded servers:
+``` nix
+# This example uses Nix-minecraft to declare a <version> NeoForge server called <name> 
+services.minecraft-servers.<name>.package = pkgs.neoforgeServers.neoforge-<version>;
+```
+
+^*Note\ that\ the\ `<version>`{=html}\ is\ formatted\ as\ `26_1_2`,\ `1_18_2`,\ or\ `25w10a`.\ Using\ a\ specific\ version\ could\ look\ like\ this:\ `pkgs.vanillaServer.vanilla-1_8_9`*^
+
+[Nix-minecraft](https://github.com/Infinidoge/nix-minecraft) is a [nix flakes](Flakes "wikilink") based attempt at
+supporting a few more modded servers:
 
   Server     \*    Package name
   ---------- ----- ----------------------------
@@ -122,34 +129,29 @@ couple different modded servers:
   NeoForge   No    `neoforgeServers.neoforge`
   Velocity   No    `velocityServers.velocity`
 
-*`<small>`{=html}\*Does it use the correct Java for versions `≥26.1`?`</small>`{=html}*
+*`<small>`{=html}\*Does it use the correct version of Java for Minecraft `≥26.1`?`</small>`{=html}*
 
-`Nix-minecraft` supports hosting multiple servers at once, therefore you must name your servers (even if you only have
-one).
-
-Here is an example with a server called `example` using the latest major fabric version:
+As stated above, since Minecraft 26.1, some packages *[use the wrong version of
+Java](https://github.com/Infinidoge/nix-minecraft/issues/211)* (presumably due to the [change in Minecraft version
+formatting](https://www.minecraft.net/en-us/article/minecraft-new-version-numbering-system)). To correct this, override
+with *[the appropriate version of
+Java](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server#Version_requirements).*
 
 ``` nix
-services.minecraft-servers.example.package = pkgs.fabricServers.fabric;
-# ↑ this will not launch ↑
-# ↓   this will launch   ↓
-services.minecraft-servers.example.package = pkgs.fabricServers.fabric.override 
+# This example declares a 26.1 fabric server called <name>. Needing an override for java 25
+services.minecraft-servers.<name>.package = pkgs.fabricServers.fabric-26_1.override 
 { jre_headless = pkgs.openjdk25_headless; };
 ```
 
-^*Note\ that\ the\ version\ is\ formatted\ as\ `26_1_2`,\ `1_18_2`,\ or\ `25w10a`.\ Using\ a\ specific\ version\ could\ look\ like\ this:\ `pkgs.vanillaServer.vanilla-1_8_9`*^
+### Use a custom server.jar {#use_a_custom_server.jar}
 
-Why doesn\'t the top example work? Because versions `≥26.1` `Nix-minecraft` use *[the wrong version of
-Java](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server#Version_requirements).*
+Some mods like [BTA!](https://www.betterthanadventure.net/installation-guide/) are not supported through previously
+explored methods. In that case running the server through the provided `server.jar` is an option *(if one is provided).*
 
-### Use an exotic server {#use_an_exotic_server}
+*^Do\ note\ that\ doing\ this\ is\ not\ recommended,\ and\ should\ be\ seen\ as\ a\ last\ resort.\ Also\ if\ you\ really\ do\ not\ want\ to\ touch\ flakes.^*
 
-Some mods like [BTA!](https://www.betterthanadventure.net/installation-guide/) are neither supported by `Nix-minecraft`,
-nor `Nixpkgs`. They provide their own `server.jar` to run with Java, summoning a *Minecraft server*.
-
-*^Make\ sure\ to\ move\ the\ `server.jar`\ file\ inside\ a\ separate\ directory,\ or\ else\ it\ might\ spawn\ server\ files\ where\ you\ don\'t\ want\ them.^*
-
-1.  Download the `server.jar`
+1.  Download the `server.jar`*`<small>`{=html}Make sure to move the `server.jar` file inside a separate directory, or
+    else it might spawn server files where you don\'t want them.`</small>`{=html}*
 2.  Install *[the appropriate version of
     Java](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server#Version_requirements) .*
     ``` nixos

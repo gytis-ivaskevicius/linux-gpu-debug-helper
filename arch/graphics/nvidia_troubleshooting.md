@@ -344,12 +344,18 @@ grep Memory\|
 
 }}
 
-Then, set the maximum clock one below the maximum value:
+Then, set the minimum clock to the smallest allowed clock frequency, and the maximum clock one below the maximum value,
+specified as a `{{ic|''min'',''max''}}`{=mediawiki} pair, using the `{{ic|--lock-memory-clocks}}`{=mediawiki} option (or
+`{{ic|-lmc}}`{=mediawiki}), e.g.:
 
-`# nvidia-smi -lmc 405,9251`
+`# nvidia-smi --lock-memory-clocks 405,9251`
 
-Setting the clock to the maximum value also works, but increases power draw even when card is not used.
+This defines a range of allowed clock frequencies, which stops forcing the device to always use the highest. Setting the
+upper bound of the range to the maximum value also works, but increases power draw even when card is not used.
 
+```{=mediawiki}
+{{Note|According to the [https://docs.nvidia.com/deploy/nvidia-smi/index.html documentation], the {{ic|--lock-memory-clocks}} option does not work on devices based on NVIDIA Hopper architectures. If that's your case, use the {{ic|--lock-memory-clocks-deferred}} (or {{ic|-lmcd}}) option instead, which takes in a single desired value instead of a range.}}
+```
 ## Visual issues {#visual_issues}
 
 ### Avoid screen tearing on Xorg {#avoid_screen_tearing_on_xorg}
@@ -374,11 +380,11 @@ graphics engine. There are a couple of options to control this:
     forces usage of the pipeline (further discussed in [#Multi-monitor](#Multi-monitor "wikilink")).
 
 -   ```{=mediawiki}
-    {{ic|ForceCompositionPipelineFull}}
+    {{ic|ForceFullCompositionPipeline}}
     ```
     forces usage of the pipeline, and forces it to all be done with the graphics engine.
 
-Tearing on Xorg can be avoided by setting `{{ic|ForceCompositionPipelineFull{{=}}`{=mediawiki}On}}. To test whether this
+Tearing on Xorg can be avoided by setting `{{ic|ForceFullCompositionPipeline{{=}}`{=mediawiki}On}}. To test whether this
 option will work, run:
 
 `$ nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"`
@@ -427,17 +433,17 @@ For example:
 
 Without doing this, the `{{ic|nvidia-settings}}`{=mediawiki} command will disable your secondary display.
 
-You can get the current screen names and offsets using `{{ic|--query}}`{=mediawiki}:
-
-`$ nvidia-settings --query CurrentMetaMode`
-
 The above line is for two 3840x2160 monitors connected to DP-2 and DP-4. You will need to read the correct
 `{{ic|CurrentMetaMode}}`{=mediawiki} by exporting `{{ic|xorg.conf}}`{=mediawiki} and append
 `{{ic|ForceCompositionPipeline}}`{=mediawiki} to each of your displays. Setting
 `{{ic|ForceCompositionPipeline}}`{=mediawiki} only affects the targeted display.
 
+You can get the current screen names and offsets using `{{ic|--query}}`{=mediawiki}:
+
+`$ nvidia-settings --query CurrentMetaMode`
+
 ```{=mediawiki}
-{{Tip|Multi monitor setups using different model monitors may have slightly different refresh rates. If vsync is enabled by the driver it will sync to only one of these refresh rates which can cause the appearance of screen tearing on incorrectly synced monitors. Select to sync the display device which is the primarily used monitor as others will not sync properly. This is configurable in {{ic|~/.nvidia-settings-rc}} as {{ic|1=0/XVideoSyncToDisplayID=}} or by installing {{pkg|nvidia-settings}} and using the graphical configuration options.}}
+{{Tip|In multi-monitor setups that use different models, the monitors may have slightly different refresh rates. If V-Sync is enabled by the driver it will sync to only one of these refresh rates which can cause the appearance of screen tearing on incorrectly synced monitors. With that in mind, prefer syncing to your primarily used monitor, which is configurable either in {{ic|~/.nvidia-settings-rc}} as {{ic|1=0/XVideoSyncToDisplayID=}} or by installing {{pkg|nvidia-settings}} and using the graphical configuration options.}}
 ```
 ### Screen corruption after resuming from suspend or hibernation {#screen_corruption_after_resuming_from_suspend_or_hibernation}
 
