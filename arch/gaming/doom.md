@@ -49,8 +49,7 @@ games based on the Doom engine. Install the `{{AUR|gzdoom}}`{=mediawiki} package
 
 #### UZDoom
 
-[UZDoom](https://zdoom.org) is a GZDoom fork with similar goals as GZDoom. Install
-`{{AUR|uzdoom-appimage}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki}.
+[UZDoom](https://zdoom.org) is a GZDoom fork with similar goals as GZDoom. Install `{{AUR|uzdoom}}`{=mediawiki}.
 
 #### Chocolate Doom {#chocolate_doom}
 

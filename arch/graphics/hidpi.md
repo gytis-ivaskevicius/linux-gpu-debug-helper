@@ -773,9 +773,8 @@ Also Spotify can be launched with a custom scaling factor which will be multipli
 
 #### Official HiDPI support {#official_hidpi_support}
 
--   Starting on 25 of January 2018 in the beta program there is actual support for HiDPI and it should be automatically
-    detected.
--   *Steam \> Settings \> Interface*, check *Enlarge text and icons based on monitor size* (restart required)
+-   To enable HiDPI support, go to *Steam \> Settings \> Interface*, and check *Scale text and icons to match monitor
+    settings (requires restart)*
 -   If it is not automatically detected, use `{{ic|1=GDK_SCALE=2}}`{=mediawiki} to set the desired scale factor.
 -   If the above fails, use `{{ic|1=steam -forcedesktopscaling 2}}`{=mediawiki} or set
     `{{ic|1=STEAM_FORCE_DESKTOPUI_SCALING=2.0}}`{=mediawiki}.

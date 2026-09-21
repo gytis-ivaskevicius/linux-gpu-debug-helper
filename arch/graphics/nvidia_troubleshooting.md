@@ -369,10 +369,10 @@ upper bound of the range to the maximum value also works, but increases power dr
 ```
 The NVIDIA driver conditionally applies a [composition
 pipeline](https://www.reddit.com/r/linux_gaming/comments/6voivr/comment/dm1uz2j/) to prepare the image for display. This
-not to be confused with a [composite manager](composite_manager "wikilink") which takes over window presentation (and
-can also mitigate screen tearing, via VSync). By default, the composition pipeline is only applied if the current screen
-transformations require it. The pipeline uses the GPU\'s specialized display engine if possible, then the more general
-graphics engine. There are a couple of options to control this:
+is not to be confused with a [composite manager](composite_manager "wikilink"), which takes over window presentation
+(and can also mitigate screen tearing, via VSync). By default, the composition pipeline is only applied if the current
+screen transformations require it. The pipeline uses the GPU\'s specialized display engine if possible, then the more
+general graphics engine. There are a couple of options to control this:
 
 -   ```{=mediawiki}
     {{ic|ForceCompositionPipeline}}
@@ -416,13 +416,13 @@ Section "Screen"
 EndSection
 }}
 ```
-If you do not have an Xorg configuration file, you can create one for your present hardware using
+If you do not have a Xorg configuration file, you can create one for your present hardware using
 `{{ic|nvidia-xconfig}}`{=mediawiki} (see [NVIDIA#Automatic configuration](NVIDIA#Automatic_configuration "wikilink"))
 and move it from `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to the preferred location
 `{{ic|/etc/X11/xorg.conf.d/20-nvidia.conf}}`{=mediawiki}.
 
 ```{=mediawiki}
-{{Note|Many of the configuration options produced in {{ic|20-nvidia.conf}} by using {{ic|nvidia-xconfig}} are set automatically by the driver and are not needed. To only use this file for enabling composition pipeline, only the section {{ic|"Screen"}} containing lines with values for {{ic|Identifier}} and {{ic|Option}} are necessary. Other sections may be removed from this file.}}
+{{Note|Many of the configuration options produced in {{ic|20-nvidia.conf}} by using {{ic|nvidia-xconfig}} are set automatically by the driver and are not needed. To only use this file for enabling composition pipeline, only the section {{ic|"Screen"}} containing lines with values for {{ic|Identifier}} and {{ic|Option}} is necessary. Other sections may be removed from this file.}}
 ```
 #### Multi-monitor {#multi_monitor}
 
@@ -475,7 +475,9 @@ An update of GTK4 brought an issue for users relying on the nvidia-470 driver fo
 and icons randomly disappear and re-appear only after hovering with the mouse over the
 windows.[8](https://forums.developer.nvidia.com/t/multiple-apps-do-not-invalidate-repaint-screen-correctly-with-geforce-gt-730-and-v470-driver-on-ubuntu-24-04/291106/2)
 
-See [the forum](https://bbs.archlinux.org/viewtopic.php?pid=2159644#p2159644) for work-arounds.
+A workaround is to set the renderer: `{{hc|/etc/environment|2=
+GSK_RENDERER=vulkan
+}}`{=mediawiki}
 
 ### Fix graphical corruption in GNOME Shell when resuming from sleep {#fix_graphical_corruption_in_gnome_shell_when_resuming_from_sleep}
 
@@ -508,18 +510,17 @@ Find supported clock values (use these to pick valid min/max pairs):
 `nvidia-smi -q -d SUPPORTED_CLOCKS`\
 `nvidia-smi -q -d CLOCK`
 
-Temporary test
-
 Set minimum clocks (example values; adjust to your GPU's max supported clocks):
 
 `nvidia-smi -lgc 800,2100`\
-`nvidia-smi -lmc 800,10000`\
-`Test DPMS and suspend/resume to see if the issue is resolved.`\
-`   To revert:`\
+`nvidia-smi -lmc 800,10000`
+
+Test DPMS and suspend/resume to see if the issue is resolved. To revert:
+
 `nvidia-smi -rgc`\
 `nvidia-smi -rmc`
 
-Permanent configuration (systemd) Create a unit such as `{{ic|nvidia-clocks.service}}`{=mediawiki}:
+For permanent configuration (systemd), create a unit such as `{{ic|nvidia-clocks.service}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|/etc/systemd/system/nvidia-clocks.service|2=
@@ -807,8 +808,8 @@ following [environment variables](environment_variables "wikilink"):
 `__GLX_VENDOR_LIBRARY_NAME=mesa`\
 `__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json`
 
-which will result in the Mesa libgl being used for GLX and EGL and result in software GL to see whether a bug is related
-to the NVIDIA GL library.
+which will result in the Mesa libgl being used for software GLX and EGL rendering, and thus may be useful to test
+whether a bug is related to the NVIDIA GL library.
 
 ### Refresh-rate limited to 120Hz {#refresh_rate_limited_to_120hz}
 
@@ -816,11 +817,11 @@ Newer versions of the driver (after 550xx) [seem to](https://bbs.archlinux.org/v
 on 8bpc outputs, likely pushing the signal above specification limits and the result is a failure to apply modes with
 higher refresh rates that otherwise would be within the specification of the output. Add
 `{{ic|nvidia-modeset.hdmi_deepcolor{{=}}`{=mediawiki}0}} to the [kernel parameters](kernel_parameters "wikilink") or set
-the option via [modprobe](modprobe "wikilink") Notice that deep color will however be required for HDR monitors.
+the option via [modprobe](modprobe "wikilink"). Notice that deep color will however be required for HDR monitors.
 
-### Wrong color space on 60hz on Wayland with HDMI {#wrong_color_space_on_60hz_on_wayland_with_hdmi}
+### Wrong color space on 60Hz on Wayland with HDMI {#wrong_color_space_on_60hz_on_wayland_with_hdmi}
 
-In some cases (like using a HDMI cable with a 1660 Super Graphics Card with 60hz), the driver seems to wrongly assume
+In some cases (like using a HDMI cable with a 1660 Super graphics card with 60Hz), the driver seems to wrongly assume
 the color space for the output. This leads to the colors looking darker than normal. Because of there being no easy way
 to explicitly set the color space on Wayland, as a workaround you can add
 `{{ic|nvidia-modeset.debug_force_color_space{{=}}`{=mediawiki}2}} to the [kernel

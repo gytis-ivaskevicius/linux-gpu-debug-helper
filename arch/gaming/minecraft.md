@@ -50,8 +50,14 @@ See also:
 
 ### Bedrock Edition {#bedrock_edition}
 
-The unofficial Bedrock Minecraft client can be installed by `{{AUR|mcpelauncher-ui}}`{=mediawiki} package, which is the
-UI interface for `{{AUR|mcpelauncher-linux}}`{=mediawiki}.
+There are multiple unofficial distributions that provide Minecraft Bedrock Edition client:
+
+-   ```{=mediawiki}
+    {{AUR|mcpelauncher-ui}}
+    ```
+    , which is the UI interface for `{{AUR|mcpelauncher-linux}}`{=mediawiki}
+
+-   BedrockOnLinux, available via `{{AUR|bedrock-on-linux-bin}}`{=mediawiki} package
 
 ## Server
 

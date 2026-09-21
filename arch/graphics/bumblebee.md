@@ -253,12 +253,12 @@ enables to run [Vulkan](Vulkan "wikilink")-based applications. A quick check can
 {{Merge|Hybrid graphics#Using bbswitch|This section talks only about bbswitch which is not specific to Bumblebee.}}
 ```
 The goal of the power management feature is to turn off the NVIDIA card when it is not used by Bumblebee any more. If
-`{{Pkg|bbswitch}}`{=mediawiki} (for `{{Pkg|linux}}`{=mediawiki}) or `{{Pkg|bbswitch-dkms}}`{=mediawiki} (for
+`{{AUR|bbswitch}}`{=mediawiki} (for `{{Pkg|linux}}`{=mediawiki}) or `{{AUR|bbswitch-dkms}}`{=mediawiki} (for
 `{{Pkg|linux-lts}}`{=mediawiki} or custom kernels) is installed, it will be detected automatically when the Bumblebee
-daemon starts. No additional configuration is necessary. However, `{{Pkg|bbswitch}}`{=mediawiki} is for [Optimus laptops
+daemon starts. No additional configuration is necessary. However, `{{AUR|bbswitch}}`{=mediawiki} is for [Optimus laptops
 only and will not work on desktop
 computers](https://bugs.launchpad.net/ubuntu/+source/bbswitch/+bug/1338404/comments/6). So, Bumblebee power management
-is not available for desktop computers, and there is no reason to install `{{Pkg|bbswitch}}`{=mediawiki} on a desktop.
+is not available for desktop computers, and there is no reason to install `{{AUR|bbswitch}}`{=mediawiki} on a desktop.
 (Nevertheless, the other features of Bumblebee do work on some desktop computers.)
 
 To manually turn the card on or off using bbswitch, write into
@@ -295,7 +295,7 @@ GPU will still be powered off.
 
 When you stop the daemon manually, you might want to keep the card powered off while still powering it on on shutdown.
 To achieve the latter, add the following [systemd](systemd "wikilink") service (if using
-`{{pkg|bbswitch}}`{=mediawiki}):
+`{{AUR|bbswitch}}`{=mediawiki}):
 
 ```{=mediawiki}
 {{hc|/etc/systemd/system/nvidia-enable.service|2=
@@ -316,7 +316,7 @@ Then [enable](enable "wikilink") the `{{ic|nvidia-enable.service}}`{=mediawiki} 
 #### Enable NVIDIA card after waking from suspend {#enable_nvidia_card_after_waking_from_suspend}
 
 The bumblebee daemon may fail to activate the graphics card after suspending. A possible fix involves setting
-`{{Pkg|bbswitch}}`{=mediawiki} as the default method for power management:
+`{{AUR|bbswitch}}`{=mediawiki} as the default method for power management:
 
 ```{=mediawiki}
 {{hc|/etc/bumblebee/bumblebee.conf|2=

@@ -39,11 +39,16 @@ configuration](https://gist.githubusercontent.com/Lovebird-Connoisseur/a11b9dbc5
 ### URL hints {#url_hints}
 
 w3m supports [qutebrowser](qutebrowser "wikilink")-like link navigation, simply navigate to your config file and change
-the following line from `{{ic|display_link_number 0}}`{=mediawiki} to `{{ic|display_link_number 1}}`{=mediawiki}.
+`{{ic|display_link_number 0}}`{=mediawiki} to `{{ic|display_link_number 1}}`{=mediawiki}.
 
-And add `{{ic|keymap f COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"}}`{=mediawiki} and
-`{{ic|keymap F COMMAND "RESHAPE ; LINK_BEGIN ; TAB_LINK"}}`{=mediawiki} to `{{ic|~/.w3m/keymap}}`{=mediawiki}.
+Add the following to your keymap:
 
+```{=mediawiki}
+{{hc|~/.w3m/keymap|
+keymap f COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+keymap F COMMAND "RESHAPE ; LINK_BEGIN ; TAB_LINK"
+}}
+```
 ```{=mediawiki}
 {{Note|While qutebrowser supports a variety of keys to select hints, in w3m you can only select links using the number keys.}}
 ```
@@ -52,26 +57,19 @@ And add `{{ic|keymap f COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"}}`{=mediawiki}
 Users of the [kitty](kitty "wikilink") terminal emulator may chose to use its own [graphics
 protocol](https://sw.kovidgoyal.net/kitty/graphics-protocol/).
 
-To do so simply change the following line in `{{ic|~/.w3m/config}}`{=mediawiki}:
+To do so simply change `{{ic|inline_img_protocol}}`{=mediawiki} from 0 to 4:
 
-`inline_img_protocol 0`
-
-to:
-
-`inline_img_protocol 4`
-
+```{=mediawiki}
+{{hc|~/.w3m/config|
+inline_img_protocol 4
+}}
+```
 ### Using Iterm2 image protocol {#using_iterm2_image_protocol}
 
 Users of the [wezterm](wezterm "wikilink") terminal emulator may chose to use the [Iterm2 graphics
 protocol](https://web.archive.org/web/20240113173736/https://wezfurlong.org/wezterm/imgcat.html) which WezTerm supports.
 
-To do so simply change the following line in `{{ic|~/.w3m/config}}`{=mediawiki}:
-
-`inline_img_protocol 0`
-
-to:
-
-`inline_img_protocol 3`
+To do so simply change `{{ic|inline_img_protocol}}`{=mediawiki} to 3.
 
 ### Searching
 
@@ -88,8 +86,11 @@ You can set `{{ic|ignorecase_search}}`{=mediawiki} to 1 to enable case insensiti
 You can map keys to launch a CGI script that will capture your input and pass it onto a custom search engine, to do so
 first create a keybind inside `{{ic|~/.w3m/keymap}}`{=mediawiki} to launch your script:
 
-`keymap s COMMAND "SET_OPTION dictcommand=`[`file:///cgi-bin/omnibar_google.cgi`](file:///cgi-bin/omnibar_google.cgi)` ; DICT_WORD"`
-
+```{=mediawiki}
+{{hc|~/.w3m/keymap|2=
+keymap s COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar_google.cgi ; DICT_WORD"
+}}
+```
 And place
 [omnibar_google.cgi](https://raw.githubusercontent.com/gotbletu/shownotes/master/w3m_omnibar/omnibar_google.cgi) inside
 your `{{ic|~/.w3m/cgi-bin}}`{=mediawiki} directory and giving it execute permission.
@@ -109,8 +110,11 @@ This can be mitigated by first passing the webpages through a reader mode progra
 
 To do so add the following to `{{ic|~/.w3m/keymap}}`{=mediawiki}:
 
-`keymap R COMMAND "READ_SHELL 'rdrview $W3M_URL -H 2> /dev/null 1> /tmp/readable.html' ; LOAD /tmp/readable.html"`
-
+```{=mediawiki}
+{{hc|~/.w3m/keymap|2=
+keymap R COMMAND "READ_SHELL 'rdrview $W3M_URL -H 2> /dev/null 1> /tmp/readable.html' ; LOAD /tmp/readable.html"
+}}
+```
 ### Redirect URLs {#redirect_urls}
 
 ```{=mediawiki}
@@ -168,9 +172,12 @@ script.
 
 Inside `{{ic|~/.w3m/keymap}}`{=mediawiki} add:
 
-`keymap d COMMAND "EXTERN 'echo %s >> ~/.w3m/RestoreTab.txt' ; CLOSE_TAB"`\
-`keymap u COMMAND TAB_GOTO `[`file:/cgi-bin/restore_tab.cgi`](file:/cgi-bin/restore_tab.cgi)
-
+```{=mediawiki}
+{{hc|~/.w3m/keymap|2=
+keymap d COMMAND "EXTERN 'echo %s >> ~/.w3m/RestoreTab.txt' ; CLOSE_TAB"
+keymap u COMMAND TAB_GOTO file:/cgi-bin/restore_tab.cgi
+}}
+```
 Then place the following file inside `{{ic|~/.w3m/cgi-bin}}`{=mediawiki} and make it
 [executable](executable "wikilink").
 
@@ -229,8 +236,11 @@ for comment indentation).
 A more elegant solution would be to make a keybind to toggle images on or off, to do so add the following line to
 `{{ic|~/.w3m/keymap}}`{=mediawiki}:
 
-`keymap i COMMAND "SET_OPTION display_image=toggle ; RESHAPE"`
-
+```{=mediawiki}
+{{hc|~/.w3m/keymap|2=
+keymap i COMMAND "SET_OPTION display_image=toggle ; RESHAPE"
+}}
+```
 ## See also {#see_also}
 
 -   [Homepage](https://w3m.sourceforge.net/)

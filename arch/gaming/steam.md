@@ -151,7 +151,7 @@ are two that support it.}}
 There are compatibility tools other than Proton/Wine.
 
 -   ```{=mediawiki}
-    {{App|Luxtorpeda|Run games using native Linux engines.|https://luxtorpeda-dev.github.io/|{{AUR|luxtorpeda-git}}}}
+    {{App|Luxtorpeda|Run games using native Linux engines.|https://codeberg.org/luxtorpeda/luxtorpeda|{{AUR|luxtorpeda-git}}}}
     ```
 
 -   ```{=mediawiki}

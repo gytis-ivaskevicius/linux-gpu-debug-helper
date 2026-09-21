@@ -2,7 +2,7 @@
 
 ## Installation
 
-[Install](Install "wikilink") `{{AUR|rpcs3-git}}`{=mediawiki} or `{{AUR|rpcs3-bin}}`{=mediawiki}.
+[Install](Install "wikilink") `{{AUR|rpcs3-git}}`{=mediawiki}.
 
 To be able to actually run games, the PlayStation 3 system software is required, as indicated in the [quickstart
 guide](https://rpcs3.net/quickstart). Fortunately it is easy to acquire this firmware compared with other Sony systems
