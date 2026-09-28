@@ -865,7 +865,7 @@ Requires `{{AUR|lib32-libidn}}`{=mediawiki} (pulled in by `{{AUR|steam-native-ru
 
 ### Company of Heroes 2 {#company_of_heroes_2}
 
-Make sure you have `{{AUR|lib32-gconf}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} installed.
+Make sure you have `{{AUR|lib32-gconf}}`{=mediawiki} installed.
 
 #### Missing libpcre.so.3 and libidn.so.11 {#missing_libpcre.so.3_and_libidn.so.11_1}
 
@@ -1491,7 +1491,7 @@ When an error about a missing `{{ic|client.so}}`{=mediawiki} appears, try the fo
 `$ ln -s ../garrysmod/bin/client.so ./`
 
 If the error mentions a missing library for `{{ic|libgconf-2.so.4}}`{=mediawiki}, install
-`{{AUR|lib32-gconf}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki}.
+`{{AUR|lib32-gconf}}`{=mediawiki}.
 
 #### Opening some menus causes the game to crash {#opening_some_menus_causes_the_game_to_crash}
 

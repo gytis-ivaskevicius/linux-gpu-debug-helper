@@ -12,9 +12,8 @@ supported variants known as:
 
 ## Launchers
 
-**Official Minecraft Launcher:** [Website](https://www.minecraft.net/download) ---
-`{{nixos:package|minecraft}}`{=mediawiki}
-`{{warning|1.19 and higher does not work on NixOS, using alternative clients is strongly recommended.}}`{=mediawiki}
+**Official Minecraft Launcher:** [Website](https://www.minecraft.net/download) --- Not packaged since 25.11, due to
+incompatibility issues. See alternative launchers below.
 
 **[Prism Launcher](Prism_Launcher "wikilink"):** A free, open source launcher. [Website](https://prismlauncher.org/) ---
 `{{nixos:package|prismlauncher}}`{=mediawiki}
@@ -110,8 +109,8 @@ broken on NixOS**. It is strongly recommended to use alternative launchers.\'\'\
 
 ## References
 
-```{=mediawiki}
-{{Reflist}}
+```{=html}
+<references />
 ```
 [Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")
 

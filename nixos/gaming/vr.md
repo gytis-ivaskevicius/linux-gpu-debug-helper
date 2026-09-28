@@ -183,7 +183,8 @@ high-priority context, which is a requirement for asynchronous reprojection. `</
 ```{=mediawiki}
 {{Note|<translate><!--T:24--> Steam is run in a bubblewrap-based FHS environment. This environment runs Steam in a user namespace, which prevents it from using any capabilities or setuid binaries. This means that asynchronous reprojection can not be used on NixOS, without patching the kernel to remove these restrictions completely, or modifying the bubblewrap binary used for running Steam to remove these capability protections. Both of these workarounds come with their own security tradeoffs. See this [https://github.com/NixOS/nixpkgs/issues/217119 Nixpkgs issue]</translate>}}
 ```
-`<translate>`{=html}
+`<translate>`{=html}For wireless streaming from a [Steam Frame](Steam_Frame "wikilink"), see [Steam
+Frame](Steam_Frame "wikilink").
 
 ### Patching AMDGPU to allow high priority queues {#patching_amdgpu_to_allow_high_priority_queues}
 

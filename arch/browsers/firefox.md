@@ -261,29 +261,21 @@ To enable Vulkan hardware video decoding:
 +-----------------------------+------------------+-------------------------------------------------------------------+
 | Vendor                      | Status           | Notes                                                             |
 +=============================+==================+===================================================================+
-| [NVIDIA](NVIDIA "wikilink") | Partial          | -   Copy path: works on Turing and newer.                         |
-|                             |                  | -   Direct export: works with a recent FFmpeg build containing    |
-|                             |                  |     commit                                                        |
-|                             |                  |                                                                   |
-|                             |                  |    `{{ic|25e187f8494966377a4b9d077260ce7b501a911c}}`{=mediawiki}. |
+| [NVIDIA](NVIDIA "wikilink") | Partial          | -   Copy path: Maxwell and newer.                                 |
+|                             |                  | -   Direct export: Works on Turing and newer.                     |
 |                             |                  | -   Direct export is broken on the 580.xx driver series due to    |
 |                             |                  |     driver bugs.                                                  |
-|                             |                  | -   Copy path is broken on pre-Turing (1000 series and earlier)   |
-|                             |                  |     in Firefox 153.x due to injecting incorrect DRM Modifiers see |
-|                             |                  |     [Bug                                                          |
-|                             |                  |                                                                   |
-|                             |                  |   2056939](https://bugzilla.mozilla.org/show_bug.cgi?id=2056939). |
 |                             |                  | -   Compared to `{{Pkg|libva-nvidia-driver}}`{=mediawiki}, Vulkan |
 |                             |                  |     Video does not require disabling the RDD sandbox and requires |
 |                             |                  |     less additional configuration.                                |
 +-----------------------------+------------------+-------------------------------------------------------------------+
 | [AMD](AMD "wikilink")       | Reported working | -   Copy path: works on all supported GPUs.                       |
-|                             |                  | -   Direct export: does not work.                                 |
+|                             |                  | -   Direct export: works.                                         |
 +-----------------------------+------------------+-------------------------------------------------------------------+
 | [Intel](Intel "wikilink")   | Unknown          | No user reports observed                                          |
 +-----------------------------+------------------+-------------------------------------------------------------------+
 
-: Vulkan Video support in Firefox 153
+: Vulkan Video support (Firefox 156.0 / [FFmpeg](FFmpeg "wikilink") 9.0.2)
 
 See [Hardware video acceleration#Configuring Vulkan
 Video](Hardware_video_acceleration#Configuring_Vulkan_Video "wikilink") for more info on hardware support.
@@ -1183,7 +1175,7 @@ working [Desktop notifications](Desktop_notifications "wikilink") server, such a
 ### DNIe certificate is not picked up after renewal from the card reader {#dnie_certificate_is_not_picked_up_after_renewal_from_the_card_reader}
 
 After renewing the certificate in the card (Spanish DNIe) Firefox continues to use the previous certificate, allows to
-login but won\'t authenticate the users on any service. You need to clear the card cache
+login but will not authenticate the users on any service. You need to clear the card cache
 
 `$ pkcs15-tool --clear-cache`
 

@@ -1344,6 +1344,10 @@ See also [Wikipedia:Chronology of roguelike video games](Wikipedia:Chronology_of
 
 -   [Quake](Wikipedia:Quake_(video_game) "wikilink")
 
+:\* `{{ic|pacman -S quake}}`{=mediawiki} can be used to install either `{{Pkg|ironwail}}`{=mediawiki} (Quake 1 engine
+with a focus on performance with good support for mods) or `{{Pkg|vkquake}}`{=mediawiki} (Quake 1 engine for Vulkan +
+SDL3) together with the `{{Pkg|librequake}}`{=mediawiki} maps and resources.
+
 :\* Advanced Quake 1 game engine -- `{{AUR|darkplaces}}`{=mediawiki}
 
 :\* High quality textures for Quake from the Quake Revitalization Project -- `{{AUR|quake-qrp-textures}}`{=mediawiki}

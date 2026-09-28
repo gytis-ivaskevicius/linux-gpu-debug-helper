@@ -19,6 +19,9 @@ Games can be run by different applications. Some are able to include libraries f
 
 ## List of games in Nixpkgs {#list_of_games_in_nixpkgs}
 
+Below are some of the games available in Nixpkgs. To search for a specific game, please use [NixOS
+Search](Searching_packages "wikilink").
+
   Name                                                                                                  Category                                      Description                                                                                                                        nixpkgs
   ----------------------------------------------------------------------------------------------------- --------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------
   [0 A.D.](https://play0ad.com/)                                                                        Strategy, Historical                          Historical real-time strategy game.                                                                                                [available](https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/0ad/default.nix)

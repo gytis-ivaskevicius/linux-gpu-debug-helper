@@ -63,6 +63,10 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 ### Stacking
 
 -   ```{=mediawiki}
+    {{App|[[COSMIC]] Compositor|Compositor for the COSMIC desktop environment with optional tiling function.|https://github.com/pop-os/cosmic-comp|{{Pkg|cosmic-comp}}}}
+    ```
+
+-   ```{=mediawiki}
     {{App|hikari|wlroots-based compositor inspired by [[cwm]] which is actively developed on FreeBSD but also supports Linux.|https://codeberg.org/thomasadam/hikari|{{AUR|hikari}}}}
     ```
 
@@ -143,15 +147,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
 ### Dynamic
 
 -   ```{=mediawiki}
-    {{App|[[COSMIC]] Compositor|Compositor for the COSMIC desktop environment.|https://github.com/pop-os/cosmic-comp|{{Pkg|cosmic-comp}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|[[cwc]]|[[awesome]]-like Wayland compositor based on wlroots.|https://cudiph.github.io/cwc/apidoc/| {{AUR|cwc}}}}
-    ```
-
--   ```{=mediawiki}
-    {{App|[[MangoWM]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/mangowm/mango|{{AUR|mangowm}}}}
     ```
 
 -   ```{=mediawiki}
@@ -167,11 +163,15 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[river-classic]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
+    {{App|[[MangoWM]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/mangowm/mango|{{AUR|mangowm}}}}
     ```
 
 -   ```{=mediawiki}
     {{App|pinnacle-comp|A Smithay-based Wayland compositor, inspired by AwesomeWM and configured in Lua or Rust |https://github.com/pinnacle-comp/pinnacle|{{AUR|pinnacle-comp}}}}
+    ```
+
+-   ```{=mediawiki}
+    {{App|[[river-classic]]|Dynamic tiling Wayland compositor inspired by dwm and [[bspwm]].|https://codeberg.org/river/river-classic|{{Pkg|river-classic}}}}
     ```
 
 ### Other

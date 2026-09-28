@@ -445,20 +445,6 @@ example to use 8 cores:
 unShaderBackgroundProcessingThreads 8
 }}
 ```
-### Disable HTTP2 for faster downloads {#disable_http2_for_faster_downloads}
-
-Some systems and configurations seem to have issues with HTTP2. Disabling HTTP2 will probably yield faster downloads on
-those configurations. You can either use the console command
-`{{ic|@nClientDownloadEnableHTTP2PlatformLinux 0}}`{=mediawiki} or set it in `{{ic|steam_dev.cfg}}`{=mediawiki} like so:
-
-```{=mediawiki}
-{{hc|~/.steam/steam/steam_dev.cfg|
-@nClientDownloadEnableHTTP2PlatformLinux 0
-}}
-```
-```{=mediawiki}
-{{Note|[https://github.com/ValveSoftware/steam-for-linux/issues/10248 The bug] that caused this should be fixed in the current steam client. This should not improve speeds anymore}}
-```
 ### Run games using discrete GPU {#run_games_using_discrete_gpu}
 
 On [hybrid graphics](hybrid_graphics "wikilink") laptops, Steam runs games using the integrated GPU by default. See
@@ -471,10 +457,10 @@ specific games.
 {{Merge|Flatpak/Application-specific troubleshooting|Flatpak is not supported.|talk=ArchWiki talk:Requests#Contain Flatpak application troubleshooting to a subpage}}
 ```
 ```{=mediawiki}
-{{Warning|The Flatpak version of Steam is not verified and not vetted by Valve Corporation. The Arch Linux developers also have no say in it, and do not give technical support to it. Use it at your own risk. To use Steam on Arch, the recommended way is via the {{pkg|steam}} package.}}
-```
-```{=mediawiki}
-{{Note|Installing Steam from Flathub/Flatpak will fix many of the issues faced on the client but will require alternative, less documented forms of troubleshooting on the long run.}}
+{{Note|
+* The Flatpak version of Steam is not verified and not vetted by Valve Corporation. The Arch Linux developers also have no say in it, and do not give technical support to it. Use it at your own risk. To use Steam on Arch, the recommended way is via the {{pkg|steam}} package.
+* Installing Steam from Flathub/Flatpak may fix many of the issues faced on the client, but will require alternative, less documented forms of troubleshooting on the long run.
+}}
 ```
 Steam can also be installed with [Flatpak](Flatpak "wikilink") as `{{ic|com.valvesoftware.Steam}}`{=mediawiki} from
 [Flathub](https://flathub.org/). The easiest way to install it for the current user is by using the Flathub repository:

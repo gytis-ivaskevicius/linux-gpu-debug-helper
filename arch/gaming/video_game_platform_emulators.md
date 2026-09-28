@@ -29,10 +29,6 @@ platform or system so as to allow applications and games to be run in environmen
     ```
 
 -   ```{=mediawiki}
-    {{App|FinalBurn Neo|Emulator for Arcade Games & Select Consoles. Based on FinalBurn and MAME.|https://neo-source.com/|{{AUR|fbneo-git}}{{Broken package link|package not found}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|higan|Multisystem emulator focusing on accuracy, supporting SNES, NES, GB, GBC, GBA.|https://github.com/higan-emu/higan|{{AUR|higan-git}}}}
     ```
 

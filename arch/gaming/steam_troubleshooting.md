@@ -168,9 +168,9 @@ If the following error is output:
 
 `failed to dlopen engine.so error=/home/`*`GAMEPATH`*`` /bin/libgcc_s.so.1: version `GCC_7.0.0' not found (required by /usr/lib32/libopenal.so.1) ``
 
-moving the incompatible lib can be a workaround.
+Moving the incompatible lib can be a workaround.
 
-`mv .local/share/Steam/steamapps/common/`*`GAME`*`/bin/libgcc_s.so.1 .local/share/Steam/steamapps/common/`*`GAME`*`/bin/libgcc_s.so.1.b`
+`$ mv .local/share/Steam/steamapps/common/`*`GAME`*`/bin/libgcc_s.so.1 .local/share/Steam/steamapps/common/`*`GAME`*`/bin/libgcc_s.so.1.b`
 
 ### Some games freeze at start when in focus {#some_games_freeze_at_start_when_in_focus}
 

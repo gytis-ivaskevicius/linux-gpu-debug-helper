@@ -72,9 +72,9 @@ screen by the time the TV gets powered on.
 
 ## Headless (no monitor) resolution {#headless_no_monitor_resolution}
 
-In headless mode, resolution falls back to 640x480, which is used by VNC or Steam Link. To start in a higher resolution
-*e.g.* 1920x1080, specify a `{{ic|Virtual}}`{=mediawiki} entry under the `{{ic|Screen}}`{=mediawiki} subsection in
-`{{ic|xorg.conf}}`{=mediawiki}:
+In headless mode, resolution falls back to 640x480, which is used by VNC or Steam Link. To start in a higher resolution,
+e.g. 1920x1080, edit `{{ic|xorg.conf}}`{=mediawiki} and specify a `{{ic|Virtual}}`{=mediawiki} entry in the
+`{{ic|Display}}`{=mediawiki} subsection of section `{{ic|Screen}}`{=mediawiki}:
 
 `Section "Screen"`\
 `   [...]`\
@@ -85,7 +85,7 @@ In headless mode, resolution falls back to 640x480, which is used by VNC or Stea
 `EndSection`
 
 ```{=mediawiki}
-{{Tip|Using headless mode may be tricky and prone to error. For instance, in headless mode, desktop environments and {{Pkg|nvidia-utils}} do not provide a graphical way to change resolution. To facilitate setting up resolution one can use a DP or an HDMI dummy adapter which simulates the presence of a monitor attached to that port. Then resolution change can be done normally using a remote session such as VNC or Steam Link.}}
+{{Tip|Using headless mode may be tricky and prone to error. For instance, in headless mode, desktop environments and {{Pkg|nvidia-utils}} do not provide a graphical way to change resolution. To facilitate setting up resolution one can use a DP or HDMI dummy adapter which simulates the presence of a monitor attached to that port. Then resolution change can be done normally using a remote session such as VNC or Steam Link.}}
 ```
 ## Check the power source {#check_the_power_source}
 
