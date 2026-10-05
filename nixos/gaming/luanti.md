@@ -14,7 +14,7 @@ Below is a basic configuration that will host a Minetest server on port 30000:
 ```
 
 With this configuration, a user named `{{ic|minetest}}`{=mediawiki} will be created, along with its home folder
-\'/var/lib/minetest\'. All default Minetest configuration and world files are stored in
+`{{ic|/var/lib/minetest}}`{=mediawiki}. All default Minetest configuration and world files are stored in
 `{{ic|/var/lib/minetest/.minetest}}`{=mediawiki}.
 
 The Minetest service will be started after running nixos-rebuild. It can be controlled using systemctl:

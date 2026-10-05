@@ -886,8 +886,43 @@ USB)](#Steam_Controller_not_pairing_or_recognized_in_games_(including_USB) "wiki
 
 ### Xbox One Wireless Gamepad detected but no inputs recognized {#xbox_one_wireless_gamepad_detected_but_no_inputs_recognized}
 
+#### Different drivers {#different_drivers}
+
 This can occur when using a third party Xbox One controller with the `{{ic|xpad}}`{=mediawiki} or
 [#xboxdrv](#xboxdrv "wikilink") drivers. Try switching to [#xpadneo](#xpadneo "wikilink").
+
+#### ERTM
+
+Xbox One S and Series controllers connect over standard Bluetooth HID and need no out-of-tree driver. Some Bluetooth
+adapters L2CAP Enhanced Retransmission Mode (ERTM) can corrupt the HID report descriptor transfer. The controller pairs
+and shows as connected, but it does not get recognised as an input device. It is not entirely certain why this occurs.
+
+Example logs that could show in dmesg:
+
+`[10947.466400] hid-generic 0005:045E:02FD.002E: unbalanced collection at end of report description`\
+`[10947.466417] hid-generic 0005:045E:02FD.002E: probe with driver hid-generic failed with error -22`\
+`[10947.492254] microsoft 0005:045E:02FD.002E: unbalanced collection at end of report description`\
+`[10947.492262] microsoft 0005:045E:02FD.002E: parse failed`\
+`[10947.492265] microsoft 0005:045E:02FD.002E: probe with driver microsoft failed with error -22`
+
+One known fix is to disable ERTM at runtime, then unpairing and pairing again. The setting only affects new
+negotiations, so an existing connection will not recover:
+
+`echo Y | sudo tee /sys/module/bluetooth/parameters/disable_ertm`\
+`bluetoothctl remove ``<MAC>`{=html}
+
+Check the kernel logs again, it should show
+
+`[12774.498831] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:02FD.002F/input/input69`\
+`[12774.498939] microsoft 0005:045E:02FD.002F: input,hidraw12: BLUETOOTH HID v9.03 Gamepad [Xbox Wireless Controller] on ``<mac address>`{=html}
+
+Make it permanent with `{{ic|/etc/modprobe.d/bluetooth.conf}}`{=mediawiki} containing
+`{{ic|options bluetooth disable_ertm{{=}}`{=mediawiki}1}}, and verify after reboot that
+/sys/module/bluetooth/parameters/disable_ertm reads Y. Note that this is a global setting applying to all BT devices,
+and that disable_ertm is an undocumented leftover development toggle with no stability guarantee.
+
+Source: [Fix to pair Xbox One S Bluetooth controller on
+Ubuntu](https://gist.github.com/2E0PGS/0166ffec16b1d86acb4ebeea6871b54e)
 
 ### PlayStation 4 Controllers {#playstation_4_controllers}
 

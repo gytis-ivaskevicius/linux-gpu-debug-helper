@@ -1,56 +1,95 @@
-The Battle.net launcher is an application to start Blizzard games. It can be installed and launched via wine, which
-works pretty well. To play most of its games a recent wine-staging version is recommended.
+The [Battle.net launcher](https://www.blizzard.com/apps/battle.net/desktop) is Blizzard\'s launcher for games including
+*World of Warcraft*, *Diablo*, *Overwatch*, and *StarCraft*. On NixOS, Battle.net runs smoothly using Wine or Proton,
+with [Lutris](Lutris "wikilink") or [Steam](Steam "wikilink") being the most common runners.
 
-## Setup
+## System Prerequisites {#system_prerequisites}
 
-Tested on nixos-unstable with wine-staging 5.22 and found to be working with World of Warcraft 9.0.2:
+Battle.net requires 32-bit graphics driver libraries. Ensure 32-bit graphics support is enabled in your
+`configuration.nix`:
 
-```{=mediawiki}
-{{Note|This override seems not to be prebuilt by [[Hydra]] for official [[Channel branches|channels]], therefore this will probably be built on your systems. And compiling Wine locally may take a long time (over 1 hour on my system).}}
-```
 ``` nix
-users.users.youruser.packages = with pkgs; [
-  (wineWow64Packages.full.override {
-    wineRelease = "staging";
-    mingwSupport = true;
-  })
+# configuration.nix
+hardware.graphics.enable32Bit = true;
+
+# Optional, but recommended for gaming performance:
+programs.gamemode.enable = true;
+```
+
+## Installation Methods {#installation_methods}
+
+### Method 1: Lutris (Recommended) {#method_1_lutris_recommended}
+
+The easiest and most reliable way to manage Battle.net is through [Lutris](Lutris "wikilink") using a Wine-GE or
+Proton-GE runner.
+
+1\. Add Lutris and Wine tools to your configuration:
+
+``` nix
+environment.systemPackages = with pkgs; [
+  lutris
+  wineWow64Packages.staging
   winetricks
 ];
 ```
 
-Create a 64-bit wine prefix and enable DXVK support:
+2\. Open Lutris, search for **Battle.net**, and run the community install script. 3. Once installation completes, log in
+and install your games.
+
+### Method 2: Steam (Proton) {#method_2_steam_proton}
+
+You can also run Battle.net through Steam:
+
+1\. Download `Battle.net-Setup.exe` from the official website. 2. In Steam, click **Add a Game** \> **Add a Non-Steam
+Game\...** and select the installer. 3. Open the game properties in Steam, go to **Compatibility**, check **Force the
+use of a specific Steam Play compatibility tool**, and select a recent **GE-Proton** version. 4. Run the installer to
+set up Battle.net inside Steam\'s `compatdata` prefix. 5. After installation, update the shortcut target to point to the
+installed `Battle.net Launcher.exe` inside
+`~/.local/share/Steam/steamapps/compatdata/<appid>/pfx/drive_c/Program Files (x86)/Battle.net/`.
+
+### Method 3: Standalone Wine {#method_3_standalone_wine}
+
+To run Battle.net using standalone Wine-staging without external managers:
+
+``` nix
+environment.systemPackages = with pkgs; [
+  wineWow64Packages.staging
+  winetricks
+];
+```
+
+Create a 64-bit Wine prefix and launch the installer:
 
 ``` bash
 export WINEARCH=win64
 export WINEPREFIX=$HOME/.wine-battlenet
-winetricks dxvk
-```
-
-Download the `Battle.net-Setup.exe` from <https://www.blizzard.com/apps/battle.net/desktop> and install it by executing:
-
-``` bash
 wine64 Battle.net-Setup.exe
 ```
 
-Follow the installation and upon completion login in with your Battle.net Id or create one.
+## Troubleshooting & Known Issues {#troubleshooting_known_issues}
 
-The Launcher should now start up and allow you to install and launch games.
+### Blank or Missing Login Buttons (WINE_SIMULATE_WRITECOPY) {#blank_or_missing_login_buttons_wine_simulate_writecopy}
 
-## Updating NixOS and the Battle.net Client {#updating_nixos_and_the_battle.net_client}
+If the Battle.net login window opens but shows a blank, black, or unresponsive dialog where login fields/buttons are
+missing, launch with the `WINE_SIMULATE_WRITECOPY=1` environment variable:
 
-After updating any wine related packages the Battle.net client may throw an error on launch.
+``` bash
+WINE_SIMULATE_WRITECOPY=1 wine64 "Battle.net Launcher.exe"
+```
 
-Re-run the `wine64 Battle.net-Setup.exe` inside the previous wine prefix you used to update the application and avoid
-this error.
+(In Lutris or Steam, add `WINE_SIMULATE_WRITECOPY=1` under the game\'s Environment Variables).
 
-## Steam
+### Repairing Client After System / Wine Updates {#repairing_client_after_system_wine_updates}
 
-Alternatively, you can install Steam and then add the Battle.net installer there via **\"Add Game -\> Add a Non-Steam
-Game\...\"**. You must also go to the Properties of the added game in *Steam* and set *Compatibility* to `GE-Proton8-25`
-(or later version).
+If a Wine or system update causes Battle.net or its Agent update helper to throw DLL or startup errors, you do not need
+to delete your prefix or re-download games. Simply download a fresh `Battle.net-Setup.exe` and run it inside your
+existing prefix to repair the launcher files and registry in-place.
 
-If you get stuck on the login screen where there are no login buttons, you must launch the Steam app with
-`"WINE_SIMULATE_WRITECOPY=1"` env variable. This might be just a temporary glitch. You can also add Battle.net client or
-even the game directly to Steam. Look for installed binaries (`.exe`) in `"~/.local/share/Steam/steamapps/compatdata/"`.
+## World of Warcraft Companion Tools {#world_of_warcraft_companion_tools}
+
+For players running *World of Warcraft*, several companion applications have dedicated NixOS packages and configuration
+guides:
+
+-   [Raider.IO](Raider.IO "wikilink") --- Mythic+ and raid progression tracking and addon synchronization.
+-   [Archon](Archon "wikilink") --- Official Warcraft Logs companion for combat log recording and uploading.
 
 [Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")

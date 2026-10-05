@@ -314,11 +314,17 @@ Wayland, set the environment variable `{{ic|1=ELM_DISPLAY=wl}}`{=mediawiki}.
 ### Electron
 
 Since [Electron](Electron "wikilink") 38.2, Wayland is used by default.
-[8](https://www.electronjs.org/blog/tech-talk-wayland) For earlier versions, Wayland support can be activated using the
+[8](https://www.electronjs.org/blog/tech-talk-wayland)
+
+For earlier versions before 38.2, Wayland support can be activated using the
 `{{ic|1=--ozone-platform=auto}}`{=mediawiki} or `{{ic|1=--ozone-platform=wayland}}`{=mediawiki} command line flags, or
 by setting the [environment variable](environment_variable "wikilink") `{{ic|ELECTRON_OZONE_PLATFORM_HINT}}`{=mediawiki}
 to `{{ic|auto}}`{=mediawiki} or `{{ic|wayland}}`{=mediawiki}.
 
+```{=mediawiki}
+{{Note|{{ic|ELECTRON_OZONE_PLATFORM_HINT}} [[environment variable]] is deprecated.[https://github.com/electron/electron/issues/48001] Apps with Electron 38 and below will continue to accept the {{ic|ELECTRON_OZONE_PLATFORM_HINT}} and Electron 39 and above will safely ignore it.
+}}
+```
 ### FLTK
 
 Wayland is supported since `{{Pkg|fltk}}`{=mediawiki} 1.4, and it uses the Wayland backend by default. It is possible to

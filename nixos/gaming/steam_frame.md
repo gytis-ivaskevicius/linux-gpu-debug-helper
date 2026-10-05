@@ -78,6 +78,9 @@ kernel log should show `rtw89_8852cu` loading `rtw89/rtw8852c_fw-2.bin`. A line 
 a stock hint about USB 3 interference on that band. It does not mean the 6 GHz link failed. With a country code set, the
 phy lists 6 GHz and the interface can scan.
 
+Users must also be added to the `networkmanager` group for Steam to manage the wireless adapter.
+`{{file|/etc/nixos/configuration.nix|nix|3=users.users.<name>.extraGroups = [ "networkmanager" ];}}`{=mediawiki}
+
 ## Troubleshooting
 
 ### Headset does not see the PC {#headset_does_not_see_the_pc}

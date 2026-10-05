@@ -103,6 +103,9 @@ If you switched to snapshot version because of lacking features of stable versio
 profile. Copy the `{{ic|~/.config/vivaldi/Default}}`{=mediawiki} to
 `{{ic|~/.config/vivaldi-snapshot/Default}}`{=mediawiki}.
 
+```{=mediawiki}
+{{Note| Vivaldi supports multiple local user profiles. If there is only one local user, its profile directory is "Default" mentioned above. The second local user's profile directory is "Profile 1", the third is "Profile 2", and so on. Note that there is a space before the number.}}
+```
 ### Google search suggestions {#google_search_suggestions}
 
 Vivaldi [cannot be shipped](https://forum.vivaldi.net/topic/28880/google-suggestions-in-address-bar/2) with enabled
@@ -125,7 +128,7 @@ such, consult the [Chromium#Troubleshooting](Chromium#Troubleshooting "wikilink"
 
 ### Certificates management {#certificates_management}
 
-Currently (Vivaldi 6.2.3105.54 (Stable channel)), the certificates management setting is missing. To workaround that,
+Currently (Vivaldi 8.2.4133.76 (Stable channel)), the certificates management setting is missing. To workaround that,
 manually type the address `{{ic|chrome://settings/certificates}}`{=mediawiki}. Note, that the address will be changed to
 `{{ic|vivaldi://settings/certificates}}`{=mediawiki}, but you cannot type it in the first place (otherwise you will see
 vivaldi settings where cert management it is missing). See

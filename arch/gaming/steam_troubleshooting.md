@@ -204,6 +204,9 @@ the compatibility library manually:
 
 ### Steam webview/game browser not working in native runtime (Black screen) {#steam_webviewgame_browser_not_working_in_native_runtime_black_screen}
 
+```{=mediawiki}
+{{Accuracy|Symlinking libs in {{ic|/usr}} is horrible and not a solution.}}
+```
 Since the new Steam Friends UI update, the client webview is not working correctly with the native-runtime.
 
 `./steamwebhelper: error while loading shared libraries: libpcre.so.3: cannot open shared object file: No such file or directory`
@@ -430,9 +433,12 @@ If you use [PulseAudio](PulseAudio "wikilink") and cannot move an audio stream b
 OpenAL versions default to disallow audio streams from being moved. Try to add the following to your
 `{{ic|~/.alsoftrc}}`{=mediawiki}:
 
-`[pulse]`\
-`allow-moves=true`
-
+```{=mediawiki}
+{{hc|~/.alsoftrc|2=
+[pulse]
+allow-moves=true
+}}
+```
 ### Cracking Microphone in Steam Voice and Games {#cracking_microphone_in_steam_voice_and_games}
 
 If you experience cracking with your audio input while using Steam Voice or in games, you can try to launch Steam with

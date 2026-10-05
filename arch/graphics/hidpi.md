@@ -353,6 +353,17 @@ An [alternative](https://bugreports.qt.io/browse/QTBUG-53022) is e.g.:
 
 `$ QT_FONT_DPI=96 clementine`
 
+#### Fractional scaling {#fractional_scaling_1}
+
+Under [X11](X11 "wikilink") or [Xwayland](Xwayland "wikilink"), Qt 5 rounds fractional scale factors by default,
+resulting in an incorrectly scaled interface. For applications that enable Qt high DPI scaling, this can be fixed by
+setting the [environment variable](Environment_variables "wikilink")
+`{{ic|1=QT_SCALE_FACTOR_ROUNDING_POLICY=PassThrough}}`{=mediawiki}.
+
+Under [Wayland](Wayland "wikilink"), Qt 5 does not support the `{{ic|wp_fractional_scale_v1}}`{=mediawiki} fractional
+scaling protocol, and the resulting behavior depends on the compositor. For example, KWin falls back to rendering the
+application at 2x and then downscaling it.
+
 ### GDK 3 (GTK 3) {#gdk_3_gtk_3}
 
 ```{=mediawiki}

@@ -111,7 +111,7 @@ A prefix would need to have the following populated into it in order to run **mo
 -   PhysX
 -   Quicktime
 -   Adobe Reader 11
--   [Java](Java "wikilink") SRE (e.g for [Minecraft](Minecraft "wikilink"))
+-   [Java](Java "wikilink") JRE (e.g for [Minecraft](Minecraft "wikilink"))
 
 ### Rare (less common) {#rare_less_common}
 
@@ -812,29 +812,29 @@ allocation stalls. Disable proactive compaction because it introduces jitter acc
 documentation](https://docs.kernel.org/admin-guide/sysctl/vm.html) ([inner
 workings](https://nitingupta.dev/post/proactive-compaction/)):
 
-`# echo 0 > /proc/sys/vm/compaction_proactiveness`
+`# sysctl vm.compaction_proactiveness=0`
 
 Reduce the watermark boost factor to defragment only one pageblock (2MB on 64-bit x86) in case of memory fragmentation.
 After a memory fragmentation event this helps to better keep the application data in the last level processor cache.
 
-`# echo 1 > /proc/sys/vm/watermark_boost_factor`
+`# sysctl vm.watermark_boost_factor=1`
 
 If you have enough free RAM increase the number of minimum free Kilobytes to avoid stalls on memory allocations:
 [7](https://highscalability.com/blog/2015/4/8/the-black-magic-of-systematically-reducing-linux-os-jitter.html)[8](https://docs.kernel.org/admin-guide/sysctl/vm.html).
 Do not set this below 1024 KB or above 5% of your systems memory. Reserving 1GB:
 
-`# echo 1048576 > /proc/sys/vm/min_free_kbytes`
+`# sysctl vm.min_free_kbytes=1048576`
 
 If you have enough free RAM increase the watermark scale factor to further reduce the likelihood of allocation stalls
 (explanations
 [9](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs)[10](https://blogs.oracle.com/linux/post/anticipating-your-memory-needs-2)).
 Setting watermark distances to 5% of RAM:
 
-`# echo 500 > /proc/sys/vm/watermark_scale_factor`
+`# sysctl vm.watermark_scale_factor=500`
 
 Avoid swapping (locking pages that introduces latency and uses disk IO) unless the system has no more free memory:
 
-`# echo 10 > /proc/sys/vm/swappiness`
+`# sysctl vm.swappiness=10`
 
 Make sure [zswap](zswap "wikilink") is enabled. If there arises the need for swapping pages, then zswap helps reduce
 swapping related stutter. If you do not have a swap partition, you can [use zram](zram#Usage_as_swap "wikilink") instead
@@ -847,7 +847,7 @@ Enable Multi-Gen Least Recently Used (MGLRU) but reduce the likelihood of lock c
 
 Disable zone reclaim (locking and moving memory pages that introduces latency spikes):
 
-`# echo 0 > /proc/sys/vm/zone_reclaim_mode`
+`# sysctl vm.zone_reclaim_mode=0`
 
 Disable Transparent Hugepages (THP) at a performance cost. Even if defragmentation is disabled, THPs introduce latency
 spikes due to TLB (translation lookaside buffer) shootdowns and allocation stalls (remedied a bit by proactive
@@ -867,7 +867,7 @@ performance cost [15](https://github.com/google/tcmalloc/blob/master/docs/tuning
 Reduce the maximum page lock acquisition latency while retaining adequate throughput
 [16](https://www.phoronix.com/review/linux-59-unfairness)[17](https://openbenchmarking.org/result/2009154-FI-LINUX58CO57&sro)[18](https://www.phoronix.com/review/linux-59-fairness):
 
-`# echo 1 > /proc/sys/vm/page_lock_unfairness`
+`# sysctl vm.page_lock_unfairness=1`
 
 Tweak the scheduler settings. The following scheduler settings are in conflict with `{{AUR|cfs-zen-tweaks}}`{=mediawiki}
 so for each setting choose only one provider. By default the linux kernel scheduler is optimized for throughput and not
@@ -896,25 +896,29 @@ gaming performance. You should test different schedulers to see which is the mos
 
 #### Make the changes permanent {#make_the_changes_permanent}
 
-Usually, the advice for permanently setting [kernel parameters](kernel_parameters "wikilink") is to configure create a
-[sysctl](sysctl "wikilink") configuration file or change your [boot loader](boot_loader "wikilink") options. However,
-since our change span both procfs (`{{ic|/proc}}`{=mediawiki}, containing sysctl) and sysfs (`{{ic|/sys}}`{=mediawiki}),
-the most convenient way is to use [systemd-tmpfiles](systemd-tmpfiles "wikilink"):
+The `{{ic|vm.*}}`{=mediawiki} parameters can be set permanently with a [sysctl](sysctl "wikilink") configuration file:
+
+```{=mediawiki}
+{{hc|/etc/sysctl.d/99-vm-tuning.conf|2=
+vm.compaction_proactiveness = 0
+vm.watermark_boost_factor = 1
+vm.min_free_kbytes = 1048576
+vm.watermark_scale_factor = 500
+vm.swappiness = 10
+vm.zone_reclaim_mode = 0
+vm.page_lock_unfairness = 1
+}}
+```
+The remaining changes include sysfs (`{{ic|/sys}}`{=mediawiki}) entries, which sysctl cannot set, so use
+[systemd-tmpfiles](systemd-tmpfiles "wikilink") for them:
 
 ```{=mediawiki}
 {{hc|/etc/tmpfiles.d/consistent-response-time-for-gaming.conf|
 #    Path                  Mode UID  GID  Age Argument
-w /proc/sys/vm/compaction_proactiveness - - - - 0
-w /proc/sys/vm/watermark_boost_factor - - - - 1
-w /proc/sys/vm/min_free_kbytes - - - - 1048576
-w /proc/sys/vm/watermark_scale_factor - - - - 500
-w /proc/sys/vm/swappiness - - - - 10
 w /sys/kernel/mm/lru_gen/enabled - - - - 5
-w /proc/sys/vm/zone_reclaim_mode - - - - 0
 w /sys/kernel/mm/transparent_hugepage/enabled - - - - never
 w /sys/kernel/mm/transparent_hugepage/shmem_enabled - - - - never
 w /sys/kernel/mm/transparent_hugepage/defrag - - - - never
-w /proc/sys/vm/page_lock_unfairness - - - - 1
 w /proc/sys/kernel/sched_child_runs_first - - - - 0
 w /proc/sys/kernel/sched_autogroup_enabled - - - - 1
 w /proc/sys/kernel/sched_cfs_bandwidth_slice_us - - - - 3000

@@ -132,7 +132,7 @@ cards as well as embedded GPUs such as the Zotac IONITX\'s 8800GS.
 
 ### nvidia-settings {#nvidia_settings}
 
-To display the GPU temp in the shell, use *nvidia-settings* as follows:
+To display the GPU temperature in the shell, use *nvidia-settings* as follows:
 
 ```{=mediawiki}
 {{hc|$ nvidia-settings -q gpucoretemp|
@@ -142,9 +142,9 @@ To display the GPU temp in the shell, use *nvidia-settings* as follows:
     'GPUCoreTemp' can use the following target types: GPU.
 }}
 ```
-The GPU temps of this board is 49 °C.
+In this case, the temperature of the GPU is 49°C.
 
-In order to get just the temperature for use in utilities such as *rrdtool* or *conky*:
+In order to get just the temperature value, e.g. for use in utilities such as *rrdtool* or *conky*, execute:
 
 ```{=mediawiki}
 {{hc|$ nvidia-settings -q gpucoretemp -t|49}}
@@ -654,22 +654,22 @@ more details.
 ```
 ## Dynamic Boost {#dynamic_boost}
 
-Dynamic Boost is a system-wide power controller which manages GPU and CPU power, according to the workload on the
-system. [8](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/dynamicboost.html). It can particularly
-improve performance in GPU-bound applications by raising the power limit accordingly.
+[Dynamic Boost](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/dynamicboost.html) is a system-wide power
+controller which manages GPU and CPU power, according to the workload on the system. It can particularly improve
+performance in GPU-bound applications by raising the power limit accordingly.
 
 The main requirement is laptops with Ampere (or newer) GPUs.
 
 See [CPU frequency scaling#nvidia-powerd](CPU_frequency_scaling#nvidia-powerd "wikilink") for detailed instructions.
 
 ```{=mediawiki}
-{{Tip|It would especially help those unable to manually set power limit, see [[NVIDIA Optimus#Low power usage (TDP)]].}}
+{{Tip|Dynamic Boost would especially help those unable to manually set power limit. See [[NVIDIA Optimus#Low power usage (TDP)]].}}
 ```
 ## Driver persistence {#driver_persistence}
 
 NVIDIA has a daemon that can be optionally run at boot. In a standard single-GPU X desktop environment the persistence
 daemon is not needed and can actually create issues
-[9](https://devtalk.nvidia.com/default/topic/1044421/linux/nvidia-persistenced-causing-60-second-reboot-delays). See the
+[8](https://devtalk.nvidia.com/default/topic/1044421/linux/nvidia-persistenced-causing-60-second-reboot-delays). See the
 [Driver Persistence](https://docs.nvidia.com/deploy/driver-persistence/index.html#persistence-daemon) section of the
 NVIDIA documentation for more details.
 

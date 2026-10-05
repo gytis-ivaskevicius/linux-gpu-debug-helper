@@ -643,10 +643,6 @@ See also [Minecraft](Minecraft "wikilink").
     ```
 
 -   ```{=mediawiki}
-    {{App|VoxeLibre|Minecraft clone game for Luanti.|https://git.minetest.land/VoxeLibre/VoxeLibre|{{AUR|luanti-voxelibre}}{{Broken package link|package not found}}}}
-    ```
-
--   ```{=mediawiki}
     {{App|WolkenWelten|Gamemix between Minecraft, Quake ]I[ and Emacs in C99.|https://wolkenwelten.net/|{{AUR|wolkenwelten-git}}}}
     ```
 

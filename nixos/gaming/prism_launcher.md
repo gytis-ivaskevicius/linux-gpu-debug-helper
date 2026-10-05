@@ -25,8 +25,7 @@ home.packages = with pkgs; [ prismlauncher ];
 
 #### Basic
 
-Configuration of the launcher itself can be done in the settings window of the launcher. Currently, there is no way to
-configure Prism Launcher declaratively.
+Configuration of the launcher itself can be done in the settings window of the launcher.
 
 #### Advanced
 
@@ -67,6 +66,13 @@ derivation](https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/pr
     used if set to null.
 -   `textToSpeechSupport` (default `stdenv.hostPlatform.isLinux`) Turn on/off support for text-to-speech on Linux. This
     option is not needed on macOS
+
+#### Declarative configuration {#declarative_configuration}
+
+To manage PrismLauncher declaratively, you can use [Prismix](https://codeberg.org/OliMoli/prismix), which also solves a
+couple of annoyances like the recurring Java pop-up.
+
+However, please note that it is still in early development and lacks several features.
 
 ## References
 
