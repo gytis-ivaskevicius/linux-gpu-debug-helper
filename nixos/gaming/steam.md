@@ -402,8 +402,8 @@ capability to show what driver is currently in use.
 The setcap issue at SteamVR start can be fixed with:
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
 
-The [Steam Frame](Steam_Frame "wikilink") headset is discovered through these Remote Play ports. See [Steam
-Frame](Steam_Frame "wikilink").
+The [Steam Frame](<tvar_name=1>Special:MyLanguage/Steam_Frame</tvar> "wikilink") headset is discovered through these
+Remote Play ports. See [Steam Frame](<tvar_name=1>Special:MyLanguage/Steam_Frame</tvar> "wikilink").
 
 ### Gamescope fails to launch when used within Steam {#gamescope_fails_to_launch_when_used_within_steam}
 

@@ -202,8 +202,11 @@ Where `{{ic|''output''}}`{=mediawiki} should look like `{{ic|DisplayPort-0}}`{=m
 
 ### DRI level {#dri_level}
 
-*DRI* sets the maximum level of DRI to enable. Valid values are *2* for DRI2 or *3* for DRI3. The default is *3* for
-DRI3 if the [Xorg](Xorg "wikilink") version is \>= 1.18.3, otherwise DRI2 is used:
+```{=mediawiki}
+{{ic|DRI}}
+```
+sets the maximum level of DRI to enable. Valid values are `{{ic|2}}`{=mediawiki} for DRI2 or `{{ic|3}}`{=mediawiki} for
+DRI3. The default is `{{ic|3}}`{=mediawiki}.
 
 `Option "DRI" "3"`
 

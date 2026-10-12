@@ -21,8 +21,7 @@ Using `retroarch.withCores`: `{{File|3={
   ];
 }|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
-One can browse the available cores
-[here](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/emulators/libretro)
+One can browse the available cores \[<https://search.nixos.org/packages?query=libretro>.\* here\].
 
 ## Troubleshooting
 

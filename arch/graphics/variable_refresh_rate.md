@@ -57,59 +57,6 @@ The monitor must be plugged in via DisplayPort. Some displays which implement (a
 
 Some monitors may not support VRR at their maximum refresh rate. For example, a monitor that supports 165Hz may only support VRR when set to use 144Hz or less.
 
-== Xorg configuration ==
-
-=== Enable on AMDGPU ===
-
-FreeSync is only available if your [https://www.amd.com/en/products/freesync-monitors monitor is compatible with FreeSync], as well as if your [https://www.amd.com/en/products/graphics/technologies/freesync.html#faq GPU is compatible with FreeSync]:
-
-:Compatible GPUs include all AMD Radeon™ graphics cards beginning with Radeon™ RX 200 Series, released in 2013, and all newer Radeon consumer graphics products that use GCN 2.0 architecture and later.
-
-==== Using an Xorg conf file ====
-
-Add the line to your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
-
- Option "VariableRefresh" "true"
-
-Verify ''vrr_capable'' is set to ''1'' using [[xrandr]]:
-
-{{hc|$ xrandr --props|
-vrr_capable: 1
-        range: (0, 1)
-}}
-
-xrandr will show the properties for all video output ports; make sure to look at the one that's actually connected to your monitor - the other outputs will report vrr_capable: 0.
-
-==== Multi-monitor configuration ====
-
-Suppose you have a new 144Hz FreeSync capable monitor and want to use it as your primary monitor and connect your old 60Hz monitor as secondary monitor. In that case you may want to enable the AsyncFlipSecondaries option in your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
-
- Option "AsyncFlipSecondaries" "true"
-
-This option is available since xorg-server release 21.1.0 and will allow synchronized page flips up to the highest refresh rate your primary monitor supports. Your secondary monitor(s) may exhibit tearing however.
-
-=== Enable on NVIDIA ===
-
-==== Using a Xorg conf file ====
-
-{{Expansion|This section needs info.}}
-
-==== Via nvidia-settings ====
-
-"Native" G-SYNC and validated G-SYNC Compatible monitors should automatically have VRR enabled. To check the state of your monitors, open {{Pkg|nvidia-settings}} and navigate to your GPU (e.g. ''GPU 0''), under which there will be an node for each active monitor (e.g. ''DP-0'', ''HDMI-0''). In each of those monitor frames, the ''G-SYNC Mode Available'' indicates the status of G-SYNC support, either: [https://github.com/NVIDIA/nvidia-settings/blob/510/src/gtk+-2.x/ctkdisplaydevice.c#L872-L905] [https://github.com/NVIDIA/nvidia-settings/blob/510/src/libXNVCtrl/NVCtrl.h#L3541-L3551]
-
-* ''G-SYNC'', indicating that this is a "native" G-SYNC monitor. Full G-SYNC support is enabled by default.
-* ''G-SYNC Compatible'', indicating that this is a validated G-SYNC Compatible monitor. G-SYNC support is enabled by default.
-* ''G-SYNC Unvalidated'', indicating that this is an unvalidated G-SYNC Compatible monitor. G-SYNC support is not enabled by default. [https://github.com/NVIDIA/nvidia-settings/blob/510/src/gtk+-2.x/ctkdisplayconfig.c#L4628-L4674]
-* ''None'', indicating that this monitor does not seem to support G-SYNC. Note that there are some FreeSync VRR monitors which are not G-SYNC compatible at all. [https://www.howtogeek.com/755346/g-sync-compatible-vs-g-sync-whats-the-difference/]
-
-If you have an unvalidated G-SYNC Compatible monitor, you can override NVIDIA's default and enable VRR with it:
-
-* In {{Pkg|nvidia-settings}} go to the ''X Server Display Configuration'' page, then under the ''Advanced'' button is the option to ''Allow G-SYNC on monitor not validated as G-SYNC Compatible''. Click ''apply''.
-* Now, under ''OpenGL settings'', check ''Allow G-SYNC/G-SYNC Compatible''. In the same menu, you can check the ''show G-SYNC indicator'' option to display an indicator that G-SYNC is working in the top right corner.
-
-{{Note|If a monitor did fail NVIDIA's certification to be G-SYNC compatible, there may be issues with the experience such as poor image quality, flickering, or lack of VRR activation due to limited refresh rate range. [https://www.nvidia.com/en-us/geforce/news/g-sync-compatible-validation/]}}
-
 == Wayland configuration ==
 {{Note|
 For NVIDIA graphics cards, VRR Wayland using the proprietary driver [https://forums.developer.nvidia.com/t/wayland-information-for-r545-beta-release/214275 requires a Volta GPU architecture or newer].
@@ -216,6 +163,61 @@ You can check whether an output supports VRR:
   ...
   Variable refresh rate: supported
 }}
+
+== Xorg configuration ==
+
+=== Enable on AMDGPU ===
+
+{{Note|Enabling VariableRefresh on AMDGPU using Xorg also requires TearFree to be enabled, or instability may occur. See [[AMDGPU#Xorg configuration]]}}
+
+FreeSync is only available if your [https://www.amd.com/en/products/freesync-monitors monitor is compatible with FreeSync], as well as if your [https://www.amd.com/en/products/graphics/technologies/freesync.html#faq GPU is compatible with FreeSync]:
+
+:Compatible GPUs include all AMD Radeon™ graphics cards beginning with Radeon™ RX 200 Series, released in 2013, and all newer Radeon consumer graphics products that use GCN 2.0 architecture and later.
+
+==== Using an Xorg conf file ====
+
+Add the line to your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
+
+ Option "VariableRefresh" "true"
+
+Verify ''vrr_capable'' is set to ''1'' using [[xrandr]]:
+
+{{hc|$ xrandr --props|
+vrr_capable: 1
+        range: (0, 1)
+}}
+
+xrandr will show the properties for all video output ports; make sure to look at the one that's actually connected to your monitor - the other outputs will report vrr_capable: 0.
+
+==== Multi-monitor configuration ====
+
+Suppose you have a new 144Hz FreeSync capable monitor and want to use it as your primary monitor and connect your old 60Hz monitor as secondary monitor. In that case you may want to enable the AsyncFlipSecondaries option in your AMDGPU [[AMDGPU#Xorg configuration|.conf]] file in the {{ic|Section "OutputClass"}} block:
+
+ Option "AsyncFlipSecondaries" "true"
+
+This option is available since xorg-server release 21.1.0 and will allow synchronized page flips up to the highest refresh rate your primary monitor supports. Your secondary monitor(s) may exhibit tearing however.
+
+=== Enable on NVIDIA ===
+
+==== Using a Xorg conf file ====
+
+{{Expansion|This section needs info.}}
+
+==== Via nvidia-settings ====
+
+"Native" G-SYNC and validated G-SYNC Compatible monitors should automatically have VRR enabled. To check the state of your monitors, open {{Pkg|nvidia-settings}} and navigate to your GPU (e.g. ''GPU 0''), under which there will be an node for each active monitor (e.g. ''DP-0'', ''HDMI-0''). In each of those monitor frames, the ''G-SYNC Mode Available'' indicates the status of G-SYNC support, either: [https://github.com/NVIDIA/nvidia-settings/blob/510/src/gtk+-2.x/ctkdisplaydevice.c#L872-L905] [https://github.com/NVIDIA/nvidia-settings/blob/510/src/libXNVCtrl/NVCtrl.h#L3541-L3551]
+
+* ''G-SYNC'', indicating that this is a "native" G-SYNC monitor. Full G-SYNC support is enabled by default.
+* ''G-SYNC Compatible'', indicating that this is a validated G-SYNC Compatible monitor. G-SYNC support is enabled by default.
+* ''G-SYNC Unvalidated'', indicating that this is an unvalidated G-SYNC Compatible monitor. G-SYNC support is not enabled by default. [https://github.com/NVIDIA/nvidia-settings/blob/510/src/gtk+-2.x/ctkdisplayconfig.c#L4628-L4674]
+* ''None'', indicating that this monitor does not seem to support G-SYNC. Note that there are some FreeSync VRR monitors which are not G-SYNC compatible at all. [https://www.howtogeek.com/755346/g-sync-compatible-vs-g-sync-whats-the-difference/]
+
+If you have an unvalidated G-SYNC Compatible monitor, you can override NVIDIA's default and enable VRR with it:
+
+* In {{Pkg|nvidia-settings}} go to the ''X Server Display Configuration'' page, then under the ''Advanced'' button is the option to ''Allow G-SYNC on monitor not validated as G-SYNC Compatible''. Click ''apply''.
+* Now, under ''OpenGL settings'', check ''Allow G-SYNC/G-SYNC Compatible''. In the same menu, you can check the ''show G-SYNC indicator'' option to display an indicator that G-SYNC is working in the top right corner.
+
+{{Note|If a monitor did fail NVIDIA's certification to be G-SYNC compatible, there may be issues with the experience such as poor image quality, flickering, or lack of VRR activation due to limited refresh rate range. [https://www.nvidia.com/en-us/geforce/news/g-sync-compatible-validation/]}}
 
 == Testing ==
 

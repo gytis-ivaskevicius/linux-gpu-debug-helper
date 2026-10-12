@@ -602,6 +602,10 @@ games](Wikipedia:Comparison_of_massively_multiplayer_online_role-playing_games "
     {{App|The Mana World|Serious effort to create an innovative free and open source MMORPG.|https://www.themanaworld.org|{{AUR|manaplus}}}}
     ```
 
+-   ```{=mediawiki}
+    {{App|[[Wikipedia:Tibia_(video_game)|Tibia]]|2D tile-based fantasy MMORPG with pixel art graphics and a top-down perspective.|https://www.tibia.com|{{AUR|tibia}}}}
+    ```
+
 ## Minecraft and Minecraft-like {#minecraft_and_minecraft_like}
 
 See also [Minecraft](Minecraft "wikilink").
@@ -1754,7 +1758,7 @@ SDL3) together with the `{{Pkg|librequake}}`{=mediawiki} maps and resources.
     ```
 
 -   ```{=mediawiki}
-    {{App|OpenRCT2|Free reimplementation of the game "RollerCoaster Tycoon 2 (RCT2)" with multiplayer support. It requires a copy of the original game to play it.|https://openrct2.org/|{{Pkg|openrct2}}}}
+    {{App|OpenRCT2|Free reimplementation of the game "RollerCoaster Tycoon 2 (RCT2)" with multiplayer support. It requires a copy of the original game to play it.|https://openrct2.io/|{{Pkg|openrct2}}}}
     ```
 
 -   ```{=mediawiki}

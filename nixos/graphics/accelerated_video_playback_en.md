@@ -17,6 +17,7 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
+      vpl-gpu-rt # For QSV/VPL API support on Tiger Lake (2020) or newer processors.
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     ];
   };
@@ -24,7 +25,7 @@
     LIBVA_DRIVER_NAME = "iHD";
   }; # Optionally, set the environment variable
 }
-</nowiki>}}
+</nowiki>|name=|lang=}}
 ```
 Note, `intel-vaapi-driver` still performs better for browsers (gecko/chromium based) on newer Skylake (2015)
 processors.[^1]

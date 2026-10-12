@@ -48,8 +48,9 @@ At first, note that for *any* method you use, you should *always* disable:
 [Intel](Intel "wikilink"), [Nouveau](Nouveau "wikilink"), [ATI](ATI "wikilink") and [AMDGPU](AMDGPU "wikilink") drivers
 already enable KMS automatically for all chipsets, so you do not need to do anything.
 
-The proprietary [NVIDIA](NVIDIA "wikilink") driver supports KMS (since 364.12), which has to be [manually
-enabled](NVIDIA#DRM_kernel_mode_setting "wikilink").
+The proprietary [NVIDIA](NVIDIA "wikilink") driver supports KMS (since 364.12), and as of 560.35.03-5 it is [enabled by
+default](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22).
+In older versions, it has to be [manually enabled](NVIDIA#DRM_kernel_mode_setting "wikilink").
 
 ### Early KMS start {#early_kms_start}
 

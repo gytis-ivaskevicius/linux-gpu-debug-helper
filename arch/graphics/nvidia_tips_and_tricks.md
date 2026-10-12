@@ -326,20 +326,16 @@ reboot. Fortunately, there are tools that offer an interface for overclocking un
 the user\'s overclocking preferences and automatically applying them on boot. Some of them are:
 
 -   ```{=mediawiki}
-    {{AUR|gwe}}
+    {{App|gwe|Graphical, applies settings on desktop session start.|https://gitlab.com/leinardi/gwe|{{AUR|gwe}}}}
     ```
-    \- graphical, applies settings on desktop session start
 
 -   ```{=mediawiki}
-    {{AUR|nvclock}}
+    {{App|nvclock / systemd-nvclock-unit|Graphical, both apply settings on system boot.|http://www.linuxhardware.org/nvclock/|{{AUR|nvclock}} and {{AUR|systemd-nvclock-unit}}}}
     ```
-    and `{{AUR|systemd-nvclock-unit}}`{=mediawiki} - graphical, applies settings on system boot
 
 -   ```{=mediawiki}
-    {{AUR|nvoc}}
+    {{App|nvoc|Text based; profiles are configuration files in {{ic|/etc/nvoc.d/}}; applies settings on desktop session start.|https://github.com/yagoplx/nvoc|{{AUR|nvoc}}}}
     ```
-    \- text based, profiles are configuration files in `{{ic|/etc/nvoc.d/}}`{=mediawiki}, applies settings on desktop
-    session start
 
 Otherwise, `{{ic|GPUGraphicsClockOffset}}`{=mediawiki} and `{{ic|GPUMemoryTransferRateOffset}}`{=mediawiki} attributes
 can be set in the command-line interface of *nvidia-settings* on [startup](Autostarting "wikilink"). For example:
@@ -349,8 +345,10 @@ can be set in the command-line interface of *nvidia-settings* on [startup](Autos
 
 Where `{{ic|''performance_level''}}`{=mediawiki} is the number of the highest performance level. If there are multiple
 GPUs on the machine, the GPU ID should be specified:
-`{{ic|1=[gpu:''gpu_id'']GPUGraphicsClockOffset[''performance_level'']=''offset''}}`{=mediawiki}.
 
+```{=mediawiki}
+{{ic|1=[gpu:''gpu_id'']GPUGraphicsClockOffset[''performance_level'']=''offset''}}
+```
 ### Custom TDP limit {#custom_tdp_limit}
 
 ```{=mediawiki}
@@ -621,8 +619,8 @@ drivers, it has been succeeded by the `{{ic|1=NVreg_UseKernelSuspendNotifiers=1
 }}`{=mediawiki} [kernel module parameter](kernel_module_parameter "wikilink") which needs to be set to save and restore
 all video memory contents.
 
-While NVIDIA does not set these by default, Arch Linux does so for the supported drivers, making preserve work out of
-the box.
+Arch Linux enables these for supported drivers, making preserve work out of the box. NVIDIA has only enabled kernel
+suspend notifiers by default from version 615.78.08 onwards.
 
 To verify that `{{ic|NVreg_UseKernelSuspendNotifiers}}`{=mediawiki} is enabled, execute the following:
 

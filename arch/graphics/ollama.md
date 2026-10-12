@@ -6,6 +6,9 @@
 
 ## Installation
 
+```{=mediawiki}
+{{Expansion|If the user should install multiple backends, how are they to determine which one to use?}}
+```
 [Install](Install "wikilink") the `{{Pkg|ollama}}`{=mediawiki} package, which provides a daemon, command line tool, and
 CPU inference.
 
@@ -108,6 +111,10 @@ Commonly tuned variables:
 +----------------------------------------+----------------------------------------------------------------------------+
 | ```{=mediawiki}                        | Number of models kept loaded per GPU.                                      |
 | {{ic|OLLAMA_MAX_LOADED_MODELS}}        |                                                                            |
+| ```                                    |                                                                            |
++----------------------------------------+----------------------------------------------------------------------------+
+| ```{=mediawiki}                        | The path to the models directory (default is                               |
+| {{ic|OLLAMA_MODELS}}                   | `{{ic|/var/lib/ollama/blobs}}`{=mediawiki})                                |
 | ```                                    |                                                                            |
 +----------------------------------------+----------------------------------------------------------------------------+
 | ```{=mediawiki}                        | How long a model stays in memory after the last request (default:          |

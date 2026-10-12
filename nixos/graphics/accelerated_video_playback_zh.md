@@ -19,6 +19,7 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
+      vpl-gpu-rt # For QSV/VPL API support on Tiger Lake (2020) or newer processors.
       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
     ];
   };
@@ -26,7 +27,7 @@
     LIBVA_DRIVER_NAME = "iHD";
   }; # Optionally, set the environment variable
 }
-</nowiki>}}
+</nowiki>|name=|lang=}}
 ```
 注意，`intel-vaapi-driver` 在较新的 Skylake (2015) 处理器上对于浏览器（基于 gecko/chromium）仍然表现更好。[^1]
 
@@ -113,26 +114,10 @@ Chrome[^2]，并且与其他实现[^3]相比存在显著限制。
 
 ## 应用
 
-`<span id="Chromium">`{=html}`</span>`{=html}
-
-```{=html}
-<div class="mw-translate-fuzzy">
-```
 ### Chromium
 
 请参阅 [Chromium 视频加速](Special:MyLanguage/Chromium#Accelerated_video_playback "wikilink").
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
-See [Chromium#Accelerated_video_playback](Chromium#Accelerated_video_playback "wikilink").
-
-```{=html}
-</div>
-```
 ### Firefox
 
 请参阅 [Arch Linux wiki 的 Firefox 部分](https://wiki.archlinux.org/index.php/Firefox#Hardware_video_acceleration).
@@ -149,27 +134,12 @@ hwdec=auto
 
 `<span id="Also_see">`{=html}`</span>`{=html}
 
-```{=html}
-<div class="mw-translate-fuzzy">
-```
 ## 另请参阅
 
 -   [Arch Linux wiki 的硬件视频加速](https://wiki.archlinux.org/index.php/Hardware_video_acceleration)。
+-   [Gentoo Wiki#VAAPI](https://wiki.gentoo.org/wiki/VAAPI)。
 -   [nixos-hardware](https://github.com/NixOS/nixos-hardware) 包含各种硬件类型的示例配置。
 
-```{=html}
-</div>
-```
-```{=html}
-<div lang="en" dir="ltr" class="mw-content-ltr">
-```
--   [Arch Linux wiki#Hardware video acceleration](https://wiki.archlinux.org/index.php/Hardware_video_acceleration).
--   [Gentoo Wiki#VAAPI.](https://wiki.gentoo.org/wiki/VAAPI)
--   [nixos-hardware](https://github.com/NixOS/nixos-hardware) has example configurations for various types of hardware.
-
-```{=html}
-</div>
-```
 [Category:Video](Category:Video "wikilink")
 
 [^1]: <https://github.com/intel/media-driver/issues/1024>

@@ -365,6 +365,9 @@ currently in use.
 The setcap issue at SteamVR start can be fixed with:
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
 
+The [Steam Frame](Special:MyLanguage/Steam_Frame "wikilink") headset is discovered through these Remote Play ports. See
+[Steam Frame](Special:MyLanguage/Steam_Frame "wikilink").
+
 ### Gamescope fails to launch when used within Steam {#gamescope_fails_to_launch_when_used_within_steam}
 
 Gamescope may fail to start due to missing Xorg libraries. ([#214275](https://github.com/NixOS/nixpkgs/issues/214275))

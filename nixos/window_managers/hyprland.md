@@ -1,10 +1,7 @@
-`<translate>`{=html}
-`{{outdated|date=may 2026|reason=[https://hypr.land/news/update55/ v0.55] introduced and recommends [[Lua]] for configuration. The [https://wiki.hypr.land upstream wiki] has already migrated and support for {{ic|hyprland.conf}} will be removed in a future release. Home manager supports lua config since the [https://nix-community.github.io/home-manager/release-notes/rl-2605.html#state-version-changes <code>26.05</code> release].|talk=Talk:Hyprland#Update to Hyprland 0.55}}`{=mediawiki}
-
-[Hyprland](https://hypr.land/) is an independent, extensible, bleeding-edge [Wayland](Wayland "wikilink") compositor
-written in modern C++ with an emphasis on looks. In addition, Hyprland also offers a number of first-party tools as well
-as a custom plugin system. The most up-to-date and complete documentation may be found on the project\'s own
-[wiki](https://wiki.hypr.land/).
+`<translate>`{=html} [Hyprland](https://hypr.land/) is an independent, extensible, bleeding-edge
+[Wayland](Wayland "wikilink") compositor written in modern C++ with an emphasis on looks. In addition, Hyprland also
+offers a number of first-party tools as well as a custom plugin system. The most up-to-date and complete documentation
+may be found on the project\'s own [wiki](https://wiki.hypr.land/).
 
 Some of the most notable features of Hyprland are:
 
@@ -193,9 +190,84 @@ Find additional options under [Home Manager -
 wayland.windowManager.hyprland](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).
 Also, see the [Hyprland Page for Home Manager](https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/) for more examples.
 
+Since version 0.55 Hyprlang has been deprecated for and since version 0.56 replaced by Lua as a configuration language,
+which allows for more flexibility. The following shows a configuration in nix for the new Lua configuration. An old
+(written in nix) Hyprlang style configuration can be found below the Lua one.
+`{{File|3=  wayland.windowManager.hyprland = {
+    systemd.enable = false;
+    settings = {
+      config = {
+        decoration = {
+          shadow = {
+            offset = "0 5";
+            color = "rgba(00000099)";
+          };
+        };
+      };
+
+      mod = {
+        _var = "SUPER";
+      };
+
+      bind = [
+        # Execute Rofi with only the SUPER key
+        {
+        _args = [
+            (lib.generators.mkLuaInline "mod .. \" + Super_L\"")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"pkill rofi {{!}}`{=mediawiki}{{!}} rofi -show drun\\\")\")
+
+`         ];`\
+`       }`\
+`       {`\
+`       _args = [`\
+`           (lib.generators.mkLuaInline "mod .. \" + F\"")`\
+`           (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"librewolf\")")`\
+`         ];`\
+`       }`\
+`       {`\
+`       _args = [`\
+`           "CONTROL + ALT + T"`\
+`           (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"wezterm\")")`\
+`         ];`\
+`       }`\
+`       # mouse movements`\
+`       {`\
+`       _args = [`\
+`           (lib.generators.mkLuaInline "mod .. \" + mouse:272\"")`\
+`           (lib.generators.mkLuaInline "hl.dsp.window.drag()")`\
+`           { mouse = true; }`\
+`         ];`\
+`       }`\
+`       {`\
+`       _args = [`\
+`           (lib.generators.mkLuaInline "mod .. \" + mouse:273\"")`\
+`           (lib.generators.mkLuaInline "hl.dsp.window.resize()")`\
+`           { mouse = true; }`\
+`         ];`\
+`       }`\
+`       {`\
+`       _args = [`\
+`           (lib.generators.mkLuaInline "mod .. \" + ALT + mouse:272\"")`\
+`           (lib.generators.mkLuaInline "hl.dsp.window.resize()")`\
+`           { mouse = true; }`\
+`         ];`\
+`       }`\
+`     ];`\
+`     `\
+`     # Startup Apps`\
+`     on = {`\
+`       _args = [`\
+`         "hyprland.start"`\
+`         (lib.generators.mkLuaInline "function()\n  hl.exec_cmd(\"hyprpanel\")\nend")`\
+`       ];`\
+`     };`\
+`   };`\
+` }; ||name=/etc/nixos/home.nix|lang=nix}}`
+
 ```{=mediawiki}
 {{File|3=wayland.windowManager.hyprland = {
   systemd.enable = false;
+  configType = "hyprlang"; # Since config.home.stateVersion = 26.05, Lua is the default output of the Home-Manager Module, so this variable should be set
   settings = {
     decoration = {
       shadow_offset = "0 5";

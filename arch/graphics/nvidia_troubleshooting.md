@@ -592,6 +592,12 @@ If you are experiencing intermittent CPU spikes with a 400 series card, it may b
 changing the GPU\'s clock frequency. Switching PowerMizer\'s setting from Adaptive to Performance, add the following to
 the `{{ic|Device}}`{=mediawiki} section of your Xorg configuration:
 
+If you have a desktop:
+
+` Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerDefaultAC=0x1"`
+
+If you have a laptop:
+
 ` Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3322; PowerMizerDefaultAC=0x1"`
 
 ## Other issues {#other_issues}
