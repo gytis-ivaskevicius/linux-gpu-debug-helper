@@ -29,6 +29,10 @@ Many applications use SDL to access gamepads.
     `{{ic|1=SDL_JOYSTICK_DEVICE=/dev/input/js0}}`{=mediawiki}.
 -   SDL2 and SDL3 default to using hidapi on the most popular controllers in order to get raw access. On other
     controllers, or if hidapi is disabled, they use evdev instead.
+-   SDL2 and SDL3 both ignore deadzone values set via `{{ic|evdev-joystick}}`{=mediawiki}. If you use
+    `{{ic|evdev-joystick}}`{=mediawiki} to ignore the some inexact center area of your gamepad joystick, SDL application
+    will [ignore that value](https://wiki.libsdl.org/SDL3/SDL_HINT_JOYSTICK_LINUX_DEADZONES) unless you set the
+    `{{ic|1=SDL_JOYSTICK_LINUX_DEADZONES=1}}`{=mediawiki} environment variable.
 
 SDL itself offers different APIs, the selection of which depends on the application. Their usage is not mutually
 exclusive.
@@ -235,6 +239,8 @@ physically reconnect your device after running this command.
 `   Absolute axis 0x00 (0) (X Axis) Setting deadzone value to : 512`\
 ` (min: 0, max: 65535, flatness: 512 (=0.78%), fuzz: 255)`\
 `}}`\
+``\
+`If you set custom deadzones, remember that SDL applications will ignore that value unless you run them with {{ic|1=SDL_JOYSTICK_LINUX_DEADZONES=1}}.`\
 ``\
 `==== xboxdrv deadzones and calibration  ====`\
 ``\

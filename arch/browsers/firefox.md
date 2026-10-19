@@ -258,6 +258,10 @@ To enable Vulkan hardware video decoding:
 2.  Optionally, set `{{ic|media.hardware-video-decoding-vulkan.direct-export.enabled}}`{=mediawiki} to
     `{{ic|true}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} to enable direct export.
 
+In recent Firefox versions some GPUs were blocklisted from Vulkan decoding. Check the `{{ic|about:support}}`{=mediawiki}
+page to see if it is actually enabled. If not, set
+`{{ic|media.hardware-video-decoding-vulkan.force-enabled}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} to force enable it.
+
 +-----------------------------+------------------+-------------------------------------------------------------------+
 | Vendor                      | Status           | Notes                                                             |
 +=============================+==================+===================================================================+
@@ -269,8 +273,8 @@ To enable Vulkan hardware video decoding:
 |                             |                  |     Video does not require disabling the RDD sandbox and requires |
 |                             |                  |     less additional configuration.                                |
 +-----------------------------+------------------+-------------------------------------------------------------------+
-| [AMD](AMD "wikilink")       | Reported working | -   Copy path: works on all supported GPUs.                       |
-|                             |                  | -   Direct export: works.                                         |
+| [AMD](AMD "wikilink")       | Reported working | -   Copy path: should work on all supported GPUs.                 |
+|                             |                  | -   Direct export: may not work on some GPUs.                     |
 +-----------------------------+------------------+-------------------------------------------------------------------+
 | [Intel](Intel "wikilink")   | Unknown          | No user reports observed                                          |
 +-----------------------------+------------------+-------------------------------------------------------------------+

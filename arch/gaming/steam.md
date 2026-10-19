@@ -626,14 +626,6 @@ Package Operation {{=}} Install Operation {{=}} Upgrade Target {{=}} steam
 \--in-place \'s+Exec{{=}}/usr/bin/steam+Exec{{=}}/usr/bin/mullvad-exclude /usr/bin/steam+\'
 /usr/share/applications/steam.desktop Depends {{=}} mullvad-vpn-daemon Depends {{=}} steam }}
 
-In the event Mullvad is uninstalled: `{{hc|/etc/pacman.d/hooks/30-mullvad-revert-steam.hook|
-[Trigger]
-Type {{=}}`{=mediawiki} Package Operation {{=}} Remove Target {{=}} mullvad-vpn-daemon
-
-\[Action\] Description {{=}} Restoring steam\... When {{=}} PostTransaction Exec {{=}} /usr/bin/sed \--in-place
-\'s+Exec{{=}}/usr/bin/mullvad-exclude /usr/bin/steam+Exec{{=}}/usr/bin/steam+\' /usr/share/applications/steam.desktop
-Depends {{=}} steam }}
-
 ## Troubleshooting
 
 See [Steam/Troubleshooting](Steam/Troubleshooting "wikilink").

@@ -495,9 +495,6 @@ persistent](#Making_flags_persistent "wikilink").
 * As an alternative you can add an extension like [https://chromewebstore.google.com/detail/wheely-wheel-scroll-for-l/kkmfljfnlmppiaoijkfaejgkhccokpdn WHEELY] with similar behavior from Chrome Web Store.
 }}
 ```
-```{=mediawiki}
-{{Tip|Another option is to [[install]] {{AUR|chromium-extension-autoscroll}}, but this is not recommended since it is an outdated package and not official. Use it with caution.}}
-```
 #### U2F authentication {#u2f_authentication}
 
 Install `{{Pkg|libfido2}}`{=mediawiki} library. This provides the udev rules required to enable access to the

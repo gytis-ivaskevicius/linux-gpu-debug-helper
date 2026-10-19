@@ -837,8 +837,8 @@ Avoid swapping (locking pages that introduces latency and uses disk IO) unless t
 `# sysctl vm.swappiness=10`
 
 Make sure [zswap](zswap "wikilink") is enabled. If there arises the need for swapping pages, then zswap helps reduce
-swapping related stutter. If you do not have a swap partition, you can [use zram](zram#Usage_as_swap "wikilink") instead
-of zswap.
+swapping related stutter. If you do not have a swap partition, you can [use swap on zram](zram#Usage_as_swap "wikilink")
+instead of zswap.
 
 Enable Multi-Gen Least Recently Used (MGLRU) but reduce the likelihood of lock contention at a minor performance cost
 [11](https://docs.kernel.org/admin-guide/mm/multigen_lru.html):

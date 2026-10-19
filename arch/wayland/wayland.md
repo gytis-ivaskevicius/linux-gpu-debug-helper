@@ -163,7 +163,7 @@ See [Window manager#Types](Window_manager#Types "wikilink") for the difference b
     ```
 
 -   ```{=mediawiki}
-    {{App|[[MangoWM]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/mangowm/mango|{{AUR|mangowm}}}}
+    {{App|[[MangoWM]]|A [[dwl]]-based compositor with a standard configuration file, an optional scrolling layout and support for eye candy.|https://github.com/mangowm/mango|{{Pkg|mangowm}}}}
     ```
 
 -   ```{=mediawiki}

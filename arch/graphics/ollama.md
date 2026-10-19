@@ -114,8 +114,8 @@ Commonly tuned variables:
 | ```                                    |                                                                            |
 +----------------------------------------+----------------------------------------------------------------------------+
 | ```{=mediawiki}                        | The path to the models directory (default is                               |
-| {{ic|OLLAMA_MODELS}}                   | `{{ic|/var/lib/ollama/blobs}}`{=mediawiki})                                |
-| ```                                    |                                                                            |
+| {{ic|OLLAMA_MODELS}}                   | `{{ic|/var/lib/ollama}}`{=mediawiki}). By default, you will need to create |
+| ```                                    | a directory with ownership `{{ic|ollama:ollama}}`{=mediawiki}.             |
 +----------------------------------------+----------------------------------------------------------------------------+
 | ```{=mediawiki}                        | How long a model stays in memory after the last request (default:          |
 | {{ic|OLLAMA_KEEP_ALIVE}}               | `{{ic|5m}}`{=mediawiki}); `{{ic|0}}`{=mediawiki} unloads immediately,      |

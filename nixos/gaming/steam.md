@@ -463,6 +463,27 @@ an option for it: `</translate>`{=html}
 
 `<translate>`{=html}
 
+### Tiny mouse cursor {#tiny_mouse_cursor}
+
+The Steam client window (`steamwebhelper`) runs inside Steam\'s pressure-vessel container, which cannot see
+`/run/current-system/sw/share/icons`, where NixOS installs cursor themes. Because Steam finds no cursor theme, it falls
+back to the fixed-size X11 core cursor. This becomes noticeable when Xwayland clients are not upscaled by the
+compositor, for example on GNOME with the `xwayland-native-scaling` experimental feature enabled, where the cursor
+appears very small on a HiDPI screen.
+
+`/nix/store` is visible inside the container, so you can fix this by adding a cursor theme from the store to Steam\'s
+`XCURSOR_PATH`. Replace `adwaita-icon-theme` with the package that provides your cursor theme: `</translate>`{=html}
+
+``` nix
+programs.steam.package = pkgs.steam.override {
+  extraProfile = ''
+    export XCURSOR_PATH="${pkgs.adwaita-icon-theme}/share/icons''${XCURSOR_PATH:+:$XCURSOR_PATH}"
+  '';
+};
+```
+
+`<translate>`{=html}
+
 ### Known issues {#known_issues}
 
 \"Project Zomboid\" may report \"couldn\'t determine 32/64 bit of java\". This is not related to java at all, it carries
