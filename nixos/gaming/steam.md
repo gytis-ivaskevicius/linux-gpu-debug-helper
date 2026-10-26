@@ -407,6 +407,10 @@ Remote Play ports. See [Steam Frame](<tvar_name=1>Special:MyLanguage/Steam_Frame
 
 ### Gamescope fails to launch when used within Steam {#gamescope_fails_to_launch_when_used_within_steam}
 
+Gamescope runs into an error when it starts with the wrong GPU, to fix this determine the Vulkan ID with:
+`vulkaninfo --summary` and add `--prefer-vk-device `**`$vendorID`**`:`**`$deviceID`** from the output of the previous
+command.
+
 Gamescope may fail to start due to missing Xorg libraries.
 (`<tvar name=issue>`{=html}[#214275](https://github.com/NixOS/nixpkgs/issues/214275)`</tvar>`{=html}) To resolve this
 override the steam package to add them: `</translate>`{=html}

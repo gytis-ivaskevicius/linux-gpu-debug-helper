@@ -125,7 +125,7 @@ package. For example:
 {
   description = "A very basic flake";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
     qtile-flake = {
       url = "github:qtile/qtile";

@@ -13,15 +13,41 @@
 
 ## Installation
 
-#### Shell (Flakes) {#shell_flakes}
-
-``` bash
-nix shell github:youwen5/zen-browser-flake
-```
-
-The command above makes zen available in your current shell.
+For any installation method, use nixpkgs-unstable to ensure compatibility with the latest Firefox version.
 
 #### System setup (Flakes) {#system_setup_flakes}
+
+Add the zen flake to your `flake.nix`
+
+``` nix
+{
+  ...
+  inputs = {
+    ...
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  }
+}
+```
+
+Add zen to your `environment.systemPackages`
+
+``` nix
+{
+  inputs,
+  ...
+}: {
+  environment.systemPackages = [
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default # default, beta, twilight, or twilight-official
+  ];
+}
+```
+
+Default and beta both install the beta version of zen.
+
+#### Home Manager (Flakes) {#home_manager_flakes}
 
 First add the zen flake to your `flake.nix`
 
@@ -31,115 +57,32 @@ First add the zen flake to your `flake.nix`
   inputs = {
     ...
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      home-manager.follows = "home-manager";
     };
   }
 }
 ```
 
-Then add zen to your `environment.systemPackages`
+Add zen to your Home Manager configuration:
 
 ``` nix
 {
-  inputs,
-  ...
-}: {
-  environment.systemPackages = [
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  imports = [
+    inputs.zen-browser.homeModules.beta # beta, twilight, or twilight-official
   ];
+
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+  };
 }
 ```
 
-After rebuilding, Zen will be installed system-wide.
-
-## Configuration
-
-This is an example of a pure, declarative, wrapper-based configuration independent of NixOS and home-manager (though it
-is presented as a NixOS module for convenience). Extensions are not packaged through Nix, but are installed by the
-browser upon startup. It should also work on any Firefox based browser.
-
-``` nix
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
-let
-  extension = shortId: guid: {
-    name = guid;
-    value = {
-      install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
-      installation_mode = "normal_installed";
-    };
-  };
-
-  prefs = {
-    # Check these out at about:config
-    "extensions.autoDisableScopes" = 0;
-    "extensions.pocket.enabled" = false;
-    # ...
-  };
-
-  extensions = [
-    # To add additional extensions, find it on addons.mozilla.org, find
-    # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-    # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
-    (extension "ublock-origin" "uBlock0@raymondhill.net")
-    # ...
-  ];
-
-in
-{
-  environment.systemPackages = [
-    (pkgs.wrapFirefox
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
-      {
-        extraPrefs = lib.concatLines (
-          lib.mapAttrsToList (
-            name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-          ) prefs
-        );
-
-        extraPolicies = {
-          DisableTelemetry = true;
-          ExtensionSettings = builtins.listToAttrs extensions;
-
-          SearchEngines = {
-            Default = "ddg";
-            Add = [
-              {
-                Name = "nixpkgs packages";
-                URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
-                IconURL = "https://wiki.nixos.org/favicon.ico";
-                Alias = "@np";
-              }
-              {
-                Name = "NixOS options";
-                URLTemplate = "https://search.nixos.org/options?query={searchTerms}";
-                IconURL = "https://wiki.nixos.org/favicon.ico";
-                Alias = "@no";
-              }
-              {
-                Name = "NixOS Wiki";
-                URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
-                IconURL = "https://wiki.nixos.org/favicon.ico";
-                Alias = "@nw";
-              }
-              {
-                Name = "noogle";
-                URLTemplate = "https://noogle.dev/q?term={searchTerms}";
-                IconURL = "https://noogle.dev/favicon.ico";
-                Alias = "@ng";
-              }
-            ];
-          };
-        };
-      }
-    )
-  ];
-}
-```
+Please see the flake repository\'s [Home Manager Reference
+Section](https://github.com/0xc000022070/zen-browser-flake#home-manager-reference) or the [Configuration Examples
+Section](https://github.com/0xc000022070/zen-browser-flake#configuration-examples) for more information on how to
+declaratively configure Zen with Home Manager.
 
 [Category:Web Browser](Category:Web_Browser "wikilink")

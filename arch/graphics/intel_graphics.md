@@ -48,6 +48,8 @@ support](Gentoo:Intel#Feature_support "wikilink").
 
 Also see [Hardware video acceleration](Hardware_video_acceleration "wikilink").
 
+For OpenCL and VA-API on Gen11 and older, see [#Legacy OpenCL and VA-API](#Legacy_OpenCL_and_VA-API "wikilink").
+
 ```{=mediawiki}
 {{Note|1=<nowiki/>
 * Some ([https://www.phoronix.com/scan.php?page=news_item&px=Ubuntu-Debian-Abandon-Intel-DDX Debian & Ubuntu], [https://www.phoronix.com/scan.php?page=news_item&px=Fedora-Xorg-Intel-DDX-Switch Fedora], [https://community.kde.org/Plasma/5.9_Errata#Intel_GPUs KDE], [https://bugzilla.mozilla.org/show_bug.cgi?id=1710400 Mozilla]) recommend not installing the {{Pkg|xf86-video-intel}} driver, and instead falling back on the modesetting driver. See [https://web.archive.org/web/20160714232204/https://www.reddit.com/r/archlinux/comments/4cojj9/it_is_probably_time_to_ditch_xf86videointel/], [https://www.phoronix.com/scan.php?page=article&item=intel-modesetting-2017&num=1], [[Xorg#Installation]], and {{man|4|modesetting}}. However, the modesetting driver can cause problems such as [https://gitlab.freedesktop.org/xorg/xserver/-/issues/1364 screen tearing and mouse jittering on XFCE], [https://bugs.chromium.org/p/chromium/issues/detail?id=370022 artifacts when switching virtual desktops in Chromium], and [https://gitlab.freedesktop.org/xorg/xserver/-/issues/928 vsync jitter/video stutter in mpv].
@@ -156,7 +158,7 @@ grep -i -e \'huc\' -e \'guc\'\|2= \[30130.586970\] i915 0000:00:02.0: \[drm\] Gu
 version 33.0 submission:disabled \[30130.586973\] i915 0000:00:02.0: \[drm\] HuC firmware i915/icl_huc_9.0.0.bin version
 9.0 authenticated:yes }}
 
-If they are not supported by your graphics adapter you will see:
+If they are not supported by your graphics adapter, you will see:
 
 ```{=mediawiki}
 {{hc|# dmesg {{!}}
@@ -170,7 +172,7 @@ Alternatively, check using:
 `# less /sys/kernel/debug/dri/*/gt0/uc/huc_info`
 
 ```{=mediawiki}
-{{Note|1=Using [[Intel GVT-g|GVT-g graphics virtualization]] by setting {{ic|1=enable_gvt=1}} is not supported as of Linux 4.20.11 when GuC/HuC is also enabled. The i915 module would fail to initialize as shown in system journal.
+{{Note|1=Using [[Intel GVT-g|GVT-g graphics virtualization]] by setting {{ic|1=enable_gvt=1}} is not supported as of Linux 4.20.11 when GuC/HuC is also enabled. The {{ic|i915}} module would fail to initialize as shown in system journal.
 
 {{hc|# journalctl|
 ... kernel: [drm:intel_gvt_init [i915]] *ERROR* i915 GVT-g loading failed due to Graphics virtualization is not yet supported with GuC submission
@@ -179,7 +181,7 @@ Alternatively, check using:
 ... kernel: snd_hda_intel 0000:00:1f.3: failed to add i915 component master (-19)
 }}
 
-Note that the related warning  is not fatal, as explained in [https://github.com/intel/gvt-linux/issues/77#issuecomment-707541069]:
+Note that the related warning is not fatal, as explained in [https://github.com/intel/gvt-linux/issues/77#issuecomment-707541069]:
 
 {{hc|# journalctl -b |
 ... kernel: i915 0000:00:02.0: Direct firmware load for i915/gvt/vid_0x8086_did_0x5916_rid_0x02.golden_hw_state failed with error -2
@@ -248,8 +250,9 @@ For Intel GPUs starting from Gen 8 (Broadwell), the Iris Mesa driver is needed:
 
 #### Disabling TearFree, TripleBuffer, SwapbuffersWait {#disabling_tearfree_triplebuffer_swapbufferswait}
 
-If you use a compositor (the default in modern desktop environment like GNOME, KDE Plasma, Xfce, etc.), then TearFree,
-TripleBuffer and SwapbuffersWait can usually be disabled to improve performance and decrease power consumption.
+If you use a compositor (the default in modern desktop environment like GNOME, KDE Plasma, Xfce, etc.), then
+`{{ic|TearFree}}`{=mediawiki}, `{{ic|TripleBuffer}}`{=mediawiki} and `{{ic|SwapbuffersWait}}`{=mediawiki} can usually be
+disabled to improve performance and decrease power consumption.
 
 `Option      "TearFree"        "false"`\
 `Option      "TripleBuffer"    "false"`\
@@ -268,8 +271,9 @@ To check which options are currently enabled, run
 
 `# systool -m i915 -av`
 
-You will note that many options default to -1, resulting in per-chip powersaving defaults. It is however possible to
-configure more aggressive powersaving by using [module options](Kernel_modules#Setting_module_options "wikilink").
+You will note that many options default to `{{ic|-1}}`{=mediawiki}, resulting in per-chip power-saving defaults. It is,
+however, possible to configure more aggressive powersaving by using [module
+options](Kernel_modules#Setting_module_options "wikilink").
 
 ```{=mediawiki}
 {{Note|1=Diverting from the defaults will mark the kernel as [https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=fc9740cebc3ab7c65f3c5f6ce0caf3e4969013ca tainted] from Linux 3.18 onwards. This basically implies using other options than the per-chip defaults is considered experimental and not supported by the developers. }}
@@ -288,7 +292,7 @@ it is enabled:
 grep enable_fbc\| parm: enable_fbc:Enable frame buffer compression for power savings (default: -1 (use per-chip
 default)) (int) }}
 
-If the parm is set to `{{ic|-1}}`{=mediawiki}, you do not need to do anything. Otherwise, to force-enable FBC, use
+If the parameter is set to `{{ic|-1}}`{=mediawiki}, you do not need to do anything. Otherwise, to force-enable FBC, use
 `{{ic|1=i915.enable_fbc=1}}`{=mediawiki} as [kernel parameter](kernel_parameter "wikilink") or set in
 `{{ic|/etc/modprobe.d/i915.conf}}`{=mediawiki}:
 
@@ -352,13 +356,14 @@ To enable performance support without using the capabilities (or root), set the 
 [sysctl](sysctl "wikilink").
 
 ```{=mediawiki}
-{{Warning|The restrictive defaults of the {{ic|perf_event_paranoid}} family of options exists because there is risk associated with allowing applications to access performance data [https://docs.kernel.org/admin-guide/perf-security.html]. With this being said, {{ic|dev.i915.perf_stream_paranoid}} only influences access to GPU performance counters, which carry less risk than e.g. CPU architectural execution context registers.}}
+{{Warning|The restrictive defaults of the {{ic|perf_event_paranoid}} family of options exists because there is risk associated with allowing applications to access performance data [https://docs.kernel.org/admin-guide/perf-security.html]. With this being said, {{ic|dev.i915.perf_stream_paranoid}} only influences access to GPU performance counters, which carry less risk than, for example, CPU architectural execution context registers.}}
 ```
 ### Panel Self Refresh {#panel_self_refresh}
 
 [Panel Self-Refresh](Wikipedia:DisplayPort#eDP "wikilink") (PSR) and Panel Self Refresh-Selectively Updated (PSR-SU or
 PSR2) are designed to [decrease the power consumption of the GPU](https://hansdegoede.livejournal.com/18653.html). The
-possible values are 0 to force disabling it, 1 enabling up to PSR1 and 2 enabling up to PSR2:
+possible values are `{{ic|0}}`{=mediawiki} to force disabling it, `{{ic|1}}`{=mediawiki} enabling up to PSR1 and
+`{{ic|2}}`{=mediawiki} enabling up to PSR2:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/i915.conf|2=
@@ -449,6 +454,34 @@ options i915 force_probe=!'''9a49'''
 options xe   force_probe='''9a49'''
 }}
 ```
+### Legacy OpenCL and VA-API {#legacy_opencl_and_va_api}
+
+This section covers the Intel NEO compute runtime and media driver stack; it is unrelated to the
+`{{Pkg|mesa-amber}}`{=mediawiki} or `{{Pkg|xf86-video-intel}}`{=mediawiki} legacy graphics drivers.
+
+Intel\'s official `{{Pkg|intel-compute-runtime}}`{=mediawiki} no longer supports Gen11 (Ice Lake) and older GPUs,
+leaving OpenCL unavailable on these devices. The [AUR](AUR "wikilink") package
+`{{AUR|intel-compute-runtime-legacy}}`{=mediawiki} restores OpenCL support, but it depends on
+`{{AUR|intel-gmmlib-legacy}}`{=mediawiki}, which conflicts with the standard `{{Pkg|intel-media-driver}}`{=mediawiki}
+used for VA-API video acceleration. As a result, the *vainfo* utility will fail with
+`{{ic|vaInitialize failed}}`{=mediawiki} after installing the legacy compute runtime.
+
+To use both OpenCL and VA-API on these GPUs:
+
+1.  Install `{{AUR|intel-compute-runtime-legacy}}`{=mediawiki}.
+2.  Replace the standard `{{Pkg|intel-media-driver}}`{=mediawiki} with `{{AUR|intel-media-driver-legacy}}`{=mediawiki}
+    to match the legacy gmmlib.
+3.  Verify the setup with `{{ic|clinfo --list}}`{=mediawiki} (it should list the Intel platform) and
+    `{{ic|vainfo}}`{=mediawiki} (it should load the iHD driver and list profiles).
+
+```{=mediawiki}
+{{Note|
+* For [[mpv]], add both {{ic|hwdec{{=}}vaapi}}
+```
+and `{{ic|hwdec-codecs{{=}}`{=mediawiki}mpeg2video}} to `{{ic|~/.config/mpv/mpv.conf}}`{=mediawiki} if MPEG-2 hardware
+decoding is needed, as MPEG-2 is not included in mpv\'s default hardware decoding whitelist and hardware acceleration is
+not enabled by default. }}
+
 ## Troubleshooting
 
 ### Tearing
@@ -661,23 +694,23 @@ manually by setting `{{ic|/etc/drirc}}`{=mediawiki} or `{{ic|~/.drirc}}`{=mediaw
 ```
 ```{=mediawiki}
 {{Note|
-* The reason of this step back was Chromium and other applications' bad experience. If needed, you might edit the drirc file in a "app-specific" style, see [https://dri.freedesktop.org/wiki/ConfigurationInfrastructure/ here], to disable OpenGL 2.1 on executable {{ic|chromium}} for instance.
+* The reason of this step back was Chromium and other applications' bad experience. If needed, you might edit the {{ic|drirc}} file in a "app-specific" style, see [https://dri.freedesktop.org/wiki/ConfigurationInfrastructure/ here], to disable OpenGL 2.1 on executable {{ic|chromium}} for instance.
 * The new Gallium based i915 driver included in {{Pkg|mesa}} package always reports OpenGL 2.1, so this setting is not needed for that driver.}}
 ```
 ### KMS Issue: console is limited to small area {#kms_issue_console_is_limited_to_small_area}
 
 One of the low-resolution video ports may be enabled on boot which is causing the terminal to utilize a small area of
-the screen. To fix, explicitly disable the port with an i915 module setting with `{{ic|1=video=SVIDEO-1:d}}`{=mediawiki}
-in the kernel command line parameter in the boot loader. See [Kernel parameters](Kernel_parameters "wikilink") for more
-info.
+the screen. To fix, explicitly disable the port with an `{{ic|i915}}`{=mediawiki} module setting with
+`{{ic|1=video=SVIDEO-1:d}}`{=mediawiki} in the kernel command line parameter in the boot loader. See [Kernel
+parameters](Kernel_parameters "wikilink") for more info.
 
-If that does not work, try disabling TV1 or VGA1 instead of SVIDEO-1. Video port names can be listed with
-[xrandr](xrandr "wikilink").
+If that does not work, try disabling `{{ic|TV1}}`{=mediawiki} or `{{ic|VGA1}}`{=mediawiki} instead of
+`{{ic|SVIDEO-1}}`{=mediawiki}. Video port names can be listed with [xrandr](xrandr "wikilink").
 
 ### No sound through HDMI on a Haswell CPU {#no_sound_through_hdmi_on_a_haswell_cpu}
 
 According to a [Linux kernel issue](https://bugzilla.kernel.org/show_bug.cgi?id=60769), sound will not be output through
-HDMI if `{{ic|1=intel_iommu=on}}`{=mediawiki}. To fix this problem, use the following [kernel
+HDMI, if `{{ic|1=intel_iommu=on}}`{=mediawiki} is used. To fix this problem, use the following [kernel
 parameter](kernel_parameter "wikilink"):
 
 `intel_iommu=on,igfx_off`
@@ -754,7 +787,7 @@ permanently run the CPU in the lowest C-state.
 ### Add support for 165Hz monitor {#add_support_for_165hz_monitor}
 
 ```{=mediawiki}
-{{Merge|Kernel mode setting#Forcing modes and EDID|This technique does not appear to be specific to i915. Before merging, one should verify that the install script is necessary, and that there is not an easier way to add the EDID BIN to the initramfs.}}
+{{Merge|Kernel mode setting#Forcing modes and EDID|This technique does not appear to be specific to {{ic|i915}}. Before merging, one should verify that the install script is necessary, and that there is not an easier way to add the EDID BIN to the initramfs.}}
 ```
 For some 165Hz monitors, *xrandr* might not display the 165Hz option, and the fix in [#Adding undetected
 resolutions](#Adding_undetected_resolutions "wikilink") does not solve this. In this case, see
@@ -777,7 +810,7 @@ HELPEOF
 }
 }}
 
-Then append ''edid'' in HOOKS of {{ic|/etc/mkinitcpio.conf}}, Just like this:
+Then append {{ic|edid}} in HOOKS of {{ic|/etc/mkinitcpio.conf}}, Just like this:
 
 {{hc|/etc/mkinitcpio.conf|2=
 HOOKS=(... fsck edid)
@@ -846,7 +879,7 @@ parameter: `{{ic|i915.vbt_firmware{{=}}`{=mediawiki}i915/modified_vbt}}.
 
 ### Washed out colors {#washed_out_colors}
 
-By default some monitors might not be recognized properly by the Intel GPU and have washed out colors because it\'s not
+By default some monitors might not be recognized properly by the Intel GPU and have washed out colors, because it is not
 in full-range RGB mode.
 
 #### Fix colors for Wayland {#fix_colors_for_wayland}
@@ -917,7 +950,7 @@ example:
 
 ### Unable to run some programs, \"bus error\" with B580 {#unable_to_run_some_programs_bus_error_with_b580}
 
-When getting an error like this when running some programs (eg. vainfo, falkon, mpv\...):
+When getting an error like this when running some programs (eg. *vainfo*, *falkon*, *mpv*, etc.):
 
 `1234 bus error : vaapi`
 

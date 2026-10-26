@@ -107,29 +107,39 @@ needed.
 
 ### Disabling kernel split-lock mitigation {#disabling_kernel_split_lock_mitigation}
 
-In kernel version 6.2, `split_lock_mitigate` was added, in order to disable the punishment implemented in kernel version
-5.19 for abusing the kernel\'s split locks[^1]. Disabling `split_lock_mitigate` should see significant performance
-improvements, in the games affected by the split lock\'s \"misery mode\"[^2][^3]. The kernel parameter can be enabled,
-or disabled in the system\'s `configuration.nix`.
+In kernel version 6.2, the sysctl `split_lock_mitigate` was added, in order to disable the punishment implemented in
+kernel version 5.19 for abusing the kernel\'s split locks[^1]. This \"misery mode\" punishment is applied when the
+`split_lock_detect` kernel parameter is set to its default \"warn\" mode[^2]. Disabling `split_lock_mitigate` should see
+significant performance improvements in the games affected by the split lock\'s \"misery mode\"[^3][^4]. The
+aforementioned sysctl and kernel parameter can each be configured in the system\'s `configuration.nix`.
 
 ``` nix
+# Disable the "misery mode" delay penalty & synchronization
+boot.kernel.sysctl."kernel.split_lock_mitigate" = 0; # accepts: 0|1
+
 boot.kernelParams = [
-  # Split lock mitigation disabled.
-  "split_lock_mitigate=0"
+  # And / Or disable split-lock detection entirely (also prevents the default "warn" log entries)
+  "split_lock_detect=off" # accepts: off|warn|fatal|ratelimit:N (0 < N <= 1000)
 ];
 ```
+
+The \"misery mode\" penalty was created to discourage the use of split-locks while still allowing misbehaving tasks to
+run. Split-locks are undesirable because, among other reasons, they\'re slow and can be exploited as a Denial-of-Service
+attacks[^5][^6]. Administrators of multi-user production systems may even prefer to set the detection mode to \"fatal\"
+to ensure split-lock abuse doesn\'t occur. These concerns are often of less importance on personal gaming machines,
+where the detection is often disabled for performance and compatibility reasons, sometimes by default[^7].
 
 ### Enabling GameMode {#enabling_gamemode}
 
 Enabling [GameMode](GameMode "wikilink") should also yield some performance improvement. How to install and enable
 [GameMode](GameMode "wikilink") is described its\' wiki page. Please note, that by default,
-[GameMode](GameMode "wikilink") disables split-lock mitigation[^4].
+[GameMode](GameMode "wikilink") disables split-lock mitigation[^8].
 
 ### Increase vm.max_map_count {#increase_vm.max_map_count}
 
 If the value of the kernel parameter `vm.max_map_count` is too low, it can affect the stability and performance of some
-games[^5]. As of writing the default value of `vm.max_map_count` in NixOS is `1048576`[^6]. According the the Arch Linux
-Wiki, SteamOS uses a default value of `2147483642`[^7], equivalent to maximum value of a 32-bit signed integer
+games[^9]. As of writing the default value of `vm.max_map_count` in NixOS is `1048576`[^10]. According the the Arch
+Linux Wiki, SteamOS uses a default value of `2147483642`[^11], equivalent to maximum value of a 32-bit signed integer
 subtracted by 6. The value of `vm.max_map_count` can be altered in the system\'s `configuration.nix` file, as shown
 below.
 
@@ -162,16 +172,27 @@ boot.kernel.sysctl = {
 [^1]: \"Linux Adding New Control Since Its Splitlock Detector Is Wrecking Some Steam Play Games\", Michael Larabel,
     2022-12-13, <https://www.phoronix.com/news/Linux-Splitlock-Hurts-Gaming> (Fetched 2026-09-12)
 
-[^2]:
+[^2]: \"Bus lock detection and handling\", Fenghua Yu and Tony Luck, 2021,
+    <https://docs.kernel.org/arch/x86/buslock.html#software-handling> (Fetched 2026-10-22)
 
-[^3]: \"Gaming\", Arch Linux Wiki, <https://wiki.archlinux.org/title/Gaming> (Fetched 2026-09-12)
+[^3]:
 
-[^4]: <https://github.com/FeralInteractive/gamemode/blob/a74b8106a2236d1f2696aa44c93bc4c8ef13b42e/example/gamemode.ini#L47>
+[^4]: \"Gaming\", Arch Linux Wiki, <https://wiki.archlinux.org/title/Gaming> (Fetched 2026-09-12)
+
+[^5]: \"The search for the correct amount of split-lock misery\", Jonathan Corbet, 2022-10-19,
+    <https://lwn.net/Articles/911219> (Fetched 2026-10-22)
+
+[^6]: \"Performance impact of split locks\", Erik Rigtorp, 2020-01-16, <https://rigtorp.se/split-locks/> (Fetched
+    2026-10-22)
+
+[^7]: <https://github.com/CachyOS/linux-cachyos/issues/555>
+
+[^8]: <https://github.com/FeralInteractive/gamemode/blob/a74b8106a2236d1f2696aa44c93bc4c8ef13b42e/example/gamemode.ini#L47>
     (Fetched 2026-09-12)
 
-[^5]:
+[^9]:
 
-[^6]: <https://github.com/NixOS/nixpkgs/blob/dbf04e179e41d471e6abb307d393329a27dfdfe7/nixos/modules/config/sysctl.nix#L118>
+[^10]: <https://github.com/NixOS/nixpkgs/blob/dbf04e179e41d471e6abb307d393329a27dfdfe7/nixos/modules/config/sysctl.nix#L118>
     (Fetched, 2026-09-12)
 
-[^7]:
+[^11]:

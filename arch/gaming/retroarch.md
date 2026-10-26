@@ -74,27 +74,6 @@ To remove a button from a keybind, highlight the keybind and press `{{ic|Y}}`{=m
 
 ## Troubleshooting
 
-### No cores found {#no_cores_found}
-
-```{=mediawiki}
-{{Remove|This was only an issue because this wiki page was providing out of date information. This issue can't happen if you follow the updated wiki instructions.}}
-```
-By default RetroArch searches for cores in `{{ic|~/.config/retroarch/cores}}`{=mediawiki}, which is where the Online
-Updater installs them. Cores installed with [pacman](pacman "wikilink") are placed in
-`{{ic|/usr/lib/libretro}}`{=mediawiki} and thus will not appear in RetroArch\'s GUI. You should choose one method of
-installing cores (pacman or the Online Updater) and change [your configuration](#Configuration "wikilink") to match.
-
-If you still face a \"No Cores Available\" message, you likely need to install the core info files. To solve this:
-
-1.  Navigate to *Settings \> Directory*, and ensure all configured paths are writable without requiring superuser
-    permissions.
-2.  Go to *Settings \> User Interface \> Menu Item Visibility*, and make sure that *Show \'Core Downloader*\' is
-    enabled.
-3.  Finally, access *Main Menu \> Online Updater* and proceed to update the core info files. It is also recommended to
-    update all other available components.
-
-Upon restarting RetroArch, you should be able to run ROMs using any of the installed cores.
-
 ### Input devices do not operate {#input_devices_do_not_operate}
 
 ```{=mediawiki}

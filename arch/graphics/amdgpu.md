@@ -1,7 +1,7 @@
 [de:AMDGPU](de:AMDGPU "wikilink") [hu:AMDGPU](hu:AMDGPU "wikilink") [ja:AMDGPU](ja:AMDGPU "wikilink")
-[ru:AMDGPU](ru:AMDGPU "wikilink") [zh-hans:AMDGPU](zh-hans:AMDGPU "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|ATI}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[pt:AMDGPU](pt:AMDGPU "wikilink") [ru:AMDGPU](ru:AMDGPU "wikilink") [zh-hans:AMDGPU](zh-hans:AMDGPU "wikilink")
+`{{Related articles start}}`{=mediawiki} `{{Related|ATI}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
+`{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [AMDGPU](Wikipedia:AMDGPU "wikilink") is the open source graphics driver for AMD Radeon graphics cards since the
 [Graphics Core Next](wikipedia:Graphics_Core_Next "wikilink") family.
@@ -166,8 +166,8 @@ start](Kernel_mode_setting#Early_KMS_start "wikilink").
 
 ## Xorg configuration {#xorg_configuration}
 
-[Xorg](Xorg "wikilink") will automatically load the driver and it will use your monitor\'s EDID to set the native
-resolution. Configuration is only required for tuning the driver.
+[Xorg](Xorg "wikilink") will automatically load the driver and use your monitor\'s EDID to set the native resolution.
+Configuration is only required for tuning the driver.
 
 If you want manual configuration, create `{{ic|/etc/X11/xorg.conf.d/20-amdgpu.conf}}`{=mediawiki}, and add the
 following:
@@ -181,7 +181,7 @@ Section "OutputClass"
 EndSection
 }}
 ```
-Using this section, you can enable features and tweak the driver settings, see `{{man|4|amdgpu}}`{=mediawiki} first
+Using this section, you can enable features and tweak the driver settings. See `{{man|4|amdgpu}}`{=mediawiki} first
 before setting driver options.
 
 ### Tear free rendering {#tear_free_rendering}

@@ -235,27 +235,6 @@ it and reopening it again on the other screen.
 Working this way does have certain advantages. For example, windows popping up on one screen will not steal the focus
 away from you if you are working on another screen - each screen is quite independent.
 
-## TwinView
-
-```{=mediawiki}
-{{Remove|TwinView, and more generally Xinerama, is [https://www.nvidia.com/en-us/drivers/details/271414 no longer supported] by NVIDIA's open driver starting from version 610.43.02}}
-```
-TwinView is [NVIDIA](NVIDIA "wikilink")\'s extension which makes two monitors attached to a video card appear as a
-single screen. TwinView provides Xinerama extensions so that applications are aware there are two monitors connected,
-and thus it is incompatible with Xinerama. However, if you only have two monitors and they are both connected to the
-same NVIDIA card, there is little difference between TwinView and Xinerama (although in this situation TwinView may
-offer slightly better performance.)
-
-If you wish to attach more than two monitors or monitors attached to other video cards, you will need to use Xinerama
-instead of TwinView. Likewise, as of April 2012, both monitors must be in the same orientation - you cannot have one in
-landscape and the other in portrait mode.
-
-In the past, TwinView was the only way to get OpenGL acceleration with NVIDIA cards while being able to drag windows
-between screens. However modern versions of the NVIDIA closed-source driver are able to provide OpenGL acceleration even
-when using Xinerama.
-
-See [NVIDIA#TwinView](NVIDIA#TwinView "wikilink") for an example configuration.
-
 ## Xinerama
 
 [Xinerama](Wikipedia:Xinerama "wikilink") is the old way of doing genuine multihead X. Xinerama combines all monitors

@@ -22,7 +22,7 @@ Before the PR is merged, you can pull the package directly from the PR branch:
 # flake.nix
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     nixpkgs-raiderio.url = "github:thebigjc/nixpkgs/add-raiderio-client";
   };
 
