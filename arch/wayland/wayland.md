@@ -21,40 +21,23 @@ which provides an X Server in Wayland.
 
 ## Requirements
 
-```{=mediawiki}
-{{Expansion|GNOME 51 should release around mid-September, this section should be reworked as EGLStreams won't be relevant any more: simply stating that for NVIDIA users if their hardware is not supported they have to pick between Wayland/nouveau or Xorg/nvidia.}}
-```
-Wayland is just the protocol, unlike [Xorg](Xorg "wikilink") it does not have a common \"display server\" to install. To
-use it, you only need a compatible display driver (this section) and a compositor (next section) or [desktop
-environment](desktop_environment "wikilink") (e.g. [GNOME](GNOME "wikilink") or [Plasma](Plasma "wikilink")) that
+Wayland is just the protocol, unlike [Xorg](Xorg "wikilink"), it does not have a common \"display server\" to install.
+To use it, you only need a compatible display driver and a compositor (which can be provided by a [desktop
+environment](desktop_environment "wikilink") like [GNOME](GNOME "wikilink") or [Plasma](Plasma "wikilink")) that
 implements the Wayland protocol. Most Wayland compositors only work on systems using [Kernel mode
 setting](Kernel_mode_setting "wikilink").
 
-For the [GPU driver](Graphics_processing_unit "wikilink") and Wayland compositor to be compatible they must support the
-same buffer API. There are two main APIs: [GBM](Wikipedia:Generic_Buffer_Management "wikilink") and
-[EGLStreams](https://www.phoronix.com/scan.php?page=news_item&px=XDC2016-Device-Memory-API).
+For the [GPU driver](Graphics_processing_unit "wikilink") to be compatible with Wayland compositors, it must support
+[GBM](Wikipedia:Generic_Buffer_Management "wikilink"). This is the case for all open-source drivers and for the
+proprietary [NVIDIA](NVIDIA "wikilink") driver starting from version 495.
 
-  Buffer API   GPU driver support                                Wayland compositor support
-  ------------ ------------------------------------------------- -------------------------------------
-  GBM          All except [NVIDIA](NVIDIA "wikilink") \< 495\*   All
-  EGLStreams   [NVIDIA](NVIDIA "wikilink")                       [GNOME](GNOME "wikilink") \< 51\*\*
-
-:   \* NVIDIA ≥ 495 supports both EGLStreams and
-    GBM.[5](https://www.phoronix.com/scan.php?page=news_item&px=NVIDIA-495.44-Linux-Driver)
-:   \*\* GNOME 51 drops support for EGLStreams.[6](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5079)
-
-Since NVIDIA introduced GBM support, many compositors (including Mutter and KWin) started using it by default for NVIDIA
-≥ 495. GBM is generally considered better with wider support, and EGLStreams only had support because NVIDIA did not
-provide any alternative way to use their GPUs under Wayland with their proprietary drivers. Furthermore, KWin [dropped
-support for EGLStreams](https://invent.kde.org/plasma/kwin/-/merge_requests/1638) after GBM was introduced into NVIDIA.
-
-If you use a popular desktop environment/compositor and a GPU still supported by NVIDIA, you are most likely already
-using GBM backend. To check, run `{{ic|journalctl -b 0 --grep "renderer for"}}`{=mediawiki}. To force GBM as a backend,
-set the following [environment variables](environment_variables "wikilink"):
-
-`GBM_BACKEND=nvidia-drm`\
-`__GLX_VENDOR_LIBRARY_NAME=nvidia`
-
+```{=mediawiki}
+{{Note|
+NVIDIA GPUs that are only supported by legacy drivers older than 495 (e.g. users with a Kepler card using {{AUR|nvidia-470xx-dkms}}) do not support GBM and can no longer be used with the proprietary driver on Wayland, since EGLStreams support has been dropped by the last compositors that had it ([https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5079 GNOME 51], [https://invent.kde.org/plasma/kwin/-/merge_requests/1638 KWin]). Users of such hardware must either:
+* use [[Nouveau]]
+* keep the proprietary driver and use an [[Xorg]] session with a [[window manager]] or a desktop environment that still supports X11 (see [[Comparison of desktop environments]]).
+}}
+```
 ## Compositors
 
 See [Window manager#Types](Window_manager#Types "wikilink") for the difference between **Stacking**, **Tiling** and
@@ -229,7 +212,7 @@ Display managers listed below support launching Wayland compositors.
 | {{AUR|lidm}}                         |                                      | display manager made in C.           |
 | ```                                  |                                      |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
-| [LightDM](LightDM "wikilink")        | Xorg[7](https://gith                 | Cross-desktop display manager.       |
+| [LightDM](LightDM "wikilink")        | Xorg[5](https://gith                 | Cross-desktop display manager.       |
 |                                      | ub.com/canonical/lightdm/issues/267) |                                      |
 +--------------------------------------+--------------------------------------+--------------------------------------+
 | [ly](ly "wikilink")                  | tty                                  | TUI display manager written in Zig   |
@@ -314,7 +297,7 @@ Wayland, set the environment variable `{{ic|1=ELM_DISPLAY=wl}}`{=mediawiki}.
 ### Electron
 
 Since [Electron](Electron "wikilink") 38.2, Wayland is used by default.
-[8](https://www.electronjs.org/blog/tech-talk-wayland)
+[6](https://www.electronjs.org/blog/tech-talk-wayland)
 
 For earlier versions before 38.2, Wayland support can be activated using the
 `{{ic|1=--ozone-platform=auto}}`{=mediawiki} or `{{ic|1=--ozone-platform=wayland}}`{=mediawiki} command line flags, or
@@ -329,7 +312,7 @@ to `{{ic|auto}}`{=mediawiki} or `{{ic|wayland}}`{=mediawiki}.
 
 Wayland is supported since `{{Pkg|fltk}}`{=mediawiki} 1.4, and it uses the Wayland backend by default. It is possible to
 override it to use Xwayland in a Wayland session by modifying an environment variable:
-`{{ic|1=FLTK_BACKEND=x11}}`{=mediawiki}. [9](https://github.com/fltk/fltk/blob/master/README.Wayland.txt).
+`{{ic|1=FLTK_BACKEND=x11}}`{=mediawiki}. [7](https://github.com/fltk/fltk/blob/master/README.Wayland.txt).
 
 ### GLFW
 
@@ -355,7 +338,7 @@ Wayland. The [Wakefield](https://openjdk.java.net/projects/wakefield/) project i
 OpenJDK.
 
 It is possible to use Wakefield's `{{ic|jdk25-wayland}}`{=mediawiki}
-[10](https://github.com/openjdk/wakefield/tree/jdk25-wayland) work-in-progress branch. Some programs such as the
+[8](https://github.com/openjdk/wakefield/tree/jdk25-wayland) work-in-progress branch. Some programs such as the
 [JetBrains IDEs](https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/) do just that so they
 support Wayland out of the box. For other Java programs, you need you bring your own Wakefield build, e.g.
 `{{AUR|jdk-openjdk-wakefield}}`{=mediawiki}. To use it, point `{{ic|JAVA_HOME}}`{=mediawiki} to
@@ -368,7 +351,7 @@ support Wayland out of the box. For other Java programs, you need you bring your
 
 To enable Wayland support in [Qt](Qt "wikilink") 5, install the `{{Pkg|qt5-wayland}}`{=mediawiki} package, and use
 `{{ic|1=-platform wayland}}`{=mediawiki} command line parameter or `{{ic|1=QT_QPA_PLATFORM=wayland}}`{=mediawiki}
-[environment variable](environment_variable "wikilink"). [11](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F).
+[environment variable](environment_variable "wikilink"). [9](https://wiki.qt.io/QtWayland#How_do_I_use_QtWayland.3F).
 `{{ic|1=QT_QPA_PLATFORM="wayland;xcb"}}`{=mediawiki} allows Qt to use the xcb (X11) plugin instead if Wayland is not
 available.
 
@@ -379,11 +362,11 @@ To force the usage of Xwayland in a Wayland session, use `{{ic|1=-platform xcb}}
 
 In [SDL3](SDL "wikilink"), Wayland is used by default if the compositor supports the [fifo-v1
 protocol](https://wayland.app/protocols/fifo-v1).
-[12](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
+[10](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/src/video/wayland/SDL_waylandvideo.c#L536C9-L536C20)
 Otherwise, X11 and Wayland are tried in order. Either can be forced either using the
 `{{ic|1=SDL_VIDEO_DRIVER=x11}}`{=mediawiki} or `{{ic|1=SDL_VIDEO_DRIVER=wayland}}`{=mediawiki} environment variables
 respectively (or, with a lower precedence, the SDL2 environment variable below).
-[13](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802)
+[11](https://github.com/libsdl-org/SDL/blob/8c54961de02d8f62ed155925cb334efcaa2d1f95/docs/README-migration.md?plain=1#L802)
 
 ```{=mediawiki}
 {{Pkg|sdl2-compat}}
@@ -392,7 +375,7 @@ follows the SDL3 rules above, barring [application-specific
 exceptions](https://github.com/libsdl-org/sdl2-compat/blob/8b85f95bbcc3411c78c1f2cbd62b23b7f96093c2/src/sdl2_compat.c#L504-L538).
 As for SDL2 proper (e.g. `{{AUR|sdl2}}`{=mediawiki}), set `{{ic|1=SDL_VIDEODRIVER=wayland}}`{=mediawiki}.
 `{{ic|1=SDL_VIDEODRIVER="wayland,x11"}}`{=mediawiki} allows SDL2 to use the x11 video driver instead if Wayland is not
-available. [14](https://wiki.libsdl.org/SDL2/FAQUsingSDL)
+available. [12](https://wiki.libsdl.org/SDL2/FAQUsingSDL)
 
 You may also want to install `{{Pkg|libdecor}}`{=mediawiki} to enable client-side window decorations (for example, on
 GNOME).
@@ -407,7 +390,7 @@ use Xwayland by modifying environment variables:
 -   Prior to version 0.29.2, set `{{ic|1=WINIT_UNIX_BACKEND=x11}}`{=mediawiki}
 -   For version 0.29.2 and higher, unset `{{ic|1=WAYLAND_DISPLAY}}`{=mediawiki}, which forces a fallback to X using the
     `{{ic|1=DISPLAY}}`{=mediawiki} variable.
-    [15](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
+    [13](https://github.com/rust-windowing/winit/blob/baf10de95843f156b0fbad6b10c3137f1ebd4f1e/src/changelog/v0.29.md?plain=1#L134)
 
 ## Tips and tricks {#tips_and_tricks}
 
@@ -509,12 +492,12 @@ Example:
     ```
     and `{{AUR|wlroots0.19}}`{=mediawiki} (used by [sway](sway "wikilink")) offers a VNC backend via
     `{{Pkg|wayvnc}}`{=mediawiki} since version 0.10. RDP backend has been removed
-    [16](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
+    [14](https://github.com/swaywm/wlroots/releases/tag/0.10.0).
 
 -   ```{=mediawiki}
     {{pkg|mutter}}
     ```
-    has now remote desktop enabled at compile time, see [17](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
+    has now remote desktop enabled at compile time, see [15](https://wiki.gnome.org/Projects/Mutter/RemoteDesktop) and
     `{{Pkg|gnome-remote-desktop}}`{=mediawiki} for details.
 
 -   ```{=mediawiki}

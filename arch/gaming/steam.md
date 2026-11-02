@@ -479,8 +479,8 @@ external library, run the following command to add it:
 
 `$ flatpak override --user com.valvesoftware.Steam --filesystem=/path/to/directory`
 
-Launching Steam with Flatpak might warn you about installing the `{{ic|steam-devices}}`{=mediawiki} package. This
-package currently does not exist but `{{aur|game-devices-udev}}`{=mediawiki} can be installed instead, see
+Launching Steam with Flatpak might warn you about installing the `{{pkg|steam-devices}}`{=mediawiki} package.
+[Install](Install "wikilink") it on the host system to provide udev rules for Steam Input and SteamVR devices; see
 [Gamepad#Device permissions](Gamepad#Device_permissions "wikilink").
 
 #### DISPLAY variable not configured {#display_variable_not_configured}

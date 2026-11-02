@@ -11,8 +11,7 @@ The following commands can be used to identify the devices:
 ```
 To [allow regular users access to the device](Udev#Allowing_regular_users_to_use_devices "wikilink") add a rule.
 
-The package `{{aur|roccat-tools}}`{=mediawiki}`{{Broken package link|package not found}}`{=mediawiki} consists of one
-per device:
+The **roccat-tools** collection consists of sub-packages per device:
 
 -   ```{=mediawiki}
     {{aur|roccat-tools-arvo}}

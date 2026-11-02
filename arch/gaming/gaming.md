@@ -892,7 +892,9 @@ scheduler](Improving_performance#CPU_scheduler "wikilink"). For example, the
 locality (enhancing cache hit consistency between runs), reduces locking contention, and is suitable for general usage
 scenarios, prioritizing interactive tasks under load. Similarly,
 [scx_lavd](https://github.com/sched-ext/scx/tree/main/scheds/rust/scx_lavd) is specifically optimized for consistent
-gaming performance. You should test different schedulers to see which is the most successful for your workload.
+gaming performance. You should test different schedulers to see which is the most successful for your workload. You can
+use sched_ext schedulers and `{{Pkg|linux-rt}}`{=mediawiki} at the same time although some schedulers that require
+bpf_timer cannot be used for PREEMPT_RT kernels and will fail loading.
 
 #### Make the changes permanent {#make_the_changes_permanent}
 

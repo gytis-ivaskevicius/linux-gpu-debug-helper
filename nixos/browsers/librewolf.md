@@ -1,3 +1,6 @@
+```{=mediawiki}
+{{DISPLAYTITLE:LibreWolf}}
+```
 [LibreWolf](https://librewolf.net) is a web browser and fork of Firefox with an emphasis on privacy and security. It is
 a custom and independent version of Firefox that aims to increase protection against tracking and fingerprinting
 techniques, while also removing all the telemetry, data collection and annoyances.
@@ -34,6 +37,8 @@ home-manager.users.myuser = {
 ```
 This example configures LibreWolf to enable WebGL, remember cookies and history by disabling privacy and security
 defaults. This compromises the privacy concept of LibreWolf and is therefore not recommended to use.
+
+LibreWolf exclusive preferences are not possible to apply using `programs.librewolf.policies` policies.
 
 [Category:Applications](Category:Applications "wikilink") [Category:Privacy](Category:Privacy "wikilink") [Category:Web
 Browser](Category:Web_Browser "wikilink")

@@ -1,7 +1,7 @@
 [ja:Profile-sync-daemon](ja:Profile-sync-daemon "wikilink") [ru:Profile-sync-daemon](ru:Profile-sync-daemon "wikilink")
 [zh-hans:Profile-sync-daemon](zh-hans:Profile-sync-daemon "wikilink") `{{Related articles start}}`{=mediawiki}
 `{{Related|Anything-sync-daemon}}`{=mediawiki} `{{Related|Firefox}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki}
-`{{Related|Pdnsd}}`{=mediawiki} `{{Related|SSD}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+`{{Related|pdnsd}}`{=mediawiki} `{{Related|SSD}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 ```{=mediawiki}
 {{pkg|profile-sync-daemon}}
@@ -103,7 +103,7 @@ Currently, the following browsers are auto-detected and managed:
     {{AUR|palemoon}}
     ```
 
--   [Qutebrowser](Qutebrowser "wikilink")
+-   [qutebrowser](qutebrowser "wikilink")
 
 -   ```{=mediawiki}
     {{AUR|seamonkey}}

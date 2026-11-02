@@ -1,7 +1,7 @@
-[de:AMDGPU](de:AMDGPU "wikilink") [hu:AMDGPU](hu:AMDGPU "wikilink") [ja:AMDGPU](ja:AMDGPU "wikilink")
-[pt:AMDGPU](pt:AMDGPU "wikilink") [ru:AMDGPU](ru:AMDGPU "wikilink") [zh-hans:AMDGPU](zh-hans:AMDGPU "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|ATI}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
-`{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[de:AMDGPU](de:AMDGPU "wikilink") [es:AMDGPU](es:AMDGPU "wikilink") [hu:AMDGPU](hu:AMDGPU "wikilink")
+[ja:AMDGPU](ja:AMDGPU "wikilink") [pt:AMDGPU](pt:AMDGPU "wikilink") [ru:AMDGPU](ru:AMDGPU "wikilink")
+[zh-hans:AMDGPU](zh-hans:AMDGPU "wikilink") `{{Related articles start}}`{=mediawiki} `{{Related|ATI}}`{=mediawiki}
+`{{Related|Xorg}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [AMDGPU](Wikipedia:AMDGPU "wikilink") is the open source graphics driver for AMD Radeon graphics cards since the
 [Graphics Core Next](wikipedia:Graphics_Core_Next "wikilink") family.
@@ -863,7 +863,7 @@ example, 0x8000 is equivalent to 0x00008000.
 
 Make sure the parameter does not get removed during kernel updates.
 
-### HDMI 4K capped at 120hz {#hdmi_4k_capped_at_120hz}
+### HDMI 4K capped at 120Hz {#hdmi_4k_capped_at_120hz}
 
 Due to [licensing issues](https://www.phoronix.com/news/HDMI-2.1-OSS-Rejected) the `{{pkg|mesa}}`{=mediawiki} driver
 cannot support HDMI 2.1. You must use DisplayPort. If your display does not support DisplayPort, some users have

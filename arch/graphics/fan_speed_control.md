@@ -554,7 +554,7 @@ WantedBy=suspend.target
     ```
 
 -   ```{=mediawiki}
-    {{App|CoolerControl|A fan control daemon with GUI for ''sysfs'' and {{Pkg|liquidctl}} devices.|https://gitlab.com/coolercontrol/coolercontrol|{{AUR|coolercontrol}}}}
+    {{App|CoolerControl|A fan control daemon with GUI for ''sysfs'' and {{Pkg|liquidctl}} devices.|https://gitlab.com/coolercontrol/coolercontrol|{{Pkg|coolercontrol}}}}
     ```
 
 -   ```{=mediawiki}
