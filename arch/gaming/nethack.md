@@ -2,7 +2,7 @@
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|nethack}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|nethack}}`{=mediawiki} package.
 
 ## Configuration
 
@@ -50,10 +50,10 @@ boulders to be easier to see by changing them to `{{ic|0}}`{=mediawiki}.
 
 ## See also {#see_also}
 
--   [NetHack Wiki](https://nethackwiki.com)
--   [Guidebook for NetHack 5.0](https://www.nethack.org/v500/Guidebook.html)
--   [NetHack on Strategy Wiki](https://strategywiki.org/wiki/NetHack)
--   [Dr. Kildeer\'s Guide to
-    NetHack](https://www.alt.org/nethack/mirror/www.geocities.com/TimesSquare/Portal/2416/index.html)
+- [NetHack Wiki](https://nethackwiki.com)
+- [Guidebook for NetHack 5.0](https://www.nethack.org/v500/Guidebook.html)
+- [NetHack on Strategy Wiki](https://strategywiki.org/wiki/NetHack)
+- [Dr. Kildeer\'s Guide to
+  NetHack](https://www.alt.org/nethack/mirror/www.geocities.com/TimesSquare/Portal/2416/index.html)
 
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

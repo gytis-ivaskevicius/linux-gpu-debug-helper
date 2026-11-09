@@ -1,8 +1,8 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[ja:Kanshi](ja:Kanshi "wikilink") [zh-hans:Kanshi](zh-hans:Kanshi "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|Sway}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:Kanshi](ja:Kanshi "ja:Kanshi"){.wikilink} [zh-hans:Kanshi](zh-hans:Kanshi "zh-hans:Kanshi"){.wikilink}
+`{{Related articles start}}`{=mediawiki} `{{Related|Sway}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 [kanshi](https://gitlab.freedesktop.org/emersion/kanshi) allows you to define output profiles that are automatically
 enabled and disabled on hotplug. For instance, this can be used to turn a laptop\'s internal screen off when docked.
@@ -12,7 +12,7 @@ on Wayland compositors supporting the wlr-output-management protocol.
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|kanshi}}`{=mediawiki} or `{{AUR|kanshi-git}}`{=mediawiki}.
+[Install](Install "Install"){.wikilink} `{{Pkg|kanshi}}`{=mediawiki}.
 
 ## Configuration
 
@@ -95,14 +95,16 @@ Run the command:
 
 `$ kanshi`
 
-See [#Manage kanshi with systemd](#Manage_kanshi_with_systemd "wikilink") for an automated usage.
+See [#Manage kanshi with systemd](#Manage_kanshi_with_systemd "#Manage kanshi with systemd"){.wikilink} for an automated
+usage.
 
 ## Tips and tricks {#tips_and_tricks}
 
 ### Manage kanshi with systemd {#manage_kanshi_with_systemd}
 
 Create and start `{{ic|~/.config/systemd/user/sway-session.target}}`{=mediawiki} (if you don\'t have created yet) by
-following [Sway#Manage Sway-specific daemons with systemd](Sway#Manage_Sway-specific_daemons_with_systemd "wikilink").
+following [Sway#Manage Sway-specific daemons with
+systemd](Sway#Manage_Sway-specific_daemons_with_systemd "Sway#Manage Sway-specific daemons with systemd"){.wikilink}.
 
 Create the `{{ic|kanshi.service}}`{=mediawiki} file:
 
@@ -121,14 +123,14 @@ ExecStart=/usr/bin/kanshi
 WantedBy=sway-session.target
 }}
 ```
-[Enable](Enable "wikilink") this [user unit](user_unit "wikilink"). It is only activated when Sway is running and
-deactivated when Sway stops.
+[Enable](Enable "Enable"){.wikilink} this [user unit](user_unit "user unit"){.wikilink}. It is only activated when Sway
+is running and deactivated when Sway stops.
 
 ## Troubleshooting
 
 ### Workspace number starts from 2 in external monitor after wake up {#workspace_number_starts_from_2_in_external_monitor_after_wake_up}
 
-If you have a configuration like [above](#Configuration "wikilink"), when you connected a second display to your
+If you have a configuration like [above](#Configuration "above"){.wikilink}, when you connected a second display to your
 computer, the workspace in the second display should start from 1 since the first display is disabled. This should be
 the case when you plugged your monitor in the first time or after starting the system. But after sleep, this number
 might be 2. In this case just move the first workspace to this monitor by adding a directive to the kanshi configuration
@@ -150,6 +152,6 @@ profile {
 ```
 ## See also {#see_also}
 
--   [Source code and documentation](https://gitlab.freedesktop.org/emersion/kanshi)
+- [Source code and documentation](https://gitlab.freedesktop.org/emersion/kanshi)
 
-[Category:Wayland](Category:Wayland "wikilink")
+[Category:Wayland](Category:Wayland "Category:Wayland"){.wikilink}

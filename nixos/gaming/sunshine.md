@@ -94,7 +94,8 @@ After:
     }
 ```
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
 
 [^1]: <https://github.com/NixOS/nixpkgs/pull/493109>
 

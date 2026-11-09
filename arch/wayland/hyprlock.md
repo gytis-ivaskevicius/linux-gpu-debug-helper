@@ -1,12 +1,12 @@
 `{{Related articles start}}`{=mediawiki} `{{Related|Hyprland}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
-[zh-hans:Hyprlock](zh-hans:Hyprlock "wikilink")
+[zh-hans:Hyprlock](zh-hans:Hyprlock "zh-hans:Hyprlock"){.wikilink}
 
-[Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/) is [Hyprland](Hyprland "wikilink")\'s screen locker. It is
-highly customizable.
+[Hyprlock](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/) is [Hyprland](Hyprland "Hyprland"){.wikilink}\'s screen
+locker. It is highly customizable.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|hyprlock}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|hyprlock}}`{=mediawiki} package.
 
 ## Configuration
 
@@ -85,6 +85,6 @@ label {
 ```
 The `{{ic|$TIME}}`{=mediawiki} that comes after `{{ic|text}}`{=mediawiki} can be substituted for any other text,
 `{{ic|$USER}}`{=mediawiki}, `{{ic|$FAIL}}`{=mediawiki}, and `{{ic|$TIME12}}`{=mediawiki}, [among
-others](https://wiki.hypr.land/Hypr-Ecosystem/hyprlock/#variable-substitution).
+others](https://wiki.hypr.land/hypr-ecosystem/user/hyprlock/#variable-substitution).
 
-[Category:Wayland](Category:Wayland "wikilink")
+[Category:Wayland](Category:Wayland "Category:Wayland"){.wikilink}

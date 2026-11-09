@@ -1,12 +1,12 @@
 `{{Related articles start}}`{=mediawiki} `{{Related|Backlight}}`{=mediawiki} `{{Related|Redshift}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-[gammastep](https://gitlab.com/chinstrap/gammastep) is a fork of [Redshift](Redshift "wikilink") for
-[Wayland](Wayland "wikilink"). It adjusts the color temperature of your screen according to your surroundings.
+[gammastep](https://gitlab.com/chinstrap/gammastep) is a fork of [Redshift](Redshift "Redshift"){.wikilink} for
+[Wayland](Wayland "Wayland"){.wikilink}. It adjusts the color temperature of your screen according to your surroundings.
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|gammastep}}`{=mediawiki}.
+[Install](Install "Install"){.wikilink} `{{Pkg|gammastep}}`{=mediawiki}.
 
 ## Configuration
 
@@ -27,7 +27,8 @@ Run the command:
 
 ### systemd way {#systemd_way}
 
-[Enable](Enable "wikilink")/[start](start "wikilink") `{{ic|gammastep.service}}`{=mediawiki} [user
-unit](user_unit "wikilink").
+[Enable](Enable "Enable"){.wikilink}/[start](start "start"){.wikilink} `{{ic|gammastep.service}}`{=mediawiki} [user
+unit](user_unit "user unit"){.wikilink}.
 
-[Category:Wayland](Category:Wayland "wikilink") [Category:Eye candy](Category:Eye_candy "wikilink")
+[Category:Wayland](Category:Wayland "Category:Wayland"){.wikilink} [Category:Eye
+candy](Category:Eye_candy "Category:Eye candy"){.wikilink}

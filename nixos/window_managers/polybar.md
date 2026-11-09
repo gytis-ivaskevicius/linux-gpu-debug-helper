@@ -12,5 +12,5 @@ This default configuration requires the icon font \'siji\' which can be installe
 
 See the [upstream docs](https://github.com/polybar/polybar/wiki/Configuration) for further configuration options
 
-[Category:Window managers](Category:Window_managers "wikilink") [Category:Desktop
-environment](Category:Desktop_environment "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink} [Category:Desktop
+environment](Category:Desktop_environment "Category:Desktop environment"){.wikilink}

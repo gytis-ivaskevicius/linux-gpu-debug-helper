@@ -1,14 +1,14 @@
-[Super Smash Bros. Melee](wikipedia:Super_Smash_Bros._Melee "wikilink") is a 2001 platform fighter game developed by HAL
-Laboratory and published by Nintendo.
+[Super Smash Bros. Melee](wikipedia:Super_Smash_Bros._Melee "Super Smash Bros. Melee"){.wikilink} is a 2001 platform
+fighter game developed by HAL Laboratory and published by Nintendo.
 
 ## Slippi
 
 You can use the [slippi-nix](https://github.com/lytedev/slippi-nix) flake to declaratively install and configure Slippi
 with Nix, or get the AppImage directly from [Slippi\'s website](https://slippi.gg/).
 
-If you are using the [Appimage](Appimage "wikilink"), to run Slippi Online or Slippi Playback you will need
-`libcurl.so.4` and `libgpg-error.so.0` to be in your [appimage-run](Appimage#Run "wikilink") packages. This can be
-easily added as demonstrated below.
+If you are using the [Appimage](Appimage "Appimage"){.wikilink}, to run Slippi Online or Slippi Playback you will need
+`libcurl.so.4` and `libgpg-error.so.0` to be in your [appimage-run](Appimage#Run "appimage-run"){.wikilink} packages.
+This can be easily added as demonstrated below.
 
 ``` nix
   programs.appimage.package = pkgs.appimage-run.override { extraPkgs = pkgs: with pkgs; [
@@ -34,12 +34,13 @@ The configuration to setup Appimage support and specifically the Slippi Appimage
 }
 ```
 
-Which is just the snippet from [Appimage#Configuration](Appimage#Configuration "wikilink") with the needed libraries
-added to the `appimage-run` package.
+Which is just the snippet from [Appimage#Configuration](Appimage#Configuration "Appimage#Configuration"){.wikilink} with
+the needed libraries added to the `appimage-run` package.
 
 Even when using the Appimage, you can still use [slippi-nix](https://github.com/lytedev/slippi-nix)\'s optional
 `default` nixosModule to automatically setup the udev rules needed to optimize GameCube adapters, assuming you have a
-[flake-based configuration](NixOS_system_configuration#Defining_NixOS_as_a_flake "wikilink").
+[flake-based
+configuration](NixOS_system_configuration#Defining_NixOS_as_a_flake "flake-based configuration"){.wikilink}.
 
 ``` nix
 {
@@ -63,4 +64,5 @@ Even when using the Appimage, you can still use [slippi-nix](https://github.com/
 [B0XX controller](https://b0xx.com/) emulation can be done via [keyb0xx](https://gitlab.com/liamjen/keyb0xx). A Nix
 package for keyb0xx can be found [here](https://codeberg.org/nyxmeowmeow/keyb0xx-nix).
 
-[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

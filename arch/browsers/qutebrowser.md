@@ -1,13 +1,14 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[ja:Qutebrowser](ja:Qutebrowser "wikilink") [pl:Qutebrowser](pl:Qutebrowser "wikilink")
-[es:Qutebrowser](es:Qutebrowser "wikilink") [qutebrowser](https://github.com/qutebrowser/qutebrowser) is a
-keyboard-focused web browser written in Python and Qt. It uses the chromium web engine.
+[ja:Qutebrowser](ja:Qutebrowser "ja:Qutebrowser"){.wikilink}
+[pl:Qutebrowser](pl:Qutebrowser "pl:Qutebrowser"){.wikilink}
+[es:Qutebrowser](es:Qutebrowser "es:Qutebrowser"){.wikilink} [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+is a keyboard-focused web browser written in Python and Qt. It uses the chromium web engine.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|qutebrowser}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|qutebrowser}}`{=mediawiki} package.
 
 ## Basic usage {#basic_usage}
 
@@ -136,9 +137,10 @@ Note that the flag must be added before the browser specification.
 
 You can use the [qute-pass](https://github.com/qutebrowser/qutebrowser/blob/master/misc/userscripts/qute-pass)
 userscript to [automatically enter](https://i.imgur.com/KN3XuZP.gif) login information stored in your
-[Pass](Pass "wikilink") password-store. You will need a [dmenu](dmenu "wikilink")-compatible [application
-launcher](List_of_applications/Other#Application_launchers "wikilink") and `{{Pkg|python-tldextract}}`{=mediawiki}. Set
-up a keybinding which executes `{{ic|:spawn --userscript qute-pass}}`{=mediawiki}.
+[Pass](Pass "Pass"){.wikilink} password-store. You will need a [dmenu](dmenu "dmenu"){.wikilink}-compatible [application
+launcher](List_of_applications/Other#Application_launchers "application launcher"){.wikilink} and
+`{{Pkg|python-tldextract}}`{=mediawiki}. Set up a keybinding which executes
+`{{ic|:spawn --userscript qute-pass}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Style|The quote should be part of the userscript's {{ic|--help}} page if it is so prominent.}}
@@ -189,7 +191,9 @@ Websites may be able to identify you based on combining information on screen si
 more. See [2](https://panopticlick.eff.org/) for more information and to test the uniqueness of your browser. Below are
 a few steps that can be taken to make your qutebrowser installation more \"generic\".
 
-Additionally see [Firefox/Privacy#Configuration](Firefox/Privacy#Configuration "wikilink") for more ideas.
+Additionally see
+[Firefox/Privacy#Configuration](Firefox/Privacy#Configuration "Firefox/Privacy#Configuration"){.wikilink} for more
+ideas.
 
 #### Set a common user-agent {#set_a_common_user_agent}
 
@@ -250,7 +254,7 @@ bypass ads, tracking, etc. You can of course replace mpv by the video player of 
 
 ### Route the traffic through tor {#route_the_traffic_through_tor}
 
-This requires [Tor](Tor "wikilink") to be enabled and running. Note this is only using the tor proxy but does not
+This requires [Tor](Tor "Tor"){.wikilink} to be enabled and running. Note this is only using the tor proxy but does not
 provide you any protection from fingerprinting you might have on tor browser.
 
 `:set content.proxy socks://localhost:9050/`
@@ -274,7 +278,7 @@ c.colors.contextmenu.selected.bg = '#909090'
 
 Qutebrowser ships with
 [qute-keepassxc](https://github.com/qutebrowser/qutebrowser/blob/master/misc/userscripts/qute-keepassxc) for integration
-with [KeePassXC](KeePassXC "wikilink").
+with [KeePassXC](KeePassXC "KeePassXC"){.wikilink}.
 
 To integrate with KeePassXC:
 
@@ -296,7 +300,7 @@ To integrate with KeePassXC:
 config.bind('<Alt-Shift-u>', 'spawn --userscript qute-keepassxc --key ABC1234', mode{{=}}
 ```
 \'insert\') config.bind(\'pw\', \'spawn \--userscript qute-keepassxc \--key ABC1234\', mode{{=}}\'normal\') }} To manage
-multiple accounts you also need [rofi](rofi "wikilink") installed.
+multiple accounts you also need [rofi](rofi "rofi"){.wikilink} installed.
 
 ## Troubleshooting
 
@@ -342,9 +346,9 @@ using `{{ic|qt5ctl}}`{=mediawiki} that does not require arguments at launch:
 
 ## See also {#see_also}
 
--   [GitHub repository](https://github.com/qutebrowser/qutebrowser)
--   [Homepage](https://qutebrowser.org/)
--   [BBS thread](https://bbs.archlinux.org/viewtopic.php?id=191076)
--   [New configuration example](https://hg.sr.ht/~jasonwryan/shiv/browse/.config/qutebrowser/config.py)
+- [GitHub repository](https://github.com/qutebrowser/qutebrowser)
+- [Homepage](https://qutebrowser.org/)
+- [BBS thread](https://bbs.archlinux.org/viewtopic.php?id=191076)
+- [New configuration example](https://hg.sr.ht/~jasonwryan/shiv/browse/.config/qutebrowser/config.py)
 
-[Category:Web browser](Category:Web_browser "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}

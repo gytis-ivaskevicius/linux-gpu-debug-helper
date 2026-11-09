@@ -45,5 +45,6 @@ journalctl -u murmur | grep Password
 
 The password is also written in the *slog* table in the sqlite database: /var/lib/murmur/murmur.sqlite
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
-[Category:Server](Category:Server "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Server](Category:Server "Category:Server"){.wikilink}

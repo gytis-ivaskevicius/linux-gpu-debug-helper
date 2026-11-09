@@ -13,12 +13,12 @@ In Chromium, policy settings are accessible via
 `<tvar name="chrome_policy_link">`{=html}`{{Ic|chrome://policy}}`{=mediawiki}`</tvar>`{=html}. They allow the user to
 change enterprise policies affecting things like
 
--   Creating webapps when the browser is installed
--   Finding and downloading browser extensions automatically
--   Enabling or disabling the dinosaur game when the device is offline
--   Disable screenshots to be taken with browser extensions
--   Block all downloads from the browser (if you want to do that for some reason)
--   and more!
+- Creating webapps when the browser is installed
+- Finding and downloading browser extensions automatically
+- Enabling or disabling the dinosaur game when the device is offline
+- Disable screenshots to be taken with browser extensions
+- Block all downloads from the browser (if you want to do that for some reason)
+- and more!
 
 A full list of policies can be found at
 \[`<tvar name=1>`{=html}<https://chromeenterprise.google/policies/>`</tvar>`{=html} Chrome Enterprise Policy List &
@@ -52,25 +52,24 @@ these are implemented `</translate>`{=html}
 
 `<translate>`{=html}
 
--   `<tvar name="homepageLocation">`{=html}`{{Ic|homepageLocation}}`{=mediawiki}`</tvar>`{=html} option allows you to
-    set the site that the homepage will open on
--   `<tvar name="extensions">`{=html}`{{Ic|extensions}}`{=mediawiki}`</tvar>`{=html} allows for the download of
-    extensions directly in the browser through a simple list of the extension ID\'s that can be obtained from the
-    \[`<tvar name="1">`{=html}<https://chromewebstore.google.com/>`</tvar>`{=html} Chrome Web Store\] by opening an
-    extension page and copying the last part of the URL
-    -   In the example however there is another component, the download source from which the extensions will be
-        downloaded
-    -   The URL provided in the list is the link that is used by google for managing, checking and updating extensions
-    -   So the method of just placing the extension ID can work like this:
-        `<tvar name="ext_id">`{=html}`{{Ic|"fnpbehpgglbfnpimkachnpnecjncndgm"}}`{=mediawiki}`</tvar>`{=html}
-    -   But just in case that method does not automatically function the second method is shown above, where you place
-        `<tvar name="symbol">`{=html}`{{Ic|;}}`{=mediawiki}`</tvar>`{=html} and then the URL
-        `<tvar name="url">`{=html}`{{Ic|https //clients2.google.com/service/update2/crx}}`{=mediawiki}`</tvar>`{=html}
-        to explicitly tell NixOS where to install the extension from
--   There are many more options that are natively supported and you can learn about them through
-    `<tvar name="command">`{=html}`{{Ic|man configuration.nix}}`{=mediawiki}`</tvar>`{=html}
--   But as shown above there is also an `<tvar name="extraOpts">`{=html}`{{Ic|extraOpts}}`{=mediawiki}`</tvar>`{=html}
-    option and that is used for policies that are not supported for direct setup, such as the policy to install web-apps
+- `<tvar name="homepageLocation">`{=html}`{{Ic|homepageLocation}}`{=mediawiki}`</tvar>`{=html} option allows you to set
+  the site that the homepage will open on
+- `<tvar name="extensions">`{=html}`{{Ic|extensions}}`{=mediawiki}`</tvar>`{=html} allows for the download of extensions
+  directly in the browser through a simple list of the extension ID\'s that can be obtained from the
+  \[`<tvar name="1">`{=html}<https://chromewebstore.google.com/>`</tvar>`{=html} Chrome Web Store\] by opening an
+  extension page and copying the last part of the URL
+  - In the example however there is another component, the download source from which the extensions will be downloaded
+  - The URL provided in the list is the link that is used by google for managing, checking and updating extensions
+  - So the method of just placing the extension ID can work like this:
+    `<tvar name="ext_id">`{=html}`{{Ic|"fnpbehpgglbfnpimkachnpnecjncndgm"}}`{=mediawiki}`</tvar>`{=html}
+  - But just in case that method does not automatically function the second method is shown above, where you place
+    `<tvar name="symbol">`{=html}`{{Ic|;}}`{=mediawiki}`</tvar>`{=html} and then the URL
+    `<tvar name="url">`{=html}`{{Ic|https //clients2.google.com/service/update2/crx}}`{=mediawiki}`</tvar>`{=html} to
+    explicitly tell NixOS where to install the extension from
+- There are many more options that are natively supported and you can learn about them through
+  `<tvar name="command">`{=html}`{{Ic|man configuration.nix}}`{=mediawiki}`</tvar>`{=html}
+- But as shown above there is also an `<tvar name="extraOpts">`{=html}`{{Ic|extraOpts}}`{=mediawiki}`</tvar>`{=html}
+  option and that is used for policies that are not supported for direct setup, such as the policy to install web-apps
 
 ### Non-natively Supported Policies {#non_natively_supported_policies}
 
@@ -80,18 +79,19 @@ the other policies.
 
 There is no single place to find all Chromium policies, but these are some places to look;
 
--   Commonly used policies are present and documented within `{{Ic|man configuration.nix}}`{=mediawiki} under
-    `{{Ic|programs.chromium}}`{=mediawiki}.
--   You can navigate to `<tvar name="chrome_policy_link">`{=html}`{{Ic|chrome://policy}}`{=mediawiki}`</tvar>`{=html}
-    and enable \"Show policies with no value set\" to see all available keys. Clicking a policy name opens its specific
-    definition and usage details.
--   The most up to date policies for Chromium are available in the
-    \[`<tvar name="1">`{=html}<https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h>`</tvar>`{=html}
-    source code.\]
+- Commonly used policies are present and documented within `{{Ic|man configuration.nix}}`{=mediawiki} under
+  `{{Ic|programs.chromium}}`{=mediawiki}.
+- You can navigate to `<tvar name="chrome_policy_link">`{=html}`{{Ic|chrome://policy}}`{=mediawiki}`</tvar>`{=html} and
+  enable \"Show policies with no value set\" to see all available keys. Clicking a policy name opens its specific
+  definition and usage details.
+- The most up to date policies for Chromium are available in the
+  \[`<tvar name="1">`{=html}<https://source.chromium.org/chromium/chromium/src/+/main:chrome/common/pref_names.h>`</tvar>`{=html}
+  source code.\]
 
 ## Accelerated video playback {#accelerated_video_playback}
 
-Make sure [Accelerated Video Playback](<tvar_name="1">Special:MyLanguage/Accelerated_Video_Playback</tvar> "wikilink")
+Make sure [Accelerated Video
+Playback](<tvar_name="1">Special:MyLanguage/Accelerated_Video_Playback</tvar> "Accelerated Video Playback"){.wikilink}
 is setup on the system properly. Check
 `<tvar name="chrome_gpu_link">`{=html}`{{ic|chrome://gpu}}`{=mediawiki}`</tvar>`{=html} to see if Chromium has enabled
 hardware acceleration.
@@ -305,5 +305,5 @@ dockerTools.streamLayeredImage {
 } 
 ```
 
-[Category:Applications](Category:Applications "wikilink") [Category:Web
-Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
+Browser{{#translation:}}](Category:Web_Browser{{#translation:}} "Category:Web Browser{{#translation:}}"){.wikilink}

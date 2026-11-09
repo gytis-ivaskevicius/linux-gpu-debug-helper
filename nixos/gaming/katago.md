@@ -1,5 +1,5 @@
 [Katago](https://github.com/lightvector/katago) is a very strong go engine. It has no GUI and has to be used with
-[KaTrain](KaTrain "wikilink"), [Lizzie](https://github.com/featurecat/lizzie),
+[KaTrain](KaTrain "KaTrain"){.wikilink}, [Lizzie](https://github.com/featurecat/lizzie),
 [Ogatak](https://github.com/rooklift/ogatak), [q5Go](https://github.com/bernds/q5Go) or other tools like
 [Sabaki](https://sabaki.yichuanshen.de/).
 
@@ -69,4 +69,5 @@ Enabling [1](https://katagotraining.org/) contributions to the neural net:
 `     enableContrib = true;`\
 `   }`
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

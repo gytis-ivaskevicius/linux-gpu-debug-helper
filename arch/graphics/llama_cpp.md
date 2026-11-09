@@ -2,44 +2,44 @@
 `{{Related|General-purpose computing on graphics processing units}}`{=mediawiki} `{{Related|Ollama}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-[Large language model](Wikipedia:Large_language_model "wikilink") (LLM) inference in C/C++.
+[Large language model](Wikipedia:Large_language_model "Large language model"){.wikilink} (LLM) inference in C/C++.
 
 ## Installation
 
 ```{=mediawiki}
 {{Expansion|If the user should install multiple backends, how are they to determine which one to use?}}
 ```
-[Install](Install "wikilink") `{{Pkg|llama-cpp}}`{=mediawiki}, plus one of the following backends:
+[Install](Install "Install"){.wikilink} `{{Pkg|llama-cpp}}`{=mediawiki}, plus one of the following backends:
 
--   ```{=mediawiki}
-    {{Pkg|ggml-vulkan}}
-    ```
-    for inference with [Vulkan](Vulkan "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-vulkan}}
+  ```
+  for inference with [Vulkan](Vulkan "Vulkan"){.wikilink}.
 
--   ```{=mediawiki}
-    {{Pkg|ggml-cuda}}
-    ```
-    for inference with [CUDA](CUDA "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-cuda}}
+  ```
+  for inference with [CUDA](CUDA "CUDA"){.wikilink}.
 
--   ```{=mediawiki}
-    {{Pkg|ggml-hip}}
-    ```
-    for inference with [ROCm](ROCm "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-hip}}
+  ```
+  for inference with [ROCm](ROCm "ROCm"){.wikilink}.
 
--   ```{=mediawiki}
-    {{Pkg|ggml-sycl}}
-    ```
-    for inference with [SYCL](SYCL "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-sycl}}
+  ```
+  for inference with [SYCL](SYCL "SYCL"){.wikilink}.
 
--   ```{=mediawiki}
-    {{Pkg|ggml-blas}}
-    ```
-    for inference with [OpenBLAS](Wikipedia:OpenBLAS "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-blas}}
+  ```
+  for inference with [OpenBLAS](Wikipedia:OpenBLAS "OpenBLAS"){.wikilink}.
 
--   ```{=mediawiki}
-    {{Pkg|ggml-openvino}}
-    ```
-    for inference with [OpenVINO](Wikipedia:OpenVINO "wikilink").
+- ```{=mediawiki}
+  {{Pkg|ggml-openvino}}
+  ```
+  for inference with [OpenVINO](Wikipedia:OpenVINO "OpenVINO"){.wikilink}.
 
 ```{=mediawiki}
 {{Note|For inference with [[Vulkan]], ensure you also have the appropriate Vulkan driver installed.}}
@@ -101,15 +101,15 @@ behaviors of the larger model.
 Typically, GGUF models indicate knowledge distillation using the `{{ic|student-teacher-distill}}`{=mediawiki}
 denotation, where:
 
--   ```{=mediawiki}
-    {{ic|student}}
-    ```
-    represents the smaller model.
+- ```{=mediawiki}
+  {{ic|student}}
+  ```
+  represents the smaller model.
 
--   ```{=mediawiki}
-    {{ic|teacher}}
-    ```
-    represents the larger model.
+- ```{=mediawiki}
+  {{ic|teacher}}
+  ```
+  represents the larger model.
 
 ### Specifying context size {#specifying_context_size}
 
@@ -160,7 +160,8 @@ Other tools (e.g. web_search, fetch) can be integrated to the WebUI, given that 
 
 ### Monitoring GPU utilization {#monitoring_gpu_utilization}
 
-See [Graphics processing unit#Monitoring](Graphics_processing_unit#Monitoring "wikilink").
+See [Graphics processing
+unit#Monitoring](Graphics_processing_unit#Monitoring "Graphics processing unit#Monitoring"){.wikilink}.
 
 ## Troubleshooting
 
@@ -172,8 +173,9 @@ To use the WebUI with an MCP endpoint hosted online, enable MCP CORS proxy:
 
 ## See also {#see_also}
 
--   [Upstream GitHub repository](https://github.com/ggml-org/llama.cpp)
--   [Upstream guide: using the new WebUI of llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/16938)
--   [Upstream guide: running gpt-oss with llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/15396)
+- [Upstream GitHub repository](https://github.com/ggml-org/llama.cpp)
+- [Upstream guide: using the new WebUI of llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/16938)
+- [Upstream guide: running gpt-oss with llama.cpp](https://github.com/ggml-org/llama.cpp/discussions/15396)
 
-[Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")
+[Category:Development](Category:Development "Category:Development"){.wikilink}
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}

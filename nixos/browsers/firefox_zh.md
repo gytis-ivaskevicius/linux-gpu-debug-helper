@@ -14,16 +14,14 @@
   |documentation=[https://support.mozilla.org/ Official Support]
 }}`{=mediawiki}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 `<strong>`{=html}Firefox`</strong>`{=html}[^1] is a free and open-source web browser developed by the Mozilla
 Foundation. It is known for its focus on privacy, security, and user freedom, offering a customizable experience through
 a rich ecosystem of add-ons and themes.
 
-```{=html}
 </div>
-```
+
 `<span id="Installation">`{=html}`</span>`{=html}
 
 ## 安装
@@ -33,14 +31,12 @@ a rich ecosystem of add-ons and themes.
 ```{=mediawiki}
 {{code|lang=bash|line=no|1=$ nix-shell -p firefox}}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 The command above makes `firefox` available in your current shell without modifying any configuration files.
 
-```{=html}
 </div>
-```
+
 `<span id="System_setup">`{=html}`</span>`{=html}
 
 #### 系统设置
@@ -56,14 +52,12 @@ home.packages = [
   pkgs.firefox
 ];}}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 After rebuilding with `nixos-rebuild switch`, Firefox will be installed system-wide.
 
-```{=html}
 </div>
-```
+
 `<span id="Configuration">`{=html}`</span>`{=html}
 
 ## 配置
@@ -90,27 +84,22 @@ programs.firefox = {
 };
 }}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 The snippet above enables Firefox for all users (or the current Home Manager profile, if placed in `home.nix`).
 
-```{=html}
 </div>
-```
+
 `<span id="Advanced">`{=html}`</span>`{=html}
 
 #### 进阶
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Home Manager allows for deep customization of Firefox, including extensions, search engines, bookmarks, and themes. The
 example below shows a configuration for adding custom search engines with aliases.
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 programs.firefox = {
@@ -265,27 +254,22 @@ programs.firefox = {
 };
 }}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 [More options are available on Home Manager\'s
 site.](https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.enable)
 
-```{=html}
 </div>
-```
+
 `<span id="Firefox_Variants">`{=html}`</span>`{=html}
 
 ## Firefox 版本 {#firefox_版本}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 There are several Firefox variants available. To choose one, set the `programs.firefox.package` option accordingly.
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{Note|<span lang="en" dir="ltr" class="mw-content-ltr">The packages for the variants listed below are installed ''instead'' of the normal <code>firefox</code> package.</span>}}
 ```
@@ -293,52 +277,43 @@ There are several Firefox variants available. To choose one, set the `programs.f
 
 ### 版本：官方二进制程序
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Mozilla provides official pre-built Firefox binaries via the `firefox-bin` package, which are downloaded directly from
 Mozilla\'s servers.
 
-```{=html}
 </div>
-```
+
 `<span id="Variant:_Extended_Support_Release_(ESR)">`{=html}`</span>`{=html}
 
 ### 版本：扩展支持版本 (ESR) {#版本扩展支持版本_esr}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 `firefox-esr` is a variant that receives security updates for a longer period with a slower feature implementation
 cadence. It also allows for more extensive policy-based configuration.
 
-```{=html}
 </div>
-```
+
 `<span id="Variant:_Nightly">`{=html}`</span>`{=html}
 
 ### 版本：夜间版
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Nightly builds are daily builds from the central Mozilla repository.
 
-```{=html}
 </div>
-```
+
 `<span id="Method_1:_Using_nix-community/flake-firefox-nightly">`{=html}`</span>`{=html}
 
 #### 方法一：使用 nix-community/flake-firefox-nightly {#方法一使用_nix_communityflake_firefox_nightly}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 This method is reproducible but may lag behind the upstream version. First, add the input to your flake:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 inputs = {
@@ -347,14 +322,11 @@ inputs = {
 };
 }}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Then, add the package to your system:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 # In configuration.nix, assuming use of specialArgs
@@ -367,14 +339,11 @@ environment.systemPackages = [
 
 #### 方法二：使用 mozilla/nixpkgs-mozilla {#方法二使用_mozillanixpkgs_mozilla}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 This method is not necessarily reproducible without a flake-like system but will always be the latest version.
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 nixpkgs.overlays = [
@@ -383,14 +352,11 @@ nixpkgs.overlays = [
 programs.firefox.package = pkgs.latest.firefox-nightly-bin;
 }}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Using this method requires the `--impure` flag for Nix commands, for example:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=bash|line=no|1=$ nixos-rebuild switch --impure}}
 ```
@@ -402,37 +368,29 @@ Using this method requires the `--impure` flag for Nix commands, for example:
 
 #### 强制使用 XWayland (X11) 而非 Wayland {#强制使用_xwayland_x11_而非_wayland}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Firefox defaults to native Wayland when running under a Wayland compositor. To force it to use XWayland (X11) instead:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";}}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 This is useful when troubleshooting Wayland-specific issues or when certain features work better under X11.
 
-```{=html}
 </div>
-```
+
 `<span id="Touchpad_Gestures_and_Smooth_Scrolling">`{=html}`</span>`{=html}
 
 #### 触控板手势和流畅滚动
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Enable `xinput2` to improve touchscreen support and enable additional touchpad gestures and smooth scrolling.
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
@@ -442,37 +400,29 @@ environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
 
 #### KDE Plasma 集成 {#kde_plasma_集成}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 1\. Add the native messaging host package to your configuration:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=programs.firefox.nativeMessagingHosts.packages = [ pkgs.kdePackages.plasma-browser-integration ];}}
 ```
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 2\. Install the corresponding [browser add-on](https://addons.mozilla.org/en-US/firefox/addon/plasma-integration/).
 
-```{=html}
 </div>
-```
+
 `<span id="Use_KDE_file_picker">`{=html}`</span>`{=html}
 
 #### 使用 KDE 文件选择器 {#使用_kde_文件选择器}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 To use the KDE file picker instead of the GTK one, set the following preference:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 programs.firefox.preferences = {
@@ -488,28 +438,23 @@ programs.firefox.preferences = {
 
 #### 本地消息传递进程加载失败
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Native messaging hosts (used for extensions like Plasma Integration) do not work with the `-bin` variants of Firefox or
 with Firefox installed imperatively via `nix-env`. You must use a variant built from source via your NixOS or Home
 Manager configuration.
 
-```{=html}
 </div>
-```
+
 `<span id="ALSA_audio_instead_of_PulseAudio">`{=html}`</span>`{=html}
 
 #### 使用 ALSA 音频而非 PulseAudio {#使用_alsa_音频而非_pulseaudio}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 To force Firefox to use ALSA, you can override it with a wrapper:
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=programs.firefox.package = pkgs.wrapFirefox pkgs.firefox-unwrapped { libpulseaudio = pkgs.libalsa; };}}
 ```
@@ -517,14 +462,11 @@ To force Firefox to use ALSA, you can override it with a wrapper:
 
 #### Wayland 下的屏幕共享 {#wayland_下的屏幕共享}
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
+
 Screen sharing on Wayland requires enabling PipeWire and the appropriate XDG Desktop Portals.
 
-```{=html}
 </div>
-```
 ```{=mediawiki}
 {{code|lang=nix|line=no|1=
 services.pipewire.enable = true;
@@ -543,20 +485,19 @@ xdg.portal = {
 
 ## 另见
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
--   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
--   [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
--   [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
 
-```{=html}
+- [Home Manager](Home_Manager "Home Manager"){.wikilink} -- Declarative per-user configuration
+- [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
+- [Firefox topics on NixOS Discourse](https://discourse.nixos.org/tag/firefox)
+
 </div>
-```
+
 `<span id="References">`{=html}`</span>`{=html}
 
 ## 参考
 
-[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
+Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
 
 [^1]: Mozilla Foundation, \"Firefox\", Official Website, Accessed June 2025. <https://www.mozilla.org/firefox>

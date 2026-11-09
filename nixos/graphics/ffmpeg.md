@@ -50,4 +50,5 @@ environment.systemPackages = [
 ];
 ```
 
-[Category:Audio](Category:Audio "wikilink") [Category:Video](Category:Video "wikilink")
+[Category:Audio](Category:Audio "Category:Audio"){.wikilink}
+[Category:Video](Category:Video "Category:Video"){.wikilink}

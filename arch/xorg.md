@@ -1,24 +1,25 @@
-[de:X](de:X "wikilink") [es:Xorg](es:Xorg "wikilink") [fr:Xorg](fr:Xorg "wikilink") [hu:Xorg](hu:Xorg "wikilink")
-[ja:Xorg](ja:Xorg "wikilink") [lv:Xorg](lv:Xorg "wikilink") [pt:Xorg](pt:Xorg "wikilink") [ru:Xorg](ru:Xorg "wikilink")
-[uk:Xorg](uk:Xorg "wikilink") [zh-hans:Xorg](zh-hans:Xorg "wikilink") `{{Related articles start}}`{=mediawiki}
+[de:X](de:X "de:X"){.wikilink} [es:Xorg](es:Xorg "es:Xorg"){.wikilink} [fr:Xorg](fr:Xorg "fr:Xorg"){.wikilink}
+[hu:Xorg](hu:Xorg "hu:Xorg"){.wikilink} [ja:Xorg](ja:Xorg "ja:Xorg"){.wikilink} [lv:Xorg](lv:Xorg "lv:Xorg"){.wikilink}
+[pt:Xorg](pt:Xorg "pt:Xorg"){.wikilink} [ru:Xorg](ru:Xorg "ru:Xorg"){.wikilink} [uk:Xorg](uk:Xorg "uk:Xorg"){.wikilink}
+[zh-hans:Xorg](zh-hans:Xorg "zh-hans:Xorg"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|Autostarting}}`{=mediawiki} `{{Related|Cursor themes}}`{=mediawiki}
 `{{Related|Desktop environment}}`{=mediawiki} `{{Related|Display manager}}`{=mediawiki}
 `{{Related|Font configuration}}`{=mediawiki} `{{Related|Window manager}}`{=mediawiki} `{{Related|XDMCP}}`{=mediawiki}
 `{{Related|xinit}}`{=mediawiki} `{{Related|xrandr}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[X.Org Server](Wikipedia:X.Org_Server "wikilink") --- commonly referred to as simply **X** --- is the [X.Org
-Foundation](Wikipedia:X.Org_Foundation "wikilink") implementation of the [X Window
-System](Wikipedia:X_Window_System "wikilink") (**X11**) [display
-server](Wikipedia:Windowing_system#Display_server "wikilink"), and it is the most popular display server among Linux
-users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in massive adoption
-from most distributions.
+[X.Org Server](Wikipedia:X.Org_Server "X.Org Server"){.wikilink} --- commonly referred to as simply **X** --- is the
+[X.Org Foundation](Wikipedia:X.Org_Foundation "X.Org Foundation"){.wikilink} implementation of the [X Window
+System](Wikipedia:X_Window_System "X Window System"){.wikilink} (**X11**) [display
+server](Wikipedia:Windowing_system#Display_server "display server"){.wikilink}, and it is the most popular display
+server among Linux users. Its ubiquity has led to making it an ever-present requisite for GUI applications, resulting in
+massive adoption from most distributions.
 
-For the 2025 fork, see [XLibre](XLibre "wikilink"). For the alternative and successor, see
-[Wayland](Wayland "wikilink").
+For the 2025 fork, see [XLibre](XLibre "XLibre"){.wikilink}. For the alternative and successor, see
+[Wayland](Wayland "Wayland"){.wikilink}.
 
 ## Installation
 
-Xorg can be [installed](install "wikilink") with the `{{Pkg|xorg-server}}`{=mediawiki} package.
+Xorg can be [installed](install "install"){.wikilink} with the `{{Pkg|xorg-server}}`{=mediawiki} package.
 
 Additionally, some packages from the `{{Grp|xorg-apps}}`{=mediawiki} group are necessary for certain configuration
 tasks. They are pointed out in the relevant sections.
@@ -28,52 +29,54 @@ Finally, an `{{Grp|xorg}}`{=mediawiki} group is also available, which includes X
 
 ### Drivers
 
-See [Graphics processing unit#Installation](Graphics_processing_unit#Installation "wikilink") to identify your hardware
-and choose the driver for it.
+See [Graphics processing
+unit#Installation](Graphics_processing_unit#Installation "Graphics processing unit#Installation"){.wikilink} to identify
+your hardware and choose the driver for it.
 
 Hardware-specific [Device Dependent X (DDX)](https://dri.freedesktop.org/wiki/DDX/) drivers are considered legacy: there
 is a generic `{{man|4|modesetting}}`{=mediawiki} DDX driver in `{{pkg|xorg-server}}`{=mediawiki}, which uses [kernel
-mode setting](kernel_mode_setting "wikilink") and works well on modern hardware. The modesetting DDX driver uses
+mode setting](kernel_mode_setting "kernel mode setting"){.wikilink} and works well on modern hardware. The modesetting
+DDX driver uses
 [Glamor](https://www.freedesktop.org/wiki/Software/Glamor/)[1](https://gitlab.freedesktop.org/xorg/xserver/-/tree/server-21.1-branch/glamor)
-for 2D acceleration, which requires [OpenGL](OpenGL "wikilink").
+for 2D acceleration, which requires [OpenGL](OpenGL "OpenGL"){.wikilink}.
 
 If you want to install another DDX driver, note that Xorg searches for installed DDX drivers automatically:
 
--   If it cannot find the [hardware-specific driver](#Legacy_DDX_Drivers "wikilink"), it first searches for *fbdev*
-    (`{{pkg|xf86-video-fbdev}}`{=mediawiki}), which does not include any 2D or 3D acceleration.
--   If that is not found, it searches for *vesa* (`{{pkg|xf86-video-vesa}}`{=mediawiki}), the generic driver, which
-    handles a large number of chipsets but does not include any 2D or 3D acceleration.
--   If *vesa* is not found, Xorg will fall back to `{{man|4|modesetting}}`{=mediawiki} DDX driver.
+- If it cannot find the [hardware-specific driver](#Legacy_DDX_Drivers "hardware-specific driver"){.wikilink}, it first
+  searches for *fbdev* (`{{pkg|xf86-video-fbdev}}`{=mediawiki}), which does not include any 2D or 3D acceleration.
+- If that is not found, it searches for *vesa* (`{{pkg|xf86-video-vesa}}`{=mediawiki}), the generic driver, which
+  handles a large number of chipsets but does not include any 2D or 3D acceleration.
+- If *vesa* is not found, Xorg will fall back to `{{man|4|modesetting}}`{=mediawiki} DDX driver.
 
 #### Legacy DDX drivers {#legacy_ddx_drivers}
 
 The `{{man|4|modesetting}}`{=mediawiki} DDX driver is usually recommended. However, if the modesetting DDX driver is not
-suitable for your hardware, you can [install](install "wikilink") one of the following legacy DDX drivers:
+suitable for your hardware, you can [install](install "install"){.wikilink} one of the following legacy DDX drivers:
 
--   ```{=mediawiki}
-    {{pkg|xf86-video-amdgpu}}
-    ```
-    for [AMDGPU](AMDGPU "wikilink")
+- ```{=mediawiki}
+  {{pkg|xf86-video-amdgpu}}
+  ```
+  for [AMDGPU](AMDGPU "AMDGPU"){.wikilink}
 
--   ```{=mediawiki}
-    {{pkg|xf86-video-ati}}
-    ```
-    for [ATI](ATI "wikilink")
+- ```{=mediawiki}
+  {{pkg|xf86-video-ati}}
+  ```
+  for [ATI](ATI "ATI"){.wikilink}
 
--   ```{=mediawiki}
-    {{pkg|xf86-video-intel}}
-    ```
-    for Intel Gen 2 through Gen 9 hardware
+- ```{=mediawiki}
+  {{pkg|xf86-video-intel}}
+  ```
+  for Intel Gen 2 through Gen 9 hardware
 
--   ```{=mediawiki}
-    {{pkg|xf86-video-nouveau}}
-    ```
-    for [Nouveau](Nouveau "wikilink")
+- ```{=mediawiki}
+  {{pkg|xf86-video-nouveau}}
+  ```
+  for [Nouveau](Nouveau "Nouveau"){.wikilink}
 
--   ```{=mediawiki}
-    {{pkg|nvidia-utils}}
-    ```
-    for [NVIDIA](NVIDIA "wikilink") proprietary driver
+- ```{=mediawiki}
+  {{pkg|nvidia-utils}}
+  ```
+  for [NVIDIA](NVIDIA "NVIDIA"){.wikilink} proprietary driver
 
 ```{=mediawiki}
 {{note|Because there is a {{ic|/usr/lib/xorg/modules/drivers/nvidia_drv.so}} DDX driver included in {{pkg|nvidia-utils}}, users of the NVIDIA proprietary driver cannot avoid installing it.}}
@@ -81,7 +84,7 @@ suitable for your hardware, you can [install](install "wikilink") one of the fol
 ## Running
 
 The `{{man|1|Xorg}}`{=mediawiki} command is usually not run directly. Instead, the X server is started with either a
-[display manager](display_manager "wikilink") or [xinit](xinit "wikilink").
+[display manager](display_manager "display manager"){.wikilink} or [xinit](xinit "xinit"){.wikilink}.
 
 ```{=mediawiki}
 {{Tip|You will typically seek to install a [[window manager]] or a [[desktop environment]] to supplement X.}}
@@ -106,7 +109,7 @@ processed. For this reason, the most generic configuration files should be order
 entries in the `{{ic|xorg.conf}}`{=mediawiki} file are processed at the end.
 
 For option examples to set, see [Fedora:Input device
-configuration#xorg.conf.d](Fedora:Input_device_configuration#xorg.conf.d "wikilink").
+configuration#xorg.conf.d](Fedora:Input_device_configuration#xorg.conf.d "Fedora:Input device configuration#xorg.conf.d"){.wikilink}.
 
 ### Using xorg.conf {#using_xorg.conf}
 
@@ -122,7 +125,7 @@ This should create a `{{ic|xorg.conf.new}}`{=mediawiki} file in `{{ic|/root/}}`{
 {{Tip|If you are already running an X server, use a different display, for example {{ic|Xorg :2 -configure}}.}}
 ```
 Alternatively, your proprietary video card drivers may come with a tool to automatically configure Xorg: see the article
-of your video driver, [NVIDIA](NVIDIA "wikilink"), for more details.
+of your video driver, [NVIDIA](NVIDIA "NVIDIA"){.wikilink}, for more details.
 
 ```{=mediawiki}
 {{Note|Configuration file keywords are case insensitive, and "_" characters are ignored. Most strings (including Option names) are also case insensitive, and insensitive to white space and "_" characters.}}
@@ -133,8 +136,8 @@ For input devices the X server defaults to the libinput driver (`{{Pkg|xf86-inpu
 `{{Pkg|xf86-input-evdev}}`{=mediawiki} and related drivers are available as
 alternative.[2](https://archlinux.org/news/xorg-server-1191-is-now-in-extra/)
 
-[Udev](Udev "wikilink"), which is provided as a systemd dependency, will detect hardware and both drivers will act as
-hotplugging input driver for almost all devices, as defined in the default configuration files
+[Udev](Udev "Udev"){.wikilink}, which is provided as a systemd dependency, will detect hardware and both drivers will
+act as hotplugging input driver for almost all devices, as defined in the default configuration files
 `{{ic|10-quirks.conf}}`{=mediawiki} and `{{ic|40-libinput.conf}}`{=mediawiki} in the
 `{{ic|/usr/share/X11/xorg.conf.d/}}`{=mediawiki} directory.
 
@@ -146,34 +149,36 @@ log file name may vary):
 If both do not support a particular device, install the needed driver from the `{{Grp|xorg-drivers}}`{=mediawiki} group.
 The same applies, if you want to use another driver.
 
-To influence hotplugging, see [#Configuration](#Configuration "wikilink").
+To influence hotplugging, see [#Configuration](#Configuration "#Configuration"){.wikilink}.
 
-For specific instructions, see also the [libinput](libinput "wikilink") article, the following pages below, or
-[Fedora:Input device configuration](Fedora:Input_device_configuration "wikilink") for more examples.
+For specific instructions, see also the [libinput](libinput "libinput"){.wikilink} article, the following pages below,
+or [Fedora:Input device configuration](Fedora:Input_device_configuration "Fedora:Input device configuration"){.wikilink}
+for more examples.
 
 ### Input identification {#input_identification}
 
-See [Keyboard input#Identifying keycodes in Xorg](Keyboard_input#Identifying_keycodes_in_Xorg "wikilink").
+See [Keyboard input#Identifying keycodes in
+Xorg](Keyboard_input#Identifying_keycodes_in_Xorg "Keyboard input#Identifying keycodes in Xorg"){.wikilink}.
 
 ### Mouse acceleration {#mouse_acceleration}
 
-See [Mouse acceleration](Mouse_acceleration "wikilink").
+See [Mouse acceleration](Mouse_acceleration "Mouse acceleration"){.wikilink}.
 
 ### Extra mouse buttons {#extra_mouse_buttons}
 
-See [Mouse buttons](Mouse_buttons "wikilink").
+See [Mouse buttons](Mouse_buttons "Mouse buttons"){.wikilink}.
 
 ### Touchpad
 
-See [libinput](libinput "wikilink") or [Synaptics](Synaptics "wikilink").
+See [libinput](libinput "libinput"){.wikilink} or [Synaptics](Synaptics "Synaptics"){.wikilink}.
 
 ### Touchscreen
 
-See [Touchscreen](Touchscreen "wikilink").
+See [Touchscreen](Touchscreen "Touchscreen"){.wikilink}.
 
 ### Keyboard settings {#keyboard_settings}
 
-See [Keyboard configuration in Xorg](Keyboard_configuration_in_Xorg "wikilink").
+See [Keyboard configuration in Xorg](Keyboard_configuration_in_Xorg "Keyboard configuration in Xorg"){.wikilink}.
 
 ## Monitor settings {#monitor_settings}
 
@@ -186,7 +191,7 @@ See [Keyboard configuration in Xorg](Keyboard_configuration_in_Xorg "wikilink").
 }}
 ```
 For a headless configuration, the `{{pkg|xf86-video-dummy}}`{=mediawiki} driver is necessary;
-[install](install "wikilink") it and create a configuration file, such as the following:
+[install](install "install"){.wikilink} it and create a configuration file, such as the following:
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/10-headless.conf|
@@ -214,7 +219,7 @@ EndSection
 ```
 ### Multiple monitors {#multiple_monitors}
 
-See main article [Multihead](Multihead "wikilink") for general information.
+See main article [Multihead](Multihead "Multihead"){.wikilink} for general information.
 
 #### More than one graphics card {#more_than_one_graphics_card}
 
@@ -318,7 +323,8 @@ For RandR compliant drivers (for example the open source ATI driver), you can se
 ```{=mediawiki}
 {{Note|Applications that comply with the setting will not change immediately. You have to start them anew.}}
 ```
-To make it permanent, see [Autostarting#On Xorg startup](Autostarting#On_Xorg_startup "wikilink").
+To make it permanent, see [Autostarting#On Xorg
+startup](Autostarting#On_Xorg_startup "Autostarting#On Xorg startup"){.wikilink}.
 
 ##### Proprietary NVIDIA driver {#proprietary_nvidia_driver}
 
@@ -329,7 +335,7 @@ section:
 
 ##### Manual DPI Setting Caveat {#manual_dpi_setting_caveat}
 
-GTK very often overrides the server\'s DPI via the optional [X resource](X_resource "wikilink")
+GTK very often overrides the server\'s DPI via the optional [X resource](X_resource "X resource"){.wikilink}
 `{{ic|Xft.dpi}}`{=mediawiki}. To find out whether this is happening to you, check with:
 
 `$ xrdb -query | grep dpi`
@@ -337,46 +343,48 @@ GTK very often overrides the server\'s DPI via the optional [X resource](X_resou
 With GTK library versions since 3.16, when this variable is not otherwise explicitly set, GTK sets it to 96. To have GTK
 apps obey the server DPI you may need to explicitly set `{{ic|Xft.dpi}}`{=mediawiki} to the same value as the server.
 The `{{ic|Xft.dpi}}`{=mediawiki} resource is the method by which some desktop environments optionally force DPI to a
-particular value in personal settings. Among these are [KDE](KDE "wikilink") and [TDE](TDE "wikilink").
+particular value in personal settings. Among these are [KDE](KDE "KDE"){.wikilink} and [TDE](TDE "TDE"){.wikilink}.
 
 ### Display Power Management {#display_power_management}
 
-[DPMS](DPMS "wikilink") is a technology that allows power saving behaviour of monitors when the computer is not in use.
-This will allow you to have your monitors automatically go into standby after a predefined period of time.
+[DPMS](DPMS "DPMS"){.wikilink} is a technology that allows power saving behaviour of monitors when the computer is not
+in use. This will allow you to have your monitors automatically go into standby after a predefined period of time.
 
 ## Composite
 
 The Composite extension for X causes an entire sub-tree of the window hierarchy to be rendered to an off-screen buffer.
 Applications can then take the contents of that buffer and do whatever they like. The off-screen buffer can be
 automatically merged into the parent window, or merged by external programs called compositing managers. For more
-information, see [Wikipedia:Compositing window manager](Wikipedia:Compositing_window_manager "wikilink").
+information, see [Wikipedia:Compositing window
+manager](Wikipedia:Compositing_window_manager "Wikipedia:Compositing window manager"){.wikilink}.
 
-Some window managers (e.g. [Compiz](Compiz "wikilink"), [Enlightenment](Enlightenment "wikilink"),
-[KWin](KWin "wikilink"), `{{Pkg|marco}}`{=mediawiki}, `{{Pkg|metacity}}`{=mediawiki}, `{{Pkg|muffin}}`{=mediawiki},
-`{{Pkg|mutter}}`{=mediawiki}, [Xfwm](Xfwm "wikilink")) do compositing on their own. For other window managers, a
-standalone composite manager can be used.
+Some window managers (e.g. [Compiz](Compiz "Compiz"){.wikilink},
+[Enlightenment](Enlightenment "Enlightenment"){.wikilink}, [KWin](KWin "KWin"){.wikilink}, `{{Pkg|marco}}`{=mediawiki},
+`{{Pkg|metacity}}`{=mediawiki}, `{{Pkg|muffin}}`{=mediawiki}, `{{Pkg|mutter}}`{=mediawiki},
+[Xfwm](Xfwm "Xfwm"){.wikilink}) do compositing on their own. For other window managers, a standalone composite manager
+can be used.
 
 ### List of composite managers {#list_of_composite_managers}
 
--   ```{=mediawiki}
-    {{App|[[Picom]]|Lightweight compositor with shadowing, advanced blurring and fading. Forked from Compton.|https://github.com/yshui/picom|{{Pkg|picom}}}}
-    ```
+- ```{=mediawiki}
+  {{App|[[Picom]]|Lightweight compositor with shadowing, advanced blurring and fading. Forked from Compton.|https://github.com/yshui/picom|{{Pkg|picom}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|[[Xcompmgr]]|Composite window-effects manager.|https://gitlab.freedesktop.org/xorg/app/xcompmgr/|{{Pkg|xcompmgr}}}}
-    ```
+- ```{=mediawiki}
+  {{App|[[Xcompmgr]]|Composite window-effects manager.|https://gitlab.freedesktop.org/xorg/app/xcompmgr/|{{Pkg|xcompmgr}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|fastcompmgr|A very lightweight compositor for X11 with a focus on latency and performance.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
-    ```
+- ```{=mediawiki}
+  {{App|fastcompmgr|A very lightweight compositor for X11 with a focus on latency and performance.|https://github.com/tycho-kirchner/fastcompmgr|{{AUR|fastcompmgr}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|[[Gamescope]]|The micro-compositor from Valve, with gaming-oriented features such as FSR upscaling. Forked from steamos-compositor.|https://github.com/ValveSoftware/gamescope|{{Pkg|gamescope}}}}
-    ```
+- ```{=mediawiki}
+  {{App|[[Gamescope]]|The micro-compositor from Valve, with gaming-oriented features such as FSR upscaling. Forked from steamos-compositor.|https://github.com/ValveSoftware/gamescope|{{Pkg|gamescope}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|steamos-compositor-plus|Valve's compositor, with some added tweaks and fixes.|https://github.com/chimeraos/steamos-compositor-plus|{{AUR|steamos-compositor-plus}}}}
-    ```
+- ```{=mediawiki}
+  {{App|steamos-compositor-plus|Valve's compositor, with some added tweaks and fixes.|https://github.com/chimeraos/steamos-compositor-plus|{{AUR|steamos-compositor-plus}}}}
+  ```
 
 ## Tips and tricks {#tips_and_tricks}
 
@@ -385,61 +393,32 @@ standalone composite manager can be used.
 This section lists utilities for automating keyboard / mouse input and window operations (like moving, resizing or
 raising).
 
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
-| Tool        | Package           | Manual            | [Keysym](Ke       | Window\         | Note              |
-|             |                   |                   | ysym "wikilink")\ | operations      |                   |
-|             |                   |                   | input             |                 |                   |
-+=============+===================+===================+===================+=================+===================+
-| xautomation | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki} | Also contains     |
-|             | {{                | {{man|1|xte}}     | {{Yes}}           | {{No}}          | screen scraping   |
-|             | Pkg|xautomation}} | ```               | ```               | ```             | tools. Cannot     |
-|             | ```               |                   |                   |                 | simulate          |
-|             |                   |                   |                   |                 | `{{ic|F           |
-|             |                   |                   |                   |                 | 13}}`{=mediawiki} |
-|             |                   |                   |                   |                 | and more.         |
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
-| xdo         | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki} | Small X utility   |
-|             | {{Pkg|xdo}}       | {{man|1|xdo}}     | {{No}}            | {{Yes}}         | to perform        |
-|             | ```               | ```               | ```               | ```             | elementary        |
-|             |                   |                   |                   |                 | actions on        |
-|             |                   |                   |                   |                 | windows.          |
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
-| xdotool     | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki} | [Very             |
-|             | {{Pkg|xdotool}}   | {{man|1|xdotool}} | {{Yes}}           | {{Yes}}         | bug               |
-|             | ```               | ```               | ```               | ```             | gy](https://githu |
-|             |                   |                   |                   |                 | b.com/jordansisse |
-|             |                   |                   |                   |                 | l/xdotool/issues) |
-|             |                   |                   |                   |                 | and not in active |
-|             |                   |                   |                   |                 | development, e.g: |
-|             |                   |                   |                   |                 | has broken CLI    |
-|             |                   |                   |                   |                 | par               |
-|             |                   |                   |                   |                 | sing.[3](https:// |
-|             |                   |                   |                   |                 | github.com/jordan |
-|             |                   |                   |                   |                 | sissel/xdotool/is |
-|             |                   |                   |                   |                 | sues/14#issuecomm |
-|             |                   |                   |                   |                 | ent-327968132)[4] |
-|             |                   |                   |                   |                 | (https://github.c |
-|             |                   |                   |                   |                 | om/jordansissel/x |
-|             |                   |                   |                   |                 | dotool/issues/71) |
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
-| xvkbd       | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki}   | ```{=mediawiki} | Virtual keyboard  |
-|             | {{AUR|xvkbd}}     | {{man|1|x         | {{Yes}}           | {{No}}          | for Xorg, also    |
-|             | ```               | vkbd|url=http://t | ```               | ```             | has the           |
-|             |                   | -sato.in.coocan.j |                   |                 | `{{ic|-te         |
-|             |                   | p/xvkbd/#option}} |                   |                 | xt}}`{=mediawiki} |
-|             |                   | ```               |                   |                 | option for        |
-|             |                   |                   |                   |                 | sending           |
-|             |                   |                   |                   |                 | characters.       |
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
-| AutoKey     | ```{=mediawiki}   | [documentation    | ```{=mediawiki}   | ```{=mediawiki} | Higher-level,     |
-|             | {{                | ](https://github. | {{Yes}}           | {{Yes}}         | powerful macro    |
-|             | AUR|autokey-gtk}} | com/autokey/autok | ```               | ```             | and scripting     |
-|             | ```               | ey#documentation) |                   |                 | utility, with     |
-|             |                   |                   |                   |                 | both Qt and Gtk   |
-|             |                   |                   |                   |                 | front-ends.       |
-+-------------+-------------------+-------------------+-------------------+-----------------+-------------------+
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Tool        | Package             | Manual                                                            | [Keysym](Keysym "Keysym"){.wikilink}\ | Window\         | Note                                                                                                                                        |
+|             |                     |                                                                   | input                                 | operations      |                                                                                                                                             |
++=============+=====================+===================================================================+=======================================+=================+=============================================================================================================================================+
+| xautomation | ```{=mediawiki}     | ```{=mediawiki}                                                   | ```{=mediawiki}                       | ```{=mediawiki} | Also contains screen scraping tools. Cannot simulate `{{ic|F13}}`{=mediawiki} and more.                                                     |
+|             | {{Pkg|xautomation}} | {{man|1|xte}}                                                     | {{Yes}}                               | {{No}}          |                                                                                                                                             |
+|             | ```                 | ```                                                               | ```                                   | ```             |                                                                                                                                             |
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| xdo         | ```{=mediawiki}     | ```{=mediawiki}                                                   | ```{=mediawiki}                       | ```{=mediawiki} | Small X utility to perform elementary actions on windows.                                                                                   |
+|             | {{Pkg|xdo}}         | {{man|1|xdo}}                                                     | {{No}}                                | {{Yes}}         |                                                                                                                                             |
+|             | ```                 | ```                                                               | ```                                   | ```             |                                                                                                                                             |
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| xdotool     | ```{=mediawiki}     | ```{=mediawiki}                                                   | ```{=mediawiki}                       | ```{=mediawiki} | [Very buggy](https://github.com/jordansissel/xdotool/issues) and not in active development, e.g: has broken CLI                             |
+|             | {{Pkg|xdotool}}     | {{man|1|xdotool}}                                                 | {{Yes}}                               | {{Yes}}         | parsing.[3](https://github.com/jordansissel/xdotool/issues/14#issuecomment-327968132)[4](https://github.com/jordansissel/xdotool/issues/71) |
+|             | ```                 | ```                                                               | ```                                   | ```             |                                                                                                                                             |
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| xvkbd       | ```{=mediawiki}     | ```{=mediawiki}                                                   | ```{=mediawiki}                       | ```{=mediawiki} | Virtual keyboard for Xorg, also has the `{{ic|-text}}`{=mediawiki} option for sending characters.                                           |
+|             | {{AUR|xvkbd}}       | {{man|1|xvkbd|url=http://t-sato.in.coocan.jp/xvkbd/#option}}      | {{Yes}}                               | {{No}}          |                                                                                                                                             |
+|             | ```                 | ```                                                               | ```                                   | ```             |                                                                                                                                             |
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| AutoKey     | ```{=mediawiki}     | [documentation](https://github.com/autokey/autokey#documentation) | ```{=mediawiki}                       | ```{=mediawiki} | Higher-level, powerful macro and scripting utility, with both Qt and Gtk front-ends.                                                        |
+|             | {{AUR|autokey-gtk}} |                                                                   | {{Yes}}                               | {{Yes}}         |                                                                                                                                             |
+|             | ```                 |                                                                   | ```                                   | ```             |                                                                                                                                             |
++-------------+---------------------+-------------------------------------------------------------------+---------------------------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
-See also [Clipboard#Tools](Clipboard#Tools "wikilink") and [an overview of X automation
+See also [Clipboard#Tools](Clipboard#Tools "Clipboard#Tools"){.wikilink} and [an overview of X automation
 tools](https://venam.nixers.net/blog/unix/2019/01/07/win-automation.html).
 
 ### Nested X session {#nested_x_session}
@@ -455,16 +434,16 @@ This will launch a Window Maker session in a 1024 by 768 window within your curr
 
 This needs the package `{{Pkg|xorg-server-xnest}}`{=mediawiki} to be installed.
 
-A more modern way of doing a nested X session is with [Xephyr](Xephyr "wikilink").
+A more modern way of doing a nested X session is with [Xephyr](Xephyr "Xephyr"){.wikilink}.
 
 ### Starting an application without a window manager {#starting_an_application_without_a_window_manager}
 
 See [xinit#Starting applications without a window
-manager](xinit#Starting_applications_without_a_window_manager "wikilink").
+manager](xinit#Starting_applications_without_a_window_manager "xinit#Starting applications without a window manager"){.wikilink}.
 
 ### Starting GUI programs remotely {#starting_gui_programs_remotely}
 
-See main article: [OpenSSH#X11 forwarding](OpenSSH#X11_forwarding "wikilink").
+See main article: [OpenSSH#X11 forwarding](OpenSSH#X11_forwarding "OpenSSH#X11 forwarding"){.wikilink}.
 
 ### On-demand disabling and enabling of input sources {#on_demand_disabling_and_enabling_of_input_sources}
 
@@ -472,7 +451,7 @@ With the help of *xinput* you can temporarily disable or enable input sources. T
 systems that have more than one mouse, such as the ThinkPads and you would rather use just one to avoid unwanted mouse
 clicks.
 
-[Install](Install "wikilink") the `{{Pkg|xorg-xinput}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|xorg-xinput}}`{=mediawiki} package.
 
 Find the name or ID of the device you want to disable:
 
@@ -527,7 +506,7 @@ EndSection
 ```
 is an arbitrary name, and `{{ic|''driver_name''}}`{=mediawiki} is the name of the input driver, e.g.
 `{{ic|libinput}}`{=mediawiki}. `{{ic|''device_name''}}`{=mediawiki} is what is actually used to match the proper device.
-For alternate methods of targeting the correct device, such as [libinput](libinput "wikilink")\'s
+For alternate methods of targeting the correct device, such as [libinput](libinput "libinput"){.wikilink}\'s
 `{{ic|MatchIsTouchscreen}}`{=mediawiki}, consult your input driver\'s documentation. Though this example uses libinput,
 this is a driver-agnostic method which simply prevents the device from being propagated to the driver.
 
@@ -542,11 +521,12 @@ Run script on hotkey:
 
 Dependencies: `{{Pkg|xorg-xprop}}`{=mediawiki}, `{{Pkg|xdotool}}`{=mediawiki}
 
-See also [#Killing an application visually](#Killing_an_application_visually "wikilink").
+See also [#Killing an application
+visually](#Killing_an_application_visually "#Killing an application visually"){.wikilink}.
 
 ### Block TTY access {#block_tty_access}
 
-To block tty access when in an X session add the following to [xorg.conf](#Configuration "wikilink"):
+To block tty access when in an X session add the following to [xorg.conf](#Configuration "xorg.conf"){.wikilink}:
 
 ```{=mediawiki}
 {{bc|
@@ -562,7 +542,8 @@ To block TTY access only while the screen is locked, rather than for the entire 
 
 ### Prevent a user from killing X {#prevent_a_user_from_killing_x}
 
-To prevent a user from killing X when it is running add the following to [xorg.conf](#Configuration "wikilink"):
+To prevent a user from killing X when it is running add the following to
+[xorg.conf](#Configuration "xorg.conf"){.wikilink}:
 
 ```{=mediawiki}
 {{bc|
@@ -584,34 +565,37 @@ the X server is closed, but some can choose to continue.
 ### Sockets
 
 Xorg supports listening on a TCP socket and an [abstract socket](https://man.archlinux.org/man/unix.7#abstract) that can
-undermine some [sandboxes](Security#Sandboxing_applications "wikilink"). To close this loophole, Xorg should be launched
-with the `{{ic|-nolisten tcp -nolisten local}}`{=mediawiki} command line options. For background and troubleshoot
-information, see [Tianon\'s write-up](https://github.com/tianon/abstract-sockets).
+undermine some [sandboxes](Security#Sandboxing_applications "sandboxes"){.wikilink}. To close this loophole, Xorg should
+be launched with the `{{ic|-nolisten tcp -nolisten local}}`{=mediawiki} command line options. For background and
+troubleshoot information, see [Tianon\'s write-up](https://github.com/tianon/abstract-sockets).
 
 ### Rootless Xorg {#rootless_xorg}
 
 Xorg may run with standard user privileges instead of root (so-called \"rootless\" Xorg). This is a significant security
-improvement over running as root. Note that some popular [display managers](display_manager "wikilink") do not support
-rootless Xorg (e.g. [LightDM](https://github.com/canonical/lightdm/issues/18) or [XDM](XDM "wikilink")).
+improvement over running as root. Note that some popular [display
+managers](display_manager "display manager"){.wikilink} do not support rootless Xorg (e.g.
+[LightDM](https://github.com/canonical/lightdm/issues/18) or [XDM](XDM "XDM"){.wikilink}).
 
 You can verify which user Xorg is running as with `{{ic|1=ps -o user= -C Xorg}}`{=mediawiki}.
 
 See also `{{man|1|Xorg.wrap}}`{=mediawiki}, `{{man|8|systemd-logind}}`{=mediawiki}, [Systemd/User#Xorg as a systemd user
-service](Systemd/User#Xorg_as_a_systemd_user_service "wikilink"),
-[Fedora:Changes/XorgWithoutRootRights](Fedora:Changes/XorgWithoutRootRights "wikilink") and `{{Bug|41257}}`{=mediawiki}.
+service](Systemd/User#Xorg_as_a_systemd_user_service "Systemd/User#Xorg as a systemd user service"){.wikilink},
+[Fedora:Changes/XorgWithoutRootRights](Fedora:Changes/XorgWithoutRootRights "Fedora:Changes/XorgWithoutRootRights"){.wikilink}
+and `{{Bug|41257}}`{=mediawiki}.
 
 #### Using xinitrc {#using_xinitrc}
 
-To configure rootless Xorg using [xinitrc](xinitrc "wikilink"):
+To configure rootless Xorg using [xinitrc](xinitrc "xinitrc"){.wikilink}:
 
--   Run startx as a subprocess of the login shell; run `{{ic|startx}}`{=mediawiki} directly and do not use
-    `{{ic|exec startx}}`{=mediawiki}.
--   Ensure that Xorg uses virtual terminal for which permissions were set, i.e. passed by logind in
-    `{{ic|$XDG_VTNR}}`{=mediawiki} via [.xserverrc](xinit#xserverrc "wikilink").
--   If using certain proprietary display drivers, [kernel mode setting](kernel_mode_setting "wikilink")
-    [auto-detection](https://gitlab.freedesktop.org/xorg/xserver/-/blob/master/hw/xfree86/xorg-wrapper.c#L222) will
-    fail. In such cases, you must set `{{ic|1=needs_root_rights = no}}`{=mediawiki} in
-    `{{ic|/etc/X11/Xwrapper.config}}`{=mediawiki}.
+- Run startx as a subprocess of the login shell; run `{{ic|startx}}`{=mediawiki} directly and do not use
+  `{{ic|exec startx}}`{=mediawiki}.
+- Ensure that Xorg uses virtual terminal for which permissions were set, i.e. passed by logind in
+  `{{ic|$XDG_VTNR}}`{=mediawiki} via [.xserverrc](xinit#xserverrc ".xserverrc"){.wikilink}.
+- If using certain proprietary display drivers, [kernel mode
+  setting](kernel_mode_setting "kernel mode setting"){.wikilink}
+  [auto-detection](https://gitlab.freedesktop.org/xorg/xserver/-/blob/master/hw/xfree86/xorg-wrapper.c#L222) will fail.
+  In such cases, you must set `{{ic|1=needs_root_rights = no}}`{=mediawiki} in
+  `{{ic|/etc/X11/Xwrapper.config}}`{=mediawiki}.
 
 Note that executing `{{ic|startx}}`{=mediawiki} directly without `{{ic|exec }}`{=mediawiki} leaves the shell open in the
 case of a xorg crash. Since some lock screens are executed inside xorg, this may allow anyone with physical access to
@@ -619,8 +603,8 @@ gain full access to the user account.
 
 #### Using GDM {#using_gdm}
 
-[GDM](GDM "wikilink") will run Xorg without root privileges by default when [kernel mode
-setting](kernel_mode_setting "wikilink") is used.
+[GDM](GDM "GDM"){.wikilink} will run Xorg without root privileges by default when [kernel mode
+setting](kernel_mode_setting "kernel mode setting"){.wikilink} is used.
 
 #### Session log redirection {#session_log_redirection}
 
@@ -664,8 +648,8 @@ Wayland components. It\'s available from the AUR as `{{AUR|wayback-x11}}`{=media
 ### General
 
 If a problem occurs, view the log stored in either `{{ic|/var/log/}}`{=mediawiki} or, for the rootless X default since
-v1.16, in `{{ic|~/.local/share/xorg/}}`{=mediawiki}. [GDM](GDM "wikilink") users should check the [systemd
-journal](systemd_journal "wikilink"). [6](https://bbs.archlinux.org/viewtopic.php?id=184639)
+v1.16, in `{{ic|~/.local/share/xorg/}}`{=mediawiki}. [GDM](GDM "GDM"){.wikilink} users should check the [systemd
+journal](systemd_journal "systemd journal"){.wikilink}. [6](https://bbs.archlinux.org/viewtopic.php?id=184639)
 
 The logfiles are of the form `{{ic|Xorg.n.log}}`{=mediawiki} with `{{ic|n}}`{=mediawiki} being the display number. For a
 single user machine with default configuration the applicable log is frequently `{{ic|Xorg.0.log}}`{=mediawiki}, but
@@ -684,15 +668,15 @@ start and from which console it was started. For example:
 ```
 ts }}
 
--   In the logfile then be on the lookout for any lines beginning with `{{ic|(EE)}}`{=mediawiki}, which represent
-    errors, and also `{{ic|(WW)}}`{=mediawiki}, which are warnings that could indicate other issues.
--   If there is an *empty* `{{ic|.xinitrc}}`{=mediawiki} file in your `{{ic|$HOME}}`{=mediawiki}, either delete or edit
-    it in order for X to start properly. If you do not do this X will show a blank screen with what appears to be no
-    errors in your `{{ic|Xorg.0.log}}`{=mediawiki}. Simply deleting it will get it running with a default X environment.
--   If the screen goes black, you may still attempt to switch to a different virtual console (e.g.
-    `{{ic|Ctrl+Alt+F6}}`{=mediawiki}), and blindly log in as root. You can do this by typing `{{ic|root}}`{=mediawiki}
-    (press `{{ic|Enter}}`{=mediawiki} after typing it) and entering the root password (again, press
-    `{{ic|Enter}}`{=mediawiki} after typing it).
+- In the logfile then be on the lookout for any lines beginning with `{{ic|(EE)}}`{=mediawiki}, which represent errors,
+  and also `{{ic|(WW)}}`{=mediawiki}, which are warnings that could indicate other issues.
+- If there is an *empty* `{{ic|.xinitrc}}`{=mediawiki} file in your `{{ic|$HOME}}`{=mediawiki}, either delete or edit it
+  in order for X to start properly. If you do not do this X will show a blank screen with what appears to be no errors
+  in your `{{ic|Xorg.0.log}}`{=mediawiki}. Simply deleting it will get it running with a default X environment.
+- If the screen goes black, you may still attempt to switch to a different virtual console (e.g.
+  `{{ic|Ctrl+Alt+F6}}`{=mediawiki}), and blindly log in as root. You can do this by typing `{{ic|root}}`{=mediawiki}
+  (press `{{ic|Enter}}`{=mediawiki} after typing it) and entering the root password (again, press
+  `{{ic|Enter}}`{=mediawiki} after typing it).
 
 :   You may also attempt to kill the X server with:
 :   ```{=mediawiki}
@@ -703,10 +687,10 @@ ts }}
     {{bc|# reboot}}
     ```
 
--   Check specific pages in [:Category:Input devices](:Category:Input_devices "wikilink") if you have issues with
-    keyboard, mouse, touchpad etc.
--   Search for common problems in [AMDGPU](AMDGPU "wikilink"), [Intel](Intel "wikilink") and [NVIDIA](NVIDIA "wikilink")
-    articles.
+- Check specific pages in [:Category:Input devices](:Category:Input_devices ":Category:Input devices"){.wikilink} if you
+  have issues with keyboard, mouse, touchpad etc.
+- Search for common problems in [AMDGPU](AMDGPU "AMDGPU"){.wikilink}, [Intel](Intel "Intel"){.wikilink} and
+  [NVIDIA](NVIDIA "NVIDIA"){.wikilink} articles.
 
 ### Black screen, No protocol specified, Resource temporarily unavailable for all or some users {#black_screen_no_protocol_specified_resource_temporarily_unavailable_for_all_or_some_users}
 
@@ -741,7 +725,7 @@ Fatal server error:
 Cannot run in framebuffer mode. Please specify busIDs for all framebuffer devices
 </nowiki>}}
 ```
-To correct, [uninstall](uninstall "wikilink") the `{{pkg|xf86-video-fbdev}}`{=mediawiki} package.
+To correct, [uninstall](uninstall "uninstall"){.wikilink} the `{{pkg|xf86-video-fbdev}}`{=mediawiki} package.
 
 ### Program requests \"font \'(null)\'\" {#program_requests_font_null}
 
@@ -762,20 +746,20 @@ If Xorg is set to boot up automatically and for some reason you need to prevent 
 login/display manager appears (if the system is wrongly configured and Xorg does not recognize your mouse or keyboard
 input, for instance), you can accomplish this task with two methods.
 
--   Change default target to `{{ic|rescue.target}}`{=mediawiki}. See [systemd#Change default target to boot
-    into](systemd#Change_default_target_to_boot_into "wikilink").
--   If you have not only a faulty system that makes Xorg unusable, but you have also set the GRUB menu wait time to
-    zero, or cannot otherwise use GRUB to prevent Xorg from booting, you can use the Arch Linux live CD. Follow the
-    [installation guide](Installation_guide#Format_the_partitions "wikilink") about how to mount and chroot into the
-    installed Arch Linux. Alternatively try to switch into another [tty](tty "wikilink") with
-    `{{ic|Ctrl+Alt}}`{=mediawiki} + function key (usually from `{{ic|F1}}`{=mediawiki} to `{{ic|F7}}`{=mediawiki}
-    depending on which is not used by X), login as root and follow steps below.
+- Change default target to `{{ic|rescue.target}}`{=mediawiki}. See [systemd#Change default target to boot
+  into](systemd#Change_default_target_to_boot_into "systemd#Change default target to boot into"){.wikilink}.
+- If you have not only a faulty system that makes Xorg unusable, but you have also set the GRUB menu wait time to zero,
+  or cannot otherwise use GRUB to prevent Xorg from booting, you can use the Arch Linux live CD. Follow the
+  [installation guide](Installation_guide#Format_the_partitions "installation guide"){.wikilink} about how to mount and
+  chroot into the installed Arch Linux. Alternatively try to switch into another [tty](tty "tty"){.wikilink} with
+  `{{ic|Ctrl+Alt}}`{=mediawiki} + function key (usually from `{{ic|F1}}`{=mediawiki} to `{{ic|F7}}`{=mediawiki}
+  depending on which is not used by X), login as root and follow steps below.
 
 Depending on setup, you will need to do one or more of these steps:
 
--   [Disable](Disable "wikilink") the [display manager](display_manager "wikilink").
--   Disable the [automatic start of X](start_X_at_login "wikilink").
--   Rename the `{{ic|~/.xinitrc}}`{=mediawiki} or comment out the `{{ic|exec}}`{=mediawiki} line in it.
+- [Disable](Disable "Disable"){.wikilink} the [display manager](display_manager "display manager"){.wikilink}.
+- Disable the [automatic start of X](start_X_at_login "automatic start of X"){.wikilink}.
+- Rename the `{{ic|~/.xinitrc}}`{=mediawiki} or comment out the `{{ic|exec}}`{=mediawiki} line in it.
 
 ### X clients started with \"su\" fail {#x_clients_started_with_su_fail}
 
@@ -827,20 +811,21 @@ That line can also be used to give access to X to a different user than root.
 
 ## See also {#see_also}
 
--   [Xplain](https://magcius.github.io/xplain/article/) - In-depth explanation of the X Window System
+- [Xplain](https://magcius.github.io/xplain/article/) - In-depth explanation of the X Window System
 
--   ```{=mediawiki}
-    {{man|1|Xorg}}
-    ```
+- ```{=mediawiki}
+  {{man|1|Xorg}}
+  ```
 
--   [Prepare for LPIC-1 exam 2 - topic 106.1: X11](https://developer.ibm.com/tutorials/l-lpic1-106-1/) - briefly covers
-    architecture, [#Configuration](#Configuration "wikilink"), [desktop environments](desktop_environments "wikilink"),
-    remote usage, [Wayland](Wayland "wikilink").
+- [Prepare for LPIC-1 exam 2 - topic 106.1: X11](https://developer.ibm.com/tutorials/l-lpic1-106-1/) - briefly covers
+  architecture, [#Configuration](#Configuration "#Configuration"){.wikilink}, [desktop
+  environments](desktop_environments "desktop environments"){.wikilink}, remote usage,
+  [Wayland](Wayland "Wayland"){.wikilink}.
 
--   ```{=mediawiki}
-    {{man|5|xorg.conf}}
-    ```
+- ```{=mediawiki}
+  {{man|5|xorg.conf}}
+  ```
 
--   [Gentoo:Xorg/Guide#Configuration](Gentoo:Xorg/Guide#Configuration "wikilink")
+- [Gentoo:Xorg/Guide#Configuration](Gentoo:Xorg/Guide#Configuration "Gentoo:Xorg/Guide#Configuration"){.wikilink}
 
-[Category:X server](Category:X_server "wikilink")
+[Category:X server](Category:X_server "Category:X server"){.wikilink}

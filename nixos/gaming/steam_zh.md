@@ -1,7 +1,7 @@
 `<languages/>`{=html} [Steam](https://store.steampowered.com/)
 是一个数字游戏发行平台，提供庞大的游戏库供用户购买、下载和管理。在 NixOS 系统上，Steam
-通常易于安装和使用，很多时候都能"开箱即用"。它通过兼容层 [Proton](#Proton "wikilink") 支持在 Linux 上运行许多 Windows
-游戏。[^1]
+通常易于安装和使用，很多时候都能"开箱即用"。它通过兼容层 [Proton](#Proton "Proton"){.wikilink} 支持在 Linux 上运行许多
+Windows 游戏。[^1]
 
 `<span id="Installation">`{=html}`</span>`{=html}
 
@@ -18,13 +18,14 @@ $ nix-shell -p steamcmd  # For steamcmd
 ```
 
 这样就可以在当前 shell 中使用这些工具，而无需将其添加到系统配置中。为了使 `steamcmd` 能够正确执行某些任务（例如初始化
-steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，如 [ steam-tui](#steam-tui "wikilink") 部分所示。
+steam-tui），您可能需要运行一次 steamcmd 来生成必要的文件，如 [ steam-tui](#steam-tui " steam-tui"){.wikilink}
+部分所示。
 
 `<span id="System_setup">`{=html}`</span>`{=html}
 
 #### 系统设置
 
-要安装 [Steam](Special:MyLanguage/Steam "wikilink")
+要安装 [Steam](Special:MyLanguage/Steam "Steam"){.wikilink}
 软件包并启用所有必要的系统选项以使其运行，请将以下内容添加到您的系统配置中：
 
 ```{=mediawiki}
@@ -267,7 +268,7 @@ GNOME 使用窗口类来确定与窗口关联的图标。Steam 目前在其 .des
 
 对于通过 Proton 运行的游戏，该值应为 `steam_app_``<game_id>`{=html} （`<game_id>`{=html}与 `Exec` 行中
 <steam://rungameid/> 之后的值匹配）。使用 [Home
-Manager](Special:MyLanguage/Home_Manager "wikilink")（每次重建时执行）自动执行此操作：
+Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink}（每次重建时执行）自动执行此操作：
 
 ``` nix
 home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -336,8 +337,8 @@ StartupWMClass=valheim.x86_64
 游戏可能无法启动，原因可能是缺少依赖项（目前应将此添加到脚本中），或者无法进行补丁更新。直接启动游戏的步骤如下：
 如果可以，请修补脚本/二进制文件。
 
--   在二进制文件夹中添加一个名为 steam_appid.txt 的文件，内容为 appid（可在 Steam 的标准输出中找到）。
--   使用来自 nix/store steam 脚本的 LD_LIBRARY_PATH，启动游戏二进制文件
+- 在二进制文件夹中添加一个名为 steam_appid.txt 的文件，内容为 appid（可在 Steam 的标准输出中找到）。
+- 使用来自 nix/store steam 脚本的 LD_LIBRARY_PATH，启动游戏二进制文件
 
 ``` bash
 LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...curl-7.29.0/lib:. ./Osmos.bin32 (if you could not patchelf the game, call ld.so directly with the binary as parameter)
@@ -365,7 +366,7 @@ hardware.graphics = {
 };
 ```
 
-如果两个驱动程序都存在，[Steam](Special:MyLanguage/Steam "wikilink") 将默认使用 amdvlk。amdvlk 驱动程序在 Vulkan
+如果两个驱动程序都存在，[Steam](Special:MyLanguage/Steam "Steam"){.wikilink} 将默认使用 amdvlk。amdvlk 驱动程序在 Vulkan
 规范实现方面更准确，但性能不如 radv。然而，这种在正确性和性能之间的权衡有时会直接影响游戏体验。
 
 如果同时安装了 radv 和 amdvlk，要将驱动程序"重置"为 radv，请设置环境变量 `AMD_VULKAN_ICD = "RADV"` 或
@@ -379,15 +380,13 @@ radv。如果您不确定当前使用的是哪个驱动程序，可以启动一�
 SteamVR 启动时的 setcap 问题可以通过以下方法解决：
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
 
-```{=html}
 <div lang="en" dir="ltr" class="mw-content-ltr">
-```
-The [Steam Frame](Special:MyLanguage/Steam_Frame "wikilink") headset is discovered through these Remote Play ports. See
-[Steam Frame](Special:MyLanguage/Steam_Frame "wikilink").
 
-```{=html}
+The [Steam Frame](Special:MyLanguage/Steam_Frame "Steam Frame"){.wikilink} headset is discovered through these Remote
+Play ports. See [Steam Frame](Special:MyLanguage/Steam_Frame "Steam Frame"){.wikilink}.
+
 </div>
-```
+
 `<span id="Gamescope_fails_to_launch_when_used_within_Steam">`{=html}`</span>`{=html}
 
 ### 与 Steam 使用时 Gamescope 无法启动 {#与_steam_使用时_gamescope_无法启动}
@@ -452,15 +451,16 @@ ID，[usbutils](https://search.nixos.org/packages?channel=unstable&show=usbutils
 "Project
 Zomboid"可能会报告"无法确定Java是32位还是64位"。这与Java本身无关，是由其使用自身过时的Java二进制文件解析路径时，其中包含非拉丁字符导致的。请通过在`steam-run bash`中直接启动本地Java二进制文件来解决错误。
 
-通过 [Steam](Special:MyLanguage/Steam "wikilink")
-应用重置密码可能会反复在验证码环节失败，即使验证码界面显示成功，[Steam](Special:MyLanguage/Steam "wikilink")
-本身也会提示验证码错误。通过 [Steam](Special:MyLanguage/Steam "wikilink") 网站重置密码应该可以解决这个问题。
+通过 [Steam](Special:MyLanguage/Steam "Steam"){.wikilink}
+应用重置密码可能会反复在验证码环节失败，即使验证码界面显示成功，[Steam](Special:MyLanguage/Steam "Steam"){.wikilink}
+本身也会提示验证码错误。通过 [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} 网站重置密码应该可以解决这个问题。
 
 `<span id="References">`{=html}`</span>`{=html}
 
 ## 参考
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
 
 [^1]: <https://store.steampowered.com/>
 

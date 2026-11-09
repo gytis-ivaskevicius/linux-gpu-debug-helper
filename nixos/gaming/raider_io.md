@@ -102,4 +102,5 @@ retail path typically resides inside your Wine prefix:
 }
 ```
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

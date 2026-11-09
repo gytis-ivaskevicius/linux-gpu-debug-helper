@@ -1,4 +1,4 @@
-**Sober** is an unofficial client of [Roblox](Roblox "wikilink") for Linux, which works by running the Android
+**Sober** is an unofficial client of [Roblox](Roblox "Roblox"){.wikilink} for Linux, which works by running the Android
 application in a compatibility layer. [^1]
 
 ```{=mediawiki}
@@ -16,7 +16,7 @@ application in a compatibility layer. [^1]
 
 There is no Nix package for Sober as for now, the only way to install it is through flatpak:
 
-1.  Setup [Flatpak](Flatpak "wikilink") and Flathub, instructions for both can be found on the relevant pages.
+1.  Setup [Flatpak](Flatpak "Flatpak"){.wikilink} and Flathub, instructions for both can be found on the relevant pages.
 2.  Install the Sober flatpak by running: `flatpak install flathub org.vinegarhq.Sober`
 
 ## Sober itself. {#sober_itself.}
@@ -28,15 +28,14 @@ or vim edit the file.
 If you have questions like \"How does Sober work? Is it official? Will it get blocked by Roblox?\", Click the link below
 to go to their FAQs.
 
-```{=html}
 <references />
-```
+
 If you have other questions or issues with it, Click the link down below to go to their github.
 
 ## Running Sober in a NixOS container {#running_sober_in_a_nixos_container}
 
-This runs Sober inside a [NixOS container](NixOS_Containers "wikilink"). Run `sober` to start it. When you close Sober,
-the container stops. Your data stays there for the next launch.
+This runs Sober inside a [NixOS container](NixOS_Containers "NixOS container"){.wikilink}. Run `sober` to start it. When
+you close Sober, the container stops. Your data stays there for the next launch.
 
 The setup worked on NixOS 26.05 with Wayland, an AMD GPU, systemd 260.4 and Flatpak 1.18.4. This version uses an example
 username and passes Nix evaluation. It has not been tested with NVIDIA or X11.
@@ -435,9 +434,9 @@ device\'s file permissions.
 The extra `/proc` mounts let Flatpak run inside the container. They loosen some of the default restrictions and might
 need changes after an update. This setup does not give the same separation as a virtual machine.
 
-```{=html}
 <references />
-```
-[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
 
 [^1]: <https://github.com/vinegarhq/sober>

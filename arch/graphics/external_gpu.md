@@ -1,13 +1,14 @@
-[ja:外付け GPU](ja:外付け_GPU "wikilink") [zh-hans:外接显卡](zh-hans:外接显卡 "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|Graphics processing unit}}`{=mediawiki}
-`{{Related|Xorg}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Thunderbolt}}`{=mediawiki}
-`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|NVIDIA/Tips and tricks}}`{=mediawiki}
-`{{Related|Docks}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[ja:外付け GPU](ja:外付け_GPU "ja:外付け GPU"){.wikilink}
+[zh-hans:外接显卡](zh-hans:外接显卡 "zh-hans:外接显卡"){.wikilink} `{{Related articles start}}`{=mediawiki}
+`{{Related|Graphics processing unit}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
+`{{Related|Thunderbolt}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki}
+`{{Related|NVIDIA/Tips and tricks}}`{=mediawiki} `{{Related|Docks}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-On computers equipped with [Thunderbolt 3+](Wikipedia:Thunderbolt_(interface)#Thunderbolt_3 "wikilink") or
-[USB4](Wikipedia:USB4 "wikilink"), it is possible to attach a desktop-grade external graphics card (eGPU) using a GPU
-enclosure. [eGPU.io](https://egpu.io/) is a good resource with buyer\'s guide and a community forum. While some manual
-configuration (shown below) is needed for most modes of operation, Linux support for eGPUs is generally good.
+On computers equipped with [Thunderbolt 3+](Wikipedia:Thunderbolt_(interface)#Thunderbolt_3 "Thunderbolt 3+"){.wikilink}
+or [USB4](Wikipedia:USB4 "USB4"){.wikilink}, it is possible to attach a desktop-grade external graphics card (eGPU)
+using a GPU enclosure. [eGPU.io](https://egpu.io/) is a good resource with buyer\'s guide and a community forum. While
+some manual configuration (shown below) is needed for most modes of operation, Linux support for eGPUs is generally
+good.
 
 ```{=mediawiki}
 {{Note|For USB4 laptops the data rate is specified to be at minimum 20 Gbit/s and optionally superior (40, 80, or more ). When using a Thunderbolt enclosure it is a good idea to ensure the laptop USB4 implementation supports the same data rate.}}
@@ -18,8 +19,8 @@ configuration (shown below) is needed for most modes of operation, Linux support
 
 The eGPU enclosure Thunderbolt device may need to be authorized first after plugging in (based on your BIOS/UEFI
 Firmware configuration). Follow [Thunderbolt#User device
-authorization](Thunderbolt#User_device_authorization "wikilink"). If successful, the external graphics card should show
-up in `{{ic|lspci}}`{=mediawiki}:
+authorization](Thunderbolt#User_device_authorization "Thunderbolt#User device authorization"){.wikilink}. If successful,
+the external graphics card should show up in `{{ic|lspci}}`{=mediawiki}:
 
 ```{=mediawiki}
 {{hc|$ lspci -d ::03xx|
@@ -37,7 +38,7 @@ grep PCIe\| \[19888.928225\] pci 0000:1a:10.3: 8.000 Gb/s available PCIe bandwid
 0000:05:01.0 (capable of 126.016 Gb/s with 8.0 GT/s PCIe x16 link) }}
 
 You may need to make your system hotplug aware by adding the following [kernel
-parameters](kernel_parameters "wikilink"):
+parameters](kernel_parameters "kernel parameters"){.wikilink}:
 
 `pcie_ports=native pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=16G`
 
@@ -49,7 +50,7 @@ This tells the kernel that your PCIe is hot-pluggable, which is required for Thu
 You may also need to add a modprobe rule to ensure the driver loads after thunderbolt, if your thunderbolt GPU is using
 the same drivers as your internal GPU (whether discrete or integrated)
 
-The below example is for `{{ic|amdgpu}}`{=mediawiki}. [Create](Create "wikilink"):
+The below example is for `{{ic|amdgpu}}`{=mediawiki}. [Create](Create "Create"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/amdgpu.conf|
@@ -63,7 +64,7 @@ You may also need to tell mkinitcpio to load the thunderbolt driver before execu
 
 `MODULES=(thunderbolt)`
 
-after that, [regenerate the initramfs](regenerate_the_initramfs "wikilink") and reboot.
+after that, [regenerate the initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink} and reboot.
 
 This ensures that the amdgpu driver loads only after the thunderbolt driver has initialized the subsystem and has made
 the external GPU also available, allowing it to properly initialize both GPUs.
@@ -72,9 +73,9 @@ the external GPU also available, allowing it to properly initialize both GPUs.
 
 A driver compatible with your GPU model should be installed:
 
--   [AMDGPU](AMDGPU "wikilink")
--   [NVIDIA](NVIDIA "wikilink") proprietary NVIDIA drivers
--   [Nouveau](Nouveau "wikilink") open-source NVIDIA drivers
+- [AMDGPU](AMDGPU "AMDGPU"){.wikilink}
+- [NVIDIA](NVIDIA "NVIDIA"){.wikilink} proprietary NVIDIA drivers
+- [Nouveau](Nouveau "Nouveau"){.wikilink} open-source NVIDIA drivers
 
 If installed successfully, `{{ic|lspci -k}}`{=mediawiki} should show that a driver has been associated with your card:
 
@@ -90,8 +91,9 @@ If installed successfully, `{{ic|lspci -k}}`{=mediawiki} should show that a driv
 
 Note that the AMDGPU driver (with either Thunderbolt or USB4) might in some cases set the wrong *pcie_gen_cap* option
 and fall back to PCIe gen 1.1 speed, with possibly serious performance issues. In this case the proper value can be set
-as module option (see [Kernel module#Using modprobe.d](Kernel_module#Using_modprobe.d "wikilink")) or even passed as
-[kernel parameters](kernel_parameters "wikilink"):
+as module option (see [Kernel module#Using
+modprobe.d](Kernel_module#Using_modprobe.d "Kernel module#Using modprobe.d"){.wikilink}) or even passed as [kernel
+parameters](kernel_parameters "kernel parameters"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/amd-egpu-pcie-speed.conf|
@@ -107,20 +109,21 @@ This will set PCIe gen 3 speed. A full list of options can be found in
 For NVIDIA eGPUs on some systems you may need to early load the thunderbolt kernel module to ensure it is loaded before
 `{{ic|nvidia_drm}}`{=mediawiki}.
 
--   If you use [mkinitcpio](mkinitcpio "wikilink") initramfs, follow [mkinitcpio#MODULES](mkinitcpio#MODULES "wikilink")
-    to add modules.
--   If you use [Booster](Booster "wikilink"), follow [Booster#Early module
-    loading](Booster#Early_module_loading "wikilink").
--   If you use [dracut](dracut "wikilink"), follow [dracut#Early kernel module
-    loading](dracut#Early_kernel_module_loading "wikilink").
+- If you use [mkinitcpio](mkinitcpio "mkinitcpio"){.wikilink} initramfs, follow
+  [mkinitcpio#MODULES](mkinitcpio#MODULES "mkinitcpio#MODULES"){.wikilink} to add modules.
+- If you use [Booster](Booster "Booster"){.wikilink}, follow [Booster#Early module
+  loading](Booster#Early_module_loading "Booster#Early module loading"){.wikilink}.
+- If you use [dracut](dracut "dracut"){.wikilink}, follow [dracut#Early kernel module
+  loading](dracut#Early_kernel_module_loading "dracut#Early kernel module loading"){.wikilink}.
 
 ## Compute-only workloads {#compute_only_workloads}
 
-Right after completing [installation steps](#Installation "wikilink"), compute-only workloads like [General-purpose
-computing on graphics processing units#CUDA](General-purpose_computing_on_graphics_processing_units#CUDA "wikilink")
+Right after completing [installation steps](#Installation "installation steps"){.wikilink}, compute-only workloads like
+[General-purpose computing on graphics processing
+units#CUDA](General-purpose_computing_on_graphics_processing_units#CUDA "General-purpose computing on graphics processing units#CUDA"){.wikilink}
 that do not need to display anything should work without any extra configuration. The *nvidia-smi* utility (provided by
 the `{{Pkg|nvidia-utils}}`{=mediawiki} package) should work with the proprietary NVIDIA driver. Proprietary
-[NVENC/NVDEC](Wikipedia:Nvidia_NVENC "wikilink") should work (without OpenGL interop).
+[NVENC/NVDEC](Wikipedia:Nvidia_NVENC "NVENC/NVDEC"){.wikilink} should work (without OpenGL interop).
 
 This use-case should also support full hotplug. Hot-unplug should be also possible (probably depending on drivers used).
 On NVIDIA, active `{{ic|nvidia-persistenced}}`{=mediawiki} is expected to prevent clean hot-unplug.
@@ -132,16 +135,16 @@ disadvantages.
 
 ### Xorg rendered on eGPU, PRIME display offload to iGPU {#xorg_rendered_on_egpu_prime_display_offload_to_igpu}
 
--   Most programs that make use of GPU run out-of-the-box on eGPU:
-    `{{ic|glxinfo}}`{=mediawiki}/`{{ic|glxgears}}`{=mediawiki},
-    `{{ic|eglinfo}}`{=mediawiki}/`{{ic|eglgears_x11}}`{=mediawiki},
-    `{{ic|NVENC}}`{=mediawiki}/`{{ic|NVDEC}}`{=mediawiki} (including OpenGL interop).
--   Xorg only starts with the eGPU plugged in.
--   Monitors attached to eGPU work out-of-the-box, PRIME *display* offload can be used for monitors attached to iGPU
-    (i.e. internal laptop screen).
+- Most programs that make use of GPU run out-of-the-box on eGPU:
+  `{{ic|glxinfo}}`{=mediawiki}/`{{ic|glxgears}}`{=mediawiki},
+  `{{ic|eglinfo}}`{=mediawiki}/`{{ic|eglgears_x11}}`{=mediawiki}, `{{ic|NVENC}}`{=mediawiki}/`{{ic|NVDEC}}`{=mediawiki}
+  (including OpenGL interop).
+- Xorg only starts with the eGPU plugged in.
+- Monitors attached to eGPU work out-of-the-box, PRIME *display* offload can be used for monitors attached to iGPU (i.e.
+  internal laptop screen).
 
-Main article is [PRIME#Reverse PRIME](PRIME#Reverse_PRIME "wikilink"). Also documented in NVIDIA driver docs [Chapter
-34. Offloading Graphics Display with RandR
+Main article is [PRIME#Reverse PRIME](PRIME#Reverse_PRIME "PRIME#Reverse PRIME"){.wikilink}. Also documented in NVIDIA
+driver docs [Chapter 34. Offloading Graphics Display with RandR
 1.4](https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/randr14.html).
 
 Use Xorg configuration snippet like this one:
@@ -186,9 +189,9 @@ used, using names from above `{{ic|xrandr --listproviders}}`{=mediawiki} output:
 {{Note|The {{ic|xrandr --auto}} is optional and may be substituted by any RandR-based display configuration tool. Its presence prevents all-screens-black situation.}}
 ```
 You may want to run this command before a display manager shows login prompt or before desktop environment starts, see
-[xrandr#Configuration](xrandr#Configuration "wikilink") and [xinit](xinit "wikilink").
+[xrandr#Configuration](xrandr#Configuration "xrandr#Configuration"){.wikilink} and [xinit](xinit "xinit"){.wikilink}.
 
-[Vulkan](Vulkan "wikilink") may enumerate GPUs independently of Xorg, so in order to run for example
+[Vulkan](Vulkan "Vulkan"){.wikilink} may enumerate GPUs independently of Xorg, so in order to run for example
 `{{ic|vkcube}}`{=mediawiki} in this setup, one may need to pass `{{ic|--gpu_number 1}}`{=mediawiki} option.
 Alternatively, a layer to reorder GPUs during enumeration can be activated with the same effect:
 `{{ic|1=__NV_PRIME_RENDER_OFFLOAD=1 vkcube}}`{=mediawiki} or equivalently `{{ic|prime-run vkcube}}`{=mediawiki}.
@@ -198,13 +201,13 @@ Alternatively, a layer to reorder GPUs during enumeration can be activated with 
 ```
 ### Xorg rendered on iGPU, PRIME render offload to eGPU {#xorg_rendered_on_igpu_prime_render_offload_to_egpu}
 
--   Programs are rendered on iGPU by default, but PRIME *render* offload can be used to render them on eGPU.
--   Xorg starts even with eGPU disconnected, but render/display offload will not work until it is restarted.
--   Monitors attached to iGPU (i.e. internal laptop screen) work out-of-the-box, PRIME *display* offload can be used for
-    monitors attached to eGPU.
+- Programs are rendered on iGPU by default, but PRIME *render* offload can be used to render them on eGPU.
+- Xorg starts even with eGPU disconnected, but render/display offload will not work until it is restarted.
+- Monitors attached to iGPU (i.e. internal laptop screen) work out-of-the-box, PRIME *display* offload can be used for
+  monitors attached to eGPU.
 
-Main article is [PRIME#PRIME GPU offloading](PRIME#PRIME_GPU_offloading "wikilink"). Also documented in NVIDIA driver
-docs [Chapter 35. PRIME Render
+Main article is [PRIME#PRIME GPU offloading](PRIME#PRIME_GPU_offloading "PRIME#PRIME GPU offloading"){.wikilink}. Also
+documented in NVIDIA driver docs [Chapter 35. PRIME Render
 Offload](https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/primerenderoffload.html).
 
 With many discrete GPU drivers, this mode should be the default without any manual Xorg configuration. If that does not
@@ -239,10 +242,10 @@ Provider 1: id: 0x24a cap: 0x2, Sink Output crtcs: 4 outputs: 4 associated provi
 ```
 To **render** `{{ic|''some_program''}}`{=mediawiki} **on the eGPU**, PRIME *render* offload can be used:
 
--   for proprietary NVIDIA drivers:
-    `{{bc|1=$ __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia ''some_program''}}`{=mediawiki}
--   for proprietary NVIDIA drivers (convenience wrapper): `{{bc|1=$ prime-run ''some_program''}}`{=mediawiki}
--   for open-source drivers: `{{bc|1=$ DRI_PRIME=1 ''some_program''}}`{=mediawiki}
+- for proprietary NVIDIA drivers:
+  `{{bc|1=$ __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia ''some_program''}}`{=mediawiki}
+- for proprietary NVIDIA drivers (convenience wrapper): `{{bc|1=$ prime-run ''some_program''}}`{=mediawiki}
+- for open-source drivers: `{{bc|1=$ DRI_PRIME=1 ''some_program''}}`{=mediawiki}
 
 To **output to monitors connected to eGPU**, RandR 1.4 PRIME *display* offload can be again used:
 
@@ -261,14 +264,15 @@ offloads](https://forums.developer.nvidia.com/t/linux-solaris-and-freebsd-driver
 
 ### Separate Xorg instance for eGPU {#separate_xorg_instance_for_egpu}
 
-Main article is [nvidia-xrun#External GPU setup](nvidia-xrun#External_GPU_setup "wikilink").
+Main article is [nvidia-xrun#External GPU
+setup](nvidia-xrun#External_GPU_setup "nvidia-xrun#External GPU setup"){.wikilink}.
 
 ### Known issues with eGPUs on Xorg {#known_issues_with_egpus_on_xorg}
 
--   hotplug is not supported with most discrete GPU Xorg drivers: the eGPU needs to be plugged in when Xorg starts.
-    Logging out and in again should suffice to restart Xorg.
--   hot-unplug is not supported at all: doing so leads to system instability or outright freezes (as acknowledged in the
-    [NVIDIA documentation](https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/egpu.html)).
+- hotplug is not supported with most discrete GPU Xorg drivers: the eGPU needs to be plugged in when Xorg starts.
+  Logging out and in again should suffice to restart Xorg.
+- hot-unplug is not supported at all: doing so leads to system instability or outright freezes (as acknowledged in the
+  [NVIDIA documentation](https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/egpu.html)).
 
 ## Wayland
 
@@ -278,10 +282,10 @@ configuration.
 Note that there need to be explicit GPU hotplug support by the Wayland compositor, but most already have some level of
 support:
 
--   KDE\'s kwin: <https://invent.kde.org/plasma/kwin/-/merge_requests/811>
--   GNOME\'s Mutter: <https://gitlab.gnome.org/GNOME/mutter/-/issues/17>,
-    <https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1562>
--   wlroots: <https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1278>
+- KDE\'s kwin: <https://invent.kde.org/plasma/kwin/-/merge_requests/811>
+- GNOME\'s Mutter: <https://gitlab.gnome.org/GNOME/mutter/-/issues/17>,
+  <https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1562>
+- wlroots: <https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1278>
 
 For open-source drivers, DRI offloading works fine:
 
@@ -298,7 +302,8 @@ PRIME for dGPUs, and it is working same way for eGPU.
 First you need to make sure that no program uses NVIDIA modules. EGL programs tend to use 1MB dGPU memory per program,
 even if they run on iGPU, and it can be seen in `{{ic|nvidia-smi}}`{=mediawiki}. To avoid this, add
 `{{ic|1=__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json}}`{=mediawiki} as [environment
-variable](environment_variable "wikilink"). Best place for that is `{{ic|/etc/environment.d/50_mesa.conf}}`{=mediawiki}.
+variable](environment_variable "environment variable"){.wikilink}. Best place for that is
+`{{ic|/etc/environment.d/50_mesa.conf}}`{=mediawiki}.
 
 Then you unload NVIDIA modules:
 
@@ -362,4 +367,5 @@ series of commands:
 It is strange that we need to run first 2 commands twice, but otherwise it will not bring back dGPU. Command will error
 once, but it is not critical.
 
-[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
+server](Category:X_server "Category:X server"){.wikilink}

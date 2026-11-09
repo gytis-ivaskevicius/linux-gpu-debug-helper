@@ -2,6 +2,8 @@
 
 ## Installation
 
-While there isn\'t official Linux support, one can use the unofficial client of [Sober](Sober "wikilink") on Linux.
+While there isn\'t official Linux support, one can use the unofficial client of [Sober](Sober "Sober"){.wikilink} on
+Linux.
 
-[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

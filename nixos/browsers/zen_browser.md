@@ -85,4 +85,4 @@ Section](https://github.com/0xc000022070/zen-browser-flake#home-manager-referenc
 Section](https://github.com/0xc000022070/zen-browser-flake#configuration-examples) for more information on how to
 declaratively configure Zen with Home Manager.
 
-[Category:Web Browser](Category:Web_Browser "wikilink")
+[Category:Web Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}

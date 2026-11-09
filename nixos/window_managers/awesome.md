@@ -35,7 +35,7 @@ To enable awesomeWM set `services.xserver.windowManager.awesome.enable` to `true
 </nowiki>
 }}
 ```
-Similar configuration using [Home Manager](Home_Manager "wikilink").
+Similar configuration using [Home Manager](Home_Manager "Home Manager"){.wikilink}.
 
 Reference: <https://github.com/rycee/home-manager/blob/master/modules/services/window-managers/awesome.nix#blob-path>
 
@@ -77,8 +77,8 @@ Flake reference: <https://github.com/Souheab/awesomewm-git-nix-flake>
 
 ## References
 
--   [Getting started](https://awesomewm.org/apidoc/documentation/07-my-first-awesome.md.html#)
--   [Default configuration file documentation](https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html#3)
+- [Getting started](https://awesomewm.org/apidoc/documentation/07-my-first-awesome.md.html#)
+- [Default configuration file documentation](https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html#3)
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

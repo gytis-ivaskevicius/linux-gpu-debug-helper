@@ -57,4 +57,5 @@ If you have purchased the game and have a full copy, you can point `services.qua
 system path. Setting it, for example, to `/var/lib/quake3`, the game file is to be expected at
 `/var/lib/quake3/.q3a/baseq3/pak0.pk3`.
 
-[Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")
+[Category: Applications](Category:_Applications "Category: Applications"){.wikilink} [Category:
+Gaming](Category:_Gaming "Category: Gaming"){.wikilink}

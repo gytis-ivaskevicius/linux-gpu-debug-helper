@@ -1,6 +1,6 @@
 **Steam Frame** is a standalone virtual reality headset from Valve, released on September 18, 2026. It runs SteamOS.
 Games installed on the headset need no NixOS configuration. This page covers streaming PC VR from a NixOS host, which
-uses [Steam](Steam "wikilink") and [SteamVR](VR#SteamVR "wikilink").
+uses [Steam](Steam "Steam"){.wikilink} and [SteamVR](VR#SteamVR "SteamVR"){.wikilink}.
 
 The headset reaches the PC through SteamVR\'s Steam Link driver (`vrlink`), either over the home network or over the
 bundled 6 GHz wireless adapter. Home Wi-Fi streaming works on the NixOS default kernel. The adapter does
@@ -18,10 +18,10 @@ for the headset, its controllers, or the wireless adapter.`{{file|/etc/nixos/con
 `remotePlay.openFirewall` is required. Without it the headset cannot discover the PC. The option opens the ports Valve
 documents for Remote Play and Steam Link:[^1]
 
--   UDP 27036, for discovery broadcasts
--   TCP 27036 and 27037
--   UDP 10400 and 10401, for the Steam Link video path (`vrlink` binds UDP 10400)
--   UDP 27031--27035
+- UDP 27036, for discovery broadcasts
+- TCP 27036 and 27037
+- UDP 10400 and 10401, for the Steam Link video path (`vrlink` binds UDP 10400)
+- UDP 27031--27035
 
 The option does nothing if `{{Nixos:option|networking.firewall.enable}}`{=mediawiki} is false. `vrlink` binds UDP 10400
 on every local address, including VPN interfaces, so a hand-written ruleset has to allow that port on the interface the
@@ -40,7 +40,7 @@ A successful pair shows up in `~/.local/share/Steam/logs/remote_connections.txt`
 `frame`, followed by `k_ERemoteDeviceAuthorizationSuccess`.
 
 Flat games can be started from the headset. For VR games, start SteamVR on the PC first. See [#VR game opens as a flat
-window](#VR_game_opens_as_a_flat_window "wikilink").
+window](#VR_game_opens_as_a_flat_window "#VR game opens as a flat window"){.wikilink}.
 
 ## Wireless adapter {#wireless_adapter}
 
@@ -88,13 +88,13 @@ for Steam to manage the wireless adapter.
 
 ### Headset does not see the PC {#headset_does_not_see_the_pc}
 
--   Confirm `{{Nixos:option|programs.steam.remotePlay.openFirewall}}`{=mediawiki} is `true` and the firewall service is
-    enabled. Discovery is a broadcast to UDP 27036. A host firewall that drops broadcasts, or a headset on another
-    subnet, looks the same: the PC never appears.
--   Steam must be running on the PC, on the same account as the headset.
--   In `~/.local/share/Steam/logs/remote_connections.txt`, a line `Received broadcast message from client … (frame)`
-    means the packet arrived and the problem is later (authorization, SteamVR, or the stream). No such line means the
-    broadcast never reached Steam.
+- Confirm `{{Nixos:option|programs.steam.remotePlay.openFirewall}}`{=mediawiki} is `true` and the firewall service is
+  enabled. Discovery is a broadcast to UDP 27036. A host firewall that drops broadcasts, or a headset on another subnet,
+  looks the same: the PC never appears.
+- Steam must be running on the PC, on the same account as the headset.
+- In `~/.local/share/Steam/logs/remote_connections.txt`, a line `Received broadcast message from client … (frame)` means
+  the packet arrived and the problem is later (authorization, SteamVR, or the stream). No such line means the broadcast
+  never reached Steam.
 
 ### Asynchronous reprojection {#asynchronous_reprojection}
 
@@ -102,8 +102,9 @@ On first launch, SteamVR asks for elevated permissions so it can set `CAP_SYS_NI
 capability is what asynchronous reprojection needs. Streaming works without it.
 
 On NixOS the usual `setcap` command has no effect. Steam runs in a bubblewrap user namespace, which cannot hold file
-capabilities. The workarounds and their security tradeoffs are documented in [VR#SteamVR](VR#SteamVR "wikilink"). Do not
-copy the one-line `setcap` from the [Steam](Steam "wikilink") page and expect it to stick.
+capabilities. The workarounds and their security tradeoffs are documented in
+[VR#SteamVR](VR#SteamVR "VR#SteamVR"){.wikilink}. Do not copy the one-line `setcap` from the
+[Steam](Steam "Steam"){.wikilink} page and expect it to stick.
 
 ### VR game opens as a flat window {#vr_game_opens_as_a_flat_window}
 
@@ -118,17 +119,17 @@ unaffected. The report was filed on Arch Linux; the missing 32-bit driver is not
 
 ## See also {#see_also}
 
--   [VR](VR "wikilink")
--   [Steam](Steam "wikilink")
--   [Linux VR Adventures Wiki](https://lvra.gitlab.io)
--   [Steam Frame feature and troubleshooting guide](https://help.steampowered.com/en/faqs/view/2668-0B6E-79E0-A85B)
+- [VR](VR "VR"){.wikilink}
+- [Steam](Steam "Steam"){.wikilink}
+- [Linux VR Adventures Wiki](https://lvra.gitlab.io)
+- [Steam Frame feature and troubleshooting guide](https://help.steampowered.com/en/faqs/view/2668-0B6E-79E0-A85B)
 
 ## References
 
-```{=html}
 <references />
-```
-[Category:Hardware](Category:Hardware "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+
+[Category:Hardware](Category:Hardware "Category:Hardware"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
 
 [^1]: Valve, [Required Ports for Steam](https://help.steampowered.com/en/faqs/view/2EA8-4D75-DA21-31EB) and [SteamVR
     ports](https://help.steampowered.com/en/faqs/view/3E3D-BE6B-787D-A5D2). The NixOS option follows those lists in

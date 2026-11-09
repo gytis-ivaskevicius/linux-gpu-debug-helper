@@ -4,9 +4,9 @@
 ```{=mediawiki}
 {{tip/unfree}}
 ```
-[Minecraft Server](https://minecraft.wiki/w/Server) is a server for the sandbox game [Minecraft](Minecraft "wikilink").
-Currently, only servers for the [Java Edition](https://www.minecraft.net/en-us/article/java-or-bedrock-edition) of
-Minecraft are supported.
+[Minecraft Server](https://minecraft.wiki/w/Server) is a server for the sandbox game
+[Minecraft](Minecraft "Minecraft"){.wikilink}. Currently, only servers for the [Java
+Edition](https://www.minecraft.net/en-us/article/java-or-bedrock-edition) of Minecraft are supported.
 
 ## Setup
 
@@ -52,8 +52,8 @@ services.minecraft-server = {
 You might want to view the [list of all available server properties for the vanilla
 server](https://minecraft.wiki/w/Server.properties#Keys).
 
-See [#See also](#See_also "wikilink") for recommended JVM flags for the `jvmOpts` option. These primarily depend on your
-[Java](Java "wikilink") version.
+See [#See also](#See_also "#See also"){.wikilink} for recommended JVM flags for the `jvmOpts` option. These primarily
+depend on your [Java](Java "Java"){.wikilink} version.
 
 ## Tips and tricks {#tips_and_tricks}
 
@@ -116,8 +116,8 @@ services.minecraft-servers.<name>.package = pkgs.neoforgeServers.neoforge-<versi
 
 ^*Note\ that\ the\ `<version>`{=html}\ is\ formatted\ as\ `26_1_2`,\ `1_18_2`,\ or\ `25w10a`.\ Using\ a\ specific\ version\ could\ look\ like\ this:\ `pkgs.vanillaServer.vanilla-1_8_9`*^
 
-[Nix-minecraft](https://github.com/Infinidoge/nix-minecraft) is a [nix flakes](Flakes "wikilink") based attempt at
-supporting a few more modded servers:
+[Nix-minecraft](https://github.com/Infinidoge/nix-minecraft) is a [nix flakes](Flakes "nix flakes"){.wikilink} based
+attempt at supporting a few more modded servers:
 
   Server     \*    Package name
   ---------- ----- ----------------------------
@@ -161,9 +161,8 @@ explored methods. In that case running the server through the provided `server.j
 
 java -Xmx4G -jar /path/to/server.jar -nogui
 
-```{=html}
 </syntaxhighlight>
-```
+
 *`<small>`{=html}The `-Xmx` flag sets the max memory allocation (here 4GB). The `-nogui` flag disables the minecraft
 server gui`</small>`{=html}*
 
@@ -173,11 +172,12 @@ To use IPv4 by default, add `-Djava.net.preferIPv4Stack=true` to `jvmOpts`.
 
 ## See also {#see_also}
 
--   [nix-minecraft](https://github.com/Infinidoge/nix-minecraft), a [flake](flake "wikilink") based attempt to better
-    support Minecraft related content for the Nix ecosystem. It can be used for more complex server setups, including
-    mods and plugins.
--   <https://exa.y2k.diy/garden/jvm-args> for setting additional JVM flags in the `jvmOpts` option. Some server-related
-    software---like the Velocity proxy---have their own recommended JVM flags list.
--   <https://mcuuid.net> to get a player\'s UUID from their current username or vice versa.
+- [nix-minecraft](https://github.com/Infinidoge/nix-minecraft), a [flake](flake "flake"){.wikilink} based attempt to
+  better support Minecraft related content for the Nix ecosystem. It can be used for more complex server setups,
+  including mods and plugins.
+- <https://exa.y2k.diy/garden/jvm-args> for setting additional JVM flags in the `jvmOpts` option. Some server-related
+  software---like the Velocity proxy---have their own recommended JVM flags list.
+- <https://mcuuid.net> to get a player\'s UUID from their current username or vice versa.
 
-[Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")
+[Category: Applications](Category:_Applications "Category: Applications"){.wikilink} [Category:
+Gaming](Category:_Gaming "Category: Gaming"){.wikilink}

@@ -179,7 +179,7 @@ as root. If the setup is working, sway should at this point recognize the new di
 As of NixOS 25.05, installing `pkgs.displaylink` inserts some directives into the script referenced by
 `pre-sleep.service`. If suspending does not work and causes the reboot and poweroff buttons to stop working, it may be a
 symptom of [suspend being blocked by
-pre-sleep.service](Power_Management#Suspend_blocked_by_pre-sleep.service "wikilink").
+pre-sleep.service](Power_Management#Suspend_blocked_by_pre-sleep.service "suspend being blocked by pre-sleep.service"){.wikilink}.
 
 The script in question:
 
@@ -203,12 +203,13 @@ fi
 Because of a stray `/tmp/PmMessagesPort_out` caused by an unclean shutdown, the suspend action was blocked by this
 script trying to flush the port. A myriad of solutions can be used to unblock the script and restore suspend:
 
--   Start `dlm.service` so that DisplayLinkManager can clear the ports and unblock the script
--   Use `sudo DisplayLinkManager` to clear the ports and unblock the script
+- Start `dlm.service` so that DisplayLinkManager can clear the ports and unblock the script
+- Use `sudo DisplayLinkManager` to clear the ports and unblock the script
 
 Untested solutions:
 
--   Removing the file
--   Killing the script
+- Removing the file
+- Killing the script
 
-[Category:Video](Category:Video "wikilink") [Category:Video](Category:Video "wikilink")
+[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Video](Category:Video "Category:Video"){.wikilink}

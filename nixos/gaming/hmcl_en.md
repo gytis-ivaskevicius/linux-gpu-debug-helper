@@ -54,6 +54,7 @@ environment.systemPackages = with pkgs; [
 
 ## References
 
--   [HMCL documentation](https://docs.hmcl.net/)
+- [HMCL documentation](https://docs.hmcl.net/)
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

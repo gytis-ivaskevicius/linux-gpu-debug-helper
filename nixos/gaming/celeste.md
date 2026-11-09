@@ -11,8 +11,8 @@ to play the game, possibly with mods, on NixOS. You may seek further support abo
 ## Base game installation {#base_game_installation}
 
 Celeste is not free (as in free beer) for downloading. If you own a copy only on Steam, install
-[Steam](Steam "wikilink"), and then install and launch Celeste in Steam. If you own a copy on itch.io, you can either
-extract it and run it using `{{nixos:package|steam-run}}`{=mediawiki}, or use the
+[Steam](Steam "Steam"){.wikilink}, and then install and launch Celeste in Steam. If you own a copy on itch.io, you can
+either extract it and run it using `{{nixos:package|steam-run}}`{=mediawiki}, or use the
 `{{nixos:package|celestegame}}`{=mediawiki} package.
 
 For using the `celestegame` package follow one of the 3 methodes:
@@ -67,11 +67,11 @@ celestegame.override {
 Olympus is a GUI tool that can be used to manage multiple Celeste installations and their mods. You can install Olympus
 by the `{{nixos:package|olympus}}`{=mediawiki} package.
 
--   If you want to manage the game from Steam, the game directly extracted from itch.io, or the game installed from the
-    package `celestegame.passthru.celeste-unwrapped`, install `olympus.override { celesteWrapper = "steam-run"; }`.
-    Setting `celesteWrapper` is essential if you want to launch Celeste from Olympus, but other functionalities of
-    Olympus work without this.
--   If you want to manage the game installed from the package `celestegame`, just install `olympus`.
+- If you want to manage the game from Steam, the game directly extracted from itch.io, or the game installed from the
+  package `celestegame.passthru.celeste-unwrapped`, install `olympus.override { celesteWrapper = "steam-run"; }`.
+  Setting `celesteWrapper` is essential if you want to launch Celeste from Olympus, but other functionalities of Olympus
+  work without this.
+- If you want to manage the game installed from the package `celestegame`, just install `olympus`.
 
 If you want to manage the game installed by the `celestegame` package using Olympus, it may not be convenient because
 Olympus cannot automatically discover it by default, and if you manually add the Nix store path as a Celeste
@@ -96,8 +96,8 @@ If your game is from Steam or directly extracted from itch.io downloads, then yo
 Olympus rightaway.
 
 If you use the `celestegame` package, you cannot install Everest using Olympus. Read [#Installing
-Everest](#Installing_Everest "wikilink") for more information. A working snippet of NixOS configuration may look like
-this:
+Everest](#Installing_Everest "#Installing Everest"){.wikilink} for more information. A working snippet of NixOS
+configuration may look like this:
 
 ``` nix
 environment.systemPackages = with pkgs; [
@@ -159,11 +159,11 @@ this package does not support `gameDir`.
 [Everest](https://everestapi.github.io) is a mod loader for Celeste.
 
 Installing and using Everest for the game from Steam or the game directly extracted from itch.io downloads is not very
-different from the upstream documentation (other than the quirk that you may need [nix-ld](nix-ld "wikilink") or an FHS
-wrapper like `steam-run` to run MiniInstaller). However, different steps are needed if you use the `celestegame`
-package. Because the Nix store is read-only, some further steps are needed to install mods. You need to override the
-`writableDir` argument to make file writing happen there instead of in the Nix store path. Therefore, to install Celeste
-with Everest using the `celestegame` package, you can write:
+different from the upstream documentation (other than the quirk that you may need [nix-ld](nix-ld "nix-ld"){.wikilink}
+or an FHS wrapper like `steam-run` to run MiniInstaller). However, different steps are needed if you use the
+`celestegame` package. Because the Nix store is read-only, some further steps are needed to install mods. You need to
+override the `writableDir` argument to make file writing happen there instead of in the Nix store path. Therefore, to
+install Celeste with Everest using the `celestegame` package, you can write:
 
 ``` nix
 celestegame.override {
@@ -186,4 +186,5 @@ to a path that is writable by all of them is advised.
 `{{nixos:package|everest-mons}}`{=mediawiki} package. However, it is not advised to use Mons because it is now outdated
 and does not work with the current modding ecosystem anymore.
 
-[Category:Gaming](Category:Gaming "wikilink") [Category:Applications](Category:Applications "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

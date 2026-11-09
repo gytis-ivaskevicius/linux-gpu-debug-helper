@@ -9,8 +9,8 @@ Store](https://chromewebstore.google.com/detail/mailvelope-secure-your-em/kajibb
 
 ### Via Home-Manager {#via_home_manager}
 
-Many Firefox add-ons are packaged in the [Nix User Repository](Nix_User_Repository "wikilink"), in [rycee\'s
-repo](https://nur.nix-community.org/repos/rycee/).
+Many Firefox add-ons are packaged in the [Nix User Repository](Nix_User_Repository "Nix User Repository"){.wikilink}, in
+[rycee\'s repo](https://nur.nix-community.org/repos/rycee/).
 
 This allows you to install them declaratively:
 
@@ -31,7 +31,7 @@ This allows you to install them declaratively:
 
 ### Using with GnuPG {#using_with_gnupg}
 
-Mailvelope supports using your system\'s [GnuPG](GnuPG "wikilink") rather than the built-in \`OpenPGP.js\`.
+Mailvelope supports using your system\'s [GnuPG](GnuPG "GnuPG"){.wikilink} rather than the built-in \`OpenPGP.js\`.
 
 To allow communication between mailvelope and GnuPG, it must be allowed via native messaging hosts.
 
@@ -62,4 +62,4 @@ Or to your NixOS configuration via `{{nixos:option|programs.firefox.nativeMessag
 The json is based on the [upstream
 recommendation](https://github.com/mailvelope/mailvelope/wiki/Creating-the-app-manifest-file-on-macOS-and-Linux#firefox)
 
-[Category: Web Browser](Category:_Web_Browser "wikilink")
+[Category: Web Browser](Category:_Web_Browser "Category: Web Browser"){.wikilink}

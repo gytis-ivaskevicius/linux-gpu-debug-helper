@@ -1,11 +1,12 @@
-[Sway](https://swaywm.org/) is a tiling [Wayland](Wayland "wikilink") compositor and a drop-in replacement for the
-[i3](i3 "wikilink") window manager for X11. It can work with an existing i3 configuration and supports most of i3\'s
-features, plus a few extras. For users migrating from i3, see the [i3 migration
+[Sway](https://swaywm.org/) is a tiling [Wayland](Wayland "Wayland"){.wikilink} compositor and a drop-in replacement for
+the [i3](i3 "i3"){.wikilink} window manager for X11. It can work with an existing i3 configuration and supports most of
+i3\'s features, plus a few extras. For users migrating from i3, see the [i3 migration
 guide](https://github.com/swaywm/sway/wiki/i3-Migration-Guide).
 
 ## Setup
 
-You can install Sway by enabling it in NixOS directly, or by using [Home Manager](Home_Manager "wikilink"), or both.
+You can install Sway by enabling it in NixOS directly, or by using [Home
+Manager](Home_Manager "Home Manager"){.wikilink}, or both.
 
 ### Using NixOS {#using_nixos}
 
@@ -30,14 +31,15 @@ Here is a minimal configuration:
 }|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
 By default, the Sway module in NixOS comes with a set of extra packages, including
-[Foot](https://codeberg.org/dnkl/foot/) terminal, [Swayidle](Swayidle "wikilink"), [Swaylock](Swaylock "wikilink"), and
-[wmenu](https://codeberg.org/adnano/wmenu/), which may be configured under the
-[`programs.sway.extraPackages`](https://search.nixos.org/options?show=programs.sway.extraPackages) option. You may also
-want to include `wl-clipboard` for clipboard functionality, as well as a screenshot utility such as
-[Slurp](https://github.com/emersion/slurp) or [Flameshot](Flameshot "wikilink") for screenshot region selection.
+[Foot](https://codeberg.org/dnkl/foot/) terminal, [Swayidle](Swayidle "Swayidle"){.wikilink},
+[Swaylock](Swaylock "Swaylock"){.wikilink}, and [wmenu](https://codeberg.org/adnano/wmenu/), which may be configured
+under the [`programs.sway.extraPackages`](https://search.nixos.org/options?show=programs.sway.extraPackages) option. You
+may also want to include `wl-clipboard` for clipboard functionality, as well as a screenshot utility such as
+[Slurp](https://github.com/emersion/slurp) or [Flameshot](Flameshot "Flameshot"){.wikilink} for screenshot region
+selection.
 
-Additionally, for a more customizable bar implementation than `sway-bar`, [Waybar](Waybar "wikilink") may be enabled
-with `programs.waybar.enable`.
+Additionally, for a more customizable bar implementation than `sway-bar`, [Waybar](Waybar "Waybar"){.wikilink} may be
+enabled with `programs.waybar.enable`.
 
 The default Sway configuration is symlinked to `/etc/sway/config` and `/etc/sway/config.d/nixos.conf`. The latter file
 contains dbus and systemd configuration that is critical to using apps that depend on XDG desktop portals with Sway, and
@@ -45,17 +47,17 @@ should be included in any custom configuration files.
 
 A few general comments:
 
--   There is some friction between GTK theming and Sway. Currently the Sway developers suggest using gsettings to set
-    gtk theme attributes as described here [1](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland). There is
-    currently a plan to allow GTK theme attributes to be set directly in the Sway config.
--   Running Sway as a systemd user service is not recommended
-    [2](https://github.com/swaywm/sway/wiki/Systemd-integration#running-sway-itself-as-a---user-service)
-    [3](https://github.com/swaywm/sway/issues/5160)
+- There is some friction between GTK theming and Sway. Currently the Sway developers suggest using gsettings to set gtk
+  theme attributes as described here [1](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland). There is
+  currently a plan to allow GTK theme attributes to be set directly in the Sway config.
+- Running Sway as a systemd user service is not recommended
+  [2](https://github.com/swaywm/sway/wiki/Systemd-integration#running-sway-itself-as-a---user-service)
+  [3](https://github.com/swaywm/sway/issues/5160)
 
 ### Using Home Manager {#using_home_manager}
 
-To set up Sway using [Home Manager](Home_Manager "wikilink"), you must first enable [Polkit](Polkit "wikilink") in your
-NixOS configuration. `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+To set up Sway using [Home Manager](Home_Manager "Home Manager"){.wikilink}, you must first enable
+[Polkit](Polkit "Polkit"){.wikilink} in your NixOS configuration. `{{file|/etc/nixos/configuration.nix|nix|<nowiki>
 security.polkit.enable = true;
 </nowiki>}}`{=mediawiki}
 
@@ -115,7 +117,7 @@ When you launch Sway, the systemd service is started.
 
 ### Using a greeter {#using_a_greeter}
 
-Installing a greeter based on [greetd](greetd "wikilink") is the most straightforward way to launch Sway.
+Installing a greeter based on [greetd](greetd "greetd"){.wikilink} is the most straightforward way to launch Sway.
 
 #### TUIGreet
 
@@ -144,7 +146,7 @@ automatically find Sway and remembers the last picked option. Additional configu
 ### Automatic startup on boot {#automatic_startup_on_boot}
 
 The snippet below will start Sway immediately on startup, without a greeter and **without a login prompt**. Only
-consider using this in conjunction with [Full Disk Encryption](Full_Disk_Encryption "wikilink").
+consider using this in conjunction with [Full Disk Encryption](Full_Disk_Encryption "Full Disk Encryption"){.wikilink}.
 
 ``` nix
 services.getty = {
@@ -157,8 +159,8 @@ environment.loginShellInit = ''
 ```
 
 When launched directly from the TTY, Sway will not inherit the user environment. This may cause issues with systemd user
-services such as application launchers or [Swayidle](Swayidle "wikilink"). To fix this, add the following to your Home
-Manager configuration:`{{file|home.nix|nix|<nowiki>
+services such as application launchers or [Swayidle](Swayidle "Swayidle"){.wikilink}. To fix this, add the following to
+your Home Manager configuration:`{{file|home.nix|nix|<nowiki>
 wayland.windowManager.sway.systemd.variables = ["--all"];
 </nowiki>}}`{=mediawiki}
 
@@ -166,7 +168,7 @@ wayland.windowManager.sway.systemd.variables = ["--all"];
 
 It is recommended to enable a secret service provider such as [Gnome
 Keyring](https://wiki.gnome.org/Projects/GnomeKeyring). For more information on secret services check the [Secret
-Service](Secret_Service "wikilink") page.
+Service](Secret_Service "Secret Service"){.wikilink} page.
 
 Install and enable:
 `{{File|3=services.gnome.gnome-keyring.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki} In order
@@ -240,7 +242,7 @@ Or alternatively in Home Manager: `{{File|3=wayland.windowManager.sway = {
     };
   };
 };|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki}For an on screen display for audio and brightness, check
-[swayosd](swayosd "wikilink").
+[swayosd](swayosd "swayosd"){.wikilink}.
 
 ### Input
 
@@ -278,19 +280,18 @@ wayland.windowManager.sway = {
 
 }
 
-```{=html}
 </syntaxhighlight>
-```
+
 In \~/.config/sway/config
 
     seat "*" xcursor_theme Adwaita 32
 
 #### With Home Manager {#with_home_manager}
 
-Using [Home Manager](Home_Manager "wikilink") you may configure the mouse cursor size and theme. The reason that your
-cursor might be missing in some applications, is because `XCURSOR_THEME` is missing, which will cause applications
-relying on `XWAYLAND` to misbehave. Setting `sway.enable = true`, combined with the `name`, `package` and size will set
-the correct environment variables, which sway will then use.
+Using [Home Manager](Home_Manager "Home Manager"){.wikilink} you may configure the mouse cursor size and theme. The
+reason that your cursor might be missing in some applications, is because `XCURSOR_THEME` is missing, which will cause
+applications relying on `XWAYLAND` to misbehave. Setting `sway.enable = true`, combined with the `name`, `package` and
+size will set the correct environment variables, which sway will then use.
 
 ```{=mediawiki}
 {{File|3=home.pointerCursor = {
@@ -328,18 +329,16 @@ though they\'re in the system, you can set them as default fonts in your configu
 
 };
 
-```{=html}
 </syntaxhighlight>
-```
+
 ### Swaylock cannot be unlocked with the correct password {#swaylock_cannot_be_unlocked_with_the_correct_password}
 
 Add the following to your NixOS configuration.
 
 \<syntaxhighlight lang=\"nix\> security.pam.services.swaylock = {};
 
-```{=html}
 </syntaxhighlight>
-```
+
 The `programs.sway.enable` option does this automatically.
 
 ### Inferior performance compared to other distributions {#inferior_performance_compared_to_other_distributions}
@@ -376,7 +375,7 @@ the following to your home-manager configuration:
 See this [GitHub issue for Sway](https://github.com/swaywm/sway/issues/6590#issue-1021207180) and the solution give in
 [this response](https://github.com/swaywm/sway/issues/6590#issuecomment-938724355).
 
-Using [Home Manager](Home_Manager "wikilink") add the following to your Sway configuration:
+Using [Home Manager](Home_Manager "Home Manager"){.wikilink} add the following to your Sway configuration:
 
 ``` nix
 wayland.windowManager.sway = {
@@ -398,8 +397,8 @@ wayland.windowManager.sway = {
 
 This occurs because GTK apps make blocking calls to freedesktop portals to be displayed. If Sway is not integrated with
 dbus and systemd, it will not be able to communicate via the `org.freedesktop.portal.Desktop` portal. To fix this, see
-the [description](Sway#Using_NixOS "wikilink") of default Sway configurations earlier. Adding the following to your sway
-configuration, if it is not already present, may resolve the issue:
+the [description](Sway#Using_NixOS "description"){.wikilink} of default Sway configurations earlier. Adding the
+following to your sway configuration, if it is not already present, may resolve the issue:
 
 `include /etc/sway/config.d/*`
 
@@ -518,19 +517,19 @@ Manager you can enable udiskie.
 `{{File|3=services.udiskie.enable = true;|name=/etc/nixos/home.nix|lang=nix}}`{=mediawiki} Udiskie will automatically
 mount attached USB storage media.
 
-See related info on [USB storage devices](USB_storage_devices "wikilink").
+See related info on [USB storage devices](USB_storage_devices "USB storage devices"){.wikilink}.
 
 #### MTP (Android Phone Storage) {#mtp_android_phone_storage}
 
-File managers that support [GVfs](https://wiki.gnome.org/Projects/gvfs), such as [Thunar](Thunar "wikilink"), can mount
-MTP devices using GVfs. See the page on [MTP](MTP "wikilink") for related information.
+File managers that support [GVfs](https://wiki.gnome.org/Projects/gvfs), such as [Thunar](Thunar "Thunar"){.wikilink},
+can mount MTP devices using GVfs. See the page on [MTP](MTP "MTP"){.wikilink} for related information.
 `{{File|3=services.gvfs.enable = true;|name=/etc/nixos/configuration.nix|lang=nix}}`{=mediawiki}
 
 ### SwayFX
 
 [SwayFX](https://github.com/WillPower3309/swayfx) is a fork of Sway that adds eye-candy effects, installing it is as
-simple as replacing your Sway package with SwayFX. Check the [SwayFX](SwayFX "wikilink") page on the wiki for additional
-details. `{{File|3=wayland.windowManager.sway = {
+simple as replacing your Sway package with SwayFX. Check the [SwayFX](SwayFX "SwayFX"){.wikilink} page on the wiki for
+additional details. `{{File|3=wayland.windowManager.sway = {
   enable = true;
   package = pkgs.swayfx;
   
@@ -571,5 +570,5 @@ Add to sway config:
     # inhibit idle for fullscreen apps
     for_window [app_id="^.*"] inhibit_idle fullscreen
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

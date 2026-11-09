@@ -1,11 +1,11 @@
-[ja:Dillo](ja:Dillo "wikilink") [zh-hans:Dillo](zh-hans:Dillo "wikilink") [Dillo](https://dillo-browser.org/) is a
-multi-platform graphical web browser known for its speed and small footprint.
+[ja:Dillo](ja:Dillo "ja:Dillo"){.wikilink} [zh-hans:Dillo](zh-hans:Dillo "zh-hans:Dillo"){.wikilink}
+[Dillo](https://dillo-browser.org/) is a multi-platform graphical web browser known for its speed and small footprint.
 
--   Dillo is written in C and C++.
--   Dillo is based on FLTK1.3, the Fast Light Toolkit.
--   Dillo is free software made available under the terms of the GNU General Public License (GPLv3).
--   Dillo strives to be friendly both to users and developers.
--   Dillo helps web authors to comply with web standards by using the bug meter.
+- Dillo is written in C and C++.
+- Dillo is based on FLTK1.3, the Fast Light Toolkit.
+- Dillo is free software made available under the terms of the GNU General Public License (GPLv3).
+- Dillo strives to be friendly both to users and developers.
+- Dillo helps web authors to comply with web standards by using the bug meter.
 
 ```{=mediawiki}
 {{Note|The '''dillo.org''' website has not been under Dillo developers' control since [https://git.dillo-browser.org/dillo/commit/?id{{=}}
@@ -16,7 +16,7 @@ page). The project was moved to [GitHub](https://github.com/dillo-browser/dillo)
 
 ## Installation
 
-[Install](Install "wikilink") `{{Pkg|dillo}}`{=mediawiki}.
+[Install](Install "Install"){.wikilink} `{{Pkg|dillo}}`{=mediawiki}.
 
 ## Configuration
 
@@ -39,6 +39,6 @@ file[1](https://dillo-browser.org/old/FAQ.html#q8).
 
 ## See also {#see_also}
 
--   [Dillo Home Page](https://dillo-browser.org/)
+- [Dillo Home Page](https://dillo-browser.org/)
 
-[Category:Web browser](Category:Web_browser "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}

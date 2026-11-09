@@ -402,14 +402,15 @@ xdg.portal = {
 
 ## See also {#see_also}
 
--   [Home Manager](Home_Manager "wikilink") -- Declarative per-user configuration
--   [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
--   [Policy template options for Firefox](https://firefox-admin-docs.mozilla.org/reference/policies/)
+- [Home Manager](Home_Manager "Home Manager"){.wikilink} -- Declarative per-user configuration
+- [NixOS options for Firefox](https://search.nixos.org/options?channel=unstable&query=programs.firefox)
+- [Policy template options for Firefox](https://firefox-admin-docs.mozilla.org/reference/policies/)
 
 ## References
 
 `</translate>`{=html}
 
-[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
+Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
 
 [^1]: Mozilla Foundation, \"Firefox\", Official Website, Accessed June 2025. <https://www.mozilla.org/firefox>

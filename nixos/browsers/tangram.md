@@ -10,4 +10,5 @@ and other major breakages occur. You will need to enable `dconf` in order to fix
 programs.dconf.enable = true;
 ```
 
-[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
+Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}

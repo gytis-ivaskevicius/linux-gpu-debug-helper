@@ -1,25 +1,26 @@
 `<translate>`{=html} [Hyprland](https://hypr.land/) is an independent, extensible, bleeding-edge
-[Wayland](Wayland "wikilink") compositor written in modern C++ with an emphasis on looks. In addition, Hyprland also
-offers a number of first-party tools as well as a custom plugin system. The most up-to-date and complete documentation
-may be found on the project\'s own [wiki](https://wiki.hypr.land/).
+[Wayland](Wayland "Wayland"){.wikilink} compositor written in modern C++ with an emphasis on looks. In addition,
+Hyprland also offers a number of first-party tools as well as a custom plugin system. The most up-to-date and complete
+documentation may be found on the project\'s own [wiki](https://wiki.hypr.land/).
 
 Some of the most notable features of Hyprland are:
 
--   **Independent Wayland implementation**: Does not rely on wlroots or other external libraries, and provides an
-    in-house alternatives to common components (screen locking, idle daemon, etc).
--   **Easy to configure**: Uses a live reloading config file in plain-text with useful defaults.
--   **Dynamic tiling support**: Supports both automatic tiling and floating mode with multiple layouts.
--   **Socket-based IPC**: Allows controlling the compositor at runtime via UNIX socket.
--   **Global shortcuts**: Permits setting global keybinds for any application (for apps such as [OBS
-    Studio](OBS_Studio "wikilink")).
--   **Window/Workspace Rules**: Set special behaviors for certain windows and workspaces.
+- **Independent Wayland implementation**: Does not rely on wlroots or other external libraries, and provides an in-house
+  alternatives to common components (screen locking, idle daemon, etc).
+- **Easy to configure**: Uses a live reloading config file in plain-text with useful defaults.
+- **Dynamic tiling support**: Supports both automatic tiling and floating mode with multiple layouts.
+- **Socket-based IPC**: Allows controlling the compositor at runtime via UNIX socket.
+- **Global shortcuts**: Permits setting global keybinds for any application (for apps such as [OBS
+  Studio](OBS_Studio "OBS Studio"){.wikilink}).
+- **Window/Workspace Rules**: Set special behaviors for certain windows and workspaces.
 
 ## Installation
 
 NixOS 24.11 added support for launching Hyprland with [Universal Wayland Session
 Manager](https://github.com/Vladimir-csp/uwsm) (UWSM) and is the recommended way to launch Hyprland as it neatly
-integrates with [Systemd](Systemd "wikilink"). [Options for configuring UWSM may be found here](UWSM "wikilink"). Also
-see the Hyprland wiki [page for UWSM here](https://wiki.hypr.land/Useful-Utilities/Systemd-start/#uwsm).
+integrates with [Systemd](Systemd "Systemd"){.wikilink}. [Options for configuring UWSM may be found
+here](UWSM "Options for configuring UWSM may be found here"){.wikilink}. Also see the Hyprland wiki [page for UWSM
+here](https://wiki.hypr.land/Useful-Utilities/Systemd-start/#uwsm).
 
 ```{=mediawiki}
 {{file|||<nowiki>
@@ -51,7 +52,7 @@ $ nix profile install nixpkgs#hyprland
 ```
 
 In order for Hyprland to find graphics drivers on a non-NixOS system, you will need to install
-[nixGL](nixGL "wikilink"):
+[nixGL](nixGL "nixGL"){.wikilink}:
 
 ``` console
 $ nix profile install github:nix-community/nixGL --impure
@@ -67,12 +68,12 @@ $ nixGL Hyprland
 
 You may also be interested in the Hypr project\'s collection of tools:
 
--   **hyprlock**: Hyprland\'s GPU-accelerated screen locking utility.
--   **hypridle**: Hyprland\'s idle daemon.
--   [hyprpaper](hyprpaper "wikilink"): Hyprland\'s wallpaper utility.
--   **hyprsunset**: Application to enable a blue-light filter on Hyprland.
--   **hyprpicker**: Wayland color picker that does not suck.
--   **hyprpolkitagent**: Polkit authentication agent written in QT/QML.
+- **hyprlock**: Hyprland\'s GPU-accelerated screen locking utility.
+- **hypridle**: Hyprland\'s idle daemon.
+- [hyprpaper](hyprpaper "hyprpaper"){.wikilink}: Hyprland\'s wallpaper utility.
+- **hyprsunset**: Application to enable a blue-light filter on Hyprland.
+- **hyprpicker**: Wayland color picker that does not suck.
+- **hyprpolkitagent**: Polkit authentication agent written in QT/QML.
 
 All official Hypr\* programs are listed in the project\'s [wiki page](https://wiki.hypr.land/Hypr-Ecosystem/) along with
 documentation.
@@ -117,8 +118,8 @@ demonstrated below:
 </nowiki>}}
 ```
 If you experience performance drops in video games or graphics tools like Blender on stable NixOS, then it\'s likely a
-[Mesa](Mesa "wikilink") version mismatch with Hyprland and the rest of your system. This can be fixed by substituting
-the system\'s mesa package with Hyprland\'s own.
+[Mesa](Mesa "Mesa"){.wikilink} version mismatch with Hyprland and the rest of your system. This can be fixed by
+substituting the system\'s mesa package with Hyprland\'s own.
 
 ```{=mediawiki}
 {{file|3=<nowiki>
@@ -170,10 +171,10 @@ By default, Hyprland does not come with a [display manager](https://wiki.nixos.o
 does not advertise support for one. Though one can start hyprland directly from tty with `start-hyprland` or with
 `uwsm start select`, some display managers packaged in NixOS are compatible including but may not be limited to:
 
--   [SDDM](SDDM "wikilink")
--   [GDM](GDM "wikilink")
--   [Greetd](Greetd "wikilink") (especially with ReGreet)
--   [Ly](https://codeberg.org/fairyglade/ly) (not recommended, but works)
+- [SDDM](SDDM "SDDM"){.wikilink}
+- [GDM](GDM "GDM"){.wikilink}
+- [Greetd](Greetd "Greetd"){.wikilink} (especially with ReGreet)
+- [Ly](https://codeberg.org/fairyglade/ly) (not recommended, but works)
 
 ## Configuration
 
@@ -183,12 +184,12 @@ installed can be found in the [project\'s git
 repository](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua).
 
 Note that the default example configuration includes bindings that require programs that are not installed by default,
-for example: `hyprshutdown` for graceful shutdown, [`brightnessctl`](Backlight "wikilink") for the keyboard\'s screen
-brightness control keys, and [`kitty`](kitty "wikilink") for the terminal key binding. It is the responsibility of the
-end-user to install the packages that are required by their configuration file to their system, whether it is the
-Hyprland example configuration or their own.
+for example: `hyprshutdown` for graceful shutdown, [`brightnessctl`](Backlight "brightnessctl"){.wikilink} for the
+keyboard\'s screen brightness control keys, and [`kitty`](kitty "kitty"){.wikilink} for the terminal key binding. It is
+the responsibility of the end-user to install the packages that are required by their configuration file to their
+system, whether it is the Hyprland example configuration or their own.
 
-### Using [Home Manager](Home_Manager "wikilink") {#using_home_manager}
+### Using [Home Manager](Home_Manager "Home Manager"){.wikilink} {#using_home_manager}
 
 Home Manager allows for declarative configuration of Hyprland using Nix syntax. Entries with the same key should be
 written as lists. Variables' and colors' names should be quoted.
@@ -326,7 +327,7 @@ Hyprland boasts a growing plugin ecosystem that extends the functionality of the
 window decorations or a GNOME-like workspaces design. However, hyprpm is unsupported on NixOS due to the way Hyprland is
 built.
 
-The [Home Manager](Home_Manager "wikilink") module for Hyprland should be used instead:
+The [Home Manager](Home_Manager "Home Manager"){.wikilink} module for Hyprland should be used instead:
 
 ```{=mediawiki}
 {{File|3={
@@ -337,7 +338,7 @@ The [Home Manager](Home_Manager "wikilink") module for Hyprland should be used i
 ```
 [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins) is a repository of first-party plugins. If you wish to
 use these plugins it is recommended to use the Hyprland flake instead of the Nixpkgs version, and to use the [Home
-Manager](Home_Manager "wikilink") module for configuration.
+Manager](Home_Manager "Home Manager"){.wikilink} module for configuration.
 
 Add the flake into your flake inputs: `{{file|flake.nix|nix|<nowiki>
 {
@@ -435,12 +436,13 @@ manually.
 
 ## See also {#see_also}
 
--   [Hyprland Website](https://hypr.land/)
--   [The official documentation](https://wiki.hypr.land/)
--   [Hyprland Github Page](https://github.com/hyprwm/Hyprland/)
--   [Community-maintained list of tools, plugins and extensions](https://github.com/hyprland-community/awesome-hyprland)
+- [Hyprland Website](https://hypr.land/)
+- [The official documentation](https://wiki.hypr.land/)
+- [Hyprland Github Page](https://github.com/hyprwm/Hyprland/)
+- [Community-maintained list of tools, plugins and extensions](https://github.com/hyprland-community/awesome-hyprland)
 
 `</translate>`{=html}
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink") [Category:Hyprland](Category:Hyprland "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Hyprland](Category:Hyprland "Category:Hyprland"){.wikilink}

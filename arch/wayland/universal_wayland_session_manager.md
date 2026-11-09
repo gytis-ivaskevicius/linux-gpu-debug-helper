@@ -1,10 +1,12 @@
-[es:Universal Wayland Session Manager](es:Universal_Wayland_Session_Manager "wikilink") [ja:Universal Wayland Session
-Manager](ja:Universal_Wayland_Session_Manager "wikilink")
-[zh-hans:通用Wayland会话管理器](zh-hans:通用Wayland会话管理器 "wikilink") The [Universal Wayland Session
-Manager](https://github.com/Vladimir-csp/uwsm) (**uwsm**) wraps standalone [Wayland
-compositors](Wayland#Compositors "wikilink") into a set of [systemd](systemd "wikilink") units on the fly. This provides
-robust session management including environment, [XDG Autostart](XDG_Autostart "wikilink") support, bi-directional
-binding with login session, and clean shutdown.
+[es:Universal Wayland Session
+Manager](es:Universal_Wayland_Session_Manager "es:Universal Wayland Session Manager"){.wikilink} [ja:Universal Wayland
+Session Manager](ja:Universal_Wayland_Session_Manager "ja:Universal Wayland Session Manager"){.wikilink}
+[zh-hans:通用Wayland会话管理器](zh-hans:通用Wayland会话管理器 "zh-hans:通用Wayland会话管理器"){.wikilink} The [Universal
+Wayland Session Manager](https://github.com/Vladimir-csp/uwsm) (**uwsm**) wraps standalone [Wayland
+compositors](Wayland#Compositors "Wayland compositors"){.wikilink} into a set of [systemd](systemd "systemd"){.wikilink}
+units on the fly. This provides robust session management including environment, [XDG
+Autostart](XDG_Autostart "XDG Autostart"){.wikilink} support, bi-directional binding with login session, and clean
+shutdown.
 
 ```{=mediawiki}
 {{Note|It is highly recommended to use [[dbus-broker]] as the D-Bus daemon implementation. Among other benefits, it reuses the systemd activation environment instead of having a separate one. This simplifies environment management and allows proper cleanup. The [[D-Bus#Reference implementation|reference implementation]]
@@ -12,7 +14,7 @@ binding with login session, and clean shutdown.
 ```
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|uwsm}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|uwsm}}`{=mediawiki} package.
 
 ## Configuration
 
@@ -23,8 +25,8 @@ binding with login session, and clean shutdown.
 ```
 In order to find the current compositor, a Wayland application run as a systemd service needs the
 `{{ic|WAYLAND_DISPLAY}}`{=mediawiki} environment variable (or `{{ic|DISPLAY}}`{=mediawiki} if they are intended to run
-through [Xwayland](Xwayland "wikilink")). Therefore this and other useful environment variables should be put into the
-systemd/dbus activation environment once the compositor has set their values.
+through [Xwayland](Xwayland "Xwayland"){.wikilink}). Therefore this and other useful environment variables should be put
+into the systemd/dbus activation environment once the compositor has set their values.
 
 The command `{{ic|uwsm finalize}}`{=mediawiki} puts `{{ic|WAYLAND_DISPLAY}}`{=mediawiki}, `{{ic|DISPLAY}}`{=mediawiki}
 and other environment variables listed via the white-space separated `{{ic|UWSM_FINALIZE_VARNAMES}}`{=mediawiki} list
@@ -55,7 +57,7 @@ export ''KEY1''{{=}}`{=mediawiki}*VAR1* export *KEY2*{{=}}*VAR2* export *KEY3*{{
 ```{=mediawiki}
 {{Note|Environment preloader no longer sources POSIX shell profile if environment from the context of {{ic|uwsm start}} was successfully used.}}
 ```
-*uwsm* can be started both by TTY and by a [display manager](display_manager "wikilink").
+*uwsm* can be started both by TTY and by a [display manager](display_manager "display manager"){.wikilink}.
 
 #### TTY
 
@@ -99,7 +101,7 @@ DesktopNames{{=}}mycompositor;mylib Type{{=}}Application}}
 If you want to terminate the current uwsm session, then you should use either
 `{{ic|loginctl terminate-user ""}}`{=mediawiki} (terminates the entire user session) or `{{ic|uwsm stop}}`{=mediawiki}
 (executes code after `{{ic|uwsm start}}`{=mediawiki} or terminates user session, if it replaced the [login
-shell](login_shell "wikilink")).
+shell](login_shell "login shell"){.wikilink}).
 
 ```{=mediawiki}
 {{Note|Do not use a compositor's native exit mechanism or kill its process directly. This will yank the compositor from under all the clients and interfere with ordered unit deactivation sequence.}}
@@ -117,7 +119,7 @@ executables
 
 `uwsm app -- `*`/my/program/path`*
 
-and [desktop entries](desktop_entries "wikilink")
+and [desktop entries](desktop_entries "desktop entries"){.wikilink}
 
 `uwsm app -- `*`myprogram`*`.desktop`
 
@@ -131,24 +133,24 @@ respectively use options `{{ic|-s b}}`{=mediawiki}, `{{ic|-s s}}`{=mediawiki}:
 
 Instead of `{{ic|uwsm app}}`{=mediawiki} (which runs as a Python script), you can use a faster alternative:
 
--   uwsm\'s `{{ic|uwsm-app}}`{=mediawiki} script which communicates with uwsm\'s app daemon.
+- uwsm\'s `{{ic|uwsm-app}}`{=mediawiki} script which communicates with uwsm\'s app daemon.
 
--   ```{=mediawiki}
-    {{AUR|app2unit-git}}
-    ```
-    , which is a shell script. You can use it as a drop-in replacement of `{{ic|uwsm app}}`{=mediawiki} by setting the
-    `{{ic|APP2UNIT_SLICES}}`{=mediawiki} environment variable as follows:
-    `{{bc|1=APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'}}`{=mediawiki}
+- ```{=mediawiki}
+  {{AUR|app2unit-git}}
+  ```
+  , which is a shell script. You can use it as a drop-in replacement of `{{ic|uwsm app}}`{=mediawiki} by setting the
+  `{{ic|APP2UNIT_SLICES}}`{=mediawiki} environment variable as follows:
+  `{{bc|1=APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'}}`{=mediawiki}
 
--   ```{=mediawiki}
-    {{AUR|runapp}}
-    ```
-    , which is written in C++, but missing some features.
+- ```{=mediawiki}
+  {{AUR|runapp}}
+  ```
+  , which is written in C++, but missing some features.
 
 ## See also {#see_also}
 
--   ```{=mediawiki}
-    {{man|1|uwsm}}
-    ```
+- ```{=mediawiki}
+  {{man|1|uwsm}}
+  ```
 
-[Category:Wayland](Category:Wayland "wikilink")
+[Category:Wayland](Category:Wayland "Category:Wayland"){.wikilink}

@@ -1,6 +1,7 @@
-[de:Firefox](de:Firefox "wikilink") [es:Firefox](es:Firefox "wikilink") [ja:Firefox](ja:Firefox "wikilink")
-[ru:Firefox](ru:Firefox "wikilink") [zh-hans:Firefox](zh-hans:Firefox "wikilink")
-[zh-hant:Firefox](zh-hant:Firefox "wikilink") `{{Related articles start}}`{=mediawiki}
+[de:Firefox](de:Firefox "de:Firefox"){.wikilink} [es:Firefox](es:Firefox "es:Firefox"){.wikilink}
+[ja:Firefox](ja:Firefox "ja:Firefox"){.wikilink} [ru:Firefox](ru:Firefox "ru:Firefox"){.wikilink}
+[zh-hans:Firefox](zh-hans:Firefox "zh-hans:Firefox"){.wikilink}
+[zh-hant:Firefox](zh-hant:Firefox "zh-hant:Firefox"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|/Privacy}}`{=mediawiki} `{{Related|/Profile on RAM}}`{=mediawiki} `{{Related|/Tweaks}}`{=mediawiki}
 `{{Related|Browser extensions}}`{=mediawiki} `{{Related|Tor}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
@@ -9,28 +10,29 @@
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|firefox}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|firefox}}`{=mediawiki} package.
 
 Alternatively, install one of the following:
 
--   ```{=mediawiki}
-    {{App|Firefox Beta|Cutting-edge version.|https://www.firefox.com/channel/desktop/#beta|{{AUR|firefox-beta-bin}}}}
-    ```
+- ```{=mediawiki}
+  {{App|Firefox Beta|Cutting-edge version.|https://www.firefox.com/channel/desktop/#beta|{{AUR|firefox-beta-bin}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|Firefox Developer Edition|For developers.|https://www.firefox.com/channel/desktop/developer/|{{Pkg|firefox-developer-edition}}}}
-    ```
+- ```{=mediawiki}
+  {{App|Firefox Developer Edition|For developers.|https://www.firefox.com/channel/desktop/developer/|{{Pkg|firefox-developer-edition}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|Firefox Extended Support Release|Long-term support version.|https://www.firefox.com/browsers/enterprise/|{{AUR|firefox-esr}}}}
-    ```
+- ```{=mediawiki}
+  {{App|Firefox Extended Support Release|Long-term support version.|https://www.firefox.com/browsers/enterprise/|{{AUR|firefox-esr}}}}
+  ```
 
--   ```{=mediawiki}
-    {{App|Firefox Nightly|Nightly builds for testing [https://developer.mozilla.org/Firefox/Experimental_features experimental features].|https://www.firefox.com/en-US/channel/desktop/#nightly|{{AUR|firefox-nightly}}}}
-    ```
+- ```{=mediawiki}
+  {{App|Firefox Nightly|Nightly builds for testing [https://developer.mozilla.org/Firefox/Experimental_features experimental features].|https://www.firefox.com/en-US/channel/desktop/#nightly|{{AUR|firefox-nightly}}}}
+  ```
 
 On top of the different Mozilla build channels, a number of forks exist with more or less special features---see [List
-of applications/Internet#Gecko-based](List_of_applications/Internet#Gecko-based "wikilink").
+of
+applications/Internet#Gecko-based](List_of_applications/Internet#Gecko-based "List of applications/Internet#Gecko-based"){.wikilink}.
 
 A number of language packs are available for Firefox, other than the standard English. Language packs are usually named
 as `{{ic|firefox-i18n-''languagecode''}}`{=mediawiki} (where `{{ic|''languagecode''}}`{=mediawiki} can be any language
@@ -49,16 +51,16 @@ Firefox is well known for its large library of add-ons which can be used to add 
 existing features. Firefox\'s \"Add-ons Manager\" is used to manage installed add-ons or find new ones.
 
 For instructions on how to install add-ons and a list of add-ons, see [Browser
-extensions](Browser_extensions "wikilink").
+extensions](Browser_extensions "Browser extensions"){.wikilink}.
 
 ### Adding search engines {#adding_search_engines}
 
 Search engines may be added to Firefox by creating bookmarks:
 
--   Press the star on the address bar or `{{ic|Ctrl+d}}`{=mediawiki}.
--   Right click on the bookmark you have created, then press *Edit Bookmark\...*
--   Complete the *URL* field with search URLs. Complete the place of the query with `{{ic|%s}}`{=mediawiki}. Complete
-    the *Keyword* field with user-defined characters. Like this:
+- Press the star on the address bar or `{{ic|Ctrl+d}}`{=mediawiki}.
+- Right click on the bookmark you have created, then press *Edit Bookmark\...*
+- Complete the *URL* field with search URLs. Complete the place of the query with `{{ic|%s}}`{=mediawiki}. Complete the
+  *Keyword* field with user-defined characters. Like this:
 
 `URL:`\
 [`https://duckduckgo.com/html/?q=%s`](https://duckduckgo.com/html/?q=%s)\
@@ -78,8 +80,8 @@ A very extensive list of search engines can be found at the [Mycroft Project](ht
 
 #### firefox-extension-arch-search {#firefox_extension_arch_search}
 
-[Install](Install "wikilink") the `{{AUR|firefox-extension-arch-search}}`{=mediawiki} package to add Arch-specific
-searches (AUR, wiki, forum, packages, etc) to the Firefox search toolbar.
+[Install](Install "Install"){.wikilink} the `{{AUR|firefox-extension-arch-search}}`{=mediawiki} package to add
+Arch-specific searches (AUR, wiki, forum, packages, etc) to the Firefox search toolbar.
 
 ## Configuration
 
@@ -143,13 +145,13 @@ of `{{ic|user.js}}`{=mediawiki}.
 
 ### Multimedia playback {#multimedia_playback}
 
-Firefox uses [FFmpeg](FFmpeg "wikilink") for playing multimedia inside HTML5 `{{ic|<audio>}}`{=mediawiki} and
+Firefox uses [FFmpeg](FFmpeg "FFmpeg"){.wikilink} for playing multimedia inside HTML5 `{{ic|<audio>}}`{=mediawiki} and
 `{{ic|<video>}}`{=mediawiki} elements. Use <https://cconcolato.github.io/media-mime-support/> to test video or
 <https://hpr.dogphilosophy.net/test/> to test audio, to determine which formats are actually supported.
 
-Firefox uses [PulseAudio](PulseAudio "wikilink") for audio playback and capture. If PulseAudio is not installed, Firefox
-uses [ALSA](ALSA "wikilink") instead. Note that by default, Firefox blocks all media with sound from playing
-automatically [1](https://support.mozilla.org/en-US/kb/block-autoplay).
+Firefox uses [PulseAudio](PulseAudio "PulseAudio"){.wikilink} for audio playback and capture. If PulseAudio is not
+installed, Firefox uses [ALSA](ALSA "ALSA"){.wikilink} instead. Note that by default, Firefox blocks all media with
+sound from playing automatically [1](https://support.mozilla.org/en-US/kb/block-autoplay).
 
 ```{=mediawiki}
 {{Tip|Firefox might not play video if audio is not configured. If you are intending to use [[PipeWire]] and [[WirePlumber]], make sure they are working properly and have the necessary {{Pkg|pipewire-pulse}} compatibility layer.}}
@@ -175,7 +177,7 @@ disabled, for the window and in the Settings.
 5.  In the dialog, write a name for this menu entry and command to start a video streaming capable player (e.g.
     `{{ic|/usr/bin/mpv}}`{=mediawiki}).
     1.  Optionally, add needed arguments to the player (e.g. you may want `{{ic|--force-window --ytdl}}`{=mediawiki} for
-        [mpv](mpv "wikilink")).
+        [mpv](mpv "mpv"){.wikilink}).
 6.  Right click on links or visit pages containing videos. Select newly created entry from Open With\'s menu and if the
     site is supported, the player will open as expected.
 
@@ -188,26 +190,26 @@ The same procedure can be used to associate video downloaders such as *youtube-d
 ```
 ##### VA-API {#va_api}
 
-[Hardware video acceleration](Hardware_video_acceleration "wikilink") via VA-API is available under
-[Wayland](Wayland "wikilink")
+[Hardware video acceleration](Hardware_video_acceleration "Hardware video acceleration"){.wikilink} via VA-API is
+available under [Wayland](Wayland "Wayland"){.wikilink}
 [2](https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/) and
-[Xorg](Xorg "wikilink") [3](https://bugzilla.mozilla.org/show_bug.cgi?id=1619523)
+[Xorg](Xorg "Xorg"){.wikilink} [3](https://bugzilla.mozilla.org/show_bug.cgi?id=1619523)
 [4](https://www.phoronix.com/scan.php?page=news_item&px=Firefox-80-VA-API-X11).
 
 To enable VA-API in Firefox:
 
 1.  Ensure that your video card is correctly configured for VA-API as described in [Hardware video
-    acceleration](Hardware_video_acceleration "wikilink").
+    acceleration](Hardware_video_acceleration "Hardware video acceleration"){.wikilink}.
 2.  Ensure WebRender is enabled by navigating to `{{ic|about:support}}`{=mediawiki} and verifying the *Compositing*
     value is \"WebRender\". It is enabled by default in GNOME and other desktop environments
     [5](https://mastransky.wordpress.com/2021/01/10/firefox-were-finally-getting-hw-acceleration-on-linux/).
-    -   Ensure you are not running \"Software WebRender\" as that will not work as of August 2021
-        [6](https://bugzilla.mozilla.org/show_bug.cgi?id=1723540#c1).
-    -   If necessary, Hardware WebRender can be force enabled by setting `{{ic|gfx.webrender.all}}`{=mediawiki} to
-        `{{ic|true}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
-3.  VA-API is enabled by default for [Intel](Intel "wikilink") GPUs
-    [7](https://bugzilla.mozilla.org/show_bug.cgi?id=1777430) since Firefox 115, and for [AMD](AMD "wikilink") GPUs
-    [8](https://bugzilla.mozilla.org/show_bug.cgi?id=1837140) since Firefox 136. For other GPUs, set
+    - Ensure you are not running \"Software WebRender\" as that will not work as of August 2021
+      [6](https://bugzilla.mozilla.org/show_bug.cgi?id=1723540#c1).
+    - If necessary, Hardware WebRender can be force enabled by setting `{{ic|gfx.webrender.all}}`{=mediawiki} to
+      `{{ic|true}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
+3.  VA-API is enabled by default for [Intel](Intel "Intel"){.wikilink} GPUs
+    [7](https://bugzilla.mozilla.org/show_bug.cgi?id=1777430) since Firefox 115, and for [AMD](AMD "AMD"){.wikilink}
+    GPUs [8](https://bugzilla.mozilla.org/show_bug.cgi?id=1837140) since Firefox 136. For other GPUs, set
     `{{ic|media.hardware-video-decoding.force-enabled}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} in
     `{{ic|about:config}}`{=mediawiki}.
 4.  Optionally, to save power on multi-GPU systems (e.g. Ryzen 7000 series with IGP and GPU) and/or take advantage of
@@ -227,20 +229,20 @@ particular setup.
 . See [9](https://bbs.archlinux.org/viewtopic.php?id=281398) for more information. Alternatively, you can install
 `{{AUR|firefox-vaapi}}`{=mediawiki}.
 
--   While NVIDIA\'s proprietary driver does not support VA-API, newer versions support DMA-BUF. Using
-    `{{Pkg|libva-nvidia-driver}}`{=mediawiki} will allow for hardware video decoding on NVIDIA using
-    [CUDA](CUDA "wikilink"). See the [GitHub project](https://github.com/elFarto/nvidia-vaapi-driver/#firefox) for
-    documentation on necessary environment variables and <about:config> changes.
--   Multi-GPU systems should automatically choose a suitable GPU for VA-API according to this [solved
-    issue](https://bugzilla.mozilla.org/show_bug.cgi?id=1588904#c36).
--   [AMDGPU](AMDGPU "wikilink") users under `{{Pkg|linux-hardened}}`{=mediawiki} may need to rebuild *linux-hardened*
-    with `{{ic|1=CONFIG_CHECKPOINT_RESTORE=y}}`{=mediawiki} due to `{{Pkg|mesa}}`{=mediawiki} [requiring the kcmp
-    syscall](https://gitweb.gentoo.org/repo/gentoo.git/tree/media-libs/mesa/mesa-9999.ebuild). This may no longer be
-    necessary due to this [bug being solved](https://bugzilla.mozilla.org/show_bug.cgi?id=1624743).
--   Wayland sometimes interferes with hardware video decoding. If video briefly flickers when you go fullscreen, you may
-    need to set `{{ic|1=widget.wayland.opaque-region.enabled=false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
--   If you are using `{{Pkg|nvidia-open}}`{=mediawiki} or `{{Pkg|nvidia-open-dkms}}`{=mediawiki},
-    `{{ic|nvidia-smi}}`{=mediawiki} may show the VRAM usage by firefox is 0MB. This is normal and can be ignored.
+- While NVIDIA\'s proprietary driver does not support VA-API, newer versions support DMA-BUF. Using
+  `{{Pkg|libva-nvidia-driver}}`{=mediawiki} will allow for hardware video decoding on NVIDIA using
+  [CUDA](CUDA "CUDA"){.wikilink}. See the [GitHub project](https://github.com/elFarto/nvidia-vaapi-driver/#firefox) for
+  documentation on necessary environment variables and <about:config> changes.
+- Multi-GPU systems should automatically choose a suitable GPU for VA-API according to this [solved
+  issue](https://bugzilla.mozilla.org/show_bug.cgi?id=1588904#c36).
+- [AMDGPU](AMDGPU "AMDGPU"){.wikilink} users under `{{Pkg|linux-hardened}}`{=mediawiki} may need to rebuild
+  *linux-hardened* with `{{ic|1=CONFIG_CHECKPOINT_RESTORE=y}}`{=mediawiki} due to `{{Pkg|mesa}}`{=mediawiki} [requiring
+  the kcmp syscall](https://gitweb.gentoo.org/repo/gentoo.git/tree/media-libs/mesa/mesa-9999.ebuild). This may no longer
+  be necessary due to this [bug being solved](https://bugzilla.mozilla.org/show_bug.cgi?id=1624743).
+- Wayland sometimes interferes with hardware video decoding. If video briefly flickers when you go fullscreen, you may
+  need to set `{{ic|1=widget.wayland.opaque-region.enabled=false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
+- If you are using `{{Pkg|nvidia-open}}`{=mediawiki} or `{{Pkg|nvidia-open-dkms}}`{=mediawiki},
+  `{{ic|nvidia-smi}}`{=mediawiki} may show the VRAM usage by firefox is 0MB. This is normal and can be ignored.
 
 }}
 
@@ -262,43 +264,44 @@ In recent Firefox versions some GPUs were blocklisted from Vulkan decoding. Chec
 page to see if it is actually enabled. If not, set
 `{{ic|media.hardware-video-decoding-vulkan.force-enabled}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} to force enable it.
 
-+-----------------------------+------------------+-------------------------------------------------------------------+
-| Vendor                      | Status           | Notes                                                             |
-+=============================+==================+===================================================================+
-| [NVIDIA](NVIDIA "wikilink") | Partial          | -   Copy path: Maxwell and newer.                                 |
-|                             |                  | -   Direct export: Works on Turing and newer.                     |
-|                             |                  | -   Direct export is broken on the 580.xx driver series due to    |
-|                             |                  |     driver bugs.                                                  |
-|                             |                  | -   Compared to `{{Pkg|libva-nvidia-driver}}`{=mediawiki}, Vulkan |
-|                             |                  |     Video does not require disabling the RDD sandbox and requires |
-|                             |                  |     less additional configuration.                                |
-+-----------------------------+------------------+-------------------------------------------------------------------+
-| [AMD](AMD "wikilink")       | Reported working | -   Copy path: should work on all supported GPUs.                 |
-|                             |                  | -   Direct export: may not work on some GPUs.                     |
-+-----------------------------+------------------+-------------------------------------------------------------------+
-| [Intel](Intel "wikilink")   | Unknown          | No user reports observed                                          |
-+-----------------------------+------------------+-------------------------------------------------------------------+
++--------------------------------------+------------------+------------------------------------------------------------+
+| Vendor                               | Status           | Notes                                                      |
++======================================+==================+============================================================+
+| [NVIDIA](NVIDIA "NVIDIA"){.wikilink} | Partial          | - Copy path: Maxwell and newer.                            |
+|                                      |                  | - Direct export: Works on Turing and newer.                |
+|                                      |                  | - Direct export is broken on the 580.xx driver series due  |
+|                                      |                  |   to driver bugs.                                          |
+|                                      |                  | - Compared to `{{Pkg|libva-nvidia-driver}}`{=mediawiki},   |
+|                                      |                  |   Vulkan Video does not require disabling the RDD sandbox  |
+|                                      |                  |   and requires less additional configuration.              |
++--------------------------------------+------------------+------------------------------------------------------------+
+| [AMD](AMD "AMD"){.wikilink}          | Reported working | - Copy path: should work on all supported GPUs.            |
+|                                      |                  | - Direct export: may not work on some GPUs.                |
++--------------------------------------+------------------+------------------------------------------------------------+
+| [Intel](Intel "Intel"){.wikilink}    | Unknown          | No user reports observed                                   |
++--------------------------------------+------------------+------------------------------------------------------------+
 
-: Vulkan Video support (Firefox 156.0 / [FFmpeg](FFmpeg "wikilink") 9.0.2)
+: Vulkan Video support (Firefox 156.0 / [FFmpeg](FFmpeg "FFmpeg"){.wikilink} 9.0.2)
 
 See [Hardware video acceleration#Configuring Vulkan
-Video](Hardware_video_acceleration#Configuring_Vulkan_Video "wikilink") for more info on hardware support.
+Video](Hardware_video_acceleration#Configuring_Vulkan_Video "Hardware video acceleration#Configuring Vulkan Video"){.wikilink}
+for more info on hardware support.
 
 ### Spell checking {#spell_checking}
 
-Firefox can use system-wide installed [Hunspell](Hunspell "wikilink") dictionaries as well as dictionaries installed
-through its own extension system.
+Firefox can use system-wide installed [Hunspell](Hunspell "Hunspell"){.wikilink} dictionaries as well as dictionaries
+installed through its own extension system.
 
 To enable spell checking for a specific language, right click on any text field and check the *Check Spelling* box. To
 select a language for spell checking, you have to right click again and select your language from the *Languages*
 sub-menu.
 
 If your default language choice does not stick, see [#Firefox does not remember default spell check
-language](#Firefox_does_not_remember_default_spell_check_language "wikilink").
+language](#Firefox_does_not_remember_default_spell_check_language "#Firefox does not remember default spell check language"){.wikilink}.
 
 #### System-wide Hunspell dictionaries {#system_wide_hunspell_dictionaries}
 
-Install [Hunspell](Hunspell "wikilink") and its dictionaries for the languages you require.
+Install [Hunspell](Hunspell "Hunspell"){.wikilink} and its dictionaries for the languages you require.
 
 #### Dictionaries as extensions {#dictionaries_as_extensions}
 
@@ -310,72 +313,74 @@ install from the [Dictionaries and Language Packs list](https://addons.mozilla.o
 ```
 ### XDG Desktop Portal integration {#xdg_desktop_portal_integration}
 
-Starting with version 64, Firefox can optionally use [XDG Desktop Portals](XDG_Desktop_Portal "wikilink") to handle
-various desktop features, such as opening a file picker, or handling [MIME types](Default_applications "wikilink").
-Using Desktop Portals allows you to, for example, customize which program is invoked to display a dialog when you select
-files to upload on a webpage or when picking a download location using *Save as\...*. See [XDG Desktop Portal#List of
-backends and interfaces](XDG_Desktop_Portal#List_of_backends_and_interfaces "wikilink") for a list of available backend
-options.
+Starting with version 64, Firefox can optionally use [XDG Desktop
+Portals](XDG_Desktop_Portal "XDG Desktop Portal"){.wikilink} to handle various desktop features, such as opening a file
+picker, or handling [MIME types](Default_applications "MIME type"){.wikilink}. Using Desktop Portals allows you to, for
+example, customize which program is invoked to display a dialog when you select files to upload on a webpage or when
+picking a download location using *Save as\...*. See [XDG Desktop Portal#List of backends and
+interfaces](XDG_Desktop_Portal#List_of_backends_and_interfaces "XDG Desktop Portal#List of backends and interfaces"){.wikilink}
+for a list of available backend options.
 
 Firefox has a number of independent settings for specifying whether each feature should be handled with a Desktop Portal
 request or whether to use the default GTK feature.
 
 Each setting can have the following values:
 
--   ```{=mediawiki}
-    {{ic|0}}
-    ```
-    -- Never
+- ```{=mediawiki}
+  {{ic|0}}
+  ```
+  -- Never
 
--   ```{=mediawiki}
-    {{ic|1}}
-    ```
-    -- Always
+- ```{=mediawiki}
+  {{ic|1}}
+  ```
+  -- Always
 
--   ```{=mediawiki}
-    {{ic|2}}
-    ```
-    -- Auto (typically depends on whether Firefox is run from within [Flatpak](Flatpak "wikilink") or whether the
-    `{{ic|1=GDK_DEBUG=portals}}`{=mediawiki} environment is set)
+- ```{=mediawiki}
+  {{ic|2}}
+  ```
+  -- Auto (typically depends on whether Firefox is run from within [Flatpak](Flatpak "Flatpak"){.wikilink} or whether
+  the `{{ic|1=GDK_DEBUG=portals}}`{=mediawiki} environment is set)
 
 The settings are:
 
--   ```{=mediawiki}
-    {{ic|widget.use-xdg-desktop-portal.file-picker}}
-    ```
-    -- Whether to use XDG portal for the file picker
+- ```{=mediawiki}
+  {{ic|widget.use-xdg-desktop-portal.file-picker}}
+  ```
+  -- Whether to use XDG portal for the file picker
 
--   ```{=mediawiki}
-    {{ic|widget.use-xdg-desktop-portal.mime-handler}}
-    ```
-    -- Whether to use XDG portal for the mime handler
+- ```{=mediawiki}
+  {{ic|widget.use-xdg-desktop-portal.mime-handler}}
+  ```
+  -- Whether to use XDG portal for the mime handler
 
--   ```{=mediawiki}
-    {{ic|widget.use-xdg-desktop-portal.settings}}
-    ```
-    -- Whether to try to use XDG portal for settings/look-and-feel information
+- ```{=mediawiki}
+  {{ic|widget.use-xdg-desktop-portal.settings}}
+  ```
+  -- Whether to try to use XDG portal for settings/look-and-feel information
 
--   ```{=mediawiki}
-    {{ic|widget.use-xdg-desktop-portal.location}}
-    ```
-    -- Whether to use XDG portal for geolocation
+- ```{=mediawiki}
+  {{ic|widget.use-xdg-desktop-portal.location}}
+  ```
+  -- Whether to use XDG portal for geolocation
 
--   ```{=mediawiki}
-    {{ic|widget.use-xdg-desktop-portal.open-uri}}
-    ```
-    -- Whether to use XDG portal for opening to a file
+- ```{=mediawiki}
+  {{ic|widget.use-xdg-desktop-portal.open-uri}}
+  ```
+  -- Whether to use XDG portal for opening to a file
 
 ### KDE integration {#kde_integration}
 
--   To apply KDE styles to GTK applications, including Firefox, see [KDE#GTK application
-    appearance](KDE#GTK_application_appearance "wikilink"). This also restores the minimize and maximize buttons.
--   To use the KDE file picker in Firefox 64 or newer, install `{{Pkg|xdg-desktop-portal}}`{=mediawiki} and
-    `{{Pkg|xdg-desktop-portal-kde}}`{=mediawiki}, then set
-    `{{ic|widget.use-xdg-desktop-portal.file-picker}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} in
-    `{{ic|about:config}}`{=mediawiki}.
--   Extensions/add-ons may provide additional integration, such as:
-    -   Browser integration in [Plasma](Plasma "wikilink"): requires `{{Pkg|plasma-browser-integration}}`{=mediawiki}
-        and the [Plasma Integration add-on](https://addons.mozilla.org/firefox/addon/plasma-integration/).
+- To apply KDE styles to GTK applications, including Firefox, see [KDE#GTK application
+  appearance](KDE#GTK_application_appearance "KDE#GTK application appearance"){.wikilink}. This also restores the
+  minimize and maximize buttons.
+- To use the KDE file picker in Firefox 64 or newer, install `{{Pkg|xdg-desktop-portal}}`{=mediawiki} and
+  `{{Pkg|xdg-desktop-portal-kde}}`{=mediawiki}, then set `{{ic|widget.use-xdg-desktop-portal.file-picker}}`{=mediawiki}
+  to `{{ic|1}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
+- Extensions/add-ons may provide additional integration, such as:
+  - Browser integration in [Plasma](Plasma "Plasma"){.wikilink}: requires
+    `{{Pkg|plasma-browser-integration}}`{=mediawiki} and the [Plasma Integration
+    add-on](https://addons.mozilla.org/firefox/addon/plasma-integration/).
 
 :   
 
@@ -396,8 +401,8 @@ Firefox can perform Text to Speech synthesis for web pages.
 #### Setup
 
 TTS must be setup for the *Listen* icon to appear in the Reader view. Firefox uses [Speech
-dispatcher](Speech_dispatcher "wikilink") which requires a speech synthesis engine. The currently recommended speech
-synthesis engine is [Festival](Festival "wikilink").
+dispatcher](Speech_dispatcher "Speech dispatcher"){.wikilink} which requires a speech synthesis engine. The currently
+recommended speech synthesis engine is [Festival](Festival "Festival"){.wikilink}.
 
 #### Usage
 
@@ -411,8 +416,9 @@ Festival).
 Furthermore, sometimes a Festival server process may linger after you have tried to kill it, but will terminate after
 you shut down Firefox.
 
-For common issues, see [#Web Speech API has no voices](#Web_Speech_API_has_no_voices "wikilink") and [#Narrate/Listen
-icon missing in Reader Mode](#Narrate/Listen_icon_missing_in_Reader_Mode "wikilink").
+For common issues, see [#Web Speech API has no
+voices](#Web_Speech_API_has_no_voices "#Web Speech API has no voices"){.wikilink} and [#Narrate/Listen icon missing in
+Reader Mode](#Narrate/Listen_icon_missing_in_Reader_Mode "#Narrate/Listen icon missing in Reader Mode"){.wikilink}.
 
 #### Using the festival-us voices {#using_the_festival_us_voices}
 
@@ -424,19 +430,19 @@ Festival server:
 ```{=mediawiki}
 {{bc| SIOD: unknown voice cmu_us_awb_cg }}
 ```
-To fix this you need to [edit](textedit "wikilink") the following files:
+To fix this you need to [edit](textedit "edit"){.wikilink} the following files:
 
--   ```{=mediawiki}
-    {{ic|/usr/share/festival/voices/us/cmu_us_awb_cg/festvox/cmu_us_awb_cg.scm}}
-    ```
+- ```{=mediawiki}
+  {{ic|/usr/share/festival/voices/us/cmu_us_awb_cg/festvox/cmu_us_awb_cg.scm}}
+  ```
 
--   ```{=mediawiki}
-    {{ic|/usr/share/festival/voices/us/cmu_us_rms_cg/festvox/cmu_us_rms_cg.scm}}
-    ```
+- ```{=mediawiki}
+  {{ic|/usr/share/festival/voices/us/cmu_us_rms_cg/festvox/cmu_us_rms_cg.scm}}
+  ```
 
--   ```{=mediawiki}
-    {{ic|/usr/share/festival/voices/us/cmu_us_slt_cg/festvox/cmu_us_slt_cg.scm}}
-    ```
+- ```{=mediawiki}
+  {{ic|/usr/share/festival/voices/us/cmu_us_slt_cg/festvox/cmu_us_slt_cg.scm}}
+  ```
 
 For each of these files you need to add some code to the second last line of code of each file, eg for
 `{{ic|cmu_us_awb_cg.scm}}`{=mediawiki} add code before this line: `{{bc|(provide 'cmu_us_awb_cg)}}`{=mediawiki}
@@ -456,8 +462,8 @@ gender, dialect and description as appropriate for the other two files. `{{bc|
 ```
 ## Tips and tricks {#tips_and_tricks}
 
-For general enhancements, see [Firefox/Tweaks](Firefox/Tweaks "wikilink"), and for privacy related enhancements, see
-[Firefox/Privacy](Firefox/Privacy "wikilink").
+For general enhancements, see [Firefox/Tweaks](Firefox/Tweaks "Firefox/Tweaks"){.wikilink}, and for privacy related
+enhancements, see [Firefox/Privacy](Firefox/Privacy "Firefox/Privacy"){.wikilink}.
 
 ### Dark themes {#dark_themes}
 
@@ -487,8 +493,8 @@ If Firefox is unable to automatically detect the right value, it will default to
 
 ### Memory limit {#memory_limit}
 
-To prevent pages from abusing memory (and possible [OOM](Wikipedia:Out_of_memory "wikilink")), we can use
-[Firejail](Firejail "wikilink") with the `{{ic|rlimit-as}}`{=mediawiki} option.
+To prevent pages from abusing memory (and possible [OOM](Wikipedia:Out_of_memory "OOM"){.wikilink}), we can use
+[Firejail](Firejail "Firejail"){.wikilink} with the `{{ic|rlimit-as}}`{=mediawiki} option.
 
 ### New tabs position {#new_tabs_position}
 
@@ -509,19 +515,20 @@ three horizontal dots located at the top right of the developer tools pane.
 
 ### Xwayland
 
-Starting with version 121, Firefox defaults to [Wayland](Wayland "wikilink") instead of XWayland and does not require
-any configuration.
+Starting with version 121, Firefox defaults to [Wayland](Wayland "Wayland"){.wikilink} instead of XWayland and does not
+require any configuration.
 
-You can force [Xwayland](Xwayland "wikilink") mode via an [environment variable](environment_variable "wikilink").
+You can force [Xwayland](Xwayland "Xwayland"){.wikilink} mode via an [environment
+variable](environment_variable "environment variable"){.wikilink}.
 
 `$ MOZ_ENABLE_WAYLAND=0 firefox`
 
 To make this permanent, see [Environment variables#Graphical
-environment](Environment_variables#Graphical_environment "wikilink") and start Firefox via the desktop launcher like you
-normally would.
+environment](Environment_variables#Graphical_environment "Environment variables#Graphical environment"){.wikilink} and
+start Firefox via the desktop launcher like you normally would.
 
 To verify that it worked, look for *Window Protocol* in `{{ic|about:support}}`{=mediawiki}. The presence of
-`{{ic|x11}}`{=mediawiki} means you are running Firefox under [Xorg](Xorg "wikilink") display server, while
+`{{ic|x11}}`{=mediawiki} means you are running Firefox under [Xorg](Xorg "Xorg"){.wikilink} display server, while
 `{{ic|xwayland}}`{=mediawiki} means your system is running Wayland but executing Firefox as legacy X11 application.
 
 ### Window manager rules {#window_manager_rules}
@@ -530,9 +537,9 @@ You can change how your window manager groups Firefox windows using CLI options.
 
 #### Xorg
 
-Under [Xorg](Xorg "wikilink"), windows are grouped by their `{{ic|WM_CLASS}}`{=mediawiki} string. Set a custom value
-using Firefox\'s `{{ic|--class}}`{=mediawiki} option, then update the `{{ic|StartupWMClass}}`{=mediawiki} field in the
-[desktop entry](desktop_entry "wikilink") to the same value.
+Under [Xorg](Xorg "Xorg"){.wikilink}, windows are grouped by their `{{ic|WM_CLASS}}`{=mediawiki} string. Set a custom
+value using Firefox\'s `{{ic|--class}}`{=mediawiki} option, then update the `{{ic|StartupWMClass}}`{=mediawiki} field in
+the [desktop entry](desktop_entry "desktop entry"){.wikilink} to the same value.
 
 ```{=mediawiki}
 {{hc|~/.local/share/applications/firefox.desktop|2=
@@ -544,12 +551,13 @@ StartupWMClass=''class-name''
 ```
 #### Wayland
 
-Under [Wayland](Wayland "wikilink"), windows are grouped by their `{{ic|resourceClass}}`{=mediawiki} attribute. To set a
-custom value, use Firefox\'s `{{ic|--name}}`{=mediawiki} option instead; `{{ic|WM_CLASS}}`{=mediawiki} appears to have
-no effect.
+Under [Wayland](Wayland "Wayland"){.wikilink}, windows are grouped by their `{{ic|resourceClass}}`{=mediawiki}
+attribute. To set a custom value, use Firefox\'s `{{ic|--name}}`{=mediawiki} option instead;
+`{{ic|WM_CLASS}}`{=mediawiki} appears to have no effect.
 
-On some [desktop environments](desktop_environments "wikilink") (e.g. [KDE](KDE "wikilink"); others untested), you also
-have to make sure that the [desktop entry](desktop_entry "wikilink") has the same file stem as your custom
+On some [desktop environments](desktop_environments "desktop environments"){.wikilink} (e.g.
+[KDE](KDE "KDE"){.wikilink}; others untested), you also have to make sure that the [desktop
+entry](desktop_entry "desktop entry"){.wikilink} has the same file stem as your custom
 `{{ic|resourceClass}}`{=mediawiki} value if you are pinning Firefox to the task manager. This way the launched instance
 of Firefox will be grouped with the pinned entry.
 
@@ -566,16 +574,18 @@ To start new Firefox instances, multiple profiles are required. To create a new 
 
 `$ firefox [--new-instance] -P`
 
-You can use profiles together with [#Window manager rules](#Window_manager_rules "wikilink") to group windows of each
-profile separately.
+You can use profiles together with [#Window manager rules](#Window_manager_rules "#Window manager rules"){.wikilink} to
+group windows of each profile separately.
 
 [Firefox Profilemaker](https://ffprofile.com/) can be used to create a Firefox profile with the defaults you like.
 
 ### Touchscreen gestures and pixel-perfect trackpad scrolling {#touchscreen_gestures_and_pixel_perfect_trackpad_scrolling}
 
-See [Firefox/Tweaks#Pixel-perfect trackpad scrolling](Firefox/Tweaks#Pixel-perfect_trackpad_scrolling "wikilink"),
-[Firefox/Tweaks#Enable touchscreen gestures](Firefox/Tweaks#Enable_touchscreen_gestures "wikilink") and
-[Firefox/Tweaks#Smooth scrolling](Firefox/Tweaks#Smooth_scrolling "wikilink").
+See [Firefox/Tweaks#Pixel-perfect trackpad
+scrolling](Firefox/Tweaks#Pixel-perfect_trackpad_scrolling "Firefox/Tweaks#Pixel-perfect trackpad scrolling"){.wikilink},
+[Firefox/Tweaks#Enable touchscreen
+gestures](Firefox/Tweaks#Enable_touchscreen_gestures "Firefox/Tweaks#Enable touchscreen gestures"){.wikilink} and
+[Firefox/Tweaks#Smooth scrolling](Firefox/Tweaks#Smooth_scrolling "Firefox/Tweaks#Smooth scrolling"){.wikilink}.
 
 ### Multiple home pages {#multiple_home_pages}
 
@@ -617,7 +627,8 @@ Starting with Firefox version 89, the compact mode density option was removed fr
 this, set `{{ic|browser.uidensity}}`{=mediawiki} to `{{ic|1}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki}.
 
 The UI can be scaled down even further, see [Firefox/Tweaks#Configure the DPI
-value](Firefox/Tweaks#Configure_the_DPI_value "wikilink") but use values between 0 and 1 instead.
+value](Firefox/Tweaks#Configure_the_DPI_value "Firefox/Tweaks#Configure the DPI value"){.wikilink} but use values
+between 0 and 1 instead.
 
 ### GNOME search provider {#gnome_search_provider}
 
@@ -633,8 +644,8 @@ via `{{ic|Ctrl+Shift+o}}`{=mediawiki} and `{{ic|Ctrl+Shift+h}}`{=mediawiki}) can
 `{{ic|intl.date_time.pattern_override.date_short}}`{=mediawiki},
 `{{ic|intl.date_time.pattern_override.time_short}}`{=mediawiki}, and
 `{{ic|intl.date_time.pattern_override.connector_short}}`{=mediawiki} in `{{ic|user.js}}`{=mediawiki} or
-`{{ic|about:config}}`{=mediawiki}. For example, to get a format similar to [RFC:3339](RFC:3339 "wikilink") (\"2022-12-31
-22:49\"), set the three preferences to `{{ic|yyyy-MM-dd}}`{=mediawiki}, `{{ic|HH:mm}}`{=mediawiki}, and
+`{{ic|about:config}}`{=mediawiki}. For example, to get a format similar to [RFC:3339](RFC:3339 "RFC:3339"){.wikilink}
+(\"2022-12-31 22:49\"), set the three preferences to `{{ic|yyyy-MM-dd}}`{=mediawiki}, `{{ic|HH:mm}}`{=mediawiki}, and
 `{{ic|{1} {0} }}`{=mediawiki}, respectively.
 
 Setting the `{{ic|LC_TIME}}`{=mediawiki} environment variable to `{{ic|en_DK.UTF-8}}`{=mediawiki} only worked in old
@@ -715,10 +726,10 @@ be found on the [Firefox support page](https://support.mozilla.org/en-US/kb/refr
 ### Hardware video acceleration issues {#hardware_video_acceleration_issues}
 
 If you are having issues with hardware video acceleration in Firefox, e.g. in case of freezes or graphical corruption,
-start Firefox in [Troubleshoot Mode](#Troubleshoot_Mode "wikilink") for testing purposes to confirm that this is the
-issue. If this step resolves the issue, merely set `{{ic|media.hardware-video-decoding.enabled}}`{=mediawiki} to
-`{{ic|false}}`{=mediawiki} in `{{ic|about:config}}`{=mediawiki} to disable hardware video acceleration, and restart
-Firefox.
+start Firefox in [Troubleshoot Mode](#Troubleshoot_Mode "Troubleshoot Mode"){.wikilink} for testing purposes to confirm
+that this is the issue. If this step resolves the issue, merely set
+`{{ic|media.hardware-video-decoding.enabled}}`{=mediawiki} to `{{ic|false}}`{=mediawiki} in
+`{{ic|about:config}}`{=mediawiki} to disable hardware video acceleration, and restart Firefox.
 
 ### Extension X does not work on some Mozilla owned domains {#extension_x_does_not_work_on_some_mozilla_owned_domains}
 
@@ -731,17 +742,19 @@ By default, extensions will not affect pages designated by
 
 If Firefox takes much longer to start up than other browsers, it may be due to lacking configuration of the localhost in
 `{{ic|/etc/hosts}}`{=mediawiki}. See [Network configuration#Local network hostname
-resolution](Network_configuration#Local_network_hostname_resolution "wikilink") on how to set it up.
+resolution](Network_configuration#Local_network_hostname_resolution "Network configuration#Local network hostname resolution"){.wikilink}
+on how to set it up.
 
 Misbehaving Firefox extensions, or too many extensions, may be another source of slow startup. This can be confirmed
-through the use of [Troubleshoot Mode](#Troubleshoot_Mode "wikilink"), which will disable extensions on restart.
+through the use of [Troubleshoot Mode](#Troubleshoot_Mode "Troubleshoot Mode"){.wikilink}, which will disable extensions
+on restart.
 
 A further cause of slow start-up may be a profile issue, such as corruption. For more troubleshooting steps around your
-Firefox profile, see [#Firefox refresh](#Firefox_refresh "wikilink").
+Firefox profile, see [#Firefox refresh](#Firefox_refresh "#Firefox refresh"){.wikilink}.
 
 ### Font troubleshooting {#font_troubleshooting}
 
-See [Font configuration](Font_configuration "wikilink").
+See [Font configuration](Font_configuration "Font configuration"){.wikilink}.
 
 Firefox has a setting which determines how many replacements it will allow from Fontconfig. To allow it to use all your
 replacement rules, change `{{ic|gfx.font_rendering.fontconfig.max_generic_substitutions}}`{=mediawiki} to
@@ -752,7 +765,7 @@ Firefox ships with the *Twemoji Mozilla* font. To use the system emoji font, set
 Additionally, to prevent the Mozilla font interfering with your system emoji font, change
 `{{ic|gfx.font_rendering.opentype_svg.enabled}}`{=mediawiki} to `{{ic|false}}`{=mediawiki} or remove
 `{{ic|/usr/lib/firefox/fonts/TwemojiMozilla.ttf}}`{=mediawiki} (see also [pacman#Skip files from being installed to
-system](pacman#Skip_files_from_being_installed_to_system "wikilink")).
+system](pacman#Skip_files_from_being_installed_to_system "pacman#Skip files from being installed to system"){.wikilink}).
 
 ### Setting an email client {#setting_an_email_client}
 
@@ -762,18 +775,18 @@ corresponding to the `{{ic|mailto}}`{=mediawiki} content type; the file path wil
 `{{ic|/usr/bin/kmail}}`{=mediawiki} for Kmail).
 
 Outside the browser, `{{ic|mailto}}`{=mediawiki} links are handled by the `{{ic|x-scheme-handler/mailto}}`{=mediawiki}
-mime type, which can be easily configured with [xdg-mime](xdg-mime "wikilink"). See [Default
-applications](Default_applications "wikilink") for details and alternatives.
+mime type, which can be easily configured with [xdg-mime](xdg-mime "xdg-mime"){.wikilink}. See [Default
+applications](Default_applications "Default applications"){.wikilink} for details and alternatives.
 
 ### File association {#file_association}
 
-See [Default applications](Default_applications "wikilink").
+See [Default applications](Default_applications "Default applications"){.wikilink}.
 
 ### Firefox keeps creating \~/Desktop even when this is not desired {#firefox_keeps_creating_desktop_even_when_this_is_not_desired}
 
 Firefox uses `{{ic|~/Desktop}}`{=mediawiki} as the default place for download and upload files. To change it to another
 folder, set the `{{ic|XDG_DESKTOP_DIR}}`{=mediawiki} option as explained in [XDG user
-directories](XDG_user_directories "wikilink").
+directories](XDG_user_directories "XDG user directories"){.wikilink}.
 
 ### My downloads directory is full of files I do not remember saving {#my_downloads_directory_is_full_of_files_i_do_not_remember_saving}
 
@@ -803,20 +816,27 @@ in-browser viewer, set `{{ic|browser.download.open_pdf_attachments_inline}}`{=me
 ```
 #### Additional settings to consider {#additional_settings_to_consider}
 
--   ```{=mediawiki}
-    {{ic|browser.download.forbid_open_with}}
-    ```
-    : `{{ic|true}}`{=mediawiki} (only ask whether to save or cancel in the file saving dialog, never ask to open with
-    another program)
+- ```{=mediawiki}
+  {{ic|browser.download.forbid_open_with}}
+  ```
 
--   ```{=mediawiki}
-    {{ic|browser.download.always_ask_before_handling_new_types}}
-    ```
-    : `{{ic|true}}`{=mediawiki} (same as *Settings \> General \> Files and Applications \> What should Firefox do with
-    other files? \> Ask whether to open or save files*).
+  :   ```{=mediawiki}
+      {{ic|true}}
+      ```
+      (only ask whether to save or cancel in the file saving dialog, never ask to open with another program)
 
--   Set all known file types in *Settings \> General \> Files and Applications* to *Always ask*, with the possible
-    exception of the ones set to be opened by Firefox itself.
+- ```{=mediawiki}
+  {{ic|browser.download.always_ask_before_handling_new_types}}
+  ```
+
+  :   ```{=mediawiki}
+      {{ic|true}}
+      ```
+      (same as *Settings \> General \> Files and Applications \> What should Firefox do with other files? \> Ask whether
+      to open or save files*).
+
+- Set all known file types in *Settings \> General \> Files and Applications* to *Always ask*, with the possible
+  exception of the ones set to be opened by Firefox itself.
 
 #### Locate and change Firefox Cache storage location {#locate_and_change_firefox_cache_storage_location}
 
@@ -832,16 +852,15 @@ Set `{{ic|toolkit.legacyUserProfileCustomizations.stylesheets}}`{=mediawiki} to 
 
 To autoscroll on middle-click (default for Windows browsers), you have two ways to enable this feature:
 
--   Go to *Settings \> General*, look for the *Browsing* section and enable *Use autoscrolling* option.
+- Go to *Settings \> General*, look for the *Browsing* section and enable *Use autoscrolling* option.
 
-```{=html}
 <!-- -->
-```
--   Alternatively, set `{{ic|general.autoScroll}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} in
-    `{{ic|about:config}}`{=mediawiki}.
 
-To disable pasting from the clipboard ([PRIMARY selection](Clipboard#Selections "wikilink")) when the middle mouse
-button is clicked, set `{{ic|middlemouse.paste}}`{=mediawiki} to `{{ic|false}}`{=mediawiki} in
+- Alternatively, set `{{ic|general.autoScroll}}`{=mediawiki} to `{{ic|true}}`{=mediawiki} in
+  `{{ic|about:config}}`{=mediawiki}.
+
+To disable pasting from the clipboard ([PRIMARY selection](Clipboard#Selections "PRIMARY selection"){.wikilink}) when
+the middle mouse button is clicked, set `{{ic|middlemouse.paste}}`{=mediawiki} to `{{ic|false}}`{=mediawiki} in
 `{{ic|about:config}}`{=mediawiki}.
 
 To load the contents of the clipboard as a URL when the middle mouse button is clicked,
@@ -946,15 +965,16 @@ You need some Math fonts, namely Latin Modern Math and STIX (see this MDN page:
 
 In Arch Linux, these fonts are provided by `{{Pkg|texlive-fontsextra}}`{=mediawiki}, but they are not available to
 fontconfig by default. See [TeX Live#Making fonts available to
-Fontconfig](TeX_Live#Making_fonts_available_to_Fontconfig "wikilink") for details. You can also try other [Math
-fonts](Fonts#Math "wikilink"). In case you encounter this bug
+Fontconfig](TeX_Live#Making_fonts_available_to_Fontconfig "TeX Live#Making fonts available to Fontconfig"){.wikilink}
+for details. You can also try other [Math fonts](Fonts#Math "Math fonts"){.wikilink}. In case you encounter this bug
 [19](https://bugzilla.mozilla.org/show_bug.cgi?id=1208776), installing `{{Pkg|otf-latinmodern-math}}`{=mediawiki} can
 help.
 
 ### Videos load but do not play {#videos_load_but_do_not_play}
 
 This may be a PulseAudio issue. See the suggested fix in [PulseAudio/Troubleshooting#Browsers (firefox) load videos but
-do no play](PulseAudio/Troubleshooting#Browsers_(firefox)_load_videos_but_do_no_play "wikilink").
+do no
+play](PulseAudio/Troubleshooting#Browsers_(firefox)_load_videos_but_do_no_play "PulseAudio/Troubleshooting#Browsers (firefox) load videos but do no play"){.wikilink}.
 
 ### Tearing when scrolling {#tearing_when_scrolling}
 
@@ -978,8 +998,8 @@ You can try setting `{{ic|media.navigator.audio.full_duplex}}`{=mediawiki} prope
 `{{ic|about:config}}`{=mediawiki} Firefox page and restart Firefox.
 
 This can also help if you are using the PulseAudio
-[module-echo-cancel](PulseAudio#Microphone_echo/noise_cancellation "wikilink") and Firefox does not recognise the
-virtual echo canceling source.
+[module-echo-cancel](PulseAudio#Microphone_echo/noise_cancellation "module-echo-cancel"){.wikilink} and Firefox does not
+recognise the virtual echo canceling source.
 
 ### WebRTC sharing indicator displays an XML parsing error {#webrtc_sharing_indicator_displays_an_xml_parsing_error}
 
@@ -1003,14 +1023,6 @@ See [Mozilla\'s bug report](https://bugzilla.mozilla.org/show_bug.cgi?id=1639821
 When using screen sharing in Google Meet, you might notice choppy visuals and overall laggy video. A possible fix is to
 change your browser's user agent to Google Chrome. You can do this with the [User agent
 switcher](https://addons.mozilla.org/firefox/addon/uaswitcher/) extension.
-
-### Cannot login with my Chinese account {#cannot_login_with_my_chinese_account}
-
-Firefox provides a local service for Chinese users, with a local account totally different from the international one.
-Firefox installed with the `{{Pkg|firefox}}`{=mediawiki} package uses the international account system by default, to
-change into the Chinese local service, you should install the add-on manager on [this
-page](http://mozilla.com.cn/thread-343905-1-1.html)`{{Dead link|2025|11|16|status=domain name not resolved}}`{=mediawiki},
-then you can login with your Chinese account now.
 
 ### No audio on certain videos when using JACK and PulseAudio {#no_audio_on_certain_videos_when_using_jack_and_pulseaudio}
 
@@ -1051,7 +1063,8 @@ services such as Hulu to function properly, but will not automatically update lo
 
 ### Right mouse button instantly clicks the first option in window managers {#right_mouse_button_instantly_clicks_the_first_option_in_window_managers}
 
-This problem has been observed in [i3](i3 "wikilink"), [bspwm](bspwm "wikilink") and [xmonad](xmonad "wikilink").
+This problem has been observed in [i3](i3 "i3"){.wikilink}, [bspwm](bspwm "bspwm"){.wikilink} and
+[xmonad](xmonad "xmonad"){.wikilink}.
 
 To fix it, navigate to `{{ic|about:config}}`{=mediawiki} and change `{{ic|ui.context_menus.after_mouseup}}`{=mediawiki}
 to `{{ic|true}}`{=mediawiki}.
@@ -1066,9 +1079,10 @@ Related bug report: [Bugzilla 1711039](https://bugzilla.mozilla.org/show_bug.cgi
 
 ### Firefox continuously asks to be set as default browser upon launch {#firefox_continuously_asks_to_be_set_as_default_browser_upon_launch}
 
-There are a couple things you can try: if you are using a [desktop environment](desktop_environment "wikilink"), check
-if Firefox is set as the default browser in your system settings. If it is not, then set it, otherwise you can run the
-following `{{man|1|xdg-settings}}`{=mediawiki} command, provided by the [xdg-utils](xdg-utils "wikilink") package, to
+There are a couple things you can try: if you are using a [desktop
+environment](desktop_environment "desktop environment"){.wikilink}, check if Firefox is set as the default browser in
+your system settings. If it is not, then set it, otherwise you can run the following
+`{{man|1|xdg-settings}}`{=mediawiki} command, provided by the [xdg-utils](xdg-utils "xdg-utils"){.wikilink} package, to
 query which browser is set as default on your system:
 
 `$ xdg-settings get default-web-browser`
@@ -1114,7 +1128,7 @@ permanently.
 There will be some fonts that have been installed as dependency of other package. For example,
 `{{Pkg|chromium}}`{=mediawiki} installs `{{Pkg|ttf-liberation}}`{=mediawiki} as dependency, which loads itself in some
 Firefox pages automatically and breaks Bengali fonts on those pages. To solve this issue, use the following rule in your
-[font configuration](font_configuration "wikilink"):
+[font configuration](font_configuration "font configuration"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|$XDG_CONFIG_HOME/fontconfig/fonts.conf|2=
@@ -1166,15 +1180,16 @@ the reader article language installed, there may be some incorrect settings or d
 If no file chooser is shown when downloading files, even with the option \"Always ask where to save files\" enabled in
 Firefox\'s settings, then you might not have both `{{Pkg|xdg-desktop-portal}}`{=mediawiki} and a suitable
 implementation. Desktop environments usually provide an implementation, but if you are using a standalone window manager
-such as [i3](i3 "wikilink"), then you may need to manually install one. [Install](Install "wikilink")
+such as [i3](i3 "i3"){.wikilink}, then you may need to manually install one. [Install](Install "Install"){.wikilink}
 `{{Pkg|xdg-desktop-portal}}`{=mediawiki} and for example `{{Pkg|xdg-desktop-portal-gtk}}`{=mediawiki}.
 
 ### Notifications are not floating in tiling window managers or Wayland compositors {#notifications_are_not_floating_in_tiling_window_managers_or_wayland_compositors}
 
-If you are using a [tiling window manager](tiling_window_manager "wikilink") or a [Wayland
-compositor](Wayland_compositor "wikilink"), and the HTML notifications appear as normal Firefox windows instead of
-floating pop-ups, you need to [install](install "wikilink") `{{Pkg|libnotify}}`{=mediawiki} and make sure you have a
-working [Desktop notifications](Desktop_notifications "wikilink") server, such as `{{Pkg|mako}}`{=mediawiki}.
+If you are using a [tiling window manager](tiling_window_manager "tiling window manager"){.wikilink} or a [Wayland
+compositor](Wayland_compositor "Wayland compositor"){.wikilink}, and the HTML notifications appear as normal Firefox
+windows instead of floating pop-ups, you need to [install](install "install"){.wikilink} `{{Pkg|libnotify}}`{=mediawiki}
+and make sure you have a working [Desktop notifications](Desktop_notifications "Desktop notifications"){.wikilink}
+server, such as `{{Pkg|mako}}`{=mediawiki}.
 
 ### DNIe certificate is not picked up after renewal from the card reader {#dnie_certificate_is_not_picked_up_after_renewal_from_the_card_reader}
 
@@ -1185,13 +1200,14 @@ login but will not authenticate the users on any service. You need to clear the 
 
 ## See also {#see_also}
 
--   [Official website](https://www.mozilla.org/firefox/)
--   [Mozilla Foundation](https://www.mozilla.org/)
--   [MozillaWiki:Firefox](MozillaWiki:Firefox "wikilink")
--   [Wikipedia:Mozilla Firefox](Wikipedia:Mozilla_Firefox "wikilink")
--   [Firefox Add-ons](https://addons.mozilla.org/)
--   [Firefox themes](https://addons.mozilla.org/firefox/themes/)
--   [Mozilla\'s FTP](https://ftp.mozilla.org/pub/firefox/releases/)
--   [mozillaZine](https://forums.mozillazine.org/) unofficial forums
+- [Official website](https://www.mozilla.org/firefox/)
+- [Mozilla Foundation](https://www.mozilla.org/)
+- [MozillaWiki:Firefox](MozillaWiki:Firefox "MozillaWiki:Firefox"){.wikilink}
+- [Wikipedia:Mozilla Firefox](Wikipedia:Mozilla_Firefox "Wikipedia:Mozilla Firefox"){.wikilink}
+- [Firefox Add-ons](https://addons.mozilla.org/)
+- [Firefox themes](https://addons.mozilla.org/firefox/themes/)
+- [Mozilla\'s FTP](https://ftp.mozilla.org/pub/firefox/releases/)
+- [mozillaZine](https://forums.mozillazine.org/) unofficial forums
 
-[Category:Web browser](Category:Web_browser "wikilink") [Category:Mozilla](Category:Mozilla "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}
+[Category:Mozilla](Category:Mozilla "Category:Mozilla"){.wikilink}

@@ -1,17 +1,18 @@
-[es:Hybrid graphics](es:Hybrid_graphics "wikilink")
-[ja:ハイブリッドグラフィックス](ja:ハイブリッドグラフィックス "wikilink") [pt:Hybrid
-graphics](pt:Hybrid_graphics "wikilink") [ru:Hybrid graphics](ru:Hybrid_graphics "wikilink")
-[zh-hans:混合图形技术](zh-hans:混合图形技术 "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Xorg}}`{=mediawiki}
-`{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
+[es:Hybrid graphics](es:Hybrid_graphics "es:Hybrid graphics"){.wikilink}
+[ja:ハイブリッドグラフィックス](ja:ハイブリッドグラフィックス "ja:ハイブリッドグラフィックス"){.wikilink} [pt:Hybrid
+graphics](pt:Hybrid_graphics "pt:Hybrid graphics"){.wikilink} [ru:Hybrid
+graphics](ru:Hybrid_graphics "ru:Hybrid graphics"){.wikilink}
+[zh-hans:混合图形技术](zh-hans:混合图形技术 "zh-hans:混合图形技术"){.wikilink} `{{Related articles start}}`{=mediawiki}
+`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Cardwire}}`{=mediawiki}
+`{{Related|Xorg}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 **Hybrid-graphics** is a concept that involves two graphics cards on same computer. Devices with two different GPUs,
 most often laptops, will usually have:
 
--   a Dedicated/Discrete Graphics Processor, that offers higher raw performance but increases the device\'s power
-    consumption;
--   an Integrated Graphics Processor, that in general requires significantly less energy, but only offers enough
-    performance for rendering non-graphics-intensive applications, e.g. browsers and the desktop environment.
+- a Dedicated/Discrete Graphics Processor, that offers higher raw performance but increases the device\'s power
+  consumption;
+- an Integrated Graphics Processor, that in general requires significantly less energy, but only offers enough
+  performance for rendering non-graphics-intensive applications, e.g. browsers and the desktop environment.
 
 Thus, the need for a technology that optimises both use cases naturally emerges. With that in mind, laptop manufacturers
 have each developed their own hybrid-graphics technologies that allow keeping the dedicated GPU inactive until its 3D
@@ -46,6 +47,16 @@ You may want to turn off the high-performance graphics processor to save battery
 
 Some laptop manufacturers provide a toggle in the BIOS or UEFI to fully deactivate the dedicated card.
 
+#### Using cardwire {#using_cardwire}
+
+[Cardwire](Cardwire "Cardwire"){.wikilink} is a GPU manager for [Wayland](Wayland "Wayland"){.wikilink} that blocks
+access to the discrete GPU with eBPF LSM hooks. The GPU stays bound to its driver but can enter the
+[D3cold](PRIME#PCI-Express_Runtime_D3_(RTD3)_Power_Management "D3cold"){.wikilink} state, and individual applications
+can be granted access at launch without rebooting or logging out.
+
+```{=mediawiki}
+{{Note|Cardwire requires Linux 5.8 or newer with {{ic|CONFIG_BPF_LSM}} and the {{ic|bpf}} LSM active; see [[Cardwire#Requirements]]. It does not support X11.}}
+```
 #### Using udev rules {#using_udev_rules}
 
 Ensure any display manager config for NVIDIA is removed.
@@ -77,14 +88,14 @@ ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]
 ```
 Reboot and run `{{ic|lspci}}`{=mediawiki} to see if your NVIDIA GPU is still listed.
 
-Check power usage to ensure your GPU is not drawing power. If it does, [#Using acpi_call](#Using_acpi_call "wikilink")
-may be another option to fully power it down.
+Check power usage to ensure your GPU is not drawing power. If it does, [#Using
+acpi_call](#Using_acpi_call "#Using acpi_call"){.wikilink} may be another option to fully power it down.
 
 #### Using bbswitch {#using_bbswitch}
 
-With an NVIDIA GPU, this can be more safely done using [bbswitch](bbswitch "wikilink"), which consists of a kernel
-package that automatically issues the correct ACPI calls to disable the discrete GPU when not needed, or automatically
-at boot.
+With an NVIDIA GPU, this can be more safely done using [bbswitch](bbswitch "bbswitch"){.wikilink}, which consists of a
+kernel package that automatically issues the correct ACPI calls to disable the discrete GPU when not needed, or
+automatically at boot.
 
 ```{=mediawiki}
 {{Note|bbswitch does not work with the PCIe port power management method since kernel 4.8. See [[Bumblebee#Broken power management with kernel 4.8]] for details.}}
@@ -145,7 +156,7 @@ confirm this, your battery time remaining should have increased.
 ##### Turning off the GPU automatically {#turning_off_the_gpu_automatically}
 
 Currently, the chip will turn back on with the next reboot. To get around this, [load the module at
-boot](load_the_module_at_boot "wikilink"):
+boot](load_the_module_at_boot "load the module at boot"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|/etc/modules-load.d/acpi_call.conf|
@@ -155,7 +166,7 @@ acpi_call
 ```
 ###### At boot {#at_boot}
 
-To turn off the GPU at boot it is possible to use [systemd-tmpfiles](systemd-tmpfiles "wikilink").
+To turn off the GPU at boot it is possible to use [systemd-tmpfiles](systemd-tmpfiles "systemd-tmpfiles"){.wikilink}.
 
 ```{=mediawiki}
 {{hc|/etc/tmpfiles.d/acpi_call.conf|
@@ -170,17 +181,17 @@ data bus that works on your system (please note that you need to escape the back
 
 On some systems, turning off the discrete GPU before the X server is initialized may hang the system. In such cases, it
 may be better to disable the GPU after X server initialization, which is possible with some display managers. In
-[LightDM](LightDM "wikilink"), for instance, the *display-setup-script* seat configuration parameter could be used to
-execute a script as root that disables the GPU. If you use [SDDM](SDDM "wikilink"), then you can add the line
-`{{ic|echo "\_SB.PCI0.PEG0.PEGP._OFF" > /proc/acpi/call}}`{=mediawiki} to either
+[LightDM](LightDM "LightDM"){.wikilink}, for instance, the *display-setup-script* seat configuration parameter could be
+used to execute a script as root that disables the GPU. If you use [SDDM](SDDM "SDDM"){.wikilink}, then you can add the
+line `{{ic|echo "\_SB.PCI0.PEG0.PEGP._OFF" > /proc/acpi/call}}`{=mediawiki} to either
 `{{ic|/usr/share/sddm/scripts/wayland-session}}`{=mediawiki} or `{{ic|/usr/share/sddm/scripts/Xsession}}`{=mediawiki}
-depending if you use [Wayland](Wayland "wikilink") or [Xorg](Xorg "wikilink"). Remember to replace
+depending if you use [Wayland](Wayland "Wayland"){.wikilink} or [Xorg](Xorg "Xorg"){.wikilink}. Remember to replace
 `{{ic|\_SB.PCI0.PEG0.PEGP._OFF}}`{=mediawiki} with the one that works on your system!
 
 ### System76
 
-Some System76 laptops (like the [Oryx Pro](System76_Oryx_Pro "wikilink")) have their own unique hybrid graphics option.
-To make use of it, install `{{AUR|system76-power}}`{=mediawiki}, [enable](enable "wikilink")
+Some System76 laptops (like the [Oryx Pro](System76_Oryx_Pro "Oryx Pro"){.wikilink}) have their own unique hybrid
+graphics option. To make use of it, install `{{AUR|system76-power}}`{=mediawiki}, [enable](enable "enable"){.wikilink}
 `{{ic|system76-power.service}}`{=mediawiki}, and run `{{ic|system76-power graphics hybrid}}`{=mediawiki}.
 
 #### Fully power down discrete GPU {#fully_power_down_discrete_gpu_1}
@@ -195,15 +206,16 @@ each boot.
 ### The startup time for certain applications is delayed by 30 seconds {#the_startup_time_for_certain_applications_is_delayed_by_30_seconds}
 
 See [Vulkan#Vulkan applications launch slowly (30 second
-delay)](Vulkan#Vulkan_applications_launch_slowly_(30_second_delay) "wikilink").
+delay)](Vulkan#Vulkan_applications_launch_slowly_(30_second_delay) "Vulkan#Vulkan applications launch slowly (30 second delay)"){.wikilink}.
 
 ### High power draw even after disabling NVIDIA discrete GPU {#high_power_draw_even_after_disabling_nvidia_discrete_gpu}
 
-If after disabling the dedicated GPU bus [#Using acpi_call](#Using_acpi_call "wikilink") the power draw is still high,
-check if the [nouveau](nouveau "wikilink") kernel module is loaded with `{{ic|lsmod}}`{=mediawiki}. If it\'s not, then
-make sure it is installed, that any entries in .conf files that blacklist Nouveau in
-`{{ic|/etc/modprobe.d/}}`{=mediawiki} are removed, and that the Nouveau kernel module is [automatically
-loaded](Kernel_module#Automatic_module_loading "wikilink") at boot. After rebooting the power draw should be lower.
+If after disabling the dedicated GPU bus [#Using acpi_call](#Using_acpi_call "#Using acpi_call"){.wikilink} the power
+draw is still high, check if the [nouveau](nouveau "nouveau"){.wikilink} kernel module is loaded with
+`{{ic|lsmod}}`{=mediawiki}. If it\'s not, then make sure it is installed, that any entries in .conf files that blacklist
+Nouveau in `{{ic|/etc/modprobe.d/}}`{=mediawiki} are removed, and that the Nouveau kernel module is [automatically
+loaded](Kernel_module#Automatic_module_loading "automatically loaded"){.wikilink} at boot. After rebooting the power
+draw should be lower.
 
 ```{=mediawiki}
 {{Tip|See also [[kernel module]] for more details about kernel module loading and blacklisting.}}
@@ -211,6 +223,6 @@ loaded](Kernel_module#Automatic_module_loading "wikilink") at boot. After reboot
 ```{=mediawiki}
 {{Note|If after rebooting you have issues with brightness control and have multiple directories in {{ic|/sys/class/backlight}}, add line {{ic|acpi_backlight{{=}}native}}
 ```
-to your [kernel parameters](kernel_parameters "wikilink").}}
+to your [kernel parameters](kernel_parameters "kernel parameters"){.wikilink}.}}
 
-[Category:Graphics](Category:Graphics "wikilink")
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}

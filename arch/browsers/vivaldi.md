@@ -1,26 +1,27 @@
-[de:Vivaldi](de:Vivaldi "wikilink") [es:Vivaldi](es:Vivaldi "wikilink") [ja:Vivaldi](ja:Vivaldi "wikilink")
-[pl:Vivaldi](pl:Vivaldi "wikilink") [pt:Vivaldi](pt:Vivaldi "wikilink") [ru:Vivaldi](ru:Vivaldi "wikilink")
-[zh-hans:Vivaldi](zh-hans:Vivaldi "wikilink") `{{Related articles start}}`{=mediawiki}
+[de:Vivaldi](de:Vivaldi "de:Vivaldi"){.wikilink} [es:Vivaldi](es:Vivaldi "es:Vivaldi"){.wikilink}
+[ja:Vivaldi](ja:Vivaldi "ja:Vivaldi"){.wikilink} [pl:Vivaldi](pl:Vivaldi "pl:Vivaldi"){.wikilink}
+[pt:Vivaldi](pt:Vivaldi "pt:Vivaldi"){.wikilink} [ru:Vivaldi](ru:Vivaldi "ru:Vivaldi"){.wikilink}
+[zh-hans:Vivaldi](zh-hans:Vivaldi "zh-hans:Vivaldi"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|Browser extensions}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "wikilink") founder & team
-members, based on [Chromium](Chromium "wikilink") and focused on personalization aspects.
+[Vivaldi](https://vivaldi.com/) is a proprietary web browser from former [Opera](Opera "Opera"){.wikilink} founder &
+team members, based on [Chromium](Chromium "Chromium"){.wikilink} and focused on personalization aspects.
 
 ## Installation
 
 Consult [this blog post](https://vivaldi.com/blog/snapshot-vs-stable/) for information on differences between stable and
-snapshot versions; then, [install](install "wikilink") one of the following packages:
+snapshot versions; then, [install](install "install"){.wikilink} one of the following packages:
 
--   ```{=mediawiki}
-    {{Pkg|vivaldi}}
-    ```
+- ```{=mediawiki}
+  {{Pkg|vivaldi}}
+  ```
 
--   ```{=mediawiki}
-    {{AUR|vivaldi-snapshot}}
-    ```
+- ```{=mediawiki}
+  {{AUR|vivaldi-snapshot}}
+  ```
 
 A pre-built package for the snapshot build can be found in the
-[herecura](Unofficial_user_repositories#herecura "wikilink") unofficial repository.
+[herecura](Unofficial_user_repositories#herecura "herecura"){.wikilink} unofficial repository.
 
 ```{=mediawiki}
 {{Tip|To use [[Qt]] instead of [[GTK]] for file selection dialogs, install {{Pkg|kdialog}}.}}
@@ -35,7 +36,8 @@ Store](https://chrome.google.com/webstore/category/extensions).
 ```
 To see which extensions are installed/enabled, type `{{ic|vivaldi://extensions}}`{=mediawiki} in the address bar.
 
-See also [Wikipedia:Google Chrome Extension](Wikipedia:Google_Chrome_Extension "wikilink").
+See also [Wikipedia:Google Chrome
+Extension](Wikipedia:Google_Chrome_Extension "Wikipedia:Google Chrome Extension"){.wikilink}.
 
 ## Media playback {#media_playback}
 
@@ -68,8 +70,8 @@ under `{{ic|$XDG_CONFIG_HOME}}`{=mediawiki} if you have configured that environm
 
 No special syntax is used; flags are defined as if they were written in a terminal.
 
--   The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
--   Flags can be placed in separate lines for readability, but this is not required.
+- The arguments are split on whitespace and shell quoting rules apply, but no further parsing is performed.
+- Flags can be placed in separate lines for readability, but this is not required.
 
 Below is an example `{{ic|vivaldi-stable.conf}}`{=mediawiki} file that disables hardware media keys for the browser:
 
@@ -117,14 +119,14 @@ in search settings.
 
 When viewing some video, you can press the picture-in-picture button to detach it to a separate window. By default this
 window is not kept above others and it is inconvenient. To fix it in KDE, create a window rule to keep it above others.
-See [KDE#Using window rules](KDE#Using_window_rules "wikilink").
+See [KDE#Using window rules](KDE#Using_window_rules "KDE#Using window rules"){.wikilink}.
 
 ## Troubleshooting
 
 ### Chromium page {#chromium_page}
 
 Some troubleshooting is common for Vivaldi and Chromium, such as for example, force enabling hardware acceleration. For
-such, consult the [Chromium#Troubleshooting](Chromium#Troubleshooting "wikilink").
+such, consult the [Chromium#Troubleshooting](Chromium#Troubleshooting "Chromium#Troubleshooting"){.wikilink}.
 
 ### Certificates management {#certificates_management}
 
@@ -151,15 +153,15 @@ Verify that PLPMTUD is currently disabled:
 Should output `{{ic|net.ipv4.tcp_mtu_probing {{=}}`{=mediawiki} 0}} if it is disabled. If you see any other value, then
 you should stop here as your sync issue is not the same as what is covered by the workaround below.
 
-[Create](Create "wikilink"):
+[Create](Create "Create"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|/etc/sysctl.d/99-tcp-mtu-probing.conf|2=
 net.ipv4.tcp_mtu_probing = 1
 }}
 ```
-[Restart](Restart "wikilink") `{{ic|systemd-sysctl.service}}`{=mediawiki}, then restart Vivaldi if you already had it
-open.
+[Restart](Restart "Restart"){.wikilink} `{{ic|systemd-sysctl.service}}`{=mediawiki}, then restart Vivaldi if you already
+had it open.
 
 ### Middle click paste does not work on Sway (Wayland) {#middle_click_paste_does_not_work_on_sway_wayland}
 
@@ -171,6 +173,6 @@ Source: Extrapolated from [here](https://github.com/ghostty-org/ghostty/discussi
 
 ## See also {#see_also}
 
--   [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "wikilink")
+- [Wikipedia:Vivaldi (web browser)](Wikipedia:Vivaldi_(web_browser) "Wikipedia:Vivaldi (web browser)"){.wikilink}
 
-[Category:Web browser](Category:Web_browser "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}

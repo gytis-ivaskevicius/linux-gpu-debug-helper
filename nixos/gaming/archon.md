@@ -54,9 +54,10 @@ in {
 
 ## Usage Notes {#usage_notes}
 
--   **Combat Logging:** To live-log or upload logs, ensure advanced combat logging is enabled in WoW:
-    `/console advancedCombatLogging 1`.
--   **Log Location:** Combat logs are typically written to `<WoW directory>/_retail_/Logs/WoWCombatLog.txt`.
--   **Wayland & Sandbox:** Archon runs using the Chromium/Electron runtime with `--no-sandbox` inside an FHS wrapper.
+- **Combat Logging:** To live-log or upload logs, ensure advanced combat logging is enabled in WoW:
+  `/console advancedCombatLogging 1`.
+- **Log Location:** Combat logs are typically written to `<WoW directory>/_retail_/Logs/WoWCombatLog.txt`.
+- **Wayland & Sandbox:** Archon runs using the Chromium/Electron runtime with `--no-sandbox` inside an FHS wrapper.
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

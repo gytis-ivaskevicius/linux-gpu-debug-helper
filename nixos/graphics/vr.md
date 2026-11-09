@@ -24,7 +24,8 @@ Monado can be configured using its NixOS options `{{Nixos:option|services.monado
   XRT_COMPOSITOR_COMPUTE = "1";
 };}}
 ```
-`<translate>`{=html} Once configured, Monado can be started and stopped in a [systemd](systemd "wikilink") user session.
+`<translate>`{=html} Once configured, Monado can be started and stopped in a [systemd](systemd "systemd"){.wikilink}
+user session.
 
 For example, the following commands will start Monado and then follow its log output: `</translate>`{=html}
 
@@ -82,8 +83,8 @@ Note: OpenComposite is unmaintained. We recommend using [xrizer](https://github.
 OpenXR runtime like Monado. It is comparable to tools like DXVK or vkd3d, but for translating OpenVR calls to OpenXR.
 
 In order to run OpenVR games on anything other than SteamVR, you need to configure the OpenVR runtime path defined in
-`~/.config/openvr/openvrpaths.vrpath`. A reliable way to do this is to use [Home Manager](Home_Manager "wikilink") to
-create this file. `</translate>`{=html}
+`~/.config/openvr/openvrpaths.vrpath`. A reliable way to do this is to use [Home
+Manager](Home_Manager "Home Manager"){.wikilink} to create this file. `</translate>`{=html}
 
 ```{=mediawiki}
 {{Warning|<translate><!--T:14--> Older versions of Proton will always query the current OpenVR and OpenXR runtime. If you use OpenComposite, and it fails to initialize an OpenXR context, Proton will fail to launch. A workaround is to delete the ~/.config/openvr/openvrpaths.vrpath file and then retry launching the game.</translate>}}
@@ -129,8 +130,8 @@ XR runtimes might differ.
 ## WiVRn
 
 WiVRn is an OpenXR streaming application built around Monado. It wirelessly connects a standalone VR headset to a Linux
-computer. If your headset is not wireless, look at [Monado](VR#Monado "wikilink") instead. Example usage of the WiVRn
-module: `</translate>`{=html}
+computer. If your headset is not wireless, look at [Monado](VR#Monado "Monado"){.wikilink} instead. Example usage of the
+WiVRn module: `</translate>`{=html}
 
 ```{=mediawiki}
 {{Warning|<translate><!--T:42--> As of WiVRn version 0.23, WiVRn now manages the opencomposite paths itself. Only use the above opencomposite configuration when using versions below v0.23.</translate>}}
@@ -170,8 +171,8 @@ can enable it with the Envision module: `</translate>`{=html}
 ## SteamVR
 
 [SteamVR](https://store.steampowered.com/app/250820/SteamVR/) is a proprietary OpenVR runtime with compatibility for
-OpenXR. It is part of [Steam](Steam "wikilink") and doesn\'t need any additional setup on NixOS apart from enabling
-Steam.
+OpenXR. It is part of [Steam](Steam "Steam"){.wikilink} and doesn\'t need any additional setup on NixOS apart from
+enabling Steam.
 
 After installing SteamVR through Steam and plugging in a SteamVR-compatible headset, SteamVR should work for the most
 part.
@@ -183,8 +184,8 @@ high-priority context, which is a requirement for asynchronous reprojection. `</
 ```{=mediawiki}
 {{Note|<translate><!--T:24--> Steam is run in a bubblewrap-based FHS environment. This environment runs Steam in a user namespace, which prevents it from using any capabilities or setuid binaries. This means that asynchronous reprojection can not be used on NixOS, without patching the kernel to remove these restrictions completely, or modifying the bubblewrap binary used for running Steam to remove these capability protections. Both of these workarounds come with their own security tradeoffs. See this [https://github.com/NixOS/nixpkgs/issues/217119 Nixpkgs issue]</translate>}}
 ```
-`<translate>`{=html}For wireless streaming from a [Steam Frame](Steam_Frame "wikilink"), see [Steam
-Frame](Steam_Frame "wikilink").
+`<translate>`{=html}For wireless streaming from a [Steam Frame](Steam_Frame "Steam Frame"){.wikilink}, see [Steam
+Frame](Steam_Frame "Steam Frame"){.wikilink}.
 
 ### Patching AMDGPU to allow high priority queues {#patching_amdgpu_to_allow_high_priority_queues}
 
@@ -217,7 +218,7 @@ snippet: `</translate>`{=html}
 }}
 ```
 `<translate>`{=html} It is also possible to just patch amdgpu and build it as an out-of-tree module, as described in
-[Linux_kernel#Patching_a_single_In-tree_kernel_module](Linux_kernel#Patching_a_single_In-tree_kernel_module "wikilink")
+[Linux_kernel#Patching_a_single_In-tree_kernel_module](Linux_kernel#Patching_a_single_In-tree_kernel_module "Linux_kernel#Patching_a_single_In-tree_kernel_module"){.wikilink}
 
 ### Patching bubblewrap to allow capabilities {#patching_bubblewrap_to_allow_capabilities}
 
@@ -331,9 +332,11 @@ systemd.user.services.wayvr = {
 
 ## See also {#see_also}
 
--   [Linux VR Adventures Wiki](https://lvra.gitlab.io)
+- [Linux VR Adventures Wiki](https://lvra.gitlab.io)
 
 `</translate>`{=html}
 
-[Category:Video](Category:Video "wikilink") [Category:Hardware](Category:Hardware "wikilink")
-[Category:Desktop](Category:Desktop "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Video](Category:Video "Category:Video"){.wikilink}
+[Category:Hardware](Category:Hardware "Category:Hardware"){.wikilink}
+[Category:Desktop](Category:Desktop "Category:Desktop"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

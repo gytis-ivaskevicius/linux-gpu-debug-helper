@@ -1,15 +1,16 @@
-[hu:Steam (Magyar)/Troubleshooting](hu:Steam_(Magyar)/Troubleshooting "wikilink")
-[ja:Steam/トラブルシューティング](ja:Steam/トラブルシューティング "wikilink") [ru:Steam
-(Русский)/Troubleshooting](ru:Steam_(Русский)/Troubleshooting "wikilink")
-[zh-hans:Steam/疑难解答](zh-hans:Steam/疑难解答 "wikilink")
+[hu:Steam (Magyar)/Troubleshooting](hu:Steam_(Magyar)/Troubleshooting "hu:Steam (Magyar)/Troubleshooting"){.wikilink}
+[ja:Steam/トラブルシューティング](ja:Steam/トラブルシューティング "ja:Steam/トラブルシューティング"){.wikilink}
+[ru:Steam (Русский)/Troubleshooting](ru:Steam_(Русский)/Troubleshooting "ru:Steam (Русский)/Troubleshooting"){.wikilink}
+[zh-hans:Steam/疑难解答](zh-hans:Steam/疑难解答 "zh-hans:Steam/疑难解答"){.wikilink}
 
-1.  Make sure that you have followed [Steam#Installation](Steam#Installation "wikilink").
+1.  Make sure that you have followed [Steam#Installation](Steam#Installation "Steam#Installation"){.wikilink}.
 2.  If the Steam client / a game is not starting and/or you have error message about a library, read [#Steam
-    runtime](#Steam_runtime "wikilink") and see [#Debugging shared libraries](#Debugging_shared_libraries "wikilink").
+    runtime](#Steam_runtime "#Steam runtime"){.wikilink} and see [#Debugging shared
+    libraries](#Debugging_shared_libraries "#Debugging shared libraries"){.wikilink}.
 3.  If the issue is related to networking, make sure that you have forwarded the [required ports for
     Steam](https://help.steampowered.com/en/faqs/view/2EA8-4D75-DA21-31EB).
 4.  If the issue is about a game, consult [Steam/Game-specific
-    troubleshooting](Steam/Game-specific_troubleshooting "wikilink").
+    troubleshooting](Steam/Game-specific_troubleshooting "Steam/Game-specific troubleshooting"){.wikilink}.
 
 ## Steam runtime {#steam_runtime}
 
@@ -24,20 +25,20 @@ and various other problems.
 
 The `{{Pkg|steam}}`{=mediawiki} package offers two ways to launch Steam:
 
--   ```{=mediawiki}
-    {{ic|/usr/bin/steam}}
-    ```
-    (alias `{{ic|steam}}`{=mediawiki}), which overrides runtime libraries known to cause problems via the
-    `{{ic|LD_PRELOAD}}`{=mediawiki} [environment variable](environment_variable "wikilink") (see
-    `{{man|8|ld.so}}`{=mediawiki}).
+- ```{=mediawiki}
+  {{ic|/usr/bin/steam}}
+  ```
+  (alias `{{ic|steam}}`{=mediawiki}), which overrides runtime libraries known to cause problems via the
+  `{{ic|LD_PRELOAD}}`{=mediawiki} [environment variable](environment_variable "environment variable"){.wikilink} (see
+  `{{man|8|ld.so}}`{=mediawiki}).
 
--   ```{=mediawiki}
-    {{ic|/usr/lib/steam/steam}}
-    ```
-    , the default Steam launch script
+- ```{=mediawiki}
+  {{ic|/usr/lib/steam/steam}}
+  ```
+  , the default Steam launch script
 
 As the Steam runtime libraries are older they can lack newer features, e.g. the OpenAL version of the Steam runtime
-lacks [HRTF](Gaming#Binaural_audio_with_OpenAL "wikilink") and surround71 support.
+lacks [HRTF](Gaming#Binaural_audio_with_OpenAL "HRTF"){.wikilink} and surround71 support.
 
 ### Steam native runtime {#steam_native_runtime}
 
@@ -55,18 +56,19 @@ making it ignore its runtime and only use system libraries.
 {{Note|This will only apply to games that use the Steam Linux Runtime 1 and Steam itself, if developers choose to use Steam Linux Runtime 3 or newer, take for example Barony, the only way to escape that will be to either launch the game not from Steam or modify the launch arguments to something like {{ic|1=./<game_executable>; exit; %command%}}, which launches the game in system environment since runtimes are only applied for {{ic|1=%command%}}.}}
 ```
 You can also use the Steam native runtime without `{{AUR|steam-native-runtime}}`{=mediawiki} by manually installing just
-the packages you need. See [#Finding missing runtime libraries](#Finding_missing_runtime_libraries "wikilink").
+the packages you need. See [#Finding missing runtime
+libraries](#Finding_missing_runtime_libraries "#Finding missing runtime libraries"){.wikilink}.
 
 ## Debugging shared libraries {#debugging_shared_libraries}
 
 To see the shared libraries required by a program or a shared library run the `{{ic|ldd}}`{=mediawiki} command on it,
 see `{{man|1|ldd}}`{=mediawiki}. The `{{ic|LD_LIBRARY_PATH}}`{=mediawiki} and `{{ic|LD_PRELOAD}}`{=mediawiki}
-[environment variables](environment_variables "wikilink") can alter which shared libraries are loaded, see
-`{{man|8|ld.so}}`{=mediawiki}. To correctly debug a program or shared library it is therefore important that these
-environment variables in your debug environment match the environment you wish to debug.
+[environment variables](environment_variables "environment variables"){.wikilink} can alter which shared libraries are
+loaded, see `{{man|8|ld.so}}`{=mediawiki}. To correctly debug a program or shared library it is therefore important that
+these environment variables in your debug environment match the environment you wish to debug.
 
-If you figure out a missing library you can use [pacman](pacman "wikilink") or [pkgfile](pkgfile "wikilink") to search
-for packages that contain the missing library.
+If you figure out a missing library you can use [pacman](pacman "pacman"){.wikilink} or
+[pkgfile](pkgfile "pkgfile"){.wikilink} to search for packages that contain the missing library.
 
 ### Finding missing game libraries {#finding_missing_game_libraries}
 
@@ -117,30 +119,31 @@ type `{{ic|backtrace}}`{=mediawiki} to see call stack.
 ### \'GLBCXX_3.X.XX\' not found when using Bumblebee {#glbcxx_3.x.xx_not_found_when_using_bumblebee}
 
 This error is likely caused because Steam packages its own out of date `{{ic|libstdc++.so.6}}`{=mediawiki}. See
-[#Finding missing runtime libraries](#Finding_missing_runtime_libraries "wikilink") about working around the bad
-library. See also [steam-for-linux issue 3773](https://github.com/ValveSoftware/steam-for-linux/issues/3773).
+[#Finding missing runtime libraries](#Finding_missing_runtime_libraries "#Finding missing runtime libraries"){.wikilink}
+about working around the bad library. See also [steam-for-linux issue
+3773](https://github.com/ValveSoftware/steam-for-linux/issues/3773).
 
 ### Steam\>Warning: failed to init SDL thread priority manager: SDL not found {#steamwarning_failed_to_init_sdl_thread_priority_manager_sdl_not_found}
 
-Solution: [install](install "wikilink") the `{{AUR|lib32-sdl2}}`{=mediawiki} package.
+Solution: [install](install "install"){.wikilink} the `{{AUR|lib32-sdl2}}`{=mediawiki} package.
 
 ### Game crashes immediately {#game_crashes_immediately}
 
-This is likely due to [#Steam runtime](#Steam_runtime "wikilink") issues, see [#Debugging shared
-libraries](#Debugging_shared_libraries "wikilink").
+This is likely due to [#Steam runtime](#Steam_runtime "#Steam runtime"){.wikilink} issues, see [#Debugging shared
+libraries](#Debugging_shared_libraries "#Debugging shared libraries"){.wikilink}.
 
 Disabling the in-game Steam Overlay in the game properties might help.
 
 And finally, if those do not work, you should check Steam\'s output for any error from the game. You may encounter the
 following:
 
--   ```{=mediawiki}
-    {{ic|munmap_chunk(): invalid pointer}}
-    ```
+- ```{=mediawiki}
+  {{ic|munmap_chunk(): invalid pointer}}
+  ```
 
--   ```{=mediawiki}
-    {{ic|free(): invalid pointer}}
-    ```
+- ```{=mediawiki}
+  {{ic|free(): invalid pointer}}
+  ```
 
 In these cases, try replacing the `{{ic|libsteam_api.so}}`{=mediawiki} file from the problematic game with one of a game
 that works. This error usually happens for games that were not updated recently when Steam runtime is disabled. This
@@ -237,12 +240,13 @@ of the form:
 `Serial number of failed request:  51`\
 `xerror_handler: X failed, continuing`
 
-Ensure the *lib32-* [NVIDIA](NVIDIA "wikilink") driver for your card is installed, and matches the main package version
-with:
+Ensure the *lib32-* [NVIDIA](NVIDIA "NVIDIA"){.wikilink} driver for your card is installed, and matches the main package
+version with:
 
 `# pacman -Qs nvidia`
 
-You may need to change which [mirrors](mirrors "wikilink") you are using to install the drivers if they do not match.
+You may need to change which [mirrors](mirrors "mirrors"){.wikilink} you are using to install the drivers if they do not
+match.
 
 If you are using AMD, have enabled 10-bit color depth, and are having this problem. You will likely need to disable
 10-bit color depth.
@@ -292,17 +296,17 @@ Steam overlay.
 
 ### Black main screen on Intel iGPUs {#black_main_screen_on_intel_igpus}
 
-On some systems that use Intel integrated graphics running Steam on [Wayland](Wayland "wikilink") will make only the
-webviews not render, with functional dropdowns and other menus. Going to *Steam -\> Settings -\> Interface*, then
-disabling *Enable GPU accelerated rendering in web views* might fix the problem.
+On some systems that use Intel integrated graphics running Steam on [Wayland](Wayland "Wayland"){.wikilink} will make
+only the webviews not render, with functional dropdowns and other menus. Going to *Steam -\> Settings -\> Interface*,
+then disabling *Enable GPU accelerated rendering in web views* might fix the problem.
 
 ### Blurry text and graphics with Xwayland and HiDPI {#blurry_text_and_graphics_with_xwayland_and_hidpi}
 
-When Steam runs as an [Xwayland](Xwayland "wikilink") client under a compositor that uses [HiDPI](HiDPI "wikilink")
-scaling, you may find that Steam and games are rendered at half resolution and then upscaled to fit the HiDPI screen.
-This results in blurry graphics.
+When Steam runs as an [Xwayland](Xwayland "Xwayland"){.wikilink} client under a compositor that uses
+[HiDPI](HiDPI "HiDPI"){.wikilink} scaling, you may find that Steam and games are rendered at half resolution and then
+upscaled to fit the HiDPI screen. This results in blurry graphics.
 
-One option is to run Steam under a nested [gamescope](gamescope "wikilink") compositor. Install the
+One option is to run Steam under a nested [gamescope](gamescope "gamescope"){.wikilink} compositor. Install the
 `{{Pkg|gamescope}}`{=mediawiki} package:
 
 `$ gamescope -f -m 1 -e -- steam -gamepadui`
@@ -311,7 +315,7 @@ This runs Steam in \"big picture\" mode (actually Steam Deck mode), in fullscree
 resolution). The same settings should also propagate to games run under Steam.
 
 Another option is to configure your compositor to prevent Xwayland from scaling applications entirely. For example,
-[Hyprland](Hyprland "wikilink") users can add
+[Hyprland](Hyprland "Hyprland"){.wikilink} users can add
 
 `xwayland {`\
 `  force_zero_scaling = true`\
@@ -321,7 +325,7 @@ to the hyprland.conf file to prevent Xwayland from scaling any applications. Not
 Xwayland will stop scaling, and so on HiDPI displays, text and other elements in those applications may become too small
 to be comfortably viewed.
 
-Newer versions of Steam read their scale from the [Xorg](Xorg "wikilink") *Xft.dpi* resource directly rather than
+Newer versions of Steam read their scale from the [Xorg](Xorg "Xorg"){.wikilink} *Xft.dpi* resource directly rather than
 querying the compositor, so their UI will stay tiny even with *force_zero_scaling* enabled. To fix this, set *Xft.dpi*
 explicitly with `{{Pkg|xorg-xrdb}}`{=mediawiki}, for example to get 2x scaling:
 
@@ -338,11 +342,12 @@ session.
 
 When Steam is started on Wayland (not confirmed X11) with dual graphics in some cases Steam client is unstable display
 black screen and flicker/blink. This is due to the option `{{ic|PrefersNonDefaultGPU}}`{=mediawiki} being enabled in the
-[desktop entry](desktop_entry "wikilink").
+[desktop entry](desktop_entry "desktop entry"){.wikilink}.
 
 #### Fix by editing desktop entry {#fix_by_editing_desktop_entry}
 
-First, [make a user copy of the desktop entry](Desktop_entries#Modify_desktop_files "wikilink") for Steam (from
+First, [make a user copy of the desktop
+entry](Desktop_entries#Modify_desktop_files "make a user copy of the desktop entry"){.wikilink} for Steam (from
 `{{ic|/usr/share/applications/steam.desktop}}`{=mediawiki}). Then, change the option:
 
 ```{=mediawiki}
@@ -367,25 +372,25 @@ Ampersand (&) at the end is to run Steam in background, terminal can be closed a
 
 ## Audio issues {#audio_issues}
 
-If the sections below do not address the issue, using the [#Steam native runtime](#Steam_native_runtime "wikilink")
-might help.
+If the sections below do not address the issue, using the [#Steam native
+runtime](#Steam_native_runtime "#Steam native runtime"){.wikilink} might help.
 
 ### Configure PulseAudio {#configure_pulseaudio}
 
 Games that explicitly depend on ALSA can break PulseAudio. Follow the directions for
-[PulseAudio#ALSA](PulseAudio#ALSA "wikilink") to make these games use PulseAudio instead.
+[PulseAudio#ALSA](PulseAudio#ALSA "PulseAudio#ALSA"){.wikilink} to make these games use PulseAudio instead.
 
-If you are using [PipeWire](PipeWire "wikilink"), then instead install `{{Pkg|lib32-pipewire}}`{=mediawiki} and set up
-[PipeWire#PulseAudio clients](PipeWire#PulseAudio_clients "wikilink").
+If you are using [PipeWire](PipeWire "PipeWire"){.wikilink}, then instead install `{{Pkg|lib32-pipewire}}`{=mediawiki}
+and set up [PipeWire#PulseAudio clients](PipeWire#PulseAudio_clients "PipeWire#PulseAudio clients"){.wikilink}.
 
 ### No audio or 756 Segmentation fault {#no_audio_or_756_segmentation_fault}
 
 ```{=mediawiki}
 {{Out of date|This was fixed in 2016. Is this still relevant today?}}
 ```
-First [#Configure PulseAudio](#Configure_PulseAudio "wikilink") and see if that resolves the issue. If you do not have
-audio in the videos which play within the Steam client, it is possible that the ALSA libraries packaged with Steam are
-not working.
+First [#Configure PulseAudio](#Configure_PulseAudio "#Configure PulseAudio"){.wikilink} and see if that resolves the
+issue. If you do not have audio in the videos which play within the Steam client, it is possible that the ALSA libraries
+packaged with Steam are not working.
 
 Attempting to playback a video within the Steam client results in an error similar to:
 
@@ -423,14 +428,15 @@ The [FMOD](https://www.fmod.com/) audio middleware package is a bit buggy, and a
 problems.
 
 It usually occurs when an unused sound device is used as default for ALSA. See [Advanced Linux Sound Architecture#Set
-the default sound card](Advanced_Linux_Sound_Architecture#Set_the_default_sound_card "wikilink").
+the default sound
+card](Advanced_Linux_Sound_Architecture#Set_the_default_sound_card "Advanced Linux Sound Architecture#Set the default sound card"){.wikilink}.
 
 :   Affected games: Hotline Miami, Hotline Miami 2, Transistor
 
 ### PulseAudio & OpenAL: Audio streams cannot be moved between devices {#pulseaudio_openal_audio_streams_cannot_be_moved_between_devices}
 
-If you use [PulseAudio](PulseAudio "wikilink") and cannot move an audio stream between sinks, it might be because recent
-OpenAL versions default to disallow audio streams from being moved. Try to add the following to your
+If you use [PulseAudio](PulseAudio "PulseAudio"){.wikilink} and cannot move an audio stream between sinks, it might be
+because recent OpenAL versions default to disallow audio streams from being moved. Try to add the following to your
 `{{ic|~/.alsoftrc}}`{=mediawiki}:
 
 ```{=mediawiki}
@@ -474,16 +480,17 @@ This error might also occur if your library folder does not contain a `{{ic|stea
 versions used `{{ic|SteamApps}}`{=mediawiki} instead, so ensure the name is fully lowercase.
 
 This error can also occur because of Steam runtime issues and may be fixed following the [#Finding missing runtime
-libraries](#Finding_missing_runtime_libraries "wikilink") section or due to no space being left on the device. For
-debugging purposes it might be useful to run Steam from the console and observe the log.
+libraries](#Finding_missing_runtime_libraries "#Finding missing runtime libraries"){.wikilink} section or due to no
+space being left on the device. For debugging purposes it might be useful to run Steam from the console and observe the
+log.
 
 ### Unusually slow download speed {#unusually_slow_download_speed}
 
 If your Steam (games, software...) download speed through the client is unusually slow, but browsing the Steam store and
-streaming videos is unaffected, installing a DNS cache program, such as [dnsmasq](dnsmasq "wikilink") can help
+streaming videos is unaffected, installing a DNS cache program, such as [dnsmasq](dnsmasq "dnsmasq"){.wikilink} can help
 [1](https://steamcommunity.com/app/221410/discussions/2/616189106498372437/).
 
-Something else that might help would be disabling [IPv6](IPv6 "wikilink"). See
+Something else that might help would be disabling [IPv6](IPv6 "IPv6"){.wikilink}. See
 [2](https://github.com/ValveSoftware/steam-for-linux/issues/6126) for more information.
 
 Another potential fix is to disable HTTP2 [3](https://github.com/ValveSoftware/steam-for-linux/issues/10248) by creating
@@ -518,17 +525,17 @@ Try installing `{{Pkg|lib32-systemd}}`{=mediawiki}, `{{Pkg|lib32-libcurl-compat}
 `{{Pkg|lib32-dbus}}`{=mediawiki}.
 
 This may also be as simple as DNS resolution not correctly working and is not always obvious since modern browsers will
-use their own DNS servers. Follow [Domain name resolution](Domain_name_resolution "wikilink").
+use their own DNS servers. Follow [Domain name resolution](Domain_name_resolution "Domain name resolution"){.wikilink}.
 
 Steam may have issues if *systemd-resolved* is providing DNS resolution. Make sure `{{Pkg|lib32-systemd}}`{=mediawiki}
 is present to resolve this.
 
-If DNS resolution works but the Steam launcher still shows the same error message, [enabling](enabling "wikilink") DNS
-caching e.g. via the \"Name Service Caching Daemon\", `{{ic|nscd.service}}`{=mediawiki}, has shown to work around this
-issue.
+If DNS resolution works but the Steam launcher still shows the same error message,
+[enabling](enabling "enabling"){.wikilink} DNS caching e.g. via the \"Name Service Caching Daemon\",
+`{{ic|nscd.service}}`{=mediawiki}, has shown to work around this issue.
 
 It is unclear what exactly running `{{ic|nscd}}`{=mediawiki} does to make it work again though. Please check the [talk
-page](Talk:Steam/Troubleshooting#Needs_to_be_online_error:_Enabling_nscd.service "wikilink") for more info.
+page](Talk:Steam/Troubleshooting#Needs_to_be_online_error:_Enabling_nscd.service "talk page"){.wikilink} for more info.
 
 ### Steam forgets password {#steam_forgets_password}
 
@@ -545,8 +552,8 @@ This will set the file\'s immutable bit so Steam cannot modify, delete, or renam
 ### Preventing crash memory dumps {#preventing_crash_memory_dumps}
 
 Every time Steam crashes, it writes a memory dump to `{{ic|/tmp/dumps/}}`{=mediawiki}. If Steam falls into a crash loop,
-the dump files can become quite large. When `{{ic|/tmp}}`{=mediawiki} is mounted as [tmpfs](tmpfs "wikilink"), memory
-and swap file can be consumed needlessly.
+the dump files can become quite large. When `{{ic|/tmp}}`{=mediawiki} is mounted as [tmpfs](tmpfs "tmpfs"){.wikilink},
+memory and swap file can be consumed needlessly.
 
 To prevent this, link `{{ic|/tmp/dumps/}}`{=mediawiki} to `{{ic|/dev/null}}`{=mediawiki}:
 
@@ -562,8 +569,8 @@ This also has the added benefit of Steam not uploading these dumps to Valve\'s s
 
 ### Steam license problem with playing videos {#steam_license_problem_with_playing_videos}
 
-Steam uses [Google\'s Widevine DRM](w:Widevine "wikilink") for some videos. If it is not installed you will get the
-following error:
+Steam uses [Google\'s Widevine DRM](w:Widevine "Google's Widevine DRM"){.wikilink} for some videos. If it is not
+installed you will get the following error:
 
 `This video requires a license to play which cannot be retrieved. This may be a temporary network condition. Please restart the video to try again.`
 
@@ -585,11 +592,11 @@ If you experience extremely slow and sluggish performance when using the Steam c
 The friends list can also cause this problem. Two workarounds are mentioned in
 <https://github.com/ValveSoftware/steam-for-linux/issues/7245>:
 
--   Moving the friends list to another monitor
-    [4](https://github.com/ValveSoftware/steam-for-linux/issues/7245#issuecomment-663629964).
--   Disabling animated avatars. Open Settings and navigate to Friends & Chat. Set *Enable Animated Avatars & Animated
-    Avatar Frames in your Friends List and Chat \> OFF*
-    [5](https://github.com/ValveSoftware/steam-for-linux/issues/7245#issuecomment-813443906).
+- Moving the friends list to another monitor
+  [4](https://github.com/ValveSoftware/steam-for-linux/issues/7245#issuecomment-663629964).
+- Disabling animated avatars. Open Settings and navigate to Friends & Chat. Set *Enable Animated Avatars & Animated
+  Avatar Frames in your Friends List and Chat \> OFF*
+  [5](https://github.com/ValveSoftware/steam-for-linux/issues/7245#issuecomment-813443906).
 
 ### Steam fails to start correctly {#steam_fails_to_start_correctly}
 
@@ -664,9 +671,9 @@ Report the issue after looking for duplicates at <https://github.com/ValveSoftwa
 ### Cannot access store page (client displays error -105 or -102) {#cannot_access_store_page_client_displays_error__105_or__102}
 
 If the store page is inaccessible but other networking features (such as game downloads) are working, it may be a DNS
-resolution failure. A possible solution is to ensure [systemd-resolved](systemd-resolved "wikilink") is enabled and
-started, then create the `{{ic|/etc/resolv.conf}}`{=mediawiki} symlink as explained in
-[systemd-resolved#DNS](systemd-resolved#DNS "wikilink").
+resolution failure. A possible solution is to ensure [systemd-resolved](systemd-resolved "systemd-resolved"){.wikilink}
+is enabled and started, then create the `{{ic|/etc/resolv.conf}}`{=mediawiki} symlink as explained in
+[systemd-resolved#DNS](systemd-resolved#DNS "systemd-resolved#DNS"){.wikilink}.
 
 Other solution would be to flush DNS as explained here [6](https://askubuntu.com/a/929478):
 
@@ -679,12 +686,12 @@ Steam client settings.
 
 ## Steam Remote Play issues {#steam_remote_play_issues}
 
-See [Steam#Steam Remote Play](Steam#Steam_Remote_Play "wikilink").
+See [Steam#Steam Remote Play](Steam#Steam_Remote_Play "Steam#Steam Remote Play"){.wikilink}.
 
 ### Remote Play does not work from Arch Linux host to Arch Linux guest {#remote_play_does_not_work_from_arch_linux_host_to_arch_linux_guest}
 
-Chances are you are missing `{{AUR|lib32-libcanberra}}`{=mediawiki}. Once you [install](install "wikilink") that, it
-should work as expected.
+Chances are you are missing `{{AUR|lib32-libcanberra}}`{=mediawiki}. Once you [install](install "install"){.wikilink}
+that, it should work as expected.
 
 With that, Steam should no longer crash when trying to launch a game through Remote Play.
 
@@ -696,7 +703,8 @@ where as Arch defaults to 64bit.
 As a basic set, this is `{{Pkg|libva}}`{=mediawiki} and `{{Pkg|lib32-libva}}`{=mediawiki}. Intel graphics users will
 also require both `{{Pkg|libva-intel-driver}}`{=mediawiki} and `{{Pkg|lib32-libva-intel-driver}}`{=mediawiki}.
 
-For more information about vaapi see [hardware video acceleration](hardware_video_acceleration "wikilink").
+For more information about vaapi see [hardware video
+acceleration](hardware_video_acceleration "hardware video acceleration"){.wikilink}.
 
 It may also be necessary to remove the Steam runtime version of libva, in order to force it to use system libraries. The
 current library in use can be found by using:
@@ -723,8 +731,8 @@ See also the [steam-for-linux issue 4769](https://github.com/ValveSoftware/steam
 ```{=mediawiki}
 {{Note|The kernel [[NTFS]] driver is vastly more performant than the [[NTFS-3G]] [[FUSE]] driver [https://openbenchmarking.org/result/2009092-NE-NTFSCOMPA56]. So, for gaming scenario, it is better to uninstall {{Pkg|ntfs-3g}} package as GUI file managers driven by [[udisks]] prefer it when present.}}
 ```
-If your Steam library resides in [NTFS](NTFS "wikilink") partition it is probable that games residing there could not
-start.
+If your Steam library resides in [NTFS](NTFS "NTFS"){.wikilink} partition it is probable that games residing there could
+not start.
 
 The trouble is that Wine uses a colon in its `{{ic|$WINEPREFIX/dosdevices}}`{=mediawiki} directory, and when mounted
 with the `{{ic|windows_names}}`{=mediawiki} option, is instructed to not create such colon names which can confuse
@@ -732,8 +740,8 @@ Windows. Not adding it is not that unsafe: Windows will act fine besides being u
 not need to do anyways); `{{ic|chkdsk}}`{=mediawiki} may delete the link, but it is easily recreated.
 
 Better workaround: mount without `{{ic|windows_names}}`{=mediawiki}. This option is often added by GUI file explorers
-via [udisks](udisks "wikilink") for caution, but adding a real [fstab](fstab "wikilink") line will give it a proper way
-to do so.
+via [udisks](udisks "udisks"){.wikilink} for caution, but adding a real [fstab](fstab "fstab"){.wikilink} line will give
+it a proper way to do so.
 
 1.  Run `{{ic|genfstab -U /}}`{=mediawiki} and extract the line containing the ntfs partition, e.g.
     `{{bc|1=UUID=12345678ABCDEF00 /run/media/user/Gamez ntfs3 rw,uid=1000,gid=1000,windows_names 0 0}}`{=mediawiki}
@@ -743,7 +751,8 @@ to do so.
 3.  Unmount the partition, then remount.
 
 Alternatively, disable udisks use of `{{ic|windows_names}}`{=mediawiki} globally following instructions in [udisks#NTFS
-file creation failing (filename-dependent)](udisks#NTFS_file_creation_failing_(filename-dependent) "wikilink").
+file creation failing
+(filename-dependent)](udisks#NTFS_file_creation_failing_(filename-dependent) "udisks#NTFS file creation failing (filename-dependent)"){.wikilink}.
 
 Other workaround: move the `{{ic|steamapps/common/Proton ''x''.''y''}}`{=mediawiki} and
 `{{ic|steamapps/compatdata}}`{=mediawiki} to a non-NTFS drive, then create symbolic link in their original locations.
@@ -796,7 +805,7 @@ whether the problem is solved.
 ### SetLocale(\'en_US.UTF-8\') fails at game startup or typing non-ASCII characters does not work in the Steam client {#setlocaleen_us.utf_8_fails_at_game_startup_or_typing_non_ascii_characters_does_not_work_in_the_steam_client}
 
 You need to generate the `{{ic|en_US.UTF-8 UTF-8}}`{=mediawiki} locale. See [Locale#Generating
-locales](Locale#Generating_locales "wikilink").
+locales](Locale#Generating_locales "Locale#Generating locales"){.wikilink}.
 
 ### Missing libc {#missing_libc}
 
@@ -833,7 +842,7 @@ shows a GLXBadFBConfig error.
 
 This can be fixed, by forcing the game to use a later version of OpenGL than it wants. Add
 `{{ic|1=MESA_GL_VERSION_OVERRIDE=3.1 MESA_GLSL_VERSION_OVERRIDE=140}}`{=mediawiki} to your [launch
-options](launch_option "wikilink").
+options](launch_option "launch option"){.wikilink}.
 
 ### Mesa: Game does not launch, complaining about OpenGL version supported by the card {#mesa_game_does_not_launch_complaining_about_opengl_version_supported_by_the_card}
 
@@ -842,24 +851,25 @@ specific core profile. If it does not make such a request, only OpenGL 3.0 and l
 
 This can be fixed, by forcing the game to use a version of OpenGL it actually needs. Add
 `{{ic|1=MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410}}`{=mediawiki} to your [launch
-options](launch_option "wikilink").
+options](launch_option "launch option"){.wikilink}.
 
 ### 2K games do not run on XFS partitions {#k_games_do_not_run_on_xfs_partitions}
 
 ```{=mediawiki}
 {{Expansion|Seems to be a general issue, e.g. [https://github.com/ValveSoftware/Source-1-Games/issues/1685]}}
 ```
-If you are running 2K games such as Civilization 5 on [XFS](XFS "wikilink") partitions, then the game may not start or
-run properly due to how the game loads files as it starts. [7](https://bbs.archlinux.org/viewtopic.php?id=185222)
+If you are running 2K games such as Civilization 5 on [XFS](XFS "XFS"){.wikilink} partitions, then the game may not
+start or run properly due to how the game loads files as it starts.
+[7](https://bbs.archlinux.org/viewtopic.php?id=185222)
 
 ### Steam controller not being detected correctly {#steam_controller_not_being_detected_correctly}
 
-See [Gamepad#Steam Controller](Gamepad#Steam_Controller "wikilink").
+See [Gamepad#Steam Controller](Gamepad#Steam_Controller "Gamepad#Steam Controller"){.wikilink}.
 
 ### Steam controller makes a game crash {#steam_controller_makes_a_game_crash}
 
 See [Gamepad#Steam Controller makes a game crash or not
-recognized](Gamepad#Steam_Controller_makes_a_game_crash_or_not_recognized "wikilink").
+recognized](Gamepad#Steam_Controller_makes_a_game_crash_or_not_recognized "Gamepad#Steam Controller makes a game crash or not recognized"){.wikilink}.
 
 ### Steam hangs on \"Installing breakpad exception handler\...\" {#steam_hangs_on_installing_breakpad_exception_handler...}
 
@@ -872,13 +882,15 @@ You have an NVIDIA GPU and Steam has the following output:
 `Installing breakpad exception handler for appid(steam)/version(0_client)`
 
 Then nothing else happens. Ensure you have the correct drivers installed as well as their 32-bit versions (the 64-bit
-and 32-bit variants have to have the same versions): see [NVIDIA#Installation](NVIDIA#Installation "wikilink").
+and 32-bit variants have to have the same versions): see
+[NVIDIA#Installation](NVIDIA#Installation "NVIDIA#Installation"){.wikilink}.
 
 ### Killing standalone compositors when launching games {#killing_standalone_compositors_when_launching_games}
 
 Utilizing the `{{ic|%command%}}`{=mediawiki} switch, you can kill standalone compositors (such as
-[Xcompmgr](Xcompmgr "wikilink") or [picom](picom "wikilink")) - which can cause lag and tearing in some games on some
-systems - and relaunch them after the game ends by adding the following to your game\'s launch options.
+[Xcompmgr](Xcompmgr "Xcompmgr"){.wikilink} or [picom](picom "picom"){.wikilink}) - which can cause lag and tearing in
+some games on some systems - and relaunch them after the game ends by adding the following to your game\'s launch
+options.
 
 `killall `*`compositor`*` && %command%; nohup `*`compositor`*` &`
 
@@ -933,13 +945,13 @@ If that did not work try:
 `LD_PRELOAD="libpthread.so.0 libGL.so.1" __GL_THREADED_OPTIMIZATIONS=1 optirun %command%`
 
 For more details see [Bumblebee#Primusrun mouse delay (disable
-VSYNC)](Bumblebee#Primusrun_mouse_delay_(disable_VSYNC) "wikilink").
+VSYNC)](Bumblebee#Primusrun_mouse_delay_(disable_VSYNC) "Bumblebee#Primusrun mouse delay (disable VSYNC)"){.wikilink}.
 
 ### HiDPI
 
-[HiDPI](HiDPI "wikilink") support should work out of the box, although on some systems it is necessary to [force
-it](HiDPI#Steam "wikilink") setting the `{{ic|1=-forcedesktopscaling ''factor''}}`{=mediawiki} cli option or the
-`{{ic|STEAM_FORCE_DESKTOPUI_SCALING}}`{=mediawiki} environment variable to set the desired scale factor.
+[HiDPI](HiDPI "HiDPI"){.wikilink} support should work out of the box, although on some systems it is necessary to [force
+it](HiDPI#Steam "force it"){.wikilink} setting the `{{ic|1=-forcedesktopscaling ''factor''}}`{=mediawiki} cli option or
+the `{{ic|STEAM_FORCE_DESKTOPUI_SCALING}}`{=mediawiki} environment variable to set the desired scale factor.
 
 ### Protocol support under KDE Plasma {#protocol_support_under_kde_plasma}
 
@@ -961,9 +973,9 @@ Since Proton 5.13 Steam uses the Steam Linux Runtime - Soldier by default. Some 
 
 To bypass it, you can:
 
--   Manually [build](https://github.com/ValveSoftware/Proton#alternative-building-without-the-steam-runtime) a proton
-    without the Steam Runtime
--   Replace the Soldier entry point script:
+- Manually [build](https://github.com/ValveSoftware/Proton#alternative-building-without-the-steam-runtime) a proton
+  without the Steam Runtime
+- Replace the Soldier entry point script:
 
 ```{=mediawiki}
 {{hc|~/.steam/steam/steamapps/common/SteamLinuxRuntime_soldier/_v2-entry-point|
@@ -975,8 +987,9 @@ exec "${@}"
 ```
 ### Games running with Proton 5.13+ have no Internet connectivity {#games_running_with_proton_5.13_have_no_internet_connectivity}
 
-If you are using [systemd-resolved](systemd-resolved "wikilink") as your DNS resolver, ensure you have created the
-`{{ic|resolv.conf}}`{=mediawiki} symlink as described in [systemd-resolved#DNS](systemd-resolved#DNS "wikilink").
+If you are using [systemd-resolved](systemd-resolved "systemd-resolved"){.wikilink} as your DNS resolver, ensure you
+have created the `{{ic|resolv.conf}}`{=mediawiki} symlink as described in
+[systemd-resolved#DNS](systemd-resolved#DNS "systemd-resolved#DNS"){.wikilink}.
 
 The file should contain something similar to:
 
@@ -1007,8 +1020,8 @@ Go to the game properties and configure it in Launch Options:
 
 ### Force OpenGL emulation {#force_opengl_emulation}
 
-Some, especially older games might not work with the default Vulkan ([DXVK](DXVK "wikilink")) wrapper Proton uses. Try
-running the application with WineD3D OpenGL wrapper instead:
+Some, especially older games might not work with the default Vulkan ([DXVK](DXVK "DXVK"){.wikilink}) wrapper Proton
+uses. Try running the application with WineD3D OpenGL wrapper instead:
 
 `PROTON_USE_WINED3D=1 %command%`
 
@@ -1018,13 +1031,14 @@ See `{{Bug|78625}}`{=mediawiki}. You need to install `{{Pkg|xdg-desktop-portal}}
 
 ### DirectX errors on hybrid graphics {#directx_errors_on_hybrid_graphics}
 
-For laptop with Intel/NVIDIA [Hybrid graphics](Hybrid_graphics "wikilink") encountering the following error:
+For laptop with Intel/NVIDIA [Hybrid graphics](Hybrid_graphics "Hybrid graphics"){.wikilink} encountering the following
+error:
 
 `A d3d11-compatible gpu (feature level 11.0, shader model 5.0) is required to run the engine.`
 
 It\'s probably because your game is running on the iGPU instead of the dedicated GPU and you need to configure
-[PRIME](PRIME "wikilink"). If it\'s still not doing it, try using [Direct3D instead of
-DXVK](#Force_OpenGL_emulation "wikilink").
+[PRIME](PRIME "PRIME"){.wikilink}. If it\'s still not doing it, try using [Direct3D instead of
+DXVK](#Force_OpenGL_emulation "Direct3D instead of DXVK"){.wikilink}.
 
 ### No Internet Connection when downloading {#no_internet_connection_when_downloading}
 
@@ -1053,10 +1067,10 @@ interface. This issue can temporary be addressed by editing `{{ic|1=/etc/nsswitc
 
 ## See also {#see_also}
 
--   [Multimedia and Games / Arch Linux Forums](https://bbs.archlinux.org/viewforum.php?id=32)
--   [ValveSoftware/steam-for-linux](https://github.com/ValveSoftware/steam-for-linux) -- Issue tracking for the Steam
-    for Linux client
--   [Steam Community discussions of the game](https://steamcommunity.com/)
--   [Steam Support FAQ](https://help.steampowered.com/en/)
+- [Multimedia and Games / Arch Linux Forums](https://bbs.archlinux.org/viewforum.php?id=32)
+- [ValveSoftware/steam-for-linux](https://github.com/ValveSoftware/steam-for-linux) -- Issue tracking for the Steam for
+  Linux client
+- [Steam Community discussions of the game](https://steamcommunity.com/)
+- [Steam Support FAQ](https://help.steampowered.com/en/)
 
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

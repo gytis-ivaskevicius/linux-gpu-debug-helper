@@ -1,7 +1,8 @@
-[AMDGPU](Wikipedia:AMDgpu_(Linux_kernel_module) "wikilink") is an open source graphics driver for AMD Radeon graphics
-cards. It supports AMD GPUs based on the [Graphics Core Next (GCN)](Wikipedia:Graphics_Core_Next "wikilink")
-architecture and later, covering hardware released from approximately 2012 onward. This guide is about configuration of
-NixOS to correctly use AMD GPUs supported by the AMDGPU driver.
+[AMDGPU](Wikipedia:AMDgpu_(Linux_kernel_module) "AMDGPU"){.wikilink} is an open source graphics driver for AMD Radeon
+graphics cards. It supports AMD GPUs based on the [Graphics Core Next
+(GCN)](Wikipedia:Graphics_Core_Next "Graphics Core Next (GCN)"){.wikilink} architecture and later, covering hardware
+released from approximately 2012 onward. This guide is about configuration of NixOS to correctly use AMD GPUs supported
+by the AMDGPU driver.
 
 ## Basic Setup {#basic_setup}
 
@@ -47,9 +48,9 @@ boot.extraModprobeConfig = ''
 ### Enable Southern Islands (SI) and Sea Islands (CIK) support (eg. HD 7000/8000) {#enable_southern_islands_si_and_sea_islands_cik_support_eg._hd_70008000}
 
 The oldest architectures that AMDGPU supports are [Southern Islands (SI, i.e. GCN
-1)](wikipedia:Radeon_HD_7000_series "wikilink") and [Sea Islands (CIK, i.e. GCN
-2)](wikipedia:Radeon_HD_8000_series "wikilink"), but support for them is disabled by default. To use AMDGPU instead of
-the `radeon` driver, you can set the legacySupport option in the amdgpu module.
+1)](wikipedia:Radeon_HD_7000_series "Southern Islands (SI, i.e. GCN 1)"){.wikilink} and [Sea Islands (CIK, i.e. GCN
+2)](wikipedia:Radeon_HD_8000_series "Sea Islands (CIK, i.e. GCN 2)"){.wikilink}, but support for them is disabled by
+default. To use AMDGPU instead of the `radeon` driver, you can set the legacySupport option in the amdgpu module.
 
 ``` nix
 hardware.amdgpu.legacySupport.enable = true;
@@ -68,7 +69,8 @@ boot.kernelParams = [
 ];
 ```
 
-Doing this is required to use [Vulkan](#Vulkan "wikilink") on these cards, as the `radeon` driver doesn\'t support it.
+Doing this is required to use [Vulkan](#Vulkan "Vulkan"){.wikilink} on these cards, as the `radeon` driver doesn\'t
+support it.
 
 Please note this also removes support for analog video outputs, which is only available with the `radeon` driver.
 
@@ -118,7 +120,7 @@ attrPaths](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/rocm-mo
 therefore built by Hydra and cached in cache.nixos.org with `rocmSupport`, enabling it globally still has a slight
 chance of pointless compiling on your machine.
 
-For Blender-specific information on setting up HIP support, see: [Blender#HIP](Blender#HIP "wikilink").
+For Blender-specific information on setting up HIP support, see: [Blender#HIP](Blender#HIP "Blender#HIP"){.wikilink}.
 
 ### OpenCL
 
@@ -286,8 +288,9 @@ are currently two sets of patches to choose between stability or speed that can 
 [amdgpu-testing](https://github.com/SeryogaBrigada/linux/commits/v6.13-amdgpu-testing).
 
 See [Linux Kernel#Patching a single In-tree kernel
-module](Linux_Kernel#Patching_a_single_In-tree_kernel_module "wikilink"), keep in mind how to make [patch diffs from
-commits from GitHub](https://stackoverflow.com/a/23525893), and consider this example configuration:
+module](Linux_Kernel#Patching_a_single_In-tree_kernel_module "Linux Kernel#Patching a single In-tree kernel module"){.wikilink},
+keep in mind how to make [patch diffs from commits from GitHub](https://stackoverflow.com/a/23525893), and consider this
+example configuration:
 
 ``` nix
 { config, pkgs, ... }:
@@ -333,9 +336,9 @@ boosting too high without enough voltage
 Use a tool like LACT to increase power usage limit to 15%, undervolt by moderate amount (e.g. -50mV for 7900 XTX) and
 optionally decrease maximum GPU clock.
 
--   <https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes>
--   <https://gitlab.freedesktop.org/mesa/mesa/-/issues/11532>
--   <https://gitlab.freedesktop.org/drm/amd/-/issues/3067>
+- <https://wiki.gentoo.org/wiki/AMDGPU#Frequent_and_Sporadic_Crashes>
+- <https://gitlab.freedesktop.org/mesa/mesa/-/issues/11532>
+- <https://gitlab.freedesktop.org/drm/amd/-/issues/3067>
 
 ### Error: `amdgpu: Failed to get gpu_info firmware` {#error_amdgpu_failed_to_get_gpu_info_firmware}
 
@@ -366,12 +369,12 @@ systemd.tmpfiles.rules = [
 
 ## See Also {#see_also}
 
--   <https://wiki.archlinux.org/title/AMDGPU>
--   <https://wiki.gentoo.org/wiki/AMDGPU>
+- <https://wiki.archlinux.org/title/AMDGPU>
+- <https://wiki.gentoo.org/wiki/AMDGPU>
 
 ## References
 
-[Category:Video](Category:Video "wikilink")
+[Category:Video](Category:Video "Category:Video"){.wikilink}
 
 [^1]: <https://bbs.archlinux.org/viewtopic.php?pid=2224147#p2224147>
 

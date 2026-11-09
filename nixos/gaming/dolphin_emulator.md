@@ -36,4 +36,5 @@ rates with the Wii U or Mayflash adapter, use the `gcadapter-oc-kmod` kernel mod
 }
 </nowiki>}}
 ```
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

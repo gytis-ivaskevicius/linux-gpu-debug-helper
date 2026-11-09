@@ -14,7 +14,7 @@
 }}`{=mediawiki} `<translate>`{=html}
 
 \[`<tvar name="1">`{=html}<https://github.com/niri-wm/niri>`</tvar>`{=html} Niri\] is a scrollable-tiling
-[Wayland](<tvar_name="2">Special:MyLanguage/Wayland</tvar> "wikilink") compositor.
+[Wayland](<tvar_name="2">Special:MyLanguage/Wayland</tvar> "Wayland"){.wikilink} compositor.
 
 ## Installation
 
@@ -35,7 +35,7 @@ programs.niri.enable = true;
 ## Configuration
 
 The configuration path for niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
-Manager](<tvar_name="1">Special:MyLanguage/Home_Manager</tvar> "wikilink") can be used for configuration:
+Manager](<tvar_name="1">Special:MyLanguage/Home_Manager</tvar> "Home Manager"){.wikilink} can be used for configuration:
 
 `</translate>`{=html} `{{file|~/.config/home-manager/home.nix|nix|3=
 xdg.configFile."niri/config.kdl".source = ./config.kdl;
@@ -93,12 +93,12 @@ systemd.user.services.niri.enableDefaultPath = false;
 
 As described in \[`<tvar name=1>`{=html}<https://github.com/niri-wm/niri/wiki/Example-systemd-Setup>`</tvar>`{=html}
 Example systemd Setup (niri wiki)\], you might want to set up some additional services including
-[Swayidle](<tvar_name=2>Special:MyLanguage/Swayidle</tvar> "wikilink"),
-[Swaylock](<tvar_name=3>Special:MyLanguage/Swaylock</tvar> "wikilink"),
-[Waybar](<tvar_name=4>Special:MyLanguage/Waybar</tvar> "wikilink"),
-[Polkit](<tvar_name=5>Special:MyLanguage/Polkit</tvar> "wikilink") and [Secret
-Service](<tvar_name=6>Special:MyLanguage/Secret_Service</tvar> "wikilink") as follows to complement the functionality of
-a regular window manager. Some of the these settings are also required to enable all the features of
+[Swayidle](<tvar_name=2>Special:MyLanguage/Swayidle</tvar> "Swayidle"){.wikilink},
+[Swaylock](<tvar_name=3>Special:MyLanguage/Swaylock</tvar> "Swaylock"){.wikilink},
+[Waybar](<tvar_name=4>Special:MyLanguage/Waybar</tvar> "Waybar"){.wikilink},
+[Polkit](<tvar_name=5>Special:MyLanguage/Polkit</tvar> "Polkit"){.wikilink} and [Secret
+Service](<tvar_name=6>Special:MyLanguage/Secret_Service</tvar> "Secret Service"){.wikilink} as follows to complement the
+functionality of a regular window manager. Some of the these settings are also required to enable all the features of
 \[`<tvar name=7>`{=html}<https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl>`</tvar>`{=html} the
 default configuration file\]. `</translate>`{=html}
 
@@ -112,8 +112,8 @@ programs.waybar.enable = true; # top bar
 environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ];
 |name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-`<translate>`{=html} Or using [Home Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "wikilink"):
-`</translate>`{=html}
+`<translate>`{=html} Or using [Home
+Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "Home Manager"){.wikilink}: `</translate>`{=html}
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
@@ -136,7 +136,7 @@ home.packages = with pkgs; [
 ### IME not working on Electron apps {#ime_not_working_on_electron_apps}
 
 There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as described in
-[Wayland#Electron_and_Chromium](<tvar_name=1>Special:MyLanguage/Wayland#Electron_and_Chromium</tvar> "wikilink"):
+[Wayland#Electron_and_Chromium](<tvar_name=1>Special:MyLanguage/Wayland#Electron_and_Chromium</tvar> "Wayland#Electron_and_Chromium"){.wikilink}:
 `</translate>`{=html}
 
 ```{=mediawiki}
@@ -178,8 +178,8 @@ about this) `</translate>`{=html}
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-`<translate>`{=html} Or using [Home Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "wikilink")
-`</translate>`{=html}
+`<translate>`{=html} Or using [Home
+Manager](<tvar_name=1>Special:MyLanguage/Home_Manager</tvar> "Home Manager"){.wikilink} `</translate>`{=html}
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
@@ -213,12 +213,13 @@ add waybar to your systems packages without using the home-manager option.
 
 ## See Also {#see_also}
 
--   [Wayland](<tvar_name=1>Special:MyLanguage/Wayland</tvar> "wikilink")
--   [Sway](<tvar_name=2>Special:MyLanguage/Sway</tvar> "wikilink")
--   [Wallpapers for Wayland](<tvar_name=3>Special:MyLanguage/Wallpapers_for_Wayland</tvar> "wikilink")
--   \[`<tvar name=4>`{=html}<https://github.com/sodiboo/niri-flake/>`</tvar>`{=html} niri-flake\]
+- [Wayland](<tvar_name=1>Special:MyLanguage/Wayland</tvar> "Wayland"){.wikilink}
+- [Sway](<tvar_name=2>Special:MyLanguage/Sway</tvar> "Sway"){.wikilink}
+- [Wallpapers for
+  Wayland](<tvar_name=3>Special:MyLanguage/Wallpapers_for_Wayland</tvar> "Wallpapers for Wayland"){.wikilink}
+- \[`<tvar name=4>`{=html}<https://github.com/sodiboo/niri-flake/>`</tvar>`{=html} niri-flake\]
 
 `</translate>`{=html}
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "Category:Applications{{#translation:}}"){.wikilink}

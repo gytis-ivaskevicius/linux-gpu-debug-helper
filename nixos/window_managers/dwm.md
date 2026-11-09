@@ -48,14 +48,14 @@ fetcher](https://nixos.org/manual/nixpkgs/stable/#chap-pkgs-fetchers), if you ha
 
 If your change does not appear to take effect:
 
--   You must **not** have `dwm` listed anywhere in your `environment.systemPackages` or `home.packages`.
--   Remove any packages installed via `nix-env` or `nix profile`.
--   After rebuilding and switching, reboot and check again.
+- You must **not** have `dwm` listed anywhere in your `environment.systemPackages` or `home.packages`.
+- Remove any packages installed via `nix-env` or `nix profile`.
+- After rebuilding and switching, reboot and check again.
 
 ## See also {#see_also}
 
--   [St](St "wikilink")
--   [DMenu](https://tools.suckless.org/dmenu/)
+- [St](St "St"){.wikilink}
+- [DMenu](https://tools.suckless.org/dmenu/)
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

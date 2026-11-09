@@ -1,16 +1,18 @@
-[de:Firefox-Profile in Ramdisk auslagern](de:Firefox-Profile_in_Ramdisk_auslagern "wikilink") [ja:Firefox/プロファイルを
-RAM に置く](ja:Firefox/プロファイルを_RAM_に置く "wikilink") [ru:Firefox (Русский)/Profile on
-RAM](ru:Firefox_(Русский)/Profile_on_RAM "wikilink")
-[zh-hans:Firefox/在内存中存储配置](zh-hans:Firefox/在内存中存储配置 "wikilink") Assuming that there is memory to spare,
-placing [Firefox](Firefox "wikilink")\'s cache or complete profile to RAM offers significant advantages. Even though
-opting for the partial route is an improvement by itself, the latter can make Firefox even more responsive compared to
-its stock configuration. Benefits include, among others:
+[de:Firefox-Profile in Ramdisk
+auslagern](de:Firefox-Profile_in_Ramdisk_auslagern "de:Firefox-Profile in Ramdisk auslagern"){.wikilink}
+[ja:Firefox/プロファイルを RAM
+に置く](ja:Firefox/プロファイルを_RAM_に置く "ja:Firefox/プロファイルを RAM に置く"){.wikilink} [ru:Firefox
+(Русский)/Profile on RAM](ru:Firefox_(Русский)/Profile_on_RAM "ru:Firefox (Русский)/Profile on RAM"){.wikilink}
+[zh-hans:Firefox/在内存中存储配置](zh-hans:Firefox/在内存中存储配置 "zh-hans:Firefox/在内存中存储配置"){.wikilink}
+Assuming that there is memory to spare, placing [Firefox](Firefox "Firefox"){.wikilink}\'s cache or complete profile to
+RAM offers significant advantages. Even though opting for the partial route is an improvement by itself, the latter can
+make Firefox even more responsive compared to its stock configuration. Benefits include, among others:
 
--   reduced drive read/writes;
--   heightened responsive feel;
--   many operations within Firefox, such as quick search and history queries, are nearly instantaneous.
+- reduced drive read/writes;
+- heightened responsive feel;
+- many operations within Firefox, such as quick search and history queries, are nearly instantaneous.
 
-To do so we can make use of a [tmpfs](tmpfs "wikilink").
+To do so we can make use of a [tmpfs](tmpfs "tmpfs"){.wikilink}.
 
 Because data placed therein cannot survive a shutdown, a script responsible for syncing back to drive prior to system
 shutdown is necessary if persistence is desired (which is likely in the case of profile relocation). On the other hand,
@@ -22,19 +24,20 @@ Firefox cache on every reboot.
 ```
 ## Relocate cache to RAM only {#relocate_cache_to_ram_only}
 
-See [Firefox/Tweaks#Turn off the disk cache](Firefox/Tweaks#Turn_off_the_disk_cache "wikilink").
+See [Firefox/Tweaks#Turn off the disk
+cache](Firefox/Tweaks#Turn_off_the_disk_cache "Firefox/Tweaks#Turn off the disk cache"){.wikilink}.
 
 ## Place profile in RAM using tools {#place_profile_in_ram_using_tools}
 
-Relocate the browser profile to [tmpfs](tmpfs "wikilink") so as to globally improve browser\'s responsiveness. Another
-benefit is a reduction in drive I/O operations, of which [SSDs benefit the
-most](Improving_performance#Show_disk_writes "wikilink").
+Relocate the browser profile to [tmpfs](tmpfs "tmpfs"){.wikilink} so as to globally improve browser\'s responsiveness.
+Another benefit is a reduction in drive I/O operations, of which [SSDs benefit the
+most](Improving_performance#Show_disk_writes "SSDs benefit the most"){.wikilink}.
 
 Use an active management script for maximal reliability and ease of use. Several are available from the AUR.
 
 ### Profile-sync-daemon {#profile_sync_daemon}
 
-See the [Profile-sync-daemon](Profile-sync-daemon "wikilink") page for additional info on it.
+See the [Profile-sync-daemon](Profile-sync-daemon "Profile-sync-daemon"){.wikilink} page for additional info on it.
 
 ### firefox-sync {#firefox_sync}
 
@@ -42,18 +45,19 @@ See the [Profile-sync-daemon](Profile-sync-daemon "wikilink") page for additiona
 {{AUR|firefox-sync}}
 ```
 is sufficient for a user with a single profile; uses a script and systemd service similar to [#The
-script](#The_script "wikilink").
+script](#The_script "#The script"){.wikilink}.
 
-Identify and backup your current Firefox profile as [#Before you start](#Before_you_start "wikilink") suggests.
+Identify and backup your current Firefox profile as [#Before you
+start](#Before_you_start "#Before you start"){.wikilink} suggests.
 
-Use a [drop-in snippet](drop-in_snippet "wikilink") to pass the profile as an argument with
+Use a [drop-in snippet](drop-in_snippet "drop-in snippet"){.wikilink} to pass the profile as an argument with
 `{{ic|-p ''profile_id''.default}}`{=mediawiki}.
 
 ```{=mediawiki}
 {{Warning|This will possibly delete the profile, be ready to restore from a backup as soon as you start the service.}}
 ```
-Then [start/enable](start/enable "wikilink") the `{{ic|firefox-sync.service}}`{=mediawiki} [user
-unit](user_unit "wikilink").
+Then [start/enable](start/enable "start/enable"){.wikilink} the `{{ic|firefox-sync.service}}`{=mediawiki} [user
+unit](user_unit "user unit"){.wikilink}.
 
 ## Place profile in RAM manually {#place_profile_in_ram_manually}
 
@@ -75,7 +79,7 @@ until the end of this article, replace the bold **`{{ic|xyz.default}}`{=mediawik
 Firefox profile folder. The only value that absolutely needs to be altered is, again,
 **`{{ic|xyz.default}}`{=mediawiki}**.
 
-Be sure that [rsync](rsync "wikilink") is installed, [create](create "wikilink"):
+Be sure that [rsync](rsync "rsync"){.wikilink} is installed, [create](create "create"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|~/.local/bin/firefox-sync.sh|2=
@@ -107,7 +111,7 @@ else
 fi
 }}
 ```
-Make the script [executable](executable "wikilink"), then run the following to close Firefox and test it:
+Make the script [executable](executable "executable"){.wikilink}, then run the following to close Firefox and test it:
 
 `$ killall firefox firefox-bin`\
 `$ ls ~/.mozilla/firefox/`\
@@ -123,7 +127,7 @@ course of action.
 
 #### systemd
 
-[Create](Create "wikilink") the following script:
+[Create](Create "Create"){.wikilink} the following script:
 
 ```{=mediawiki}
 {{hc|~/.config/systemd/user/firefox-profile@.service|2=
@@ -140,12 +144,13 @@ ExecStart=%h/.local/bin/firefox-sync.sh %i
 ExecStop=%h/.local/bin/firefox-sync.sh %i
 }}
 ```
-then, do a [daemon-reload](daemon-reload "wikilink") and [enable/start](enable/start "wikilink") the
-`{{ic|firefox-profile@'''xyz.default'''.service}}`{=mediawiki} [user unit](user_unit "wikilink").
+then, do a [daemon-reload](daemon-reload "daemon-reload"){.wikilink} and
+[enable/start](enable/start "enable/start"){.wikilink} the
+`{{ic|firefox-profile@'''xyz.default'''.service}}`{=mediawiki} [user unit](user_unit "user unit"){.wikilink}.
 
 #### cron job {#cron_job}
 
-Manipulate the user\'s [cron](cron "wikilink") table using `{{ic|crontab}}`{=mediawiki}:
+Manipulate the user\'s [cron](cron "cron"){.wikilink} table using `{{ic|crontab}}`{=mediawiki}:
 
 `$ crontab -e`
 
@@ -159,19 +164,19 @@ or add the following to do so every 2 hours:
 
 #### Sync at login/logout {#sync_at_loginlogout}
 
-Assuming [bash](bash "wikilink") is being used, add the script to the login/logout files:
+Assuming [bash](bash "bash"){.wikilink} is being used, add the script to the login/logout files:
 
 `$ echo 'bash -c "~/.local/bin/firefox-sync.sh `**`xyz.default`**` > /dev/null &"' | tee -a ~/.bash_logout ~/.bash_login`
 
 ```{=mediawiki}
 {{Note|You may wish to use {{ic|~/.bash_profile}} instead of {{ic|~/.bash_login}} as bash will only read the former if both exist and are readable.}}
 ```
-For [zsh](zsh "wikilink"), use `{{ic|~/.zlogin}}`{=mediawiki} and `{{ic|~/.zlogout}}`{=mediawiki} instead:
+For [zsh](zsh "zsh"){.wikilink}, use `{{ic|~/.zlogin}}`{=mediawiki} and `{{ic|~/.zlogout}}`{=mediawiki} instead:
 
 `$ echo 'bash -c "~/.local/bin/firefox-sync.sh `**`xyz.default`**` > /dev/null &"' | tee -a ~/.zlog{in,out}`
 
 ## See also {#see_also}
 
--   [tmpfs](tmpfs "wikilink")
+- [tmpfs](tmpfs "tmpfs"){.wikilink}
 
-[Category:Web browser](Category:Web_browser "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}

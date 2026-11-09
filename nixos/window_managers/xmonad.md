@@ -1,12 +1,13 @@
 [xmonad](https://xmonad.org/) is a tiling [window manager](https://wiki.archlinux.org/title/Window_manager) for
-[X](Xorg "wikilink"). Windows are arranged automatically to tile the screen without gaps or overlap, maximizing screen
-use. Window manager features are accessible from the keyboard: a mouse is optional.
+[X](Xorg "X"){.wikilink}. Windows are arranged automatically to tile the screen without gaps or overlap, maximizing
+screen use. Window manager features are accessible from the keyboard: a mouse is optional.
 
-xmonad is written, configured and extensible in [Haskell](Haskell "wikilink"). Custom layout algorithms, key bindings
-and other extensions may be written by the user in configuration files.
+xmonad is written, configured and extensible in [Haskell](Haskell "Haskell"){.wikilink}. Custom layout algorithms, key
+bindings and other extensions may be written by the user in configuration files.
 
 Layouts are applied dynamically, and different layouts may be used on each workspace.
-[Xinerama](Wikipedia:Xinerama "wikilink") is fully supported, allowing windows to be tiled on several physical screens.
+[Xinerama](Wikipedia:Xinerama "Xinerama"){.wikilink} is fully supported, allowing windows to be tiled on several
+physical screens.
 
 ## Installation
 
@@ -129,16 +130,16 @@ Archive](https://wiki.haskell.org/Xmonad/Config_archive).
 ## Power management {#power_management}
 
 Xmonad is a Window Manager (WM) and not a Desktop Environment (DE). Therefore, among other things, Xmonad does not
-handle [power management](Power_Management "wikilink") related things such as sleeping. However, there are several ways
-of still adding this functionality.
+handle [power management](Power_Management "power management"){.wikilink} related things such as sleeping. However,
+there are several ways of still adding this functionality.
 
 ### Suspend system after inactivity {#suspend_system_after_inactivity}
 
 The approach goes through the following steps:
 
--   Let the [XServer](Xorg "wikilink") detect idle-situation
--   Inform \"[logind](Systemd/logind "wikilink")\" (i.e. \"systemd\") about the situation
--   Let \"logind\" make the system sleep
+- Let the [XServer](Xorg "XServer"){.wikilink} detect idle-situation
+- Inform \"[logind](Systemd/logind "logind"){.wikilink}\" (i.e. \"systemd\") about the situation
+- Let \"logind\" make the system sleep
 
 We\'ll configure the XServers screensaver-settings to pick up inactivity:
 
@@ -232,5 +233,5 @@ The \"with-ghc\" should be ghc that\'s in the \"ghc-with-packages\" dependency o
 be easily found with \"[nix-tree](https://github.com/utdemir/nix-tree)\", which shows dependencies between packages on
 the machine.
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

@@ -13,8 +13,8 @@
 | latestRelease = 26.04; 25 Apr 2026
 }}`{=mediawiki}
 
-[Niri](https://github.com/niri-wm/niri) is a scrollable-tiling [Wayland](Special:MyLanguage/Wayland "wikilink")
-compositor.
+[Niri](https://github.com/niri-wm/niri) is a scrollable-tiling
+[Wayland](Special:MyLanguage/Wayland "Wayland"){.wikilink} compositor.
 
 ## Installation
 
@@ -34,7 +34,7 @@ programs.niri.enable = true;
 ## Configuration
 
 The configuration path for niri is `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}. Therefore [Home
-Manager](Special:MyLanguage/Home_Manager "wikilink") can be used for configuration:
+Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink} can be used for configuration:
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
@@ -91,12 +91,12 @@ systemd.user.services.niri.enableDefaultPath = false;
 ## Additional Setup {#additional_setup}
 
 As described in [Example systemd Setup (niri wiki)](https://github.com/niri-wm/niri/wiki/Example-systemd-Setup), you
-might want to set up some additional services including [Swayidle](Special:MyLanguage/Swayidle "wikilink"),
-[Swaylock](Special:MyLanguage/Swaylock "wikilink"), [Waybar](Special:MyLanguage/Waybar "wikilink"),
-[Polkit](Special:MyLanguage/Polkit "wikilink") and [Secret Service](Special:MyLanguage/Secret_Service "wikilink") as
-follows to complement the functionality of a regular window manager. Some of the these settings are also required to
-enable all the features of [the default configuration
-file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl).
+might want to set up some additional services including [Swayidle](Special:MyLanguage/Swayidle "Swayidle"){.wikilink},
+[Swaylock](Special:MyLanguage/Swaylock "Swaylock"){.wikilink}, [Waybar](Special:MyLanguage/Waybar "Waybar"){.wikilink},
+[Polkit](Special:MyLanguage/Polkit "Polkit"){.wikilink} and [Secret
+Service](Special:MyLanguage/Secret_Service "Secret Service"){.wikilink} as follows to complement the functionality of a
+regular window manager. Some of the these settings are also required to enable all the features of [the default
+configuration file](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl).
 
 ```{=mediawiki}
 {{file|3=
@@ -108,7 +108,7 @@ programs.waybar.enable = true; # top bar
 environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ];
 |name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-Or using [Home Manager](Special:MyLanguage/Home_Manager "wikilink"):
+Or using [Home Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink}:
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
@@ -129,7 +129,7 @@ home.packages = with pkgs; [
 ### IME not working on Electron apps {#ime_not_working_on_electron_apps}
 
 There is a general workaround to set `{{ic|NIXOS_OZONE_WL}}`{=mediawiki} as described in
-[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "wikilink"):
+[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "Wayland#Electron_and_Chromium"){.wikilink}:
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -166,7 +166,7 @@ There is a optional dependency for niri which is highly recommended to install (
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-Or using [Home Manager](Special:MyLanguage/Home_Manager "wikilink")
+Or using [Home Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink}
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
@@ -198,10 +198,10 @@ home-manager option.
 
 ## See Also {#see_also}
 
--   [Wayland](Special:MyLanguage/Wayland "wikilink")
--   [Sway](Special:MyLanguage/Sway "wikilink")
--   [Wallpapers for Wayland](Special:MyLanguage/Wallpapers_for_Wayland "wikilink")
--   [niri-flake](https://github.com/sodiboo/niri-flake/)
+- [Wayland](Special:MyLanguage/Wayland "Wayland"){.wikilink}
+- [Sway](Special:MyLanguage/Sway "Sway"){.wikilink}
+- [Wallpapers for Wayland](Special:MyLanguage/Wallpapers_for_Wayland "Wallpapers for Wayland"){.wikilink}
+- [niri-flake](https://github.com/sodiboo/niri-flake/)
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "Category:Applications{{#translation:}}"){.wikilink}

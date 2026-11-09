@@ -1,16 +1,16 @@
 ```{=mediawiki}
 {{Lowercase title}}
 ```
-[ja:W3m](ja:W3m "wikilink") [pt:W3m](pt:W3m "wikilink") `{{Related articles start}}`{=mediawiki}
+[ja:W3m](ja:W3m "ja:W3m"){.wikilink} [pt:W3m](pt:W3m "pt:W3m"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|ELinks}}`{=mediawiki} `{{Related|Lynx}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 [w3m](https://salsa.debian.org/debian/w3m) is a text-based web browser as well as a pager like
-[more](Wikipedia:More_(command) "wikilink") or [less](less "wikilink"). With w3m you can browse web pages through a
-[Terminal emulator](Terminal_emulator "wikilink") window. Moreover, w3m can be used as a text formatting tool which
-typesets HTML into plain text.
+[more](Wikipedia:More_(command) "more"){.wikilink} or [less](less "less"){.wikilink}. With w3m you can browse web pages
+through a [Terminal emulator](Terminal_emulator "Terminal emulator"){.wikilink} window. Moreover, w3m can be used as a
+text formatting tool which typesets HTML into plain text.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|w3m}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Pkg|w3m}}`{=mediawiki} package.
 
 ## Usage
 
@@ -38,8 +38,8 @@ configuration](https://gist.githubusercontent.com/Lovebird-Connoisseur/a11b9dbc5
 
 ### URL hints {#url_hints}
 
-w3m supports [qutebrowser](qutebrowser "wikilink")-like link navigation, simply navigate to your config file and change
-`{{ic|display_link_number 0}}`{=mediawiki} to `{{ic|display_link_number 1}}`{=mediawiki}.
+w3m supports [qutebrowser](qutebrowser "qutebrowser"){.wikilink}-like link navigation, simply navigate to your config
+file and change `{{ic|display_link_number 0}}`{=mediawiki} to `{{ic|display_link_number 1}}`{=mediawiki}.
 
 Add the following to your keymap:
 
@@ -54,7 +54,7 @@ keymap F COMMAND "RESHAPE ; LINK_BEGIN ; TAB_LINK"
 ```
 ### Using kitty image protocol {#using_kitty_image_protocol}
 
-Users of the [kitty](kitty "wikilink") terminal emulator may chose to use its own [graphics
+Users of the [kitty](kitty "kitty"){.wikilink} terminal emulator may chose to use its own [graphics
 protocol](https://sw.kovidgoyal.net/kitty/graphics-protocol/).
 
 To do so simply change `{{ic|inline_img_protocol}}`{=mediawiki} from 0 to 4:
@@ -66,7 +66,7 @@ inline_img_protocol 4
 ```
 ### Using Iterm2 image protocol {#using_iterm2_image_protocol}
 
-Users of the [wezterm](wezterm "wikilink") terminal emulator may chose to use the [Iterm2 graphics
+Users of the [wezterm](wezterm "wezterm"){.wikilink} terminal emulator may chose to use the [Iterm2 graphics
 protocol](https://web.archive.org/web/20240113173736/https://wezfurlong.org/wezterm/imgcat.html) which WezTerm supports.
 
 To do so simply change `{{ic|inline_img_protocol}}`{=mediawiki} to 3.
@@ -179,14 +179,14 @@ keymap u COMMAND TAB_GOTO file:/cgi-bin/restore_tab.cgi
 }}
 ```
 Then place the following file inside `{{ic|~/.w3m/cgi-bin}}`{=mediawiki} and make it
-[executable](executable "wikilink").
+[executable](executable "executable"){.wikilink}.
 
 [restore_tab.cgi](https://raw.githubusercontent.com/felipesaa/A-vim-like-firefox-like-configuration-for-w3m/master/root-cgi-bin/restore_tab.cgi)
 
 ### Opening magnet links {#opening_magnet_links}
 
 [magnet.cgi](https://raw.githubusercontent.com/gotbletu/shownotes/master/w3m_plugins/cgi-bin/magnet.cgi) can be used to
-make w3m auto open magnet links using [Transmission](Transmission "wikilink").
+make w3m auto open magnet links using [Transmission](Transmission "Transmission"){.wikilink}.
 
 ### Fingerprinting
 
@@ -243,10 +243,10 @@ keymap i COMMAND "SET_OPTION display_image=toggle ; RESHAPE"
 ```
 ## See also {#see_also}
 
--   [Homepage](https://w3m.sourceforge.net/)
--   [Github repository](https://github.com/tats/w3m)
--   [w3m.rocks](http://www.w3m.rocks/)
--   [A vim-like configuration for w3m](https://github.com/felipesaa/A-vim-like-firefox-like-configuration-for-w3m)
--   [w3m plugins](https://github.com/gotbletu/shownotes/tree/master/w3m_plugins/cgi-bin)
+- [Homepage](https://w3m.sourceforge.net/)
+- [Github repository](https://github.com/tats/w3m)
+- [w3m.rocks](http://www.w3m.rocks/)
+- [A vim-like configuration for w3m](https://github.com/felipesaa/A-vim-like-firefox-like-configuration-for-w3m)
+- [w3m plugins](https://github.com/gotbletu/shownotes/tree/master/w3m_plugins/cgi-bin)
 
-[Category:Web browser](Category:Web_browser "wikilink")
+[Category:Web browser](Category:Web_browser "Category:Web browser"){.wikilink}

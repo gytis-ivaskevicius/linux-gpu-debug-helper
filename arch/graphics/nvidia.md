@@ -1,14 +1,15 @@
-[de:Nvidia](de:Nvidia "wikilink") [es:NVIDIA](es:NVIDIA "wikilink") [hu:NVIDIA](hu:NVIDIA "wikilink")
-[ja:NVIDIA](ja:NVIDIA "wikilink") [pt:NVIDIA](pt:NVIDIA "wikilink") [ru:NVIDIA](ru:NVIDIA "wikilink")
-[tr:NVIDIA](tr:NVIDIA "wikilink") [zh-hans:NVIDIA](zh-hans:NVIDIA "wikilink") `{{Related articles start}}`{=mediawiki}
-`{{Related|NVIDIA/Tips and tricks}}`{=mediawiki} `{{Related|NVIDIA/Troubleshooting}}`{=mediawiki}
-`{{Related|Nouveau}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki}
-`{{Related|Bumblebee}}`{=mediawiki} `{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki}
-`{{Related articles end}}`{=mediawiki}
+[de:Nvidia](de:Nvidia "de:Nvidia"){.wikilink} [es:NVIDIA](es:NVIDIA "es:NVIDIA"){.wikilink}
+[hu:NVIDIA](hu:NVIDIA "hu:NVIDIA"){.wikilink} [ja:NVIDIA](ja:NVIDIA "ja:NVIDIA"){.wikilink}
+[pt:NVIDIA](pt:NVIDIA "pt:NVIDIA"){.wikilink} [ru:NVIDIA](ru:NVIDIA "ru:NVIDIA"){.wikilink}
+[tr:NVIDIA](tr:NVIDIA "tr:NVIDIA"){.wikilink} [zh-hans:NVIDIA](zh-hans:NVIDIA "zh-hans:NVIDIA"){.wikilink}
+`{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA/Tips and tricks}}`{=mediawiki}
+`{{Related|NVIDIA/Troubleshooting}}`{=mediawiki} `{{Related|Nouveau}}`{=mediawiki}
+`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|PRIME}}`{=mediawiki} `{{Related|Bumblebee}}`{=mediawiki}
+`{{Related|nvidia-xrun}}`{=mediawiki} `{{Related|Vulkan}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
 This article covers the official [NVIDIA](https://www.nvidia.com) graphics card drivers. For the community open-source
-driver, see [Nouveau](Nouveau "wikilink"). If you have a laptop with hybrid graphics, see also [NVIDIA
-Optimus](NVIDIA_Optimus "wikilink").
+driver, see [Nouveau](Nouveau "Nouveau"){.wikilink}. If you have a laptop with hybrid graphics, see also [NVIDIA
+Optimus](NVIDIA_Optimus "NVIDIA Optimus"){.wikilink}.
 
 ## Installation
 
@@ -23,86 +24,73 @@ page](https://nouveau.freedesktop.org/CodeNames.html) corresponding to its model
 
 `$ lspci -k -d ::03xx`
 
-Then, [install](install "wikilink") the appropriate driver for your card:
+Then, [install](install "install"){.wikilink} the appropriate driver for your card:
 
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| GPU family                           | Driver                               | Status                               |
-+======================================+======================================+======================================+
-| [Blackwell                           | ```{=mediawiki}                      | [Recommended by                      |
-| (GBXXX)](Wikipedia:Black             | {{Pkg|nvidia-open}}                  | up                                   |
-| well_(microarchitecture) "wikilink") | ```                                  | stream](https://developer.nvidia.com |
-| and newer                            | for `{{Pkg|linux}}`{=mediawiki}\     | /blog/nvidia-transitions-fully-towar |
-|                                      | `                                    | ds-open-source-gpu-kernel-modules/)\ |
-|                                      | {{Pkg|nvidia-open-lts}}`{=mediawiki} | Current, supported^1^                |
-|                                      | for `{{Pkg|linux-lts}}`{=mediawiki}\ |                                      |
-|                                      | `{                                   |                                      |
-|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
-|                                      | for any kernel(s)                    |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Ada Lovelace                        | ```{=mediawiki}                      | Supported                            |
-| (NV190/ADXXX)](https://nouveau.fr    | {{Pkg|nvidia-open}}                  |                                      |
-| eedesktop.org/CodeNames.html#NV190)\ | ```                                  |                                      |
-| [Ampere                              | for `{{Pkg|linux}}`{=mediawiki}      |                                      |
-| (NV170/GAXXX)](https://nouveau.fr    | (possible crashes on Ampere-equipped |                                      |
-| eedesktop.org/CodeNames.html#NV170)\ | laptops^2^)\                         |                                      |
-| [Turing                              | `                                    |                                      |
-| (NV160/TUXXX)](https://nouveau.f     | {{Pkg|nvidia-open-lts}}`{=mediawiki} |                                      |
-| reedesktop.org/CodeNames.html#NV160) | for `{{Pkg|linux-lts}}`{=mediawiki}\ |                                      |
-|                                      | `{                                   |                                      |
-|                                      | {Pkg|nvidia-open-dkms}}`{=mediawiki} |                                      |
-|                                      | for any kernel(s)\                   |                                      |
-|                                      | *or*\                                |                                      |
-|                                      | `{{                                  |                                      |
-|                                      | AUR|nvidia-580xx-dkms}}`{=mediawiki} |                                      |
-|                                      | (proprietary)                        |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Volta                               | ```{=mediawiki}                      | Legacy, supported                    |
-| (NV140/GV100)](https://nouveau.fr    | {{AUR|nvidia-580xx-dkms}}            |                                      |
-| eedesktop.org/CodeNames.html#NV140)\ | ```                                  |                                      |
-| [Pascal                              |                                      |                                      |
-| (NV130/GPXXX)](https://nouveau.fr    |                                      |                                      |
-| eedesktop.org/CodeNames.html#NV130)\ |                                      |                                      |
-| [Maxwell                             |                                      |                                      |
-| (NV110/GMXXX)](https://nouveau.f     |                                      |                                      |
-| reedesktop.org/CodeNames.html#NV110) |                                      |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Kepler                              | ```{=mediawiki}                      | Legacy, unsupported^3,4^             |
-| (NVE0/GKXXX)](https://nouveau.       | {{AUR|nvidia-470xx-dkms}}            |                                      |
-| freedesktop.org/CodeNames.html#NVE0) | ```                                  |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Fermi                               | ```{=mediawiki}                      |                                      |
-| (NVC0/GF1XX)](https://nouveau.       | {{AUR|nvidia-390xx-dkms}}            |                                      |
-| freedesktop.org/CodeNames.html#NVC0) | ```                                  |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Tesla                               | ```{=mediawiki}                      |                                      |
-| (                                    | {{AUR|nvidia-340xx-dkms}}            |                                      |
-| NV50/G80-90-GT2XX)](https://nouveau. | ```                                  |                                      |
-| freedesktop.org/CodeNames.html#NV50) |                                      |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
-| [Curie                               | No longer packaged                   |                                      |
-| (NV40/G70)](https://nouveau.         |                                      |                                      |
-| freedesktop.org/CodeNames.html#NV40) |                                      |                                      |
-| and older                            |                                      |                                      |
-+--------------------------------------+--------------------------------------+--------------------------------------+
++----------------------------------------------------------------------------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| GPU family                                                                       | Driver                                  | Status                                                                                                         |
++==================================================================================+=========================================+================================================================================================================+
+| [Blackwell                                                                       | ```{=mediawiki}                         | [Recommended by                                                                                                |
+| (GBXXX)](Wikipedia:Blackwell_(microarchitecture) "Blackwell (GBXXX)"){.wikilink} | {{Pkg|nvidia-open}}                     | upstream](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/)\ |
+| and newer                                                                        | ```                                     | Current, supported^1^                                                                                          |
+|                                                                                  | for `{{Pkg|linux}}`{=mediawiki}\        |                                                                                                                |
+|                                                                                  | `{{Pkg|nvidia-open-lts}}`{=mediawiki}   |                                                                                                                |
+|                                                                                  | for `{{Pkg|linux-lts}}`{=mediawiki}\    |                                                                                                                |
+|                                                                                  | `{{Pkg|nvidia-open-dkms}}`{=mediawiki}  |                                                                                                                |
+|                                                                                  | for any kernel(s)                       |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| [Ada Lovelace                                                                    | ```{=mediawiki}                         | Supported                                                                                                      |
+| (NV190/ADXXX)](https://nouveau.freedesktop.org/CodeNames.html#NV190)\            | {{Pkg|nvidia-open}}                     |                                                                                                                |
+| [Ampere (NV170/GAXXX)](https://nouveau.freedesktop.org/CodeNames.html#NV170)\    | ```                                     |                                                                                                                |
+| [Turing (NV160/TUXXX)](https://nouveau.freedesktop.org/CodeNames.html#NV160)     | for `{{Pkg|linux}}`{=mediawiki}         |                                                                                                                |
+|                                                                                  | (possible crashes on Ampere-equipped    |                                                                                                                |
+|                                                                                  | laptops^2^)\                            |                                                                                                                |
+|                                                                                  | `{{Pkg|nvidia-open-lts}}`{=mediawiki}   |                                                                                                                |
+|                                                                                  | for `{{Pkg|linux-lts}}`{=mediawiki}\    |                                                                                                                |
+|                                                                                  | `{{Pkg|nvidia-open-dkms}}`{=mediawiki}  |                                                                                                                |
+|                                                                                  | for any kernel(s)\                      |                                                                                                                |
+|                                                                                  | *or*\                                   |                                                                                                                |
+|                                                                                  | `{{AUR|nvidia-580xx-dkms}}`{=mediawiki} |                                                                                                                |
+|                                                                                  | (proprietary)                           |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| [Volta (NV140/GV100)](https://nouveau.freedesktop.org/CodeNames.html#NV140)\     | ```{=mediawiki}                         | Legacy, supported                                                                                              |
+| [Pascal (NV130/GPXXX)](https://nouveau.freedesktop.org/CodeNames.html#NV130)\    | {{AUR|nvidia-580xx-dkms}}               |                                                                                                                |
+| [Maxwell (NV110/GMXXX)](https://nouveau.freedesktop.org/CodeNames.html#NV110)    | ```                                     |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| [Kepler (NVE0/GKXXX)](https://nouveau.freedesktop.org/CodeNames.html#NVE0)       | ```{=mediawiki}                         | Legacy, unsupported^3,4^                                                                                       |
+|                                                                                  | {{AUR|nvidia-470xx-dkms}}               |                                                                                                                |
+|                                                                                  | ```                                     |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+                                                                                                                |
+| [Fermi (NVC0/GF1XX)](https://nouveau.freedesktop.org/CodeNames.html#NVC0)        | ```{=mediawiki}                         |                                                                                                                |
+|                                                                                  | {{AUR|nvidia-390xx-dkms}}               |                                                                                                                |
+|                                                                                  | ```                                     |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+                                                                                                                |
+| [Tesla (NV50/G80-90-GT2XX)](https://nouveau.freedesktop.org/CodeNames.html#NV50) | ```{=mediawiki}                         |                                                                                                                |
+|                                                                                  | {{AUR|nvidia-340xx-dkms}}               |                                                                                                                |
+|                                                                                  | ```                                     |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+                                                                                                                |
+| [Curie (NV40/G70)](https://nouveau.freedesktop.org/CodeNames.html#NV40) and      | No longer packaged                      |                                                                                                                |
+| older                                                                            |                                         |                                                                                                                |
++----------------------------------------------------------------------------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 1.  If these packages do not work (usually due to new hardware releases), `{{AUR|nvidia-open-beta}}`{=mediawiki} may
     have a newer version that offers support.
 2.  NVIDIA\'s [GSP firmware](https://download.nvidia.com/XFree86/Linux-x86_64/580.119.02/README/gsp.html) is known to
     cause issues, including [complete failure on some laptops containing Ampere
     GPUs](https://bbs.archlinux.org/viewtopic.php?pid=2217692#p2217692). If affected, use the proprietary driver (e.g.
-    `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with the [module parameter](module_parameter "wikilink")
+    `{{AUR|nvidia-580xx-dkms}}`{=mediawiki}) with the [module parameter](module_parameter "module parameter"){.wikilink}
     `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} instead.
 3.  May not function correctly on Linux 5.18 (or later) on systems with Intel CPUs [11th Gen and
     newer](https://web.archive.org/web/20250209200337/https://www.intel.com/content/www/us/en/newsroom/opinion/intel-cet-answers-call-protect-common-malware-threats.html)
     due an incompatibility with [Indirect Branch
     Tracking](https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/12th-generation-intel-core-processors-datasheet-volume-1-of-2/007/indirect-branch-tracking/).
-    You can disable it by setting the `{{ic|1=ibt=off}}`{=mediawiki} [kernel parameter](kernel_parameter "wikilink")
-    from the [boot loader](boot_loader "wikilink"). Be aware, this security feature is responsible for [mitigating a
+    You can disable it by setting the `{{ic|1=ibt=off}}`{=mediawiki} [kernel
+    parameter](kernel_parameter "kernel parameter"){.wikilink} from the [boot
+    loader](boot_loader "boot loader"){.wikilink}. Be aware, this security feature is responsible for [mitigating a
     class of exploit techniques](https://lwn.net/Articles/889475/).
 4.  NVIDIA no longer actively supports these cards and their drivers [may not officially support the current Xorg
     version](https://nvidia.custhelp.com/app/answers/detail/a_id/3142/). It might be easier to use the
-    [nouveau](nouveau "wikilink") driver; however, NVIDIA\'s legacy drivers are still available and might provide better
-    3D performance/stability.
+    [nouveau](nouveau "nouveau"){.wikilink} driver; however, NVIDIA\'s legacy drivers are still available and might
+    provide better 3D performance/stability.
 
 :   ```{=mediawiki}
     {{Note|
@@ -111,14 +99,14 @@ Then, [install](install "wikilink") the appropriate driver for your card:
     }}
     ```
 
-For 32-bit application support, also install the corresponding *lib32* package from the [multilib](multilib "wikilink")
-repository (e.g. `{{Pkg|lib32-nvidia-utils}}`{=mediawiki}).
+For 32-bit application support, also install the corresponding *lib32* package from the
+[multilib](multilib "multilib"){.wikilink} repository (e.g. `{{Pkg|lib32-nvidia-utils}}`{=mediawiki}).
 
 The `{{Pkg|nvidia-utils}}`{=mediawiki} package contains a file which blacklists the `{{ic|nouveau}}`{=mediawiki} module
 once you reboot. Optionally, you can also remove `{{ic|kms}}`{=mediawiki} from the `{{ic|HOOKS}}`{=mediawiki} array in
-`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} and [regenerate the initramfs](regenerate_the_initramfs "wikilink"). This will
-prevent the initramfs from containing the `{{ic|nouveau}}`{=mediawiki} module making sure the kernel cannot load it
-during early boot.
+`{{ic|/etc/mkinitcpio.conf}}`{=mediawiki} and [regenerate the
+initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink}. This will prevent the initramfs from
+containing the `{{ic|nouveau}}`{=mediawiki} module making sure the kernel cannot load it during early boot.
 
 ```{=mediawiki}
 {{Note|
@@ -135,18 +123,19 @@ Ensure your kernel has `{{ic|1=CONFIG_DRM_SIMPLEDRM=y}}`{=mediawiki}, and if usi
 
 If your kernel is compiled with `{{ic|CONFIG_NOVA_CORE}}`{=mediawiki} enabled, you may need to prevent the new NVIDIA
 GPU driver [Nova](https://docs.kernel.org/gpu/nova/index.html) from loading. `{{Pkg|nvidia-utils}}`{=mediawiki} adds it
-to the blacklist by default. You can check this [by running systemd-analyze](Kernel_module#Using_modprobe.d "wikilink").
-If you have installed a different version of the driver, you may need to [blacklist](blacklist "wikilink") the
+to the blacklist by default. You can check this [by running
+systemd-analyze](Kernel_module#Using_modprobe.d "by running systemd-analyze"){.wikilink}. If you have installed a
+different version of the driver, you may need to [blacklist](blacklist "blacklist"){.wikilink} the
 `{{ic|nova_core}}`{=mediawiki} and `{{ic|nova_drm}}`{=mediawiki} modules manually.
 
 ### DRM kernel mode setting {#drm_kernel_mode_setting}
 
-[Kernel mode setting](Kernel_mode_setting "wikilink") (KMS) is required to make Wayland compositors function properly.
-KMS is also required for native Wayland rendering on NVIDIA dedicated GPUs for [hybrid
-graphics](hybrid_graphics "wikilink") setups. NVIDIA does not support [automatic KMS late
-loading](Kernel_mode_setting#Late_KMS_start "wikilink") without enabling DRM ([Direct Rendering
-Manager](Wikipedia:Direct_Rendering_Manager "wikilink")). Starting from `{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5,
-DRM is [enabled by
+[Kernel mode setting](Kernel_mode_setting "Kernel mode setting"){.wikilink} (KMS) is required to make Wayland
+compositors function properly. KMS is also required for native Wayland rendering on NVIDIA dedicated GPUs for [hybrid
+graphics](hybrid_graphics "hybrid graphics"){.wikilink} setups. NVIDIA does not support [automatic KMS late
+loading](Kernel_mode_setting#Late_KMS_start "automatic KMS late loading"){.wikilink} without enabling DRM ([Direct
+Rendering Manager](Wikipedia:Direct_Rendering_Manager "Direct Rendering Manager"){.wikilink}). Starting from
+`{{Pkg|nvidia-utils}}`{=mediawiki} 560.35.03-5, DRM is [enabled by
 default](https://gitlab.archlinux.org/archlinux/packaging/packages/nvidia-utils/-/commit/1b02daa2ccca6a69fa4355fb5a369c2115ec3e22).
 
 To verify that DRM is actually enabled, execute the following:
@@ -156,22 +145,23 @@ To verify that DRM is actually enabled, execute the following:
 Which should now return `{{ic|Y}}`{=mediawiki}, and not `{{ic|N}}`{=mediawiki}.
 
 For drivers older than version 560, manually set the `{{ic|1=modeset=1}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia_drm}}`{=mediawiki} module.
+parameter](kernel_module_parameter "kernel module parameter"){.wikilink} for the `{{ic|nvidia_drm}}`{=mediawiki} module.
 
-[Officially supported kernels](Kernel#Officially_supported_kernels "wikilink") enable `{{ic|simpledrm}}`{=mediawiki},
-while NVIDIA driver requires `{{ic|efifb}}`{=mediawiki} or `{{ic|vesafb}}`{=mediawiki} when [its own
-fbdev](#fbdev "wikilink") is disabled (or unavailable, with driver versions older than 545): see
-[BBS#307164](https://bbs.archlinux.org/viewtopic.php?pid=2269076#p2269076) for a possible workaround if you experience
-issues.
+[Officially supported kernels](Kernel#Officially_supported_kernels "Officially supported kernels"){.wikilink} enable
+`{{ic|simpledrm}}`{=mediawiki}, while NVIDIA driver requires `{{ic|efifb}}`{=mediawiki} or `{{ic|vesafb}}`{=mediawiki}
+when [its own fbdev](#fbdev "its own fbdev"){.wikilink} is disabled (or unavailable, with driver versions older than
+545): see [BBS#307164](https://bbs.archlinux.org/viewtopic.php?pid=2269076#p2269076) for a possible workaround if you
+experience issues.
 
 #### Early loading {#early_loading}
 
 For basic functionality, just adding the kernel parameter should suffice. If you want to ensure it is loaded as early as
 possible, or you are noticing startup issues (such as the `{{ic|nvidia}}`{=mediawiki} kernel module being loaded after
-the [display manager](display_manager "wikilink")), you can add `{{ic|nvidia}}`{=mediawiki},
+the [display manager](display_manager "display manager"){.wikilink}), you can add `{{ic|nvidia}}`{=mediawiki},
 `{{ic|nvidia_modeset}}`{=mediawiki}, `{{ic|nvidia_uvm}}`{=mediawiki} and `{{ic|nvidia_drm}}`{=mediawiki} to the
-initramfs. See [Kernel module#Early module loading](Kernel_module#Early_module_loading "wikilink") to learn how to
-configure your initramfs generator.
+initramfs. See [Kernel module#Early module
+loading](Kernel_module#Early_module_loading "Kernel module#Early module loading"){.wikilink} to learn how to configure
+your initramfs generator.
 
 ```{=mediawiki}
 {{Note|Early loading the modules will break hibernation, as [[/Tips and tricks#Preserve video memory after suspend|video memory preservation]] is enabled by default.}}
@@ -180,15 +170,15 @@ configure your initramfs generator.
 
 Accelerated video decoding with VDPAU is supported on GeForce 8 series cards and newer. Accelerated video decoding with
 NVDEC is supported on Fermi (\~400 series) cards and newer. See [Hardware video
-acceleration](Hardware_video_acceleration "wikilink") for details.
+acceleration](Hardware_video_acceleration "Hardware video acceleration"){.wikilink} for details.
 
 ### Hardware accelerated video encoding with NVENC {#hardware_accelerated_video_encoding_with_nvenc}
 
 NVENC requires the `{{ic|nvidia_uvm}}`{=mediawiki} module and the creation of related device nodes under
 `{{ic|/dev}}`{=mediawiki}.
 
-The latest driver package provides a [udev rule](udev_rule "wikilink") which creates device nodes automatically, so no
-further action is required.
+The latest driver package provides a [udev rule](udev_rule "udev rule"){.wikilink} which creates device nodes
+automatically, so no further action is required.
 
 If you are using an old driver (e.g. `{{AUR|nvidia-340xx-dkms}}`{=mediawiki}), you need to create device nodes. Invoking
 the `{{ic|nvidia-modprobe}}`{=mediawiki} utility automatically creates them. You can create
@@ -200,10 +190,10 @@ ACTION=="add", DEVPATH=="/bus/pci/drivers/nvidia", RUN+="/usr/bin/nvidia-modprob
 ```
 ## Wayland configuration {#wayland_configuration}
 
-Regarding Xwayland take a look at [Wayland#Xwayland](Wayland#Xwayland "wikilink").
+Regarding Xwayland take a look at [Wayland#Xwayland](Wayland#Xwayland "Wayland#Xwayland"){.wikilink}.
 
 For further configuration options, take a look at the wiki pages or documentation of the respective
-[compositor](Wayland#Compositors "wikilink").
+[compositor](Wayland#Compositors "compositor"){.wikilink}.
 
 ```{=mediawiki}
 {{Note|Prior to driver version 555.xx, or when using a Wayland compositor that does not support Explicit Sync via the {{ic|linux-drm-syncobj-v1}} protocol, the NVIDIA driver can have major issues manifesting as flickering, out of order frames, and more, in both native Wayland and Xwayland applications.}}
@@ -221,15 +211,15 @@ release](https://indico.freedesktop.org/event/6/contributions/287/attachments/21
 Enabling `{{ic|modeset}}`{=mediawiki} is necessary for all Wayland configurations to function properly.
 
 For unsupported drivers, where `{{ic|modeset}}`{=mediawiki} needs to be enabled manually, see [#DRM kernel mode
-setting](#DRM_kernel_mode_setting "wikilink"), and [Wayland#Requirements](Wayland#Requirements "wikilink") for more
-information.
+setting](#DRM_kernel_mode_setting "#DRM kernel mode setting"){.wikilink}, and
+[Wayland#Requirements](Wayland#Requirements "Wayland#Requirements"){.wikilink} for more information.
 
 #### fbdev
 
-The supported driver versions from NVIDIA provide a [framebuffer](framebuffer "wikilink"). For legacy driver versions
-that are no longer supported, enabling the `{{ic|fbdev}}`{=mediawiki} [kernel module
-parameter](kernel_module_parameter "wikilink") for the `{{ic|nvidia_drm}}`{=mediawiki} module might be necessary for
-some Wayland configurations.
+The supported driver versions from NVIDIA provide a [framebuffer](framebuffer "framebuffer"){.wikilink}. For legacy
+driver versions that are no longer supported, enabling the `{{ic|fbdev}}`{=mediawiki} [kernel module
+parameter](kernel_module_parameter "kernel module parameter"){.wikilink} for the `{{ic|nvidia_drm}}`{=mediawiki} module
+might be necessary for some Wayland configurations.
 
 It is specifically a hard requirement on Linux 6.11 and later, but it is currently unclear whether this is intended
 behavior or a bug, see
@@ -245,17 +235,18 @@ It will return `{{ic|Y}}`{=mediawiki} if the framebuffer is enabled.
 ### Suspend support {#suspend_support}
 
 Wayland suspend can suffer from the defaults more than X does, see [/Tips and tricks#Preserve video memory after
-suspend](/Tips_and_tricks#Preserve_video_memory_after_suspend "wikilink") for details.
+suspend](/Tips_and_tricks#Preserve_video_memory_after_suspend "/Tips and tricks#Preserve video memory after suspend"){.wikilink}
+for details.
 
 If you use GDM, also see [GDM#Wayland and the proprietary NVIDIA
-driver](GDM#Wayland_and_the_proprietary_NVIDIA_driver "wikilink").
+driver](GDM#Wayland_and_the_proprietary_NVIDIA_driver "GDM#Wayland and the proprietary NVIDIA driver"){.wikilink}.
 
 ### nvidia-application-profiles-rc.d {#nvidia_application_profiles_rc.d}
 
 Some Wayland compositors will consume a large quantity of VRAM by default if the
 [GLVidHeapReuseRatio](https://www.nvidia.com/en-us/drivers/details/237587/) application profile key is not [applied
 against their process name](https://github.com/NVIDIA/egl-wayland/issues/126#issuecomment-2379945259). For example,
-[niri](niri "wikilink") users can free up to \~2.5GiB of idle VRAM consumption with the following:
+[niri](niri "niri"){.wikilink} users can free up to \~2.5GiB of idle VRAM consumption with the following:
 
 ```{=mediawiki}
 {{hc|/etc/nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json|2=
@@ -286,12 +277,13 @@ against their process name](https://github.com/NVIDIA/egl-wayland/issues/126#iss
 ## Xorg configuration {#xorg_configuration}
 
 The proprietary NVIDIA graphics card driver does not need any Xorg server configuration file. You can [start
-X](Xorg#Running "wikilink") to see if the Xorg server will function correctly without a configuration file. However, it
-may be required to create a configuration file (prefer `{{ic|/etc/X11/xorg.conf.d/20-nvidia.conf}}`{=mediawiki} over
-`{{ic|/etc/X11/xorg.conf}}`{=mediawiki}) in order to adjust various settings. This configuration can be generated by the
-NVIDIA Xorg configuration tool, or it can be created manually. If created manually, it can be a minimal configuration
-(in the sense that it will only pass the basic options to the [Xorg](Xorg "wikilink") server), or it can include a
-number of settings that can bypass Xorg\'s auto-discovered or pre-configured options.
+X](Xorg#Running "start X"){.wikilink} to see if the Xorg server will function correctly without a configuration file.
+However, it may be required to create a configuration file (prefer
+`{{ic|/etc/X11/xorg.conf.d/20-nvidia.conf}}`{=mediawiki} over `{{ic|/etc/X11/xorg.conf}}`{=mediawiki}) in order to
+adjust various settings. This configuration can be generated by the NVIDIA Xorg configuration tool, or it can be created
+manually. If created manually, it can be a minimal configuration (in the sense that it will only pass the basic options
+to the [Xorg](Xorg "Xorg"){.wikilink} server), or it can include a number of settings that can bypass Xorg\'s
+auto-discovered or pre-configured options.
 
 ```{=mediawiki}
 {{Tip|For more configuration options, see [[NVIDIA/Troubleshooting]].}}
@@ -322,16 +314,16 @@ To load the `{{ic|~/.nvidia-settings-rc}}`{=mediawiki} for the current user:
 
 `$ nvidia-settings --load-config-only`
 
-See [Autostarting](Autostarting "wikilink") to start this command on every boot.
+See [Autostarting](Autostarting "Autostarting"){.wikilink} to start this command on every boot.
 
 ```{=mediawiki}
 {{Note|[[Xorg]] may not start or crash on startup after saving {{ic|nvidia-settings}} changes. Adjusting or deleting the generated {{ic|~/.nvidia-settings-rc}} and/or [[Xorg]] file(s) should recover normal startup.}}
 ```
 ### Manual configuration {#manual_configuration}
 
-Several tweaks (which cannot be enabled [automatically](#Automatic_configuration "wikilink") or with
-[nvidia-settings](#nvidia-settings "wikilink")) can be performed by editing your configuration file. The Xorg server
-will need to be restarted before any changes are applied.
+Several tweaks (which cannot be enabled [automatically](#Automatic_configuration "automatically"){.wikilink} or with
+[nvidia-settings](#nvidia-settings "nvidia-settings"){.wikilink}) can be performed by editing your configuration file.
+The Xorg server will need to be restarted before any changes are applied.
 
 See [NVIDIA Accelerated Linux Graphics Driver README and Installation
 Guide](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/) for additional details and options.
@@ -493,11 +485,11 @@ Using this configuration may also solve any graphical boot issues.
 
 ### Multiple monitors {#multiple_monitors}
 
-See [Multihead](Multihead "wikilink") for more general information.
+See [Multihead](Multihead "Multihead"){.wikilink} for more general information.
 
 #### Using nvidia-settings {#using_nvidia_settings}
 
-The [nvidia-settings](#nvidia-settings "wikilink") tool can configure multiple monitors.
+The [nvidia-settings](#nvidia-settings "nvidia-settings"){.wikilink} tool can configure multiple monitors.
 
 For CLI configuration, first get the `{{ic|CurrentMetaMode}}`{=mediawiki} by running:
 
@@ -632,7 +624,7 @@ EndSection
 If you have multiple cards that are SLI capable, it is possible to run more than one monitor attached to separate cards
 (for example: two cards in SLI with one monitor attached to each). The \"MetaModes\" option in conjunction with SLI
 Mosaic mode enables this. Below is a configuration which works for the aforementioned example and runs
-[GNOME](GNOME "wikilink") flawlessly.
+[GNOME](GNOME "GNOME"){.wikilink} flawlessly.
 
 ```{=mediawiki}
 {{hc|/etc/X11/xorg.conf.d/10-monitor.conf|
@@ -722,7 +714,7 @@ For OpenGL, add the appropriate Metamodes to your xorg.conf in section `{{ic|Dev
 `Option "Metamodes" "1680x1050,1680x1050; 1280x1024,1280x1024; 1680x1050,NULL; 1280x1024,NULL;"`
 
 Another method that may either work alone or in conjunction with those mentioned above is [starting games in a separate
-X server](Gaming#Starting_games_in_a_separate_X_server "wikilink").
+X server](Gaming#Starting_games_in_a_separate_X_server "starting games in a separate X server"){.wikilink}.
 
 #### Mosaic mode {#mosaic_mode}
 
@@ -780,8 +772,8 @@ H100](https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.htm
 The FM
 [requires](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html#other-nvidia-software-packages)
 the libraries `{{ic|libibumad3}}`{=mediawiki} and `{{ic|infiniband-diags}}`{=mediawiki} to be installed on the target
-system. You can get these libraries on Arch by [installing](install "wikilink") the `{{Pkg|rdma-core}}`{=mediawiki}
-package.
+system. You can get these libraries on Arch by [installing](install "install"){.wikilink} the
+`{{Pkg|rdma-core}}`{=mediawiki} package.
 
 As for the FM itself, first download the
 [tarball](https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/) from NVIDIA. Then, in
@@ -796,24 +788,25 @@ On DGX B200/B300, NVIDIA HGX B200/B300, and NVIDIA HGX B100 systems, an [OFED or
 driver](https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/) is required, which are not officially
 distributed for Arch systems.
 
-For other hardware systems, follow [#Installation](#Installation "wikilink"). Make sure the installed module\'s and the
-FM\'s versions match, and reboot the system.
+For other hardware systems, follow [#Installation](#Installation "#Installation"){.wikilink}. Make sure the installed
+module\'s and the FM\'s versions match, and reboot the system.
 
-The `{{ic|nvidia-fabricmanager}}`{=mediawiki} service should have been automatically [enabled](enabled "wikilink") by
-the install script, and thus started after a reboot.
+The `{{ic|nvidia-fabricmanager}}`{=mediawiki} service should have been automatically
+[enabled](enabled "enabled"){.wikilink} by the install script, and thus started after a reboot.
 
 ## Tips and tricks {#tips_and_tricks}
 
-See [NVIDIA/Tips and tricks](NVIDIA/Tips_and_tricks "wikilink").
+See [NVIDIA/Tips and tricks](NVIDIA/Tips_and_tricks "NVIDIA/Tips and tricks"){.wikilink}.
 
 ## Troubleshooting
 
-See [NVIDIA/Troubleshooting](NVIDIA/Troubleshooting "wikilink").
+See [NVIDIA/Troubleshooting](NVIDIA/Troubleshooting "NVIDIA/Troubleshooting"){.wikilink}.
 
 ## See also {#see_also}
 
--   [Current graphics driver releases in official NVIDIA
-    Forum](https://forums.developer.nvidia.com/t/current-graphics-driver-releases/28500)
--   [NVIDIA Developers Forum - Linux Subforum](https://forums.developer.nvidia.com/c/gpu-graphics/linux/148)
+- [Current graphics driver releases in official NVIDIA
+  Forum](https://forums.developer.nvidia.com/t/current-graphics-driver-releases/28500)
+- [NVIDIA Developers Forum - Linux Subforum](https://forums.developer.nvidia.com/c/gpu-graphics/linux/148)
 
-[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
+server](Category:X_server "Category:X server"){.wikilink}

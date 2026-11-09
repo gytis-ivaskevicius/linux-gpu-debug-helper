@@ -2,7 +2,7 @@
 {{Expansion|Verify accuracy of article}}
 ```
 [Wayland](https://wayland.freedesktop.org/) is a modern display server protocol intended as a replacement for the legacy
-[ X11](Xorg "wikilink") system.
+[ X11](Xorg " X11"){.wikilink} system.
 
 For additional details, see `{{NixOS Manual|anchor=#sec-wayland|name=NixOS Manual: Chapter - Wayland}}`{=mediawiki}.
 
@@ -29,16 +29,16 @@ The following Display Managers support using both X and Wayland protocols:
 
 #### Graphical
 
--   [gdm](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/nixos/modules/services/x11/display-managers/gdm.nix)
-    is the [GNOME](GNOME "wikilink") Display Manager.
--   [sddm](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/nixos/modules/services/x11/display-managers/sddm.nix)
-    is the default Display Manager for [KDE](KDE "wikilink"). Wayland support is currently experimental.
+- [gdm](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/nixos/modules/services/x11/display-managers/gdm.nix)
+  is the [GNOME](GNOME "GNOME"){.wikilink} Display Manager.
+- [sddm](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/nixos/modules/services/x11/display-managers/sddm.nix)
+  is the default Display Manager for [KDE](KDE "KDE"){.wikilink}. Wayland support is currently experimental.
 
 #### Text-based {#text_based}
 
--   [ly](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/ly/default.nix)
--   [emptty](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/emptty/default.nix)
--   [lemurs](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/lemurs/default.nix)
+- [ly](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/ly/default.nix)
+- [emptty](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/emptty/default.nix)
+- [lemurs](https://github.com/NixOS/nixpkgs/blob/592047fc9e4f7b74a4dc85d1b9f5243dfe4899e3/pkgs/applications/display-managers/lemurs/default.nix)
 
 ## Compositors
 
@@ -47,16 +47,16 @@ For the purposes of this basic overview, a compositor can be thought of as equiv
 
 ### Wayland Native {#wayland_native}
 
--   [Sway](Sway "wikilink") is an i3-like compositor.
--   [Hyprland](Hyprland "wikilink") the dynamic tiling Wayland compositor that doesn\'t sacrifice on its looks.
--   [Niri](Niri "wikilink") is a scrollable tiling compositor.
+- [Sway](Sway "Sway"){.wikilink} is an i3-like compositor.
+- [Hyprland](Hyprland "Hyprland"){.wikilink} the dynamic tiling Wayland compositor that doesn\'t sacrifice on its looks.
+- [Niri](Niri "Niri"){.wikilink} is a scrollable tiling compositor.
 
 ### X and Wayland support {#x_and_wayland_support}
 
--   [Mutter](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/gnome/core/mutter/default.nix) is the
-    default compositor for the [GNOME](GNOME "wikilink") Desktop Environment.
--   [KWin](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/plasma-5/kwin/default.nix) is the default
-    compositor for the [KDE](KDE "wikilink") Desktop Environment.
+- [Mutter](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/gnome/core/mutter/default.nix) is the default
+  compositor for the [GNOME](GNOME "GNOME"){.wikilink} Desktop Environment.
+- [KWin](https://github.com/NixOS/nixpkgs/blob/nixos-23.11/pkgs/desktops/plasma-5/kwin/default.nix) is the default
+  compositor for the [KDE](KDE "KDE"){.wikilink} Desktop Environment.
 
 ## Applications
 
@@ -65,8 +65,8 @@ Not all apps support running natively on Wayland. To work around this, Xwayland 
 
 ### Electron and Chromium {#electron_and_chromium}
 
-Ozone Wayland (which uses Wayland native instead of Xwayland) support in [Chromium](Chromium "wikilink") and
-[Electron](Electron "wikilink") based applications can be enabled by setting the environment variable
+Ozone Wayland (which uses Wayland native instead of Xwayland) support in [Chromium](Chromium "Chromium"){.wikilink} and
+[Electron](Electron "Electron"){.wikilink} based applications can be enabled by setting the environment variable
 \"`NIXOS_OZONE_WL`\" with `NIXOS_OZONE_WL=1` *(also see
 [commit](https://github.com/NixOS/nixpkgs/commit/b2eb5f62a7fd94ab58acafec9f64e54f97c508a6))*.
 
@@ -91,10 +91,10 @@ $ NIXOS_OZONE_WL=1 code
 
 ## Virtualization
 
-To have wayland work inside of [QEMU](QEMU "wikilink"), you may need to pass `-vga qxl`.
+To have wayland work inside of [QEMU](QEMU "QEMU"){.wikilink}, you may need to pass `-vga qxl`.
 
 ## See also {#see_also}
 
--   [Xorg](Xorg "wikilink")
+- [Xorg](Xorg "Xorg"){.wikilink}
 
-[Category:Desktop](Category:Desktop "wikilink")
+[Category:Desktop](Category:Desktop "Category:Desktop"){.wikilink}

@@ -1,15 +1,16 @@
-[fr:MangoHud](fr:MangoHud "wikilink") [ja:MangoHud](ja:MangoHud "wikilink")
-[zh-hans:MangoHud](zh-hans:MangoHud "wikilink") `{{Related articles start}}`{=mediawiki}
+[fr:MangoHud](fr:MangoHud "fr:MangoHud"){.wikilink} [ja:MangoHud](ja:MangoHud "ja:MangoHud"){.wikilink}
+[zh-hans:MangoHud](zh-hans:MangoHud "zh-hans:MangoHud"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|GameMode}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[MangoHud](https://github.com/flightlessmango/MangoHud) is a [Vulkan](Vulkan "wikilink") and [OpenGL](OpenGL "wikilink")
-overlay for monitoring system performance while inside applications and to record metrics for
-[benchmarking](benchmarking "wikilink").
+[MangoHud](https://github.com/flightlessmango/MangoHud) is a [Vulkan](Vulkan "Vulkan"){.wikilink} and
+[OpenGL](OpenGL "OpenGL"){.wikilink} overlay for monitoring system performance while inside applications and to record
+metrics for [benchmarking](benchmarking "benchmarking"){.wikilink}.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Pkg|mangohud}}`{=mediawiki} package. Since many old games are 32-bit-only, enable
-the [multilib](multilib "wikilink") repository and install the `{{Pkg|lib32-mangohud}}`{=mediawiki} package as well.
+[Install](Install "Install"){.wikilink} the `{{Pkg|mangohud}}`{=mediawiki} package. Since many old games are
+32-bit-only, enable the [multilib](multilib "multilib"){.wikilink} repository and install the
+`{{Pkg|lib32-mangohud}}`{=mediawiki} package as well.
 
 ## Configuration
 
@@ -27,7 +28,7 @@ MangoHud is configured via the following files, which are read in the following 
 3.  ```{=mediawiki}
     {{ic|$XDG_CONFIG_HOME/MangoHud/wine-APPLICATION-NAME.conf}}
     ```
-    (for [Wine](Wine "wikilink") applications, case-sensitive, without the `{{ic|.exe}}`{=mediawiki} extension)
+    (for [Wine](Wine "Wine"){.wikilink} applications, case-sensitive, without the `{{ic|.exe}}`{=mediawiki} extension)
 
 4.  ```{=mediawiki}
     {{ic|./MangoHud.conf}}
@@ -36,7 +37,7 @@ MangoHud is configured via the following files, which are read in the following 
 5.  ```{=mediawiki}
     {{ic|$MANGOHUD_CONFIGFILE}}
     ```
-    (via [environment variables](environment_variables "wikilink"))
+    (via [environment variables](environment_variables "environment variables"){.wikilink})
 
 ```{=mediawiki}
 {{Tip|The project's GitHub repository contains an [https://github.com/flightlessmango/MangoHud/blob/master/data/MangoHud.conf example configuration file].}}
@@ -106,8 +107,8 @@ To run a game with MangoHud start it like this:
 #### Dynamic hooking for OpenGL applications {#dynamic_hooking_for_opengl_applications}
 
 The `{{ic|dlsym}}`{=mediawiki} hook is enabled by default for OpenGL applications. Set the [environment
-variable](environment_variable "wikilink") `{{ic|MANGOHUD_DLSYM{{=}}`{=mediawiki}0}} to disable it in case of problems,
-like so:
+variable](environment_variable "environment variable"){.wikilink} `{{ic|MANGOHUD_DLSYM{{=}}`{=mediawiki}0}} to disable
+it in case of problems, like so:
 
 `$ MANGOHUD_DLSYM{{=}}0 `*`game`*
 
@@ -122,28 +123,29 @@ like so:
 
 #### Use with GameMode {#use_with_gamemode}
 
-To launch a game with both MangoHud and [GameMode](GameMode "wikilink"), chain the two commands into a single one, like
-this:
+To launch a game with both MangoHud and [GameMode](GameMode "GameMode"){.wikilink}, chain the two commands into a single
+one, like this:
 
 `$ mangohud gamemoderun `*`game`*
 
 ### Run a single Steam game {#run_a_single_steam_game}
 
-To make [Steam](Steam "wikilink") start a game with MangoHud, right click the game in the *Library*, select
+To make [Steam](Steam "Steam"){.wikilink} start a game with MangoHud, right click the game in the *Library*, select
 *Properties\...*, then in the *Launch Options* text box enter:
 
 `mangohud %command%`
 
 #### Run a single Steam game with GameMode enabled too {#run_a_single_steam_game_with_gamemode_enabled_too}
 
-Same as for enabling [Steam](Steam "wikilink") game to run with Mangohud but also with option to use it alongside
-GameMode
+Same as for enabling [Steam](Steam "Steam"){.wikilink} game to run with Mangohud but also with option to use it
+alongside GameMode
 
 `mangohud gamemoderun %command%`
 
 ### Run Steam with MangoHud {#run_steam_with_mangohud}
 
-To avoid having to change launch options for all games, you may launch [Steam](Steam "wikilink") directly with MangoHud:
+To avoid having to change launch options for all games, you may launch [Steam](Steam "Steam"){.wikilink} directly with
+MangoHud:
 
 `$ mangohud steam`
 
@@ -151,8 +153,8 @@ MangoHud will detect Steam and will avoid loading itself until a game is launche
 
 ### Enable for all Vulkan games {#enable_for_all_vulkan_games}
 
-To make MangoHud automatically launch with all [Vulkan](Vulkan "wikilink") games, set the following [environment
-variable](environment_variable "wikilink"):
+To make MangoHud automatically launch with all [Vulkan](Vulkan "Vulkan"){.wikilink} games, set the following
+[environment variable](environment_variable "environment variable"){.wikilink}:
 
 `MANGOHUD=1`
 
@@ -165,4 +167,4 @@ Sometimes, it\'s possible to edit the app\'s start script to include the path to
 
 `LD_PRELOAD{{=}}/usr/lib/mangohud/`
 
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

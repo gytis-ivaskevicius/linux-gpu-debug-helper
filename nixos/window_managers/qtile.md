@@ -69,9 +69,9 @@ Screen sharing is supported with xdg desktop portals.
 
 You need to have the following dependencies installed:
 
--   `xdg-desktop-portal` (NEEDED)
--   `xdg-desktop-portal-wlr` (NEEDED), the wlroots \"portal\"
--   `xdg-desktop-portal-gtk` (RECOMMENDED) for proper GTK popup support
+- `xdg-desktop-portal` (NEEDED)
+- `xdg-desktop-portal-wlr` (NEEDED), the wlroots \"portal\"
+- `xdg-desktop-portal-gtk` (RECOMMENDED) for proper GTK popup support
 
 It\'s recommended to acquire them as shown:
 
@@ -112,8 +112,8 @@ environment.sessionVariables = {
 
 Qtile provides a Nix flake in its repository. This can be useful for:
 
--   Running a bleeding-edge version of Qtile by specifying the flake input as the package.
--   Hacking on Qtile using a Nix develop shell.
+- Running a bleeding-edge version of Qtile by specifying the flake input as the package.
+- Hacking on Qtile using a Nix develop shell.
 
 ```{=mediawiki}
 {{Note|Nix flakes are still an experimental NixOS feature, but they are already widely used. This section is intended for users who are already familiar with flakes.}}
@@ -184,18 +184,18 @@ password.
 To hack on Qtile with Nix, simply run `nix develop` in a checkout of the Qtile repository. In the development shell,
 there are a few useful commands:
 
--   `qtile-run-tests-wayland`: Run all Wayland tests.
--   `qtile-run-tests-x11`: Run all X11 tests.
+- `qtile-run-tests-wayland`: Run all Wayland tests.
+- `qtile-run-tests-x11`: Run all X11 tests.
 
 ```{=mediawiki}
 {{Note|1=For a detailed walkthrough on setting up Qtile with flakes—from basic installation to package overrides, see [https://gurjaka.dev/blog.html?post=qtile-flake Gurjaka's Qtile Flake Guide].}}
 ```
 ## Credits
 
--   Based on the official [Qtile Documentation](https://docs.qtile.org/en/latest/manual/install/nixos.html#).
--   Wayland details from [Gist by Jwijenbergh](https://gist.github.com/jwijenbergh/48da1a8f4c4a56d122407c4d009bc81f).
--   Flake config details from [Gurjaka\'s Qtile Flake Guide](https://gurjaka.dev/blog.html?post=qtile-flake).
--   NixOS implementation details maintained by the community.
+- Based on the official [Qtile Documentation](https://docs.qtile.org/en/latest/manual/install/nixos.html#).
+- Wayland details from [Gist by Jwijenbergh](https://gist.github.com/jwijenbergh/48da1a8f4c4a56d122407c4d009bc81f).
+- Flake config details from [Gurjaka\'s Qtile Flake Guide](https://gurjaka.dev/blog.html?post=qtile-flake).
+- NixOS implementation details maintained by the community.
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications](Category:Applications "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}

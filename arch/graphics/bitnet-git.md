@@ -4,14 +4,14 @@ inference on CPUs and GPUs using 1.58-bit quantization.
 
 ## Installation
 
-[Install](Install "wikilink") the `{{Aur|bitnet-git}}`{=mediawiki} package.
+[Install](Install "Install"){.wikilink} the `{{Aur|bitnet-git}}`{=mediawiki} package.
 
 ## Hardware optimization {#hardware_optimization}
 
 The package automatically detects your architecture and uses the most appropriate kernels:
 
--   **x86_64:** Uses **TL2** (optimized Lookup Table kernel) for maximum performance.
--   **aarch64:** Uses **TL1** (optimized for ARMv8.2+).
+- **x86_64:** Uses **TL2** (optimized Lookup Table kernel) for maximum performance.
+- **aarch64:** Uses **TL1** (optimized for ARMv8.2+).
 
 ## Global models management {#global_models_management}
 
@@ -58,11 +58,11 @@ Now you can run the model simply by referencing its filename:
 
 ##### Options
 
--   **-m `<path>`{=html}:** Path to the GGUF model file.
--   **-p \<\"prompt\"\>:** Initial prompt for the model.
--   **-t `<threads>`{=html}:** Number of CPU threads to use, e.g., `{{ic|-t 4}}`{=mediawiki}.
--   **-temp `<value>`{=html}:** Control randomness, e.g. `{{ic|-temp 0.7}}`{=mediawiki}.
--   **-cnv:** Enable conversation/chat mode.
+- **-m `<path>`{=html}:** Path to the GGUF model file.
+- **-p \<\"prompt\"\>:** Initial prompt for the model.
+- **-t `<threads>`{=html}:** Number of CPU threads to use, e.g., `{{ic|-t 4}}`{=mediawiki}.
+- **-temp `<value>`{=html}:** Control randomness, e.g. `{{ic|-temp 0.7}}`{=mediawiki}.
+- **-cnv:** Enable conversation/chat mode.
 
 #### Serving the model via API {#serving_the_model_via_api}
 
@@ -83,9 +83,10 @@ Then you can access it via <http://localhost:8080>.
 
 ## Troubleshooting
 
-**Build Failures:** Ensure you have `{{Pkg|base-devel}}`{=mediawiki}, [cmake](CMake_package_guidelines "wikilink"), and
-[clang](Clang "wikilink") installed.
+**Build Failures:** Ensure you have `{{Pkg|base-devel}}`{=mediawiki},
+[cmake](CMake_package_guidelines "cmake"){.wikilink}, and [clang](Clang "clang"){.wikilink} installed.
 
 **Model Errors:** Verify the model file is a valid GGUF and resides in your **\$BITNET_MODELS_DIR**.
 
-[Category:Development](Category:Development "wikilink") [Category:Graphics](Category:Graphics "wikilink")
+[Category:Development](Category:Development "Category:Development"){.wikilink}
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}

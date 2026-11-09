@@ -13,7 +13,8 @@
 | latestRelease = 26.04; 25 Apr 2026
 }}`{=mediawiki}
 
-[Niri](https://github.com/niri-wm/niri) 是一个可滚动平铺的 [Wayland](Special:MyLanguage/Wayland "wikilink") 合成器。
+[Niri](https://github.com/niri-wm/niri) 是一个可滚动平铺的 [Wayland](Special:MyLanguage/Wayland "Wayland"){.wikilink}
+合成器。
 
 `<span id="Installation">`{=html}`</span>`{=html}
 
@@ -37,7 +38,7 @@ programs.niri.enable = true;
 ## 配置
 
 niri 的配置路径为 `{{ic|$XDG_CONFIG_HOME/niri/config.kdl}}`{=mediawiki}。因此，可以使用 [Home
-Manager](Special:MyLanguage/Home_Manager "wikilink") 进行配置：
+Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink} 进行配置：
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
@@ -94,9 +95,9 @@ systemd.user.services.niri.enableDefaultPath = false;
 
 如[示例 systemd 设置 (niri
 wiki)](https://github.com/niri-wm/niri/wiki/Example-systemd-Setup)中所述，您可能需要设置一些额外的服务，包括以下的
-[Swayidle](Special:MyLanguage/Swayidle "wikilink")、[Swaylock](Special:MyLanguage/Swaylock "wikilink")、[Waybar](Special:MyLanguage/Waybar "wikilink")、[Polkit](Special:MyLanguage/Polkit "wikilink")
+[Swayidle](Special:MyLanguage/Swayidle "Swayidle"){.wikilink}、[Swaylock](Special:MyLanguage/Swaylock "Swaylock"){.wikilink}、[Waybar](Special:MyLanguage/Waybar "Waybar"){.wikilink}、[Polkit](Special:MyLanguage/Polkit "Polkit"){.wikilink}
 和 [Secret
-Service](Special:MyLanguage/Secret_Service "wikilink")，以补充常规窗口管理器的功能。其中一些设置也是启用[默认配置文件](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl)所有功能所必需的。
+Service](Special:MyLanguage/Secret_Service "Secret Service"){.wikilink}，以补充常规窗口管理器的功能。其中一些设置也是启用[默认配置文件](https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl)所有功能所必需的。
 
 ```{=mediawiki}
 {{file|3=
@@ -108,7 +109,7 @@ programs.waybar.enable = true; # top bar
 environment.systemPackages = with pkgs; [ alacritty fuzzel swaylock mako swayidle ];
 |name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-或者使用 [Home Manager](Special:MyLanguage/Home_Manager "wikilink")：
+或者使用 [Home Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink}：
 
 ```{=mediawiki}
 {{file|~/.config/home-manager/home.nix|nix|3=
@@ -132,7 +133,7 @@ home.packages = with pkgs; [
 
 ### IME 在 Electron 应用中无法正常工作 {#ime_在_electron_应用中无法正常工作}
 
-有一种通用的解决方法，即按照[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "wikilink")中的说明设置`{{ic|NIXOS_OZONE_WL}}`{=mediawiki}：
+有一种通用的解决方法，即按照[Wayland#Electron_and_Chromium](Special:MyLanguage/Wayland#Electron_and_Chromium "Wayland#Electron_and_Chromium"){.wikilink}中的说明设置`{{ic|NIXOS_OZONE_WL}}`{=mediawiki}：
 
 ```{=mediawiki}
 {{file|/etc/nixos/configuration.nix|nix|3=
@@ -171,7 +172,7 @@ Niri 有一个可选依赖，强烈建议安装（您可阅读 [这篇文章](ht
     xwayland-satellite # xwayland support
 ];|name=/etc/nixos/configuration.nix|lang=nix}}
 ```
-或者使用 [Home Manager](Special:MyLanguage/Home_Manager "wikilink")
+或者使用 [Home Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink}
 
 ```{=mediawiki}
 {{File|3=home.packages = with pkgs; [
@@ -206,10 +207,10 @@ spawn-at-startup \"waybar\" 的设置，或者在不使用 home-manager 选项�
 
 ## 另见
 
--   [Wayland](Special:MyLanguage/Wayland "wikilink")
--   [Sway](Special:MyLanguage/Sway "wikilink")
--   [用于 Wayland 的壁纸](Special:MyLanguage/Wallpapers_for_Wayland "wikilink")
--   [niri-flake](https://github.com/sodiboo/niri-flake/)
+- [Wayland](Special:MyLanguage/Wayland "Wayland"){.wikilink}
+- [Sway](Special:MyLanguage/Sway "Sway"){.wikilink}
+- [用于 Wayland 的壁纸](Special:MyLanguage/Wallpapers_for_Wayland "用于 Wayland 的壁纸"){.wikilink}
+- [niri-flake](https://github.com/sodiboo/niri-flake/)
 
-[Category:Window managers](Category:Window_managers "wikilink")
-[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "wikilink")
+[Category:Window managers](Category:Window_managers "Category:Window managers"){.wikilink}
+[Category:Applications{{#translation:}}](Category:Applications{{#translation:}} "Category:Applications{{#translation:}}"){.wikilink}

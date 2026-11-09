@@ -15,7 +15,7 @@ speedrunning.
 
 ## Installation
 
-Ninjabrain Bot is available in [Nixpkgs](Nixpkgs "wikilink") as `{{ic|ninjabrain-bot}}`{=mediawiki}.
+Ninjabrain Bot is available in [Nixpkgs](Nixpkgs "Nixpkgs"){.wikilink} as `{{ic|ninjabrain-bot}}`{=mediawiki}.
 
 ### NixOS
 
@@ -31,7 +31,8 @@ Add it to `{{ic|environment.systemPackages}}`{=mediawiki}:
 
 ### Home Manager {#home_manager}
 
-[Home Manager](Home_Manager "wikilink") can install Ninjabrain Bot and manage its preferences declaratively:
+[Home Manager](Home_Manager "Home Manager"){.wikilink} can install Ninjabrain Bot and manage its preferences
+declaratively:
 
 ``` nix
 {
@@ -90,7 +91,8 @@ The window class is case-sensitive and uses a hyphen: `{{ic|ninjabrainbot-Main}}
 
 ## See also {#see_also}
 
--   [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot)
--   [Upstream documentation](https://github.com/Ninjabrain1/Ninjabrain-Bot/wiki)
+- [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot)
+- [Upstream documentation](https://github.com/Ninjabrain1/Ninjabrain-Bot/wiki)
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

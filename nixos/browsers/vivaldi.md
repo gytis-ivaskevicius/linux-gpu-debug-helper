@@ -2,7 +2,7 @@
 
 ## Installation
 
-Simply [install](Adding_programs_to_PATH "wikilink") the `vivaldi` package.
+Simply [install](Adding_programs_to_PATH "install"){.wikilink} the `vivaldi` package.
 
 ## Get it working with KDE Plasma 6 {#get_it_working_with_kde_plasma_6}
 
@@ -31,7 +31,8 @@ Plasma 6
 })
 ```
 
-[Category:Applications](Category:Applications "wikilink") [Category:Web Browser](Category:Web_Browser "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink} [Category:Web
+Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}
 
 [^1]: <https://github.com/NixOS/nixpkgs/pull/292148>
 

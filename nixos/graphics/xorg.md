@@ -1,7 +1,8 @@
 [Xorg](https://en.wikipedia.org/wiki/X.Org_Server) is the implementation of the [X Window
 System](https://en.wikipedia.org/wiki/X_Window_System). It acts as the bridge between your system\'s hardware and the
-graphical user environment enabling a variety of [desktop environments](:Category:Desktop_environment "wikilink") and
-[window managers](:Category:Window_managers "wikilink").
+graphical user environment enabling a variety of [desktop
+environments](:Category:Desktop_environment "desktop environments"){.wikilink} and [window
+managers](:Category:Window_managers "window managers"){.wikilink}.
 
 # Enabling
 
@@ -94,11 +95,11 @@ services.xserver.excludePackages = with pkgs; [
 
 # See also {#see_also}
 
--   [Wayland](Wayland "wikilink")
--   [Nvidia](Nvidia "wikilink")
--   [AMD GPU](AMD_GPU "wikilink")
--   [Intel Graphics](Intel_Graphics "wikilink")
--   [:Category:Desktop environment](:Category:Desktop_environment "wikilink")
--   [:Category:Window managers](:Category:Window_managers "wikilink")
+- [Wayland](Wayland "Wayland"){.wikilink}
+- [Nvidia](Nvidia "Nvidia"){.wikilink}
+- [AMD GPU](AMD_GPU "AMD GPU"){.wikilink}
+- [Intel Graphics](Intel_Graphics "Intel Graphics"){.wikilink}
+- [:Category:Desktop environment](:Category:Desktop_environment ":Category:Desktop environment"){.wikilink}
+- [:Category:Window managers](:Category:Window_managers ":Category:Window managers"){.wikilink}
 
-[Category:Video](Category:Video "wikilink")
+[Category:Video](Category:Video "Category:Video"){.wikilink}

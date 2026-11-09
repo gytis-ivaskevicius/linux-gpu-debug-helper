@@ -116,7 +116,7 @@ Chrome[^2]，并且与其他实现[^3]相比存在显著限制。
 
 ### Chromium
 
-请参阅 [Chromium 视频加速](Special:MyLanguage/Chromium#Accelerated_video_playback "wikilink").
+请参阅 [Chromium 视频加速](Special:MyLanguage/Chromium#Accelerated_video_playback "Chromium 视频加速"){.wikilink}.
 
 ### Firefox
 
@@ -136,11 +136,11 @@ hwdec=auto
 
 ## 另请参阅
 
--   [Arch Linux wiki 的硬件视频加速](https://wiki.archlinux.org/index.php/Hardware_video_acceleration)。
--   [Gentoo Wiki#VAAPI](https://wiki.gentoo.org/wiki/VAAPI)。
--   [nixos-hardware](https://github.com/NixOS/nixos-hardware) 包含各种硬件类型的示例配置。
+- [Arch Linux wiki 的硬件视频加速](https://wiki.archlinux.org/index.php/Hardware_video_acceleration)。
+- [Gentoo Wiki#VAAPI](https://wiki.gentoo.org/wiki/VAAPI)。
+- [nixos-hardware](https://github.com/NixOS/nixos-hardware) 包含各种硬件类型的示例配置。
 
-[Category:Video](Category:Video "wikilink")
+[Category:Video](Category:Video "Category:Video"){.wikilink}
 
 [^1]: <https://github.com/intel/media-driver/issues/1024>
 

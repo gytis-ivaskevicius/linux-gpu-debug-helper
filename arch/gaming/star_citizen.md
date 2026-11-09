@@ -1,15 +1,16 @@
 `{{Note|Star Citizen is still in active development and therefore currently in the alpha state. Any information in this article may be outdated after a game update.}}`{=mediawiki}
 
-[Star Citizen](Wikipedia:Star_Citizen "wikilink") is a crowdfunded
-[MMO](Wikipedia:Massively_multiplayer_online_game "wikilink") [first
-person](Wikipedia:First-person_(video_games) "wikilink") [space flight
-simulator](Wikipedia:Space_flight_simulation_game "wikilink"), developed by Cloud Imperium Games. The game does not
-natively support Linux, but there have been promises for a native version.
+[Star Citizen](Wikipedia:Star_Citizen "Star Citizen"){.wikilink} is a crowdfunded
+[MMO](Wikipedia:Massively_multiplayer_online_game "MMO"){.wikilink} [first
+person](Wikipedia:First-person_(video_games) "first person"){.wikilink} [space flight
+simulator](Wikipedia:Space_flight_simulation_game "space flight simulator"){.wikilink}, developed by Cloud Imperium
+Games. The game does not natively support Linux, but there have been promises for a native version.
 
 ## Installation
 
-Star Citizen can be [installed](install "wikilink") using the community developed `{{AUR|lug-helper}}`{=mediawiki},
-which runs the game under a custom, Star Citizen tuned [Wine runner](https://github.com/starcitizen-lug/lug-wine).
+Star Citizen can be [installed](install "install"){.wikilink} using the community developed
+`{{AUR|lug-helper}}`{=mediawiki}, which runs the game under a custom, Star Citizen tuned [Wine
+runner](https://github.com/starcitizen-lug/lug-wine).
 
 ### Alternatives
 
@@ -18,40 +19,40 @@ There are some alternative ways to install the game without using the LUG Helper
 ```{=mediawiki}
 {{Note|"Frequently successful" rates if the install has a predictable success rate. Third party launchers are by default considered as "unstable".}}
 ```
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| Installation                                                             | Frequently successful | Managed by LUG  |
-+==========================================================================+=======================+=================+
-| [Flatpack](https://github.com/mactan-sc/rsilauncher)                     | ```{=mediawiki}       | ```{=mediawiki} |
-|                                                                          | {{Yes}}               | {{Yes}}         |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| [Proton](https:/                                                         | ```{=mediawiki}       | ```{=mediawiki} |
-| /wiki.starcitizen-lug.org/Alternative-Installations#proton-installation) | {{Yes}}               | {{No}}          |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| [Lutris](https://lutris.net/games/star-citizen/)                         | ```{=mediawiki}       | ```{=mediawiki} |
-|                                                                          | {{No}}                | {{No}}          |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| [Heroic](https://w                                                       | ```{=mediawiki}       | ```{=mediawiki} |
-| iki.starcitizen-lug.org/Alternative-Installations#heroic-games-launcher) | {{No}}                | {{No}}          |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| [Bott                                                                    | ```{=mediawiki}       | ```{=mediawiki} |
-| les](https://wiki.starcitizen-lug.org/Alternative-Installations#bottles) | {{No}}                | {{No}}          |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
-| [Fagus](htt                                                              | ```{=mediawiki}       | ```{=mediawiki} |
-| ps://wiki.starcitizen-lug.org/Alternative-Installations#faugus-launcher) | {{No}}                | {{No}}          |
-|                                                                          | ```                   | ```             |
-+--------------------------------------------------------------------------+-----------------------+-----------------+
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| Installation                                                                               | Frequently successful | Managed by LUG  |
++============================================================================================+=======================+=================+
+| [Flatpack](https://github.com/mactan-sc/rsilauncher)                                       | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{Yes}}               | {{Yes}}         |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| [Proton](https://wiki.starcitizen-lug.org/Alternative-Installations#proton-installation)   | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{Yes}}               | {{No}}          |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| [Lutris](https://lutris.net/games/star-citizen/)                                           | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{No}}                | {{No}}          |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| [Heroic](https://wiki.starcitizen-lug.org/Alternative-Installations#heroic-games-launcher) | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{No}}                | {{No}}          |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| [Bottles](https://wiki.starcitizen-lug.org/Alternative-Installations#bottles)              | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{No}}                | {{No}}          |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
+| [Fagus](https://wiki.starcitizen-lug.org/Alternative-Installations#faugus-launcher)        | ```{=mediawiki}       | ```{=mediawiki} |
+|                                                                                            | {{No}}                | {{No}}          |
+|                                                                                            | ```                   | ```             |
++--------------------------------------------------------------------------------------------+-----------------------+-----------------+
 
 ## Usage
 
 `$ lug-helper [ -options ]`
 
 The lug helper comes with both a graphical and terminal interface. By default, it will start with the graphical
-interface, prompting the user with a [zenity](zenity "wikilink") selection menu.
+interface, prompting the user with a [zenity](zenity "zenity"){.wikilink} selection menu.
 
 The terminal based mode can be forced using the `{{ic|--no-gui}}`{=mediawiki} or `{{ic|-g}}`{=mediawiki} option. For a
 list of all available command-line options run:
@@ -68,9 +69,9 @@ To install the game either select the corresponding options in the graphical int
 
 After installing the game, there are still some recommended options to modify:
 
--   [Non-US keyboard layout configuration](https://wiki.starcitizen-lug.org/Troubleshooting/mouse-keyboard-issues)
--   [Wayland issue workarounds](https://wiki.starcitizen-lug.org/Troubleshooting/mouse-keyboard-issues)
--   [NVIDIA](https://wiki.starcitizen-lug.org/Troubleshooting/nvidia#severe-frame-drops)
+- [Non-US keyboard layout configuration](https://wiki.starcitizen-lug.org/Troubleshooting/mouse-keyboard-issues)
+- [Wayland issue workarounds](https://wiki.starcitizen-lug.org/Troubleshooting/mouse-keyboard-issues)
+- [NVIDIA](https://wiki.starcitizen-lug.org/Troubleshooting/nvidia#severe-frame-drops)
 
 ### Troubleshooting
 
@@ -90,8 +91,8 @@ Although the standard LUG Wine Runner is preferred by most users, there may stil
 runners. This is a small list of runners recommended by the [LUG
 Wiki](https://wiki.starcitizen-lug.org/Tips-and-Tricks#recommended-runners):
 
--   [RawFox](https://github.com/starcitizen-lug/raw-wine)
--   [Mactan](https://github.com/mactan-sc/mactan-sc-wine)
+- [RawFox](https://github.com/starcitizen-lug/raw-wine)
+- [Mactan](https://github.com/mactan-sc/mactan-sc-wine)
 
 ### Modifying launch script {#modifying_launch_script}
 
@@ -99,8 +100,9 @@ The installation using the LUG Helper creates a Star Citizen launch scripts whic
 upstream version of this script can be found on the [LUG Helper
 GitHub](https://github.com/starcitizen-lug/lug-helper/blob/main/lib/sc-launch.sh) Page.
 
-An example of this may be the addition of [environment variables](environment_variables "wikilink") to active certain
-features, e.g. performance profilers:
+An example of this may be the addition of [environment
+variables](environment_variables "environment variables"){.wikilink} to active certain features, e.g. performance
+profilers:
 
 `export DXVK_HUD=fps,compiler`\
 `export MANGOHUD=1`
@@ -119,7 +121,7 @@ unofficial [Star Citizen Wiki](https://starcitizen.tools/).
 
 ## See also {#see_also}
 
--   [The LUG Wiki](https://wiki.starcitizen-lug.org/)
--   [The LUG GitHub Organization](https://github.com/starcitizen-lug)
+- [The LUG Wiki](https://wiki.starcitizen-lug.org/)
+- [The LUG GitHub Organization](https://github.com/starcitizen-lug)
 
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

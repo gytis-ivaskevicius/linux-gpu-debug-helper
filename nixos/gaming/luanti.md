@@ -27,5 +27,6 @@ systemctl stop minetest-server.service
 Additional options can be found in the NixOS options
 [search](https://search.nixos.org/options?channel=unstable&query=minetest&type=options)
 
-[Category:Server](Category:Server "wikilink") [Category:Applications](Category:Applications "wikilink")
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Server](Category:Server "Category:Server"){.wikilink}
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

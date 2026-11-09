@@ -1,20 +1,21 @@
-[ja:GeForce Now](ja:GeForce_Now "wikilink") `{{Related articles start}}`{=mediawiki}
+[ja:GeForce Now](ja:GeForce_Now "ja:GeForce Now"){.wikilink} `{{Related articles start}}`{=mediawiki}
 `{{Related|Gaming#Remote gaming}}`{=mediawiki} `{{Related|Chromium}}`{=mediawiki} `{{Related articles end}}`{=mediawiki}
 
-[GeForce NOW](Wikipedia:GeForce_Now "wikilink") is a [cloud gaming](Gaming#Remote_gaming "wikilink") services that lets
-users play video games in the browser (including on Arch Linux) and on dedicated apps available on other platforms.
+[GeForce NOW](Wikipedia:GeForce_Now "GeForce NOW"){.wikilink} is a [cloud
+gaming](Gaming#Remote_gaming "cloud gaming"){.wikilink} services that lets users play video games in the browser
+(including on Arch Linux) and on dedicated apps available on other platforms.
 
 Unlike other cloud gaming platforms, GeForce NOW connects to video game digital distribution services such as
-[Steam](Steam "wikilink") and the Epic game store, where games have to be bought separately from the GeForce NOW
+[Steam](Steam "Steam"){.wikilink} and the Epic game store, where games have to be bought separately from the GeForce NOW
 subscription. Given the nature of Cloud Gaming, you will not need to install the client from these services on your
 computer.
 
-It is available either as an official [Flatpak](Flatpak "wikilink") package from NVIDIA, or can be used without
-installation in a Chromium-based web browser.
+It is available either as an official [Flatpak](Flatpak "Flatpak"){.wikilink} package from NVIDIA, or can be used
+without installation in a Chromium-based web browser.
 
 ## Flatpak version {#flatpak_version}
 
-To install the [Flatpak](Flatpak "wikilink") package, start by adding NVIDIA remote to your system:
+To install the [Flatpak](Flatpak "Flatpak"){.wikilink} package, start by adding NVIDIA remote to your system:
 
 `# flatpak remote-add --if-not-exists GeForceNOW https://international.download.nvidia.com/GFNLinux/flatpak/geforcenow.flatpakrepo`
 
@@ -30,7 +31,7 @@ Then proceed to install the package:
 ### Usage
 
 GeForce NOW [supports](https://www.nvidia.com/en-us/geforce-now/system-reqs/#browser) Chromium-based browsers out of the
-box, it should work for most people on [Chromium](Chromium "wikilink").
+box, it should work for most people on [Chromium](Chromium "Chromium"){.wikilink}.
 
 ```{=mediawiki}
 {{Note|While it is possible to change the User-Agent string to have your favorite [[browser]] appear as Chromium, it may not work correctly (some user have reported that the mouse cursor would not appear in games when running Firefox).}}
@@ -100,10 +101,10 @@ settings.
 
 ## See also {#see_also}
 
--   [NVIDIA\'s System Requirements page (Linux)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#linux-os)
--   [NVIDIA\'s System Requirements page (Browser)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#browser)
--   [NVIDIA\'s Linux installation/troubleshooting
-    instructions](https://nvidia.custhelp.com/app/answers/detail/a_id/5765)
--   [NVIDIA GeForce NOW official download](https://www.nvidia.com/en-us/geforce-now/download/)
+- [NVIDIA\'s System Requirements page (Linux)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#linux-os)
+- [NVIDIA\'s System Requirements page (Browser)](https://www.nvidia.com/en-us/geforce-now/system-reqs/#browser)
+- [NVIDIA\'s Linux installation/troubleshooting instructions](https://nvidia.custhelp.com/app/answers/detail/a_id/5765)
+- [NVIDIA GeForce NOW official download](https://www.nvidia.com/en-us/geforce-now/download/)
 
-[Category:Gaming](Category:Gaming "wikilink") [Category:Web applications](Category:Web_applications "wikilink")
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink} [Category:Web
+applications](Category:Web_applications "Category:Web applications"){.wikilink}

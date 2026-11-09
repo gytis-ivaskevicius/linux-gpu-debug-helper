@@ -13,7 +13,7 @@ In a multiseat setup, a single machine serves multiple independent users, each w
 mouse. Each set of devices is grouped into a \"seat\", and each seat gets its own independent login session.
 
 This guide covers both X11 and Wayland sessions using the modern logind-based approach. For legacy X11 multiseat
-configuration, see [Xorg_multiseat](Xorg_multiseat "wikilink").
+configuration, see [Xorg_multiseat](Xorg_multiseat "Xorg_multiseat"){.wikilink}.
 
 ## Requirements
 
@@ -129,10 +129,11 @@ This should show two seats, with `{{ic|seat1}}`{=mediawiki} having the assigned 
 Few display managers handle multiseat reliably. If you run into trouble with your current display manager, it is worth
 trying a different one.
 
--   [LightDM](LightDM "wikilink") has multiseat support.
--   [Atrium](Atrium "wikilink") is built specifically for multiseat on Wayland.
+- [LightDM](LightDM "LightDM"){.wikilink} has multiseat support.
+- [Atrium](Atrium "Atrium"){.wikilink} is built specifically for multiseat on Wayland.
 
-See [Display manager#Graphical](Display_manager#Graphical "wikilink") for a full list of available options.
+See [Display manager#Graphical](Display_manager#Graphical "Display manager#Graphical"){.wikilink} for a full list of
+available options.
 
 To enable a new display manager after installing, first disable the current one, then enable the new one (replace
 `{{ic|lightdm}}`{=mediawiki} with your choice):
@@ -165,12 +166,14 @@ Then reboot.
 
 ## See also {#see_also}
 
--   [loginctl(1)](https://www.freedesktop.org/software/systemd/man/latest/loginctl.html)
--   [systemd Multi-Seat](https://www.freedesktop.org/wiki/Software/systemd/multiseat/)
--   [Debian Multi-Seat HOWTO](https://wiki.debian.org/Multi_Seat_Debian_HOWTO) (mostly covers legacy X11 setups, but the
-    \"Loginctl\" section is applicable)
--   [atrium multiseat setup guide](https://github.com/kavau/atrium/blob/main/doc/multiseat-setup.md) (most of the
-    content is applicable to other display managers as well)
+- [loginctl(1)](https://www.freedesktop.org/software/systemd/man/latest/loginctl.html)
+- [systemd Multi-Seat](https://www.freedesktop.org/wiki/Software/systemd/multiseat/)
+- [Debian Multi-Seat HOWTO](https://wiki.debian.org/Multi_Seat_Debian_HOWTO) (mostly covers legacy X11 setups, but the
+  \"Loginctl\" section is applicable)
+- [atrium multiseat setup guide](https://github.com/kavau/atrium/blob/main/doc/multiseat-setup.md) (most of the content
+  is applicable to other display managers as well)
 
-[Category:Display managers](Category:Display_managers "wikilink") [Category:Graphics](Category:Graphics "wikilink")
-[Category:Wayland](Category:Wayland "wikilink") [Category:X server](Category:X_server "wikilink")
+[Category:Display managers](Category:Display_managers "Category:Display managers"){.wikilink}
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}
+[Category:Wayland](Category:Wayland "Category:Wayland"){.wikilink} [Category:X
+server](Category:X_server "Category:X server"){.wikilink}

@@ -16,14 +16,14 @@ environment.systemPackages = [ pkgs.librewolf ];
 ```
 ## Configuration
 
-It is possible to configure certain presets of LibreWolf using the [Home Manager](Home_Manager "wikilink") module.
+It is possible to configure certain presets of LibreWolf using the [Home
+Manager](Home_Manager "Home Manager"){.wikilink} module.
 
 ```{=mediawiki}
-{{file|/etc/nixos/configuration.nix|nix|<nowiki>
+{{file|3=<nowiki>
 home-manager.users.myuser = {
   programs.librewolf = {
     enable = true;
-    # Enable WebGL, cookies and history
     settings = {
       "webgl.disabled" = false;
       "privacy.resistFingerprinting" = false;
@@ -31,14 +31,27 @@ home-manager.users.myuser = {
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
     };
+    policies = {
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+      };
+        "{73a6fe31-595d-460b-a920-fcc0f8843232}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi";
+          installation_mode = "force_installed";
+      };
+    };
   };
 };
-</nowiki>}}
+</nowiki>|name=home.nix|lang=nix}}
 ```
-This example configures LibreWolf to enable WebGL, remember cookies and history by disabling privacy and security
-defaults. This compromises the privacy concept of LibreWolf and is therefore not recommended to use.
+This example configures LibreWolf to enable WebGL, disable resistFingerprinting and install uBlock Origin and Noscript.
+
+For more advanced configuration, refer to the [Firefox](Firefox "Firefox"){.wikilink} page.
 
 LibreWolf exclusive preferences are not possible to apply using `programs.librewolf.policies` policies.
 
-[Category:Applications](Category:Applications "wikilink") [Category:Privacy](Category:Privacy "wikilink") [Category:Web
-Browser](Category:Web_Browser "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Privacy](Category:Privacy "Category:Privacy"){.wikilink} [Category:Web
+Browser](Category:Web_Browser "Category:Web Browser"){.wikilink}

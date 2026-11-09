@@ -1,6 +1,6 @@
 The [Battle.net launcher](https://www.blizzard.com/apps/battle.net/desktop) is Blizzard\'s launcher for games including
 *World of Warcraft*, *Diablo*, *Overwatch*, and *StarCraft*. On NixOS, Battle.net runs smoothly using Wine or Proton,
-with [Lutris](Lutris "wikilink") or [Steam](Steam "wikilink") being the most common runners.
+with [Lutris](Lutris "Lutris"){.wikilink} or [Steam](Steam "Steam"){.wikilink} being the most common runners.
 
 ## System Prerequisites {#system_prerequisites}
 
@@ -19,8 +19,8 @@ programs.gamemode.enable = true;
 
 ### Method 1: Lutris (Recommended) {#method_1_lutris_recommended}
 
-The easiest and most reliable way to manage Battle.net is through [Lutris](Lutris "wikilink") using a Wine-GE or
-Proton-GE runner.
+The easiest and most reliable way to manage Battle.net is through [Lutris](Lutris "Lutris"){.wikilink} using a Wine-GE
+or Proton-GE runner.
 
 1\. Add Lutris and Wine tools to your configuration:
 
@@ -89,7 +89,8 @@ existing prefix to repair the launcher files and registry in-place.
 For players running *World of Warcraft*, several companion applications have dedicated NixOS packages and configuration
 guides:
 
--   [Raider.IO](Raider.IO "wikilink") --- Mythic+ and raid progression tracking and addon synchronization.
--   [Archon](Archon "wikilink") --- Official Warcraft Logs companion for combat log recording and uploading.
+- [Raider.IO](Raider.IO "Raider.IO"){.wikilink} --- Mythic+ and raid progression tracking and addon synchronization.
+- [Archon](Archon "Archon"){.wikilink} --- Official Warcraft Logs companion for combat log recording and uploading.
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}

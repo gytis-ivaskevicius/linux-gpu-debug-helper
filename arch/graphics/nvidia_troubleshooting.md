@@ -1,30 +1,34 @@
-[ja:NVIDIA/トラブルシューティング](ja:NVIDIA/トラブルシューティング "wikilink") [pt:NVIDIA
-(Português)/Troubleshooting](pt:NVIDIA_(Português)/Troubleshooting "wikilink") [ru:NVIDIA
-(Русский)/Troubleshooting](ru:NVIDIA_(Русский)/Troubleshooting "wikilink")
-[zh-hans:NVIDIA/Troubleshooting](zh-hans:NVIDIA/Troubleshooting "wikilink")
+[ja:NVIDIA/トラブルシューティング](ja:NVIDIA/トラブルシューティング "ja:NVIDIA/トラブルシューティング"){.wikilink}
+[pt:NVIDIA
+(Português)/Troubleshooting](pt:NVIDIA_(Português)/Troubleshooting "pt:NVIDIA (Português)/Troubleshooting"){.wikilink}
+[ru:NVIDIA
+(Русский)/Troubleshooting](ru:NVIDIA_(Русский)/Troubleshooting "ru:NVIDIA (Русский)/Troubleshooting"){.wikilink}
+[zh-hans:NVIDIA/Troubleshooting](zh-hans:NVIDIA/Troubleshooting "zh-hans:NVIDIA/Troubleshooting"){.wikilink}
 
 ## Failure to start {#failure_to_start}
 
 ### System will not boot after driver was installed {#system_will_not_boot_after_driver_was_installed}
 
-If after installing the [NVIDIA](NVIDIA "wikilink") driver your system becomes stuck before reaching the display
-manager, try to [disable kernel mode setting](Kernel_mode_setting#Disabling_modesetting "wikilink").
+If after installing the [NVIDIA](NVIDIA "NVIDIA"){.wikilink} driver your system becomes stuck before reaching the
+display manager, try to [disable kernel mode
+setting](Kernel_mode_setting#Disabling_modesetting "disable kernel mode setting"){.wikilink}.
 
 ### Xorg fails to load or Red Screen of Death {#xorg_fails_to_load_or_red_screen_of_death}
 
 If you get a red screen and use GRUB, disable the GRUB framebuffer by editing `{{ic|/etc/default/grub}}`{=mediawiki} and
 uncomment `{{ic|1=GRUB_TERMINAL_OUTPUT=console}}`{=mediawiki}. For more information see [GRUB/Tips and tricks#Disable
-framebuffer](GRUB/Tips_and_tricks#Disable_framebuffer "wikilink").
+framebuffer](GRUB/Tips_and_tricks#Disable_framebuffer "GRUB/Tips and tricks#Disable framebuffer"){.wikilink}.
 
 ### Black screen at X startup / Machine poweroff at X shutdown {#black_screen_at_x_startup_machine_poweroff_at_x_shutdown}
 
 If you have installed an update of NVIDIA and your screen stays black after launching Xorg, or if shutting down Xorg
 causes a machine poweroff, try the below workarounds:
 
--   Prepend `{{ic|xrandr --auto}}`{=mediawiki} to your [xinitrc](xinitrc "wikilink")
--   Use the `{{ic|1=rcutree.gp_init_delay=1}}`{=mediawiki} [kernel parameter](kernel_parameter "wikilink").
--   You can also try to add the `{{ic|nvidia}}`{=mediawiki} module directly to your
-    [mkinitcpio.conf](mkinitcpio.conf "wikilink").
+- Prepend `{{ic|xrandr --auto}}`{=mediawiki} to your [xinitrc](xinitrc "xinitrc"){.wikilink}
+- Use the `{{ic|1=rcutree.gp_init_delay=1}}`{=mediawiki} [kernel
+  parameter](kernel_parameter "kernel parameter"){.wikilink}.
+- You can also try to add the `{{ic|nvidia}}`{=mediawiki} module directly to your
+  [mkinitcpio.conf](mkinitcpio.conf "mkinitcpio.conf"){.wikilink}.
 
 ### Screen(s) found, but none have a usable configuration {#screens_found_but_none_have_a_usable_configuration}
 
@@ -59,8 +63,9 @@ problem should now be gone.
 
 ### Xorg fails during boot, but otherwise starts fine {#xorg_fails_during_boot_but_otherwise_starts_fine}
 
-On very fast booting systems, [systemd](systemd "wikilink") may attempt to start the display manager before the NVIDIA
-driver has fully initialized. You will see a message like the following in your logs only when Xorg runs during boot:
+On very fast booting systems, [systemd](systemd "systemd"){.wikilink} may attempt to start the display manager before
+the NVIDIA driver has fully initialized. You will see a message like the following in your logs only when Xorg runs
+during boot:
 
 ```{=mediawiki}
 {{hc|/var/log/Xorg.0.log|output=
@@ -176,7 +181,8 @@ NVIDIA DevTalk
 thread](https://devtalk.nvidia.com/default/topic/971733/-370-28-with-kernel-4-8-on-gt-2015-machines-driver-claims-card-not-supported-if-nvidia-is-not-primary-card/)).
 
 The workaround is to add `{{ic|1=pcie_port_pm=off}}`{=mediawiki} to your [kernel
-parameters](kernel_parameters "wikilink"). Note that this disables PCIe power management for all devices.
+parameters](kernel_parameters "kernel parameters"){.wikilink}. Note that this disables PCIe power management for all
+devices.
 
 ### System does not return from suspend {#system_does_not_return_from_suspend}
 
@@ -195,16 +201,17 @@ Run this command to get the `{{ic|''version''}}`{=mediawiki} string:
 
 `# strings /sys/firmware/acpi/tables/DSDT | grep -i 'windows ' | sort | tail -1`
 
-Add the `{{ic|1=acpi_osi=! "acpi_osi=''version''"}}`{=mediawiki} [kernel parameter](kernel_parameter "wikilink") to your
-[boot loader](boot_loader "wikilink") configuration.
+Add the `{{ic|1=acpi_osi=! "acpi_osi=''version''"}}`{=mediawiki} [kernel
+parameter](kernel_parameter "kernel parameter"){.wikilink} to your [boot loader](boot_loader "boot loader"){.wikilink}
+configuration.
 
 Another possible cause to the issue could be the use of the `{{Pkg|nvidia-open}}`{=mediawiki} package, as described
 here:
 
--   <https://bbs.archlinux.org/viewtopic.php?pid=2047692>
--   <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/450>
--   <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/223>
--   <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/94>
+- <https://bbs.archlinux.org/viewtopic.php?pid=2047692>
+- <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/450>
+- <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/223>
+- <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/94>
 
 ### Black screen returning from suspend {#black_screen_returning_from_suspend}
 
@@ -218,14 +225,15 @@ If experiencing black screen issues and logs containing:
 `archlinux kernel: NVRM: Xid (PCI:0000:08:00): 13, pid='``<unknown>`{=html}`', name=``<unknown>`{=html}`, Graphi>`
 
 You need to enable the NVIDIA suspend, hibernate and sleep services as explained in [NVIDIA/Tips and tricks#Preserve
-video memory after suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "wikilink").
+video memory after
+suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "NVIDIA/Tips and tricks#Preserve video memory after suspend"){.wikilink}.
 
 ### One or more monitors not working in multi-monitor setup in Xorg {#one_or_more_monitors_not_working_in_multi_monitor_setup_in_xorg}
 
 If one or more of your monitors is not outputting anything in Xorg and is showing up as \"Disabled\" in the
 `{{ic|nvidia-settings}}`{=mediawiki} control panel, then your current Xorg configuration may be incompatible. The
 proprietary NVIDIA driver should not require a X configuration to simply function. See [NVIDIA#Xorg
-configuration](NVIDIA#Xorg_configuration "wikilink").
+configuration](NVIDIA#Xorg_configuration "NVIDIA#Xorg configuration"){.wikilink}.
 
 Simply move or rename the `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} file and any configuration files in
 `{{ic|xorg.conf.d}}`{=mediawiki} pertaining to the NVIDIA driver. Only files ending in `{{ic|.conf}}`{=mediawiki} will
@@ -245,18 +253,19 @@ new NVIDIA Xorg configuration suited to your hardware. This shouldn\'t however b
 
 ### Crashing in general {#crashing_in_general}
 
--   Try [disabling the GSP firmware](#GSP_firmware "wikilink").
--   Try disabling `{{ic|RenderAccel}}`{=mediawiki} in xorg.conf.
--   If Xorg outputs an error about `{{ic|"conflicting memory type"}}`{=mediawiki} or
-    `{{ic|"failed to allocate primary buffer: out of memory"}}`{=mediawiki}, or crashes with a \"Signal 11\" while using
-    nvidia-96xx drivers, add `{{ic|nopat}}`{=mediawiki} to your [kernel parameters](kernel_parameters "wikilink").
--   If the NVIDIA compiler complains about different versions of GCC between the current one and the one used for
-    compiling the kernel, add in `{{ic|/etc/profile}}`{=mediawiki}:
+- Try [disabling the GSP firmware](#GSP_firmware "disabling the GSP firmware"){.wikilink}.
+- Try disabling `{{ic|RenderAccel}}`{=mediawiki} in xorg.conf.
+- If Xorg outputs an error about `{{ic|"conflicting memory type"}}`{=mediawiki} or
+  `{{ic|"failed to allocate primary buffer: out of memory"}}`{=mediawiki}, or crashes with a \"Signal 11\" while using
+  nvidia-96xx drivers, add `{{ic|nopat}}`{=mediawiki} to your [kernel
+  parameters](kernel_parameters "kernel parameters"){.wikilink}.
+- If the NVIDIA compiler complains about different versions of GCC between the current one and the one used for
+  compiling the kernel, add in `{{ic|/etc/profile}}`{=mediawiki}:
 
 `export IGNORE_CC_MISMATCH=1`
 
--   If fullscreen applications are freezing or crashing, try enabling `{{ic|Display Compositing}}`{=mediawiki} and
-    `{{ic|Direct fullscreen rendering}}`{=mediawiki} options in your desktop environment\'s settings.
+- If fullscreen applications are freezing or crashing, try enabling `{{ic|Display Compositing}}`{=mediawiki} and
+  `{{ic|Direct fullscreen rendering}}`{=mediawiki} options in your desktop environment\'s settings.
 
 ### Bad support of mesh shaders {#bad_support_of_mesh_shaders}
 
@@ -271,7 +280,7 @@ You need to compile and install the tool by following [the tutorial on
 GitHub](https://github.com/HansKristian-Work/pyroveil#pyroveil), then run the game with the
 `{{ic|1=PYROVEIL=1}}`{=mediawiki} and
 `{{ic|1=PYROVEIL_CONFIG=''/path/to/pyroveil''/hacks/''ffvii-rebirth-nvidia''/pyroveil.json}}`{=mediawiki} [environment
-variables](environment_variables "wikilink").
+variables](environment_variables "environment variables"){.wikilink}.
 
 ### Visual glitches, hangs and errors in OpenGL applications {#visual_glitches_hangs_and_errors_in_opengl_applications}
 
@@ -297,15 +306,16 @@ To workaround this issue, switch to `{{Pkg|nvidia-open-dkms}}`{=mediawiki} if su
 
 The use of the [GSP firmware](https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/gsp.html), enabled by
 default since version 555 of the NVIDIA driver released in June 2024, is known to cause [a range of
-issues](https://bbs.archlinux.org/viewtopic.php?pid=2181317) including [Vulkan](Vulkan "wikilink") failures and system
-crashes.
+issues](https://bbs.archlinux.org/viewtopic.php?pid=2181317) including [Vulkan](Vulkan "Vulkan"){.wikilink} failures and
+system crashes.
 
-To disable it, use the `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} [module parameter](module_parameter "wikilink")
-for the `{{ic|nvidia}}`{=mediawiki} kernel module. This only works with the proprietary NVIDIA driver: see
-[NVIDIA#Installation](NVIDIA#Installation "wikilink") if switching from the open source driver.
+To disable it, use the `{{ic|1=NVreg_EnableGpuFirmware=0}}`{=mediawiki} [module
+parameter](module_parameter "module parameter"){.wikilink} for the `{{ic|nvidia}}`{=mediawiki} kernel module. This only
+works with the proprietary NVIDIA driver: see
+[NVIDIA#Installation](NVIDIA#Installation "NVIDIA#Installation"){.wikilink} if switching from the open source driver.
 
-Do not forget to [regenerate the initramfs](regenerate_the_initramfs "wikilink") if needed. To have this new kernel
-module option take effect, reboot.
+Do not forget to [regenerate the initramfs](regenerate_the_initramfs "regenerate the initramfs"){.wikilink} if needed.
+To have this new kernel module option take effect, reboot.
 
 ### Crashes related to VRR and TTY-switching {#crashes_related_to_vrr_and_tty_switching}
 
@@ -314,16 +324,18 @@ If the driver crashes while switching between a desktop environment and TTY\'s a
 `archlinux kernel: [drm:nv_drm_atomic_commit [nvidia_drm]] *ERROR* [nvidia-drm] [GPU ID [...]] Flip event timeout`\
 `archlinux kernel: nvidia-modeset: ERROR: GPU:0: Idling display engine timed out: [...]`
 
-Try disabling the monitor\'s [variable refresh rate](variable_refresh_rate "wikilink") (VRR) function via it\'s OSD.
+Try disabling the monitor\'s [variable refresh rate](variable_refresh_rate "variable refresh rate"){.wikilink} (VRR)
+function via it\'s OSD.
 
 Another workaround is to hide the driver\'s VRR (G-Sync / FreeSync) capability from the display subsystem, preventing
-any application or compositor from enabling VRR: set [Kernel parameters](Kernel_parameters "wikilink") to
+any application or compositor from enabling VRR: set [Kernel
+parameters](Kernel_parameters "Kernel parameters"){.wikilink} to
 `{{ic|1=nvidia_modeset.conceal_vrr_caps=1}}`{=mediawiki}, which enforces a fixed refresh rate.
 
 ### Xid 79, GPU has fallen off the bus {#xid_79_gpu_has_fallen_off_the_bus}
 
-If you find this crash in the [journal](journal "wikilink"), it may be due to different reasons, including a bad power
-supply, cables or PCI connection problems.
+If you find this crash in the [journal](journal "journal"){.wikilink}, it may be due to different reasons, including a
+bad power supply, cables or PCI connection problems.
 
 However, it is also reported as an [NVIDIA driver issue](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1151),
 which mentions a [work-around](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1151#issuecomment-5502412431) of
@@ -369,20 +381,20 @@ upper bound of the range to the maximum value also works, but increases power dr
 ```
 The NVIDIA driver conditionally applies a [composition
 pipeline](https://www.reddit.com/r/linux_gaming/comments/6voivr/comment/dm1uz2j/) to prepare the image for display. This
-is not to be confused with a [composite manager](composite_manager "wikilink"), which takes over window presentation
-(and can also mitigate screen tearing, via VSync). By default, the composition pipeline is only applied if the current
-screen transformations require it. The pipeline uses the GPU\'s specialized display engine if possible, then the more
-general graphics engine. There are a couple of options to control this:
+is not to be confused with a [composite manager](composite_manager "composite manager"){.wikilink}, which takes over
+window presentation (and can also mitigate screen tearing, via VSync). By default, the composition pipeline is only
+applied if the current screen transformations require it. The pipeline uses the GPU\'s specialized display engine if
+possible, then the more general graphics engine. There are a couple of options to control this:
 
--   ```{=mediawiki}
-    {{ic|ForceCompositionPipeline}}
-    ```
-    forces usage of the pipeline (further discussed in [#Multi-monitor](#Multi-monitor "wikilink")).
+- ```{=mediawiki}
+  {{ic|ForceCompositionPipeline}}
+  ```
+  forces usage of the pipeline (further discussed in [#Multi-monitor](#Multi-monitor "#Multi-monitor"){.wikilink}).
 
--   ```{=mediawiki}
-    {{ic|ForceFullCompositionPipeline}}
-    ```
-    forces usage of the pipeline, and forces it to all be done with the graphics engine.
+- ```{=mediawiki}
+  {{ic|ForceFullCompositionPipeline}}
+  ```
+  forces usage of the pipeline, and forces it to all be done with the graphics engine.
 
 Tearing on Xorg can be avoided by setting `{{ic|ForceFullCompositionPipeline{{=}}`{=mediawiki}On}}. To test whether this
 option will work, run:
@@ -393,8 +405,8 @@ Or click on the *Advanced* button that is available on the *X Server Display Con
 *Force Composition Pipeline* or *Force Full Composition Pipeline* and click on *Apply*.
 
 In order to make the change permanent, it must be added to the `{{ic|"Screen"}}`{=mediawiki} section of the
-[Xorg](Xorg "wikilink") configuration file. When making this change, `{{ic|TripleBuffering}}`{=mediawiki} should be
-enabled and `{{ic|AllowIndirectGLXProtocol}}`{=mediawiki} should be disabled in the driver configuration as well. See
+[Xorg](Xorg "Xorg"){.wikilink} configuration file. When making this change, `{{ic|TripleBuffering}}`{=mediawiki} should
+be enabled and `{{ic|AllowIndirectGLXProtocol}}`{=mediawiki} should be disabled in the driver configuration as well. See
 example configuration below:
 
 ```{=mediawiki}
@@ -417,8 +429,9 @@ EndSection
 }}
 ```
 If you do not have a Xorg configuration file, you can create one for your present hardware using
-`{{ic|nvidia-xconfig}}`{=mediawiki} (see [NVIDIA#Automatic configuration](NVIDIA#Automatic_configuration "wikilink"))
-and move it from `{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to the preferred location
+`{{ic|nvidia-xconfig}}`{=mediawiki} (see [NVIDIA#Automatic
+configuration](NVIDIA#Automatic_configuration "NVIDIA#Automatic configuration"){.wikilink}) and move it from
+`{{ic|/etc/X11/xorg.conf}}`{=mediawiki} to the preferred location
 `{{ic|/etc/X11/xorg.conf.d/20-nvidia.conf}}`{=mediawiki}.
 
 ```{=mediawiki}
@@ -450,9 +463,9 @@ You can get the current screen names and offsets using `{{ic|--query}}`{=mediawi
 This also applies if an external monitor does not wake up after suspend or hibernation.
 
 See [NVIDIA/Tips and tricks#Preserve video memory after
-suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "wikilink")
+suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "NVIDIA/Tips and tricks#Preserve video memory after suspend"){.wikilink}
 
-A corruption after suspend bug when using [GDM](GDM "wikilink") service was solved as of driver version 515.43.04
+A corruption after suspend bug when using [GDM](GDM "GDM"){.wikilink} service was solved as of driver version 515.43.04
 [7](https://forums.developer.nvidia.com/t/corrupted-graphics-upon-resume-gnome-41-x-org-495-44-driver/194565/18).
 
 ### Corrupted screen: \"Six screens\" Problem {#corrupted_screen_six_screens_problem}
@@ -481,9 +494,9 @@ GSK_RENDERER=vulkan
 
 ### Fix graphical corruption in GNOME Shell when resuming from sleep {#fix_graphical_corruption_in_gnome_shell_when_resuming_from_sleep}
 
-If you are facing strange fonts and/or having weird graphical glitches in [GNOME Shell](GNOME_Shell "wikilink") when
-resuming from sleep, try setting the following [kernel parameter](kernel_parameter "wikilink") to enable power
-management:
+If you are facing strange fonts and/or having weird graphical glitches in [GNOME
+Shell](GNOME_Shell "GNOME Shell"){.wikilink} when resuming from sleep, try setting the following [kernel
+parameter](kernel_parameter "kernel parameter"){.wikilink} to enable power management:
 
 `nvidia.NVreg_DynamicPowerManagement=0x02`
 
@@ -503,7 +516,8 @@ Workaround: lock a higher minimum GPU/memory clock with nvidia-smi.
 
 Prerequisites:
 
-[Enable](Enable "wikilink")/[start](start "wikilink") the `{{ic|nvidia-persistenced.service}}`{=mediawiki}.
+[Enable](Enable "Enable"){.wikilink}/[start](start "start"){.wikilink} the
+`{{ic|nvidia-persistenced.service}}`{=mediawiki}.
 
 Find supported clock values (use these to pick valid min/max pairs):
 
@@ -542,7 +556,7 @@ WantedBy=multi-user.target
 You can adjust the minimum clock so they are lower than the 800 mentioned earlier to lower idle power consumption; just
 be aware that setting them to low will cause the issue to occur again.
 
-Then [enable](enable "wikilink")/[start](start "wikilink") `{{ic|nvidia-clocks.service}}`{=mediawiki}.
+Then [enable](enable "enable"){.wikilink}/[start](start "start"){.wikilink} `{{ic|nvidia-clocks.service}}`{=mediawiki}.
 
 ## Performance issues {#performance_issues}
 
@@ -571,7 +585,7 @@ A common issue with Mutter is that [animations, video playback and gaming cause 
 Xorg](https://gitlab.gnome.org/GNOME/mutter/-/issues/2233).
 
 See [NVIDIA/Tips and tricks#Preserve video memory after
-suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "wikilink").
+suspend](NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend "NVIDIA/Tips and tricks#Preserve video memory after suspend"){.wikilink}.
 
 This should resolve this issue, however if it did not, you are most likely out of luck. One way you can remedy this
 issue is by adding these options:
@@ -692,14 +706,15 @@ EndSection
 ```
 ### xrandr BadMatch {#xrandr_badmatch}
 
-If you are trying to configure a WQHD monitor such as DELL U2515H using [xrandr](xrandr "wikilink") and
+If you are trying to configure a WQHD monitor such as DELL U2515H using [xrandr](xrandr "xrandr"){.wikilink} and
 `{{ic|xrandr --addmode}}`{=mediawiki} gives you the error `{{ic|X Error of failed request: BadMatch}}`{=mediawiki}, it
 might be because the proprietary NVIDIA driver clips the pixel clock maximum frequency of HDMI output to 225 MHz or
-lower. To set the monitor to maximum resolution you have to install [nouveau](nouveau "wikilink") drivers. You can force
-nouveau to use a specific pixel clock frequency by setting `{{ic|1=nouveau.hdmimhz=297}}`{=mediawiki} (or
-`{{ic|330}}`{=mediawiki}) in your [Kernel parameters](Kernel_parameters "wikilink").
+lower. To set the monitor to maximum resolution you have to install [nouveau](nouveau "nouveau"){.wikilink} drivers. You
+can force nouveau to use a specific pixel clock frequency by setting `{{ic|1=nouveau.hdmimhz=297}}`{=mediawiki} (or
+`{{ic|330}}`{=mediawiki}) in your [Kernel parameters](Kernel_parameters "Kernel parameters"){.wikilink}.
 
-Alternatively, it may be that your monitor\'s EDID is incorrect. See [#Override EDID](#Override_EDID "wikilink").
+Alternatively, it may be that your monitor\'s EDID is incorrect. See [#Override
+EDID](#Override_EDID "#Override EDID"){.wikilink}.
 
 Another reason could be that by default current NVIDIA drivers will only allow modes explicitly reported by EDID, but
 sometimes refresh rates and/or resolutions are desired which are not reported by the monitor (although the EDID
@@ -725,9 +740,10 @@ information.
 
 ### Override EDID {#override_edid}
 
-See [Kernel mode setting#Forcing modes and EDID](Kernel_mode_setting#Forcing_modes_and_EDID "wikilink"),
-[Xrandr#Troubleshooting](Xrandr#Troubleshooting "wikilink") and [Qnix QX2710#Fixing X11 with
-Nvidia](Qnix_QX2710#Fixing_X11_with_Nvidia "wikilink").
+See [Kernel mode setting#Forcing modes and
+EDID](Kernel_mode_setting#Forcing_modes_and_EDID "Kernel mode setting#Forcing modes and EDID"){.wikilink},
+[Xrandr#Troubleshooting](Xrandr#Troubleshooting "Xrandr#Troubleshooting"){.wikilink} and [Qnix QX2710#Fixing X11 with
+Nvidia](Qnix_QX2710#Fixing_X11_with_Nvidia "Qnix QX2710#Fixing X11 with Nvidia"){.wikilink}.
 
 ### Overclocking with nvidia-settings GUI not working {#overclocking_with_nvidia_settings_gui_not_working}
 
@@ -736,8 +752,8 @@ Nvidia](Qnix_QX2710#Fixing_X11_with_Nvidia "wikilink").
 ```
 Workaround is to use nvidia-settings CLI to query and set certain variables after enabling overclocking (as explained in
 [NVIDIA/Tips and tricks#Enabling overclocking in
-nvidia-settings](NVIDIA/Tips_and_tricks#Enabling_overclocking_in_nvidia-settings "wikilink"), see
-`{{man|1|nvidia-settings}}`{=mediawiki} for more information).
+nvidia-settings](NVIDIA/Tips_and_tricks#Enabling_overclocking_in_nvidia-settings "NVIDIA/Tips and tricks#Enabling overclocking in nvidia-settings"){.wikilink},
+see `{{man|1|nvidia-settings}}`{=mediawiki} for more information).
 
 Example to query all variables:
 
@@ -767,8 +783,8 @@ ERROR: Error assigning value 10 to attribute 'GPUGraphicsClockOffset' (trinity-z
         '[gpu:0]/GPUGraphicsClockOffset[3]=10' (Unknown Error).
 }}
 ```
-To avoid this issue, Xorg has to be run as the root user. See [Xorg#Rootless Xorg](Xorg#Rootless_Xorg "wikilink") for
-details.
+To avoid this issue, Xorg has to be run as the root user. See [Xorg#Rootless
+Xorg](Xorg#Rootless_Xorg "Xorg#Rootless Xorg"){.wikilink} for details.
 
 ### Power draw {#power_draw}
 
@@ -809,7 +825,7 @@ If power save is configured on the kernel module:
 
 The binary NVIDIA driver will not adhere to the Mesa environment variable
 `{{ic|LIBGL_ALWAYS_SOFTWARE{{=}}`{=mediawiki}1}} but you can direct libglvnd and EGL to use Mesa by setting the
-following [environment variables](environment_variables "wikilink"):
+following [environment variables](environment_variables "environment variables"){.wikilink}:
 
 `__GLX_VENDOR_LIBRARY_NAME=mesa`\
 `__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json`
@@ -822,8 +838,9 @@ whether a bug is related to the NVIDIA GL library.
 Newer versions of the driver (after 550xx) [seem to](https://bbs.archlinux.org/viewtopic.php?id=302969) waste bandwidth
 on 8bpc outputs, likely pushing the signal above specification limits and the result is a failure to apply modes with
 higher refresh rates that otherwise would be within the specification of the output. Add
-`{{ic|nvidia-modeset.hdmi_deepcolor{{=}}`{=mediawiki}0}} to the [kernel parameters](kernel_parameters "wikilink") or set
-the option via [modprobe](modprobe "wikilink"). Notice that deep color will however be required for HDR monitors.
+`{{ic|nvidia-modeset.hdmi_deepcolor{{=}}`{=mediawiki}0}} to the [kernel
+parameters](kernel_parameters "kernel parameters"){.wikilink} or set the option via
+[modprobe](modprobe "modprobe"){.wikilink}. Notice that deep color will however be required for HDR monitors.
 
 ### Wrong color space on 60Hz on Wayland with HDMI {#wrong_color_space_on_60hz_on_wayland_with_hdmi}
 
@@ -831,6 +848,8 @@ In some cases (like using a HDMI cable with a 1660 Super graphics card with 60Hz
 the color space for the output. This leads to the colors looking darker than normal. Because of there being no easy way
 to explicitly set the color space on Wayland, as a workaround you can add
 `{{ic|nvidia-modeset.debug_force_color_space{{=}}`{=mediawiki}2}} to the [kernel
-parameters](kernel_parameters "wikilink") or set the option via [modprobe](modprobe "wikilink").
+parameters](kernel_parameters "kernel parameters"){.wikilink} or set the option via
+[modprobe](modprobe "modprobe"){.wikilink}.
 
-[Category:Graphics](Category:Graphics "wikilink") [Category:X server](Category:X_server "wikilink")
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink} [Category:X
+server](Category:X_server "Category:X server"){.wikilink}

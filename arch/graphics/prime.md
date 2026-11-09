@@ -1,10 +1,12 @@
-[es:PRIME](es:PRIME "wikilink") [ja:PRIME](ja:PRIME "wikilink") [zh-hans:PRIME](zh-hans:PRIME "wikilink")
-`{{Related articles start}}`{=mediawiki} `{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki}
+[es:PRIME](es:PRIME "es:PRIME"){.wikilink} [ja:PRIME](ja:PRIME "ja:PRIME"){.wikilink}
+[zh-hans:PRIME](zh-hans:PRIME "zh-hans:PRIME"){.wikilink} `{{Related articles start}}`{=mediawiki}
+`{{Related|NVIDIA Optimus}}`{=mediawiki} `{{Related|Cardwire}}`{=mediawiki} `{{Related|External GPU}}`{=mediawiki}
 `{{Related articles end}}`{=mediawiki}
 
-PRIME is a technology used to manage [hybrid graphics](hybrid_graphics "wikilink") found on recent desktops and laptops
-([Optimus for NVIDIA](NVIDIA_Optimus "wikilink"), AMD Dynamic Switchable Graphics for Radeon). **PRIME GPU offloading**
-and **Reverse PRIME** are an attempt to support muxless hybrid graphics in the Linux kernel.
+PRIME is a technology used to manage [hybrid graphics](hybrid_graphics "hybrid graphics"){.wikilink} found on recent
+desktops and laptops ([Optimus for NVIDIA](NVIDIA_Optimus "Optimus for NVIDIA"){.wikilink}, AMD Dynamic Switchable
+Graphics for Radeon). **PRIME GPU offloading** and **Reverse PRIME** are an attempt to support muxless hybrid graphics
+in the Linux kernel.
 
 ## PRIME GPU offloading {#prime_gpu_offloading}
 
@@ -46,11 +48,12 @@ grep \"OpenGL renderer\"\|2= OpenGL renderer string: Gallium 0.4 on AMD TURKS }}
 ```
 Other applications will still use the less power-hungry integrated card. These settings are lost once the X server
 restarts, you may want [set the environment variable
-permanently](Environment_variables#Graphical_environment "wikilink"). This may reduce your battery life and increase
-heat though.
+permanently](Environment_variables#Graphical_environment "set the environment variable permanently"){.wikilink}. This
+may reduce your battery life and increase heat though.
 
 See [Gentoo:AMDGPU#Identifying which graphics card is in
-use](Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use "wikilink") for more information.
+use](Gentoo:AMDGPU#Identifying_which_graphics_card_is_in_use "Gentoo:AMDGPU#Identifying which graphics card is in use"){.wikilink}
+for more information.
 
 For `{{ic|DRI_PRIME}}`{=mediawiki} to work on Vulkan applications `{{Pkg|vulkan-mesa-layers}}`{=mediawiki} needs to be
 installed, as well as `{{Pkg|lib32-vulkan-mesa-layers}}`{=mediawiki} for 32 bit applications.
@@ -60,8 +63,8 @@ installed, as well as `{{Pkg|lib32-vulkan-mesa-layers}}`{=mediawiki} for 32 bit 
 ```{=mediawiki}
 {{Merge|DXVK|Gaming is not the primary topic of this page.}}
 ```
-When running Windows DirectX games under Wine or Proton, you need to instruct [DXVK](DXVK "wikilink") directly using the
-environment variable:
+When running Windows DirectX games under Wine or Proton, you need to instruct [DXVK](DXVK "DXVK"){.wikilink} directly
+using the environment variable:
 
 `DXVK_FILTER_DEVICE_NAME="[your preferred card name]"`
 
@@ -109,7 +112,7 @@ use](https://us.download.nvidia.com/XFree86/Linux-x86_64/575.64.05/README/dynami
 ```{=mediawiki}
 {{Note|If you plan to use suspend or hibernate, see [[NVIDIA/Tips and tricks#Preserve video memory after suspend]].}}
 ```
-The following [udev](udev "wikilink") rules are needed, as recommended by NVIDIA:
+The following [udev](udev "udev"){.wikilink} rules are needed, as recommended by NVIDIA:
 
 ```{=mediawiki}
 {{hc|/etc/udev/rules.d/80-nvidia-pm.rules|2=
@@ -132,7 +135,7 @@ ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000"
 ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="auto"
 }}
 ```
-Also, add the following [module parameters](module_parameter "wikilink"):
+Also, add the following [module parameters](module_parameter "module parameter"){.wikilink}:
 
 ```{=mediawiki}
 {{hc|/etc/modprobe.d/nvidia-pm.conf|2=
@@ -144,8 +147,9 @@ options nvidia "NVreg_DynamicPowerManagement=0x02"
 ```
 Alternatively, you can install `{{AUR|nvidia-prime-rtd3pm}}`{=mediawiki} which provides these two configuration files.
 
-After you setup the [udev](udev "wikilink") rules and the [module parameter](module_parameter "wikilink") either
-manually or using the AUR package, you will need to restart your Laptop.
+After you setup the [udev](udev "udev"){.wikilink} rules and the [module
+parameter](module_parameter "module parameter"){.wikilink} either manually or using the AUR package, you will need to
+restart your Laptop.
 
 To check if the NVIDIA GPU is turned off you can use this command:
 
@@ -170,16 +174,16 @@ with this command.
 
 If this reports `{{ic|Runtime D3 status: Not supported}}`{=mediawiki}:
 
--   ```{=mediawiki}
-    {{Pkg|nvidia-open}}
-    ```
-    users: upgrade to driver version 610 or later, where runtime D3 power management is [fully supported by
-    default](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-4585176355). (On earlier versions
-    of the open drivers, even the workaround below [has no
-    effect](https://bbs.archlinux.org/viewtopic.php?pid=2187680#p2187680).)
+- ```{=mediawiki}
+  {{Pkg|nvidia-open}}
+  ```
+  users: upgrade to driver version 610 or later, where runtime D3 power management is [fully supported by
+  default](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/640#issuecomment-4585176355). (On earlier versions
+  of the open drivers, even the workaround below [has no
+  effect](https://bbs.archlinux.org/viewtopic.php?pid=2187680#p2187680).)
 
--   Closed-source driver users: you may need to follow the steps [in this forum
-    post](https://bbs.archlinux.org/viewtopic.php?pid=2181317#p2181317) to disable the GSP firmware.
+- Closed-source driver users: you may need to follow the steps [in this forum
+  post](https://bbs.archlinux.org/viewtopic.php?pid=2181317#p2181317) to disable the GSP firmware.
 
 To check what uses the GPU, you can use the following command:
 
@@ -187,8 +191,8 @@ To check what uses the GPU, you can use the following command:
 
 Unlike nvidia-smi, it reports every process using the device, and it doesn\'t wake up the GPU.
 
-We also need to [enable](enable "wikilink") `{{ic|nvidia-persistenced.service}}`{=mediawiki} to avoid the kernel tearing
-down the device state whenever the NVIDIA device resources are no longer in use.
+We also need to [enable](enable "enable"){.wikilink} `{{ic|nvidia-persistenced.service}}`{=mediawiki} to avoid the
+kernel tearing down the device state whenever the NVIDIA device resources are no longer in use.
 [2](https://us.download.nvidia.com/XFree86/Linux-x86_64/550.54.14/README/nvidia-persistenced.html)
 
 #### Configure applications to render using GPU {#configure_applications_to_render_using_gpu}
@@ -200,23 +204,26 @@ Even without enabling Dynamic Power Management, offload rendering of application
 [3](https://web.archive.org/web/20211203072304/https://jeansenvaars.wordpress.com/2021/12/02/endeavouros-hybrid-gpu-benchmarks/).
 
 To run an application offloaded to the NVIDIA GPU with Dynamic Power Management enabled, add the following [environment
-variables](environment_variables "wikilink"):
+variables](environment_variables "environment variables"){.wikilink}:
 [4](https://download.nvidia.com/XFree86/Linux-x86_64/550.54.14/README/primerenderoffload.html)
 
 `__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia `*`command`*
 
-When using on a [Steam](Steam "wikilink") game, the launcher command line can be set to:
+When using on a [Steam](Steam "Steam"){.wikilink} game, the launcher command line can be set to:
 
 `__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command%`
 
 #### Desktop environment integration {#desktop_environment_integration}
 
-[Install](Install "wikilink") `{{Pkg|switcheroo-control}}`{=mediawiki} and [enable](enable "wikilink")
-`{{ic|switcheroo-control.service}}`{=mediawiki}.
+[Install](Install "Install"){.wikilink} `{{Pkg|switcheroo-control}}`{=mediawiki} and
+[enable](enable "enable"){.wikilink} `{{ic|switcheroo-control.service}}`{=mediawiki}.
 
+```{=mediawiki}
+{{Note|[[Cardwire]] implements the {{ic|net.hadess.SwitcherooControl}} D-Bus interface itself, so {{Pkg|switcheroo-control}} is not required when using it.}}
+```
 The GNOME, KDE Plasma, Cinnamon, COSMIC and Budgie desktop environments will respect the
-`{{ic|PrefersNonDefaultGPU}}`{=mediawiki} property in the [desktop entry](desktop_entry "wikilink"), and automatically
-launch apps on the specified GPU.
+`{{ic|PrefersNonDefaultGPU}}`{=mediawiki} property in the [desktop entry](desktop_entry "desktop entry"){.wikilink}, and
+automatically launch apps on the specified GPU.
 
 Alternatively, on GNOME, Cinnamon, and COSMIC, you can launch applications with GPU by right-clicking on the icon and
 choosing *Launch using Discrete Graphics Card* (GNOME), *Run with dedicated GPU* (Cinnamon), and *Run with (GPU name)*
@@ -326,8 +333,8 @@ to configure both internal as well as external displays.
 ### Known issues {#known_issues}
 
 If after reboot you only have one provider, it might be because when Xorg starts, the `{{ic|nvidia}}`{=mediawiki} module
-is not loaded yet. You need to enable early module loading. See [NVIDIA#Early loading](NVIDIA#Early_loading "wikilink")
-for details.
+is not loaded yet. You need to enable early module loading. See [NVIDIA#Early
+loading](NVIDIA#Early_loading "NVIDIA#Early loading"){.wikilink} for details.
 
 ## Troubleshooting {#troubleshooting_1}
 
@@ -364,7 +371,7 @@ EndSection
 ### When an application is rendered with the discrete card, it only renders a black screen {#when_an_application_is_rendered_with_the_discrete_card_it_only_renders_a_black_screen}
 
 In some cases PRIME needs a composite manager to properly work. If your window manager does not handle compositing, you
-can use a [compositor](Xorg#List_of_composite_managers "wikilink") on top of it.
+can use a [compositor](Xorg#List_of_composite_managers "compositor"){.wikilink} on top of it.
 
 If you use Xfce, you can go to *Menu \> Settings \> Window Manager Tweaks \> Compositor* and enable compositing, then
 try again your application.
@@ -390,8 +397,8 @@ configuration.
 ##### GNOME
 
 You may find that [disabling fullscreen
-undirect](GNOME/Troubleshooting#Tear-free_video_with_Intel_HD_Graphics "wikilink") allows PRIME offloading to work
-correctly for full-screen applications.
+undirect](GNOME/Troubleshooting#Tear-free_video_with_Intel_HD_Graphics "disabling fullscreen undirect"){.wikilink}
+allows PRIME offloading to work correctly for full-screen applications.
 
 ### Kernel crash/oops when using PRIME and switching windows/workspaces {#kernel_crashoops_when_using_prime_and_switching_windowsworkspaces}
 
@@ -413,8 +420,8 @@ After this you can use `{{ic|1=DRI_PRIME=1}}`{=mediawiki} WITHOUT having to run
 
 ### Glitches/Ghosting synchronization problem on second monitor when using reverse PRIME {#glitchesghosting_synchronization_problem_on_second_monitor_when_using_reverse_prime}
 
-This problem can affect users when not using a [composite manager](composite_manager "wikilink"), such as with
-[i3](i3 "wikilink"). [6](https://bugs.freedesktop.org/show_bug.cgi?id=75579)
+This problem can affect users when not using a [composite manager](composite_manager "composite manager"){.wikilink},
+such as with [i3](i3 "i3"){.wikilink}. [6](https://bugs.freedesktop.org/show_bug.cgi?id=75579)
 
 If you experience this problem under Gnome, then a possible fix is to set some environment variables in
 `{{ic|/etc/environment}}`{=mediawiki} [7](https://bbs.archlinux.org/viewtopic.php?id=177925)
@@ -425,7 +432,8 @@ If you experience this problem under Gnome, then a possible fix is to set some e
 ### Error \"radeon: Failed to allocate virtual address for buffer:\" when launching GL application {#error_radeon_failed_to_allocate_virtual_address_for_buffer_when_launching_gl_application}
 
 This error is given when the power management in the kernel driver is running. You can overcome this error by appending
-`{{ic|1=radeon.runpm=0}}`{=mediawiki} to the kernel parameters in the [boot loader](boot_loader "wikilink").
+`{{ic|1=radeon.runpm=0}}`{=mediawiki} to the kernel parameters in the [boot
+loader](boot_loader "boot loader"){.wikilink}.
 
 ### Constant hangs/freezes with Vulkan applications/games using VSync with closed-source drivers and reverse PRIME {#constant_hangsfreezes_with_vulkan_applicationsgames_using_vsync_with_closed_source_drivers_and_reverse_prime}
 
@@ -439,10 +447,10 @@ A GPU lockup will render any input unusable (this includes switching TTYs and us
 
 There is no known fix for this NVIDIA bug, but a few workarounds exist:
 
--   Turning Vsync off (not possible for some applications)
--   Turning PRIME
-    Synchronization[9](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) off (will
-    introduce screen tearing):
+- Turning Vsync off (not possible for some applications)
+- Turning PRIME
+  Synchronization[9](https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/) off (will
+  introduce screen tearing):
 
 `xrandr --output HDMI-0 --set "PRIME Synchronization" 0 #replace HDMI-0 with your xrandr output ID`
 
@@ -451,9 +459,9 @@ You can verify if your configuration is affected by the issue simply by running 
 
 ### Some programs have a delay when opening under Wayland {#some_programs_have_a_delay_when_opening_under_wayland}
 
-If you have RTD3 working (from [#NVIDIA](#NVIDIA "wikilink")), when using Wayland you will experience some delay when
-some programs open. Depending on the application, this can be caused by two sources: Vulkan, or OpenGL, but the
-mechanism causing the delay is the same. Both will have to determine which device to defer to. This decision is made
+If you have RTD3 working (from [#NVIDIA](#NVIDIA "#NVIDIA"){.wikilink}), when using Wayland you will experience some
+delay when some programs open. Depending on the application, this can be caused by two sources: Vulkan, or OpenGL, but
+the mechanism causing the delay is the same. Both will have to determine which device to defer to. This decision is made
 based on configuration files. For OpenGL, the configurations are located in
 `{{ic|/usr/share/glvnd/egl_vendor.d/}}`{=mediawiki}, while for Vulkan they are located in
 `{{ic|/usr/share/vulkan/icd.d/}}`{=mediawiki}. The actual delay itself is caused by the determination of a candidate
@@ -480,9 +488,10 @@ __GLX_VENDOR_LIBRARY_NAME=mesa
 
 When using PRIME offload, encountering the `{{ic|Major opcode of failed request: 156 (NV-GLX)}}`{=mediawiki} is a known
 problem. The only known workaround is to start X session [entirely on NVIDIA
-GPU](NVIDIA_Optimus#Use_NVIDIA_graphics_only "wikilink"). A user friendly way to switching between NVIDIA only and PRIME
-offload method is the [optimus-manager](NVIDIA_Optimus#Using_optimus-manager "wikilink") utility or write some
-automation scripts yourself.
+GPU](NVIDIA_Optimus#Use_NVIDIA_graphics_only "entirely on NVIDIA GPU"){.wikilink}. A user friendly way to switching
+between NVIDIA only and PRIME offload method is the
+[optimus-manager](NVIDIA_Optimus#Using_optimus-manager "optimus-manager"){.wikilink} utility or write some automation
+scripts yourself.
 
 ### Vulkan/OpenGL applications segfault on Wayland {#vulkanopengl_applications_segfault_on_wayland}
 
@@ -496,7 +505,7 @@ This means removing `{{ic|nvidia_drm.modeset{{=}}`{=mediawiki}0}} from Kernel pa
 
 ## See also {#see_also}
 
--   [Nouveau Optimus](https://wiki.freedesktop.org/nouveau/Optimus/)
--   [DRI_PRIME on Mesa](https://docs.mesa3d.org/envvars.html#envvar-DRI_PRIME)
+- [Nouveau Optimus](https://wiki.freedesktop.org/nouveau/Optimus/)
+- [DRI_PRIME on Mesa](https://docs.mesa3d.org/envvars.html#envvar-DRI_PRIME)
 
-[Category:Graphics](Category:Graphics "wikilink")
+[Category:Graphics](Category:Graphics "Category:Graphics"){.wikilink}

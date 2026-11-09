@@ -1,7 +1,7 @@
 `<languages/>`{=html} [Steam](https://store.steampowered.com/) is a digital distribution platform for video games,
 offering a vast library for purchase, download, and management. On NixOS, Steam is generally easy to install and use,
 often working \"out-of-the-box\". It supports running many Windows games on Linux through its compatibility layer,
-[Proton](#Proton "wikilink").[^1]
+[Proton](#Proton "Proton"){.wikilink}.[^1]
 
 ## Installation
 
@@ -17,12 +17,12 @@ $ nix-shell -p steamcmd  # For steamcmd
 
 This provides the tools in your current shell without adding them to your system configuration. For `steamcmd` to work
 correctly for some tasks (like initializing for steam-tui), you might need to run it once to generate necessary files,
-as shown in the [ steam-tui section](#steam-tui "wikilink").
+as shown in the [ steam-tui section](#steam-tui " steam-tui section"){.wikilink}.
 
 #### System setup {#system_setup}
 
-To install the [Steam](Special:MyLanguage/Steam "wikilink") package and enable all the system options necessary to allow
-it to run, add the following to your system configuration:
+To install the [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} package and enable all the system options necessary
+to allow it to run, add the following to your system configuration:
 
 ```{=mediawiki}
 {{file|3=<nowiki>
@@ -256,7 +256,7 @@ game\'s .desktop file, found under `~/.local/share/applications/`.
 
 For games running through Proton, the value should be `steam_app_``<game_id>`{=html} (where `<game_id>`{=html} matches
 the value after <steam://rungameid/> on the `Exec` line). To automate this with [Home
-Manager](Special:MyLanguage/Home_Manager "wikilink") (executed on every rebuild):
+Manager](Special:MyLanguage/Home_Manager "Home Manager"){.wikilink} (executed on every rebuild):
 
 ``` nix
 home.activation.fixSteamIcons = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -319,10 +319,10 @@ the terminal or with your file manager. After that, Steam can be set up again by
 Games may fail to start because they lack dependencies (this should be added to the script, for now), or because they
 cannot be patched. The steps to launch a game directly are:
 
--   Patch the script/binary if you can
--   Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout
-    from steam)
--   Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
+- Patch the script/binary if you can
+- Add a file named steam_appid.txt in the binary folder, with the appid as contents (it can be found in the stdout from
+  steam)
+- Using the LD_LIBRARY_PATH from the nix/store steam script, with some additions, launch the game binary
 
 ``` bash
 LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...curl-7.29.0/lib:. ./Osmos.bin32 (if you could not patchelf the game, call ld.so directly with the binary as parameter)
@@ -349,24 +349,24 @@ hardware.graphics = {
 };
 ```
 
-In the presence of both drivers, [Steam](Special:MyLanguage/Steam "wikilink") will default to amdvlk. The amdvlk driver
-can be considered more correct regarding Vulkan specification implementation, but less performant than radv. However,
-this tradeoff between correctness and performance can sometimes make or break the gaming experience.
+In the presence of both drivers, [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} will default to amdvlk. The amdvlk
+driver can be considered more correct regarding Vulkan specification implementation, but less performant than radv.
+However, this tradeoff between correctness and performance can sometimes make or break the gaming experience.
 
 To \"reset\" your driver to radv when both radv and amdvlk are installed, set either `AMD_VULKAN_ICD = "RADV"` or
 `VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json"` environment variable. For example,
-if you start [Steam](Special:MyLanguage/Steam "wikilink") from the shell, you can enable radv for the current session by
-running `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a game with
-[MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show what driver is
-currently in use.
+if you start [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} from the shell, you can enable radv for the current
+session by running `AMD_VULKAN_ICD="RADV" steam`. If you are unsure which driver you currently use, you can launch a
+game with [MangoHud](https://github.com/flightlessmango/MangoHud) enabled, which has the capability to show what driver
+is currently in use.
 
 ### SteamVR
 
 The setcap issue at SteamVR start can be fixed with:
 `sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher`
 
-The [Steam Frame](Special:MyLanguage/Steam_Frame "wikilink") headset is discovered through these Remote Play ports. See
-[Steam Frame](Special:MyLanguage/Steam_Frame "wikilink").
+The [Steam Frame](Special:MyLanguage/Steam_Frame "Steam Frame"){.wikilink} headset is discovered through these Remote
+Play ports. See [Steam Frame](Special:MyLanguage/Steam_Frame "Steam Frame"){.wikilink}.
 
 ### Gamescope fails to launch when used within Steam {#gamescope_fails_to_launch_when_used_within_steam}
 
@@ -427,14 +427,15 @@ an option for it:
 its own outdated java binary that refuses to start if path contains non-Latin characters. Check for errors by directly
 starting local java binary within `steam-run bash`.
 
-Resetting your password through the [Steam](Special:MyLanguage/Steam "wikilink") app may fail at the CAPTCHA step
-repeatedly, with [Steam](Special:MyLanguage/Steam "wikilink") itself reporting that the CAPTCHA was not correct, even
-though the CAPTCHA UI shows success. Resetting password through the [Steam](Special:MyLanguage/Steam "wikilink") website
-should work around that.
+Resetting your password through the [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} app may fail at the CAPTCHA
+step repeatedly, with [Steam](Special:MyLanguage/Steam "Steam"){.wikilink} itself reporting that the CAPTCHA was not
+correct, even though the CAPTCHA UI shows success. Resetting password through the
+[Steam](Special:MyLanguage/Steam "Steam"){.wikilink} website should work around that.
 
 ## References
 
-[Category:Applications](Category:Applications "wikilink") [Category:Gaming](Category:Gaming "wikilink")
+[Category:Applications](Category:Applications "Category:Applications"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
 
 [^1]: <https://store.steampowered.com/>
 

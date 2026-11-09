@@ -5,18 +5,18 @@
 creative, developed by Mojang Studios.[^1] [Minecraft](https://www.minecraft.net/about-minecraft) currently has two
 supported variants known as:
 
--   **Minecraft: Java Edition**, which is only available on Windows, MacOS, and Linux, and is known for modding.
--   **Minecraft: Bedrock Edition**, which is available on Windows, Xbox One, Xbox Series S and X, PlayStation 4 and 5,
-    Nintendo Switch, Android, and iOS. Bedrock is not playable on Linux due to UWP applications not being supported on
-    Linux.[^2][^3]
+- **Minecraft: Java Edition**, which is only available on Windows, MacOS, and Linux, and is known for modding.
+- **Minecraft: Bedrock Edition**, which is available on Windows, Xbox One, Xbox Series S and X, PlayStation 4 and 5,
+  Nintendo Switch, Android, and iOS. Bedrock is not playable on Linux due to UWP applications not being supported on
+  Linux.[^2][^3]
 
 ## Launchers
 
 **Official Minecraft Launcher:** [Website](https://www.minecraft.net/download) --- Not packaged since 25.11, due to
 incompatibility issues. See alternative launchers below.
 
-**[Prism Launcher](Prism_Launcher "wikilink"):** A free, open source launcher. [Website](https://prismlauncher.org/) ---
-`{{nixos:package|prismlauncher}}`{=mediawiki}
+**[Prism Launcher](Prism_Launcher "Prism Launcher"){.wikilink}:** A free, open source launcher.
+[Website](https://prismlauncher.org/) --- `{{nixos:package|prismlauncher}}`{=mediawiki}
 
 **ATLauncher:** A simple and easy to use Minecraft launcher which contains many different modpacks for you to choose
 from and play. [Website](https://atlauncher.com/about) --- `{{nixos:package|atlauncher}}`{=mediawiki}
@@ -27,7 +27,7 @@ from and play. [Website](https://atlauncher.com/about) --- `{{nixos:package|atla
 **Lunar Client:** A free Minecraft client with mods, cosmetics, and performance boost.
 [Website](https://www.lunarclient.com/) --- `{{nixos:package|lunar-client}}`{=mediawiki}
 
-**[HMCL](HMCL "wikilink"):** A Minecraft Launcher which is multi-functional, cross-platform and popular.
+**[HMCL](HMCL "HMCL"){.wikilink}:** A Minecraft Launcher which is multi-functional, cross-platform and popular.
 [Website](https://hmcl.huangyuhui.net/) --- `{{nixos:package|hmcl}}`{=mediawiki}
 
 ## Installation
@@ -41,7 +41,7 @@ environment.systemPackages = [
 ```
 
 Alternatively, the package can be installed per-user with `users.users.``<USER>`{=html}`.packages` or
-[home-manager](Home_Manager "wikilink").
+[home-manager](Home_Manager "home-manager"){.wikilink}.
 
 For a NixOS configuration, use:
 
@@ -51,7 +51,7 @@ users.users.<USER>.packages = [
 ];
 ```
 
-For [home-manager](Home_Manager "wikilink"), use:
+For [home-manager](Home_Manager "home-manager"){.wikilink}, use:
 
 ``` nix
 home.packages = [
@@ -60,7 +60,7 @@ home.packages = [
 ```
 
 Alternatively, it can be imperatively installed by running `nix-env -iA nixos.``<LAUNCHER>`{=html} or
-`nix profile install nixpkgs#``<LAUNCHER>`{=html} if [Flakes](Flakes "wikilink") are enabled.
+`nix profile install nixpkgs#``<LAUNCHER>`{=html} if [Flakes](Flakes "Flakes"){.wikilink} are enabled.
 
 ## Troubleshooting
 
@@ -76,8 +76,9 @@ If your instance still doesn\'t start, check the instance settings and apply the
 
 ### Prism Launcher doesn\'t have Java Version XX. {#prism_launcher_doesnt_have_java_version_xx.}
 
-The [Prism Launcher](Prism_Launcher "wikilink") package can be overridden to add additional [Java](Java "wikilink")
-runtimes. Check [Prism_Launcher#Advanced](Prism_Launcher#Advanced "wikilink") to see an example.
+The [Prism Launcher](Prism_Launcher "Prism Launcher"){.wikilink} package can be overridden to add additional
+[Java](Java "Java"){.wikilink} runtimes. Check
+[Prism_Launcher#Advanced](Prism_Launcher#Advanced "Prism_Launcher#Advanced"){.wikilink} to see an example.
 
 ### Minecraft Launch Error with NVIDIA Graphics and System GLFW. {#minecraft_launch_error_with_nvidia_graphics_and_system_glfw.}
 
@@ -89,7 +90,7 @@ In this case, setting the environment variable `__GL_THREADED_OPTIMIZATIONS` to 
 
 ### Minecraft can't start without Java Version XX. {#minecraft_cant_start_without_java_version_xx.}
 
-Different Minecraft versions need different [Java](Java "wikilink") versions
+Different Minecraft versions need different [Java](Java "Java"){.wikilink} versions
 
   Minecraft Version   Minimum Compatible JRE Version
   ------------------- --------------------------------
@@ -105,14 +106,14 @@ broken on NixOS**. It is strongly recommended to use alternative launchers.\'\'\
 
 ## See Also {#see_also}
 
--   [Minecraft on Arch Wiki](https://wiki.archlinux.org/title/Minecraft)
+- [Minecraft on Arch Wiki](https://wiki.archlinux.org/title/Minecraft)
 
 ## References
 
-```{=html}
 <references />
-```
-[Category: Applications](Category:_Applications "wikilink") [Category: Gaming](Category:_Gaming "wikilink")
+
+[Category: Applications](Category:_Applications "Category: Applications"){.wikilink} [Category:
+Gaming](Category:_Gaming "Category: Gaming"){.wikilink}
 
 [^1]: [<https://www.minecraft.net/about-minecraft>](https://www.minecraft.net/en-us/about-minecraft)
 

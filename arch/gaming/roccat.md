@@ -9,107 +9,109 @@ The following commands can be used to identify the devices:
 ```{=mediawiki}
 {{hc|$ lsusb|Bus 003 Device 009: ID 1e7d:2dd2 ROCCAT ROCCAT Kone Pure Ultra}}
 ```
-To [allow regular users access to the device](Udev#Allowing_regular_users_to_use_devices "wikilink") add a rule.
+To [allow regular users access to the
+device](Udev#Allowing_regular_users_to_use_devices "allow regular users access to the device"){.wikilink} add a rule.
 
 The **roccat-tools** collection consists of sub-packages per device:
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-arvo}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-arvo}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-kiro}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-kiro}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-isku}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-isku}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-iskufx}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-iskufx}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-kone}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-kone}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-koneplus}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-koneplus}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-konepure}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-konepure}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-konepuremilitary}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-konepuremilitary}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-konepureoptical}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-konepureoptical}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-konextd}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-konextd}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-konextdoptical}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-konextdoptical}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-kovaplus}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-kovaplus}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-kova2016}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-kova2016}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-lua}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-lua}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-pyra}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-pyra}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-ryosmk}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-ryosmk}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-ryosmkfx}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-ryosmkfx}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-ryostkl}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-ryostkl}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-savu}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-savu}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-skeltr}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-skeltr}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-sova}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-sova}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-suora}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-suora}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-tyon}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-tyon}}
+  ```
 
--   ```{=mediawiki}
-    {{aur|roccat-tools-nyth}}
-    ```
+- ```{=mediawiki}
+  {{aur|roccat-tools-nyth}}
+  ```
 
 A more modern UI is `{{aur|eruption}}`{=mediawiki} which also supports multiple Roccat devices.
 
-[Category:Mice](Category:Mice "wikilink") [Category:Keyboards](Category:Keyboards "wikilink")
-[Category:Gaming](Category:Gaming "wikilink")
+[Category:Mice](Category:Mice "Category:Mice"){.wikilink}
+[Category:Keyboards](Category:Keyboards "Category:Keyboards"){.wikilink}
+[Category:Gaming](Category:Gaming "Category:Gaming"){.wikilink}
